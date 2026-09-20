@@ -5,7 +5,7 @@ Static public websites for the Bible Garden and Lampada apps.
 Domains:
 
 - [bible.garden](https://bible.garden) — Bible Garden
-- [lampada.bible.garden](https://lampada.bible.garden) — Lampada
+- [lampada.app](https://lampada.app) — Lampada
 
 ## Features
 
