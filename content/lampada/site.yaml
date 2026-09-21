@@ -1,0 +1,10 @@
+name: Lampada
+base_url: https://lampada.app
+output_dir: lampada
+languages: [en, ru, uk]
+default_language: en
+logo: /assets/lampada-icon-512.png
+asset_version: "20260921-articles"
+support_url: /support
+privacy_url: /privacy
+bible_garden_url: https://bible.garden

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block main %}
+    <section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="section-leaf mb-6"></div>
+        <h1 class="font-serif text-3xl sm:text-4xl font-bold text-white text-center mb-4">{{ t.articles.section_title }}</h1>
+        <p class="text-gray-400 text-center mb-12">{{ t.articles.index_description }}</p>
+
+        {% if articles %}
+        <ul class="space-y-4">
+            {% for article in articles %}
+            <li>
+                <a href="/{{ site.language_prefix(lang) }}{{ article.path }}" class="block feature-card rounded-2xl p-6 hover:border-gray-400/30 transition-colors">
+                    <h2 class="font-serif text-xl font-semibold text-white mb-2">{{ article.title }}</h2>
+                    <p class="text-sm text-gray-400 mb-3">{{ article.description }}</p>
+                    <time class="text-xs text-gray-500" datetime="{{ article.date.isoformat() }}">{{ article.date.isoformat() }}</time>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="text-center text-gray-500">{{ t.articles.empty }}</p>
+        {% endif %}
+    </section>
+{% endblock %}

@@ -1,0 +1,16 @@
+name: Bible Garden
+base_url: https://bible.garden
+output_dir: .
+languages: [en, ru, uk]
+default_language: en
+logo: /img/logo.png
+app_store_url: https://apps.apple.com/app/bible-garden/id6758955373
+github_url: https://github.com/BibleGarden/
+telegram_url: https://t.me/Mandarinka4
+# Source directories and the Lampada checkout are served by the same nginx root.
+robots_disallow:
+  - /content/
+  - /templates/
+  - /sitegen/
+  - /docs/
+  - /lampada/
