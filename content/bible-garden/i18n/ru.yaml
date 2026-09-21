@@ -9,7 +9,6 @@ landing:
     opensource: Open Source
     mission: Миссия
     contact: Контакты
-    articles: Статьи
   hero:
     badge: "Open Source & Бесплатно навсегда"
     title1: Слушайте Библию
@@ -83,4 +82,3 @@ articles:
 not_found:
   title: Страница не найдена
   text: "Такой страницы нет или она была перемещена."
-  home: Вернуться на Bible Garden

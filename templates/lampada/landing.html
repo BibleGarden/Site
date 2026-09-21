@@ -7,7 +7,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{ head_meta(site, page, t.meta.og_description) | trim | indent(4) }}
-    {% filter indent(4) %}    {% include "lang_redirect.html" %}{% endfilter %}
+    {% set auto_detect = lang == site.default_language %}
+    {% filter indent(4) %}    {% include "lang_script.html" %}{% endfilter %}
     <meta name="theme-color" content="#090604">
     <link rel="icon" type="image/png" href="/assets/lampada-icon-64.png">
     <link rel="stylesheet" href="/assets/styles.css?v={{ site.config.asset_version }}">
@@ -26,12 +27,12 @@
                 <a href="{{ privacy_url }}">{{ t.landing.nav.privacy }}</a>
                 <a href="{{ support_url }}">{{ t.landing.nav.support }}</a>
                 {% if has_articles %}
-                <a href="{{ lang_paths[lang] }}articles/">{{ t.landing.nav.articles }}</a>
+                <a href="{{ lang_paths[lang] }}articles/">{{ t.articles.section_title }}</a>
                 {% endif %}
             </nav>
             <div class="language-switcher" aria-label="{{ t.landing.language_label }}">
                 {% for code in site.languages %}
-                <a href="{{ lang_paths[code] }}" hreflang="{{ code }}"{% if code == lang %} class="is-active" aria-current="page"{% endif %}>{{ code | upper }}</a>
+                <a href="{{ lang_paths[code] }}" hreflang="{{ code }}" data-lang="{{ code }}"{% if code == lang %} class="is-active" aria-current="page"{% endif %}>{{ code | upper }}</a>
                 {% endfor %}
             </div>
         </div>
@@ -118,7 +119,7 @@
         <div class="footer-links">
             <a href="{{ privacy_url }}">{{ t.landing.nav.privacy }}</a>
             <a href="{{ support_url }}">{{ t.landing.nav.support }}</a>
-            <a href="https://bible.garden">{{ t.landing.footer.bible_garden }}</a>
+            <a href="{{ site.config.bible_garden_url }}">{{ t.landing.footer.bible_garden }}</a>
         </div>
     </footer>
 </body>

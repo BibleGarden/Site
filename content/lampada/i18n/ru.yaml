@@ -10,7 +10,6 @@ landing:
     about: О приложении
     privacy: Конфиденциальность
     support: Поддержка
-    articles: Статьи
   language_label: Язык
   hero:
     eyebrow: "Молитва · Свет · ИИ"
@@ -56,4 +55,3 @@ articles:
 not_found:
   title: Страница не найдена
   text: "Такой страницы нет или она была перемещена."
-  home: Вернуться к Lampada

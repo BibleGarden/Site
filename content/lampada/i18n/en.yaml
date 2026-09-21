@@ -10,7 +10,6 @@ landing:
     about: About
     privacy: Privacy
     support: Support
-    articles: Articles
   language_label: Language
   hero:
     eyebrow: "Prayer · Light · AI"
@@ -56,4 +55,3 @@ articles:
 not_found:
   title: Page not found
   text: "The page you are looking for does not exist or has moved."
-  home: Back to Lampada

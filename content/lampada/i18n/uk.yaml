@@ -10,7 +10,6 @@ landing:
     about: Про застосунок
     privacy: Конфіденційність
     support: Підтримка
-    articles: Статті
   language_label: Мова
   hero:
     eyebrow: "Молитва · Світло · ШІ"
@@ -56,4 +55,3 @@ articles:
 not_found:
   title: Сторінку не знайдено
   text: "Такої сторінки немає або її перемістили."
-  home: Повернутися до Lampada

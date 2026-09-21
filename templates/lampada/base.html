@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{ head_meta(site, page, page.description) | trim | indent(4) }}
+    {% filter indent(4) %}    {% include "lang_script.html" %}{% endfilter %}
     <meta name="theme-color" content="#090604">
     <link rel="icon" type="image/png" href="/assets/lampada-icon-64.png">
     <link rel="stylesheet" href="/assets/styles.css?v={{ site.config.asset_version }}">
@@ -23,14 +24,16 @@
         </a>
         <div class="header-tools">
             <nav class="site-nav" aria-label="{{ t.landing.nav_label }}">
+                {% if has_articles %}
                 <a href="{{ prefix }}articles/">{{ t.articles.section_title }}</a>
+                {% endif %}
                 <a href="{{ privacy_url }}">{{ t.landing.nav.privacy }}</a>
                 <a href="{{ support_url }}">{{ t.landing.nav.support }}</a>
             </nav>
             {% if page.alternates | length > 1 %}
             <div class="language-switcher" aria-label="{{ t.landing.language_label }}">
                 {% for code in site.languages if code in page.alternates %}
-                <a href="{{ page.alternates[code] }}" hreflang="{{ code }}"{% if code == lang %} class="is-active" aria-current="page"{% endif %}>{{ code | upper }}</a>
+                <a href="{{ page.alternates[code] }}" hreflang="{{ code }}" data-lang="{{ code }}"{% if code == lang %} class="is-active" aria-current="page"{% endif %}>{{ code | upper }}</a>
                 {% endfor %}
             </div>
             {% endif %}

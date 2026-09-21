@@ -5,7 +5,7 @@ from __future__ import annotations
 import sys
 
 from .build import build_all
-from .check import check_json_ld, html_files
+from .check import run_checks
 from .errors import BuildError
 
 USAGE = "usage: python -m sitegen build | check"
@@ -17,8 +17,8 @@ def main(argv: list[str]) -> int:
         print(f"wrote {len(written)} files")
         return 0
     if argv == ["check"]:
-        blocks = check_json_ld()
-        print(f"checked {blocks} JSON-LD blocks in {len(html_files())} HTML files")
+        blocks, links = run_checks()
+        print(f"checked {blocks} JSON-LD blocks and {links} hreflang links")
         return 0
     print(USAGE, file=sys.stderr)
     return 2

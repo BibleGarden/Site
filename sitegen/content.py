@@ -203,16 +203,17 @@ def render_markdown(text: str) -> str:
 def extract_faq(body: str, source: Path) -> tuple[FaqItem, ...]:
     """Collect '### question' / answer pairs from the '## ... {#faq}' section, if present."""
     lines = body.splitlines()
-    starts = [index for index, line in enumerate(lines) if FAQ_HEADING_RE.match(line)]
+    fenced = _fenced_flags(lines)
+
+    def heading(index: int, pattern: re.Pattern[str]) -> re.Match[str] | None:
+        return None if fenced[index] else pattern.match(lines[index])
+
+    starts = [index for index in range(len(lines)) if heading(index, FAQ_HEADING_RE)]
     if not starts:
         return ()
     if len(starts) > 1:
         raise BuildError(f"{source}: only one '{{#faq}}' section is allowed")
-    section: list[str] = []
-    for line in lines[starts[0] + 1 :]:
-        if H2_RE.match(line):
-            break
-        section.append(line)
+    end = next((index for index in range(starts[0] + 1, len(lines)) if heading(index, H2_RE)), len(lines))
     items: list[FaqItem] = []
     question: str | None = None
     answer: list[str] = []
@@ -225,16 +226,29 @@ def extract_faq(body: str, source: Path) -> tuple[FaqItem, ...]:
             raise BuildError(f"{source}: FAQ question '{question}' has no answer")
         items.append(FaqItem(question=question, answer_html=render_markdown(answer_text)))
 
-    for line in section:
-        heading = H3_RE.match(line)
-        if heading:
+    for index in range(starts[0] + 1, end):
+        match = heading(index, H3_RE)
+        if match:
             flush()
-            question, answer = heading.group(1), []
-        elif question is None and line.strip():
+            question, answer = match.group(1), []
+        elif question is None and lines[index].strip():
             raise BuildError(f"{source}: FAQ section must start with a '### question' heading")
         else:
-            answer.append(line)
+            answer.append(lines[index])
     flush()
     if not items:
         raise BuildError(f"{source}: FAQ section has no '### question' entries")
     return tuple(items)
+
+
+def _fenced_flags(lines: list[str]) -> list[bool]:
+    """Whether each line sits inside a ``` fenced code block (fence lines count as inside)."""
+    flags: list[bool] = []
+    fenced = False
+    for line in lines:
+        if line.startswith("```"):
+            fenced = not fenced
+            flags.append(True)
+        else:
+            flags.append(fenced)
+    return flags

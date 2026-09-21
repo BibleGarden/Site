@@ -20,17 +20,53 @@
     <meta property="og:locale:alternate" content="ru_RU">
     <meta property="og:locale:alternate" content="uk_UA">
     <script>
-        // Legacy links used ?lang=en|ru|uk (and ua as an alias of uk); send them to the language URL.
+        // Language handling without a server:
+        //  1. legacy ?lang=en|ru|uk links (ua = uk) go to the language URL and record the choice;
+        //  2. on the English landing page only, a language chosen explicitly before wins; otherwise
+        //     a browser that prefers ru or uk is sent to that version;
+        //  3. clicking the language switcher records the explicit choice.
         (function () {
-            var match = /[?&]lang=([A-Za-z-]+)/.exec(window.location.search);
-            if (!match) { return; }
-            var language = match[1].toLowerCase().split('-')[0];
-            if (language === 'ua') { language = 'uk'; }
             var paths = {"en": "/", "ru": "/ru/", "uk": "/uk/"};
-            var target = paths[language];
-            if (target && target !== "/") {
-                window.location.replace(target + window.location.hash);
+            var current = "/";
+            var storageKey = "lampada-site-language";
+            var autoDetect = true;
+
+            function normalize(value) {
+                var language = String(value || '').toLowerCase().split('-')[0];
+                if (language === 'ua') { language = 'uk'; }
+                return Object.prototype.hasOwnProperty.call(paths, language) ? language : null;
             }
+            function remember(language) {
+                try { window.localStorage.setItem(storageKey, language); } catch (error) { /* storage unavailable */ }
+            }
+            function remembered() {
+                try { return normalize(window.localStorage.getItem(storageKey)); } catch (error) { return null; }
+            }
+            function go(language) {
+                if (paths[language] !== current) {
+                    window.location.replace(paths[language] + window.location.hash);
+                }
+            }
+
+            var match = /[?&]lang=([A-Za-z-]+)/.exec(window.location.search);
+            var requested = match && normalize(match[1]);
+            if (requested) {
+                remember(requested);
+                go(requested);
+            } else if (autoDetect) {
+                var chosen = remembered();
+                var preferred = chosen || (navigator.languages || [navigator.language]).map(normalize).filter(Boolean)[0];
+                if (preferred) { go(preferred); }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var links = document.querySelectorAll('a[data-lang]');
+                for (var index = 0; index < links.length; index += 1) {
+                    links[index].addEventListener('click', function (event) {
+                        remember(event.currentTarget.getAttribute('data-lang'));
+                    });
+                }
+            });
         })();
     </script>
     <meta name="theme-color" content="#090604">
@@ -52,9 +88,9 @@
                 <a href="/support">Support</a>
             </nav>
             <div class="language-switcher" aria-label="Language">
-                <a href="/" hreflang="en" class="is-active" aria-current="page">EN</a>
-                <a href="/ru/" hreflang="ru">RU</a>
-                <a href="/uk/" hreflang="uk">UK</a>
+                <a href="/" hreflang="en" data-lang="en" class="is-active" aria-current="page">EN</a>
+                <a href="/ru/" hreflang="ru" data-lang="ru">RU</a>
+                <a href="/uk/" hreflang="uk" data-lang="uk">UK</a>
             </div>
         </div>
     </header>

@@ -9,7 +9,6 @@ landing:
     opensource: Open Source
     mission: Mission
     contact: Contact
-    articles: Articles
   hero:
     badge: "Open Source & Free Forever"
     title1: Listen to the Bible
@@ -83,4 +82,3 @@ articles:
 not_found:
   title: Page not found
   text: "The page you are looking for does not exist or has moved."
-  home: Back to Bible Garden

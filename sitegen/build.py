@@ -21,8 +21,14 @@ TEMPLATES_DIR = REPO_ROOT / "templates"
 
 @dataclass(frozen=True)
 class Page:
+    """Head metadata of one generated page.
+
+    ``alternates`` maps language to the absolute URL of every *indexable* version
+    of the page, including this one; it drives canonical, hreflang and the language
+    switcher. An empty mapping means the page has no canonical URL (404).
+    """
+
     lang: str
-    path: str
     title: str
     description: str
     alternates: dict[str, str]
@@ -31,8 +37,8 @@ class Page:
     noindex: bool = False
 
     @property
-    def canonical(self) -> str:
-        return self.alternates[self.lang]
+    def canonical(self) -> str | None:
+        return self.alternates.get(self.lang)
 
 
 def nl2br(value: str) -> Markup:
@@ -59,9 +65,12 @@ def make_environment(site_key: str) -> Environment:
 
 
 def discover_sites() -> list[Path]:
-    sites = sorted(path.parent for path in CONTENT_DIR.glob("*/site.yaml"))
+    sites = sorted(path for path in CONTENT_DIR.iterdir() if path.is_dir())
     if not sites:
-        raise BuildError(f"no content/<site>/site.yaml found under {CONTENT_DIR}")
+        raise BuildError(f"no content/<site>/ directories found under {CONTENT_DIR}")
+    for site in sites:
+        if not (site / "site.yaml").is_file():
+            raise BuildError(f"{site}: missing site.yaml")
     return sites
 
 
@@ -98,8 +107,16 @@ class SiteBuilder:
         path.write_text(text, encoding="utf-8")
         self.written.append(path)
 
-    def render(self, template: str, path: Path, **context: object) -> None:
-        self.write(path, self.env.get_template(template).render(site=self.site, **context))
+    def render(self, template: str, path: Path, lang: str, **context: object) -> None:
+        html = self.env.get_template(template).render(
+            site=self.site,
+            lang=lang,
+            t=self.t(lang),
+            has_articles=bool(self.published(lang)),
+            lang_paths={other: f"/{self.site.language_prefix(other)}" for other in self.site.languages},
+            **context,
+        )
+        self.write(path, html)
 
     def published(self, lang: str) -> list[Article]:
         """Non-draft articles in a language, oldest first."""
@@ -107,7 +124,13 @@ class SiteBuilder:
         return sorted(versions, key=lambda article: (article.date, article.slug))
 
     def article_alternates(self, slug: str) -> dict[str, str]:
-        return {lang: self.site.url(lang, self.articles[slug][lang].path) for lang in self.site.languages if lang in self.articles[slug]}
+        """Absolute URLs of the published language versions of an article."""
+        versions = self.articles[slug]
+        return {lang: self.site.url(lang, versions[lang].path) for lang in self.site.languages if lang in versions and not versions[lang].draft}
+
+    def index_alternates(self) -> dict[str, str]:
+        """Absolute URLs of the article index in every language that has published articles."""
+        return {lang: self.site.url(lang, "articles/") for lang in self.site.languages if self.published(lang)}
 
     # --- build steps --------------------------------------------------------------
 
@@ -137,42 +160,25 @@ class SiteBuilder:
         meta = self.t(lang)["meta"]
         page = Page(
             lang=lang,
-            path="",
             title=meta["title"],
             description=meta["description"],
             alternates={other: self.site.url(other) for other in self.site.languages},
             image=self.absolute(self.site.config["logo"]),
         )
-        self.render(
-            "landing.html",
-            self.output_path(lang, "index.html"),
-            page=page,
-            lang=lang,
-            t=self.t(lang),
-            has_articles=bool(self.published(lang)),
-            lang_paths={other: f"/{self.site.language_prefix(other)}" for other in self.site.languages},
-        )
+        self.render("landing.html", self.output_path(lang, "index.html"), lang, page=page)
 
     def build_articles_index(self, lang: str) -> None:
         strings = self.t(lang)["articles"]
         articles = self.published(lang)
         page = Page(
             lang=lang,
-            path="articles/",
             title=strings["index_title"],
             description=strings["index_description"],
-            alternates={other: self.site.url(other, "articles/") for other in self.site.languages},
+            alternates=self.index_alternates() if articles else {lang: self.site.url(lang, "articles/")},
             image=self.absolute(self.site.config["logo"]),
             noindex=not articles,
         )
-        self.render(
-            "articles.html",
-            self.output_path(lang, "articles/index.html"),
-            page=page,
-            lang=lang,
-            t=self.t(lang),
-            articles=list(reversed(articles)),
-        )
+        self.render("articles.html", self.output_path(lang, "articles/index.html"), lang, page=page, articles=list(reversed(articles)))
 
     def build_article(self, slug: str, lang: str) -> None:
         article = self.articles[slug][lang]
@@ -184,10 +190,9 @@ class SiteBuilder:
             following = neighbours[index + 1] if index + 1 < len(neighbours) else None
         page = Page(
             lang=lang,
-            path=article.path,
             title=f"{article.title} — {self.site.name}",
             description=article.description,
-            alternates=self.article_alternates(slug),
+            alternates={lang: self.site.url(lang, article.path)} if article.draft else self.article_alternates(slug),
             image=self.absolute(article.image or self.site.config["logo"]),
             og_type="article",
             noindex=article.draft,
@@ -195,9 +200,8 @@ class SiteBuilder:
         self.render(
             "article.html",
             self.output_path(lang, f"{article.path}index.html"),
+            lang,
             page=page,
-            lang=lang,
-            t=self.t(lang),
             article=article,
             previous=previous,
             following=following,
@@ -257,19 +261,17 @@ class SiteBuilder:
         strings = self.t(lang)["not_found"]
         page = Page(
             lang=lang,
-            path="404.html",
             title=f"{strings['title']} — {self.site.name}",
             description=strings["text"],
-            alternates={lang: self.site.url(lang, "404.html")},
+            alternates={},
             image=self.absolute(self.site.config["logo"]),
             noindex=True,
         )
         self.render(
             "404.html",
             self.site.output_dir / "404.html",
+            lang,
             page=page,
-            lang=lang,
-            t=self.t(lang),
             homes=[(other, self.t(other)["meta"]["language_name"], self.site.url(other)) for other in self.site.languages],
         )
 
@@ -285,14 +287,11 @@ class SiteBuilder:
         landing = {lang: self.site.url(lang) for lang in self.site.languages}
         for lang in self.site.languages:
             entries.append((landing[lang], landing, None))
-        index_langs = [lang for lang in self.site.languages if self.published(lang)]
-        index = {lang: self.site.url(lang, "articles/") for lang in index_langs}
-        for lang in index_langs:
+        index = self.index_alternates()
+        for lang in index:
             entries.append((index[lang], index, None))
         for slug in self.articles:
-            alternates = {
-                lang: url for lang, url in self.article_alternates(slug).items() if not self.articles[slug][lang].draft
-            }
+            alternates = self.article_alternates(slug)
             for lang, url in alternates.items():
                 article = self.articles[slug][lang]
                 entries.append((url, alternates, (article.updated or article.date).isoformat()))

@@ -1,0 +1,50 @@
+<script>
+    // Language handling without a server:
+    //  1. legacy ?lang=en|ru|uk links (ua = uk) go to the language URL and record the choice;
+    //  2. on the English landing page only, a language chosen explicitly before wins; otherwise
+    //     a browser that prefers ru or uk is sent to that version;
+    //  3. clicking the language switcher records the explicit choice.
+    (function () {
+        var paths = {{ lang_paths | tojson }};
+        var current = {{ lang_paths[lang] | tojson }};
+        var storageKey = {{ site.config.storage_key | tojson }};
+        var autoDetect = {{ auto_detect | default(false) | tojson }};
+
+        function normalize(value) {
+            var language = String(value || '').toLowerCase().split('-')[0];
+            if (language === 'ua') { language = 'uk'; }
+            return Object.prototype.hasOwnProperty.call(paths, language) ? language : null;
+        }
+        function remember(language) {
+            try { window.localStorage.setItem(storageKey, language); } catch (error) { /* storage unavailable */ }
+        }
+        function remembered() {
+            try { return normalize(window.localStorage.getItem(storageKey)); } catch (error) { return null; }
+        }
+        function go(language) {
+            if (paths[language] !== current) {
+                window.location.replace(paths[language] + window.location.hash);
+            }
+        }
+
+        var match = /[?&]lang=([A-Za-z-]+)/.exec(window.location.search);
+        var requested = match && normalize(match[1]);
+        if (requested) {
+            remember(requested);
+            go(requested);
+        } else if (autoDetect) {
+            var chosen = remembered();
+            var preferred = chosen || (navigator.languages || [navigator.language]).map(normalize).filter(Boolean)[0];
+            if (preferred) { go(preferred); }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var links = document.querySelectorAll('a[data-lang]');
+            for (var index = 0; index < links.length; index += 1) {
+                links[index].addEventListener('click', function (event) {
+                    remember(event.currentTarget.getAttribute('data-lang'));
+                });
+            }
+        });
+    })();
+</script>

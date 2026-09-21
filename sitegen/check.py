@@ -1,4 +1,4 @@
-"""Validation of the generated HTML: every JSON-LD block must be well-formed."""
+"""Validation of the generated HTML: JSON-LD contents and hreflang targets."""
 
 from __future__ import annotations
 
@@ -10,6 +10,9 @@ from .build import REPO_ROOT
 from .errors import BuildError
 
 JSON_LD_RE = re.compile(r'<script type="application/ld\+json">(.*?)</script>', re.DOTALL)
+CANONICAL_RE = re.compile(r'<link rel="canonical" href="([^"]+)">')
+HREFLANG_RE = re.compile(r'<link rel="alternate" hreflang="[^"]+" href="([^"]+)">')
+NOINDEX_RE = re.compile(r'<meta name="robots" content="noindex">')
 SKIPPED_DIRS = {".git", "content", "templates", "sitegen", ".venv"}
 
 
@@ -19,15 +22,67 @@ def html_files() -> list[Path]:
     )
 
 
-def check_json_ld() -> int:
-    blocks = 0
-    for path in html_files():
-        for match in JSON_LD_RE.finditer(path.read_text(encoding="utf-8")):
-            try:
-                data = json.loads(match.group(1))
-            except json.JSONDecodeError as error:
-                raise BuildError(f"{path}: invalid JSON-LD: {error}") from error
-            if not isinstance(data, dict) or "@type" not in data or "@context" not in data:
-                raise BuildError(f"{path}: JSON-LD block must be an object with @context and @type")
-            blocks += 1
-    return blocks
+def run_checks() -> tuple[int, int]:
+    """Return (JSON-LD blocks, hreflang links) after validating every generated HTML file."""
+    pages = {path: path.read_text(encoding="utf-8") for path in html_files()}
+    blocks = sum(check_json_ld(path, html) for path, html in pages.items())
+    links = check_hreflang(pages)
+    return blocks, links
+
+
+def check_json_ld(path: Path, html: str) -> int:
+    count = 0
+    for match in JSON_LD_RE.finditer(html):
+        try:
+            data = json.loads(match.group(1))
+        except json.JSONDecodeError as error:
+            raise BuildError(f"{path}: invalid JSON-LD: {error}") from error
+        if not isinstance(data, dict) or data.get("@context") != "https://schema.org":
+            raise BuildError(f"{path}: JSON-LD block must be an object with @context https://schema.org")
+        kind = data.get("@type")
+        if kind == "Article":
+            _require(path, data, "headline", "image", "datePublished", "dateModified", "description", "inLanguage")
+            _require(path, data["author"], "name")
+            _require(path, data["publisher"], "name", "logo")
+        elif kind == "BreadcrumbList":
+            _require_list(path, data, "itemListElement")
+            for item in data["itemListElement"]:
+                _require(path, item, "position", "name", "item")
+        elif kind == "FAQPage":
+            _require_list(path, data, "mainEntity")
+            for question in data["mainEntity"]:
+                _require(path, question, "name")
+                _require(path, question["acceptedAnswer"], "text")
+        else:
+            raise BuildError(f"{path}: unexpected JSON-LD @type {kind!r}")
+        count += 1
+    return count
+
+
+def _require(path: Path, data: object, *keys: str) -> None:
+    if not isinstance(data, dict):
+        raise BuildError(f"{path}: JSON-LD expected an object with {', '.join(keys)}")
+    for key in keys:
+        if not data.get(key):
+            raise BuildError(f"{path}: JSON-LD field {key!r} is missing or empty")
+
+
+def _require_list(path: Path, data: dict, key: str) -> None:
+    if not isinstance(data.get(key), list) or not data[key]:
+        raise BuildError(f"{path}: JSON-LD field {key!r} must be a non-empty list")
+
+
+def check_hreflang(pages: dict[Path, str]) -> int:
+    """Every hreflang link must point at an indexable page; noindex pages are never alternates."""
+    noindex_urls = {
+        CANONICAL_RE.search(html).group(1)
+        for html in pages.values()
+        if NOINDEX_RE.search(html) and CANONICAL_RE.search(html)
+    }
+    links = 0
+    for path, html in pages.items():
+        for href in HREFLANG_RE.findall(html):
+            if href in noindex_urls:
+                raise BuildError(f"{path}: hreflang points at a noindex page {href}")
+            links += 1
+    return links

@@ -35,14 +35,16 @@ removed article disappears from the output.
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m sitegen build   # rebuild both sites
-.venv/bin/python -m sitegen check   # validate JSON-LD in the generated HTML
+.venv/bin/python -m sitegen check   # validate JSON-LD fields and hreflang targets
 ```
 
 The build is deterministic: it embeds no timestamps, so running it twice
 produces identical files. CI (`.github/workflows/build.yml`) rebuilds the site
 on every pull request and fails when the committed HTML differs from the build
-output or when a JSON-LD block does not parse. Commit the regenerated files
-together with the content change.
+output, when a JSON-LD block lacks a required field (`Article`: headline,
+image, dates, author; `BreadcrumbList`: items; `FAQPage`: questions with
+answers) or when a `hreflang` link points at a `noindex` page. Commit the
+regenerated files together with the content change.
 
 Missing translation keys, unknown languages, missing frontmatter fields or a
 malformed FAQ section stop the build with an error naming the file.
@@ -55,10 +57,25 @@ Languages are `en` (default, no prefix), `ru` and `uk`:
 - article index: `/articles/`, `/ru/articles/`, `/uk/articles/`
 - articles: `/articles/<slug>/`, `/ru/articles/<slug>/`, `/uk/articles/<slug>/`
 
-Every page carries `canonical`, `hreflang` for the language versions that
-exist and `x-default` pointing at English. Legacy links with `?lang=ru|uk|ua`
-are redirected client-side to the language URL (`ua` is an alias of `uk`).
-The language switcher is plain links, so search engines see every version.
+Every indexable page carries `canonical`, `hreflang` for the published
+language versions and `x-default` pointing at English; `noindex` pages
+(drafts, an empty article index, `404.html`) carry no `hreflang` and are never
+linked as alternates. The language switcher is plain links, so search engines
+see every version.
+
+`/` stays the English page rather than a redirector to `/en/`: it is the URL
+the App Store and existing search results point at, and crawlers without
+JavaScript must see content there. A small inline script on every generated
+page handles the language choice client-side:
+
+- `?lang=ru|uk|ua` on any page redirects to the language URL (`ua` is an
+  alias of `uk`) and records the choice;
+- on the English landing page only, a language recorded earlier wins;
+  otherwise a browser whose `navigator.languages` prefers `ru` or `uk` is sent
+  to `/ru/` or `/uk/`. English-first browsers (and crawlers) stay on `/`;
+- clicking the language switcher records the choice in `localStorage`
+  (`storage_key` in `site.yaml`), so a visitor who picked English on `/ru/`
+  is not redirected from `/` again.
 
 The hand-written Lampada `privacy` and `support` pages and `privacy.html` on
 bible.garden keep their JavaScript language switch; the generated pages link
@@ -87,13 +104,18 @@ image: /img/articles/start.jpg               # optional, site-root path for Open
 ---
 ```
 
+Without `image` the site logo (1024×1024) is used. Real articles should set
+`image` to a picture at least 1200 px wide (16:9, 4:3 or 1:1), which is what
+Google expects for `Article` rich results.
+
 `draft: true` builds the page with `noindex`, keeps it out of the sitemap,
 `llms.txt`, the article index and the previous/next navigation. The landing
 page shows an "Articles" link only when the language has at least one
 published article.
 
 The body is Markdown (`extra` and `toc` extensions: tables, footnotes,
-fenced code, heading anchors). Links inside the site are root-relative
+fenced code, heading anchors). Headings inside fenced code blocks are ignored
+by the FAQ parser. Links inside the site are root-relative
 (`/ru/articles/other-slug/`).
 
 ### FAQ block
