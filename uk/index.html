@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="uk" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bible Garden — Listen to the Bible in Multiple Languages</title>
-    <meta name="description" content="Free, open-source app for reading and listening to the Bible with professional narration, configurable pauses, and verse-by-verse multilingual playback.">
-    <link rel="canonical" href="https://bible.garden/">
+    <title>Bible Garden — Слухайте Біблію кількома мовами</title>
+    <meta name="description" content="Безкоштовний застосунок із відкритим кодом для читання та прослуховування Біблії з професійною озвучкою, налаштовуваними паузами та багатомовним відтворенням вірш за віршем.">
+    <link rel="canonical" href="https://bible.garden/uk/">
     <link rel="alternate" hreflang="en" href="https://bible.garden/">
     <link rel="alternate" hreflang="ru" href="https://bible.garden/ru/">
     <link rel="alternate" hreflang="uk" href="https://bible.garden/uk/">
     <link rel="alternate" hreflang="x-default" href="https://bible.garden/">
     <meta property="og:site_name" content="Bible Garden">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bible.garden/">
-    <meta property="og:title" content="Bible Garden — Listen to the Bible in Multiple Languages">
-    <meta property="og:description" content="Free, open-source iOS app for multilingual Bible reading with audio.">
+    <meta property="og:url" content="https://bible.garden/uk/">
+    <meta property="og:title" content="Bible Garden — Слухайте Біблію кількома мовами">
+    <meta property="og:description" content="Безкоштовний iOS-застосунок із відкритим кодом для багатомовного читання Біблії з аудіо.">
     <meta property="og:image" content="https://bible.garden/img/logo.png">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:locale" content="uk_UA">
+    <meta property="og:locale:alternate" content="en_US">
     <meta property="og:locale:alternate" content="ru_RU">
-    <meta property="og:locale:alternate" content="uk_UA">
     <script>
         // Language handling without a server:
         //  1. landing pages only: legacy ?lang=en|ru|uk links (ua = uk) go to the language URL
@@ -33,7 +33,7 @@
                 try { window.localStorage.setItem(storageKey, language); } catch (error) { /* storage unavailable */ }
             }
             var paths = {"en": "/", "ru": "/ru/", "uk": "/uk/"};
-            var current = "/";
+            var current = "/uk/";
 
             function normalize(value) {
                 var language = String(value || '').toLowerCase().split('-')[0];
@@ -51,12 +51,6 @@
             if (requested) {
                 remember(requested);
                 go(requested);
-            }
-            else {
-                var chosen;
-                try { chosen = normalize(window.localStorage.getItem(storageKey)); } catch (error) { chosen = null; }
-                var preferred = chosen || (navigator.languages || [navigator.language]).map(normalize).filter(Boolean)[0];
-                if (preferred) { go(preferred); }
             }
 
             document.addEventListener('DOMContentLoaded', function () {
@@ -121,28 +115,28 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Logo -->
-                <a href="/" class="flex items-center gap-2.5 group">
+                <a href="/uk/" class="flex items-center gap-2.5 group">
                     <img src="/img/logo.png" alt="Bible Garden" class="w-8 h-8 rounded-lg">
                     <span class="font-serif font-semibold text-lg text-white">Bible Garden</span>
                 </a>
 
                 <!-- Desktop nav -->
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#features" class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Features</a>
+                    <a href="#features" class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Можливості</a>
                     <a href="#opensource" class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Open Source</a>
-                    <a href="#mission" class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Mission</a>
-                    <a href="#contact" class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Contact</a>
+                    <a href="#mission" class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Місія</a>
+                    <a href="#contact" class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Контакти</a>
                 </div>
 
                 <!-- Right side: lang + github -->
                 <div class="flex items-center gap-4">
                     <!-- Language switcher -->
                     <div class="flex items-center gap-1 text-sm text-gray-500">
-                        <a href="/" hreflang="en" data-lang="en" class="lang-btn active px-1.5 py-0.5 cursor-pointer">EN</a>
+                        <a href="/" hreflang="en" data-lang="en" class="lang-btn px-1.5 py-0.5 cursor-pointer">EN</a>
                         <span class="text-garden-700">|</span>
                         <a href="/ru/" hreflang="ru" data-lang="ru" class="lang-btn px-1.5 py-0.5 cursor-pointer">RU</a>
                         <span class="text-garden-700">|</span>
-                        <a href="/uk/" hreflang="uk" data-lang="uk" class="lang-btn px-1.5 py-0.5 cursor-pointer">UA</a>
+                        <a href="/uk/" hreflang="uk" data-lang="uk" class="lang-btn active px-1.5 py-0.5 cursor-pointer">UA</a>
                     </div>
 
                     <!-- GitHub link -->
@@ -160,10 +154,10 @@
             <!-- Mobile menu -->
             <div id="mobile-menu" class="hidden md:hidden pb-4">
                 <div class="flex flex-col gap-3 pt-2">
-                    <a href="#features" class="text-sm text-gray-400 hover:text-white transition-colors">Features</a>
+                    <a href="#features" class="text-sm text-gray-400 hover:text-white transition-colors">Можливості</a>
                     <a href="#opensource" class="text-sm text-gray-400 hover:text-white transition-colors">Open Source</a>
-                    <a href="#mission" class="text-sm text-gray-400 hover:text-white transition-colors">Mission</a>
-                    <a href="#contact" class="text-sm text-gray-400 hover:text-white transition-colors">Contact</a>
+                    <a href="#mission" class="text-sm text-gray-400 hover:text-white transition-colors">Місія</a>
+                    <a href="#contact" class="text-sm text-gray-400 hover:text-white transition-colors">Контакти</a>
                 </div>
             </div>
         </div>
@@ -191,15 +185,15 @@
                 <div class="text-center md:text-left md:col-span-2">
                     <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-garden-700 text-xs text-garden-400 mb-6">
                         <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                        <span>Open Source &amp; Free Forever</span>
+                        <span>Open Source &amp; Безкоштовно назавжди</span>
                     </div>
 
                     <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                        <span>Listen to the Bible</span><br>
-                        <span class="text-gold-gradient">in Multiple Languages</span>
+                        <span>Слухайте Біблію</span><br>
+                        <span class="text-gold-gradient">кількома мовами</span>
                     </h1>
 
-                    <p class="text-base sm:text-lg text-gray-400 leading-relaxed mb-8 max-w-lg mx-auto md:mx-0">Free app for reading and listening to the Bible with professional narration, configurable pauses, and unique verse-by-verse multilingual playback.</p>
+                    <p class="text-base sm:text-lg text-gray-400 leading-relaxed mb-8 max-w-lg mx-auto md:mx-0">Безкоштовний додаток для читання та прослуховування Біблії з професійною озвучкою, налаштовуваними паузами та унікальним багатомовним відтворенням вірш за віршем.</p>
 
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                         <!-- App Store button (placeholder) -->
@@ -257,8 +251,8 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20 reveal">
                 <div class="section-leaf mb-6"></div>
-                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">How It Works</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">A unique approach to Bible reading that helps you immerse in Scripture across languages and translations.</p>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">Як це працює</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Унікальний підхід до читання Біблії, що допомагає зануритися в Писання через різні мови та переклади.</p>
             </div>
 
             <div class="space-y-28">
@@ -275,23 +269,23 @@
                                 <svg class="w-5 h-5 text-gold-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                             </div>
                             <div>
-                                <span class="inline-block text-[10px] uppercase tracking-widest text-gold-500 font-semibold mb-0.5">Killer Feature</span>
-                                <h3 class="font-serif text-2xl font-semibold text-white leading-tight">Multi Reading</h3>
+                                <span class="inline-block text-[10px] uppercase tracking-widest text-gold-500 font-semibold mb-0.5">Головна фіча</span>
+                                <h3 class="font-serif text-2xl font-semibold text-white leading-tight">Мульти-читання</h3>
                             </div>
                         </div>
-                        <p class="text-gray-400 leading-relaxed mb-6">Listen to each verse in multiple languages sequentially. Build your own reading pipeline with any combination of translations and pauses.</p>
+                        <p class="text-gray-400 leading-relaxed mb-6">Слухайте кожен вірш кількома мовами послідовно. Створіть свій пайплайн читання з будь-якою комбінацією перекладів та пауз.</p>
                         <div class="space-y-3">
                             <div class="flex items-start gap-2.5">
                                 <svg class="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                                <span class="text-sm text-gray-400">Verse-by-verse in 2+ languages</span>
+                                <span class="text-sm text-gray-400">Вірш за віршем на 2+ мовах</span>
                             </div>
                             <div class="flex items-start gap-2.5">
                                 <svg class="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                                <span class="text-sm text-gray-400">Custom pipeline: translations + pauses</span>
+                                <span class="text-sm text-gray-400">Свій пайплайн: переклади + паузи</span>
                             </div>
                             <div class="flex items-start gap-2.5">
                                 <svg class="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                                <span class="text-sm text-gray-400">Read by verse, paragraph, or chapter</span>
+                                <span class="text-sm text-gray-400">За віршем, абзацом або розділом</span>
                             </div>
                         </div>
                     </div>
@@ -304,21 +298,21 @@
                             <div class="w-10 h-10 rounded-xl bg-gold-500/15 flex items-center justify-center flex-shrink-0">
                                 <svg class="w-5 h-5 text-gold-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
                             </div>
-                            <h3 class="font-serif text-2xl font-semibold text-white">Classic Reading</h3>
+                            <h3 class="font-serif text-2xl font-semibold text-white">Класичне читання</h3>
                         </div>
-                        <p class="text-gray-400 leading-relaxed mb-6">Read and listen to any book in one language with professional narration. Configurable pauses between verses, paragraphs, or sections for contemplative reading.</p>
+                        <p class="text-gray-400 leading-relaxed mb-6">Читайте та слухайте будь-яку книгу однією мовою з професійною озвучкою. Налаштовувані паузи між віршами, абзацами чи розділами для вдумливого читання.</p>
                         <div class="space-y-3">
                             <div class="flex items-start gap-2.5">
                                 <svg class="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                                <span class="text-sm text-gray-400">Professional narrators per language</span>
+                                <span class="text-sm text-gray-400">Професійні диктори</span>
                             </div>
                             <div class="flex items-start gap-2.5">
                                 <svg class="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                                <span class="text-sm text-gray-400">Pauses: timed, full stop, or none</span>
+                                <span class="text-sm text-gray-400">Паузи: за часом, повна зупинка</span>
                             </div>
                             <div class="flex items-start gap-2.5">
                                 <svg class="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                                <span class="text-sm text-gray-400">Words of Jesus highlighted</span>
+                                <span class="text-sm text-gray-400">Підсвітка слів Ісуса</span>
                             </div>
                         </div>
                     </div>
@@ -339,21 +333,21 @@
                             <div class="w-10 h-10 rounded-xl bg-gold-500/15 flex items-center justify-center flex-shrink-0">
                                 <svg class="w-5 h-5 text-gold-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                             </div>
-                            <h3 class="font-serif text-2xl font-semibold text-white">Reading Progress</h3>
+                            <h3 class="font-serif text-2xl font-semibold text-white">Прогрес читання</h3>
                         </div>
-                        <p class="text-gray-400 leading-relaxed mb-6">Visual progress for every book of the Bible. The app automatically tracks what you&#39;ve listened to, scrolled through, or marked manually.</p>
+                        <p class="text-gray-400 leading-relaxed mb-6">Візуальний прогрес для кожної книги Біблії. Додаток автоматично відстежує прослухане, прокручене або позначене вручну.</p>
                         <div class="space-y-3">
                             <div class="flex items-start gap-2.5">
                                 <svg class="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                                <span class="text-sm text-gray-400">Per-book chapter progress bars</span>
+                                <span class="text-sm text-gray-400">Прогрес-бар по розділах кожної книги</span>
                             </div>
                             <div class="flex items-start gap-2.5">
                                 <svg class="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                                <span class="text-sm text-gray-400">Auto-tracking by audio &amp; scrolling</span>
+                                <span class="text-sm text-gray-400">Авто-трекінг за аудіо та скролом</span>
                             </div>
                             <div class="flex items-start gap-2.5">
                                 <svg class="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                                <span class="text-sm text-gray-400">Total Bible reading percentage</span>
+                                <span class="text-sm text-gray-400">Загальний відсоток прочитання Біблії</span>
                             </div>
                         </div>
                     </div>
@@ -371,33 +365,33 @@
                 <!-- Left: text -->
                 <div class="reveal">
                     <div class="section-leaf mb-6 mx-0"></div>
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-6">Open Source<br>by Design</h2>
-                    <p class="text-gray-400 leading-relaxed mb-6">Bible Garden is fully open source under the AGPL license. Every line of code is available on GitHub. We believe that tools for reading Scripture should be free, transparent, and community-driven.</p>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-6">Open Source<br>за переконанням</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6">Bible Garden повністю відкритий під ліцензією AGPL. Весь код доступний на GitHub. Ми віримо, що інструменти для читання Писання мають бути безкоштовними, прозорими та керованими спільнотою.</p>
 
                     <div class="space-y-4 mb-8">
                         <div class="flex items-start gap-3">
                             <div class="w-6 h-6 rounded-full bg-gold-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
                                 <svg class="w-3.5 h-3.5 text-gold-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                             </div>
-                            <p class="text-sm text-gray-300">iOS app, API, and admin tools — all open source</p>
+                            <p class="text-sm text-gray-300">iOS-додаток, API та адмін-панель — все відкрито</p>
                         </div>
                         <div class="flex items-start gap-3">
                             <div class="w-6 h-6 rounded-full bg-gold-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
                                 <svg class="w-3.5 h-3.5 text-gold-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                             </div>
-                            <p class="text-sm text-gray-300">AGPL license — free to use, modify, and share</p>
+                            <p class="text-sm text-gray-300">Ліцензія AGPL — вільно використовувати, змінювати та поширювати</p>
                         </div>
                         <div class="flex items-start gap-3">
                             <div class="w-6 h-6 rounded-full bg-gold-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
                                 <svg class="w-3.5 h-3.5 text-gold-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                             </div>
-                            <p class="text-sm text-gray-300">API available for any application, including commercial</p>
+                            <p class="text-sm text-gray-300">API доступний для будь-яких додатків, включаючи комерційні</p>
                         </div>
                     </div>
 
                     <a href="https://github.com/BibleGarden/" target="_blank" rel="noopener" class="btn-outline px-6 py-3 rounded-xl text-sm inline-flex items-center gap-2.5 cursor-pointer">
                         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        <span>Explore on GitHub</span>
+                        <span>Дивитися на GitHub</span>
                     </a>
                 </div>
 
@@ -424,7 +418,7 @@
                                 <span class="text-garden-400">$</span> open BibleGarden.xcodeproj
                             </p>
                             <p class="text-gray-600 mt-3">License: AGPL-3.0</p>
-                            <p class="text-gray-600">All rights belong to God.</p>
+                            <p class="text-gray-600">Усі права належать Богу.</p>
                         </div>
                     </div>
                 </div>
@@ -437,9 +431,9 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
                 <div class="section-leaf mb-6"></div>
-                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-6">Our Mission</h2>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-6">Наша місія</h2>
                 <blockquote class="max-w-3xl mx-auto">
-                    <p class="font-serif text-xl sm:text-2xl text-gray-300 leading-relaxed italic">&#34;Create a space where free text and audio versions of the Bible are created and made available to everyone, in multiple languages, in a convenient format.&#34;</p>
+                    <p class="font-serif text-xl sm:text-2xl text-gray-300 leading-relaxed italic">«Створити простір, де безкоштовно створюються та надаються усім бажаючим текстові та аудіо-версії Біблії різними мовами, у зручному форматі.»</p>
                 </blockquote>
             </div>
 
@@ -448,22 +442,22 @@
                     <div class="w-12 h-12 rounded-full bg-gold-500/10 flex items-center justify-center mx-auto mb-4">
                         <svg class="w-6 h-6 text-gold-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                     </div>
-                    <h3 class="font-serif text-base font-semibold text-white mb-2">Free Forever</h3>
-                    <p class="text-sm text-gray-400">&#34;Freely you have received; freely give.&#34; We don&#39;t even accept donations.</p>
+                    <h3 class="font-serif text-base font-semibold text-white mb-2">Все безкоштовно</h3>
+                    <p class="text-sm text-gray-400">«Дарма отримали — дарма давайте.» Ми не приймаємо навіть донати.</p>
                 </div>
                 <div class="feature-card rounded-2xl p-6 text-center reveal cursor-default">
                     <div class="w-12 h-12 rounded-full bg-gold-500/10 flex items-center justify-center mx-auto mb-4">
                         <svg class="w-6 h-6 text-gold-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
-                    <h3 class="font-serif text-base font-semibold text-white mb-2">Community Driven</h3>
-                    <p class="text-sm text-gray-400">Anyone can contribute translations, vote for the best options, and improve quality together.</p>
+                    <h3 class="font-serif text-base font-semibold text-white mb-2">Спільнота</h3>
+                    <p class="text-sm text-gray-400">Будь-хто може додати переклад, голосувати за найкращий варіант та спільно покращувати якість.</p>
                 </div>
                 <div class="feature-card rounded-2xl p-6 text-center reveal cursor-default">
                     <div class="w-12 h-12 rounded-full bg-gold-500/10 flex items-center justify-center mx-auto mb-4">
                         <svg class="w-6 h-6 text-gold-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
-                    <h3 class="font-serif text-base font-semibold text-white mb-2">Legally Clear</h3>
-                    <p class="text-sm text-gray-400">Only texts and audio with clear legal status. All copyrights belong to God.</p>
+                    <h3 class="font-serif text-base font-semibold text-white mb-2">Юридична чистота</h3>
+                    <p class="text-sm text-gray-400">Тільки тексти та озвучки з ясним правовим статусом. Усі авторські права належать Богу.</p>
                 </div>
             </div>
         </div>
@@ -474,14 +468,14 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="reveal">
                 <div class="section-leaf mb-6"></div>
-                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">Get in Touch</h2>
-                <p class="text-gray-400 mb-10 max-w-lg mx-auto">Have questions, want to contribute, or just say hello? Reach out through any of these channels.</p>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">Зв&#39;язатися з нами</h2>
+                <p class="text-gray-400 mb-10 max-w-lg mx-auto">Маєте питання, хочете допомогти проекту або просто привітатися? Напишіть нам.</p>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <!-- Telegram -->
                     <a href="https://t.me/Mandarinka4" target="_blank" rel="noopener" class="feature-card rounded-xl px-6 py-4 inline-flex items-center gap-3 cursor-pointer hover:border-gray-400/30 transition-colors">
                         <svg class="w-5 h-5 text-gray-300" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-                        <span class="text-sm text-gray-300">Telegram</span>
+                        <span class="text-sm text-gray-300">Телеграм</span>
                     </a>
 
                     <!-- GitHub -->
@@ -504,10 +498,10 @@
                     <span class="font-serif text-sm text-gray-400">Bible Garden</span>
                 </div>
 
-                <p class="text-xs text-gray-600">Open source project under AGPL license. All rights belong to God.</p>
+                <p class="text-xs text-gray-600">Проект з відкритим кодом під ліцензією AGPL. Усі права належать Богу.</p>
 
                 <div class="flex items-center gap-4">
-                    <a href="/privacy.html" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">Privacy Policy</a>
+                    <a href="/privacy.html?lang=uk" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">Політика конфіденційності</a>
                     <a href="https://apps.apple.com/app/bible-garden/id6758955373" data-umami-event="app-store-click" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-300 transition-colors cursor-pointer" aria-label="App Store">
                         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                     </a>

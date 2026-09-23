@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /content/
+Disallow: /templates/
+Disallow: /sitegen/
+Disallow: /docs/
+Disallow: /lampada/
+
+Sitemap: https://bible.garden/sitemap.xml

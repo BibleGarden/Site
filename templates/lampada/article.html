@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block head %}
+{% for block in json_ld %}
+    <script type="application/ld+json">{{ block | jsonld }}</script>
+{% endfor %}
+{% endblock %}
+{% block main %}
+        <article>
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="{{ prefix }}">{{ t.articles.breadcrumb_home }}</a></li>
+                    <li aria-hidden="true">›</li>
+                    <li><a href="{{ prefix }}articles/">{{ t.articles.section_title }}</a></li>
+                    <li aria-hidden="true">›</li>
+                    <li aria-current="page">{{ article.title }}</li>
+                </ol>
+            </nav>
+
+            <header class="article-header">
+                <h1 class="article-title">{{ article.title }}</h1>
+                <p class="article-lead">{{ article.description }}</p>
+                <p class="article-meta">
+                    {{ t.articles.by }} {{ article.author }} · {{ t.articles.published }} <time datetime="{{ article.date.isoformat() }}">{{ article.date.isoformat() }}</time>
+                    {% if article.updated %}
+                    · {{ t.articles.updated }} <time datetime="{{ article.updated.isoformat() }}">{{ article.updated.isoformat() }}</time>
+                    {% endif %}
+                </p>
+            </header>
+
+            <div class="article-body">
+{{ article.body_html | safe }}
+            </div>
+
+            <aside class="article-cta">
+                <h2>{{ t.articles.download_title }}</h2>
+                <p>{{ t.articles.download_text }}</p>
+                <a class="back-link" href="{{ support_url }}"><span>{{ t.articles.download_cta }}</span><span aria-hidden="true">→</span></a>
+            </aside>
+
+            {% if previous or following %}
+            <nav class="article-nav" aria-label="{{ t.articles.section_title }}">
+                <div>
+                    {% if previous %}
+                    <a href="{{ prefix }}{{ previous.path }}"><span>← {{ t.articles.previous }}</span>{{ previous.title }}</a>
+                    {% endif %}
+                </div>
+                <div class="next">
+                    {% if following %}
+                    <a href="{{ prefix }}{{ following.path }}"><span>{{ t.articles.next }} →</span>{{ following.title }}</a>
+                    {% endif %}
+                </div>
+            </nav>
+            {% endif %}
+        </article>
+{% endblock %}

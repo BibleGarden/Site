@@ -1,0 +1,59 @@
+meta:
+  language_name: English
+  title: "Lampada — A space for personal prayer"
+  description: "Lampada is a mobile app that helps you pray with intent, keep your focus, and return to meaningful thoughts later."
+  og_description: "Prayer. Light. AI."
+landing:
+  brand_home: Lampada home
+  nav_label: Primary navigation
+  nav:
+    about: About
+    privacy: Privacy
+    support: Support
+  language_label: Language
+  hero:
+    eyebrow: "Prayer · Light · AI"
+    title: Make room for prayer
+    lead: "You choose the topic. Lampada helps you pray with intent, stay focused, and notice what matters."
+    availability: Coming soon to the App Store
+    discover: Discover Lampada
+    art_label: Lampada app preview
+    phone_top: A quiet moment
+    phone_copy: Keep the light alive
+    phone_button: Begin prayer
+  purpose:
+    title: "A gentle rhythm, not another task"
+    text: "Lampada accompanies personal Christian prayer from the first intention to a closing reflection. It supports your attention without replacing your own words."
+    f1:
+      title: Pray with focus
+      text: "Set a topic and a comfortable duration. Guiding questions help you stay present and move deeper."
+    f2:
+      title: Meet Scripture in context
+      text: "Lampada selects Scripture passages by meaning, so the reading can speak to the prayer you are living today."
+    f3:
+      title: Return to what mattered
+      text: "Keep text or voice reflections, a final takeaway, and saved verses in a private journal on your device."
+  quiet:
+    text: "A warm, distraction-free space with optional quiet music, a prayer timer, and gentle reminders to return."
+    label: Designed for stillness
+  footer:
+    bible_garden: Bible Garden
+articles:
+  section_title: Articles
+  index_title: "Articles — Lampada"
+  index_description: "Notes on personal prayer: how to pray, keep a prayer journal, and return to what mattered."
+  empty: "Articles are on their way."
+  only_in: "This article is available only in: {languages}"
+  index_only_in: "Articles are available only in: {languages}"
+  breadcrumb_home: Home
+  published: Published
+  updated: Updated
+  by: By
+  previous: Previous article
+  next: Next article
+  download_title: Lampada is coming soon to the App Store
+  download_text: "The app is not published yet. Write to us if you would like to hear when it launches."
+  download_cta: Contact support
+not_found:
+  title: Page not found
+  text: "The page you are looking for does not exist or has moved."

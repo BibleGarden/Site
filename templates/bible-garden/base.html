@@ -1,0 +1,86 @@
+{% from "head_meta.html" import head_meta %}
+{% from "icons.html" import appstore_icon, github_icon %}
+<!DOCTYPE html>
+<html lang="{{ lang }}" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{ head_meta(site, page, page.description) | trim | indent(4) }}
+    {% filter indent(4) %}    {% include "lang_script.html" %}{% endfilter %}
+    <link rel="icon" type="image/png" href="/img/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    {% filter indent(4) %}    {% include "tailwind.html" %}{% endfilter %}
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/article.css">
+{% block head %}{% endblock %}
+{% include "analytics.html" %}
+</head>
+
+<body class="bg-garden-950 text-gray-200 font-sans antialiased">
+
+    <nav class="nav-solid fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/{{ site.language_prefix(lang) }}" class="flex items-center gap-2.5 group">
+                    <img src="/img/logo.png" alt="Bible Garden" class="w-8 h-8 rounded-lg">
+                    <span class="font-serif font-semibold text-lg text-white whitespace-nowrap">Bible Garden</span>
+                </a>
+
+                <div class="flex items-center gap-4">
+                    {% if has_articles %}
+                    <a href="/{{ site.language_prefix(lang) }}articles/" class="hidden sm:inline text-sm text-gray-400 hover:text-white transition-colors">{{ t.articles.section_title }}</a>
+                    {% endif %}
+
+                    {% if switcher is defined %}
+                    <div class="flex items-center gap-1 text-sm text-gray-500">
+                        {% for item in switcher["items"] %}
+                        {% if not loop.first %}
+                        <span class="text-garden-700">|</span>
+                        {% endif %}
+                        {% if item.href %}
+                        <a href="{{ item.href }}" hreflang="{{ item.code }}" data-lang="{{ item.code }}" class="lang-btn{% if item.active %} active{% endif %} px-1.5 py-0.5 cursor-pointer"{% if item.active %} aria-current="page"{% endif %}>{{ item.label }}</a>
+                        {% else %}
+                        <span class="lang-unavailable px-1.5 py-0.5" aria-disabled="true" title="{{ switcher.hint }}">{{ item.label }}</span>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <a href="{{ site.config.github_url }}" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition-colors cursor-pointer" aria-label="GitHub">
+                        {{ github_icon("w-5 h-5") }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+{% block main %}{% endblock %}
+    </main>
+
+    <footer class="py-10 border-t border-garden-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2.5">
+                    <img src="/img/logo.png" alt="Bible Garden" class="w-6 h-6 rounded-md">
+                    <span class="font-serif text-sm text-gray-400">Bible Garden</span>
+                </div>
+
+                <p class="text-xs text-gray-600">{{ t.landing.footer.copyright }}</p>
+
+                <div class="flex items-center gap-4">
+                    <a href="/privacy.html{% if lang != site.default_language %}?lang={{ lang }}{% endif %}" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">{{ t.landing.footer.privacy }}</a>
+                    <a href="{{ site.config.app_store_url }}" data-umami-event="app-store-click" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-300 transition-colors cursor-pointer" aria-label="App Store">
+                        {{ appstore_icon("w-5 h-5") }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

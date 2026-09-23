@@ -1,0 +1,61 @@
+{% from "head_meta.html" import head_meta %}
+{% set prefix = "/" ~ site.language_prefix(lang) %}
+{% set privacy_url = site.config.privacy_url ~ ("" if lang == site.default_language else "?lang=" ~ lang) %}
+{% set support_url = site.config.support_url ~ ("" if lang == site.default_language else "?lang=" ~ lang) %}
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ head_meta(site, page, page.description) | trim | indent(4) }}
+    {% filter indent(4) %}    {% include "lang_script.html" %}{% endfilter %}
+    <meta name="theme-color" content="#090604">
+    <link rel="icon" type="image/png" href="/assets/lampada-icon-64.png">
+    <link rel="stylesheet" href="/assets/styles.css?v={{ site.config.asset_version }}">
+{% block head %}{% endblock %}
+{% include "analytics.html" %}
+</head>
+<body>
+    <header class="site-header shell">
+        <a class="brand" href="{{ prefix }}" aria-label="{{ t.landing.brand_home }}">
+            <span class="brand-mark" aria-hidden="true">
+                <img src="/assets/lampada-icon.webp" width="38" height="38" alt="">
+            </span>
+            <span class="brand-name">Lampada</span>
+        </a>
+        <div class="header-tools">
+            <nav class="site-nav" aria-label="{{ t.landing.nav_label }}">
+                {% if has_articles %}
+                <a href="{{ prefix }}articles/">{{ t.articles.section_title }}</a>
+                {% endif %}
+                <a href="{{ privacy_url }}">{{ t.landing.nav.privacy }}</a>
+                <a href="{{ support_url }}">{{ t.landing.nav.support }}</a>
+            </nav>
+            {% if switcher is defined %}
+            <div class="language-switcher" aria-label="{{ t.landing.language_label }}">
+                {% for item in switcher["items"] %}
+                {% if item.href %}
+                <a href="{{ item.href }}" hreflang="{{ item.code }}" data-lang="{{ item.code }}"{% if item.active %} class="is-active" aria-current="page"{% endif %}>{{ item.label }}</a>
+                {% else %}
+                <span aria-disabled="true" title="{{ switcher.hint }}">{{ item.label }}</span>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </header>
+
+    <main class="article-main shell">
+{% block main %}{% endblock %}
+    </main>
+
+    <footer class="site-footer shell">
+        <span>© 2026 Lampada</span>
+        <div class="footer-links">
+            <a href="{{ privacy_url }}">{{ t.landing.nav.privacy }}</a>
+            <a href="{{ support_url }}">{{ t.landing.nav.support }}</a>
+            <a href="{{ site.config.bible_garden_url }}">{{ t.landing.footer.bible_garden }}</a>
+        </div>
+    </footer>
+</body>
+</html>

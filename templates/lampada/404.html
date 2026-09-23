@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block main %}
+        <article class="placeholder-card">
+            <p class="eyebrow">404</p>
+            <h1 class="placeholder-title">{{ t.not_found.title }}</h1>
+            <p class="placeholder-text">{{ t.not_found.text }}</p>
+            <div class="not-found-links">
+                {% for code, name, href in homes %}
+                <a class="back-link" href="{{ href }}" hreflang="{{ code }}"><span aria-hidden="true">←</span><span>{{ name }}</span></a>
+                {% endfor %}
+            </div>
+        </article>
+{% endblock %}

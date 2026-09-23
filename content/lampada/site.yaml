@@ -1,0 +1,14 @@
+name: Lampada
+base_url: https://lampada.app
+output_dir: lampada
+languages: [en, ru, uk]
+default_language: en
+language_labels: {en: EN, ru: RU, uk: UK}
+logo: /assets/lampada-icon-512.png
+storage_key: lampada-site-language
+asset_version: "20260923-switcher"
+support_url: /support
+privacy_url: /privacy
+bible_garden_url: https://bible.garden
+# Umami at stats.bible.garden: `none`, or {script_url, website_id}. See README, "Analytics".
+analytics: none

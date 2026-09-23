@@ -1,0 +1,86 @@
+meta:
+  language_name: English
+  title: "Bible Garden — Listen to the Bible in Multiple Languages"
+  description: "Free, open-source app for reading and listening to the Bible with professional narration, configurable pauses, and verse-by-verse multilingual playback."
+  og_description: "Free, open-source iOS app for multilingual Bible reading with audio."
+landing:
+  nav:
+    features: Features
+    opensource: Open Source
+    mission: Mission
+    contact: Contact
+  hero:
+    badge: "Open Source & Free Forever"
+    title1: Listen to the Bible
+    title2: in Multiple Languages
+    description: "Free app for reading and listening to the Bible with professional narration, configurable pauses, and unique verse-by-verse multilingual playback."
+    appstore: App Store
+    github: GitHub
+  features:
+    title: How It Works
+    subtitle: "A unique approach to Bible reading that helps you immerse in Scripture across languages and translations."
+    multi:
+      badge: Killer Feature
+      title: Multi Reading
+      desc: "Listen to each verse in multiple languages sequentially. Build your own reading pipeline with any combination of translations and pauses."
+      p1: "Verse-by-verse in 2+ languages"
+      p2: "Custom pipeline: translations + pauses"
+      p3: "Read by verse, paragraph, or chapter"
+    classic:
+      title: Classic Reading
+      desc: "Read and listen to any book in one language with professional narration. Configurable pauses between verses, paragraphs, or sections for contemplative reading."
+      p1: Professional narrators per language
+      p2: "Pauses: timed, full stop, or none"
+      p3: Words of Jesus highlighted
+    progress:
+      title: Reading Progress
+      desc: "Visual progress for every book of the Bible. The app automatically tracks what you've listened to, scrolled through, or marked manually."
+      p1: Per-book chapter progress bars
+      p2: "Auto-tracking by audio & scrolling"
+      p3: Total Bible reading percentage
+  opensource:
+    title: "Open Source\nby Design"
+    desc: "Bible Garden is fully open source under the AGPL license. Every line of code is available on GitHub. We believe that tools for reading Scripture should be free, transparent, and community-driven."
+    point1: "iOS app, API, and admin tools — all open source"
+    point2: "AGPL license — free to use, modify, and share"
+    point3: "API available for any application, including commercial"
+    cta: Explore on GitHub
+    allrights: All rights belong to God.
+  mission:
+    title: Our Mission
+    quote: "\"Create a space where free text and audio versions of the Bible are created and made available to everyone, in multiple languages, in a convenient format.\""
+    p1:
+      title: Free Forever
+      desc: "\"Freely you have received; freely give.\" We don't even accept donations."
+    p2:
+      title: Community Driven
+      desc: "Anyone can contribute translations, vote for the best options, and improve quality together."
+    p3:
+      title: Legally Clear
+      desc: "Only texts and audio with clear legal status. All copyrights belong to God."
+  contact:
+    title: Get in Touch
+    desc: "Have questions, want to contribute, or just say hello? Reach out through any of these channels."
+    telegram: Telegram
+  footer:
+    copyright: "Open source project under AGPL license. All rights belong to God."
+    privacy: Privacy Policy
+articles:
+  section_title: Articles
+  index_title: "Articles — Bible Garden"
+  index_description: "Guides on reading and listening to the Bible: where to start, reading plans, translations and multilingual reading."
+  empty: "Articles are on their way."
+  only_in: "This article is available only in: {languages}"
+  index_only_in: "Articles are available only in: {languages}"
+  breadcrumb_home: Home
+  published: Published
+  updated: Updated
+  by: By
+  previous: Previous article
+  next: Next article
+  download_title: Read and listen with Bible Garden
+  download_text: "A free, open-source app for reading and listening to the Bible in multiple languages, with professional narration and configurable pauses."
+  download_cta: Download on the App Store
+not_found:
+  title: Page not found
+  text: "The page you are looking for does not exist or has moved."

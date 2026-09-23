@@ -1,0 +1,30 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Rebuild the site
+        run: python -m sitegen build
+
+      - name: Committed HTML must match the build output
+        run: |
+          git add -A
+          git diff --cached --stat --exit-code
+
+      - name: Validate JSON-LD
+        run: python -m sitegen check
