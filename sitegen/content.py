@@ -137,7 +137,7 @@ def owned_dirs(output_dir: Path, languages: tuple[str, ...], default_language: s
 
 def _check_owned_dirs(output_dir: Path, languages: tuple[str, ...], default_language: str, repo_root: Path, config_path: Path) -> None:
     root = repo_root.resolve()
-    protected = [root / name for name in SOURCE_DIRS]
+    protected = [(root / name).resolve() for name in SOURCE_DIRS]
     for owned in owned_dirs(output_dir, languages, default_language):
         if owned == root or not owned.is_relative_to(root):
             raise BuildError(f"{config_path}: the build would delete {owned}, which is not a directory inside the repository")
