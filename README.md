@@ -14,7 +14,7 @@ Domains:
 
 | Path | Role |
 |---|---|
-| `content/<site>/site.yaml` | site name, base URL, output directory, languages and their switcher labels, app links |
+| `content/<site>/site.yaml` | site name, base URL, output directory, languages and their switcher labels, app links, analytics |
 | `content/<site>/i18n/<lang>.yaml` | every visible string of the landing page, article chrome and 404 page |
 | `content/<site>/articles/<slug>/<lang>.md` | article sources |
 | `templates/<site>/` | Jinja2 templates: `landing.html`, `base.html`, `article.html`, `articles.html`, `404.html` |
@@ -51,7 +51,8 @@ page's `hreflang` set is incomplete (every published version, itself and
 `<html lang>`, another canonical or `noindex`,
 when a JSON-LD block lacks a required field (`Article`: headline,
 image, dates, author; `BreadcrumbList`: items; `FAQPage`: questions with
-answers) or when a `hreflang` link points at a `noindex` page. Commit the
+answers), when a `hreflang` link points at a `noindex` page or when a page's
+analytics tag disagrees with `site.yaml` (see [Analytics](#analytics)). Commit the
 regenerated files together with the content change.
 
 Missing translation keys, unknown languages, missing frontmatter fields or a
@@ -175,11 +176,49 @@ cd lampada && python3 -m http.server 8081   # http://localhost:8081 — lampada.
 
 Lampada pages use root-absolute asset paths, so preview them from `lampada/`.
 
+## Analytics
+
+Both sites count visits with Umami that runs on our production server at
+`stats.bible.garden` (deployment: `Deploy/runbook.md`, "Umami"). Every
+`site.yaml` must set `analytics` explicitly; a missing key, an empty value or a
+malformed one stops the build:
+
+```yaml
+analytics: none            # no tracker on any page of this site
+
+analytics:                 # tracker on every page of this site
+  script_url: https://stats.bible.garden/script.js
+  website_id: 00000000-0000-0000-0000-000000000000   # from Umami, Settings → Websites
+```
+
+With a mapping, every generated page gets one
+`<script defer src="…" data-website-id="…" data-domains="<site host>">` before
+`</head>`. `data-domains` is the host of `base_url`, so local previews send
+nothing. Links to the App Store carry `data-umami-event="app-store-click"`
+regardless of the setting; the attribute is inert without the tracker.
+
+`sitegen check` requires, on every HTML page of a site, hand-written pages
+included, exactly that tag when analytics is on and no tracker when it is
+`none`, and the event attribute on every App Store link.
+
+Turning analytics on for a site:
+
+1. Create the website in Umami and copy its website ID.
+2. Replace `analytics: none` in `content/<site>/site.yaml` with the mapping above.
+3. `python -m sitegen build`.
+4. Paste the same tag by hand before `</head>` of the site's hand-written pages
+   (`privacy.html` for bible.garden; `lampada/privacy/index.html` and
+   `lampada/support/index.html` for lampada.app). `sitegen check` prints the
+   exact tag if a page lacks it.
+5. `python -m sitegen check`, commit, deploy.
+
 ## Stack
 
 - Python 3.12, Jinja2, Python-Markdown, PyYAML
 - bible.garden: HTML + Tailwind CSS (CDN), Google Fonts (Lora, Inter), vanilla JavaScript
 - lampada.app: HTML + `assets/styles.css`, system fonts, no third-party requests
+- analytics: self-hosted [Umami](https://umami.is) at `stats.bible.garden` on our own
+  server (first party, no cookies); see [Analytics](#analytics)
 
 The Lampada logo assets are optimized derivatives of `assets/icon.png` from
 `BibleGarden/Lampada-Mobile`. See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md)

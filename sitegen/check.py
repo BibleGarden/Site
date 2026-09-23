@@ -1,4 +1,4 @@
-"""Validation of the generated HTML: JSON-LD contents and hreflang targets."""
+"""Validation of the HTML pages: JSON-LD contents, hreflang targets, internal links and analytics."""
 
 from __future__ import annotations
 
@@ -16,6 +16,10 @@ HREFLANG_RE = re.compile(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+
 HTML_LANG_RE = re.compile(r'<html lang="([^"]+)"')
 NOINDEX_RE = re.compile(r'<meta name="robots" content="noindex">')
 ANCHOR_HREF_RE = re.compile(r'<a\s[^>]*?href="([^"]+)"')
+ANCHOR_TAG_RE = re.compile(r"<a\s[^>]*>")
+TRACKER_RE = re.compile(r"<script\s[^>]*data-website-id=")
+APP_STORE_PREFIX = "https://apps.apple.com/"
+APP_STORE_EVENT = 'data-umami-event="app-store-click"'
 SKIPPED_DIRS = {".git", "content", "templates", "sitegen", ".venv"}
 
 
@@ -33,6 +37,7 @@ def run_checks() -> tuple[int, int]:
     blocks = sum(check_json_ld(path, html) for path, html in pages.items())
     links = check_hreflang(pages, sites)
     check_internal_links(pages, owners)
+    check_analytics(pages, owners)
     return blocks, links
 
 
@@ -191,3 +196,20 @@ def check_internal_links(pages: dict[Path, str], owners: dict[Path, Site]) -> No
         for href in ANCHOR_HREF_RE.findall(html):
             if href == base_url or href.startswith(base_url + "/"):
                 raise BuildError(f"{path}: link to its own site must be root-relative: {href}")
+
+
+def check_analytics(pages: dict[Path, str], owners: dict[Path, Site]) -> None:
+    """Every page, hand-written ones included, carries its site's tracker exactly once, or none when analytics is 'none';
+    every App Store link reports the app-store-click event."""
+    for path, html in pages.items():
+        analytics = owners[path].analytics
+        trackers = len(TRACKER_RE.findall(html))
+        if analytics is None:
+            if trackers:
+                raise BuildError(f"{path}: analytics is 'none' in site.yaml, but the page has a tracker script")
+        elif trackers != 1 or html.count(analytics.script_tag) != 1:
+            raise BuildError(f"{path}: the page must carry exactly one tracker, and it must be {analytics.script_tag}")
+        for tag in ANCHOR_TAG_RE.findall(html):
+            href = ANCHOR_HREF_RE.match(tag)
+            if href and href.group(1).startswith(APP_STORE_PREFIX) and APP_STORE_EVENT not in tag:
+                raise BuildError(f"{path}: App Store link without {APP_STORE_EVENT}: {tag}")

@@ -6,10 +6,12 @@ import datetime as dt
 import re
 from dataclasses import dataclass
 from pathlib import Path
+from urllib.parse import urlsplit
 
 import markdown
 import yaml
 from markdown.extensions.toc import slugify_unicode
+from markupsafe import Markup, escape
 
 from .errors import BuildError
 
@@ -19,13 +21,33 @@ H2_RE = re.compile(r"^## ")
 H3_RE = re.compile(r"^### (.+?)\s*$")
 LANGUAGE_RE = re.compile(r"^[a-z]{2}$")
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
 
-REQUIRED_SITE_KEYS = ("name", "base_url", "output_dir", "languages", "default_language", "language_labels", "logo")
+REQUIRED_SITE_KEYS = ("name", "base_url", "output_dir", "languages", "default_language", "language_labels", "logo", "analytics")
+ANALYTICS_KEYS = {"script_url", "website_id"}
+ANALYTICS_DISABLED = "none"
 SOURCE_DIRS = ("content", "templates", "sitegen", ".git", ".github")
 REQUIRED_ARTICLE_KEYS = ("title", "description", "date", "author")
 OPTIONAL_ARTICLE_KEYS = ("updated", "draft", "image")
 MARKDOWN_EXTENSIONS = ["extra", "toc", "sane_lists"]
 MARKDOWN_EXTENSION_CONFIGS = {"toc": {"slugify": slugify_unicode, "toc_depth": "2-3"}}
+
+
+@dataclass(frozen=True)
+class Analytics:
+    """Umami tracker of a site: the script URL and the website ID created in Umami."""
+
+    script_url: str
+    website_id: str
+    domain: str
+
+    @property
+    def script_tag(self) -> Markup:
+        """The exact tag every page of the site carries; data-domains keeps local previews out of the stats."""
+        return Markup(
+            f'<script defer src="{escape(self.script_url)}" data-website-id="{escape(self.website_id)}"'
+            f' data-domains="{escape(self.domain)}"></script>'
+        )
 
 
 @dataclass(frozen=True)
@@ -38,6 +60,7 @@ class Site:
     default_language: str
     config: dict
     i18n: dict[str, dict]
+    analytics: Analytics | None
 
     def language_prefix(self, lang: str) -> str:
         """URL path prefix for a language: '' for the default language, 'ru/' otherwise."""
@@ -114,7 +137,22 @@ def load_site(content_dir: Path, repo_root: Path) -> Site:
         default_language=config["default_language"],
         config=config,
         i18n=i18n,
+        analytics=_analytics(config["analytics"], config["base_url"], config_path),
     )
+
+
+def _analytics(value: object, base_url: str, config_path: Path) -> Analytics | None:
+    """Parse `analytics`: the explicit string 'none', or a mapping with script_url and website_id."""
+    if value == ANALYTICS_DISABLED:
+        return None
+    if not isinstance(value, dict) or set(value) != ANALYTICS_KEYS:
+        raise BuildError(f"{config_path}: analytics must be '{ANALYTICS_DISABLED}' or a mapping with exactly {', '.join(sorted(ANALYTICS_KEYS))}")
+    script_url, website_id = value["script_url"], value["website_id"]
+    if not isinstance(script_url, str) or urlsplit(script_url).scheme != "https" or not urlsplit(script_url).hostname:
+        raise BuildError(f"{config_path}: analytics.script_url must be an https:// URL, got {script_url!r}")
+    if not isinstance(website_id, str) or not UUID_RE.match(website_id):
+        raise BuildError(f"{config_path}: analytics.website_id must be a lowercase UUID, got {website_id!r}")
+    return Analytics(script_url=script_url, website_id=website_id, domain=urlsplit(base_url).hostname)
 
 
 def _output_dir(value: object, repo_root: Path, config_path: Path) -> Path:
