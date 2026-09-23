@@ -117,6 +117,12 @@ Google expects for `Article` rich results.
 page shows an "Articles" link only when the language has at least one
 published article.
 
+Links between pages of the same site are root-relative (`/ru/articles/slug/`)
+so a local preview never jumps to production; absolute URLs appear only in
+`canonical`, `hreflang`, Open Graph, the sitemap, `llms.txt`, JSON-LD and
+links to the other site. `sitegen check` rejects an `<a href>` to the page's
+own domain.
+
 The body is Markdown (`extra` and `toc` extensions: tables, footnotes,
 fenced code, heading anchors). Headings inside fenced code blocks are ignored
 by the FAQ parser. Links inside the site are root-relative

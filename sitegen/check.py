@@ -6,13 +6,15 @@ import json
 import re
 from pathlib import Path
 
-from .build import REPO_ROOT
+from .build import CONTENT_DIR, REPO_ROOT
+from .content import load_site
 from .errors import BuildError
 
 JSON_LD_RE = re.compile(r'<script type="application/ld\+json">(.*?)</script>', re.DOTALL)
 CANONICAL_RE = re.compile(r'<link rel="canonical" href="([^"]+)">')
 HREFLANG_RE = re.compile(r'<link rel="alternate" hreflang="[^"]+" href="([^"]+)">')
 NOINDEX_RE = re.compile(r'<meta name="robots" content="noindex">')
+ANCHOR_HREF_RE = re.compile(r'<a\s[^>]*?href="([^"]+)"')
 SKIPPED_DIRS = {".git", "content", "templates", "sitegen", ".venv"}
 
 
@@ -27,6 +29,7 @@ def run_checks() -> tuple[int, int]:
     pages = {path: path.read_text(encoding="utf-8") for path in html_files()}
     blocks = sum(check_json_ld(path, html) for path, html in pages.items())
     links = check_hreflang(pages)
+    check_internal_links(pages)
     return blocks, links
 
 
@@ -86,3 +89,14 @@ def check_hreflang(pages: dict[Path, str]) -> int:
                 raise BuildError(f"{path}: hreflang points at a noindex page {href}")
             links += 1
     return links
+
+
+def check_internal_links(pages: dict[Path, str]) -> None:
+    """Navigation inside a site must be root-relative so previews stay on the preview host."""
+    sites = [load_site(directory, REPO_ROOT) for directory in sorted(CONTENT_DIR.iterdir()) if directory.is_dir()]
+    for path, html in pages.items():
+        # The most specific output directory owns the page (lampada/ is nested in the repository root).
+        owner = max((site for site in sites if path.is_relative_to(site.output_dir)), key=lambda site: len(site.output_dir.parts))
+        for href in ANCHOR_HREF_RE.findall(html):
+            if href == owner.base_url or href.startswith(owner.base_url + "/"):
+                raise BuildError(f"{path}: link to its own site must be root-relative: {href}")

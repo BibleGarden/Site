@@ -41,8 +41,13 @@ class Site:
         """URL path prefix for a language: '' for the default language, 'ru/' otherwise."""
         return "" if lang == self.default_language else f"{lang}/"
 
+    def href(self, lang: str, path: str = "") -> str:
+        """Root-relative link to a page, used for navigation inside the site."""
+        return f"/{self.language_prefix(lang)}{path}"
+
     def url(self, lang: str, path: str = "") -> str:
-        return f"{self.base_url}/{self.language_prefix(lang)}{path}"
+        """Absolute URL of a page, used for canonical, hreflang, Open Graph, sitemap and JSON-LD."""
+        return f"{self.base_url}{self.href(lang, path)}"
 
 
 @dataclass(frozen=True)

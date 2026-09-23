@@ -99,6 +99,12 @@ class SiteBuilder:
             raise BuildError(f"{self.site.key}: asset path must start with '/': {path}")
         return f"{self.site.base_url}{path}"
 
+    def relative(self, url: str) -> str:
+        """Root-relative form of an absolute URL of this site."""
+        if not url.startswith(self.site.base_url + "/"):
+            raise BuildError(f"{self.site.key}: {url} is not a URL of this site")
+        return url[len(self.site.base_url) :]
+
     def output_path(self, lang: str, path: str) -> Path:
         return self.site.output_dir / self.site.language_prefix(lang) / path
 
@@ -113,7 +119,7 @@ class SiteBuilder:
             lang=lang,
             t=self.t(lang),
             has_articles=bool(self.published(lang)),
-            lang_paths={other: f"/{self.site.language_prefix(other)}" for other in self.site.languages},
+            lang_paths={other: self.site.href(other) for other in self.site.languages},
             **context,
         )
         self.write(path, html)
@@ -133,7 +139,10 @@ class SiteBuilder:
         labels = self.site.config["language_labels"]
         available = [code for code in self.site.languages if code in versions]
         hint = self.t(lang)["articles"][hint_key].format(languages=", ".join(labels[code] for code in available))
-        items = [{"code": code, "label": labels[code], "href": versions.get(code), "active": code == lang} for code in self.site.languages]
+        items = [
+            {"code": code, "label": labels[code], "href": self.relative(versions[code]) if code in versions else None, "active": code == lang}
+            for code in self.site.languages
+        ]
         return {"items": items, "hint": hint}
 
     def article_versions(self, slug: str) -> dict[str, str]:
@@ -293,7 +302,7 @@ class SiteBuilder:
             self.site.output_dir / "404.html",
             lang,
             page=page,
-            homes=[(other, self.t(other)["meta"]["language_name"], self.site.url(other)) for other in self.site.languages],
+            homes=[(other, self.t(other)["meta"]["language_name"], self.site.href(other)) for other in self.site.languages],
         )
 
     def build_robots(self) -> None:
