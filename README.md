@@ -38,7 +38,7 @@ must not overlap `content/`, `templates/`, `sitegen/`, `.git/` or `.github/`. Ev
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m sitegen build   # rebuild both sites
-.venv/bin/python -m sitegen check   # validate JSON-LD fields and hreflang targets
+.venv/bin/python -m sitegen check   # validate JSON-LD, hreflang, internal links and analytics tags
 ```
 
 The build is deterministic: it embeds no timestamps, so running it twice
@@ -188,7 +188,7 @@ analytics: none            # no tracker on any page of this site
 
 analytics:                 # tracker on every page of this site
   script_url: https://stats.bible.garden/script.js
-  website_id: 00000000-0000-0000-0000-000000000000   # from Umami, Settings → Websites
+  website_id: 00000000-0000-0000-0000-000000000000   # Umami: Settings → Websites → the site
 ```
 
 With a mapping, every generated page gets one
