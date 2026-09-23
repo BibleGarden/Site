@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import re
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -17,11 +18,8 @@ HREFLANG_RE = re.compile(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+
 HTML_LANG_RE = re.compile(r'<html lang="([^"]+)"')
 NOINDEX_RE = re.compile(r'<meta name="robots" content="noindex">')
 ANCHOR_HREF_RE = re.compile(r'<a\s[^>]*?href="([^"]+)"')
-ANCHOR_TAG_RE = re.compile(r"<a\s[^>]*>")
-SCRIPT_TAG_RE = re.compile(r"<script\b[^>]*>")
-SCRIPT_SRC_RE = re.compile(r'\ssrc="([^"]+)"')
 APP_STORE_PREFIX = "https://apps.apple.com/"
-APP_STORE_EVENT = 'data-umami-event="app-store-click"'
+APP_STORE_EVENT = "app-store-click"
 SKIPPED_DIRS = {".git", "content", "templates", "sitegen", ".venv"}
 
 
@@ -200,15 +198,28 @@ def check_internal_links(pages: dict[Path, str], owners: dict[Path, Site]) -> No
                 raise BuildError(f"{path}: link to its own site must be root-relative: {href}")
 
 
-def is_tracker(tag: str, tracker_hosts: set[str]) -> bool:
-    """A <script> tag that loads Umami: a website ID, Umami's /script.js, or a src on a configured tracker host."""
-    if "data-website-id=" in tag:
+class TagCollector(HTMLParser):
+    """<script> and <a> start tags of a page as attribute dicts; the parser lower-cases tag and attribute names."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.scripts: list[dict[str, str]] = []
+        self.anchors: list[dict[str, str]] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag in ("script", "a"):
+            (self.scripts if tag == "script" else self.anchors).append({name: value or "" for name, value in attrs})
+
+
+def is_tracker(attrs: dict[str, str], tracker_hosts: set[str]) -> bool:
+    """A <script> that loads Umami: a website ID, Umami's /script.js, or a src on a configured tracker host."""
+    if "data-website-id" in attrs:
         return True
-    src = SCRIPT_SRC_RE.search(tag)
+    src = attrs.get("src", "").strip()
     if not src:
         return False
-    url = urlsplit(src.group(1))
-    return url.path.endswith("/script.js") or "umami" in src.group(1).lower() or url.hostname in tracker_hosts
+    url = urlsplit(src)
+    return url.path.lower().endswith("/script.js") or "umami" in src.lower() or (url.hostname or "") in tracker_hosts
 
 
 def check_analytics(pages: dict[Path, str], owners: dict[Path, Site]) -> None:
@@ -217,13 +228,16 @@ def check_analytics(pages: dict[Path, str], owners: dict[Path, Site]) -> None:
     tracker_hosts = {urlsplit(site.analytics.script_url).hostname for site in owners.values() if site.analytics}
     for path, html in pages.items():
         analytics = owners[path].analytics
-        trackers = sum(is_tracker(tag, tracker_hosts) for tag in SCRIPT_TAG_RE.findall(html))
+        tags = TagCollector()
+        tags.feed(html)
+        tags.close()
+        trackers = sum(is_tracker(attrs, tracker_hosts) for attrs in tags.scripts)
         if analytics is None:
             if trackers:
                 raise BuildError(f"{path}: analytics is 'none' in site.yaml, but the page has a tracker script")
         elif trackers != 1 or html.count(analytics.script_tag) != 1:
             raise BuildError(f"{path}: the page must carry exactly one tracker, and it must be {analytics.script_tag}")
-        for tag in ANCHOR_TAG_RE.findall(html):
-            href = ANCHOR_HREF_RE.match(tag)
-            if href and href.group(1).startswith(APP_STORE_PREFIX) and APP_STORE_EVENT not in tag:
-                raise BuildError(f"{path}: App Store link without {APP_STORE_EVENT}: {tag}")
+        for attrs in tags.anchors:
+            href = attrs.get("href", "").strip()
+            if href.lower().startswith(APP_STORE_PREFIX) and attrs.get("data-umami-event") != APP_STORE_EVENT:
+                raise BuildError(f'{path}: App Store link {href} without data-umami-event="{APP_STORE_EVENT}"')
