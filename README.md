@@ -194,14 +194,38 @@ privacy policy (string `landing.footer.about`); the hand-written
 ## Pages
 
 `content/<site>/pages/<slug>/<lang>.md` builds `/<slug>/`, `/ru/<slug>/`,
-`/uk/<slug>/` with the site's `page.html`. Frontmatter holds exactly `title`
-and `description`; the body is Markdown as in articles. Pages get canonical,
-`hreflang`, the language switcher, a sitemap entry and a line in `llms.txt`.
-The author's page carries `AboutPage` JSON-LD with the author `Organization`
-as `mainEntity`; any other page carries `WebPage`. A slug must not be
-`articles` or a language code, and the build stops when a page's slug matches
-a directory sitegen did not generate (`img/`, `lampada/privacy/`), so a page
-cannot overwrite a hand-written one.
+`/uk/<slug>/` with the site's `page.html`. Frontmatter holds `title` and
+`description`, required as in articles, plus the same optional keys as an
+article: `draft` and `image`, and one page-only key, `profile`. The body is
+Markdown as in articles. Pages get canonical, `hreflang`, the language
+switcher, a sitemap entry and a line in `llms.txt`. The author's page carries
+`AboutPage` JSON-LD with the author `Organization` as `mainEntity`; a page
+with `profile: true` carries `ProfilePage` JSON-LD with a `Person`
+`mainEntity` (`name`, `url`, and `worksFor` the author `Organization`); any
+other page carries `WebPage`. A slug must not be `articles` or a language
+code, and the build stops when a page's slug matches a directory sitegen did
+not generate (`img/`, `lampada/privacy/`), so a page cannot overwrite a
+hand-written one.
+
+`draft: true` builds the page with `noindex`, keeps it out of the sitemap,
+`llms.txt` and the hreflang of published pages, exactly like a draft article;
+nothing on the site links to a draft page, so it is only reachable by its
+direct URL. `image` is a site-root path such as `/img/team/maria.jpg`,
+rendered as the page's Open Graph image and, on a `profile` page, above the
+title; without it a page falls back to the site logo — except a published
+(non-draft) `profile` page, where `image` is required and its absence stops
+the build (a draft profile page may still lack the photo).
+
+### Publishing the Maria Novikova page
+
+`content/bible-garden/pages/maria-novikova/` is a draft placeholder. To
+publish it: add the real bio and photo to the three language files, add
+`image: /img/team/maria-novikova.jpg` (or similar) to each, remove
+`draft: true`, and add a link to it from `/about/` ("Who we are"). A future
+`author.founder` key in `site.yaml`, pointing at this page the way
+`author.page` points at `/about/`, could link it from the article JSON-LD
+too, if wanted — not added by this change. Rebuild, run `sitegen check`, and
+validate the page's JSON-LD before deploying.
 
 ## App Store links
 

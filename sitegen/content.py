@@ -32,7 +32,8 @@ ANALYTICS_DISABLED = "none"
 SOURCE_DIRS = ("content", "templates", "sitegen", ".git", ".github")
 REQUIRED_ARTICLE_KEYS = ("title", "description", "date")
 OPTIONAL_ARTICLE_KEYS = ("updated", "draft", "image")
-PAGE_KEYS = ("title", "description")
+REQUIRED_PAGE_KEYS = ("title", "description")
+OPTIONAL_PAGE_KEYS = ("draft", "image", "profile")
 MARKDOWN_EXTENSIONS = ["extra", "toc", "sane_lists"]
 MARKDOWN_EXTENSION_CONFIGS = {"toc": {"slugify": slugify_unicode, "toc_depth": "2-3"}}
 
@@ -129,12 +130,20 @@ class Article:
 
 @dataclass(frozen=True)
 class StaticPage:
-    """A standalone page of a site, such as /about/: content/<site>/pages/<slug>/<lang>.md."""
+    """A standalone page of a site, such as /about/: content/<site>/pages/<slug>/<lang>.md.
+
+    ``draft`` mirrors the article flag: noindex, out of the sitemap and llms.txt, and out of
+    hreflang. ``profile`` marks a person's page (JSON-LD ``ProfilePage`` instead of ``WebPage``);
+    such a page needs ``image`` once published — a draft may still lack the photo.
+    """
 
     slug: str
     lang: str
     title: str
     description: str
+    draft: bool
+    image: str | None
+    profile: bool
     body_html: str
 
     @property
@@ -306,14 +315,7 @@ def load_pages(site: Site, content_dir: Path) -> dict[str, dict[str, StaticPage]
         for source in sorted(slug_dir.iterdir()):
             if source.suffix != ".md" or source.stem not in site.languages:
                 raise BuildError(f"{source}: only <lang>.md files for {', '.join(site.languages)} are allowed in a page directory")
-            meta, body = _frontmatter(source, PAGE_KEYS, ())
-            versions[source.stem] = StaticPage(
-                slug=slug_dir.name,
-                lang=source.stem,
-                title=_require_str(meta, "title", source),
-                description=_require_str(meta, "description", source),
-                body_html=render_markdown(body),
-            )
+            versions[source.stem] = parse_page(source, slug_dir.name, source.stem)
         if not versions:
             raise BuildError(f"{slug_dir}: page directory has no language versions")
         result[slug_dir.name] = versions
@@ -351,6 +353,25 @@ def parse_article(source: Path, slug: str, lang: str) -> Article:
         image=_require_str(meta, "image", source) if "image" in meta else None,
         body_html=render_markdown(body),
         faq=extract_faq(body, source),
+    )
+
+
+def parse_page(source: Path, slug: str, lang: str) -> StaticPage:
+    meta, body = _frontmatter(source, REQUIRED_PAGE_KEYS, OPTIONAL_PAGE_KEYS)
+    draft = _require_bool(meta, "draft", source) if "draft" in meta else False
+    profile = _require_bool(meta, "profile", source) if "profile" in meta else False
+    image = _require_str(meta, "image", source) if "image" in meta else None
+    if profile and not draft and image is None:
+        raise BuildError(f"{source}: a published profile page needs 'image' (a draft may omit it)")
+    return StaticPage(
+        slug=slug,
+        lang=lang,
+        title=_require_str(meta, "title", source),
+        description=_require_str(meta, "description", source),
+        draft=draft,
+        image=image,
+        profile=profile,
+        body_html=render_markdown(body),
     )
 
 

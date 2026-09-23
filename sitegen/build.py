@@ -191,7 +191,12 @@ class SiteBuilder:
         return {"items": items, "hint": hint}
 
     def page_alternates(self, slug: str) -> dict[str, str]:
-        """Absolute URLs of the language versions of a standalone page."""
+        """Absolute URLs of the published language versions of a standalone page."""
+        versions = self.pages[slug]
+        return {lang: self.site.url(lang, versions[lang].path) for lang in self.site.languages if lang in versions and not versions[lang].draft}
+
+    def page_versions(self, slug: str) -> dict[str, str]:
+        """Absolute URLs of every language version of a page, drafts included (for proofreading drafts)."""
         versions = self.pages[slug]
         return {lang: self.site.url(lang, versions[lang].path) for lang in self.site.languages if lang in versions}
 
@@ -352,8 +357,9 @@ class SiteBuilder:
             default_language=self.site.default_language,
             title=f"{static.title} — {self.site.name}",
             description=static.description,
-            alternates=self.page_alternates(slug),
-            image=self.absolute(self.site.config["logo"]),
+            alternates={lang: self.site.url(lang, static.path)} if static.draft else self.page_alternates(slug),
+            image=self.absolute(static.image or self.site.config["logo"]),
+            noindex=static.draft,
         )
         self.render(
             "page.html",
@@ -362,15 +368,15 @@ class SiteBuilder:
             page=page,
             static=static,
             json_ld=[self.page_json_ld(static, page)],
-            switcher=self.switcher(lang, page.alternates, "only_in"),
+            switcher=self.switcher(lang, self.page_versions(slug) if static.draft else page.alternates, "only_in"),
         )
 
     def page_json_ld(self, static: StaticPage, page: Page) -> dict:
-        """AboutPage for the author's page (what the article bylines link to), WebPage otherwise."""
+        """AboutPage for the author's page (what article bylines link to), ProfilePage for a person, WebPage otherwise."""
         is_author_page = static.path == self.site.author.page
         data = {
             "@context": "https://schema.org",
-            "@type": "AboutPage" if is_author_page else "WebPage",
+            "@type": "AboutPage" if is_author_page else "ProfilePage" if static.profile else "WebPage",
             "name": static.title,
             "description": static.description,
             "url": page.canonical,
@@ -378,6 +384,13 @@ class SiteBuilder:
         }
         if is_author_page:
             data["mainEntity"] = self.site.author.json_ld(self.site, static.lang)
+        elif static.profile:
+            data["mainEntity"] = {
+                "@type": "Person",
+                "name": static.title,
+                "url": page.canonical,
+                "worksFor": self.site.author.json_ld(self.site, static.lang),
+            }
         return data
 
     def build_not_found(self) -> None:
@@ -451,7 +464,7 @@ class SiteBuilder:
             meta = self.t(lang)["meta"]
             lines.append(f"- [{meta['title']}]({self.site.url(lang)}): {meta['language_name']}")
             for versions in self.pages.values():
-                if lang in versions:
+                if lang in versions and not versions[lang].draft:
                     static = versions[lang]
                     lines.append(f"- [{static.title}]({self.site.url(lang, static.path)}): {static.description}")
         for lang in self.site.languages:

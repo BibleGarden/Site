@@ -73,10 +73,12 @@ def check_json_ld(path: Path, html: str) -> int:
             _require(path, data, "headline", "image", "datePublished", "dateModified", "description", "inLanguage")
             _require_organization(path, data.get("author"))
             _require(path, data["publisher"], "name", "logo")
-        elif kind in ("AboutPage", "WebPage"):
+        elif kind in ("AboutPage", "WebPage", "ProfilePage"):
             _require(path, data, "name", "description", "url", "inLanguage")
             if kind == "AboutPage":
                 _require_organization(path, data.get("mainEntity"))
+            elif kind == "ProfilePage":
+                _require_person(path, data.get("mainEntity"))
         elif kind == "BreadcrumbList":
             _require_list(path, data, "itemListElement")
             for item in data["itemListElement"]:
@@ -105,6 +107,16 @@ def _require_organization(path: Path, data: object) -> None:
     _require(path, data, "name", "url")
     if data.get("@type") != "Organization":
         raise BuildError(f"{path}: JSON-LD author (or AboutPage mainEntity) must be an Organization, got {data.get('@type')!r}")
+
+
+def _require_person(path: Path, data: object) -> None:
+    """A ProfilePage's mainEntity: the person, optionally with the Organization they work for."""
+    _require(path, data, "name", "url")
+    if data.get("@type") != "Person":
+        raise BuildError(f"{path}: JSON-LD ProfilePage mainEntity must be a Person, got {data.get('@type')!r}")
+    works_for = data.get("worksFor")
+    if works_for is not None:
+        _require_organization(path, works_for)
 
 
 def _require_list(path: Path, data: dict, key: str) -> None:
