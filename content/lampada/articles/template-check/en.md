@@ -2,7 +2,6 @@
 title: Template check article
 description: A short draft that exercises every element of the article template. It is not part of the content plan.
 date: 2026-09-21
-author: Maria Novikova
 draft: true
 ---
 

@@ -6,7 +6,14 @@ default_language: en
 language_labels: {en: EN, ru: RU, uk: UA}
 logo: /img/logo.png
 storage_key: bg-lang
+# Landing pages link here; generated pages (articles, /about/, 404) use the campaign link below.
 app_store_url: https://apps.apple.com/app/bible-garden/id6758955373
+# App Store campaign per page language: ct=seo-en, seo-ru, seo-uk. See README, "App Store links".
+article_app_store_url: https://apps.apple.com/app/apple-store/id6758955373?pt=119043617&ct=seo-{lang}&mt=8
+# Byline and JSON-LD author of every article; `page` is a page of this site relative to the language root.
+author:
+  name: {en: Bible Garden team, ru: Команда Bible Garden, uk: Команда Bible Garden}
+  page: about/
 github_url: https://github.com/BibleGarden/
 telegram_url: https://t.me/Mandarinka4
 # Source directories and the Lampada checkout are served by the same nginx root.

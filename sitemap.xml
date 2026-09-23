@@ -21,4 +21,25 @@
     <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/"/>
   </url>
+  <url>
+    <loc>https://bible.garden/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/about/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/about/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/about/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/ru/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/about/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/about/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/about/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/uk/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/about/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/about/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/about/"/>
+  </url>
 </urlset>

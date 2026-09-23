@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Статті — Bible Garden</title>
-    <meta name="description" content="Як читати та слухати Біблію: з чого почати, плани читання, переклади та читання кількома мовами.">
-    <meta name="robots" content="noindex">
-    <link rel="canonical" href="https://bible.garden/uk/articles/">
+    <title>Як ми пишемо — Bible Garden</title>
+    <meta name="description" content="Хто стоїть за Bible Garden, як готуються статті сайту, звідки цитати і як повідомити нам про помилку.">
+    <link rel="canonical" href="https://bible.garden/uk/about/">
+    <link rel="alternate" hreflang="en" href="https://bible.garden/about/">
+    <link rel="alternate" hreflang="ru" href="https://bible.garden/ru/about/">
+    <link rel="alternate" hreflang="uk" href="https://bible.garden/uk/about/">
+    <link rel="alternate" hreflang="x-default" href="https://bible.garden/about/">
     <meta property="og:site_name" content="Bible Garden">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bible.garden/uk/articles/">
-    <meta property="og:title" content="Статті — Bible Garden">
-    <meta property="og:description" content="Як читати та слухати Біблію: з чого почати, плани читання, переклади та читання кількома мовами.">
+    <meta property="og:url" content="https://bible.garden/uk/about/">
+    <meta property="og:title" content="Як ми пишемо — Bible Garden">
+    <meta property="og:description" content="Хто стоїть за Bible Garden, як готуються статті сайту, звідки цитати і як повідомити нам про помилку.">
     <meta property="og:image" content="https://bible.garden/img/logo.png">
     <meta property="og:locale" content="uk_UA">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="ru_RU">
     <script>
         // Language handling without a server:
         //  1. landing pages only: legacy ?lang=en|ru|uk links (ua = uk) go to the language URL
@@ -80,6 +85,19 @@
     </script>
     <link rel="stylesheet" href="/css/site.css">
     <link rel="stylesheet" href="/css/article.css">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "Як ми пишемо",
+  "description": "Хто стоїть за Bible Garden, як готуються статті сайту, звідки цитати і як повідомити нам про помилку.",
+  "url": "https://bible.garden/uk/about/",
+  "inLanguage": "uk",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Команда Bible Garden",
+    "url": "https://bible.garden/uk/about/"
+  }
+}</script>
 </head>
 
 <body class="bg-garden-950 text-gray-200 font-sans antialiased">
@@ -95,11 +113,11 @@
                 <div class="flex items-center gap-4">
 
                     <div class="flex items-center gap-1 text-sm text-gray-500">
-                        <span class="lang-unavailable px-1.5 py-0.5" aria-disabled="true" title="Статті доступні лише мовами: UA">EN</span>
+                        <a href="/about/" hreflang="en" data-lang="en" class="lang-btn px-1.5 py-0.5 cursor-pointer">EN</a>
                         <span class="text-garden-700">|</span>
-                        <span class="lang-unavailable px-1.5 py-0.5" aria-disabled="true" title="Статті доступні лише мовами: UA">RU</span>
+                        <a href="/ru/about/" hreflang="ru" data-lang="ru" class="lang-btn px-1.5 py-0.5 cursor-pointer">RU</a>
                         <span class="text-garden-700">|</span>
-                        <a href="/uk/articles/" hreflang="uk" data-lang="uk" class="lang-btn active px-1.5 py-0.5 cursor-pointer" aria-current="page">UA</a>
+                        <a href="/uk/about/" hreflang="uk" data-lang="uk" class="lang-btn active px-1.5 py-0.5 cursor-pointer" aria-current="page">UA</a>
                     </div>
 
                     <a href="https://github.com/BibleGarden/" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition-colors cursor-pointer" aria-label="GitHub">
@@ -111,13 +129,35 @@
     </nav>
 
     <main class="pt-16">
-    <section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="section-leaf mb-6"></div>
-        <h1 class="font-serif text-3xl sm:text-4xl font-bold text-white text-center mb-4">Статті</h1>
-        <p class="text-gray-400 text-center mb-12">Як читати та слухати Біблію: з чого почати, плани читання, переклади та читання кількома мовами.</p>
+    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
+            <ol class="flex flex-wrap items-center gap-2">
+                <li><a href="/uk/" class="hover:text-gray-300 transition-colors">Головна</a></li>
+                <li aria-hidden="true">›</li>
+                <li class="text-gray-400" aria-current="page">Як ми пишемо</li>
+            </ol>
+        </nav>
 
-        <p class="text-center text-gray-500">Статті незабаром з&#39;являться.</p>
-    </section>
+        <header class="mb-10">
+            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">Як ми пишемо</h1>
+            <p class="text-lg text-gray-400 leading-relaxed">Хто стоїть за Bible Garden, як готуються статті сайту, звідки цитати і як повідомити нам про помилку.</p>
+        </header>
+
+        <div class="article-body">
+<h2 id="хто-за-проєктом">Хто за проєктом</h2>
+<p>Bible Garden — безкоштовний застосунок із відкритим кодом для читання і слухання Біблії кількома мовами. Проєкт створила і веде Марія Новікова. Статті на сайті підписані «Команда Bible Garden».</p>
+<h2 id="як-готуються-статті">Як готуються статті</h2>
+<p>Статті ми готуємо за допомогою ШІ: він допомагає зібрати матеріал і написати чернетку. Перед публікацією кожну статтю вичитує і затверджує людина — Марія Новікова.</p>
+<p>Українська, англійська і російська версії статті — не переклади одна одної. У кожній свої переклади Біблії, диктори і приклади, зрозумілі читачеві цією мовою.</p>
+<h2 id="цитати-і-факти">Цитати і факти</h2>
+<ul>
+<li>Цитати з Біблії беремо з перекладів, які є в застосунку, і для кожної цитати вказуємо переклад: українською — переклад Хоменка і Новий переклад українською (НПУ), англійською — BSB і WEB, російською — Синодальний і переклад Кулакових.</li>
+<li>Про застосунок пишемо лише те, що в ньому вже є. Якщо якоїсь функції немає, так і кажемо.</li>
+</ul>
+<h2 id="знайшли-помилку">Знайшли помилку?</h2>
+<p>Напишіть нам у <a href="https://github.com/BibleGarden/Site/issues">GitHub Issues</a> або в <a href="https://t.me/Mandarinka4">Телеграм</a>. Ми виправимо статтю і вкажемо в ній дату оновлення.</p>
+        </div>
+    </article>
     </main>
 
     <footer class="py-10 border-t border-garden-800/50">

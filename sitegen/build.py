@@ -11,7 +11,7 @@ from xml.sax.saxutils import escape
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markupsafe import Markup, escape as html_escape
 
-from .content import Article, Site, load_articles, load_site, owned_dirs
+from .content import Article, Site, StaticPage, load_articles, load_pages, load_site, owned_dirs
 from .errors import BuildError
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -97,8 +97,31 @@ class SiteBuilder:
     def __init__(self, content_dir: Path) -> None:
         self.site = load_site(content_dir, REPO_ROOT)
         self.articles = load_articles(self.site, content_dir)
+        self.pages = load_pages(self.site, content_dir)
         self.env = make_environment(content_dir.name)
         self.written: list[Path] = []
+        self.check_author_page(content_dir)
+        self.check_page_dirs()
+
+    def check_page_dirs(self) -> None:
+        """Pages of the default language live in the output directory next to hand-written files (img/, css/,
+        privacy/); the build deletes and rewrites a page directory, so it may hold nothing but index.html."""
+        for slug in self.pages:
+            directory = self.site.output_dir / slug
+            if directory.exists():
+                foreign = sorted(path.name for path in directory.iterdir() if path.name != "index.html")
+                if foreign:
+                    raise BuildError(f"{directory}: page {slug} would replace a directory with other files: {', '.join(foreign)}")
+
+    def check_author_page(self, content_dir: Path) -> None:
+        """The author link must reach a page in every language: the landing page or a page from pages/."""
+        page = self.site.author.page
+        if not page:
+            return
+        slug = page.rstrip("/")
+        missing = [lang for lang in self.site.languages if lang not in self.pages.get(slug, {})]
+        if missing:
+            raise BuildError(f"{content_dir / 'site.yaml'}: author.page {page} needs content/{self.site.key}/pages/{slug}/<lang>.md for {', '.join(missing)}")
 
     # --- helpers -----------------------------------------------------------------
 
@@ -157,6 +180,11 @@ class SiteBuilder:
         ]
         return {"items": items, "hint": hint}
 
+    def page_alternates(self, slug: str) -> dict[str, str]:
+        """Absolute URLs of the language versions of a standalone page."""
+        versions = self.pages[slug]
+        return {lang: self.site.url(lang, versions[lang].path) for lang in self.site.languages if lang in versions}
+
     def article_versions(self, slug: str) -> dict[str, str]:
         """Absolute URLs of every language version of an article, drafts included (for proofreading drafts)."""
         versions = self.articles[slug]
@@ -176,6 +204,9 @@ class SiteBuilder:
             for slug in self.articles:
                 if lang in self.articles[slug]:
                     self.build_article(slug, lang)
+            for slug in self.pages:
+                if lang in self.pages[slug]:
+                    self.build_page(slug, lang)
         self.build_not_found()
         self.build_robots()
         self.build_sitemap()
@@ -185,6 +216,10 @@ class SiteBuilder:
     def clean(self) -> None:
         """Remove every directory the generator owns so deleted content disappears from the output."""
         for directory in owned_dirs(self.site.output_dir, self.site.languages, self.site.default_language):
+            if directory.exists():
+                shutil.rmtree(directory)
+        for slug in self.pages:
+            directory = self.site.output_dir / slug
             if directory.exists():
                 shutil.rmtree(directory)
 
@@ -264,7 +299,7 @@ class SiteBuilder:
                 "inLanguage": article.lang,
                 "datePublished": article.date.isoformat(),
                 "dateModified": (article.updated or article.date).isoformat(),
-                "author": {"@type": "Person", "name": article.author},
+                "author": self.site.author.json_ld(self.site, article.lang),
                 "publisher": {
                     "@type": "Organization",
                     "name": self.site.name,
@@ -297,6 +332,41 @@ class SiteBuilder:
                     ],
                 }
             )
+        return data
+
+    def build_page(self, slug: str, lang: str) -> None:
+        static = self.pages[slug][lang]
+        page = Page(
+            lang=lang,
+            default_language=self.site.default_language,
+            title=f"{static.title} — {self.site.name}",
+            description=static.description,
+            alternates=self.page_alternates(slug),
+            image=self.absolute(self.site.config["logo"]),
+        )
+        self.render(
+            "page.html",
+            self.output_path(lang, f"{static.path}index.html"),
+            lang,
+            page=page,
+            static=static,
+            json_ld=[self.page_json_ld(static, page)],
+            switcher=self.switcher(lang, page.alternates, "only_in"),
+        )
+
+    def page_json_ld(self, static: StaticPage, page: Page) -> dict:
+        """AboutPage for the author's page (what the article bylines link to), WebPage otherwise."""
+        is_author_page = static.path == self.site.author.page
+        data = {
+            "@context": "https://schema.org",
+            "@type": "AboutPage" if is_author_page else "WebPage",
+            "name": static.title,
+            "description": static.description,
+            "url": page.canonical,
+            "inLanguage": static.lang,
+        }
+        if is_author_page:
+            data["mainEntity"] = self.site.author.json_ld(self.site, static.lang)
         return data
 
     def build_not_found(self) -> None:
@@ -334,6 +404,10 @@ class SiteBuilder:
         index = self.index_alternates()
         for lang in index:
             entries.append((index[lang], index, None))
+        for slug in self.pages:
+            alternates = self.page_alternates(slug)
+            for lang, url in alternates.items():
+                entries.append((url, alternates, None))
         for slug in self.articles:
             alternates = self.article_alternates(slug)
             for lang, url in alternates.items():
@@ -365,6 +439,10 @@ class SiteBuilder:
         for lang in self.site.languages:
             meta = self.t(lang)["meta"]
             lines.append(f"- [{meta['title']}]({self.site.url(lang)}): {meta['language_name']}")
+            for versions in self.pages.values():
+                if lang in versions:
+                    static = versions[lang]
+                    lines.append(f"- [{static.title}]({self.site.url(lang, static.path)}): {static.description}")
         for lang in self.site.languages:
             articles = self.published(lang)
             if not articles:

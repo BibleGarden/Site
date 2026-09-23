@@ -20,7 +20,7 @@
                 <h1 class="article-title">{{ article.title }}</h1>
                 <p class="article-lead">{{ article.description }}</p>
                 <p class="article-meta">
-                    {{ t.articles.by }} {{ article.author }} · {{ t.articles.published }} <time datetime="{{ article.date.isoformat() }}">{{ article.date.isoformat() }}</time>
+                    {{ t.articles.by }} <a href="{{ site.href(lang, site.author.page) }}">{{ site.author.name[lang] }}</a> · {{ t.articles.published }} <time datetime="{{ article.date.isoformat() }}">{{ article.date.isoformat() }}</time>
                     {% if article.updated %}
                     · {{ t.articles.updated }} <time datetime="{{ article.updated.isoformat() }}">{{ article.updated.isoformat() }}</time>
                     {% endif %}
