@@ -10,3 +10,5 @@ asset_version: "20260923-switcher"
 support_url: /support
 privacy_url: /privacy
 bible_garden_url: https://bible.garden
+# Umami at stats.bible.garden: `none`, or {script_url, website_id}. See README, "Analytics".
+analytics: none
