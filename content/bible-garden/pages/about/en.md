@@ -9,7 +9,7 @@ Bible Garden is a free, open-source app for reading and listening to the Bible i
 
 ## How the articles are prepared
 
-We prepare the articles with the help of AI: it helps gather material and write a draft. Before publication, a person — Maria Novikova — proofreads and approves every article.
+We prepare the articles with the help of AI: it helps gather material and write a draft. Before publication, Maria proofreads and approves every article.
 
 The English, Russian and Ukrainian versions of an article are not translations of each other. Each one uses the Bible translations, narrators and examples that make sense to a reader of that language.
 
