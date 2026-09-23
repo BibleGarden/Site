@@ -27,7 +27,11 @@ EXCLUDE = {
           r"printable|pdf|template|book|booklet|cards?|journal notebook|notebook|amazon|etsy|gift|"
           r"wallpaper|quotes|images?|pictures?|tattoo|coloring|kids|children|"
           r"lyrics|song|hymn|worship music|instrumental|"
-          r"shower|hands|kneel|posture|clothing|tongues)\b",
+          r"shower|hands|kneel|posture|clothing|tongues|"
+          r"night prayer|morning prayer|evening prayer|bedtime|sleep|ibreviary|"
+          r"bible verses for anxiety|scripture for anxiety|bible verses about prayer|praying scripture for healing|"
+          r"prayer timer|meditation timer|"
+          r"^gratitude (?:journal|journaling)$)\b",
     "ru": r"(молитв[аыуе]? (?:о|за|об|от|на|перед|после|при|к|в день|ангелу|николаю|матрон|спиридон|божьей|богородиц|иисусова)|"
           r"здрави|усопш|умерш|самоубий|четк|икон|святым|святому|старц|оптинск|серафим|саровск|ангелу хранителю|"
           r"утренн|вечерн|на сон|сон грядущ|перед едой|после еды|о здравии|благодарност|"
