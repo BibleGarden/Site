@@ -17,6 +17,7 @@ FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---\n(.*)\Z", re.DOTALL)
 FAQ_HEADING_RE = re.compile(r"^## .*\{#faq\}\s*$")
 H2_RE = re.compile(r"^## ")
 H3_RE = re.compile(r"^### (.+?)\s*$")
+LANGUAGE_RE = re.compile(r"^[a-z]{2}$")
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
 REQUIRED_SITE_KEYS = ("name", "base_url", "output_dir", "languages", "default_language", "language_labels", "logo")
@@ -93,6 +94,9 @@ def load_site(content_dir: Path, repo_root: Path) -> Site:
     languages = tuple(config["languages"])
     if config["default_language"] not in languages:
         raise BuildError(f"{config_path}: default_language is not listed in languages")
+    for lang in languages:
+        if not isinstance(lang, str) or not LANGUAGE_RE.match(lang):
+            raise BuildError(f"{config_path}: language codes must be two lowercase letters, got {lang!r}")
     if set(config["language_labels"]) != set(languages):
         raise BuildError(f"{config_path}: language_labels must define a label for every language and nothing else")
     output_dir = _output_dir(config["output_dir"], repo_root, config_path)
@@ -127,16 +131,19 @@ def _output_dir(value: object, repo_root: Path, config_path: Path) -> Path:
 
 
 def owned_dirs(output_dir: Path, languages: tuple[str, ...], default_language: str) -> list[Path]:
-    """Directories the build deletes and recreates: articles/ and the non-default language roots."""
-    return [output_dir / "articles"] + [output_dir / lang for lang in languages if lang != default_language]
+    """Directories the build deletes and recreates, normalised: articles/ and the non-default language roots."""
+    return [(output_dir / name).resolve() for name in ["articles", *(lang for lang in languages if lang != default_language)]]
 
 
 def _check_owned_dirs(output_dir: Path, languages: tuple[str, ...], default_language: str, repo_root: Path, config_path: Path) -> None:
-    protected = [(repo_root / name).resolve() for name in SOURCE_DIRS]
+    root = repo_root.resolve()
+    protected = [root / name for name in SOURCE_DIRS]
     for owned in owned_dirs(output_dir, languages, default_language):
+        if owned == root or not owned.is_relative_to(root):
+            raise BuildError(f"{config_path}: the build would delete {owned}, which is not a directory inside the repository")
         for source in protected:
             if owned.is_relative_to(source) or source.is_relative_to(owned):
-                raise BuildError(f"{config_path}: output_dir would let the build delete {owned}, which overlaps the sources in {source}")
+                raise BuildError(f"{config_path}: the build would delete {owned}, which overlaps the sources in {source}")
 
 
 def _check_same_keys(reference: dict, candidate: dict, path: str, prefix: str) -> None:

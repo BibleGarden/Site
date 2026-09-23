@@ -112,13 +112,20 @@ def check_hreflang(pages: dict[Path, str], sites: list[Site]) -> int:
 
     info: dict[Path, tuple[str | None, bool, str | None, dict[str, str]]] = {}
     for path, html in pages.items():
-        canonical = CANONICAL_RE.search(html)
+        canonicals = CANONICAL_RE.findall(html)
+        if len(canonicals) > 1:
+            raise BuildError(f"{path}: more than one canonical link")
+        tags = HREFLANG_RE.findall(html)
+        codes = [code for code, _ in tags]
+        duplicates = sorted({code for code in codes if codes.count(code) > 1})
+        if duplicates:
+            raise BuildError(f"{path}: duplicate hreflang for {', '.join(duplicates)}")
         html_lang = HTML_LANG_RE.search(html)
         info[path.resolve()] = (
-            canonical.group(1) if canonical else None,
+            canonicals[0] if canonicals else None,
             bool(NOINDEX_RE.search(html)),
             html_lang.group(1) if html_lang else None,
-            dict(HREFLANG_RE.findall(html)),
+            dict(tags),
         )
 
     links = 0
@@ -131,6 +138,11 @@ def check_hreflang(pages: dict[Path, str], sites: list[Site]) -> int:
             continue
         if canonical is None:
             raise BuildError(f"{path}: indexable page has no canonical link")
+        expected = {version for version in language_versions(path, sites) if not info[version][1]}
+        linked = {resolve(path, url, f"hreflang {code}") for code, url in alternates.items() if code != "x-default"}
+        if len(expected) > 1 and linked != expected:
+            missing = sorted(str(version) for version in expected - linked)
+            raise BuildError(f"{path}: hreflang must list every indexable language version; missing or extra: {missing or sorted(map(str, linked - expected))}")
         if not alternates:
             continue
         versions = {code: url for code, url in alternates.items() if code != "x-default"}
@@ -152,6 +164,24 @@ def check_hreflang(pages: dict[Path, str], sites: list[Site]) -> int:
                 raise BuildError(f"{path}: hreflang set differs from the one on {url}")
             links += 1
     return links
+
+
+def language_versions(path: Path, sites: list[Site]) -> set[Path]:
+    """Files that are the same page under every language prefix of its site, found on disk.
+
+    The page's language comes from its first path segment (a non-default language) or is the
+    default one; the same remaining path under each other prefix is a version if it exists.
+    """
+    site = owner_site(path, sites)
+    parts = path.relative_to(site.output_dir).parts
+    prefixed = [lang for lang in site.languages if lang != site.default_language]
+    rest = parts[1:] if parts[0] in prefixed else parts
+    versions = set()
+    for lang in site.languages:
+        candidate = site.output_dir.joinpath(*([] if lang == site.default_language else [lang]), *rest)
+        if candidate.is_file():
+            versions.add(candidate.resolve())
+    return versions
 
 
 def check_internal_links(pages: dict[Path, str], owners: dict[Path, Site]) -> None:

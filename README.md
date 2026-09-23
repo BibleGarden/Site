@@ -44,7 +44,8 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 The build is deterministic: it embeds no timestamps, so running it twice
 produces identical files. CI (`.github/workflows/build.yml`) rebuilds the site
 on every pull request and fails when the committed HTML differs from the build
-output, when an indexable page lacks a `canonical` resolving to itself, when a
+output, when an indexable page lacks a single `canonical` resolving to itself,
+when another language version of the page exists on disk but is not linked, when a
 page's `hreflang` set is incomplete (every published version, itself and
 `x-default`), differs between versions, or points at a page with another
 `<html lang>`, another canonical or `noindex`,
