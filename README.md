@@ -28,7 +28,9 @@ Generated output (do not edit by hand): `index.html`, `ru/`, `uk/`,
 `articles/`, `404.html`, `robots.txt`, `sitemap.xml`, `llms.txt` at the
 repository root and the same set under `lampada/`. The generator deletes and
 recreates `articles/`, `ru/` and `uk/` of each site on every build, so a
-removed article disappears from the output.
+removed article disappears from the output; `output_dir` in `site.yaml` must
+therefore be a relative path inside the repository. Every site needs a
+`content/<site>/articles/` directory, even an empty one.
 
 ## Build
 
@@ -41,7 +43,8 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 The build is deterministic: it embeds no timestamps, so running it twice
 produces identical files. CI (`.github/workflows/build.yml`) rebuilds the site
 on every pull request and fails when the committed HTML differs from the build
-output, when a JSON-LD block lacks a required field (`Article`: headline,
+output, when a `canonical` or `hreflang` URL has no generated file behind it,
+when a JSON-LD block lacks a required field (`Article`: headline,
 image, dates, author; `BreadcrumbList`: items; `FAQPage`: questions with
 answers) or when a `hreflang` link points at a `noindex` page. Commit the
 regenerated files together with the content change.
@@ -68,7 +71,8 @@ the App Store and existing search results point at, and crawlers without
 JavaScript must see content there. A small inline script on every generated
 page handles the language choice client-side:
 
-- `?lang=ru|uk|ua` on any page redirects to the language URL (`ua` is an
+- `?lang=ru|uk|ua` on a landing page (the only pages such legacy links
+  point at) redirects to the language URL (`ua` is an
   alias of `uk`) and records the choice;
 - on the English landing page only, a language recorded earlier wins;
   otherwise a browser whose `navigator.languages` prefers `ru` or `uk` is sent
@@ -124,8 +128,8 @@ links to the other site. `sitegen check` rejects an `<a href>` to the page's
 own domain.
 
 The body is Markdown (`extra` and `toc` extensions: tables, footnotes,
-fenced code, heading anchors). Headings inside fenced code blocks are ignored
-by the FAQ parser. Links inside the site are root-relative
+fenced code, heading anchors). Headings inside ``` or ~~~ fenced code blocks
+are ignored by the FAQ parser. Links inside the site are root-relative
 (`/ru/articles/other-slug/`).
 
 ### FAQ block

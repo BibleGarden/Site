@@ -102,12 +102,25 @@ def load_site(content_dir: Path, repo_root: Path) -> Site:
         key=content_dir.name,
         name=config["name"],
         base_url=config["base_url"].rstrip("/"),
-        output_dir=(repo_root / config["output_dir"]).resolve(),
+        output_dir=_output_dir(config["output_dir"], repo_root, config_path),
         languages=languages,
         default_language=config["default_language"],
         config=config,
         i18n=i18n,
     )
+
+
+def _output_dir(value: object, repo_root: Path, config_path: Path) -> Path:
+    """Resolve output_dir: a relative path inside the repository (the build deletes directories under it)."""
+    if not isinstance(value, str) or not value:
+        raise BuildError(f"{config_path}: output_dir must be a non-empty relative path")
+    relative = Path(value)
+    if relative.is_absolute() or ".." in relative.parts:
+        raise BuildError(f"{config_path}: output_dir must be relative to the repository root without '..': {value}")
+    resolved = (repo_root / relative).resolve()
+    if not resolved.is_relative_to(repo_root.resolve()):
+        raise BuildError(f"{config_path}: output_dir resolves outside the repository: {resolved}")
+    return resolved
 
 
 def _check_same_keys(reference: dict, candidate: dict, path: str, prefix: str) -> None:
@@ -131,9 +144,11 @@ def load_articles(site: Site, content_dir: Path) -> dict[str, dict[str, Article]
     """Return {slug: {lang: Article}} for every article directory of the site."""
     articles_dir = content_dir / "articles"
     result: dict[str, dict[str, Article]] = {}
-    if not articles_dir.exists():
-        return result
+    if not articles_dir.is_dir():
+        raise BuildError(f"{articles_dir}: missing articles directory (keep it, even if empty, with a .gitkeep)")
     for slug_dir in sorted(articles_dir.iterdir()):
+        if slug_dir.name == ".gitkeep":
+            continue
         if not slug_dir.is_dir():
             raise BuildError(f"{slug_dir}: only <slug>/ directories are allowed under articles/")
         if not SLUG_RE.match(slug_dir.name):
@@ -249,13 +264,17 @@ def extract_faq(body: str, source: Path) -> tuple[FaqItem, ...]:
 
 
 def _fenced_flags(lines: list[str]) -> list[bool]:
-    """Whether each line sits inside a ``` fenced code block (fence lines count as inside)."""
+    """Whether each line sits inside a ``` or ~~~ fenced code block (fence lines count as inside)."""
     flags: list[bool] = []
-    fenced = False
+    fence: str | None = None
     for line in lines:
-        if line.startswith("```"):
-            fenced = not fenced
+        marker = line.lstrip()[:3]
+        if fence is None and marker in ("```", "~~~"):
+            fence = marker
+            flags.append(True)
+        elif fence is not None and marker == fence:
+            fence = None
             flags.append(True)
         else:
-            flags.append(fenced)
+            flags.append(fence is not None)
     return flags
