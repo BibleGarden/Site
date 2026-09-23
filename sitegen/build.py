@@ -17,6 +17,8 @@ from .errors import BuildError
 REPO_ROOT = Path(__file__).resolve().parent.parent
 CONTENT_DIR = REPO_ROOT / "content"
 TEMPLATES_DIR = REPO_ROOT / "templates"
+# Every generated page carries this tag; the build deletes a page directory only when its index.html has it.
+GENERATOR_META = '<meta name="generator" content="sitegen">'
 
 
 @dataclass(frozen=True)
@@ -73,7 +75,17 @@ def make_environment(site_key: str) -> Environment:
     )
     env.filters["nl2br"] = nl2br
     env.filters["jsonld"] = jsonld
+    env.globals["generator_meta"] = Markup(GENERATOR_META)
     return env
+
+
+def is_generated_page_dir(directory: Path) -> bool:
+    """A directory holding only an index.html that sitegen wrote (it carries GENERATOR_META)."""
+    if not directory.is_dir() or directory.is_symlink():
+        return False
+    entries = list(directory.iterdir())
+    index = directory / "index.html"
+    return entries == [index] and index.is_file() and GENERATOR_META in index.read_text(encoding="utf-8")
 
 
 def discover_sites() -> list[Path]:
@@ -105,13 +117,11 @@ class SiteBuilder:
 
     def check_page_dirs(self) -> None:
         """Pages of the default language live in the output directory next to hand-written files (img/, css/,
-        privacy/); the build deletes and rewrites a page directory, so it may hold nothing but index.html."""
+        privacy/); a page may only take a free slug or the directory of a page generated earlier."""
         for slug in self.pages:
             directory = self.site.output_dir / slug
-            if directory.exists():
-                foreign = sorted(path.name for path in directory.iterdir() if path.name != "index.html")
-                if foreign:
-                    raise BuildError(f"{directory}: page {slug} would replace a directory with other files: {', '.join(foreign)}")
+            if directory.exists() and not is_generated_page_dir(directory):
+                raise BuildError(f"{directory}: page {slug} collides with a directory that sitegen did not generate")
 
     def check_author_page(self, content_dir: Path) -> None:
         """The author link must reach a page in every language: the landing page or a page from pages/."""
@@ -218,9 +228,10 @@ class SiteBuilder:
         for directory in owned_dirs(self.site.output_dir, self.site.languages, self.site.default_language):
             if directory.exists():
                 shutil.rmtree(directory)
-        for slug in self.pages:
-            directory = self.site.output_dir / slug
-            if directory.exists():
+        # Default-language page directories, current and removed ones: only index.html, marked as generated.
+        owned = set(owned_dirs(self.site.output_dir, self.site.languages, self.site.default_language))
+        for directory in sorted(self.site.output_dir.iterdir()):
+            if directory.resolve() not in owned and is_generated_page_dir(directory):
                 shutil.rmtree(directory)
 
     def build_landing(self, lang: str) -> None:

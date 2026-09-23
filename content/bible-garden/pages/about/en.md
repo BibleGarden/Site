@@ -15,7 +15,7 @@ The English, Russian and Ukrainian versions of an article are not translations o
 
 ## Quotes and facts
 
-- Bible quotes come from translations available in the app, and every quote names its translation: in English — the Berean Standard Bible (BSB) and the World English Bible (WEB); in Russian — the Synodal translation and the Kulakov translation; in Ukrainian — the Khomenko translation and the New Ukrainian Translation (NPU).
+- Bible quotes come from translations available in the app, and every quote names its translation: in English — the Berean Standard Bible (BSB) and the World English Bible (WEB); in Russian — the Synodal translation and the Kulakov translation; in Ukrainian — the Khomenko translation and the New Ukrainian Translation (NPU). When an article quotes a translation the app does not have (for example, the KJV for comparison), we name it and say that it is not in the app.
 - We describe only what the app already does. If a feature is missing, we say so.
 
 ## Found a mistake?

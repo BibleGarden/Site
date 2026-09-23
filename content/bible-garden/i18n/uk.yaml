@@ -65,6 +65,7 @@ landing:
   footer:
     copyright: "Проект з відкритим кодом під ліцензією AGPL. Усі права належать Богу."
     privacy: Політика конфіденційності
+    about: Як ми пишемо
 articles:
   section_title: Статті
   index_title: "Статті — Bible Garden"

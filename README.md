@@ -29,8 +29,11 @@ Generated output (do not edit by hand): `index.html`, `ru/`, `uk/`,
 `articles/`, one directory per page (`about/`), `404.html`, `robots.txt`, `sitemap.xml`, `llms.txt` at the
 repository root and the same set under `lampada/`. The generator deletes and
 recreates `articles/`, `ru/`, `uk/` and the page directories of each site on
-every build, so a removed article disappears from the output (a removed page
-leaves its default-language directory behind: delete it by hand); `output_dir` in `site.yaml` must
+every build, so a removed article or page disappears from the output. Every
+generated page carries `<meta name="generator" content="sitegen">`; a
+directory in the output root counts as a page directory (and is deleted
+before the build) only when it holds nothing but an `index.html` with that
+tag, so hand-written pages are never touched. `output_dir` in `site.yaml` must
 therefore be a relative path inside the repository, and those directories
 must not overlap `content/`, `templates/`, `sitegen/`, `.git/` or `.github/`. Every site needs a
 `content/<site>/articles/` directory, even an empty one.
@@ -184,6 +187,10 @@ every language, otherwise the build stops. bible.garden links to "How we
 write" (`/about/`); lampada.app has no such page yet and links to its landing
 page.
 
+On bible.garden the footer of every page links to "How we write" next to the
+privacy policy (string `landing.footer.about`); the hand-written
+`privacy.html` carries the same link and sets its language URL in `setLang`.
+
 ## Pages
 
 `content/<site>/pages/<slug>/<lang>.md` builds `/<slug>/`, `/ru/<slug>/`,
@@ -192,9 +199,9 @@ and `description`; the body is Markdown as in articles. Pages get canonical,
 `hreflang`, the language switcher, a sitemap entry and a line in `llms.txt`.
 The author's page carries `AboutPage` JSON-LD with the author `Organization`
 as `mainEntity`; any other page carries `WebPage`. A slug must not be
-`articles` or a language code, and the build refuses a page whose
-default-language directory already holds anything but `index.html`, so a page
-cannot overwrite `img/` or a hand-written page.
+`articles` or a language code, and the build stops when a page's slug matches
+a directory sitegen did not generate (`img/`, `lampada/privacy/`), so a page
+cannot overwrite a hand-written one.
 
 ## App Store links
 
