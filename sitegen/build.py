@@ -128,6 +128,19 @@ class SiteBuilder:
         versions = self.articles[slug]
         return {lang: self.site.url(lang, versions[lang].path) for lang in self.site.languages if lang in versions and not versions[lang].draft}
 
+    def switcher(self, lang: str, versions: dict[str, str], hint_key: str) -> dict:
+        """Language switcher of an article or index page: every site language, a link where a version exists."""
+        labels = self.site.config["language_labels"]
+        available = [code for code in self.site.languages if code in versions]
+        hint = self.t(lang)["articles"][hint_key].format(languages=", ".join(labels[code] for code in available))
+        items = [{"code": code, "label": labels[code], "href": versions.get(code), "active": code == lang} for code in self.site.languages]
+        return {"items": items, "hint": hint}
+
+    def article_versions(self, slug: str) -> dict[str, str]:
+        """Absolute URLs of every language version of an article, drafts included (for proofreading drafts)."""
+        versions = self.articles[slug]
+        return {lang: self.site.url(lang, versions[lang].path) for lang in self.site.languages if lang in versions}
+
     def index_alternates(self) -> dict[str, str]:
         """Absolute URLs of the article index in every language that has published articles."""
         return {lang: self.site.url(lang, "articles/") for lang in self.site.languages if self.published(lang)}
@@ -178,7 +191,14 @@ class SiteBuilder:
             image=self.absolute(self.site.config["logo"]),
             noindex=not articles,
         )
-        self.render("articles.html", self.output_path(lang, "articles/index.html"), lang, page=page, articles=list(reversed(articles)))
+        self.render(
+            "articles.html",
+            self.output_path(lang, "articles/index.html"),
+            lang,
+            page=page,
+            articles=list(reversed(articles)),
+            switcher=self.switcher(lang, {**self.index_alternates(), lang: self.site.url(lang, "articles/")}, "index_only_in"),
+        )
 
     def build_article(self, slug: str, lang: str) -> None:
         article = self.articles[slug][lang]
@@ -206,6 +226,7 @@ class SiteBuilder:
             previous=previous,
             following=following,
             json_ld=self.article_json_ld(article, page),
+            switcher=self.switcher(lang, self.article_versions(slug) if article.draft else page.alternates, "only_in"),
         )
 
     def article_json_ld(self, article: Article, page: Page) -> list[dict]:

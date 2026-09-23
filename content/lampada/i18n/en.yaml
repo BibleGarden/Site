@@ -43,6 +43,8 @@ articles:
   index_title: "Articles — Lampada"
   index_description: "Notes on personal prayer: how to pray, keep a prayer journal, and return to what mattered."
   empty: "Articles are on their way."
+  only_in: "This article is available only in: {languages}"
+  index_only_in: "Articles are available only in: {languages}"
   breadcrumb_home: Home
   published: Published
   updated: Updated

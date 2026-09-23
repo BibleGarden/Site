@@ -34,13 +34,17 @@
                     <a href="/{{ site.language_prefix(lang) }}articles/" class="hidden sm:inline text-sm text-gray-400 hover:text-white transition-colors">{{ t.articles.section_title }}</a>
                     {% endif %}
 
-                    {% if page.alternates | length > 1 %}
+                    {% if switcher is defined %}
                     <div class="flex items-center gap-1 text-sm text-gray-500">
-                        {% for code, label in [("en", "EN"), ("ru", "RU"), ("uk", "UA")] if code in page.alternates %}
+                        {% for item in switcher["items"] %}
                         {% if not loop.first %}
                         <span class="text-garden-700">|</span>
                         {% endif %}
-                        <a href="{{ page.alternates[code] }}" hreflang="{{ code }}" data-lang="{{ code }}" class="lang-btn{% if code == lang %} active{% endif %} px-1.5 py-0.5 cursor-pointer">{{ label }}</a>
+                        {% if item.href %}
+                        <a href="{{ item.href }}" hreflang="{{ item.code }}" data-lang="{{ item.code }}" class="lang-btn{% if item.active %} active{% endif %} px-1.5 py-0.5 cursor-pointer"{% if item.active %} aria-current="page"{% endif %}>{{ item.label }}</a>
+                        {% else %}
+                        <span class="lang-unavailable px-1.5 py-0.5" aria-disabled="true" title="{{ switcher.hint }}">{{ item.label }}</span>
+                        {% endif %}
                         {% endfor %}
                     </div>
                     {% endif %}

@@ -3,6 +3,7 @@ base_url: https://bible.garden
 output_dir: .
 languages: [en, ru, uk]
 default_language: en
+language_labels: {en: EN, ru: RU, uk: UA}
 logo: /img/logo.png
 storage_key: bg-lang
 app_store_url: https://apps.apple.com/app/bible-garden/id6758955373

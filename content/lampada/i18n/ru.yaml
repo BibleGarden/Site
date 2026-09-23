@@ -43,6 +43,8 @@ articles:
   index_title: "Статьи — Lampada"
   index_description: "Заметки о личной молитве: как молиться, вести молитвенный дневник и возвращаться к главному."
   empty: "Статьи скоро появятся."
+  only_in: "Статья доступна только на: {languages}"
+  index_only_in: "Статьи доступны только на: {languages}"
   breadcrumb_home: Главная
   published: Опубликовано
   updated: Обновлено

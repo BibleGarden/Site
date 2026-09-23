@@ -14,7 +14,7 @@ Domains:
 
 | Path | Role |
 |---|---|
-| `content/<site>/site.yaml` | site name, base URL, output directory, languages, app links |
+| `content/<site>/site.yaml` | site name, base URL, output directory, languages and their switcher labels, app links |
 | `content/<site>/i18n/<lang>.yaml` | every visible string of the landing page, article chrome and 404 page |
 | `content/<site>/articles/<slug>/<lang>.md` | article sources |
 | `templates/<site>/` | Jinja2 templates: `landing.html`, `base.html`, `article.html`, `articles.html`, `404.html` |
@@ -73,6 +73,10 @@ page handles the language choice client-side:
 - on the English landing page only, a language recorded earlier wins;
   otherwise a browser whose `navigator.languages` prefers `ru` or `uk` is sent
   to `/ru/` or `/uk/`. English-first browsers (and crawlers) stay on `/`;
+- on article and article-index pages the switcher always lists every site
+  language: an existing version is a link (for a draft, other drafts count),
+  a missing one is a greyed-out, non-clickable label whose tooltip lists the
+  available languages; `hreflang` still lists only published versions;
 - clicking the language switcher records the choice in `localStorage`
   (`storage_key` in `site.yaml`), so a visitor who picked English on `/ru/`
   is not redirected from `/` again.

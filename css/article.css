@@ -125,3 +125,9 @@
     margin: 3em auto;
     width: 180px;
 }
+
+/* Language switcher: a language without this page is shown but not linked. */
+.lang-unavailable {
+    color: #2e4a38;
+    cursor: default;
+}

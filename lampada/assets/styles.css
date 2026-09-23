@@ -145,6 +145,16 @@ a {
     cursor: pointer;
 }
 
+.language-switcher span[aria-disabled="true"] {
+    min-width: 36px;
+    padding: 6px 9px;
+    color: #4a4036;
+    font: 600 11px/1 Inter, sans-serif;
+    letter-spacing: 0.08em;
+    text-align: center;
+    cursor: default;
+}
+
 .language-switcher button.is-active,
 .language-switcher a.is-active {
     color: #231405;

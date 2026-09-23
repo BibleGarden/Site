@@ -43,6 +43,8 @@ articles:
   index_title: "Статті — Lampada"
   index_description: "Нотатки про особисту молитву: як молитися, вести молитовний щоденник і повертатися до головного."
   empty: "Статті незабаром з’являться."
+  only_in: "Стаття доступна лише мовами: {languages}"
+  index_only_in: "Статті доступні лише мовами: {languages}"
   breadcrumb_home: Головна
   published: Опубліковано
   updated: Оновлено

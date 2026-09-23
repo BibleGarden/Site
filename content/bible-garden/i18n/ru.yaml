@@ -70,6 +70,8 @@ articles:
   index_title: "Статьи — Bible Garden"
   index_description: "Как читать и слушать Библию: с чего начать, планы чтения, переводы и чтение на нескольких языках."
   empty: "Статьи скоро появятся."
+  only_in: "Статья доступна только на: {languages}"
+  index_only_in: "Статьи доступны только на: {languages}"
   breadcrumb_home: Главная
   published: Опубликовано
   updated: Обновлено

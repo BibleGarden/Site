@@ -70,6 +70,8 @@ articles:
   index_title: "Articles — Bible Garden"
   index_description: "Guides on reading and listening to the Bible: where to start, reading plans, translations and multilingual reading."
   empty: "Articles are on their way."
+  only_in: "This article is available only in: {languages}"
+  index_only_in: "Articles are available only in: {languages}"
   breadcrumb_home: Home
   published: Published
   updated: Updated

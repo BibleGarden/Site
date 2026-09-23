@@ -19,7 +19,7 @@ H2_RE = re.compile(r"^## ")
 H3_RE = re.compile(r"^### (.+?)\s*$")
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
-REQUIRED_SITE_KEYS = ("name", "base_url", "output_dir", "languages", "default_language", "logo")
+REQUIRED_SITE_KEYS = ("name", "base_url", "output_dir", "languages", "default_language", "language_labels", "logo")
 REQUIRED_ARTICLE_KEYS = ("title", "description", "date", "author")
 OPTIONAL_ARTICLE_KEYS = ("updated", "draft", "image")
 MARKDOWN_EXTENSIONS = ["extra", "toc", "sane_lists"]
@@ -87,6 +87,8 @@ def load_site(content_dir: Path, repo_root: Path) -> Site:
     languages = tuple(config["languages"])
     if config["default_language"] not in languages:
         raise BuildError(f"{config_path}: default_language is not listed in languages")
+    if set(config["language_labels"]) != set(languages):
+        raise BuildError(f"{config_path}: language_labels must define a label for every language and nothing else")
     i18n = {lang: load_yaml(content_dir / "i18n" / f"{lang}.yaml") for lang in languages}
     reference = i18n[config["default_language"]]
     for lang in languages:
