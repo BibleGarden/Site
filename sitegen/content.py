@@ -43,10 +43,15 @@ class Analytics:
 
     @property
     def script_tag(self) -> Markup:
-        """The exact tag every page of the site carries; data-domains keeps local previews out of the stats."""
+        """The exact tag every page of the site carries.
+
+        data-domains keeps local previews out of the stats; data-exclude-search and
+        data-exclude-hash make the tracker drop query strings and fragments from the
+        page and referrer URLs before sending them, so Umami never stores them.
+        """
         return Markup(
             f'<script defer src="{escape(self.script_url)}" data-website-id="{escape(self.website_id)}"'
-            f' data-domains="{escape(self.domain)}"></script>'
+            f' data-domains="{escape(self.domain)}" data-exclude-search="true" data-exclude-hash="true"></script>'
         )
 
 

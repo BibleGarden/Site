@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
+from urllib.parse import urlsplit
 
 from .build import CONTENT_DIR, REPO_ROOT
 from .content import Site, load_site
@@ -17,7 +18,8 @@ HTML_LANG_RE = re.compile(r'<html lang="([^"]+)"')
 NOINDEX_RE = re.compile(r'<meta name="robots" content="noindex">')
 ANCHOR_HREF_RE = re.compile(r'<a\s[^>]*?href="([^"]+)"')
 ANCHOR_TAG_RE = re.compile(r"<a\s[^>]*>")
-TRACKER_RE = re.compile(r"<script\s[^>]*data-website-id=")
+SCRIPT_TAG_RE = re.compile(r"<script\b[^>]*>")
+SCRIPT_SRC_RE = re.compile(r'\ssrc="([^"]+)"')
 APP_STORE_PREFIX = "https://apps.apple.com/"
 APP_STORE_EVENT = 'data-umami-event="app-store-click"'
 SKIPPED_DIRS = {".git", "content", "templates", "sitegen", ".venv"}
@@ -198,12 +200,24 @@ def check_internal_links(pages: dict[Path, str], owners: dict[Path, Site]) -> No
                 raise BuildError(f"{path}: link to its own site must be root-relative: {href}")
 
 
+def is_tracker(tag: str, tracker_hosts: set[str]) -> bool:
+    """A <script> tag that loads Umami: a website ID, Umami's /script.js, or a src on a configured tracker host."""
+    if "data-website-id=" in tag:
+        return True
+    src = SCRIPT_SRC_RE.search(tag)
+    if not src:
+        return False
+    url = urlsplit(src.group(1))
+    return url.path.endswith("/script.js") or "umami" in src.group(1).lower() or url.hostname in tracker_hosts
+
+
 def check_analytics(pages: dict[Path, str], owners: dict[Path, Site]) -> None:
-    """Every page, hand-written ones included, carries its site's tracker exactly once, or none when analytics is 'none';
-    every App Store link reports the app-store-click event."""
+    """Every page, hand-written ones included, carries its site's tracker exactly once, or no tracker at all when
+    analytics is 'none'; every App Store link reports the app-store-click event."""
+    tracker_hosts = {urlsplit(site.analytics.script_url).hostname for site in owners.values() if site.analytics}
     for path, html in pages.items():
         analytics = owners[path].analytics
-        trackers = len(TRACKER_RE.findall(html))
+        trackers = sum(is_tracker(tag, tracker_hosts) for tag in SCRIPT_TAG_RE.findall(html))
         if analytics is None:
             if trackers:
                 raise BuildError(f"{path}: analytics is 'none' in site.yaml, but the page has a tracker script")

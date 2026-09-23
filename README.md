@@ -178,8 +178,9 @@ Lampada pages use root-absolute asset paths, so preview them from `lampada/`.
 
 ## Analytics
 
-Both sites count visits with Umami that runs on our production server at
-`stats.bible.garden` (deployment: `Deploy/runbook.md`, "Umami"). Every
+Visits can be counted with Umami running on our production server at
+`stats.bible.garden` (deployment: `Deploy/runbook.md`, "Umami"). Both sites
+have `analytics: none` until that rollout. Every
 `site.yaml` must set `analytics` explicitly; a missing key, an empty value or a
 malformed one stops the build:
 
@@ -192,16 +193,23 @@ analytics:                 # tracker on every page of this site
 ```
 
 With a mapping, every generated page gets one
-`<script defer src="…" data-website-id="…" data-domains="<site host>">` before
-`</head>`. `data-domains` is the host of `base_url`, so local previews send
-nothing. Links to the App Store carry `data-umami-event="app-store-click"`
+`<script defer src="…" data-website-id="…" data-domains="<site host>"
+data-exclude-search="true" data-exclude-hash="true">` before `</head>`.
+`data-domains` is the host of `base_url`, so local previews send nothing; the
+two `exclude` flags make the tracker drop query strings and fragments from the
+page and referrer URLs, so Umami never stores them. Links to the App Store carry `data-umami-event="app-store-click"`
 regardless of the setting; the attribute is inert without the tracker.
 
 `sitegen check` requires, on every HTML page of a site, hand-written pages
 included, exactly that tag when analytics is on and no tracker when it is
-`none`, and the event attribute on every App Store link.
+`none` (a `<script>` with `data-website-id`, a `/script.js` or `umami` source,
+or a source on another site's tracker host), and the event attribute on every App Store link.
 
 Turning analytics on for a site:
+
+The switch-on happens in one pull request from the branch
+`feat/123pfqn03e5-umami-enable`, which already holds the privacy policy texts
+describing Umami (proofread before use):
 
 1. Create the website in Umami and copy its website ID.
 2. Replace `analytics: none` in `content/<site>/site.yaml` with the mapping above.
@@ -210,15 +218,16 @@ Turning analytics on for a site:
    (`privacy.html` for bible.garden; `lampada/privacy/index.html` and
    `lampada/support/index.html` for lampada.app). `sitegen check` prints the
    exact tag if a page lacks it.
-5. `python -m sitegen check`, commit, deploy.
+5. `python -m sitegen check`, commit together with the privacy texts, deploy.
 
 ## Stack
 
 - Python 3.12, Jinja2, Python-Markdown, PyYAML
 - bible.garden: HTML + Tailwind CSS (CDN), Google Fonts (Lora, Inter), vanilla JavaScript
 - lampada.app: HTML + `assets/styles.css`, system fonts, no third-party requests
-- analytics: self-hosted [Umami](https://umami.is) at `stats.bible.garden` on our own
-  server (first party, no cookies); see [Analytics](#analytics)
+- analytics, once switched on: self-hosted [Umami](https://umami.is) at
+  `stats.bible.garden` on our own server (first party, no cookies); see
+  [Analytics](#analytics)
 
 The Lampada logo assets are optimized derivatives of `assets/icon.png` from
 `BibleGarden/Lampada-Mobile`. See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md)
