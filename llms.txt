@@ -1,0 +1,9 @@
+# Bible Garden
+
+> Free, open-source app for reading and listening to the Bible with professional narration, configurable pauses, and verse-by-verse multilingual playback.
+
+## Pages
+
+- [Bible Garden — Listen to the Bible in Multiple Languages](https://bible.garden/): English
+- [Bible Garden — Слушайте Библию на нескольких языках](https://bible.garden/ru/): Русский
+- [Bible Garden — Слухайте Біблію кількома мовами](https://bible.garden/uk/): Українська

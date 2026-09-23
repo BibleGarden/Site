@@ -261,11 +261,11 @@
 
 ## 3.2 Предпосылки до публикации
 
-1. Индексируемые языковые страницы с готовым HTML, canonical и hreflang — [86cbj99j0](https://app.clickup.com/t/86cbj99j0); на 2026-09-20 язык переключается JavaScript, canonical и hreflang в HTML отсутствуют.
-2. `robots.txt`, `sitemap.xml`, 404 — [86cbj99hz](https://app.clickup.com/t/86cbj99hz); сейчас оба служебных URL отдают HTML главной с кодом 200.
-3. JSON-LD и `llms.txt` — [86cbj99j2](https://app.clickup.com/t/86cbj99j2). Search Console и счётчики — [86cbj99hr](https://app.clickup.com/t/86cbj99hr): baseline снять до первой публикации.
+1. Индексируемые языковые страницы с готовым HTML, canonical и hreflang — [86cbj99j0](https://app.clickup.com/t/86cbj99j0): сделано в PR [Site#5](https://github.com/BibleGarden/Site/pull/5) (2026-09-21, генератор `sitegen`, ADR-0012): лендинги `/`, `/ru/`, `/uk/`, статьи `/articles/<slug>/`, `/ru/…`, `/uk/…`, hreflang только на опубликованные версии.
+2. `robots.txt`, `sitemap.xml`, 404 — [86cbj99hz](https://app.clickup.com/t/86cbj99hz): `robots.txt` и `sitemap.xml` генерируются тем же PR; `404.html` собран, но nginx на проде по-прежнему отдаёт неизвестные URL как главную с кодом 200 — правило `error_page 404` на проде остаётся отдельной задачей.
+3. JSON-LD (`Article`, `BreadcrumbList`, `FAQPage`) и `llms.txt` — [86cbj99j2](https://app.clickup.com/t/86cbj99j2): сделано в том же PR. Search Console и счётчики — [86cbj99hr](https://app.clickup.com/t/86cbj99hr): baseline снять до первой публикации; остаётся.
 4. Права на аудиофрагменты для сайта (см. 1.1) — выяснить до #3, #14, #15, #17.
-5. URL-структура: `/articles/<slug>/` для en, `/ru/articles/<slug>/`, `/uk/articles/<slug>/`; один slug на тему во всех языках.
+5. URL-структура: `/articles/<slug>/` для en, `/ru/articles/<slug>/`, `/uk/articles/<slug>/`; один slug на тему во всех языках — реализована (каталог `content/<site>/articles/<slug>/<lang>.md`, см. `Site/README.md`).
 
 ## 3.3 Измерение
 

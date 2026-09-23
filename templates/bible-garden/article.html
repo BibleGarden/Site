@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% from "icons.html" import appstore_icon, github_icon %}
+{% block head %}
+{% for block in json_ld %}
+    <script type="application/ld+json">{{ block | jsonld }}</script>
+{% endfor %}
+{% endblock %}
+{% block main %}
+    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
+            <ol class="flex flex-wrap items-center gap-2">
+                <li><a href="/{{ site.language_prefix(lang) }}" class="hover:text-gray-300 transition-colors">{{ t.articles.breadcrumb_home }}</a></li>
+                <li aria-hidden="true">›</li>
+                <li><a href="/{{ site.language_prefix(lang) }}articles/" class="hover:text-gray-300 transition-colors">{{ t.articles.section_title }}</a></li>
+                <li aria-hidden="true">›</li>
+                <li class="text-gray-400" aria-current="page">{{ article.title }}</li>
+            </ol>
+        </nav>
+
+        <header class="mb-10">
+            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">{{ article.title }}</h1>
+            <p class="text-lg text-gray-400 leading-relaxed mb-4">{{ article.description }}</p>
+            <p class="text-xs text-gray-500">
+                {{ t.articles.by }} {{ article.author }} · {{ t.articles.published }} <time datetime="{{ article.date.isoformat() }}">{{ article.date.isoformat() }}</time>
+                {% if article.updated %}
+                · {{ t.articles.updated }} <time datetime="{{ article.updated.isoformat() }}">{{ article.updated.isoformat() }}</time>
+                {% endif %}
+            </p>
+        </header>
+
+        <div class="article-body">
+{{ article.body_html | safe }}
+        </div>
+
+        <aside class="feature-card rounded-2xl p-6 sm:p-8 mt-14 text-center">
+            <h2 class="font-serif text-2xl font-semibold text-white mb-3">{{ t.articles.download_title }}</h2>
+            <p class="text-gray-400 mb-6">{{ t.articles.download_text }}</p>
+            <a href="{{ site.config.app_store_url }}" target="_blank" rel="noopener" class="btn-gold px-6 py-3.5 rounded-xl text-sm inline-flex items-center justify-center gap-2.5 cursor-pointer">
+                {{ appstore_icon("w-5 h-5") }}
+                <span>{{ t.articles.download_cta }}</span>
+            </a>
+        </aside>
+
+        {% if previous or following %}
+        <nav class="grid sm:grid-cols-2 gap-4 mt-10 text-sm" aria-label="{{ t.articles.section_title }}">
+            <div>
+                {% if previous %}
+                <a href="/{{ site.language_prefix(lang) }}{{ previous.path }}" class="block feature-card rounded-xl px-5 py-4 hover:border-gray-400/30 transition-colors">
+                    <span class="block text-xs text-gray-500 mb-1">← {{ t.articles.previous }}</span>
+                    <span class="text-gray-200">{{ previous.title }}</span>
+                </a>
+                {% endif %}
+            </div>
+            <div class="sm:text-right">
+                {% if following %}
+                <a href="/{{ site.language_prefix(lang) }}{{ following.path }}" class="block feature-card rounded-xl px-5 py-4 hover:border-gray-400/30 transition-colors">
+                    <span class="block text-xs text-gray-500 mb-1">{{ t.articles.next }} →</span>
+                    <span class="text-gray-200">{{ following.title }}</span>
+                </a>
+                {% endif %}
+            </div>
+        </nav>
+        {% endif %}
+    </article>
+{% endblock %}

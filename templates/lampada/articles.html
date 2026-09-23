@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block main %}
+        <header class="article-header">
+            <p class="eyebrow">Lampada</p>
+            <h1 class="article-title">{{ t.articles.section_title }}</h1>
+            <p class="article-lead">{{ t.articles.index_description }}</p>
+        </header>
+        {% if articles %}
+        <ul class="article-list">
+            {% for article in articles %}
+            <li>
+                <a href="{{ prefix }}{{ article.path }}">
+                    <h2>{{ article.title }}</h2>
+                    <p>{{ article.description }}</p>
+                    <time datetime="{{ article.date.isoformat() }}">{{ article.date.isoformat() }}</time>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="article-empty">{{ t.articles.empty }}</p>
+        {% endif %}
+{% endblock %}

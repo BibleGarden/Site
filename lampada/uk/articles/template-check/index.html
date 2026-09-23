@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Перевірочна стаття — Lampada</title>
+    <meta name="description" content="Короткий чернетковий текст, що задіює всі елементи шаблону статті. До контент-плану не входить.">
+    <meta name="robots" content="noindex">
+    <link rel="canonical" href="https://lampada.app/uk/articles/template-check/">
+    <meta property="og:site_name" content="Lampada">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://lampada.app/uk/articles/template-check/">
+    <meta property="og:title" content="Перевірочна стаття — Lampada">
+    <meta property="og:description" content="Короткий чернетковий текст, що задіює всі елементи шаблону статті. До контент-плану не входить.">
+    <meta property="og:image" content="https://lampada.app/assets/lampada-icon-512.png">
+    <meta property="og:locale" content="uk_UA">
+    <script>
+        // Language handling without a server:
+        //  1. landing pages only: legacy ?lang=en|ru|uk links (ua = uk) go to the language URL
+        //     and record the choice;
+        //  2. English landing page only: a language chosen explicitly before wins; otherwise
+        //     a browser that prefers ru or uk is sent to that version;
+        //  3. clicking the language switcher records the explicit choice.
+        (function () {
+            var storageKey = "lampada-site-language";
+
+            function remember(language) {
+                try { window.localStorage.setItem(storageKey, language); } catch (error) { /* storage unavailable */ }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var links = document.querySelectorAll('a[data-lang]');
+                for (var index = 0; index < links.length; index += 1) {
+                    links[index].addEventListener('click', function (event) {
+                        remember(event.currentTarget.getAttribute('data-lang'));
+                    });
+                }
+            });
+        })();
+    </script>
+    <meta name="theme-color" content="#090604">
+    <link rel="icon" type="image/png" href="/assets/lampada-icon-64.png">
+    <link rel="stylesheet" href="/assets/styles.css?v=20260923-switcher">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lampada.app/uk/articles/template-check/"
+  },
+  "headline": "Перевірочна стаття",
+  "description": "Короткий чернетковий текст, що задіює всі елементи шаблону статті. До контент-плану не входить.",
+  "image": [
+    "https://lampada.app/assets/lampada-icon-512.png"
+  ],
+  "inLanguage": "uk",
+  "datePublished": "2026-09-21",
+  "dateModified": "2026-09-21",
+  "author": {
+    "@type": "Person",
+    "name": "Марія Новікова"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Lampada",
+    "url": "https://lampada.app/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lampada.app/assets/lampada-icon-512.png"
+    }
+  }
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Головна",
+      "item": "https://lampada.app/uk/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Статті",
+      "item": "https://lampada.app/uk/articles/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Перевірочна стаття",
+      "item": "https://lampada.app/uk/articles/template-check/"
+    }
+  ]
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Це справжня стаття?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Ні. Це чернетка для перевірки шаблону, і її виключено із sitemap.<\/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чи є тут структуровані дані FAQ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Так. Кожне запитання рівня <code>###<\/code> у цьому розділі стає записом блоку JSON-LD <code>FAQPage<\/code>.<\/p>"
+      }
+    }
+  ]
+}</script>
+</head>
+<body>
+    <header class="site-header shell">
+        <a class="brand" href="/uk/" aria-label="Головна Lampada">
+            <span class="brand-mark" aria-hidden="true">
+                <img src="/assets/lampada-icon.webp" width="38" height="38" alt="">
+            </span>
+            <span class="brand-name">Lampada</span>
+        </a>
+        <div class="header-tools">
+            <nav class="site-nav" aria-label="Основна навігація">
+                <a href="/privacy?lang=uk">Конфіденційність</a>
+                <a href="/support?lang=uk">Підтримка</a>
+            </nav>
+            <div class="language-switcher" aria-label="Мова">
+                <a href="/articles/template-check/" hreflang="en" data-lang="en">EN</a>
+                <a href="/ru/articles/template-check/" hreflang="ru" data-lang="ru">RU</a>
+                <a href="/uk/articles/template-check/" hreflang="uk" data-lang="uk" class="is-active" aria-current="page">UK</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="article-main shell">
+        <article>
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="/uk/">Головна</a></li>
+                    <li aria-hidden="true">›</li>
+                    <li><a href="/uk/articles/">Статті</a></li>
+                    <li aria-hidden="true">›</li>
+                    <li aria-current="page">Перевірочна стаття</li>
+                </ol>
+            </nav>
+
+            <header class="article-header">
+                <h1 class="article-title">Перевірочна стаття</h1>
+                <p class="article-lead">Короткий чернетковий текст, що задіює всі елементи шаблону статті. До контент-плану не входить.</p>
+                <p class="article-meta">
+                    Автор Марія Новікова · Опубліковано <time datetime="2026-09-21">2026-09-21</time>
+                </p>
+            </header>
+
+            <div class="article-body">
+<p>Ця чернетка потрібна, щоб перевірити шаблон статті до першої справжньої публікації. Вона не потрапляє в sitemap і не пов’язана з лендингом.</p>
+<h2 id="заголовки-та-текст">Заголовки та текст</h2>
+<p>Абзац із <strong>жирним текстом</strong>, <em>курсивом</em>, <a href="/uk/">посиланням на головну</a> і <code>кодом</code>.</p>
+<ul>
+<li>Маркований список</li>
+<li>із другим пунктом</li>
+</ul>
+<ol>
+<li>Нумерований список</li>
+<li>із другим пунктом</li>
+</ol>
+<blockquote>
+<p>Цитата, відокремлена від основного тексту.</p>
+</blockquote>
+<h2 id="таблиця">Таблиця</h2>
+<table>
+<thead>
+<tr>
+<th>Крок</th>
+<th>Що відбувається</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Намір</td>
+<td>Ти обираєш тему та тривалість</td>
+</tr>
+<tr>
+<td>Молитва</td>
+<td>Навідні запитання тримають у моменті</td>
+</tr>
+</tbody>
+</table>
+<h2 id="faq">Часті запитання</h2>
+<h3 id="це-справжня-стаття">Це справжня стаття?</h3>
+<p>Ні. Це чернетка для перевірки шаблону, і її виключено із sitemap.</p>
+<h3 id="чи-є-тут-структуровані-дані-faq">Чи є тут структуровані дані FAQ?</h3>
+<p>Так. Кожне запитання рівня <code>###</code> у цьому розділі стає записом блоку JSON-LD <code>FAQPage</code>.</p>
+            </div>
+
+            <aside class="article-cta">
+                <h2>Lampada незабаром з’явиться в App Store</h2>
+                <p>Застосунок ще не опубліковано. Напишіть нам, якщо хочете дізнатися про запуск.</p>
+                <a class="back-link" href="/support?lang=uk"><span>Написати в підтримку</span><span aria-hidden="true">→</span></a>
+            </aside>
+
+        </article>
+    </main>
+
+    <footer class="site-footer shell">
+        <span>© 2026 Lampada</span>
+        <div class="footer-links">
+            <a href="/privacy?lang=uk">Конфіденційність</a>
+            <a href="/support?lang=uk">Підтримка</a>
+            <a href="https://bible.garden">Bible Garden</a>
+        </div>
+    </footer>
+</body>
+</html>
