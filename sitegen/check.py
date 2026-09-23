@@ -71,8 +71,12 @@ def check_json_ld(path: Path, html: str) -> int:
         kind = data.get("@type")
         if kind == "Article":
             _require(path, data, "headline", "image", "datePublished", "dateModified", "description", "inLanguage")
-            _require(path, data["author"], "name")
+            _require_organization(path, data.get("author"))
             _require(path, data["publisher"], "name", "logo")
+        elif kind in ("AboutPage", "WebPage"):
+            _require(path, data, "name", "description", "url", "inLanguage")
+            if kind == "AboutPage":
+                _require_organization(path, data.get("mainEntity"))
         elif kind == "BreadcrumbList":
             _require_list(path, data, "itemListElement")
             for item in data["itemListElement"]:
@@ -94,6 +98,13 @@ def _require(path: Path, data: object, *keys: str) -> None:
     for key in keys:
         if not data.get(key):
             raise BuildError(f"{path}: JSON-LD field {key!r} is missing or empty")
+
+
+def _require_organization(path: Path, data: object) -> None:
+    """Article author and AboutPage subject: the organization whose page explains how the texts are written."""
+    _require(path, data, "name", "url")
+    if data.get("@type") != "Organization":
+        raise BuildError(f"{path}: JSON-LD author (or AboutPage mainEntity) must be an Organization, got {data.get('@type')!r}")
 
 
 def _require_list(path: Path, data: dict, key: str) -> None:

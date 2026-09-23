@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block head %}
+{% for block in json_ld %}
+    <script type="application/ld+json">{{ block | jsonld }}</script>
+{% endfor %}
+{% endblock %}
+{% block main %}
+    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
+            <ol class="flex flex-wrap items-center gap-2">
+                <li><a href="/{{ site.language_prefix(lang) }}" class="hover:text-gray-300 transition-colors">{{ t.articles.breadcrumb_home }}</a></li>
+                <li aria-hidden="true">›</li>
+                <li class="text-gray-400" aria-current="page">{{ static.title }}</li>
+            </ol>
+        </nav>
+
+        <header class="mb-10">
+            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">{{ static.title }}</h1>
+            <p class="text-lg text-gray-400 leading-relaxed">{{ static.description }}</p>
+        </header>
+
+        <div class="article-body">
+{{ static.body_html | safe }}
+        </div>
+    </article>
+{% endblock %}

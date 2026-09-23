@@ -14,10 +14,11 @@ Domains:
 
 | Path | Role |
 |---|---|
-| `content/<site>/site.yaml` | site name, base URL, output directory, languages and their switcher labels, app links, analytics |
+| `content/<site>/site.yaml` | site name, base URL, output directory, languages and their switcher labels, article author, app links, analytics |
 | `content/<site>/i18n/<lang>.yaml` | every visible string of the landing page, article chrome and 404 page |
 | `content/<site>/articles/<slug>/<lang>.md` | article sources |
-| `templates/<site>/` | Jinja2 templates: `landing.html`, `base.html`, `article.html`, `articles.html`, `404.html` |
+| `content/<site>/pages/<slug>/<lang>.md` | standalone pages such as `/about/` (optional directory) |
+| `templates/<site>/` | Jinja2 templates: `landing.html`, `base.html`, `article.html`, `articles.html`, `404.html`, `page.html` (only for a site with pages) |
 | `templates/_shared/` | head metadata (canonical, hreflang, Open Graph) and the `?lang=` redirect |
 | `sitegen/` | the generator (`python -m sitegen`) |
 | `css/`, `js/`, `img/` | bible.garden static assets |
@@ -25,10 +26,14 @@ Domains:
 | `privacy.html`, `lampada/privacy/`, `lampada/support/` | hand-written pages, not generated |
 
 Generated output (do not edit by hand): `index.html`, `ru/`, `uk/`,
-`articles/`, `404.html`, `robots.txt`, `sitemap.xml`, `llms.txt` at the
+`articles/`, one directory per page (`about/`), `404.html`, `robots.txt`, `sitemap.xml`, `llms.txt` at the
 repository root and the same set under `lampada/`. The generator deletes and
-recreates `articles/`, `ru/` and `uk/` of each site on every build, so a
-removed article disappears from the output; `output_dir` in `site.yaml` must
+recreates `articles/`, `ru/`, `uk/` and the page directories of each site on
+every build, so a removed article or page disappears from the output. Every
+generated page carries `<meta name="generator" content="sitegen">`; a
+directory in the output root counts as a page directory (and is deleted
+before the build) only when it holds nothing but an `index.html` with that
+tag, so hand-written pages are never touched. `output_dir` in `site.yaml` must
 therefore be a relative path inside the repository, and those directories
 must not overlap `content/`, `templates/`, `sitegen/`, `.git/` or `.github/`. Every site needs a
 `content/<site>/articles/` directory, even an empty one.
@@ -50,8 +55,9 @@ page's `hreflang` set is incomplete (every published version, itself and
 `x-default`), differs between versions, or points at a page with another
 `<html lang>`, another canonical or `noindex`,
 when a JSON-LD block lacks a required field (`Article`: headline,
-image, dates, author; `BreadcrumbList`: items; `FAQPage`: questions with
-answers), when a `hreflang` link points at a `noindex` page or when a page's
+image, dates, an `Organization` author with name and URL; `AboutPage` and
+`WebPage`: name, description, URL, language, and for `AboutPage` the
+`Organization`; `BreadcrumbList`: items; `FAQPage`: questions with answers), when a `hreflang` link points at a `noindex` page or when a page's
 analytics tag disagrees with `site.yaml` (see [Analytics](#analytics)). Commit the
 regenerated files together with the content change.
 
@@ -65,6 +71,7 @@ Languages are `en` (default, no prefix), `ru` and `uk`:
 - landing pages: `/`, `/ru/`, `/uk/`
 - article index: `/articles/`, `/ru/articles/`, `/uk/articles/`
 - articles: `/articles/<slug>/`, `/ru/articles/<slug>/`, `/uk/articles/<slug>/`
+- pages: `/<slug>/`, `/ru/<slug>/`, `/uk/<slug>/` (bible.garden: `/about/`)
 
 Every indexable page carries `canonical`, `hreflang` for the published
 language versions and `x-default` pointing at English (or, when there is no
@@ -112,12 +119,14 @@ Frontmatter:
 title: How to start reading the Bible        # required
 description: One or two sentences for search results and Open Graph.   # required
 date: 2026-10-01                             # required, publication date
-author: Maria Novikova                       # required
 updated: 2026-10-15                          # optional, shown and used as dateModified
 draft: true                                  # optional; see below
 image: /img/articles/start.jpg               # optional, site-root path for Open Graph and JSON-LD
 ---
 ```
+
+There is no `author` key: every article is signed by the site's author (see
+[Author](#author)); an `author` key stops the build as unknown.
 
 Without `image` the site logo (1024×1024) is used. Real articles should set
 `image` to a picture at least 1200 px wide (16:9, 4:3 or 1:1), which is what
@@ -159,6 +168,56 @@ It depends on your pace; the app shows the audio length of every book.
 ```
 
 Only one `{#faq}` section per article; every question needs an answer.
+
+## Author
+
+Articles are signed by an organization, not a person. `site.yaml` defines it:
+
+```yaml
+author:
+  name: {en: Bible Garden team, ru: Команда Bible Garden, uk: Команда Bible Garden}
+  page: about/     # '' links to the landing page
+```
+
+`name` needs every site language. The byline under the article title links to
+`page` in the article's language, and the `Article` JSON-LD carries
+`"author": {"@type": "Organization", "name": …, "url": …}` with the same URL.
+A non-empty `page` must be a page from `content/<site>/pages/` published in
+every language, otherwise the build stops. bible.garden links to "How we
+write" (`/about/`); lampada.app has no such page yet and links to its landing
+page.
+
+On bible.garden the footer of every page links to "How we write" next to the
+privacy policy (string `landing.footer.about`); the hand-written
+`privacy.html` carries the same link and sets its language URL in `setLang`.
+
+## Pages
+
+`content/<site>/pages/<slug>/<lang>.md` builds `/<slug>/`, `/ru/<slug>/`,
+`/uk/<slug>/` with the site's `page.html`. Frontmatter holds exactly `title`
+and `description`; the body is Markdown as in articles. Pages get canonical,
+`hreflang`, the language switcher, a sitemap entry and a line in `llms.txt`.
+The author's page carries `AboutPage` JSON-LD with the author `Organization`
+as `mainEntity`; any other page carries `WebPage`. A slug must not be
+`articles` or a language code, and the build stops when a page's slug matches
+a directory sitegen did not generate (`img/`, `lampada/privacy/`), so a page
+cannot overwrite a hand-written one.
+
+## App Store links
+
+The landing pages keep `app_store_url`. Every other generated page of
+bible.garden (articles, the article index, pages, 404) links to the App Store
+campaign of its language:
+
+```yaml
+article_app_store_url: https://apps.apple.com/app/apple-store/id6758955373?pt=119043617&ct=seo-{lang}&mt=8
+```
+
+`{lang}` becomes `en`, `ru` or `uk`, so App Store Connect analytics
+reports installs by campaign: `seo-en`, `seo-ru`, `seo-uk`;
+`pt=119043617` is the provider token of our account. Apple does not tell
+articles of one language apart; clicks per article are the Umami event
+`app-store-click` (see [Analytics](#analytics)).
 
 ## Landing pages
 

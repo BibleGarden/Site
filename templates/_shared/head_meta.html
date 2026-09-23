@@ -1,5 +1,6 @@
 {% macro head_meta(site, page, og_description) %}
 {% set locales = {"en": "en_US", "ru": "ru_RU", "uk": "uk_UA"} %}
+{{ generator_meta }}
 <title>{{ page.title }}</title>
 <meta name="description" content="{{ page.description }}">
 {% if page.noindex %}

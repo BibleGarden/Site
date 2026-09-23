@@ -65,6 +65,7 @@ landing:
   footer:
     copyright: "Open source project under AGPL license. All rights belong to God."
     privacy: Privacy Policy
+    about: How we write
 articles:
   section_title: Articles
   index_title: "Articles — Bible Garden"

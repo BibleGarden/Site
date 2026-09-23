@@ -23,12 +23,16 @@ LANGUAGE_RE = re.compile(r"^[a-z]{2}$")
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
 
-REQUIRED_SITE_KEYS = ("name", "base_url", "output_dir", "languages", "default_language", "language_labels", "logo", "analytics")
+REQUIRED_SITE_KEYS = ("name", "base_url", "output_dir", "languages", "default_language", "language_labels", "logo", "author", "analytics")
+AUTHOR_KEYS = {"name", "page"}
+PAGE_PATH_RE = re.compile(r"^(?:[a-z0-9]+(?:-[a-z0-9]+)*/)?$")
+APP_STORE_CAMPAIGN_PREFIX = "https://apps.apple.com/"
 ANALYTICS_KEYS = {"script_url", "website_id"}
 ANALYTICS_DISABLED = "none"
 SOURCE_DIRS = ("content", "templates", "sitegen", ".git", ".github")
-REQUIRED_ARTICLE_KEYS = ("title", "description", "date", "author")
+REQUIRED_ARTICLE_KEYS = ("title", "description", "date")
 OPTIONAL_ARTICLE_KEYS = ("updated", "draft", "image")
+PAGE_KEYS = ("title", "description")
 MARKDOWN_EXTENSIONS = ["extra", "toc", "sane_lists"]
 MARKDOWN_EXTENSION_CONFIGS = {"toc": {"slugify": slugify_unicode, "toc_depth": "2-3"}}
 
@@ -56,6 +60,17 @@ class Analytics:
 
 
 @dataclass(frozen=True)
+class Author:
+    """The author of every article of a site: an organization with a localized name and a page of the site."""
+
+    name: dict[str, str]
+    page: str
+
+    def json_ld(self, site: Site, lang: str) -> dict:
+        return {"@type": "Organization", "name": self.name[lang], "url": site.url(lang, self.page)}
+
+
+@dataclass(frozen=True)
 class Site:
     key: str
     name: str
@@ -66,6 +81,7 @@ class Site:
     config: dict
     i18n: dict[str, dict]
     analytics: Analytics | None
+    author: Author
 
     def language_prefix(self, lang: str) -> str:
         """URL path prefix for a language: '' for the default language, 'ru/' otherwise."""
@@ -78,6 +94,13 @@ class Site:
     def url(self, lang: str, path: str = "") -> str:
         """Absolute URL of a page, used for canonical, hreflang, Open Graph, sitemap and JSON-LD."""
         return f"{self.base_url}{self.href(lang, path)}"
+
+    def article_app_store_url(self, lang: str) -> str:
+        """App Store link of the article pages: the campaign link of the page language (ct=seo-<lang>)."""
+        template = self.config.get("article_app_store_url")
+        if template is None:
+            raise BuildError(f"{self.key}: site.yaml has no article_app_store_url, but a template uses it")
+        return template.format(lang=lang)
 
 
 @dataclass(frozen=True)
@@ -94,7 +117,6 @@ class Article:
     description: str
     date: dt.date
     updated: dt.date | None
-    author: str
     draft: bool
     image: str | None
     body_html: str
@@ -103,6 +125,21 @@ class Article:
     @property
     def path(self) -> str:
         return f"articles/{self.slug}/"
+
+
+@dataclass(frozen=True)
+class StaticPage:
+    """A standalone page of a site, such as /about/: content/<site>/pages/<slug>/<lang>.md."""
+
+    slug: str
+    lang: str
+    title: str
+    description: str
+    body_html: str
+
+    @property
+    def path(self) -> str:
+        return f"{self.slug}/"
 
 
 def load_yaml(path: Path) -> dict:
@@ -127,6 +164,8 @@ def load_site(content_dir: Path, repo_root: Path) -> Site:
             raise BuildError(f"{config_path}: language codes must be two lowercase letters, got {lang!r}")
     if set(config["language_labels"]) != set(languages):
         raise BuildError(f"{config_path}: language_labels must define a label for every language and nothing else")
+    if "article_app_store_url" in config:
+        _article_app_store_url(config["article_app_store_url"], config_path)
     output_dir = _output_dir(config["output_dir"], repo_root, config_path)
     _check_owned_dirs(output_dir, languages, config["default_language"], repo_root, config_path)
     i18n = {lang: load_yaml(content_dir / "i18n" / f"{lang}.yaml") for lang in languages}
@@ -143,7 +182,25 @@ def load_site(content_dir: Path, repo_root: Path) -> Site:
         config=config,
         i18n=i18n,
         analytics=_analytics(config["analytics"], config["base_url"], config_path),
+        author=_author(config["author"], languages, config_path),
     )
+
+
+def _author(value: object, languages: tuple[str, ...], config_path: Path) -> Author:
+    """Parse `author`: {name: {<lang>: name for every language}, page: '' (landing) or '<page slug>/'}."""
+    if not isinstance(value, dict) or set(value) != AUTHOR_KEYS:
+        raise BuildError(f"{config_path}: author must be a mapping with exactly {', '.join(sorted(AUTHOR_KEYS))}")
+    name, page = value["name"], value["page"]
+    if not isinstance(name, dict) or set(name) != set(languages) or not all(isinstance(text, str) and text.strip() for text in name.values()):
+        raise BuildError(f"{config_path}: author.name must give a non-empty name for every language and nothing else")
+    if not isinstance(page, str) or not PAGE_PATH_RE.match(page):
+        raise BuildError(f"{config_path}: author.page must be '' (the landing page) or '<page slug>/', got {page!r}")
+    return Author(name={lang: name[lang].strip() for lang in languages}, page=page)
+
+
+def _article_app_store_url(value: object, config_path: Path) -> None:
+    if not isinstance(value, str) or not value.startswith(APP_STORE_CAMPAIGN_PREFIX) or "{lang}" not in value:
+        raise BuildError(f"{config_path}: article_app_store_url must be an {APP_STORE_CAMPAIGN_PREFIX} link with a {{lang}} placeholder, got {value!r}")
 
 
 def _analytics(value: object, base_url: str, config_path: Path) -> Analytics | None:
@@ -233,7 +290,38 @@ def load_articles(site: Site, content_dir: Path) -> dict[str, dict[str, Article]
     return result
 
 
-def parse_article(source: Path, slug: str, lang: str) -> Article:
+def load_pages(site: Site, content_dir: Path) -> dict[str, dict[str, StaticPage]]:
+    """Return {slug: {lang: StaticPage}} for content/<site>/pages/<slug>/<lang>.md; a site may have no pages/ directory."""
+    pages_dir = content_dir / "pages"
+    result: dict[str, dict[str, StaticPage]] = {}
+    if not pages_dir.is_dir():
+        return result
+    reserved = {"articles", *site.languages}
+    for slug_dir in sorted(pages_dir.iterdir()):
+        if not slug_dir.is_dir():
+            raise BuildError(f"{slug_dir}: only <slug>/ directories are allowed under pages/")
+        if not SLUG_RE.match(slug_dir.name) or slug_dir.name in reserved:
+            raise BuildError(f"{slug_dir}: page slug must be lowercase latin letters, digits and hyphens, and not one of {', '.join(sorted(reserved))}")
+        versions: dict[str, StaticPage] = {}
+        for source in sorted(slug_dir.iterdir()):
+            if source.suffix != ".md" or source.stem not in site.languages:
+                raise BuildError(f"{source}: only <lang>.md files for {', '.join(site.languages)} are allowed in a page directory")
+            meta, body = _frontmatter(source, PAGE_KEYS, ())
+            versions[source.stem] = StaticPage(
+                slug=slug_dir.name,
+                lang=source.stem,
+                title=_require_str(meta, "title", source),
+                description=_require_str(meta, "description", source),
+                body_html=render_markdown(body),
+            )
+        if not versions:
+            raise BuildError(f"{slug_dir}: page directory has no language versions")
+        result[slug_dir.name] = versions
+    return result
+
+
+def _frontmatter(source: Path, required: tuple[str, ...], optional: tuple[str, ...]) -> tuple[dict, str]:
+    """Split a Markdown source into its validated frontmatter mapping and body."""
     text = source.read_text(encoding="utf-8")
     match = FRONTMATTER_RE.match(text)
     if not match:
@@ -241,13 +329,17 @@ def parse_article(source: Path, slug: str, lang: str) -> Article:
     meta = yaml.safe_load(match.group(1))
     if not isinstance(meta, dict):
         raise BuildError(f"{source}: frontmatter must be a mapping")
-    missing = [key for key in REQUIRED_ARTICLE_KEYS if key not in meta]
+    missing = [key for key in required if key not in meta]
     if missing:
         raise BuildError(f"{source}: missing required frontmatter keys: {', '.join(missing)}")
-    unknown = sorted(set(meta) - set(REQUIRED_ARTICLE_KEYS) - set(OPTIONAL_ARTICLE_KEYS))
+    unknown = sorted(set(meta) - set(required) - set(optional))
     if unknown:
         raise BuildError(f"{source}: unknown frontmatter keys: {', '.join(unknown)}")
-    body = match.group(2)
+    return meta, match.group(2)
+
+
+def parse_article(source: Path, slug: str, lang: str) -> Article:
+    meta, body = _frontmatter(source, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS)
     return Article(
         slug=slug,
         lang=lang,
@@ -255,7 +347,6 @@ def parse_article(source: Path, slug: str, lang: str) -> Article:
         description=_require_str(meta, "description", source),
         date=_require_date(meta, "date", source),
         updated=_require_date(meta, "updated", source) if "updated" in meta else None,
-        author=_require_str(meta, "author", source),
         draft=_require_bool(meta, "draft", source) if "draft" in meta else False,
         image=_require_str(meta, "image", source) if "image" in meta else None,
         body_html=render_markdown(body),

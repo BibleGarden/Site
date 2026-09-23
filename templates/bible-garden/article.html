@@ -21,7 +21,7 @@
             <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">{{ article.title }}</h1>
             <p class="text-lg text-gray-400 leading-relaxed mb-4">{{ article.description }}</p>
             <p class="text-xs text-gray-500">
-                {{ t.articles.by }} {{ article.author }} · {{ t.articles.published }} <time datetime="{{ article.date.isoformat() }}">{{ article.date.isoformat() }}</time>
+                {{ t.articles.by }} <a href="{{ site.href(lang, site.author.page) }}" class="underline decoration-gray-600 underline-offset-2 hover:text-gray-300 transition-colors">{{ site.author.name[lang] }}</a> · {{ t.articles.published }} <time datetime="{{ article.date.isoformat() }}">{{ article.date.isoformat() }}</time>
                 {% if article.updated %}
                 · {{ t.articles.updated }} <time datetime="{{ article.updated.isoformat() }}">{{ article.updated.isoformat() }}</time>
                 {% endif %}
@@ -35,7 +35,7 @@
         <aside class="feature-card rounded-2xl p-6 sm:p-8 mt-14 text-center">
             <h2 class="font-serif text-2xl font-semibold text-white mb-3">{{ t.articles.download_title }}</h2>
             <p class="text-gray-400 mb-6">{{ t.articles.download_text }}</p>
-            <a href="{{ site.config.app_store_url }}" data-umami-event="app-store-click" target="_blank" rel="noopener" class="btn-gold px-6 py-3.5 rounded-xl text-sm inline-flex items-center justify-center gap-2.5 cursor-pointer">
+            <a href="{{ site.article_app_store_url(lang) }}" data-umami-event="app-store-click" target="_blank" rel="noopener" class="btn-gold px-6 py-3.5 rounded-xl text-sm inline-flex items-center justify-center gap-2.5 cursor-pointer">
                 {{ appstore_icon("w-5 h-5") }}
                 <span>{{ t.articles.download_cta }}</span>
             </a>
