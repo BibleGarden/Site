@@ -12,8 +12,8 @@
 {% for code, href in page.alternates.items() %}
 <link rel="alternate" hreflang="{{ code }}" href="{{ href }}">
 {% endfor %}
-{% if site.default_language in page.alternates %}
-<link rel="alternate" hreflang="x-default" href="{{ page.alternates[site.default_language] }}">
+{% if page.x_default %}
+<link rel="alternate" hreflang="x-default" href="{{ page.x_default }}">
 {% endif %}
 {% endif %}
 <meta property="og:site_name" content="{{ site.name }}">

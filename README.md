@@ -29,7 +29,8 @@ Generated output (do not edit by hand): `index.html`, `ru/`, `uk/`,
 repository root and the same set under `lampada/`. The generator deletes and
 recreates `articles/`, `ru/` and `uk/` of each site on every build, so a
 removed article disappears from the output; `output_dir` in `site.yaml` must
-therefore be a relative path inside the repository. Every site needs a
+therefore be a relative path inside the repository, and those directories
+must not overlap `content/`, `templates/`, `sitegen/`, `.git/` or `.github/`. Every site needs a
 `content/<site>/articles/` directory, even an empty one.
 
 ## Build
@@ -43,7 +44,10 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 The build is deterministic: it embeds no timestamps, so running it twice
 produces identical files. CI (`.github/workflows/build.yml`) rebuilds the site
 on every pull request and fails when the committed HTML differs from the build
-output, when a `canonical` or `hreflang` URL has no generated file behind it,
+output, when an indexable page lacks a `canonical` resolving to itself, when a
+page's `hreflang` set is incomplete (every published version, itself and
+`x-default`), differs between versions, or points at a page with another
+`<html lang>`, another canonical or `noindex`,
 when a JSON-LD block lacks a required field (`Article`: headline,
 image, dates, author; `BreadcrumbList`: items; `FAQPage`: questions with
 answers) or when a `hreflang` link points at a `noindex` page. Commit the
@@ -61,7 +65,8 @@ Languages are `en` (default, no prefix), `ru` and `uk`:
 - articles: `/articles/<slug>/`, `/ru/articles/<slug>/`, `/uk/articles/<slug>/`
 
 Every indexable page carries `canonical`, `hreflang` for the published
-language versions and `x-default` pointing at English; `noindex` pages
+language versions and `x-default` pointing at English (or, when there is no
+English version, at the first published one); `noindex` pages
 (drafts, an empty article index, `404.html`) carry no `hreflang` and are never
 linked as alternates. The language switcher is plain links, so search engines
 see every version.
@@ -128,8 +133,8 @@ links to the other site. `sitegen check` rejects an `<a href>` to the page's
 own domain.
 
 The body is Markdown (`extra` and `toc` extensions: tables, footnotes,
-fenced code, heading anchors). Headings inside ``` or ~~~ fenced code blocks
-are ignored by the FAQ parser. Links inside the site are root-relative
+fenced code, heading anchors). Headings inside fenced code blocks (``` or ~~~,
+CommonMark rules) are ignored by the FAQ parser. Links inside the site are root-relative
 (`/ru/articles/other-slug/`).
 
 ### FAQ block

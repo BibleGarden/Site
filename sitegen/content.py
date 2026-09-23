@@ -20,6 +20,7 @@ H3_RE = re.compile(r"^### (.+?)\s*$")
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
 REQUIRED_SITE_KEYS = ("name", "base_url", "output_dir", "languages", "default_language", "language_labels", "logo")
+SOURCE_DIRS = ("content", "templates", "sitegen", ".git", ".github")
 REQUIRED_ARTICLE_KEYS = ("title", "description", "date", "author")
 OPTIONAL_ARTICLE_KEYS = ("updated", "draft", "image")
 MARKDOWN_EXTENSIONS = ["extra", "toc", "sane_lists"]
@@ -94,6 +95,8 @@ def load_site(content_dir: Path, repo_root: Path) -> Site:
         raise BuildError(f"{config_path}: default_language is not listed in languages")
     if set(config["language_labels"]) != set(languages):
         raise BuildError(f"{config_path}: language_labels must define a label for every language and nothing else")
+    output_dir = _output_dir(config["output_dir"], repo_root, config_path)
+    _check_owned_dirs(output_dir, languages, config["default_language"], repo_root, config_path)
     i18n = {lang: load_yaml(content_dir / "i18n" / f"{lang}.yaml") for lang in languages}
     reference = i18n[config["default_language"]]
     for lang in languages:
@@ -102,7 +105,7 @@ def load_site(content_dir: Path, repo_root: Path) -> Site:
         key=content_dir.name,
         name=config["name"],
         base_url=config["base_url"].rstrip("/"),
-        output_dir=_output_dir(config["output_dir"], repo_root, config_path),
+        output_dir=output_dir,
         languages=languages,
         default_language=config["default_language"],
         config=config,
@@ -121,6 +124,19 @@ def _output_dir(value: object, repo_root: Path, config_path: Path) -> Path:
     if not resolved.is_relative_to(repo_root.resolve()):
         raise BuildError(f"{config_path}: output_dir resolves outside the repository: {resolved}")
     return resolved
+
+
+def owned_dirs(output_dir: Path, languages: tuple[str, ...], default_language: str) -> list[Path]:
+    """Directories the build deletes and recreates: articles/ and the non-default language roots."""
+    return [output_dir / "articles"] + [output_dir / lang for lang in languages if lang != default_language]
+
+
+def _check_owned_dirs(output_dir: Path, languages: tuple[str, ...], default_language: str, repo_root: Path, config_path: Path) -> None:
+    protected = [(repo_root / name).resolve() for name in SOURCE_DIRS]
+    for owned in owned_dirs(output_dir, languages, default_language):
+        for source in protected:
+            if owned.is_relative_to(source) or source.is_relative_to(owned):
+                raise BuildError(f"{config_path}: output_dir would let the build delete {owned}, which overlaps the sources in {source}")
 
 
 def _check_same_keys(reference: dict, candidate: dict, path: str, prefix: str) -> None:
@@ -263,18 +279,29 @@ def extract_faq(body: str, source: Path) -> tuple[FaqItem, ...]:
     return tuple(items)
 
 
+FENCE_RE = re.compile(r"^ {0,3}(`{3,}|~{3,})(.*)$")
+
+
 def _fenced_flags(lines: list[str]) -> list[bool]:
-    """Whether each line sits inside a ``` or ~~~ fenced code block (fence lines count as inside)."""
+    """Whether each line sits inside a fenced code block, fence lines included (CommonMark rules).
+
+    An opening fence is 3+ backticks or tildes indented by at most 3 spaces (a backtick fence
+    has no backtick in its info string); it closes with the same character, at least as long,
+    followed only by spaces.
+    """
     flags: list[bool] = []
     fence: str | None = None
     for line in lines:
-        marker = line.lstrip()[:3]
-        if fence is None and marker in ("```", "~~~"):
-            fence = marker
-            flags.append(True)
-        elif fence is not None and marker == fence:
-            fence = None
-            flags.append(True)
+        match = FENCE_RE.match(line)
+        if fence is None:
+            if match and not (match.group(1)[0] == "`" and "`" in match.group(2)):
+                fence = match.group(1)
+                flags.append(True)
+            else:
+                flags.append(False)
         else:
-            flags.append(fence is not None)
+            flags.append(True)
+            marker = match.group(1) if match else ""
+            if match and marker[0] == fence[0] and len(marker) >= len(fence) and not match.group(2).strip():
+                fence = None
     return flags

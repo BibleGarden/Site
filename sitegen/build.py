@@ -11,7 +11,7 @@ from xml.sax.saxutils import escape
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markupsafe import Markup, escape as html_escape
 
-from .content import Article, Site, load_articles, load_site
+from .content import Article, Site, load_articles, load_site, owned_dirs
 from .errors import BuildError
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -29,6 +29,7 @@ class Page:
     """
 
     lang: str
+    default_language: str
     title: str
     description: str
     alternates: dict[str, str]
@@ -39,6 +40,17 @@ class Page:
     @property
     def canonical(self) -> str | None:
         return self.alternates.get(self.lang)
+
+    @property
+    def x_default(self) -> str | None:
+        return x_default(self.alternates, self.default_language)
+
+
+def x_default(alternates: dict[str, str], default_language: str) -> str | None:
+    """x-default target: the default-language version, else the first published version."""
+    if default_language in alternates:
+        return alternates[default_language]
+    return next(iter(alternates.values()), None)
 
 
 def nl2br(value: str) -> Markup:
@@ -172,9 +184,7 @@ class SiteBuilder:
 
     def clean(self) -> None:
         """Remove every directory the generator owns so deleted content disappears from the output."""
-        owned = [self.site.output_dir / "articles"]
-        owned += [self.site.output_dir / lang for lang in self.site.languages if lang != self.site.default_language]
-        for directory in owned:
+        for directory in owned_dirs(self.site.output_dir, self.site.languages, self.site.default_language):
             if directory.exists():
                 shutil.rmtree(directory)
 
@@ -182,6 +192,7 @@ class SiteBuilder:
         meta = self.t(lang)["meta"]
         page = Page(
             lang=lang,
+            default_language=self.site.default_language,
             title=meta["title"],
             description=meta["description"],
             alternates={other: self.site.url(other) for other in self.site.languages},
@@ -194,6 +205,7 @@ class SiteBuilder:
         articles = self.published(lang)
         page = Page(
             lang=lang,
+            default_language=self.site.default_language,
             title=strings["index_title"],
             description=strings["index_description"],
             alternates=self.index_alternates() if articles else {lang: self.site.url(lang, "articles/")},
@@ -219,6 +231,7 @@ class SiteBuilder:
             following = neighbours[index + 1] if index + 1 < len(neighbours) else None
         page = Page(
             lang=lang,
+            default_language=self.site.default_language,
             title=f"{article.title} — {self.site.name}",
             description=article.description,
             alternates={lang: self.site.url(lang, article.path)} if article.draft else self.article_alternates(slug),
@@ -291,6 +304,7 @@ class SiteBuilder:
         strings = self.t(lang)["not_found"]
         page = Page(
             lang=lang,
+            default_language=self.site.default_language,
             title=f"{strings['title']} — {self.site.name}",
             description=strings["text"],
             alternates={},
@@ -339,10 +353,7 @@ class SiteBuilder:
                 lines.append(f"    <lastmod>{lastmod}</lastmod>")
             for lang, href in alternates.items():
                 lines.append(f'    <xhtml:link rel="alternate" hreflang="{lang}" href="{escape(href)}"/>')
-            if self.site.default_language in alternates:
-                lines.append(
-                    f'    <xhtml:link rel="alternate" hreflang="x-default" href="{escape(alternates[self.site.default_language])}"/>'
-                )
+            lines.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{escape(x_default(alternates, self.site.default_language))}"/>')
             lines.append("  </url>")
         lines += ["</urlset>", ""]
         self.write(self.site.output_dir / "sitemap.xml", "\n".join(lines))

@@ -12,7 +12,8 @@ from .errors import BuildError
 
 JSON_LD_RE = re.compile(r'<script type="application/ld\+json">(.*?)</script>', re.DOTALL)
 CANONICAL_RE = re.compile(r'<link rel="canonical" href="([^"]+)">')
-HREFLANG_RE = re.compile(r'<link rel="alternate" hreflang="[^"]+" href="([^"]+)">')
+HREFLANG_RE = re.compile(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">')
+HTML_LANG_RE = re.compile(r'<html lang="([^"]+)"')
 NOINDEX_RE = re.compile(r'<meta name="robots" content="noindex">')
 ANCHOR_HREF_RE = re.compile(r'<a\s[^>]*?href="([^"]+)"')
 SKIPPED_DIRS = {".git", "content", "templates", "sitegen", ".venv"}
@@ -96,22 +97,59 @@ def _require_list(path: Path, data: dict, key: str) -> None:
 
 
 def check_hreflang(pages: dict[Path, str], sites: list[Site]) -> int:
-    """canonical and hreflang must point at generated files; hreflang never at a noindex page."""
-    noindex_urls = {
-        CANONICAL_RE.search(html).group(1)
-        for html in pages.values()
-        if NOINDEX_RE.search(html) and CANONICAL_RE.search(html)
-    }
-    links = 0
+    """canonical and hreflang consistency across all pages.
+
+    Every indexable page has a canonical URL that resolves to the page itself. A page with
+    hreflang links lists every published version (itself included) plus x-default, each
+    target is an indexable page whose <html lang> matches the tag and whose canonical is the
+    linked URL, and every version lists the same set.
+    """
+    def resolve(path: Path, url: str, what: str) -> Path:
+        target = url_to_file(url, sites)
+        if target is None:
+            raise BuildError(f"{path}: {what} points at a page that does not exist: {url}")
+        return target.resolve()
+
+    info: dict[Path, tuple[str | None, bool, str | None, dict[str, str]]] = {}
     for path, html in pages.items():
-        for href in CANONICAL_RE.findall(html):
-            if url_to_file(href, sites) is None:
-                raise BuildError(f"{path}: canonical points at a page that does not exist: {href}")
-        for href in HREFLANG_RE.findall(html):
-            if url_to_file(href, sites) is None:
-                raise BuildError(f"{path}: hreflang points at a page that does not exist: {href}")
-            if href in noindex_urls:
-                raise BuildError(f"{path}: hreflang points at a noindex page {href}")
+        canonical = CANONICAL_RE.search(html)
+        html_lang = HTML_LANG_RE.search(html)
+        info[path.resolve()] = (
+            canonical.group(1) if canonical else None,
+            bool(NOINDEX_RE.search(html)),
+            html_lang.group(1) if html_lang else None,
+            dict(HREFLANG_RE.findall(html)),
+        )
+
+    links = 0
+    for path, (canonical, noindex, _, alternates) in info.items():
+        if canonical is not None and resolve(path, canonical, "canonical") != path:
+            raise BuildError(f"{path}: canonical {canonical} does not resolve to the page itself")
+        if noindex:
+            if alternates:
+                raise BuildError(f"{path}: a noindex page must not carry hreflang links")
+            continue
+        if canonical is None:
+            raise BuildError(f"{path}: indexable page has no canonical link")
+        if not alternates:
+            continue
+        versions = {code: url for code, url in alternates.items() if code != "x-default"}
+        if "x-default" not in alternates:
+            raise BuildError(f"{path}: hreflang set has no x-default")
+        if alternates["x-default"] not in versions.values():
+            raise BuildError(f"{path}: x-default {alternates['x-default']} is not one of the language versions")
+        if canonical not in versions.values():
+            raise BuildError(f"{path}: hreflang set does not include the page itself")
+        for code, url in versions.items():
+            target_canonical, target_noindex, target_lang, target_alternates = info[resolve(path, url, f"hreflang {code}")]
+            if target_noindex:
+                raise BuildError(f"{path}: hreflang {code} points at a noindex page {url}")
+            if target_lang != code:
+                raise BuildError(f"{path}: hreflang {code} points at a page with <html lang={target_lang!r}>: {url}")
+            if target_canonical != url:
+                raise BuildError(f"{path}: hreflang {code} {url} is not the canonical URL of its target ({target_canonical})")
+            if target_alternates != alternates:
+                raise BuildError(f"{path}: hreflang set differs from the one on {url}")
             links += 1
     return links
 
