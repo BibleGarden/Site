@@ -47,6 +47,7 @@ def import_archive(archive: Path) -> int:
             missing, extra = sorted(set(expected) - names), sorted(names - set(expected))
             raise ValueError(f"{archive}: screenshot names differ: missing={missing}, extra={extra}")
         staged = Path(scratch)
+        checksums: dict[Path, str] = {}
         for name, (screen, lang) in sorted(expected.items()):
             png = staged / f"{screen.id}.{lang}.png"
             with source.open(name) as input_file, png.open("wb") as output_file:
@@ -68,7 +69,9 @@ def import_archive(archive: Path) -> int:
                 )
                 if result.returncode:
                     raise RuntimeError(f"{name} ({variant}): cwebp failed: {result.stderr.strip()}")
-                check_asset(screen, lang, variant, staged)
+                checksum = hashlib.sha256(target.read_bytes()).hexdigest()
+                check_asset(screen, lang, variant, staged, checksum)
+                checksums[screen.path(lang, variant)] = checksum
 
         expected_webp = {
             screen.path(lang, variant)
@@ -89,6 +92,11 @@ def import_archive(archive: Path) -> int:
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(data)
             changed += 1
+        checksum_file = REPO_ROOT / "content/bible-garden/screens.sha256"
+        checksum_text = "".join(f"{checksums[path]}  {path.as_posix()}\n" for path in sorted(checksums))
+        if not checksum_file.exists() or checksum_file.read_text(encoding="utf-8") != checksum_text:
+            checksum_file.write_text(checksum_text, encoding="utf-8")
+            changed += 1
     return changed
 
 
@@ -96,7 +104,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("archive", type=Path, help="accepted bible-garden-screens-v4.zip")
     args = parser.parse_args()
-    print(f"updated {import_archive(args.archive)} WebP files")
+    print(f"updated {import_archive(args.archive)} files")
 
 
 if __name__ == "__main__":

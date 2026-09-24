@@ -11,7 +11,7 @@ from urllib.parse import urlsplit
 from .build import CONTENT_DIR, REPO_ROOT
 from .content import Site, load_site
 from .errors import BuildError
-from .screens import ASSET_DIR, VARIANTS, check_asset, load_catalog
+from .screens import ASSET_DIR, VARIANTS, check_asset, load_catalog, load_checksums
 
 JSON_LD_RE = re.compile(r'<script type="application/ld\+json">(.*?)</script>', re.DOTALL)
 CANONICAL_RE = re.compile(r'<link rel="canonical" href="([^"]+)">')
@@ -49,11 +49,12 @@ def check_screens(sites: list[Site]) -> None:
         catalog = load_catalog(CONTENT_DIR / site.key / "screens.yaml", site.languages)
         if not catalog:
             continue
+        checksums = load_checksums(CONTENT_DIR / site.key / "screens.sha256", catalog, site.languages)
         expected = {screen.path(lang, variant) for screen in catalog.values() for lang in site.languages for variant in VARIANTS}
         for screen in catalog.values():
             for lang in site.languages:
                 for variant in VARIANTS:
-                    check_asset(screen, lang, variant, site.output_dir)
+                    check_asset(screen, lang, variant, site.output_dir, checksums[screen.path(lang, variant)])
         actual = {path.relative_to(site.output_dir) for path in (site.output_dir / ASSET_DIR).rglob("*") if path.is_file()}
         if actual != expected:
             raise BuildError(f"{site.output_dir / ASSET_DIR}: unexpected screenshot assets: {sorted(actual - expected)}")

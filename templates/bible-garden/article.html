@@ -41,8 +41,9 @@
             <aside class="article-screen-aside" aria-label="{{ t.articles.screen_viewer }}">
                 <div class="article-screen-phone">
 {% for screen in article.screens %}
-                    <img src="{{ screen.url('phone') }}" alt="{{ screen.caption }}" width="{{ screen.dimensions('phone')[0] }}" height="{{ screen.dimensions('phone')[1] }}" decoding="async" class="article-screen-phone-image{% if loop.first %} is-active{% endif %}" aria-hidden="{% if loop.first %}false{% else %}true{% endif %}">
+                    <img data-src="{{ screen.url('phone') }}" alt="{{ screen.caption }}" width="{{ screen.dimensions('phone')[0] }}" height="{{ screen.dimensions('phone')[1] }}" decoding="async" class="article-screen-phone-image" aria-hidden="true">
 {% endfor %}
+                    <noscript><img class="article-screen-noscript" src="{{ article.screens[0].url('phone') }}" alt="{{ article.screens[0].caption }}" width="{{ article.screens[0].dimensions('phone')[0] }}" height="{{ article.screens[0].dimensions('phone')[1] }}"></noscript>
                 </div>
             </aside>
         </div>

@@ -161,7 +161,7 @@ Add a marker on the line immediately after a second-level heading:
 The id must exist in `content/bible-garden/screens.yaml`; the article language
 selects its caption and image (`translation-picker.ru.webp` for `ru.md`). The
 caption is the image alt text. The build stops for an unknown id, malformed or
-misplaced marker, missing caption, or missing WebP variant. On wide screens a
+misplaced marker, missing caption, missing WebP variant, or checksum mismatch. On wide screens a
 phone stays beside the article and changes at marked headings; below 1024 px,
 each screenshot appears below its heading and opens a larger image. Without
 JavaScript the first desktop screenshot remains visible and mobile images open
@@ -179,12 +179,14 @@ Import it with the development machine's `cwebp 1.3.2`:
 ```
 
 The importer verifies the archive, its 48 named PNGs and source dimensions,
-then writes only WebP to `img/article-screens/{mobile,phone,zoom}/` at widths
-360, 480 and 960 px with `cwebp -q 88`. Source PNGs stay outside the repo.
+then writes WebP to `img/article-screens/{mobile,phone,zoom}/` at widths
+360, 480 and 960 px with `cwebp -q 88`, plus their SHA-256 list in
+`content/bible-garden/screens.sha256`. Source PNGs stay outside the repo.
 The current 144 WebP occupy 6.87 MiB (measured on 2026-09-24 by summing file
 sizes after import). CI checks committed variants without needing the archive
 or `cwebp`. The draft `template-check` article exercises two markers in all
-three languages; it is not published. Preview `/ru/articles/template-check/`
+three languages; its HTML is reachable by direct URL but marked `noindex` and
+excluded from the article index and sitemap. Preview `/ru/articles/template-check/`
 with the local server described below.
 
 ### FAQ block

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import re
 import struct
 from dataclasses import dataclass
@@ -42,6 +43,8 @@ class Screen:
 class ScreenRef:
     screen: Screen
     lang: str
+    source: Path
+    line: int
 
     @property
     def caption(self) -> str:
@@ -58,7 +61,19 @@ def load_catalog(path: Path, languages: tuple[str, ...]) -> dict[str, Screen]:
     """A site without screens.yaml has no screenshot library."""
     if not path.exists():
         return {}
-    data = yaml.safe_load(path.read_text(encoding="utf-8"))
+
+    class UniqueKeyLoader(yaml.SafeLoader):
+        def construct_mapping(self, node, deep=False):
+            self.flatten_mapping(node)
+            mapping = {}
+            for key_node, value_node in node.value:
+                key = self.construct_object(key_node, deep=deep)
+                if key in mapping:
+                    raise BuildError(f"{path}:{key_node.start_mark.line + 1}: duplicate key {key!r}")
+                mapping[key] = self.construct_object(value_node, deep=deep)
+            return mapping
+
+    data = yaml.load(path.read_text(encoding="utf-8"), Loader=UniqueKeyLoader)
     if not isinstance(data, dict) or not data:
         raise BuildError(f"{path}: expected a non-empty screenshot mapping")
     screens: dict[str, Screen] = {}
@@ -76,6 +91,25 @@ def load_catalog(path: Path, languages: tuple[str, ...]) -> dict[str, Screen]:
             raise BuildError(f"{path}: {screen_id} has an empty caption")
         screens[screen_id] = Screen(screen_id, item["kind"], captions)
     return screens
+
+
+def load_checksums(path: Path, screens: dict[str, Screen], languages: tuple[str, ...]) -> dict[Path, str]:
+    """Validate the importer-produced digest list against every expected variant."""
+    if not path.is_file():
+        raise BuildError(f"{path}: missing screenshot checksums")
+    expected = {screen.path(lang, variant) for screen in screens.values() for lang in languages for variant in VARIANTS}
+    checksums: dict[Path, str] = {}
+    for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+        match = re.fullmatch(r"([0-9a-f]{64})  (img/article-screens/(?:mobile|phone|zoom)/[a-z0-9-]+\.[a-z]{2}\.webp)", line)
+        if not match:
+            raise BuildError(f"{path}:{line_number}: invalid checksum entry")
+        asset = Path(match.group(2))
+        if asset in checksums:
+            raise BuildError(f"{path}:{line_number}: duplicate checksum for {asset}")
+        checksums[asset] = match.group(1)
+    if set(checksums) != expected:
+        raise BuildError(f"{path}: checksum paths differ: missing={sorted(expected - set(checksums))}, extra={sorted(set(checksums) - expected)}")
+    return checksums
 
 
 def webp_dimensions(path: Path) -> tuple[int, int]:
@@ -96,7 +130,7 @@ def webp_dimensions(path: Path) -> tuple[int, int]:
     return width & 0x3FFF, height & 0x3FFF
 
 
-def check_asset(screen: Screen, lang: str, variant: str, output_dir: Path) -> None:
+def check_asset(screen: Screen, lang: str, variant: str, output_dir: Path, checksum: str) -> None:
     path = output_dir / screen.path(lang, variant)
     if not path.is_file():
         raise BuildError(f"{path}: missing screenshot variant")
@@ -104,6 +138,8 @@ def check_asset(screen: Screen, lang: str, variant: str, output_dir: Path) -> No
     expected = screen.dimensions(variant)
     if actual != expected:
         raise BuildError(f"{path}: screenshot dimensions {actual}, expected {expected}")
+    if hashlib.sha256(path.read_bytes()).hexdigest() != checksum:
+        raise BuildError(f"{path}: screenshot checksum differs from the accepted import")
 
 
 class ScreenFigures(Treeprocessor):
@@ -117,12 +153,11 @@ class ScreenFigures(Treeprocessor):
     def run(self, root: ET.Element) -> ET.Element:
         annotated = [node for node in root if node.tag == "h2" and "data-screen" in node.attrib]
         if len(annotated) != len(self.refs):
-            raise BuildError("screen markers did not match rendered article headings")
+            ref = self.refs[0]
+            raise BuildError(f"{ref.source}:{ref.line}: screen markers did not match rendered article headings")
         for heading, ref in zip(annotated, self.refs):
             if heading.get("data-screen") != ref.screen.id:
-                raise BuildError("screen marker order changed while rendering Markdown")
-            heading.set("data-screen-src", ref.url("phone"))
-            heading.set("data-screen-alt", ref.caption)
+                raise BuildError(f"{ref.source}:{ref.line}: screen marker order changed while rendering Markdown")
             figure = ET.Element("figure", {"class": "article-screen-inline"})
             link = ET.SubElement(
                 figure,

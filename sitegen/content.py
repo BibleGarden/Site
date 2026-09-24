@@ -14,14 +14,15 @@ from markdown.extensions.toc import slugify_unicode
 from markupsafe import Markup, escape
 
 from .errors import BuildError
-from .screens import Screen, ScreenFigureExtension, ScreenRef, VARIANTS, check_asset, load_catalog
+from .screens import Screen, ScreenFigureExtension, ScreenRef, VARIANTS, check_asset, load_catalog, load_checksums
 
 FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---\n(.*)\Z", re.DOTALL)
 FAQ_HEADING_RE = re.compile(r"^## .*\{#faq\}\s*$")
 H2_RE = re.compile(r"^## ")
 H3_RE = re.compile(r"^### (.+?)\s*$")
 SCREEN_MARKER_RE = re.compile(r"^<!-- screen: ([a-z0-9]+(?:-[a-z0-9]+)*) -->$")
-HEADING_ATTR_RE = re.compile(r"\s+\{([:#][^{}]*)\}\s*$")
+SCREEN_INTENT_RE = re.compile(r"^\s*<!--\s*screen", re.IGNORECASE)
+HEADING_ATTR_RE = re.compile(r"\s+\{([:#.][^{}]*)\}\s*$")
 LANGUAGE_RE = re.compile(r"^[a-z]{2}$")
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
@@ -274,6 +275,7 @@ def load_articles(site: Site, content_dir: Path) -> dict[str, dict[str, Article]
     if not articles_dir.is_dir():
         raise BuildError(f"{articles_dir}: missing articles directory (keep it, even if empty, with a .gitkeep)")
     screens = load_catalog(content_dir / "screens.yaml", site.languages)
+    checksums = load_checksums(content_dir / "screens.sha256", screens, site.languages) if screens else {}
     for slug_dir in sorted(articles_dir.iterdir()):
         if slug_dir.name == ".gitkeep":
             continue
@@ -288,7 +290,9 @@ def load_articles(site: Site, content_dir: Path) -> dict[str, dict[str, Article]
             lang = source.stem
             if lang not in site.languages:
                 raise BuildError(f"{source}: unknown language '{lang}', expected one of {', '.join(site.languages)}")
-            versions[lang] = parse_article(source, slug_dir.name, lang, screens, site.i18n[lang]["articles"], site.output_dir)
+            versions[lang] = parse_article(
+                source, slug_dir.name, lang, screens, checksums, site.i18n[lang]["articles"], site.output_dir
+            )
         if not versions:
             raise BuildError(f"{slug_dir}: article directory has no language versions")
         result[slug_dir.name] = versions
@@ -311,7 +315,7 @@ def load_pages(site: Site, content_dir: Path) -> dict[str, dict[str, StaticPage]
         for source in sorted(slug_dir.iterdir()):
             if source.suffix != ".md" or source.stem not in site.languages:
                 raise BuildError(f"{source}: only <lang>.md files for {', '.join(site.languages)} are allowed in a page directory")
-            meta, body = _frontmatter(source, PAGE_KEYS, ())
+            meta, body, _ = _frontmatter(source, PAGE_KEYS, ())
             versions[source.stem] = StaticPage(
                 slug=slug_dir.name,
                 lang=source.stem,
@@ -325,7 +329,7 @@ def load_pages(site: Site, content_dir: Path) -> dict[str, dict[str, StaticPage]
     return result
 
 
-def _frontmatter(source: Path, required: tuple[str, ...], optional: tuple[str, ...]) -> tuple[dict, str]:
+def _frontmatter(source: Path, required: tuple[str, ...], optional: tuple[str, ...]) -> tuple[dict, str, int]:
     """Split a Markdown source into its validated frontmatter mapping and body."""
     text = source.read_text(encoding="utf-8")
     match = FRONTMATTER_RE.match(text)
@@ -340,17 +344,23 @@ def _frontmatter(source: Path, required: tuple[str, ...], optional: tuple[str, .
     unknown = sorted(set(meta) - set(required) - set(optional))
     if unknown:
         raise BuildError(f"{source}: unknown frontmatter keys: {', '.join(unknown)}")
-    return meta, match.group(2)
+    return meta, match.group(2), text.count("\n", 0, match.start(2)) + 1
 
 
 def parse_article(
-    source: Path, slug: str, lang: str, screens: dict[str, Screen], strings: dict, output_dir: Path
+    source: Path,
+    slug: str,
+    lang: str,
+    screens: dict[str, Screen],
+    checksums: dict[Path, str],
+    strings: dict,
+    output_dir: Path,
 ) -> Article:
-    meta, body = _frontmatter(source, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS)
-    marked_body, clean_body, refs = annotate_screens(body, source, lang, screens)
+    meta, body, body_start_line = _frontmatter(source, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS)
+    marked_body, clean_body, refs = annotate_screens(body, source, lang, screens, body_start_line)
     for ref in refs:
         for variant in VARIANTS:
-            check_asset(ref.screen, lang, variant, output_dir)
+            check_asset(ref.screen, lang, variant, output_dir, checksums[ref.screen.path(lang, variant)])
     if refs and "screen_open" not in strings:
         raise BuildError(f"{source}: missing articles.screen_open translation")
     return Article(
@@ -369,7 +379,7 @@ def parse_article(
 
 
 def annotate_screens(
-    body: str, source: Path, lang: str, screens: dict[str, Screen]
+    body: str, source: Path, lang: str, screens: dict[str, Screen], body_start_line: int = 1
 ) -> tuple[str, str, tuple[ScreenRef, ...]]:
     """Validate comments immediately after h2 headings and convert them to heading attributes."""
     lines = body.splitlines()
@@ -378,16 +388,16 @@ def annotate_screens(
     clean: list[str] = []
     refs: list[ScreenRef] = []
     for index, line in enumerate(lines):
-        if not fenced[index] and line.lstrip().startswith("<!-- screen"):
+        if not fenced[index] and SCREEN_INTENT_RE.match(line):
             match = SCREEN_MARKER_RE.fullmatch(line)
             if not match:
-                raise BuildError(f"{source}:{index + 1}: expected <!-- screen: <id> -->")
+                raise BuildError(f"{source}:{body_start_line + index}: expected <!-- screen: <id> -->")
             if index == 0 or fenced[index - 1] or not H2_RE.match(lines[index - 1]):
-                raise BuildError(f"{source}:{index + 1}: screen marker must be directly after an h2 heading")
+                raise BuildError(f"{source}:{body_start_line + index}: screen marker must be directly after an h2 heading")
             screen_id = match.group(1)
             screen = screens.get(screen_id)
             if screen is None or lang not in screen.captions:
-                raise BuildError(f"{source}:{index + 1}: unknown screen {screen_id!r} for language {lang!r}")
+                raise BuildError(f"{source}:{body_start_line + index}: unknown screen {screen_id!r} for language {lang!r}")
             heading = marked[-1]
             attributes = HEADING_ATTR_RE.search(heading)
             if attributes:
@@ -395,7 +405,7 @@ def annotate_screens(
             else:
                 heading += f' {{: data-screen="{screen_id}"}}'
             marked[-1] = heading
-            refs.append(ScreenRef(screen, lang))
+            refs.append(ScreenRef(screen, lang, source, body_start_line + index))
             continue
         marked.append(line)
         clean.append(line)
