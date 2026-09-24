@@ -10,7 +10,7 @@ Wondering how to start reading the Bible? Open the Gospel of John rather than pa
 ## Start with the Gospel of John
 <!-- screen: classic-reading -->
 
-The Bible is a library of books, not a single story told straight through. Genesis begins with familiar stories, but the detailed laws in Exodus and Leviticus can be hard going when you have not yet met the central figure of the Christian faith.
+The Bible is a library of books written over centuries in different genres, not a novel to read straight through. Genesis is full of memorable stories, but Exodus and Leviticus bring detailed laws about the tabernacle and sacrifices, and Numbers adds censuses and genealogies. That is where many first-time readers give up.
 
 John introduces Jesus through his actions and extended conversations. Near the end, the writer tells readers why he wrote the book:
 
@@ -23,7 +23,7 @@ This is a starting point, not a required order. If another book has already caug
 ## A seven-day plan for your first book
 <!-- screen: select-chapter -->
 
-Read three chapters of John each day. The audio times below use the BSB narration by Bob Souer in Bible Garden; reading silently may take a different amount of time. Each day's time is rounded to the nearest minute.
+Read three chapters of John each day. The audio times below use the BSB narration by Bob Souer in Bible Garden. Reading silently is usually faster.
 
 | Day | Read | Audio minutes |
 |---|---|---|
@@ -36,7 +36,7 @@ Read three chapters of John each day. The audio times below use the BSB narratio
 | 7 | John 19–21 | 14 |
 | **Total** | **21 chapters** | **108** |
 
-The whole Gospel takes about one hour and 48 minutes to listen to. Day two is the longest. Split it across two days if you need to. If you miss a day, pick up where you stopped instead of doubling your next session.
+The whole Gospel takes just under two hours to listen to. Day two is the longest. Split it across two days if you need to. If you miss a day, pick up where you stopped instead of doubling your next session.
 
 ## What to read after John
 <!-- screen: home -->
@@ -51,33 +51,33 @@ Once you finish, try this order at a pace of about two chapters a day:
 
 ### Should you read from Genesis to Revelation instead?
 
-You can. Reading in biblical order or in the historical order of events are both longer routes that benefit from a plan. Starting with a Gospel gives you a way into the story before you encounter the harder parts of the Old Testament.
+You can — many people read the Bible cover to cover the first time. It is a longer commitment: plan on about a year and expect to work through some difficult books. Others follow a chronological order of events. For a first encounter, a Gospel is an easier way in; you can come back to a full read-through once the habit is in place.
 
 ## Which Bible translation should a beginner read?
 <!-- screen: translation-picker -->
 
-Choose one you understand without constantly stopping to decode the wording. Bible Garden for iPhone and iPad includes these English options:
+Choose one you understand without constantly stopping to decode the wording. [Bible Garden](/) for iPhone and iPad includes these English options:
 
 - **Berean Standard Bible (BSB)** uses contemporary English and is a good first choice for this plan. It includes audio by Bob Souer and David.
-- **World English Bible, US edition (WEBUS)** is another readable option, with audio by Winfred Henson. The app also offers the British edition (WEBBE).
+- **World English Bible, US edition (WEBUS)** is another readable option, with audio by Winfred Henson. The app also offers the British edition (WEBBE), with audio by an uncredited narrator.
 
-If you already own another translation you find clear, use it. Familiar older wording may be meaningful to you, but you do not need to master it before reading a Gospel. The app's English translations contain the 66 books of the Protestant canon; Catholic and Orthodox editions include additional Old Testament books. None of those differences affects the John–Mark–Acts route here.
+If you already own another translation you find clear, use it. The King James Version is not in the app; its 17th-century English is worth knowing, since many familiar quotations come from it, but it is harder going for a first read. The app's English translations contain the 66 books of the Protestant canon; Catholic and Orthodox editions include additional Old Testament books. None of those differences affects the John–Mark–Acts route here.
 
 ## How much should you read each day?
 <!-- screen: progress -->
 
 Three chapters of John are about 12–21 minutes of BSB audio. One chapter is enough on a busy day. A regular moment you can repeat, such as a commute or the time before bed, helps more than an ambitious target you cannot sustain.
 
-Some Christians pray briefly before reading, asking for help to understand the passage. If that practice appeals to you, use your own words. [Lampada](https://lampada.app/) is a separate app for focused prayer: it offers passages related to a chosen theme and a private journal for your reflections.
+Many Christians begin with a short prayer in their own words, asking for help to understand what they read. If that appeals to you, start there. If your mind tends to wander when you pray, try our app [Lampada](https://lampada.app/): you choose a theme, and it helps you stay focused, suggests related Scripture passages, and keeps your thoughts in a private journal.
 
-Notice your progress, too. Seeing nine of John's 21 chapters completed can make it easier to return tomorrow.
+Track what you have read. Seeing nine of John's 21 chapters completed can make it easier to return tomorrow.
 
 ## How to keep going: read and listen
 <!-- screen: multi-setup-translations -->
 
 Audio can fit a walk or a journey when sitting down with a book is difficult. Bible Garden offers:
 
-- **Pauses during playback.** Add time after a verse, paragraph, or section to think about what you heard. Playback speed ranges from 0.6× to 2×, the next chapter can start automatically, and the player works from the lock screen.
+- **Pauses during playback.** Add a pause of a few seconds after each verse, paragraph, or section so you have time to think. Playback speed ranges from 0.6× to 2×, the next chapter starts automatically, and you can control playback from the lock screen.
 - **A choice of narrators.** Bob Souer and David read BSB; Winfred Henson reads WEBUS.
 - **Two translations in sequence.** In **Multi Reading**, you can play a verse in BSB, pause, then hear that verse in WEBUS. This lets you compare unfamiliar wording without losing your place.
 - **Reading progress.** The app marks a chapter when you finish its audio or scroll through its text, and shows progress for each book and the Bible as a whole.
@@ -86,13 +86,13 @@ The seven-day schedule is in the table above; the app does not include a built-i
 
 ## What if you do not understand a passage?
 
-Even a reader in Acts needed help:
+You will hit confusing passages, and that is normal. The Bible itself records a conversation like this:
 
 > So Philip ran up and heard the man reading Isaiah the prophet. “Do you understand what you are reading?” Philip asked. “How can I,” he said, “unless someone guides me?” And he invited Philip to come up and sit with him.
 >
 > — Acts 8:30–31, Berean Standard Bible
 
-Write down the passage and your question in a notebook or your phone. A study Bible or commentary can supply context, and a reading group, friend, or church leader can help you talk it through. Bible Garden has text and audio, but no built-in notes or commentaries.
+Write down the passage and your question in a notebook or your phone. A study Bible or commentary can supply context, and a reading group, friend, or pastor can help you talk it through. Bible Garden has text and audio, but no built-in notes or commentaries.
 
 ## Frequently asked questions {#faq}
 
@@ -102,7 +102,7 @@ There is no mandatory order. Try John, then Mark, Acts, and Philippians; move to
 
 ### Which Bible should I read as a beginner?
 
-Choose a translation you can follow. The Berean Standard Bible is a clear starting point in Bible Garden; WEBUS offers another English rendering of the same passage.
+Choose a translation you can follow. In Bible Garden, the Berean Standard Bible is a clear starting point; the World English Bible (WEBUS) is another readable option. Both include audio.
 
 ### How is the Bible organized?
 
@@ -110,9 +110,9 @@ It has an Old Testament and a New Testament. The Old Testament begins with Genes
 
 ### How long does it take to read the whole Bible?
 
-Bob Souer's BSB audio in the app runs about 69 hours. That is roughly 12 minutes a day over a year, though reading silently and listening to another narrator will take different amounts of time. You can begin with just one Gospel.
+Bob Souer's BSB audio in the app runs about 69 hours — roughly 11 minutes a day over a year. Reading silently is usually faster. You don't have to aim for the whole Bible at first: begin with one Gospel.
 
-### How can I understand what I read?
+### How can I understand the Bible when I read it?
 
 Read a little regularly in a translation you understand. Keep questions, reread difficult passages in context, consult a commentary, and discuss them with someone who has read them before.
 

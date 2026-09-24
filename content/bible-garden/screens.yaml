@@ -5,7 +5,7 @@ classic-reading:
   captions:
     en: John 1 in Classic Reading with audio controls
     ru: Глава 1 Евангелия от Иоанна в режиме «Обычное чтение» с аудиоплеером
-    uk: Розділ 1 Євангелія від Івана в режимі «Звичайне читання» з аудіоплеєром
+    uk: Розділ 1 Євангелія від Йоана в режимі «Звичайне читання» з аудіоплеєром
 classic-reading-psalm:
   kind: app
   captions:
@@ -15,9 +15,9 @@ classic-reading-psalm:
 home:
   kind: app
   captions:
-    en: Bible Garden home screen with Bible books
-    ru: Главный экран Bible Garden со списком книг Библии
-    uk: Головний екран Bible Garden зі списком книг Біблії
+    en: Bible Garden home screen with reading modes and overall progress
+    ru: "Главный экран Bible Garden: режимы чтения и общий прогресс"
+    uk: "Головний екран Bible Garden: режими читання та загальний прогрес"
 ios-timer-stop-playing:
   kind: system
   captions:
