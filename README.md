@@ -58,7 +58,8 @@ when a JSON-LD block lacks a required field (`Article`: headline,
 image, dates, an `Organization` author with name and URL; `AboutPage` and
 `WebPage`: name, description, URL, language, and for `AboutPage` the
 `Organization`; `BreadcrumbList`: items; `FAQPage`: questions with answers), when a `hreflang` link points at a `noindex` page or when a page's
-analytics tag disagrees with `site.yaml` (see [Analytics](#analytics)). Commit the
+analytics tag disagrees with `site.yaml` (see [Analytics](#analytics)), or when a
+committed article screenshot is missing, corrupt or has the wrong dimensions. Commit the
 regenerated files together with the content change.
 
 Missing translation keys, unknown languages, missing frontmatter fields or a
@@ -147,6 +148,44 @@ The body is Markdown (`extra` and `toc` extensions: tables, footnotes,
 fenced code, heading anchors). Headings inside fenced code blocks (``` or ~~~,
 CommonMark rules) are ignored by the FAQ parser. Links inside the site are root-relative
 (`/ru/articles/other-slug/`).
+
+### Screens in articles
+
+Add a marker on the line immediately after a second-level heading:
+
+```markdown
+## Which translation should I choose?
+<!-- screen: translation-picker -->
+```
+
+The id must exist in `content/bible-garden/screens.yaml`; the article language
+selects its caption and image (`translation-picker.ru.webp` for `ru.md`). The
+caption is the image alt text. The build stops for an unknown id, malformed or
+misplaced marker, missing caption, or missing WebP variant. On wide screens a
+phone stays beside the article and changes at marked headings; below 1024 px,
+each screenshot appears below its heading and opens a larger image. Without
+JavaScript the first desktop screenshot remains visible and mobile images open
+as ordinary links.
+
+The accepted screenshot archive is the latest `bible-garden-screens-v4.zip`
+attachment of ClickUp task `123pfqn05hq` (SHA-256
+`70a13a2da5727fe0671eb6a712a7448485f7ec9e3ede220ecc384fa547a2e9fb`).
+Import it with the development machine's `cwebp 1.3.2`:
+
+```bash
+.venv/bin/python tools/import_article_screens.py /path/to/bible-garden-screens-v4.zip
+.venv/bin/python -m sitegen build
+.venv/bin/python -m sitegen check
+```
+
+The importer verifies the archive, its 48 named PNGs and source dimensions,
+then writes only WebP to `img/article-screens/{mobile,phone,zoom}/` at widths
+360, 480 and 960 px with `cwebp -q 88`. Source PNGs stay outside the repo.
+The current 144 WebP occupy 6.87 MiB (measured on 2026-09-24 by summing file
+sizes after import). CI checks committed variants without needing the archive
+or `cwebp`. The draft `template-check` article exercises two markers in all
+three languages; it is not published. Preview `/ru/articles/template-check/`
+with the local server described below.
 
 ### FAQ block
 

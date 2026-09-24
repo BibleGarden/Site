@@ -28,3 +28,6 @@ jobs:
 
       - name: Validate JSON-LD
         run: python -m sitegen check
+
+      - name: Test article screenshots
+        run: python -m unittest discover -s tests

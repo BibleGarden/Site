@@ -11,6 +11,7 @@ from urllib.parse import urlsplit
 from .build import CONTENT_DIR, REPO_ROOT
 from .content import Site, load_site
 from .errors import BuildError
+from .screens import ASSET_DIR, VARIANTS, check_asset, load_catalog
 
 JSON_LD_RE = re.compile(r'<script type="application/ld\+json">(.*?)</script>', re.DOTALL)
 CANONICAL_RE = re.compile(r'<link rel="canonical" href="([^"]+)">')
@@ -38,7 +39,24 @@ def run_checks() -> tuple[int, int]:
     links = check_hreflang(pages, sites)
     check_internal_links(pages, owners)
     check_analytics(pages, owners)
+    check_screens(sites)
     return blocks, links
+
+
+def check_screens(sites: list[Site]) -> None:
+    """The archive stays outside git, so CI verifies every committed variant."""
+    for site in sites:
+        catalog = load_catalog(CONTENT_DIR / site.key / "screens.yaml", site.languages)
+        if not catalog:
+            continue
+        expected = {screen.path(lang, variant) for screen in catalog.values() for lang in site.languages for variant in VARIANTS}
+        for screen in catalog.values():
+            for lang in site.languages:
+                for variant in VARIANTS:
+                    check_asset(screen, lang, variant, site.output_dir)
+        actual = {path.relative_to(site.output_dir) for path in (site.output_dir / ASSET_DIR).rglob("*") if path.is_file()}
+        if actual != expected:
+            raise BuildError(f"{site.output_dir / ASSET_DIR}: unexpected screenshot assets: {sorted(actual - expected)}")
 
 
 def owner_site(path: Path, sites: list[Site]) -> Site:

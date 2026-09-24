@@ -1,0 +1,98 @@
+# Captions describe the visible interface and also become image alt text.
+# Source: ClickUp 123pfqn05hq, accepted v4 screenshot archive (2026-09-24).
+classic-reading:
+  kind: app
+  captions:
+    en: John 1 in Classic Reading with audio controls
+    ru: Глава 1 Евангелия от Иоанна в режиме чтения с аудиоплеером
+    uk: Розділ 1 Євангелія від Івана в режимі читання з аудіоплеєром
+classic-reading-psalm:
+  kind: app
+  captions:
+    en: A psalm in Classic Reading with audio controls
+    ru: Псалом в режиме чтения с аудиоплеером
+    uk: Псалом у режимі читання з аудіоплеєром
+home:
+  kind: app
+  captions:
+    en: Bible Garden home screen with Bible books
+    ru: Главный экран Bible Garden со списком книг Библии
+    uk: Головний екран Bible Garden зі списком книг Біблії
+ios-timer-stop-playing:
+  kind: system
+  captions:
+    en: iPhone timer set to stop playback when it ends
+    ru: Таймер iPhone с действием «Остановить» по окончании
+    uk: Таймер iPhone з дією «Зупинити відтворення» після завершення
+lock-screen-player:
+  kind: system
+  captions:
+    en: Bible Garden audio player on the iPhone lock screen
+    ru: Аудиоплеер Bible Garden на экране блокировки iPhone
+    uk: Аудіоплеєр Bible Garden на екрані блокування iPhone
+multi-reading:
+  kind: app
+  captions:
+    en: Multi Reading plays a verse in two translations
+    ru: Режим Multi Reading воспроизводит стих в двух переводах
+    uk: Режим Multi Reading відтворює вірш у двох перекладах
+multi-setup-bilingual:
+  kind: app
+  captions:
+    en: Setting up Multi Reading in two languages
+    ru: Настройка Multi Reading на двух языках
+    uk: Налаштування Multi Reading двома мовами
+multi-setup-translations:
+  kind: app
+  captions:
+    en: Choosing two translations for Multi Reading
+    ru: Выбор двух переводов для Multi Reading
+    uk: Вибір двох перекладів для Multi Reading
+progress:
+  kind: app
+  captions:
+    en: Bible reading progress by book and overall
+    ru: Прогресс чтения Библии по книгам и в целом
+    uk: Прогрес читання Біблії за книгами та загалом
+progress-settings:
+  kind: app
+  captions:
+    en: Settings for tracking Bible reading progress
+    ru: Настройки учёта прогресса чтения Библии
+    uk: Налаштування обліку прогресу читання Біблії
+reader-picker:
+  kind: app
+  captions:
+    en: Choosing a narrator for Bible audio
+    ru: Выбор диктора для аудиозаписей Библии
+    uk: Вибір диктора для аудіозаписів Біблії
+red-letters:
+  kind: app
+  captions:
+    en: Words of Jesus shown in red in the Bible text
+    ru: Слова Иисуса выделены красным цветом в тексте Библии
+    uk: Слова Ісуса виділено червоним кольором у тексті Біблії
+select-chapter:
+  kind: app
+  captions:
+    en: Choosing a chapter and seeing reading progress
+    ru: Выбор главы и отметки о прочитанных главах
+    uk: Вибір розділу та позначки про прочитані розділи
+settings-pause:
+  kind: app
+  captions:
+    en: Adjusting pauses between verses during playback
+    ru: Настройка пауз между стихами при прослушивании
+    uk: Налаштування пауз між віршами під час прослуховування
+settings-translation:
+  kind: app
+  captions:
+    en: Translation settings for Classic Reading
+    ru: Настройки перевода для обычного чтения
+    uk: Налаштування перекладу для звичайного читання
+translation-picker:
+  kind: app
+  captions:
+    en: Choosing a Bible translation to read
+    ru: Выбор перевода Библии для чтения
+    uk: Вибір перекладу Біблії для читання

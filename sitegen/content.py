@@ -14,11 +14,14 @@ from markdown.extensions.toc import slugify_unicode
 from markupsafe import Markup, escape
 
 from .errors import BuildError
+from .screens import Screen, ScreenFigureExtension, ScreenRef, VARIANTS, check_asset, load_catalog
 
 FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---\n(.*)\Z", re.DOTALL)
 FAQ_HEADING_RE = re.compile(r"^## .*\{#faq\}\s*$")
 H2_RE = re.compile(r"^## ")
 H3_RE = re.compile(r"^### (.+?)\s*$")
+SCREEN_MARKER_RE = re.compile(r"^<!-- screen: ([a-z0-9]+(?:-[a-z0-9]+)*) -->$")
+HEADING_ATTR_RE = re.compile(r"\s+\{([:#][^{}]*)\}\s*$")
 LANGUAGE_RE = re.compile(r"^[a-z]{2}$")
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
@@ -121,6 +124,7 @@ class Article:
     image: str | None
     body_html: str
     faq: tuple[FaqItem, ...]
+    screens: tuple[ScreenRef, ...]
 
     @property
     def path(self) -> str:
@@ -269,6 +273,7 @@ def load_articles(site: Site, content_dir: Path) -> dict[str, dict[str, Article]
     result: dict[str, dict[str, Article]] = {}
     if not articles_dir.is_dir():
         raise BuildError(f"{articles_dir}: missing articles directory (keep it, even if empty, with a .gitkeep)")
+    screens = load_catalog(content_dir / "screens.yaml", site.languages)
     for slug_dir in sorted(articles_dir.iterdir()):
         if slug_dir.name == ".gitkeep":
             continue
@@ -283,7 +288,7 @@ def load_articles(site: Site, content_dir: Path) -> dict[str, dict[str, Article]
             lang = source.stem
             if lang not in site.languages:
                 raise BuildError(f"{source}: unknown language '{lang}', expected one of {', '.join(site.languages)}")
-            versions[lang] = parse_article(source, slug_dir.name, lang)
+            versions[lang] = parse_article(source, slug_dir.name, lang, screens, site.i18n[lang]["articles"], site.output_dir)
         if not versions:
             raise BuildError(f"{slug_dir}: article directory has no language versions")
         result[slug_dir.name] = versions
@@ -338,8 +343,16 @@ def _frontmatter(source: Path, required: tuple[str, ...], optional: tuple[str, .
     return meta, match.group(2)
 
 
-def parse_article(source: Path, slug: str, lang: str) -> Article:
+def parse_article(
+    source: Path, slug: str, lang: str, screens: dict[str, Screen], strings: dict, output_dir: Path
+) -> Article:
     meta, body = _frontmatter(source, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS)
+    marked_body, clean_body, refs = annotate_screens(body, source, lang, screens)
+    for ref in refs:
+        for variant in VARIANTS:
+            check_asset(ref.screen, lang, variant, output_dir)
+    if refs and "screen_open" not in strings:
+        raise BuildError(f"{source}: missing articles.screen_open translation")
     return Article(
         slug=slug,
         lang=lang,
@@ -349,9 +362,45 @@ def parse_article(source: Path, slug: str, lang: str) -> Article:
         updated=_require_date(meta, "updated", source) if "updated" in meta else None,
         draft=_require_bool(meta, "draft", source) if "draft" in meta else False,
         image=_require_str(meta, "image", source) if "image" in meta else None,
-        body_html=render_markdown(body),
-        faq=extract_faq(body, source),
+        body_html=render_markdown(marked_body, refs, strings.get("screen_open", "")),
+        faq=extract_faq(clean_body, source),
+        screens=refs,
     )
+
+
+def annotate_screens(
+    body: str, source: Path, lang: str, screens: dict[str, Screen]
+) -> tuple[str, str, tuple[ScreenRef, ...]]:
+    """Validate comments immediately after h2 headings and convert them to heading attributes."""
+    lines = body.splitlines()
+    fenced = _fenced_flags(lines)
+    marked: list[str] = []
+    clean: list[str] = []
+    refs: list[ScreenRef] = []
+    for index, line in enumerate(lines):
+        if not fenced[index] and line.lstrip().startswith("<!-- screen"):
+            match = SCREEN_MARKER_RE.fullmatch(line)
+            if not match:
+                raise BuildError(f"{source}:{index + 1}: expected <!-- screen: <id> -->")
+            if index == 0 or fenced[index - 1] or not H2_RE.match(lines[index - 1]):
+                raise BuildError(f"{source}:{index + 1}: screen marker must be directly after an h2 heading")
+            screen_id = match.group(1)
+            screen = screens.get(screen_id)
+            if screen is None or lang not in screen.captions:
+                raise BuildError(f"{source}:{index + 1}: unknown screen {screen_id!r} for language {lang!r}")
+            heading = marked[-1]
+            attributes = HEADING_ATTR_RE.search(heading)
+            if attributes:
+                heading = heading[: attributes.start()] + f' {{{attributes.group(1)} data-screen="{screen_id}"}}'
+            else:
+                heading += f' {{: data-screen="{screen_id}"}}'
+            marked[-1] = heading
+            refs.append(ScreenRef(screen, lang))
+            continue
+        marked.append(line)
+        clean.append(line)
+    newline = "\n" if body.endswith("\n") else ""
+    return "\n".join(marked) + newline, "\n".join(clean) + newline, tuple(refs)
 
 
 def _require_str(meta: dict, key: str, source: Path) -> str:
@@ -375,8 +424,11 @@ def _require_bool(meta: dict, key: str, source: Path) -> bool:
     return value
 
 
-def render_markdown(text: str) -> str:
-    return markdown.markdown(text, extensions=MARKDOWN_EXTENSIONS, extension_configs=MARKDOWN_EXTENSION_CONFIGS)
+def render_markdown(text: str, screens: tuple[ScreenRef, ...] = (), screen_open: str = "") -> str:
+    extensions = [*MARKDOWN_EXTENSIONS]
+    if screens:
+        extensions.append(ScreenFigureExtension(screens, screen_open))
+    return markdown.markdown(text, extensions=extensions, extension_configs=MARKDOWN_EXTENSION_CONFIGS)
 
 
 def extract_faq(body: str, source: Path) -> tuple[FaqItem, ...]:
