@@ -4,9 +4,12 @@
 {% for block in json_ld %}
     <script type="application/ld+json">{{ block | jsonld }}</script>
 {% endfor %}
+{% if article.screens %}
+    <script defer src="/js/article-screens.js"></script>
+{% endif %}
 {% endblock %}
 {% block main %}
-    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="{% if article.screens %}max-w-6xl{% else %}max-w-3xl{% endif %} mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/{{ site.language_prefix(lang) }}" class="hover:text-gray-300 transition-colors">{{ t.articles.breadcrumb_home }}</a></li>
@@ -17,7 +20,7 @@
             </ol>
         </nav>
 
-        <header class="mb-10">
+        <header class="mb-10{% if article.screens %} max-w-3xl{% endif %}">
             <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">{{ article.title }}</h1>
             <p class="text-lg text-gray-400 leading-relaxed mb-4">{{ article.description }}</p>
             <p class="text-xs text-gray-500">
@@ -28,11 +31,29 @@
             </p>
         </header>
 
+{% if article.screens %}
+        <div class="article-screen-layout">
+{% endif %}
         <div class="article-body">
 {{ article.body_html | safe }}
         </div>
+{% if article.screens %}
+            <aside class="article-screen-aside" aria-label="{{ t.articles.screen_viewer }}">
+                <div class="article-screen-phone">
+{% for screen in article.screens %}
+                    <img data-src="{{ screen.url('phone') }}" alt="{{ screen.caption }}" width="{{ screen.dimensions('phone')[0] }}" height="{{ screen.dimensions('phone')[1] }}" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+{% endfor %}
+                    <noscript><img class="article-screen-noscript" src="{{ article.screens[0].url('phone') }}" alt="{{ article.screens[0].caption }}" width="{{ article.screens[0].dimensions('phone')[0] }}" height="{{ article.screens[0].dimensions('phone')[1] }}"></noscript>
+                </div>
+            </aside>
+        </div>
+        <dialog class="article-screen-dialog" aria-label="{{ t.articles.screen_viewer }}">
+            <button type="button" class="article-screen-close" aria-label="{{ t.articles.screen_close }}">×</button>
+            <img alt="" width="960" height="2086">
+        </dialog>
+{% endif %}
 
-        <aside class="feature-card rounded-2xl p-6 sm:p-8 mt-14 text-center">
+        <aside class="feature-card rounded-2xl p-6 sm:p-8 mt-14 text-center{% if article.screens %} max-w-3xl{% endif %}">
             <h2 class="font-serif text-2xl font-semibold text-white mb-3">{{ t.articles.download_title }}</h2>
             <p class="text-gray-400 mb-6">{{ t.articles.download_text }}</p>
             <a href="{{ site.article_app_store_url(lang) }}" data-umami-event="app-store-click" target="_blank" rel="noopener" class="btn-gold px-6 py-3.5 rounded-xl text-sm inline-flex items-center justify-center gap-2.5 cursor-pointer">
@@ -42,7 +63,7 @@
         </aside>
 
         {% if previous or following %}
-        <nav class="grid sm:grid-cols-2 gap-4 mt-10 text-sm" aria-label="{{ t.articles.section_title }}">
+        <nav class="grid sm:grid-cols-2 gap-4 mt-10 text-sm{% if article.screens %} max-w-3xl{% endif %}" aria-label="{{ t.articles.section_title }}">
             <div>
                 {% if previous %}
                 <a href="/{{ site.language_prefix(lang) }}{{ previous.path }}" class="block feature-card rounded-xl px-5 py-4 hover:border-gray-400/30 transition-colors">

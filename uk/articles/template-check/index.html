@@ -157,6 +157,7 @@
     }
   ]
 }</script>
+    <script defer src="/js/article-screens.js"></script>
 </head>
 
 <body class="bg-garden-950 text-gray-200 font-sans antialiased">
@@ -166,7 +167,7 @@
             <div class="flex items-center justify-between h-16">
                 <a href="/uk/" class="flex items-center gap-2.5 group">
                     <img src="/img/logo.png" alt="Bible Garden" class="w-8 h-8 rounded-lg">
-                    <span class="font-serif font-semibold text-lg text-white whitespace-nowrap">Bible Garden</span>
+                    <span class="site-brand-name font-serif font-semibold text-lg text-white whitespace-nowrap">Bible Garden</span>
                 </a>
 
                 <div class="flex items-center gap-4">
@@ -188,7 +189,7 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/uk/" class="hover:text-gray-300 transition-colors">Головна</a></li>
@@ -199,7 +200,7 @@
             </ol>
         </nav>
 
-        <header class="mb-10">
+        <header class="mb-10 max-w-3xl">
             <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">Перевірочна стаття</h1>
             <p class="text-lg text-gray-400 leading-relaxed mb-4">Короткий чернетковий текст, що задіює всі елементи шаблону статті. До контент-плану не входить.</p>
             <p class="text-xs text-gray-500">
@@ -207,10 +208,11 @@
             </p>
         </header>
 
+        <div class="article-screen-layout">
         <div class="article-body">
 <p>Ця чернетка потрібна, щоб перевірити шаблон статті до першої справжньої публікації. Вона не потрапляє в sitemap і не пов’язана з лендингом.</p>
-<h2 id="заголовки-та-текст">Заголовки та текст</h2>
-<p>Абзац із <strong>жирним текстом</strong>, <em>курсивом</em>, <a href="/uk/">посиланням на головну</a> і <code>кодом</code>.</p>
+<h2 data-screen="home" id="заголовки-та-текст">Заголовки та текст</h2>
+<figure class="article-screen-inline"><a aria-label="Відкрити знімок екрана крупніше: Головний екран Bible Garden зі списком книг Біблії" class="article-screen-link" data-zoom-height="2086" data-zoom-width="960" href="/img/article-screens/zoom/home.uk.webp"><img alt="Головний екран Bible Garden зі списком книг Біблії" decoding="async" height="783" loading="lazy" sizes="180px" src="/img/article-screens/mobile/home.uk.webp" srcset="/img/article-screens/mobile/home.uk.webp 360w, /img/article-screens/phone/home.uk.webp 480w" width="360" /></a></figure><p>Абзац із <strong>жирним текстом</strong>, <em>курсивом</em>, <a href="/uk/">посиланням на головну</a> і <code>кодом</code>.</p>
 <ul>
 <li>Маркований список</li>
 <li>із другим пунктом</li>
@@ -222,8 +224,8 @@
 <blockquote>
 <p>Цитата, відокремлена від основного тексту.</p>
 </blockquote>
-<h2 id="таблиця">Таблиця</h2>
-<table>
+<h2 data-screen="translation-picker" id="таблиця">Таблиця</h2>
+<figure class="article-screen-inline"><a aria-label="Відкрити знімок екрана крупніше: Вибір перекладу Біблії для читання" class="article-screen-link" data-zoom-height="2086" data-zoom-width="960" href="/img/article-screens/zoom/translation-picker.uk.webp"><img alt="Вибір перекладу Біблії для читання" decoding="async" height="783" loading="lazy" sizes="180px" src="/img/article-screens/mobile/translation-picker.uk.webp" srcset="/img/article-screens/mobile/translation-picker.uk.webp 360w, /img/article-screens/phone/translation-picker.uk.webp 480w" width="360" /></a></figure><table>
 <thead>
 <tr>
 <th>Переклад</th>
@@ -250,8 +252,20 @@
 <h3 id="чи-є-тут-структуровані-дані-faq">Чи є тут структуровані дані FAQ?</h3>
 <p>Так. Кожне запитання рівня <code>###</code> у цьому розділі стає записом блоку JSON-LD <code>FAQPage</code>.</p>
         </div>
+            <aside class="article-screen-aside" aria-label="Знімок екрана застосунку">
+                <div class="article-screen-phone">
+                    <img data-src="/img/article-screens/phone/home.uk.webp" alt="Головний екран Bible Garden зі списком книг Біблії" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                    <img data-src="/img/article-screens/phone/translation-picker.uk.webp" alt="Вибір перекладу Біблії для читання" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                    <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/home.uk.webp" alt="Головний екран Bible Garden зі списком книг Біблії" width="480" height="1043"></noscript>
+                </div>
+            </aside>
+        </div>
+        <dialog class="article-screen-dialog" aria-label="Знімок екрана застосунку">
+            <button type="button" class="article-screen-close" aria-label="Закрити знімок екрана">×</button>
+            <img alt="" width="960" height="2086">
+        </dialog>
 
-        <aside class="feature-card rounded-2xl p-6 sm:p-8 mt-14 text-center">
+        <aside class="feature-card rounded-2xl p-6 sm:p-8 mt-14 text-center max-w-3xl">
             <h2 class="font-serif text-2xl font-semibold text-white mb-3">Читайте та слухайте з Bible Garden</h2>
             <p class="text-gray-400 mb-6">Безкоштовний застосунок із відкритим кодом для читання та прослуховування Біблії кількома мовами з професійною озвучкою та налаштовуваними паузами.</p>
             <a href="https://apps.apple.com/app/apple-store/id6758955373?pt=119043617&amp;ct=seo-uk&amp;mt=8" data-umami-event="app-store-click" target="_blank" rel="noopener" class="btn-gold px-6 py-3.5 rounded-xl text-sm inline-flex items-center justify-center gap-2.5 cursor-pointer">

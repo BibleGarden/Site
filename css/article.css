@@ -118,6 +118,150 @@
     border-radius: 16px;
 }
 
+/* Screens are shared article assets; the phone stays inside the text's grid row. */
+.article-screen-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 15rem;
+    gap: 3rem;
+    align-items: stretch;
+}
+
+.article-screen-aside {
+    min-width: 0;
+}
+
+.article-screen-phone {
+    position: sticky;
+    top: 6rem;
+    width: min(15rem, 27vh);
+    aspect-ratio: 1320 / 2868;
+    overflow: hidden;
+    border: 3px solid #2a4030;
+    border-radius: 2rem;
+    background: #0d1a12;
+    box-shadow: 0 20px 55px -15px rgba(0, 0, 0, 0.65);
+}
+
+.article-screen-phone-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 0;
+    opacity: 0;
+    transition: opacity 220ms ease;
+}
+
+.article-screen-phone-image.is-active {
+    opacity: 1;
+}
+
+.article-screen-noscript {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.article-screen-inline {
+    display: none;
+}
+
+.article-screen-dialog {
+    position: fixed;
+    max-width: calc(100vw - 2rem);
+    max-height: calc(100dvh - 2rem);
+    padding: 2.5rem 1rem 1rem;
+    border: 1px solid #45634c;
+    border-radius: 1rem;
+    background: #0d1a12;
+    color: #fff;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.8);
+}
+
+.article-screen-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.82);
+}
+
+.article-screen-dialog img {
+    display: block;
+    max-width: 100%;
+    max-height: calc(100dvh - 6rem);
+    width: auto;
+    height: auto;
+    margin: auto;
+    border-radius: 0;
+}
+
+.article-screen-close {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.5rem;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    color: #fff;
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
+.article-screen-close:focus-visible,
+.article-screen-link:focus-visible {
+    outline: 3px solid #d4a843;
+    outline-offset: 4px;
+}
+
+@media (max-width: 1023px) {
+    .article-screen-layout {
+        display: block;
+    }
+
+    .article-screen-aside {
+        display: none;
+    }
+
+    .article-screen-inline {
+        display: block;
+        width: min(11.25rem, 60vw);
+        margin: 1.25rem auto 1.75rem;
+        text-align: center;
+    }
+
+    .article-screen-link {
+        display: inline-block;
+        border: 2px solid #2a4030;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+    }
+
+    .article-screen-link img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .article-body table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 359px) {
+    .site-brand-name {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .article-screen-phone-image {
+        transition: none;
+    }
+}
+
 .article-body hr {
     border: 0;
     height: 1px;

@@ -8,6 +8,7 @@ draft: true
 This draft exists so the article template can be reviewed before the first real article is written. It stays out of the sitemap and is not linked from the landing page.
 
 ## Headings and text
+<!-- screen: home -->
 
 A paragraph with **bold text**, *emphasis*, a [link to the landing page](/) and inline `code`.
 
@@ -20,6 +21,7 @@ A paragraph with **bold text**, *emphasis*, a [link to the landing page](/) and 
 > A quotation set apart from the running text.
 
 ## A table
+<!-- screen: translation-picker -->
 
 | Translation | Language | Narration |
 |-------------|----------|-----------|
