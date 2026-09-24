@@ -31,7 +31,7 @@
                 <!-- Logo -->
                 <a href="{{ lang_paths[lang] }}" class="flex items-center gap-2.5 group">
                     <img src="/img/logo.png" alt="Bible Garden" class="w-8 h-8 rounded-lg">
-                    <span class="font-serif font-semibold text-lg text-white">Bible Garden</span>
+                    <span class="site-brand-name font-serif font-semibold text-lg text-white whitespace-nowrap">Bible Garden</span>
                 </a>
 
                 <!-- Desktop nav -->
@@ -46,7 +46,10 @@
                 </div>
 
                 <!-- Right side: lang + github -->
-                <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2 sm:gap-4">
+                    {% if has_articles %}
+                    <a href="{{ lang_paths[lang] }}articles/" class="md:hidden text-sm text-gray-400 hover:text-white transition-colors">{{ t.articles.section_title }}</a>
+                    {% endif %}
                     <!-- Language switcher -->
                     <div class="flex items-center gap-1 text-sm text-gray-500">
                         {% for code, label in [("en", "EN"), ("ru", "RU"), ("uk", "UA")] %}
@@ -76,9 +79,6 @@
                     <a href="#opensource" class="text-sm text-gray-400 hover:text-white transition-colors">{{ t.landing.nav.opensource }}</a>
                     <a href="#mission" class="text-sm text-gray-400 hover:text-white transition-colors">{{ t.landing.nav.mission }}</a>
                     <a href="#contact" class="text-sm text-gray-400 hover:text-white transition-colors">{{ t.landing.nav.contact }}</a>
-                    {% if has_articles %}
-                    <a href="{{ lang_paths[lang] }}articles/" class="text-sm text-gray-400 hover:text-white transition-colors">{{ t.articles.section_title }}</a>
-                    {% endif %}
                 </div>
             </div>
         </div>
@@ -180,7 +180,7 @@
 
                 <!-- 1. Multi Reading — killer feature -->
                 <div class="flex flex-col md:flex-row items-center gap-10 lg:gap-16 reveal">
-                    <div class="flex-shrink-0 order-2 md:order-1 flex gap-4">
+                    <div class="feature-screen-pair flex-shrink-0 order-2 md:order-1 flex gap-4">
                         <img src="/img/screens/multi-setup.jpg" alt="Multi Setup" class="w-[150px] sm:w-[180px] rounded-3xl border-2 border-garden-700/50 shadow-2xl" loading="lazy">
                         <img src="/img/screens/multi-reading.jpg" alt="Multi Reading" class="w-[150px] sm:w-[180px] rounded-3xl border-2 border-garden-700/50 shadow-2xl" loading="lazy">
                     </div>
@@ -237,7 +237,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex-shrink-0 flex gap-4">
+                    <div class="feature-screen-pair flex-shrink-0 flex gap-4">
                         <img src="/img/screens/classic-reading.jpg" alt="Classic Reading" class="w-[150px] sm:w-[180px] rounded-3xl border-2 border-garden-700/50 shadow-2xl" loading="lazy">
                         <img src="/img/screens/settings.jpg" alt="Settings" class="w-[150px] sm:w-[180px] rounded-3xl border-2 border-garden-700/50 shadow-2xl" loading="lazy">
                     </div>
@@ -245,7 +245,7 @@
 
                 <!-- 3. Reading Progress (image left) -->
                 <div class="flex flex-col md:flex-row items-center gap-10 lg:gap-16 reveal">
-                    <div class="flex-shrink-0 order-2 md:order-1 flex gap-4">
+                    <div class="feature-screen-pair flex-shrink-0 order-2 md:order-1 flex gap-4">
                         <img src="/img/screens/progress.jpg" alt="Reading Progress" class="w-[150px] sm:w-[180px] rounded-3xl border-2 border-garden-700/50 shadow-2xl" loading="lazy">
                         <img src="/img/screens/menu.jpg" alt="Menu" class="w-[150px] sm:w-[180px] rounded-3xl border-2 border-garden-700/50 shadow-2xl" loading="lazy">
                     </div>

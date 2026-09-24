@@ -143,6 +143,16 @@ body::before {
     color: #a3b8aa;
 }
 
+@media (max-width: 639px) {
+    .site-brand-name {
+        display: none;
+    }
+
+    .feature-screen-pair img {
+        max-width: calc((100vw - 3rem) / 2);
+    }
+}
+
 /* Section divider */
 .section-leaf {
     width: 180px;
