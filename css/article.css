@@ -130,16 +130,16 @@
     min-width: 0;
 }
 
+/* Draw the frame outside the image box so the screen keeps its own aspect ratio. */
 .article-screen-phone {
     position: sticky;
     top: 6rem;
     width: min(15rem, 27vh);
     aspect-ratio: 1320 / 2868;
     overflow: hidden;
-    border: 3px solid #2a4030;
     border-radius: 2rem;
     background: #0d1a12;
-    box-shadow: 0 20px 55px -15px rgba(0, 0, 0, 0.65);
+    box-shadow: 0 0 0 3px #2a4030, 0 20px 55px -15px rgba(0, 0, 0, 0.65);
 }
 
 .article-screen-phone-image {
@@ -147,7 +147,7 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 0;
     opacity: 0;
     transition: opacity 220ms ease;
@@ -158,9 +158,10 @@
 }
 
 .article-screen-noscript {
+    display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .article-screen-inline {
