@@ -6,8 +6,11 @@
     <meta name="generator" content="sitegen">
     <title>Статьи — Bible Garden</title>
     <meta name="description" content="Как читать и слушать Библию: с чего начать, планы чтения, переводы и чтение на нескольких языках.">
-    <meta name="robots" content="noindex">
     <link rel="canonical" href="https://bible.garden/ru/articles/">
+    <link rel="alternate" hreflang="en" href="https://bible.garden/articles/">
+    <link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/">
+    <link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/">
+    <link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/">
     <meta property="og:site_name" content="Bible Garden">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bible.garden/ru/articles/">
@@ -15,6 +18,8 @@
     <meta property="og:description" content="Как читать и слушать Библию: с чего начать, планы чтения, переводы и чтение на нескольких языках.">
     <meta property="og:image" content="https://bible.garden/img/logo.png">
     <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="uk_UA">
     <script>
         // Language handling without a server:
         //  1. landing pages only: legacy ?lang=en|ru|uk links (ua = uk) go to the language URL
@@ -94,13 +99,14 @@
                 </a>
 
                 <div class="flex items-center gap-2 sm:gap-4">
+                    <a href="/ru/articles/" class="text-sm text-gray-400 hover:text-white transition-colors">Статьи</a>
 
                     <div class="flex items-center gap-1 text-sm text-gray-500">
-                        <span class="lang-unavailable px-1.5 py-0.5" aria-disabled="true" title="Статьи доступны только на: RU">EN</span>
+                        <a href="/articles/" hreflang="en" data-lang="en" class="lang-btn px-1.5 py-0.5 cursor-pointer">EN</a>
                         <span class="text-garden-700">|</span>
                         <a href="/ru/articles/" hreflang="ru" data-lang="ru" class="lang-btn active px-1.5 py-0.5 cursor-pointer" aria-current="page">RU</a>
                         <span class="text-garden-700">|</span>
-                        <span class="lang-unavailable px-1.5 py-0.5" aria-disabled="true" title="Статьи доступны только на: RU">UA</span>
+                        <a href="/uk/articles/" hreflang="uk" data-lang="uk" class="lang-btn px-1.5 py-0.5 cursor-pointer">UA</a>
                     </div>
 
                     <a href="https://github.com/BibleGarden/" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition-colors cursor-pointer" aria-label="GitHub">
@@ -117,7 +123,15 @@
         <h1 class="font-serif text-3xl sm:text-4xl font-bold text-white text-center mb-4">Статьи</h1>
         <p class="text-gray-400 text-center mb-12">Как читать и слушать Библию: с чего начать, планы чтения, переводы и чтение на нескольких языках.</p>
 
-        <p class="text-center text-gray-500">Статьи скоро появятся.</p>
+        <ul class="space-y-4">
+            <li>
+                <a href="/ru/articles/how-to-start-reading-the-bible/" class="block feature-card rounded-2xl p-6 hover:border-gray-400/30 transition-colors">
+                    <h2 class="font-serif text-xl font-semibold text-white mb-2">С чего начать читать Библию: порядок книг и план на 7 дней</h2>
+                    <p class="text-sm text-gray-400 mb-3">Начните с Евангелия от Иоанна: план чтения на 7 дней по главам, какой перевод выбрать, сколько читать в день и как слушать Библию, чтобы не бросить.</p>
+                    <time class="text-xs text-gray-500" datetime="2026-09-23">2026-09-23</time>
+                </a>
+            </li>
+        </ul>
     </section>
     </main>
 
