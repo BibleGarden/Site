@@ -10,3 +10,15 @@
 - [Как мы пишем](https://bible.garden/ru/about/): Кто стоит за Bible Garden, как готовятся статьи сайта, откуда цитаты и как сообщить нам об ошибке.
 - [Bible Garden — Слухайте Біблію кількома мовами](https://bible.garden/uk/): Українська
 - [Як ми пишемо](https://bible.garden/uk/about/): Хто стоїть за Bible Garden, як готуються статті сайту, звідки цитати і як повідомити нам про помилку.
+
+## Articles (English)
+
+- [How to Start Reading the Bible: A 7-Day Plan for Beginners](https://bible.garden/articles/how-to-start-reading-the-bible/): Start with the Gospel of John: a seven-day Bible reading plan, what to read next, which translation to choose, and ways to keep going.
+
+## Статьи (Русский)
+
+- [С чего начать читать Библию: порядок книг и план на 7 дней](https://bible.garden/ru/articles/how-to-start-reading-the-bible/): Начните с Евангелия от Иоанна: план чтения на 7 дней по главам, какой перевод выбрать, сколько читать в день и как слушать Библию, чтобы не бросить.
+
+## Статті (Українська)
+
+- [Як почати читати Біблію: план на 7 днів для початківців](https://bible.garden/uk/articles/how-to-start-reading-the-bible/): Як читати Біблію вперше: почніть із Євангелія від Йоана. План на 7 днів, що читати далі, який український переклад обрати і як не покинути.

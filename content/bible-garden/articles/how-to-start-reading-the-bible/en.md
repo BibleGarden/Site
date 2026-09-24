@@ -2,7 +2,6 @@
 title: "How to Start Reading the Bible: A 7-Day Plan for Beginners"
 description: "Start with the Gospel of John: a seven-day Bible reading plan, what to read next, which translation to choose, and ways to keep going."
 date: 2026-09-23
-draft: true
 ---
 
 Wondering how to start reading the Bible? Open the Gospel of John rather than page one. Its 21 chapters make a manageable first book: three chapters a day for seven days, or about 12–21 minutes of audio daily in the Berean Standard Bible (BSB). Then try Mark and Acts. Here is the full route, with room to adjust it to your own pace.
