@@ -78,6 +78,7 @@
     let opener = null;
     layout.querySelectorAll('.article-screen-link').forEach((link) => {
         link.addEventListener('click', (event) => {
+            if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
             event.preventDefault();
             opener = link;
             largeImage.src = link.href;

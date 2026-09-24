@@ -170,7 +170,7 @@
 .article-screen-dialog {
     position: fixed;
     max-width: calc(100vw - 2rem);
-    max-height: calc(100vh - 2rem);
+    max-height: calc(100dvh - 2rem);
     padding: 2.5rem 1rem 1rem;
     border: 1px solid #45634c;
     border-radius: 1rem;
@@ -186,7 +186,7 @@
 .article-screen-dialog img {
     display: block;
     max-width: 100%;
-    max-height: calc(100vh - 6rem);
+    max-height: calc(100dvh - 6rem);
     width: auto;
     height: auto;
     margin: auto;

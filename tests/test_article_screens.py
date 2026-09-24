@@ -28,6 +28,8 @@ class ArticleScreensTest(unittest.TestCase):
         self.assertIn('id="translation"', html)
         self.assertIn('data-screen="translation-picker"', html)
         self.assertIn('/img/article-screens/mobile/translation-picker.ru.webp', html)
+        self.assertIn('/img/article-screens/phone/translation-picker.ru.webp 480w', html)
+        self.assertIn('sizes="180px"', html)
         self.assertIn('alt="Выбор перевода Библии для чтения"', html)
         self.assertIn('/img/article-screens/zoom/translation-picker.ru.webp', html)
         self.assertNotIn("screen:", html)
@@ -41,6 +43,13 @@ class ArticleScreensTest(unittest.TestCase):
             "## Heading\n<!-- screen: Home -->\n",
             "## Heading\n<!--  screen: home -->\n",
             "## Heading\n<!-- screen : home -->\n",
+            "## Heading\n<!-- scren: home -->\n",
+            "## Heading\n<!-- note -->\n",
+            "## Heading\n> <!-- note -->\n",
+            "## Heading\n> <!-- screen: home -->\n",
+            "Paragraph\n> <!-- screen: home -->\n",
+            "Paragraph\n<!-- scren: home -->\n",
+            "Paragraph\n<!-- screeen: home -->\n",
         )
         for body in cases:
             with self.subTest(body=body), self.assertRaisesRegex(BuildError, "template-check/ru.md"):
@@ -78,6 +87,18 @@ class ArticleScreensTest(unittest.TestCase):
         self.assertIn("<!-- screen: home -->", marked)
         self.assertEqual(len(extract_faq(clean, SOURCE)), 1)
         self.assertIn('id="faq"', render_markdown(marked, refs, "Открыть: {caption}"))
+
+    def test_unrelated_comment_outside_heading_is_allowed(self) -> None:
+        body = "Paragraph\n\n<!-- editorial note -->\n"
+        marked, clean, refs = annotate_screens(body, SOURCE, "ru", self.screens)
+        self.assertEqual((marked, clean, refs), (body, body, ()))
+
+    def test_marked_article_requires_open_label(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "ru.md"
+            source.write_text("---\ntitle: Test\ndescription: Test\ndate: 2026-09-24\n---\n## Heading\n<!-- screen: home -->\n", encoding="utf-8")
+            with self.assertRaisesRegex(BuildError, "missing articles.screen_open translation"):
+                parse_article(source, "test", "ru", self.screens, self.checksums, {}, ROOT)
 
     def test_asset_validation_rejects_missing_or_corrupt_webp(self) -> None:
         screen = self.screens["home"]
@@ -131,15 +152,6 @@ class ArticleScreensTest(unittest.TestCase):
             self.assertIn('data-src="/img/article-screens/phone/', image)
             self.assertNotIn(' src="', image)
         self.assertIn("<noscript><img", html)
-
-    def test_catalog_contains_all_accepted_screens(self) -> None:
-        self.assertEqual(len(self.screens), 16)
-        for screen in self.screens.values():
-            for lang in ("en", "ru", "uk"):
-                self.assertTrue(screen.captions[lang])
-                for variant in ("mobile", "phone", "zoom"):
-                    check_asset(screen, lang, variant, ROOT, self.checksums[screen.path(lang, variant)])
-
 
 if __name__ == "__main__":
     unittest.main()

@@ -21,7 +21,8 @@ FAQ_HEADING_RE = re.compile(r"^## .*\{#faq\}\s*$")
 H2_RE = re.compile(r"^## ")
 H3_RE = re.compile(r"^### (.+?)\s*$")
 SCREEN_MARKER_RE = re.compile(r"^<!-- screen: ([a-z0-9]+(?:-[a-z0-9]+)*) -->$")
-SCREEN_INTENT_RE = re.compile(r"^\s*<!--\s*screen", re.IGNORECASE)
+SCREEN_INTENT_RE = re.compile(r"<!--\s*(?:scre+n|sreen|screan)s?\b", re.IGNORECASE)
+HTML_COMMENT_LINE_RE = re.compile(r"^\s*(?:>\s*)*<!--")
 HEADING_ATTR_RE = re.compile(r"\s+\{([:#.][^{}]*)\}\s*$")
 LANGUAGE_RE = re.compile(r"^[a-z]{2}$")
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
@@ -361,8 +362,12 @@ def parse_article(
     for ref in refs:
         for variant in VARIANTS:
             check_asset(ref.screen, lang, variant, output_dir, checksums[ref.screen.path(lang, variant)])
-    if refs and "screen_open" not in strings:
-        raise BuildError(f"{source}: missing articles.screen_open translation")
+    if refs:
+        if "screen_open" not in strings or not isinstance(strings["screen_open"], str) or not strings["screen_open"].strip():
+            raise BuildError(f"{source}: missing articles.screen_open translation")
+        body_html = render_markdown(marked_body, refs, strings["screen_open"])
+    else:
+        body_html = render_markdown(marked_body)
     return Article(
         slug=slug,
         lang=lang,
@@ -372,7 +377,7 @@ def parse_article(
         updated=_require_date(meta, "updated", source) if "updated" in meta else None,
         draft=_require_bool(meta, "draft", source) if "draft" in meta else False,
         image=_require_str(meta, "image", source) if "image" in meta else None,
-        body_html=render_markdown(marked_body, refs, strings.get("screen_open", "")),
+        body_html=body_html,
         faq=extract_faq(clean_body, source),
         screens=refs,
     )
@@ -388,7 +393,9 @@ def annotate_screens(
     clean: list[str] = []
     refs: list[ScreenRef] = []
     for index, line in enumerate(lines):
-        if not fenced[index] and SCREEN_INTENT_RE.match(line):
+        after_h2 = index > 0 and not fenced[index - 1] and H2_RE.match(lines[index - 1]) is not None
+        marker_attempt = SCREEN_INTENT_RE.search(line) or (after_h2 and HTML_COMMENT_LINE_RE.match(line))
+        if not fenced[index] and marker_attempt:
             match = SCREEN_MARKER_RE.fullmatch(line)
             if not match:
                 raise BuildError(f"{source}:{body_start_line + index}: expected <!-- screen: <id> -->")

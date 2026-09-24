@@ -4,14 +4,14 @@ classic-reading:
   kind: app
   captions:
     en: John 1 in Classic Reading with audio controls
-    ru: Глава 1 Евангелия от Иоанна в режиме чтения с аудиоплеером
-    uk: Розділ 1 Євангелія від Івана в режимі читання з аудіоплеєром
+    ru: Глава 1 Евангелия от Иоанна в режиме «Обычное чтение» с аудиоплеером
+    uk: Розділ 1 Євангелія від Івана в режимі «Звичайне читання» з аудіоплеєром
 classic-reading-psalm:
   kind: app
   captions:
     en: A psalm in Classic Reading with audio controls
-    ru: Псалом в режиме чтения с аудиоплеером
-    uk: Псалом у режимі читання з аудіоплеєром
+    ru: Псалом в режиме «Обычное чтение» с аудиоплеером
+    uk: Псалом у режимі «Звичайне читання» з аудіоплеєром
 home:
   kind: app
   captions:
@@ -34,20 +34,20 @@ multi-reading:
   kind: app
   captions:
     en: Multi Reading plays a verse in two translations
-    ru: Режим Multi Reading воспроизводит стих в двух переводах
-    uk: Режим Multi Reading відтворює вірш у двох перекладах
+    ru: Режим «Мультичтение» воспроизводит стих в двух переводах
+    uk: Режим «Мультичитання» відтворює вірш у двох перекладах
 multi-setup-bilingual:
   kind: app
   captions:
     en: Setting up Multi Reading in two languages
-    ru: Настройка Multi Reading на двух языках
-    uk: Налаштування Multi Reading двома мовами
+    ru: Настройка Мультичтения для двух языков
+    uk: Налаштування Мультичитання для двох мов
 multi-setup-translations:
   kind: app
   captions:
     en: Choosing two translations for Multi Reading
-    ru: Выбор двух переводов для Multi Reading
-    uk: Вибір двох перекладів для Multi Reading
+    ru: Выбор двух переводов для Мультичтения
+    uk: Вибір двох перекладів для Мультичитання
 progress:
   kind: app
   captions:
@@ -87,9 +87,9 @@ settings-pause:
 settings-translation:
   kind: app
   captions:
-    en: Translation settings for Classic Reading
-    ru: Настройки перевода для обычного чтения
-    uk: Налаштування перекладу для звичайного читання
+    en: "Classic Reading settings: translation, narrator, text size, pauses"
+    ru: "Настройки обычного чтения: перевод, диктор, размер текста, паузы"
+    uk: "Налаштування звичайного читання: переклад, диктор, розмір тексту, паузи"
 translation-picker:
   kind: app
   captions:

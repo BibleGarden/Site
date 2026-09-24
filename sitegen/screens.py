@@ -176,6 +176,8 @@ class ScreenFigures(Treeprocessor):
                 "img",
                 {
                     "src": ref.url("mobile"),
+                    "srcset": f"{ref.url('mobile')} 360w, {ref.url('phone')} 480w",
+                    "sizes": "180px",
                     "alt": ref.caption,
                     "width": str(width),
                     "height": str(height),

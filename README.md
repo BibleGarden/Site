@@ -43,7 +43,8 @@ must not overlap `content/`, `templates/`, `sitegen/`, `.git/` or `.github/`. Ev
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m sitegen build   # rebuild both sites
-.venv/bin/python -m sitegen check   # validate JSON-LD, hreflang, internal links and analytics tags
+.venv/bin/python -m sitegen check   # validate metadata, links, analytics and screenshots
+.venv/bin/python -m unittest discover -s tests
 ```
 
 The build is deterministic: it embeds no timestamps, so running it twice
@@ -158,6 +159,9 @@ Add a marker on the line immediately after a second-level heading:
 <!-- screen: translation-picker -->
 ```
 
+Any HTML comment directly under an `h2` must use this exact syntax; a
+screen-like comment elsewhere in article text also stops the build.
+
 The id must exist in `content/bible-garden/screens.yaml`; the article language
 selects its caption and image (`translation-picker.ru.webp` for `ru.md`). The
 caption is the image alt text. The build stops for an unknown id, malformed or
@@ -165,7 +169,8 @@ misplaced marker, missing caption, missing WebP variant, or checksum mismatch. O
 phone stays beside the article and changes at marked headings; below 1024 px,
 each screenshot appears below its heading and opens a larger image. Without
 JavaScript the first desktop screenshot remains visible and mobile images open
-as ordinary links.
+as ordinary links. Sections without a marker keep the previous screen; a very
+short final section may not reach the activation line on a tall screen.
 
 The accepted screenshot archive is the latest `bible-garden-screens-v4.zip`
 attachment of ClickUp task `123pfqn05hq` (SHA-256
@@ -173,7 +178,7 @@ attachment of ClickUp task `123pfqn05hq` (SHA-256
 Import it with the development machine's `cwebp 1.3.2`:
 
 ```bash
-.venv/bin/python tools/import_article_screens.py /path/to/bible-garden-screens-v4.zip
+.venv/bin/python tools/import_article_screens.py --site-config content/bible-garden/site.yaml /path/to/bible-garden-screens-v4.zip
 .venv/bin/python -m sitegen build
 .venv/bin/python -m sitegen check
 ```
@@ -188,6 +193,14 @@ or `cwebp`. The draft `template-check` article exercises two markers in all
 three languages; its HTML is reachable by direct URL but marked `noindex` and
 excluded from the article index and sitemap. Preview `/ru/articles/template-check/`
 with the local server described below.
+
+To upgrade `cwebp`, change `CWEBP_VERSION` in
+`tools/import_article_screens.py`, install that exact version, rerun the
+importer, and commit all regenerated WebP and `screens.sha256` together. To
+accept a new archive version, update `ARCHIVE_SHA256` in the same script
+(and `SOURCE_PREFIX` if the archive directory changed), review its files and
+captions in `screens.yaml`, then import and commit the WebP and checksums in
+the same change.
 
 ### FAQ block
 
