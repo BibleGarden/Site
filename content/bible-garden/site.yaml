@@ -24,4 +24,6 @@ robots_disallow:
   - /docs/
   - /lampada/
 # Umami at stats.bible.garden: `none`, or {script_url, website_id}. See README, "Analytics".
-analytics: none
+analytics:
+  script_url: https://stats.bible.garden/script.js
+  website_id: 492eb2a8-fa4c-4d86-90c8-568f53fbccd4
