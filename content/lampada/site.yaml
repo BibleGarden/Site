@@ -15,4 +15,6 @@ author:
   name: {en: Lampada team, ru: Команда Lampada, uk: Команда Lampada}
   page: ""
 # Umami at stats.bible.garden: `none`, or {script_url, website_id}. See README, "Analytics".
-analytics: none
+analytics:
+  script_url: https://stats.bible.garden/script.js
+  website_id: a75ebc6a-36c3-45ef-8637-684b2542f098

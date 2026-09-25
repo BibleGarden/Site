@@ -291,9 +291,9 @@ Lampada pages use root-absolute asset paths, so preview them from `lampada/`.
 
 ## Analytics
 
-Visits can be counted with Umami running on our production server at
+Visits are counted with Umami running on our production server at
 `stats.bible.garden` (deployment: `Deploy/runbook.md`, "Umami"). Both sites
-have `analytics: none` until that rollout. Every
+configure their own website ID. Every
 `site.yaml` must set `analytics` explicitly; a missing key, an empty value or a
 malformed one stops the build:
 
@@ -318,27 +318,19 @@ included, exactly that tag when analytics is on and no tracker when it is
 `none` (a `<script>` with `data-website-id`, a `/script.js` or `umami` source,
 or a source on another site's tracker host), and the event attribute on every App Store link.
 
-Turning analytics on for a site:
-
-The switch-on happens in one pull request from the branch
-`feat/123pfqn03e5-umami-enable`, which already holds the privacy policy texts
-describing Umami (proofread before use):
-
-1. Create the website in Umami and copy its website ID.
-2. Replace `analytics: none` in `content/<site>/site.yaml` with the mapping above.
-3. `python -m sitegen build`.
-4. Paste the same tag by hand before `</head>` of the site's hand-written pages
-   (`privacy.html` for bible.garden; `lampada/privacy/index.html` and
-   `lampada/support/index.html` for lampada.app). `sitegen check` prints the
-   exact tag if a page lacks it.
-5. `python -m sitegen check`, commit together with the privacy texts, deploy.
+When changing a site's analytics settings, run `python -m sitegen build` and
+paste the resulting tag by hand before `</head>` of its hand-written pages
+(`privacy.html` for bible.garden; `lampada/privacy/index.html` and
+`lampada/support/index.html` for lampada.app). `sitegen check` prints the exact
+tag if a page lacks it. Commit generated and hand-written pages together with
+the configuration change.
 
 ## Stack
 
 - Python 3.12, Jinja2, Python-Markdown, PyYAML
 - bible.garden: HTML + Tailwind CSS (CDN), Google Fonts (Lora, Inter), vanilla JavaScript
 - lampada.app: HTML + `assets/styles.css`, system fonts, no third-party requests
-- analytics, once switched on: self-hosted [Umami](https://umami.is) at
+- analytics: self-hosted [Umami](https://umami.is) at
   `stats.bible.garden` on our own server (first party, no cookies); see
   [Analytics](#analytics)
 
