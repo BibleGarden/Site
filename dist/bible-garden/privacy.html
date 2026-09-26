@@ -109,7 +109,10 @@
     <footer class="py-10 border-t border-garden-800/50">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-xs text-gray-600" data-i18n="footer">Open source project under AGPL license. All rights belong to God.</p>
-            <a id="about-link" href="/about/" class="inline-block mt-3 text-xs text-gray-600 hover:text-gray-400 transition-colors" data-i18n="about">How we write</a>
+            <div class="flex justify-center gap-4 mt-3">
+                <a id="about-link" href="/about/" class="text-xs text-gray-600 hover:text-gray-400 transition-colors" data-i18n="about">How we write</a>
+                <a id="articles-link" href="/articles/" class="text-xs text-gray-600 hover:text-gray-400 transition-colors" data-i18n="articles">Articles</a>
+            </div>
         </div>
     </footer>
 
@@ -142,6 +145,7 @@
             's7.text': 'If you have any questions about this privacy policy, feel free to reach out via <a href="https://t.me/biblegarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">Telegram</a> or <a href="https://github.com/Bible-Garden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>.',
             'footer': 'Open source project under AGPL license. All rights belong to God.',
             'about': 'How we write',
+            'articles': 'Articles',
         },
         ru: {
             'back': 'Назад к Bible Garden',
@@ -170,6 +174,7 @@
             's7.text': 'Если у вас есть вопросы по данной политике конфиденциальности, свяжитесь с нами через <a href="https://t.me/biblegarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">Telegram</a> или <a href="https://github.com/Bible-Garden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>.',
             'footer': 'Проект с открытым кодом под лицензией AGPL. Все права принадлежат Богу.',
             'about': 'Как мы пишем',
+            'articles': 'Статьи',
         },
         ua: {
             'back': 'Назад до Bible Garden',
@@ -198,6 +203,7 @@
             's7.text': 'Якщо у вас є питання щодо цієї політики конфіденційності, зв\'яжіться з нами через <a href="https://t.me/biblegarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">Telegram</a> або <a href="https://github.com/Bible-Garden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>.',
             'footer': 'Проект з відкритим кодом під ліцензією AGPL. Усі права належать Богу.',
             'about': 'Як ми пишемо',
+            'articles': 'Статті',
         }
     };
 
@@ -219,6 +225,7 @@
         });
 
         document.getElementById('about-link').href = { en: '/about/', ru: '/ru/about/', ua: '/uk/about/' }[lang];
+        document.getElementById('articles-link').href = { en: '/articles/', ru: '/ru/articles/', ua: '/uk/articles/' }[lang];
 
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.lang === lang);
