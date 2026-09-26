@@ -121,7 +121,7 @@ class SiteBuilder:
         self.preview = preview
         output_dir.mkdir(parents=True)
         for name in STATIC_FILES[self.site.key]:
-            source = REPO_ROOT / ("lampada" if self.site.key == "lampada" else "") / name
+            source = REPO_ROOT / "static" / self.site.key / name
             target = output_dir / name
             if source.is_dir():
                 shutil.copytree(source, target)
