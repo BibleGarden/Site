@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy — Bible Garden</title>
-    <meta name="description" content="Bible Garden privacy policy. We do not collect personal data.">
+    <meta name="description" content="Bible Garden privacy policy for the app, API and website.">
     <link rel="canonical" href="https://bible.garden/privacy.html">
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,12 +54,12 @@
         </div>
 
         <h1 class="font-serif text-2xl sm:text-4xl font-bold text-white mb-2 break-words" data-i18n="title">Privacy Policy</h1>
-        <p class="text-sm text-gray-500 mb-12" data-i18n="updated">Last updated: September 25, 2026</p>
+        <p class="text-sm text-gray-500 mb-12" data-i18n="updated">Last updated: September 26, 2026</p>
 
         <div class="space-y-8 text-gray-400 leading-relaxed">
             <section>
                 <h2 class="font-serif text-xl font-semibold text-white mb-3" data-i18n="s1.title">Overview</h2>
-                <p data-i18n="s1.text">Bible Garden is a free, open-source application for reading and listening to the Bible. We respect your privacy and are committed to keeping things simple: <strong class="text-gray-200">we do not collect, store, or share any personal data.</strong> The app sends no analytics; the bible.garden website counts visits anonymously, as described in “The bible.garden Website” below.</p>
+                <p data-i18n="s1.text">Bible Garden is a free, open-source application for reading and listening to the Bible. We respect your privacy: <strong class="text-gray-200">the app requires no account or personal details.</strong> The app sends no analytics; the bible.garden website counts visits anonymously, as described in “The bible.garden Website” below.</p>
             </section>
 
             <section>
@@ -75,8 +75,10 @@
             </section>
 
             <section>
-                <h2 class="font-serif text-xl font-semibold text-white mb-3" data-i18n="s3.title">Server Logs</h2>
-                <p data-i18n="s3.text">When the app communicates with our server to load Bible texts and audio, we temporarily log basic request information (IP address, requested endpoint, timestamp) for operational purposes such as monitoring server health and preventing abuse. These logs are automatically deleted after 14 days and are never shared with third parties.</p>
+                <h2 class="font-serif text-xl font-semibold text-white mb-3" data-i18n="s3.title">Server Request Data</h2>
+                <p data-i18n="s3.text">For every /api endpoint, Bible API stores request statistics with the time, path, method, status, response time and a keyed HMAC pseudonym of the client IP address. The raw IP address is not stored in these statistics. The user agent is kept for other endpoints but omitted for private AI endpoints. The IP address is processed in memory during a request for rate limiting and abuse protection, without being stored for those purposes.</p>
+                <p data-i18n="s3.retention">Request rows are deleted from the live database after 14 days. Permanent daily aggregates contain counts only, including the number of distinct pseudonyms. Database backups made before this change may still contain full IP addresses from earlier statistics rows.</p>
+                <p data-i18n="s3.proxy">Reverse-proxy access logs contain only time, host, method, path, status, response size and response time; they exclude the client IP address, user agent, referrer and query string. Bible API writes no per-request access log. The nginx error log records only critical errors, which may include a client IP address.</p>
             </section>
 
             <section>
@@ -121,9 +123,9 @@
         en: {
             'back': 'Back to Bible Garden',
             'title': 'Privacy Policy',
-            'updated': 'Last updated: September 25, 2026',
+            'updated': 'Last updated: September 26, 2026',
             's1.title': 'Overview',
-            's1.text': 'Bible Garden is a free, open-source application for reading and listening to the Bible. We respect your privacy and are committed to keeping things simple: <strong class="text-gray-200">we do not collect, store, or share any personal data.</strong> The app sends no analytics; the bible.garden website counts visits anonymously, as described in “The bible.garden Website” below.',
+            's1.text': 'Bible Garden is a free, open-source application for reading and listening to the Bible. We respect your privacy: <strong class="text-gray-200">the app requires no account or personal details.</strong> The app sends no analytics; the bible.garden website counts visits anonymously, as described in “The bible.garden Website” below.',
             's2.title': 'Data the App Does Not Collect',
             's2.p1': 'No accounts or registration required',
             's2.p2': 'No personal information (name, email, phone)',
@@ -131,8 +133,10 @@
             's2.p4': 'No analytics or tracking SDKs',
             's2.p5': 'No advertising',
             's2.p6': 'No cookies',
-            's3.title': 'Server Logs',
-            's3.text': 'When the app communicates with our server to load Bible texts and audio, we temporarily log basic request information (IP address, requested endpoint, timestamp) for operational purposes such as monitoring server health and preventing abuse. These logs are automatically deleted after 14 days and are never shared with third parties.',
+            's3.title': 'Server Request Data',
+            's3.text': 'For every /api endpoint, Bible API stores request statistics with the time, path, method, status, response time and a keyed HMAC pseudonym of the client IP address. The raw IP address is not stored in these statistics. The user agent is kept for other endpoints but omitted for private AI endpoints. The IP address is processed in memory during a request for rate limiting and abuse protection, without being stored for those purposes.',
+            's3.retention': 'Request rows are deleted from the live database after 14 days. Permanent daily aggregates contain counts only, including the number of distinct pseudonyms. Database backups made before this change may still contain full IP addresses from earlier statistics rows.',
+            's3.proxy': 'Reverse-proxy access logs contain only time, host, method, path, status, response size and response time; they exclude the client IP address, user agent, referrer and query string. Bible API writes no per-request access log. The nginx error log records only critical errors, which may include a client IP address.',
             's4.title': 'Third-Party Services',
             's4.text': 'Bible Garden does not integrate any third-party analytics, advertising, or tracking services. The app communicates only with our own server (<code class="text-garden-400">api.bible.garden</code>) to retrieve Bible content and audio files.',
             'web.title': 'The bible.garden Website',
@@ -150,9 +154,9 @@
         ru: {
             'back': 'Назад к Bible Garden',
             'title': 'Политика конфиденциальности',
-            'updated': 'Последнее обновление: 25 сентября 2026',
+            'updated': 'Последнее обновление: 26 сентября 2026',
             's1.title': 'Обзор',
-            's1.text': 'Bible Garden — это бесплатное приложение с открытым исходным кодом для чтения и прослушивания Библии. Мы уважаем вашу конфиденциальность и стремимся к простоте: <strong class="text-gray-200">мы не собираем, не храним и не передаём персональные данные.</strong> Приложение не отправляет аналитику; сайт bible.garden анонимно считает посещения — см. раздел «Сайт bible.garden» ниже.',
+            's1.text': 'Bible Garden — бесплатное приложение с открытым исходным кодом для чтения и прослушивания Библии. Мы уважаем вашу конфиденциальность: <strong class="text-gray-200">приложение не требует аккаунта или личных данных.</strong> Приложение не отправляет аналитику; сайт bible.garden анонимно считает посещения — см. раздел «Сайт bible.garden» ниже.',
             's2.title': 'Данные, которые приложение не собирает',
             's2.p1': 'Не требуется регистрация или создание аккаунта',
             's2.p2': 'Не собираем личную информацию (имя, email, телефон)',
@@ -160,8 +164,10 @@
             's2.p4': 'Не используем аналитику или SDK для отслеживания',
             's2.p5': 'Нет рекламы',
             's2.p6': 'Нет файлов cookie',
-            's3.title': 'Серверные логи',
-            's3.text': 'Когда приложение обращается к нашему серверу для загрузки текстов и аудио Библии, мы временно сохраняем базовую информацию о запросах (IP-адрес, запрошенный эндпоинт, время запроса) для мониторинга работоспособности сервера и предотвращения злоупотреблений. Эти логи автоматически удаляются через 14 дней и никогда не передаются третьим лицам.',
+            's3.title': 'Данные запросов на сервере',
+            's3.text': 'Для каждого метода /api Bible API сохраняет статистику запросов: время, путь, HTTP-метод, статус, время ответа и псевдоним IP-адреса клиента на основе HMAC с секретным ключом. Исходный IP-адрес в этой статистике не хранится. Для остальных методов User-Agent сохраняется, для приватных AI-методов — нет. Во время запроса IP-адрес обрабатывается в памяти для ограничения частоты запросов и защиты от злоупотреблений, но для этих целей не сохраняется.',
+            's3.retention': 'Строки запросов удаляются из рабочей базы через 14 дней. Постоянные суточные агрегаты содержат только счётчики, включая число различных псевдонимов. Резервные копии, созданные до этого изменения, могут всё ещё содержать полные IP-адреса из прежних строк статистики.',
+            's3.proxy': 'Журнал доступа reverse proxy содержит только время, хост, HTTP-метод, путь, статус, размер ответа и время обработки; IP-адрес клиента, User-Agent, referrer и параметры запроса в него не записываются. Bible API не ведёт построчный журнал доступа. В журнал ошибок nginx записываются только критические ошибки, которые могут содержать IP-адрес клиента.',
             's4.title': 'Сторонние сервисы',
             's4.text': 'Bible Garden не интегрирует сторонние сервисы аналитики, рекламы или отслеживания. Приложение взаимодействует только с нашим собственным сервером (<code class="text-garden-400">api.bible.garden</code>) для получения текстов и аудиофайлов Библии.',
             'web.title': 'Сайт bible.garden',
@@ -179,9 +185,9 @@
         ua: {
             'back': 'Назад до Bible Garden',
             'title': 'Політика конфіденційності',
-            'updated': 'Останнє оновлення: 25 вересня 2026',
+            'updated': 'Останнє оновлення: 26 вересня 2026',
             's1.title': 'Огляд',
-            's1.text': 'Bible Garden — це безкоштовний застосунок з відкритим вихідним кодом для читання та прослуховування Біблії. Ми поважаємо вашу конфіденційність і прагнемо до простоти: <strong class="text-gray-200">ми не збираємо, не зберігаємо і не передаємо персональні дані.</strong> Застосунок не надсилає аналітику; сайт bible.garden анонімно рахує відвідування — див. розділ «Сайт bible.garden» нижче.',
+            's1.text': 'Bible Garden — безкоштовний застосунок з відкритим вихідним кодом для читання та прослуховування Біблії. Ми поважаємо вашу конфіденційність: <strong class="text-gray-200">застосунок не потребує облікового запису чи особистих даних.</strong> Застосунок не надсилає аналітику; сайт bible.garden анонімно рахує відвідування — див. розділ «Сайт bible.garden» нижче.',
             's2.title': 'Дані, які застосунок не збирає',
             's2.p1': 'Не потрібна реєстрація або створення акаунту',
             's2.p2': 'Не збираємо особисту інформацію (ім\'я, email, телефон)',
@@ -189,8 +195,10 @@
             's2.p4': 'Не використовуємо аналітику або SDK для відстеження',
             's2.p5': 'Немає реклами',
             's2.p6': 'Немає файлів cookie',
-            's3.title': 'Серверні логи',
-            's3.text': 'Коли застосунок звертається до нашого сервера для завантаження текстів та аудіо Біблії, ми тимчасово зберігаємо базову інформацію про запити (IP-адреса, запитуваний ендпоінт, час запиту) для моніторингу працездатності сервера та запобігання зловживанням. Ці логи автоматично видаляються через 14 днів і ніколи не передаються третім особам.',
+            's3.title': 'Дані запитів на сервері',
+            's3.text': 'Для кожного методу /api Bible API зберігає статистику запитів: час, шлях, HTTP-метод, статус, час відповіді та псевдонім IP-адреси клієнта на основі HMAC із секретним ключем. Вихідна IP-адреса в цій статистиці не зберігається. Для інших методів User-Agent зберігається, для приватних AI-методів — ні. Під час запиту IP-адреса обробляється в пам’яті для обмеження частоти запитів і захисту від зловживань, але для цих цілей не зберігається.',
+            's3.retention': 'Рядки запитів видаляються з робочої бази через 14 днів. Постійні добові агрегати містять лише лічильники, зокрема кількість різних псевдонімів. Резервні копії, створені до цієї зміни, можуть досі містити повні IP-адреси з попередніх рядків статистики.',
+            's3.proxy': 'Журнал доступу reverse proxy містить лише час, хост, HTTP-метод, шлях, статус, розмір відповіді та час обробки; IP-адреса клієнта, User-Agent, referrer і параметри запиту до нього не записуються. Bible API не веде построковий журнал доступу. До журналу помилок nginx записуються лише критичні помилки, які можуть містити IP-адресу клієнта.',
             's4.title': 'Сторонні сервіси',
             's4.text': 'Bible Garden не інтегрує сторонні сервіси аналітики, реклами або відстеження. Застосунок взаємодіє лише з нашим власним сервером (<code class="text-garden-400">api.bible.garden</code>) для отримання текстів та аудіофайлів Біблії.',
             'web.title': 'Сайт bible.garden',
