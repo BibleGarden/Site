@@ -2,9 +2,9 @@
 
 Static public websites for the Bible Garden and Lampada apps, generated from
 Markdown and YAML by a small Python script. The complete public output is
-committed under `dist/`; production will serve those directories after the
-Deploy root switch. The former root-level public tree is frozen during the
-transition so a plain production `git pull` cannot remove live pages.
+committed under `dist/`; production serves those directories after the Deploy
+root switch. This cleanup removes the former root-level public tree only after
+that switch has been verified on production.
 
 Domains:
 
@@ -22,19 +22,17 @@ Domains:
 | `templates/<site>/` | Jinja2 templates: `landing.html`, `base.html`, `article.html`, `articles.html`, `404.html`, `page.html` (only for a site with pages) |
 | `templates/_shared/` | head metadata (canonical, hreflang, Open Graph) and the `?lang=` redirect |
 | `sitegen/` | the generator (`python -m sitegen`) |
-| `css/`, `js/`, `img/` | bible.garden static assets |
-| `lampada/assets/` | lampada.app static assets |
-| `privacy.html`, `lampada/privacy/`, `lampada/support/` | hand-written pages, not generated |
-| `dist/<site>/` | committed public HTML and copied static files; nginx roots after the switch |
+| `static/bible-garden/css/`, `js/`, `img/` | bible.garden static sources |
+| `static/lampada/assets/` | lampada.app static sources |
+| `static/bible-garden/privacy.html`, `static/lampada/privacy/`, `support/` | hand-written page sources |
+| `dist/<site>/` | committed public HTML and copied static files; nginx roots |
 | `.preview/<site>/` | ignored local preview, including draft articles |
-| root HTML and `lampada/` HTML | frozen legacy output, removed in a later PR after the production switch |
 
-The build recreates `dist/` from scratch and does not touch the legacy root
-files. Each site contains generated
+The build recreates `dist/` from scratch. Each site contains generated
 `index.html`, language and article directories, page directories, `404.html`,
 `robots.txt`, `sitemap.xml`, `llms.txt`, plus only its explicit static inputs.
-Bible Garden copies `css/`, `js/`, `img/`, `privacy.html`; Lampada copies
-`lampada/assets/`, `lampada/privacy/`, `lampada/support/`. Draft HTML is absent
+Bible Garden copies its `css/`, `js/`, `img/`, `privacy.html` static sources;
+Lampada copies `assets/`, `privacy/`, `support/`. Draft HTML is absent
 from `dist/`. The output path is derived as `dist/<site>/` from the content
 directory name. Every site needs a
 `content/<site>/articles/` directory, even an empty one.
@@ -52,8 +50,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 The build is deterministic: it embeds no timestamps, so running it twice
 produces identical files. CI (`.github/workflows/build.yml`) rebuilds the site
 on every pull request and fails when the committed `dist/` differs from the build
-output or when the legacy public tree differs from pre-migration commit
-`95e0889`.
+output.
 It also fails when an indexable page lacks a single `canonical` resolving to itself,
 when another language version of the page exists on disk but is not linked, when a
 page's `hreflang` set is incomplete (every published version, itself and
@@ -139,8 +136,7 @@ Without `image` the site logo (1024×1024) is used. Real articles should set
 Google expects for `Article` rich results.
 
 `draft: true` builds the page with `noindex` only in `.preview/`; new public
-`dist/` contains no draft page. The frozen legacy tree still contains its old
-draft HTML until nginx switches to `dist/`; those URLs then return 404.
+`dist/` contains no draft page. Draft URLs return 404 on production.
 Drafts stay out of the sitemap, `llms.txt`, the article
 index and the previous/next navigation. The landing
 page shows an "Articles" link only when the language has at least one
@@ -191,7 +187,7 @@ Import it with the development machine's `cwebp 1.3.2`:
 ```
 
 The importer verifies the archive, its 48 named PNGs and source dimensions,
-then writes WebP to `img/article-screens/{mobile,phone,zoom}/` at widths
+then writes WebP to `static/bible-garden/img/article-screens/{mobile,phone,zoom}/` at widths
 360, 480 and 960 px with `cwebp -q 88`, plus their SHA-256 list in
 `content/bible-garden/screens.sha256`. Source PNGs stay outside the repo.
 The current 144 WebP occupy 6.87 MiB (measured on 2026-09-24 by summing file
@@ -260,7 +256,7 @@ and `description`; the body is Markdown as in articles. Pages get canonical,
 The author's page carries `AboutPage` JSON-LD with the author `Organization`
 as `mainEntity`; any other page carries `WebPage`. A slug must not be
 `articles` or a language code, and the build stops when a page's slug matches
-a directory sitegen did not generate (`img/`, `lampada/privacy/`), so a page
+a static directory (`img/` or `privacy/`), so a page
 cannot overwrite a hand-written one.
 
 ## App Store links
@@ -300,15 +296,8 @@ because its asset URLs are root absolute.
 
 ## Production deployment
 
-Phase 1 adds `dist/` while keeping all root-level public files unchanged.
-After the Site and Deploy pull requests are merged and approved for production,
-use `Deploy/scripts/apply_site_dist.sh` as described in `Deploy/runbook.md`.
-It pulls the committed `dist/`, switches nginx roots, and restores the previous
-nginx config if validation fails. The checkout remains at the phase-1 commit:
-both old and new trees are present, so rollback pages remain available.
-Only after the switch is verified on production, merge the separate draft
-Site cleanup PR to delete legacy root output. Normal Site deployment (`git pull`
-and web restart) resumes after that cleanup.
+Deploy Site with `git pull --ff-only origin main` in `/root/cep/site`, then
+restart the `web` Compose service as described in the Deploy runbook.
 
 ## Analytics
 
@@ -341,8 +330,9 @@ or a source on another site's tracker host), and the event attribute on every Ap
 
 When changing a site's analytics settings, run `python -m sitegen build` and
 paste the resulting tag by hand before `</head>` of its hand-written pages
-(`privacy.html` for bible.garden; `lampada/privacy/index.html` and
-`lampada/support/index.html` for lampada.app). `sitegen check` prints the exact
+(`static/bible-garden/privacy.html` for bible.garden;
+`static/lampada/privacy/index.html` and
+`static/lampada/support/index.html` for lampada.app). `sitegen check` prints the exact
 tag if a page lacks it. Commit generated and hand-written pages together with
 the configuration change.
 

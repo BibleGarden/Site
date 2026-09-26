@@ -73,7 +73,7 @@ class ArticleScreensTest(unittest.TestCase):
             source = Path(directory) / "ru.md"
             source.write_text("---\ntitle: Test\ndescription: Test\ndate: 2026-09-24\n---\n## Heading\n<!--  screen: home -->\n", encoding="utf-8")
             with self.assertRaises(BuildError) as failure:
-                parse_article(source, "test", "ru", self.screens, self.checksums, {"screen_open": "Open: {caption}"}, ROOT)
+                parse_article(source, "test", "ru", self.screens, self.checksums, {"screen_open": "Open: {caption}"}, ROOT / "dist/bible-garden")
             self.assertIn(f"{source}:7:", str(failure.exception))
 
     def test_missing_language_variant_fails(self) -> None:
@@ -99,7 +99,7 @@ class ArticleScreensTest(unittest.TestCase):
             source = Path(directory) / "ru.md"
             source.write_text("---\ntitle: Test\ndescription: Test\ndate: 2026-09-24\n---\n## Heading\n<!-- screen: home -->\n", encoding="utf-8")
             with self.assertRaisesRegex(BuildError, "missing articles.screen_open translation"):
-                parse_article(source, "test", "ru", self.screens, self.checksums, {}, ROOT)
+                parse_article(source, "test", "ru", self.screens, self.checksums, {}, ROOT / "dist/bible-garden")
 
     def test_asset_validation_rejects_missing_or_corrupt_webp(self) -> None:
         screen = self.screens["home"]
@@ -113,7 +113,7 @@ class ArticleScreensTest(unittest.TestCase):
             path.write_bytes(b"not a WebP")
             with self.assertRaisesRegex(BuildError, "invalid lossy WebP"):
                 check_asset(screen, "ru", "mobile", output_dir, checksum)
-            data = bytearray((ROOT / screen.path("ru", "mobile")).read_bytes())
+            data = bytearray((ROOT / "static/bible-garden" / screen.path("ru", "mobile")).read_bytes())
             path.write_bytes(data)
             check_asset(screen, "ru", "mobile", output_dir, checksum)
             data[100] ^= 1

@@ -40,7 +40,7 @@ def import_archive(archive: Path, site_config: Path) -> int:
         raise ValueError(f"{site_config}: expected a site.yaml path")
     content_dir = site_config.resolve().parent
     site = load_site(content_dir, REPO_ROOT)
-    source_root = REPO_ROOT / ("lampada" if site.key == "lampada" else "")
+    source_root = REPO_ROOT / "static" / site.key
     catalog = load_catalog(content_dir / "screens.yaml", site.languages)
     expected = {
         f"{SOURCE_PREFIX}{screen.id}.{lang}.png": (screen, lang)

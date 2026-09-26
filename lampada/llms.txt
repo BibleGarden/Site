@@ -1,9 +1,0 @@
-# Lampada
-
-> Lampada is a mobile app that helps you pray with intent, keep your focus, and return to meaningful thoughts later.
-
-## Pages
-
-- [Lampada — A space for personal prayer](https://lampada.app/): English
-- [Lampada — пространство для личной молитвы](https://lampada.app/ru/): Русский
-- [Lampada — простір для особистої молитви](https://lampada.app/uk/): Українська
