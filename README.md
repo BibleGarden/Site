@@ -2,7 +2,9 @@
 
 Static public websites for the Bible Garden and Lampada apps, generated from
 Markdown and YAML by a small Python script. The complete public output is
-committed under `dist/`; production serves those directories without building.
+committed under `dist/`; production will serve those directories after the
+Deploy root switch. The former root-level public tree is frozen during the
+transition so a plain production `git pull` cannot remove live pages.
 
 Domains:
 
@@ -23,10 +25,12 @@ Domains:
 | `css/`, `js/`, `img/` | bible.garden static assets |
 | `lampada/assets/` | lampada.app static assets |
 | `privacy.html`, `lampada/privacy/`, `lampada/support/` | hand-written pages, not generated |
-| `dist/<site>/` | committed public HTML and copied static files; the only nginx site roots |
+| `dist/<site>/` | committed public HTML and copied static files; nginx roots after the switch |
 | `.preview/<site>/` | ignored local preview, including draft articles |
+| root HTML and `lampada/` HTML | frozen legacy output, removed in a later PR after the production switch |
 
-The build recreates `dist/` from scratch. Each site contains generated
+The build recreates `dist/` from scratch and does not touch the legacy root
+files. Each site contains generated
 `index.html`, language and article directories, page directories, `404.html`,
 `robots.txt`, `sitemap.xml`, `llms.txt`, plus only its explicit static inputs.
 Bible Garden copies `css/`, `js/`, `img/`, `privacy.html`; Lampada copies
@@ -48,7 +52,9 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 The build is deterministic: it embeds no timestamps, so running it twice
 produces identical files. CI (`.github/workflows/build.yml`) rebuilds the site
 on every pull request and fails when the committed `dist/` differs from the build
-output, when an indexable page lacks a single `canonical` resolving to itself,
+output or when the legacy public tree differs from pre-migration commit
+`95e0889`.
+It also fails when an indexable page lacks a single `canonical` resolving to itself,
 when another language version of the page exists on disk but is not linked, when a
 page's `hreflang` set is incomplete (every published version, itself and
 `x-default`), differs between versions, or points at a page with another
@@ -132,8 +138,10 @@ Without `image` the site logo (1024×1024) is used. Real articles should set
 `image` to a picture at least 1200 px wide (16:9, 4:3 or 1:1), which is what
 Google expects for `Article` rich results.
 
-`draft: true` builds the page with `noindex` only in `.preview/`; public `dist/`
-contains no draft page. Drafts stay out of the sitemap, `llms.txt`, the article
+`draft: true` builds the page with `noindex` only in `.preview/`; new public
+`dist/` contains no draft page. The frozen legacy tree still contains its old
+draft HTML until nginx switches to `dist/`; those URLs then return 404.
+Drafts stay out of the sitemap, `llms.txt`, the article
 index and the previous/next navigation. The landing
 page shows an "Articles" link only when the language has at least one
 published article.
@@ -292,11 +300,15 @@ because its asset URLs are root absolute.
 
 ## Production deployment
 
+Phase 1 adds `dist/` while keeping all root-level public files unchanged.
 After the Site and Deploy pull requests are merged and approved for production,
 use `Deploy/scripts/apply_site_dist.sh` as described in `Deploy/runbook.md`.
-It stages the old public files, pulls the committed `dist/` into the production
-checkout, switches nginx roots, checks routes and restores both checkout and
-config automatically if validation fails. Do not run a separate `git pull`.
+It pulls the committed `dist/`, switches nginx roots, and restores the previous
+nginx config if validation fails. The checkout remains at the phase-1 commit:
+both old and new trees are present, so rollback pages remain available.
+Only after the switch is verified on production, merge the separate draft
+Site cleanup PR to delete legacy root output. Normal Site deployment (`git pull`
+and web restart) resumes after that cleanup.
 
 ## Analytics
 

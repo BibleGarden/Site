@@ -23,7 +23,6 @@ NOINDEX_RE = re.compile(r'<meta name="robots" content="noindex">')
 ANCHOR_HREF_RE = re.compile(r'<a\s[^>]*?href="([^"]+)"')
 APP_STORE_PREFIX = "https://apps.apple.com/"
 APP_STORE_EVENT = "app-store-click"
-SOURCE_HTML = {"privacy.html", "lampada/privacy/index.html", "lampada/support/index.html"}
 
 
 def html_files() -> list[Path]:
@@ -78,13 +77,6 @@ class ReferenceCollector(HTMLParser):
 
 def check_public_references(pages: dict[Path, str], sites: list[Site]) -> None:
     """Every local URL in published pages and discovery files must resolve inside dist."""
-    for path in REPO_ROOT.rglob("*.html"):
-        relative = path.relative_to(REPO_ROOT)
-        if relative.parts[0] in {".git", ".venv", ".preview", "dist", "templates"}:
-            continue
-        if relative.as_posix() not in SOURCE_HTML:
-            raise BuildError(f"old or unexpected HTML outside dist: {relative}")
-
     def require(reference: str, base_url: str, source: Path) -> None:
         if not reference or unquote(reference).startswith(("#", "data:")):
             return
