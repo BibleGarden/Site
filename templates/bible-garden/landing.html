@@ -444,7 +444,7 @@
 
                 <p class="text-xs text-gray-600">{{ t.landing.footer.copyright }}</p>
 
-                <div class="flex items-center gap-4">
+                <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
                     <a href="{{ site.href(lang, site.author.page) }}" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">{{ t.landing.footer.about }}</a>
                     <a href="{{ lang_paths[lang] }}articles/" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">{{ t.articles.section_title }}</a>
                     <a href="/privacy.html{% if lang != site.default_language %}?lang={{ lang }}{% endif %}" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">{{ t.landing.footer.privacy }}</a>
