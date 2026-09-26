@@ -1,6 +1,5 @@
 name: Bible Garden
 base_url: https://bible.garden
-output_dir: .
 languages: [en, ru, uk]
 default_language: en
 language_labels: {en: EN, ru: RU, uk: UA}
@@ -16,13 +15,6 @@ author:
   page: about/
 github_url: https://github.com/BibleGarden/
 telegram_url: https://t.me/Mandarinka4
-# Source directories and the Lampada checkout are served by the same nginx root.
-robots_disallow:
-  - /content/
-  - /templates/
-  - /sitegen/
-  - /docs/
-  - /lampada/
 # Umami at stats.bible.garden: `none`, or {script_url, website_id}. See README, "Analytics".
 analytics:
   script_url: https://stats.bible.garden/script.js

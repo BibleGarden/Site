@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="sitegen">
+    <title>Articles — Lampada</title>
+    <meta name="description" content="Notes on personal prayer: how to pray, keep a prayer journal, and return to what mattered.">
+    <meta name="robots" content="noindex">
+    <link rel="canonical" href="https://lampada.app/articles/">
+    <meta property="og:site_name" content="Lampada">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lampada.app/articles/">
+    <meta property="og:title" content="Articles — Lampada">
+    <meta property="og:description" content="Notes on personal prayer: how to pray, keep a prayer journal, and return to what mattered.">
+    <meta property="og:image" content="https://lampada.app/assets/lampada-icon-512.png">
+    <meta property="og:locale" content="en_US">
+    <script>
+        // Language handling without a server:
+        //  1. landing pages only: legacy ?lang=en|ru|uk links (ua = uk) go to the language URL
+        //     and record the choice;
+        //  2. English landing page only: a language chosen explicitly before wins; otherwise
+        //     a browser that prefers ru or uk is sent to that version;
+        //  3. clicking the language switcher records the explicit choice.
+        (function () {
+            var storageKey = "lampada-site-language";
+
+            function remember(language) {
+                try { window.localStorage.setItem(storageKey, language); } catch (error) { /* storage unavailable */ }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var links = document.querySelectorAll('a[data-lang]');
+                for (var index = 0; index < links.length; index += 1) {
+                    links[index].addEventListener('click', function (event) {
+                        remember(event.currentTarget.getAttribute('data-lang'));
+                    });
+                }
+            });
+        })();
+    </script>
+    <meta name="theme-color" content="#090604">
+    <link rel="icon" type="image/png" href="/assets/lampada-icon-64.png">
+    <link rel="stylesheet" href="/assets/styles.css?v=20260923-switcher">
+    <script defer src="https://stats.bible.garden/script.js" data-website-id="a75ebc6a-36c3-45ef-8637-684b2542f098" data-domains="lampada.app" data-exclude-search="true" data-exclude-hash="true"></script>
+</head>
+<body>
+    <header class="site-header shell">
+        <a class="brand" href="/" aria-label="Lampada home">
+            <span class="brand-mark" aria-hidden="true">
+                <img src="/assets/lampada-icon.webp" width="38" height="38" alt="">
+            </span>
+            <span class="brand-name">Lampada</span>
+        </a>
+        <div class="header-tools">
+            <nav class="site-nav" aria-label="Primary navigation">
+                <a href="/privacy">Privacy</a>
+                <a href="/support">Support</a>
+            </nav>
+            <div class="language-switcher" aria-label="Language">
+                <a href="/articles/" hreflang="en" data-lang="en" class="is-active" aria-current="page">EN</a>
+                <span aria-disabled="true" title="Articles are available only in: EN">RU</span>
+                <span aria-disabled="true" title="Articles are available only in: EN">UK</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="article-main shell">
+        <header class="article-header">
+            <p class="eyebrow">Lampada</p>
+            <h1 class="article-title">Articles</h1>
+            <p class="article-lead">Notes on personal prayer: how to pray, keep a prayer journal, and return to what mattered.</p>
+        </header>
+        <p class="article-empty">Articles are on their way.</p>
+    </main>
+
+    <footer class="site-footer shell">
+        <span>© 2026 Lampada</span>
+        <div class="footer-links">
+            <a href="/privacy">Privacy</a>
+            <a href="/support">Support</a>
+            <a href="https://bible.garden">Bible Garden</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -4,20 +4,26 @@ from __future__ import annotations
 
 import json
 import shutil
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from xml.sax.saxutils import escape
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markupsafe import Markup, escape as html_escape
 
-from .content import Article, Site, StaticPage, load_articles, load_pages, load_site, owned_dirs
+from .content import PUBLIC_ROOT_NAME, Article, Site, StaticPage, load_articles, load_pages, load_site
 from .errors import BuildError
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 CONTENT_DIR = REPO_ROOT / "content"
 TEMPLATES_DIR = REPO_ROOT / "templates"
-# Every generated page carries this tag; the build deletes a page directory only when its index.html has it.
+PUBLIC_DIR = REPO_ROOT / PUBLIC_ROOT_NAME
+PREVIEW_DIR = REPO_ROOT / ".preview"
+STATIC_FILES = {
+    "bible-garden": ("css", "js", "img", "privacy.html"),
+    "lampada": ("assets", "privacy", "support"),
+}
+# Every generated page carries this tag.
 GENERATOR_META = '<meta name="generator" content="sitegen">'
 
 
@@ -79,15 +85,6 @@ def make_environment(site_key: str) -> Environment:
     return env
 
 
-def is_generated_page_dir(directory: Path) -> bool:
-    """A directory holding only an index.html that sitegen wrote (it carries GENERATOR_META)."""
-    if not directory.is_dir() or directory.is_symlink():
-        return False
-    entries = list(directory.iterdir())
-    index = directory / "index.html"
-    return entries == [index] and index.is_file() and GENERATOR_META in index.read_text(encoding="utf-8")
-
-
 def discover_sites() -> list[Path]:
     sites = sorted(path for path in CONTENT_DIR.iterdir() if path.is_dir())
     if not sites:
@@ -98,16 +95,31 @@ def discover_sites() -> list[Path]:
     return sites
 
 
-def build_all() -> list[Path]:
+def build_all(*, preview: bool = False, output_root: Path | None = None) -> list[Path]:
+    destination = output_root or (PREVIEW_DIR if preview else PUBLIC_DIR)
+    if destination.exists():
+        shutil.rmtree(destination)
+    destination.mkdir(parents=True)
     written: list[Path] = []
     for content_dir in discover_sites():
-        written.extend(SiteBuilder(content_dir).build())
+        written.extend(SiteBuilder(content_dir, destination / content_dir.name, preview=preview).build())
     return written
 
 
 class SiteBuilder:
-    def __init__(self, content_dir: Path) -> None:
-        self.site = load_site(content_dir, REPO_ROOT)
+    def __init__(self, content_dir: Path, output_dir: Path, *, preview: bool) -> None:
+        self.site = replace(load_site(content_dir, REPO_ROOT), output_dir=output_dir)
+        self.preview = preview
+        output_dir.mkdir(parents=True)
+        for name in STATIC_FILES[self.site.key]:
+            source = REPO_ROOT / ("lampada" if self.site.key == "lampada" else "") / name
+            target = output_dir / name
+            if source.is_dir():
+                shutil.copytree(source, target)
+            elif source.is_file():
+                shutil.copy2(source, target)
+            else:
+                raise BuildError(f"missing static source: {source}")
         self.articles = load_articles(self.site, content_dir)
         self.pages = load_pages(self.site, content_dir)
         self.env = make_environment(content_dir.name)
@@ -116,12 +128,11 @@ class SiteBuilder:
         self.check_page_dirs()
 
     def check_page_dirs(self) -> None:
-        """Pages of the default language live in the output directory next to hand-written files (img/, css/,
-        privacy/); a page may only take a free slug or the directory of a page generated earlier."""
+        """Pages must not replace an explicit static source directory."""
         for slug in self.pages:
             directory = self.site.output_dir / slug
-            if directory.exists() and not is_generated_page_dir(directory):
-                raise BuildError(f"{directory}: page {slug} collides with a directory that sitegen did not generate")
+            if directory.exists():
+                raise BuildError(f"{directory}: page {slug} collides with a static directory")
 
     def check_author_page(self, content_dir: Path) -> None:
         """The author link must reach a page in every language: the landing page or a page from pages/."""
@@ -207,12 +218,11 @@ class SiteBuilder:
     # --- build steps --------------------------------------------------------------
 
     def build(self) -> list[Path]:
-        self.clean()
         for lang in self.site.languages:
             self.build_landing(lang)
             self.build_articles_index(lang)
             for slug in self.articles:
-                if lang in self.articles[slug]:
+                if lang in self.articles[slug] and (self.preview or not self.articles[slug][lang].draft):
                     self.build_article(slug, lang)
             for slug in self.pages:
                 if lang in self.pages[slug]:
@@ -222,17 +232,6 @@ class SiteBuilder:
         self.build_sitemap()
         self.build_llms()
         return self.written
-
-    def clean(self) -> None:
-        """Remove every directory the generator owns so deleted content disappears from the output."""
-        for directory in owned_dirs(self.site.output_dir, self.site.languages, self.site.default_language):
-            if directory.exists():
-                shutil.rmtree(directory)
-        # Default-language page directories, current and removed ones: only index.html, marked as generated.
-        owned = set(owned_dirs(self.site.output_dir, self.site.languages, self.site.default_language))
-        for directory in sorted(self.site.output_dir.iterdir()):
-            if directory.resolve() not in owned and is_generated_page_dir(directory):
-                shutil.rmtree(directory)
 
     def build_landing(self, lang: str) -> None:
         meta = self.t(lang)["meta"]
@@ -402,7 +401,6 @@ class SiteBuilder:
 
     def build_robots(self) -> None:
         lines = ["User-agent: *", "Allow: /"]
-        lines += [f"Disallow: {path}" for path in self.site.config.get("robots_disallow", [])]
         lines += ["", f"Sitemap: {self.site.base_url}/sitemap.xml", ""]
         self.write(self.site.output_dir / "robots.txt", "\n".join(lines))
 

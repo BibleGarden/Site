@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Bible Garden</title>
+    <meta name="description" content="Bible Garden privacy policy. We do not collect personal data.">
+    <link rel="canonical" href="https://bible.garden/privacy.html">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        garden: {
+                            50: '#f0f7f2', 100: '#d8ede0', 200: '#b3dbc3',
+                            300: '#82c29f', 400: '#52a379', 500: '#35875c',
+                            600: '#266c49', 700: '#1f563c', 800: '#182e1e',
+                            900: '#121f17', 950: '#0a1510',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Lora', 'Georgia', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .lang-btn.active { color: #82c29f; }
+    </style>
+    <script defer src="https://stats.bible.garden/script.js" data-website-id="492eb2a8-fa4c-4d86-90c8-568f53fbccd4" data-domains="bible.garden" data-exclude-search="true" data-exclude-hash="true"></script>
+</head>
+<body class="bg-garden-950 text-gray-300 font-sans">
+
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex items-center justify-between mb-12">
+            <a href="/" class="inline-flex items-center gap-2 text-gray-500 hover:text-gray-300 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                <span class="text-sm" data-i18n="back">Back to Bible Garden</span>
+            </a>
+            <div class="flex items-center gap-1 text-sm text-gray-500">
+                <button class="lang-btn active px-1.5 py-0.5 cursor-pointer" data-lang="en">EN</button>
+                <span class="text-garden-700">|</span>
+                <button class="lang-btn px-1.5 py-0.5 cursor-pointer" data-lang="ru">RU</button>
+                <span class="text-garden-700">|</span>
+                <button class="lang-btn px-1.5 py-0.5 cursor-pointer" data-lang="ua">UA</button>
+            </div>
+        </div>
+
+        <h1 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-2" data-i18n="title">Privacy Policy</h1>
+        <p class="text-sm text-gray-500 mb-12" data-i18n="updated">Last updated: September 25, 2026</p>
+
+        <div class="space-y-8 text-gray-400 leading-relaxed">
+            <section>
+                <h2 class="font-serif text-xl font-semibold text-white mb-3" data-i18n="s1.title">Overview</h2>
+                <p data-i18n="s1.text">Bible Garden is a free, open-source application for reading and listening to the Bible. We respect your privacy and are committed to keeping things simple: <strong class="text-gray-200">we do not collect, store, or share any personal data.</strong> The app sends no analytics; the bible.garden website counts visits anonymously, as described in “The bible.garden Website” below.</p>
+            </section>
+
+            <section>
+                <h2 class="font-serif text-xl font-semibold text-white mb-3" data-i18n="s2.title">Data the App Does Not Collect</h2>
+                <ul class="list-disc list-inside space-y-1">
+                    <li data-i18n="s2.p1">No accounts or registration required</li>
+                    <li data-i18n="s2.p2">No personal information (name, email, phone)</li>
+                    <li data-i18n="s2.p3">No location data</li>
+                    <li data-i18n="s2.p4">No analytics or tracking SDKs</li>
+                    <li data-i18n="s2.p5">No advertising</li>
+                    <li data-i18n="s2.p6">No cookies</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="font-serif text-xl font-semibold text-white mb-3" data-i18n="s3.title">Server Logs</h2>
+                <p data-i18n="s3.text">When the app communicates with our server to load Bible texts and audio, we temporarily log basic request information (IP address, requested endpoint, timestamp) for operational purposes such as monitoring server health and preventing abuse. These logs are automatically deleted after 14 days and are never shared with third parties.</p>
+            </section>
+
+            <section>
+                <h2 class="font-serif text-xl font-semibold text-white mb-3" data-i18n="s4.title">Third-Party Services</h2>
+                <p data-i18n="s4.text">Bible Garden does not integrate any third-party analytics, advertising, or tracking services. The app communicates only with our own server (api.bible.garden) to retrieve Bible content and audio files.</p>
+            </section>
+
+            <section>
+                <h2 class="font-serif text-xl font-semibold text-white mb-3" data-i18n="web.title">The bible.garden Website</h2>
+                <p data-i18n="web.text">The bible.garden website (not the app) counts visits with Umami, open-source analytics that runs on our own server, <code class="text-garden-400">stats.bible.garden</code>. Umami sets no cookies and does not store IP addresses: an address is used only while a visit is being processed, to derive an anonymous visitor identifier that changes every month; the country is taken from Cloudflare. Region and city are not stored. What is stored: the page address without query string or fragment, the page title, the referring site (its address without query string or fragment), browser, operating system, device type, screen size, language, country and the time of the visit, plus clicks on the App Store link. The statistics are kept on servers under our control (the main server and its backups) and are not used for advertising or profiling. Records older than 13 months are deleted from the live database daily. Backups normally keep them for up to 7 more days; if backups fail, the last verified recovery copy remains until a new verified copy replaces it, which can take longer. Cloudflare processes requests to stats.bible.garden as CDN and proxy, like the rest of the site, and receives no stored statistics from us.</p>
+            </section>
+
+            <section>
+                <h2 class="font-serif text-xl font-semibold text-white mb-3" data-i18n="s5.title">Open Source</h2>
+                <p data-i18n="s5.text">Bible Garden is fully open source. You can review the complete source code on GitHub to verify these privacy practices yourself.</p>
+            </section>
+
+            <section>
+                <h2 class="font-serif text-xl font-semibold text-white mb-3" data-i18n="s6.title">Changes to This Policy</h2>
+                <p data-i18n="s6.text">If we ever change this policy, we will update this page with the new date. Given the nature of our app, we do not anticipate significant changes.</p>
+            </section>
+
+            <section>
+                <h2 class="font-serif text-xl font-semibold text-white mb-3" data-i18n="s7.title">Contact</h2>
+                <p data-i18n="s7.text">If you have any questions about this privacy policy, feel free to reach out via Telegram or GitHub.</p>
+            </section>
+        </div>
+    </div>
+
+    <footer class="py-10 border-t border-garden-800/50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-xs text-gray-600" data-i18n="footer">Open source project under AGPL license. All rights belong to God.</p>
+            <a id="about-link" href="/about/" class="inline-block mt-3 text-xs text-gray-600 hover:text-gray-400 transition-colors" data-i18n="about">How we write</a>
+        </div>
+    </footer>
+
+    <script>
+    const T = {
+        en: {
+            'back': 'Back to Bible Garden',
+            'title': 'Privacy Policy',
+            'updated': 'Last updated: September 25, 2026',
+            's1.title': 'Overview',
+            's1.text': 'Bible Garden is a free, open-source application for reading and listening to the Bible. We respect your privacy and are committed to keeping things simple: <strong class="text-gray-200">we do not collect, store, or share any personal data.</strong> The app sends no analytics; the bible.garden website counts visits anonymously, as described in “The bible.garden Website” below.',
+            's2.title': 'Data the App Does Not Collect',
+            's2.p1': 'No accounts or registration required',
+            's2.p2': 'No personal information (name, email, phone)',
+            's2.p3': 'No location data',
+            's2.p4': 'No analytics or tracking SDKs',
+            's2.p5': 'No advertising',
+            's2.p6': 'No cookies',
+            's3.title': 'Server Logs',
+            's3.text': 'When the app communicates with our server to load Bible texts and audio, we temporarily log basic request information (IP address, requested endpoint, timestamp) for operational purposes such as monitoring server health and preventing abuse. These logs are automatically deleted after 14 days and are never shared with third parties.',
+            's4.title': 'Third-Party Services',
+            's4.text': 'Bible Garden does not integrate any third-party analytics, advertising, or tracking services. The app communicates only with our own server (<code class="text-garden-400">api.bible.garden</code>) to retrieve Bible content and audio files.',
+            'web.title': 'The bible.garden Website',
+            'web.text': 'The bible.garden website (not the app) counts visits with Umami, open-source analytics that runs on our own server, <code class="text-garden-400">stats.bible.garden</code>. Umami sets no cookies and does not store IP addresses: an address is used only while a visit is being processed, to derive an anonymous visitor identifier that changes every month; the country is taken from Cloudflare. Region and city are not stored. What is stored: the page address without query string or fragment, the page title, the referring site (its address without query string or fragment), browser, operating system, device type, screen size, language, country and the time of the visit, plus clicks on the App Store link. The statistics are kept on servers under our control (the main server and its backups) and are not used for advertising or profiling. Records older than 13 months are deleted from the live database daily. Backups normally keep them for up to 7 more days; if backups fail, the last verified recovery copy remains until a new verified copy replaces it, which can take longer. Cloudflare processes requests to stats.bible.garden as CDN and proxy, like the rest of the site, and receives no stored statistics from us.',
+            's5.title': 'Open Source',
+            's5.text': 'Bible Garden is fully open source. You can review the complete source code on <a href="https://github.com/Bible-Garden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a> to verify these privacy practices yourself.',
+            's6.title': 'Changes to This Policy',
+            's6.text': 'If we ever change this policy, we will update this page with the new date. Given the nature of our app, we do not anticipate significant changes.',
+            's7.title': 'Contact',
+            's7.text': 'If you have any questions about this privacy policy, feel free to reach out via <a href="https://t.me/biblegarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">Telegram</a> or <a href="https://github.com/Bible-Garden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>.',
+            'footer': 'Open source project under AGPL license. All rights belong to God.',
+            'about': 'How we write',
+        },
+        ru: {
+            'back': 'Назад к Bible Garden',
+            'title': 'Политика конфиденциальности',
+            'updated': 'Последнее обновление: 25 сентября 2026',
+            's1.title': 'Обзор',
+            's1.text': 'Bible Garden — это бесплатное приложение с открытым исходным кодом для чтения и прослушивания Библии. Мы уважаем вашу конфиденциальность и стремимся к простоте: <strong class="text-gray-200">мы не собираем, не храним и не передаём персональные данные.</strong> Приложение не отправляет аналитику; сайт bible.garden анонимно считает посещения — см. раздел «Сайт bible.garden» ниже.',
+            's2.title': 'Данные, которые приложение не собирает',
+            's2.p1': 'Не требуется регистрация или создание аккаунта',
+            's2.p2': 'Не собираем личную информацию (имя, email, телефон)',
+            's2.p3': 'Не собираем данные о местоположении',
+            's2.p4': 'Не используем аналитику или SDK для отслеживания',
+            's2.p5': 'Нет рекламы',
+            's2.p6': 'Нет файлов cookie',
+            's3.title': 'Серверные логи',
+            's3.text': 'Когда приложение обращается к нашему серверу для загрузки текстов и аудио Библии, мы временно сохраняем базовую информацию о запросах (IP-адрес, запрошенный эндпоинт, время запроса) для мониторинга работоспособности сервера и предотвращения злоупотреблений. Эти логи автоматически удаляются через 14 дней и никогда не передаются третьим лицам.',
+            's4.title': 'Сторонние сервисы',
+            's4.text': 'Bible Garden не интегрирует сторонние сервисы аналитики, рекламы или отслеживания. Приложение взаимодействует только с нашим собственным сервером (<code class="text-garden-400">api.bible.garden</code>) для получения текстов и аудиофайлов Библии.',
+            'web.title': 'Сайт bible.garden',
+            'web.text': 'Сайт bible.garden (не приложение) считает посещения с помощью Umami — аналитики с открытым исходным кодом, которая работает на нашем собственном сервере, <code class="text-garden-400">stats.bible.garden</code>. Umami не устанавливает cookie и не хранит IP-адреса: адрес используется только во время обработки посещения, чтобы вычислить анонимный идентификатор посетителя, который меняется каждый месяц; страну сообщает Cloudflare. Регион и город не сохраняются. Сохраняются: адрес страницы без параметров запроса и фрагмента, заголовок страницы, сайт, с которого пришёл посетитель (его адрес без параметров запроса и фрагмента), браузер, операционная система, тип устройства, размер экрана, язык, страна и время посещения, а также клики по ссылке на App Store. Статистика хранится на серверах под нашим контролем (основной сервер и резервные копии) и не используется для рекламы или профилирования. Записи старше 13 месяцев ежедневно удаляются из рабочей базы. В резервных копиях они обычно хранятся не более 7 дней сверх этого срока; при сбое резервного копирования последняя проверенная копия сохраняется до появления новой проверенной копии, поэтому срок может быть больше. Cloudflare обрабатывает запросы к stats.bible.garden как CDN и прокси, как и для остального сайта, и не получает от нас сохранённую статистику.',
+            's5.title': 'Открытый исходный код',
+            's5.text': 'Bible Garden имеет полностью открытый исходный код. Вы можете ознакомиться с ним на <a href="https://github.com/Bible-Garden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>, чтобы самостоятельно убедиться в соблюдении данной политики.',
+            's6.title': 'Изменения в политике',
+            's6.text': 'Если мы когда-либо изменим эту политику, мы обновим дату на этой странице. Учитывая характер нашего приложения, мы не ожидаем существенных изменений.',
+            's7.title': 'Контакты',
+            's7.text': 'Если у вас есть вопросы по данной политике конфиденциальности, свяжитесь с нами через <a href="https://t.me/biblegarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">Telegram</a> или <a href="https://github.com/Bible-Garden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>.',
+            'footer': 'Проект с открытым кодом под лицензией AGPL. Все права принадлежат Богу.',
+            'about': 'Как мы пишем',
+        },
+        ua: {
+            'back': 'Назад до Bible Garden',
+            'title': 'Політика конфіденційності',
+            'updated': 'Останнє оновлення: 25 вересня 2026',
+            's1.title': 'Огляд',
+            's1.text': 'Bible Garden — це безкоштовний застосунок з відкритим вихідним кодом для читання та прослуховування Біблії. Ми поважаємо вашу конфіденційність і прагнемо до простоти: <strong class="text-gray-200">ми не збираємо, не зберігаємо і не передаємо персональні дані.</strong> Застосунок не надсилає аналітику; сайт bible.garden анонімно рахує відвідування — див. розділ «Сайт bible.garden» нижче.',
+            's2.title': 'Дані, які застосунок не збирає',
+            's2.p1': 'Не потрібна реєстрація або створення акаунту',
+            's2.p2': 'Не збираємо особисту інформацію (ім\'я, email, телефон)',
+            's2.p3': 'Не збираємо дані про місцезнаходження',
+            's2.p4': 'Не використовуємо аналітику або SDK для відстеження',
+            's2.p5': 'Немає реклами',
+            's2.p6': 'Немає файлів cookie',
+            's3.title': 'Серверні логи',
+            's3.text': 'Коли застосунок звертається до нашого сервера для завантаження текстів та аудіо Біблії, ми тимчасово зберігаємо базову інформацію про запити (IP-адреса, запитуваний ендпоінт, час запиту) для моніторингу працездатності сервера та запобігання зловживанням. Ці логи автоматично видаляються через 14 днів і ніколи не передаються третім особам.',
+            's4.title': 'Сторонні сервіси',
+            's4.text': 'Bible Garden не інтегрує сторонні сервіси аналітики, реклами або відстеження. Застосунок взаємодіє лише з нашим власним сервером (<code class="text-garden-400">api.bible.garden</code>) для отримання текстів та аудіофайлів Біблії.',
+            'web.title': 'Сайт bible.garden',
+            'web.text': 'Сайт bible.garden (не застосунок) рахує відвідування за допомогою Umami — аналітики з відкритим вихідним кодом, яка працює на нашому власному сервері, <code class="text-garden-400">stats.bible.garden</code>. Umami не встановлює cookie і не зберігає IP-адреси: адреса використовується лише під час обробки відвідування, щоб обчислити анонімний ідентифікатор відвідувача, який змінюється щомісяця; країну повідомляє Cloudflare. Регіон і місто не зберігаються. Зберігаються: адреса сторінки без параметрів запиту та фрагмента, заголовок сторінки, сайт, з якого прийшов відвідувач (його адреса без параметрів запиту та фрагмента), браузер, операційна система, тип пристрою, розмір екрана, мова, країна та час відвідування, а також кліки за посиланням на App Store. Статистика зберігається на серверах під нашим контролем (основний сервер і резервні копії) і не використовується для реклами чи профілювання. Записи, старші за 13 місяців, щодня видаляються з робочої бази. У резервних копіях вони зазвичай зберігаються не більш як 7 днів понад цей строк; якщо резервне копіювання не працює, остання перевірена копія зберігається до появи нової перевіреної копії, тому строк може бути довшим. Cloudflare обробляє запити до stats.bible.garden як CDN і проксі, як і для решти сайту, і не отримує від нас збереженої статистики.',
+            's5.title': 'Відкритий вихідний код',
+            's5.text': 'Bible Garden має повністю відкритий вихідний код. Ви можете ознайомитися з ним на <a href="https://github.com/Bible-Garden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>, щоб самостійно переконатися у дотриманні цієї політики.',
+            's6.title': 'Зміни в політиці',
+            's6.text': 'Якщо ми колись змінимо цю політику, ми оновимо дату на цій сторінці. Зважаючи на характер нашого застосунку, ми не очікуємо суттєвих змін.',
+            's7.title': 'Контакти',
+            's7.text': 'Якщо у вас є питання щодо цієї політики конфіденційності, зв\'яжіться з нами через <a href="https://t.me/biblegarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">Telegram</a> або <a href="https://github.com/Bible-Garden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>.',
+            'footer': 'Проект з відкритим кодом під ліцензією AGPL. Усі права належать Богу.',
+            'about': 'Як ми пишемо',
+        }
+    };
+
+    // Determine language: ?lang= param > localStorage > default 'en'
+    const urlLang = new URLSearchParams(window.location.search).get('lang');
+    let currentLang = urlLang || localStorage.getItem('bg-lang') || 'en';
+    if (currentLang === 'uk') currentLang = 'ua';
+    if (!T[currentLang]) currentLang = 'en';
+
+    function setLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('bg-lang', lang);
+        document.documentElement.lang = lang;
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            const val = T[lang]?.[key];
+            if (val) el.innerHTML = val;
+        });
+
+        document.getElementById('about-link').href = { en: '/about/', ru: '/ru/about/', ua: '/uk/about/' }[lang];
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+
+        const titles = {
+            en: 'Privacy Policy — Bible Garden',
+            ru: 'Политика конфиденциальности — Bible Garden',
+            ua: 'Політика конфіденційності — Bible Garden',
+        };
+        document.title = titles[lang] || titles.en;
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+    setLang(currentLang);
+    </script>
+
+</body>
+</html>

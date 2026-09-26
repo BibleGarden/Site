@@ -7,6 +7,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from sitegen.build import build_all
 from sitegen.content import annotate_screens, extract_faq, parse_article, render_markdown
 from sitegen.errors import BuildError
 from sitegen.screens import Screen, check_asset, load_catalog, load_checksums
@@ -145,7 +146,11 @@ class ArticleScreensTest(unittest.TestCase):
                 load_checksums(path, {"home": screen}, ("ru",))
 
     def test_generated_phone_images_wait_for_desktop_activation(self) -> None:
-        html = (ROOT / "ru/articles/template-check/index.html").read_text(encoding="utf-8")
+        self.assertFalse((ROOT / "dist/bible-garden/ru/articles/template-check/index.html").exists())
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "preview"
+            build_all(preview=True, output_root=output)
+            html = (output / "bible-garden/ru/articles/template-check/index.html").read_text(encoding="utf-8")
         images = re.findall(r'<img[^>]*class="article-screen-phone-image"[^>]*>', html)
         self.assertEqual(len(images), 2)
         for image in images:

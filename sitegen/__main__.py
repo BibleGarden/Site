@@ -8,13 +8,17 @@ from .build import build_all
 from .check import run_checks
 from .errors import BuildError
 
-USAGE = "usage: python -m sitegen build | check"
+USAGE = "usage: python -m sitegen build | preview | check"
 
 
 def main(argv: list[str]) -> int:
     if argv == ["build"]:
         written = build_all()
         print(f"wrote {len(written)} files")
+        return 0
+    if argv == ["preview"]:
+        written = build_all(preview=True)
+        print(f"wrote {len(written)} preview files")
         return 0
     if argv == ["check"]:
         blocks, links = run_checks()

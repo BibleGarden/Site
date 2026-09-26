@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -18,15 +20,21 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      - name: Keep the legacy public tree unchanged until nginx switches
+        run: |
+          git diff --exit-code 95e0889 -- \
+            404.html index.html robots.txt sitemap.xml llms.txt \
+            about articles ru uk privacy.html css js img lampada
+
       - name: Rebuild the site
         run: python -m sitegen build
 
-      - name: Committed HTML must match the build output
+      - name: Committed public dist must match the build output
         run: |
           git add -A
           git diff --cached --stat --exit-code
 
-      - name: Validate JSON-LD
+      - name: Validate public files and references
         run: python -m sitegen check
 
       - name: Test article screenshots
