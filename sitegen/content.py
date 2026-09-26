@@ -28,13 +28,13 @@ LANGUAGE_RE = re.compile(r"^[a-z]{2}$")
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
 
-REQUIRED_SITE_KEYS = ("name", "base_url", "output_dir", "languages", "default_language", "language_labels", "logo", "author", "analytics")
+REQUIRED_SITE_KEYS = ("name", "base_url", "languages", "default_language", "language_labels", "logo", "author", "analytics")
 AUTHOR_KEYS = {"name", "page"}
 PAGE_PATH_RE = re.compile(r"^(?:[a-z0-9]+(?:-[a-z0-9]+)*/)?$")
 APP_STORE_CAMPAIGN_PREFIX = "https://apps.apple.com/"
 ANALYTICS_KEYS = {"script_url", "website_id"}
 ANALYTICS_DISABLED = "none"
-SOURCE_DIRS = ("content", "templates", "sitegen", ".git", ".github")
+PUBLIC_ROOT_NAME = "dist"
 REQUIRED_ARTICLE_KEYS = ("title", "description", "date")
 OPTIONAL_ARTICLE_KEYS = ("updated", "draft", "image")
 PAGE_KEYS = ("title", "description")
@@ -162,6 +162,8 @@ def load_site(content_dir: Path, repo_root: Path) -> Site:
     missing = [key for key in REQUIRED_SITE_KEYS if key not in config]
     if missing:
         raise BuildError(f"{config_path}: missing required keys: {', '.join(missing)}")
+    if "output_dir" in config:
+        raise BuildError(f"{config_path}: output_dir is derived from the site directory name")
     languages = tuple(config["languages"])
     if config["default_language"] not in languages:
         raise BuildError(f"{config_path}: default_language is not listed in languages")
@@ -172,8 +174,7 @@ def load_site(content_dir: Path, repo_root: Path) -> Site:
         raise BuildError(f"{config_path}: language_labels must define a label for every language and nothing else")
     if "article_app_store_url" in config:
         _article_app_store_url(config["article_app_store_url"], config_path)
-    output_dir = _output_dir(config["output_dir"], repo_root, config_path)
-    _check_owned_dirs(output_dir, languages, config["default_language"], repo_root, config_path)
+    output_dir = repo_root / PUBLIC_ROOT_NAME / content_dir.name
     i18n = {lang: load_yaml(content_dir / "i18n" / f"{lang}.yaml") for lang in languages}
     reference = i18n[config["default_language"]]
     for lang in languages:
@@ -221,35 +222,6 @@ def _analytics(value: object, base_url: str, config_path: Path) -> Analytics | N
     if not isinstance(website_id, str) or not UUID_RE.match(website_id):
         raise BuildError(f"{config_path}: analytics.website_id must be a lowercase UUID, got {website_id!r}")
     return Analytics(script_url=script_url, website_id=website_id, domain=urlsplit(base_url).hostname)
-
-
-def _output_dir(value: object, repo_root: Path, config_path: Path) -> Path:
-    """Resolve output_dir: a relative path inside the repository (the build deletes directories under it)."""
-    if not isinstance(value, str) or not value:
-        raise BuildError(f"{config_path}: output_dir must be a non-empty relative path")
-    relative = Path(value)
-    if relative.is_absolute() or ".." in relative.parts:
-        raise BuildError(f"{config_path}: output_dir must be relative to the repository root without '..': {value}")
-    resolved = (repo_root / relative).resolve()
-    if not resolved.is_relative_to(repo_root.resolve()):
-        raise BuildError(f"{config_path}: output_dir resolves outside the repository: {resolved}")
-    return resolved
-
-
-def owned_dirs(output_dir: Path, languages: tuple[str, ...], default_language: str) -> list[Path]:
-    """Directories the build deletes and recreates, normalised: articles/ and the non-default language roots."""
-    return [(output_dir / name).resolve() for name in ["articles", *(lang for lang in languages if lang != default_language)]]
-
-
-def _check_owned_dirs(output_dir: Path, languages: tuple[str, ...], default_language: str, repo_root: Path, config_path: Path) -> None:
-    root = repo_root.resolve()
-    protected = [(root / name).resolve() for name in SOURCE_DIRS]
-    for owned in owned_dirs(output_dir, languages, default_language):
-        if owned == root or not owned.is_relative_to(root):
-            raise BuildError(f"{config_path}: the build would delete {owned}, which is not a directory inside the repository")
-        for source in protected:
-            if owned.is_relative_to(source) or source.is_relative_to(owned):
-                raise BuildError(f"{config_path}: the build would delete {owned}, which overlaps the sources in {source}")
 
 
 def _check_same_keys(reference: dict, candidate: dict, path: str, prefix: str) -> None:

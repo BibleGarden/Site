@@ -15,7 +15,7 @@ Domains:
 
 | Path | Role |
 |---|---|
-| `content/<site>/site.yaml` | site name, base URL, output directory, languages and their switcher labels, article author, app links, analytics |
+| `content/<site>/site.yaml` | site name, base URL, languages and their switcher labels, article author, app links, analytics |
 | `content/<site>/i18n/<lang>.yaml` | every visible string of the landing page, article chrome and 404 page |
 | `content/<site>/articles/<slug>/<lang>.md` | article sources |
 | `content/<site>/pages/<slug>/<lang>.md` | standalone pages such as `/about/` (optional directory) |
@@ -35,8 +35,8 @@ files. Each site contains generated
 `robots.txt`, `sitemap.xml`, `llms.txt`, plus only its explicit static inputs.
 Bible Garden copies `css/`, `js/`, `img/`, `privacy.html`; Lampada copies
 `lampada/assets/`, `lampada/privacy/`, `lampada/support/`. Draft HTML is absent
-from `dist/`. `output_dir` in `site.yaml` names the corresponding public site
-directory; source directories must not overlap output. Every site needs a
+from `dist/`. The output path is derived as `dist/<site>/` from the content
+directory name. Every site needs a
 `content/<site>/articles/` directory, even an empty one.
 
 ## Build
