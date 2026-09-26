@@ -60,6 +60,41 @@ class HomeArticlesTest(unittest.TestCase):
                 self.assertIn(f'href="{prefix}articles/"', block)
                 self.assertNotIn("template-check", block)
 
+    def test_equal_dates_use_slug_order(self) -> None:
+        original = self.builder.articles["how-to-start-reading-the-bible"]["en"]
+        self.builder.articles = {
+            slug: {"en": replace(original, slug=slug, date=date(2026, 9, 24))}
+            for slug in ("bravo", "delta", "alpha", "charlie")
+        }
+
+        html = self.render("en")
+        block = html.split('<section id="articles"', 1)[1].split("</section>", 1)[0]
+        self.assertEqual(
+            re.findall(r'<a href="([^"]+)" class="feature-card', block),
+            ["/articles/delta/", "/articles/charlie/", "/articles/bravo/"],
+        )
+
+    def test_base_footer_links_on_articles_and_pages(self) -> None:
+        slug = "how-to-start-reading-the-bible"
+        for lang in self.builder.site.languages:
+            with self.subTest(page="article", lang=lang):
+                self.builder.build_article(slug, lang)
+                html = self.builder.output_path(lang, f"articles/{slug}/index.html").read_text(encoding="utf-8")
+                footer = html.split("<footer", 1)[1].split("</footer>", 1)[0]
+                self.assertIn(f'href="{self.builder.site.href(lang, "articles/")}"', footer)
+                self.assertIn(self.builder.t(lang)["articles"]["section_title"], footer)
+
+        self.builder.articles = {}
+        for lang in self.builder.site.languages:
+            with self.subTest(page="about", lang=lang):
+                self.builder.build_page("about", lang)
+                html = self.builder.output_path(lang, "about/index.html").read_text(encoding="utf-8")
+                footer = html.split("<footer", 1)[1].split("</footer>", 1)[0]
+                navigation = html.split("<nav", 1)[1].split("</nav>", 1)[0]
+                article_href = f'href="{self.builder.site.href(lang, "articles/")}"'
+                self.assertIn(article_href, footer)
+                self.assertNotIn(article_href, navigation)
+
     def test_no_articles_hides_block(self) -> None:
         self.builder.articles = {}
         html = self.render("en")
