@@ -1,14 +1,13 @@
 # Bible Garden — Website
 
 Static public websites for the Bible Garden and Lampada apps, generated from
-Markdown and YAML by a small Python script. The generated HTML is committed:
-production nginx serves a plain checkout of `main`, nothing is built on the
-server.
+Markdown and YAML by a small Python script. The complete public output is
+committed under `dist/`; production serves those directories without building.
 
 Domains:
 
-- [bible.garden](https://bible.garden) — Bible Garden, repository root
-- [lampada.app](https://lampada.app) — Lampada, `lampada/`
+- [bible.garden](https://bible.garden) — `dist/bible-garden/`
+- [lampada.app](https://lampada.app) — `dist/lampada/`
 
 ## Layout
 
@@ -24,18 +23,16 @@ Domains:
 | `css/`, `js/`, `img/` | bible.garden static assets |
 | `lampada/assets/` | lampada.app static assets |
 | `privacy.html`, `lampada/privacy/`, `lampada/support/` | hand-written pages, not generated |
+| `dist/<site>/` | committed public HTML and copied static files; the only nginx site roots |
+| `.preview/<site>/` | ignored local preview, including draft articles |
 
-Generated output (do not edit by hand): `index.html`, `ru/`, `uk/`,
-`articles/`, one directory per page (`about/`), `404.html`, `robots.txt`, `sitemap.xml`, `llms.txt` at the
-repository root and the same set under `lampada/`. The generator deletes and
-recreates `articles/`, `ru/`, `uk/` and the page directories of each site on
-every build, so a removed article or page disappears from the output. Every
-generated page carries `<meta name="generator" content="sitegen">`; a
-directory in the output root counts as a page directory (and is deleted
-before the build) only when it holds nothing but an `index.html` with that
-tag, so hand-written pages are never touched. `output_dir` in `site.yaml` must
-therefore be a relative path inside the repository, and those directories
-must not overlap `content/`, `templates/`, `sitegen/`, `.git/` or `.github/`. Every site needs a
+The build recreates `dist/` from scratch. Each site contains generated
+`index.html`, language and article directories, page directories, `404.html`,
+`robots.txt`, `sitemap.xml`, `llms.txt`, plus only its explicit static inputs.
+Bible Garden copies `css/`, `js/`, `img/`, `privacy.html`; Lampada copies
+`lampada/assets/`, `lampada/privacy/`, `lampada/support/`. Draft HTML is absent
+from `dist/`. `output_dir` in `site.yaml` names the corresponding public site
+directory; source directories must not overlap output. Every site needs a
 `content/<site>/articles/` directory, even an empty one.
 
 ## Build
@@ -43,13 +40,14 @@ must not overlap `content/`, `templates/`, `sitegen/`, `.git/` or `.github/`. Ev
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m sitegen build   # rebuild both sites
-.venv/bin/python -m sitegen check   # validate metadata, links, analytics and screenshots
+.venv/bin/python -m sitegen check   # compare dist byte for byte and validate references/metadata
+.venv/bin/python -m sitegen preview # optional: build local draft previews into .preview/
 .venv/bin/python -m unittest discover -s tests
 ```
 
 The build is deterministic: it embeds no timestamps, so running it twice
 produces identical files. CI (`.github/workflows/build.yml`) rebuilds the site
-on every pull request and fails when the committed HTML differs from the build
+on every pull request and fails when the committed `dist/` differs from the build
 output, when an indexable page lacks a single `canonical` resolving to itself,
 when another language version of the page exists on disk but is not linked, when a
 page's `hreflang` set is incomplete (every published version, itself and
@@ -134,8 +132,9 @@ Without `image` the site logo (1024×1024) is used. Real articles should set
 `image` to a picture at least 1200 px wide (16:9, 4:3 or 1:1), which is what
 Google expects for `Article` rich results.
 
-`draft: true` builds the page with `noindex`, keeps it out of the sitemap,
-`llms.txt`, the article index and the previous/next navigation. The landing
+`draft: true` builds the page with `noindex` only in `.preview/`; public `dist/`
+contains no draft page. Drafts stay out of the sitemap, `llms.txt`, the article
+index and the previous/next navigation. The landing
 page shows an "Articles" link only when the language has at least one
 published article.
 
@@ -190,9 +189,8 @@ then writes WebP to `img/article-screens/{mobile,phone,zoom}/` at widths
 The current 144 WebP occupy 6.87 MiB (measured on 2026-09-24 by summing file
 sizes after import). CI checks committed variants without needing the archive
 or `cwebp`. The draft `template-check` article exercises two markers in all
-three languages; its HTML is reachable by direct URL but marked `noindex` and
-excluded from the article index and sitemap. Preview `/ru/articles/template-check/`
-with the local server described below.
+three languages; its HTML exists only after `python -m sitegen preview`.
+Preview `/ru/articles/template-check/` with the local server described below.
 
 To upgrade `cwebp`, change `CWEBP_VERSION` in
 `tools/import_article_screens.py`, install that exact version, rerun the
@@ -283,11 +281,22 @@ YAML files of a site must define the same keys.
 ## Run locally
 
 ```bash
-python3 -m http.server 8080            # http://localhost:8080 — bible.garden
-cd lampada && python3 -m http.server 8081   # http://localhost:8081 — lampada.app
+cd dist/bible-garden && python3 -m http.server 8080
+cd dist/lampada && python3 -m http.server 8081
 ```
 
-Lampada pages use root-absolute asset paths, so preview them from `lampada/`.
+Run those commands in separate shells. To view drafts, first run
+`.venv/bin/python -m sitegen preview`, then serve `.preview/bible-garden/` and
+`.preview/lampada/` in the same way. Each site must have its own document root
+because its asset URLs are root absolute.
+
+## Production deployment
+
+After the Site and Deploy pull requests are merged and approved for production,
+use `Deploy/scripts/apply_site_dist.sh` as described in `Deploy/runbook.md`.
+It stages the old public files, pulls the committed `dist/` into the production
+checkout, switches nginx roots, checks routes and restores both checkout and
+config automatically if validation fails. Do not run a separate `git pull`.
 
 ## Analytics
 

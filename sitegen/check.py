@@ -4,11 +4,13 @@ from __future__ import annotations
 
 import json
 import re
+import tempfile
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import unquote, urljoin, urlsplit
+from xml.etree import ElementTree
 
-from .build import CONTENT_DIR, REPO_ROOT
+from .build import CONTENT_DIR, PUBLIC_DIR, REPO_ROOT, build_all
 from .content import Site, load_site
 from .errors import BuildError
 from .screens import ASSET_DIR, VARIANTS, check_asset, load_catalog, load_checksums
@@ -21,19 +23,33 @@ NOINDEX_RE = re.compile(r'<meta name="robots" content="noindex">')
 ANCHOR_HREF_RE = re.compile(r'<a\s[^>]*?href="([^"]+)"')
 APP_STORE_PREFIX = "https://apps.apple.com/"
 APP_STORE_EVENT = "app-store-click"
-SKIPPED_DIRS = {".git", "content", "templates", "sitegen", ".venv"}
+SOURCE_HTML = {"privacy.html", "lampada/privacy/index.html", "lampada/support/index.html"}
 
 
 def html_files() -> list[Path]:
-    return sorted(
-        path for path in REPO_ROOT.rglob("*.html") if not SKIPPED_DIRS & set(path.relative_to(REPO_ROOT).parts)
-    )
+    return sorted(PUBLIC_DIR.rglob("*.html"))
+
+
+def check_build_output() -> None:
+    """Require the committed public tree to match a clean build byte for byte."""
+    with tempfile.TemporaryDirectory() as directory:
+        expected = Path(directory) / "sites"
+        build_all(output_root=expected)
+        expected_files = {path.relative_to(expected): path for path in expected.rglob("*") if path.is_file()}
+        actual_files = {path.relative_to(PUBLIC_DIR): path for path in PUBLIC_DIR.rglob("*") if path.is_file()}
+        if expected_files.keys() != actual_files.keys():
+            raise BuildError(f"dist differs from source: missing={sorted(expected_files.keys() - actual_files.keys())}, extra={sorted(actual_files.keys() - expected_files.keys())}")
+        for relative, source in expected_files.items():
+            if source.read_bytes() != actual_files[relative].read_bytes():
+                raise BuildError(f"dist differs from source: {relative}")
 
 
 def run_checks() -> tuple[int, int]:
     """Return (JSON-LD blocks, hreflang links) after validating every generated HTML file."""
+    check_build_output()
     sites = [load_site(directory, REPO_ROOT) for directory in sorted(CONTENT_DIR.iterdir()) if directory.is_dir()]
     pages = {path: path.read_text(encoding="utf-8") for path in html_files()}
+    check_public_references(pages, sites)
     owners = {path: owner_site(path, sites) for path in pages}
     blocks = sum(check_json_ld(path, html) for path, html in pages.items())
     links = check_hreflang(pages, sites)
@@ -41,6 +57,72 @@ def run_checks() -> tuple[int, int]:
     check_analytics(pages, owners)
     check_screens(sites)
     return blocks, links
+
+
+class ReferenceCollector(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.references: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        for name, value in attrs:
+            if value is None:
+                continue
+            if name in {"href", "src", "poster"}:
+                self.references.append(value)
+            elif name == "srcset":
+                self.references.extend(part.strip().split()[0] for part in value.split(","))
+            elif name == "content" and value.startswith(("/", "https://bible.garden/", "https://lampada.app/")):
+                self.references.append(value)
+
+
+def check_public_references(pages: dict[Path, str], sites: list[Site]) -> None:
+    """Every local URL in published pages and discovery files must resolve inside dist."""
+    for path in REPO_ROOT.rglob("*.html"):
+        relative = path.relative_to(REPO_ROOT)
+        if relative.parts[0] in {".git", ".venv", ".preview", "dist", "templates"}:
+            continue
+        if relative.as_posix() not in SOURCE_HTML:
+            raise BuildError(f"old or unexpected HTML outside dist: {relative}")
+
+    def require(reference: str, base_url: str, source: Path) -> None:
+        if not reference or unquote(reference).startswith(("#", "data:")):
+            return
+        url = urlsplit(urljoin(base_url, reference))
+        if url.scheme not in {"http", "https"}:
+            return
+        for site in sites:
+            if url.netloc == urlsplit(site.base_url).netloc:
+                clean_url = f"{site.base_url}{unquote(url.path or '/')}"
+                if url_to_file(clean_url, sites) is None:
+                    raise BuildError(f"{source}: missing public reference {reference}")
+                return
+
+    for path, html in pages.items():
+        owner = owner_site(path, sites)
+        relative = path.relative_to(owner.output_dir).as_posix()
+        parser = ReferenceCollector()
+        parser.feed(html)
+        for reference in parser.references:
+            require(reference, f"{owner.base_url}/{relative}", path)
+
+    for site in sites:
+        for path in site.output_dir.rglob("*.css"):
+            relative = path.relative_to(site.output_dir).as_posix()
+            for reference in re.findall(r"url\(['\"]?([^)'\"]+)", path.read_text(encoding="utf-8")):
+                require(reference, f"{site.base_url}/{relative}", path)
+        sitemap = site.output_dir / "sitemap.xml"
+        for element in ElementTree.parse(sitemap).iter():
+            if element.tag.endswith("loc") and element.text:
+                require(element.text, site.base_url + "/", sitemap)
+            if element.tag.endswith("link") and "href" in element.attrib:
+                require(element.attrib["href"], site.base_url + "/", sitemap)
+        for name in ("llms.txt", "robots.txt"):
+            path = site.output_dir / name
+            for reference in re.findall(r"https?://[^\s)]+", path.read_text(encoding="utf-8")):
+                require(reference, site.base_url + "/", path)
+        if not (site.output_dir / "404.html").is_file():
+            raise BuildError(f"{site.output_dir}: missing 404.html")
 
 
 def check_screens(sites: list[Site]) -> None:

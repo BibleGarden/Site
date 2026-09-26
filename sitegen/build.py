@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import shutil
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -17,6 +17,12 @@ from .errors import BuildError
 REPO_ROOT = Path(__file__).resolve().parent.parent
 CONTENT_DIR = REPO_ROOT / "content"
 TEMPLATES_DIR = REPO_ROOT / "templates"
+PUBLIC_DIR = REPO_ROOT / "dist"
+PREVIEW_DIR = REPO_ROOT / ".preview"
+STATIC_FILES = {
+    "bible-garden": ("css", "js", "img", "privacy.html"),
+    "lampada": ("assets", "privacy", "support"),
+}
 # Every generated page carries this tag; the build deletes a page directory only when its index.html has it.
 GENERATOR_META = '<meta name="generator" content="sitegen">'
 
@@ -98,16 +104,31 @@ def discover_sites() -> list[Path]:
     return sites
 
 
-def build_all() -> list[Path]:
+def build_all(*, preview: bool = False, output_root: Path | None = None) -> list[Path]:
+    destination = output_root or (PREVIEW_DIR if preview else PUBLIC_DIR)
+    if destination.exists():
+        shutil.rmtree(destination)
+    destination.mkdir(parents=True)
     written: list[Path] = []
     for content_dir in discover_sites():
-        written.extend(SiteBuilder(content_dir).build())
+        written.extend(SiteBuilder(content_dir, destination / content_dir.name, preview=preview).build())
     return written
 
 
 class SiteBuilder:
-    def __init__(self, content_dir: Path) -> None:
-        self.site = load_site(content_dir, REPO_ROOT)
+    def __init__(self, content_dir: Path, output_dir: Path, *, preview: bool) -> None:
+        self.site = replace(load_site(content_dir, REPO_ROOT), output_dir=output_dir)
+        self.preview = preview
+        output_dir.mkdir(parents=True)
+        for name in STATIC_FILES[self.site.key]:
+            source = REPO_ROOT / ("lampada" if self.site.key == "lampada" else "") / name
+            target = output_dir / name
+            if source.is_dir():
+                shutil.copytree(source, target)
+            elif source.is_file():
+                shutil.copy2(source, target)
+            else:
+                raise BuildError(f"missing static source: {source}")
         self.articles = load_articles(self.site, content_dir)
         self.pages = load_pages(self.site, content_dir)
         self.env = make_environment(content_dir.name)
@@ -212,7 +233,7 @@ class SiteBuilder:
             self.build_landing(lang)
             self.build_articles_index(lang)
             for slug in self.articles:
-                if lang in self.articles[slug]:
+                if lang in self.articles[slug] and (self.preview or not self.articles[slug][lang].draft):
                     self.build_article(slug, lang)
             for slug in self.pages:
                 if lang in self.pages[slug]:

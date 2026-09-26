@@ -40,6 +40,7 @@ def import_archive(archive: Path, site_config: Path) -> int:
         raise ValueError(f"{site_config}: expected a site.yaml path")
     content_dir = site_config.resolve().parent
     site = load_site(content_dir, REPO_ROOT)
+    source_root = REPO_ROOT / ("lampada" if site.key == "lampada" else "")
     catalog = load_catalog(content_dir / "screens.yaml", site.languages)
     expected = {
         f"{SOURCE_PREFIX}{screen.id}.{lang}.png": (screen, lang)
@@ -86,13 +87,13 @@ def import_archive(archive: Path, site_config: Path) -> int:
             for lang in screen.captions
             for variant in VARIANTS
         }
-        asset_dir = site.output_dir / ASSET_DIR
-        existing_webp = {path.relative_to(site.output_dir) for path in asset_dir.rglob("*.webp")} if asset_dir.exists() else set()
+        asset_dir = source_root / ASSET_DIR
+        existing_webp = {path.relative_to(source_root) for path in asset_dir.rglob("*.webp")} if asset_dir.exists() else set()
         if extra := existing_webp - expected_webp:
             raise ValueError(f"stale screenshot files: {', '.join(map(str, sorted(extra)))}")
         changed = 0
         for relative in sorted(expected_webp):
-            target = site.output_dir / relative
+            target = source_root / relative
             data = (staged / relative).read_bytes()
             if target.exists() and target.read_bytes() == data:
                 continue

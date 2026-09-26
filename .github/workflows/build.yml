@@ -21,12 +21,12 @@ jobs:
       - name: Rebuild the site
         run: python -m sitegen build
 
-      - name: Committed HTML must match the build output
+      - name: Committed public dist must match the build output
         run: |
           git add -A
           git diff --cached --stat --exit-code
 
-      - name: Validate JSON-LD
+      - name: Validate public files and references
         run: python -m sitegen check
 
       - name: Test article screenshots
