@@ -41,14 +41,14 @@
                     <a href="#mission" class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">{{ t.landing.nav.mission }}</a>
                     <a href="#contact" class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">{{ t.landing.nav.contact }}</a>
                     {% if has_articles %}
-                    <a href="{{ lang_paths[lang] }}articles/" class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">{{ t.articles.section_title }}</a>
+                    <a href="{{ site.href(lang, 'articles/') }}" class="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">{{ t.articles.section_title }}</a>
                     {% endif %}
                 </div>
 
                 <!-- Right side: lang + github -->
                 <div class="flex items-center gap-2 sm:gap-4">
                     {% if has_articles %}
-                    <a href="{{ lang_paths[lang] }}articles/" class="md:hidden text-sm text-gray-400 hover:text-white transition-colors">{{ t.articles.section_title }}</a>
+                    <a href="{{ site.href(lang, 'articles/') }}" class="md:hidden text-sm text-gray-400 hover:text-white transition-colors">{{ t.articles.section_title }}</a>
                     {% endif %}
                     <!-- Language switcher -->
                     <div class="flex items-center gap-1 text-sm text-gray-500">
@@ -384,6 +384,29 @@
         </div>
     </section>
 
+    {% if recent_articles %}
+    <!-- ========== ARTICLES ========== -->
+    <section id="articles" class="py-24 relative" aria-labelledby="articles-title">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <div class="section-leaf mb-6"></div>
+                <h2 id="articles-title" class="font-serif text-3xl sm:text-4xl font-bold text-white">{{ t.articles.section_title }}</h2>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6">
+                {% for article in recent_articles %}
+                <a href="{{ site.href(lang, article.path) }}" class="feature-card w-full md:w-[calc(33.333%-1rem)] rounded-2xl p-6 hover:border-gray-400/30 transition-colors reveal">
+                    <h3 class="font-serif text-xl font-semibold text-white mb-3">{{ article.title }}</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">{{ article.description }}</p>
+                </a>
+                {% endfor %}
+            </div>
+            <div class="text-center mt-10">
+                <a href="{{ site.href(lang, 'articles/') }}" class="text-garden-400 hover:text-garden-300 transition-colors">{{ t.landing.articles.all }}</a>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
     <!-- ========== CONTACT ========== -->
     <section id="contact" class="py-24 relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -421,8 +444,9 @@
 
                 <p class="text-xs text-gray-600">{{ t.landing.footer.copyright }}</p>
 
-                <div class="flex items-center gap-4">
+                <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
                     <a href="{{ site.href(lang, site.author.page) }}" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">{{ t.landing.footer.about }}</a>
+                    <a href="{{ site.href(lang, 'articles/') }}" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">{{ t.articles.section_title }}</a>
                     <a href="/privacy.html{% if lang != site.default_language %}?lang={{ lang }}{% endif %}" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">{{ t.landing.footer.privacy }}</a>
                     <a href="{{ site.config.app_store_url }}" data-umami-event="app-store-click" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-300 transition-colors cursor-pointer" aria-label="App Store">
                         {{ appstore_icon("w-5 h-5") }}

@@ -138,9 +138,11 @@ Google expects for `Article` rich results.
 `draft: true` builds the page with `noindex` only in `.preview/`; new public
 `dist/` contains no draft page. Draft URLs return 404 on production.
 Drafts stay out of the sitemap, `llms.txt`, the article
-index and the previous/next navigation. The landing
-page shows an "Articles" link only when the language has at least one
-published article.
+index and the previous/next navigation. The landing page shows up to three
+latest published articles in its own language, followed by an article-index
+link; the block and menu link are absent when that language has no published
+articles. The footer link is unconditional on every bible.garden page, including
+the hand-written privacy page and languages with no published articles.
 
 Links between pages of the same site are root-relative (`/ru/articles/slug/`)
 so a local preview never jumps to production; absolute URLs appear only in

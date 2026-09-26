@@ -243,7 +243,13 @@ class SiteBuilder:
             alternates={other: self.site.url(other) for other in self.site.languages},
             image=self.absolute(self.site.config["logo"]),
         )
-        self.render("landing.html", self.output_path(lang, "index.html"), lang, page=page)
+        self.render(
+            "landing.html",
+            self.output_path(lang, "index.html"),
+            lang,
+            page=page,
+            recent_articles=list(reversed(self.published(lang)[-3:])),
+        )
 
     def build_articles_index(self, lang: str) -> None:
         strings = self.t(lang)["articles"]

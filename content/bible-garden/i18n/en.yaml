@@ -4,6 +4,8 @@ meta:
   description: "Free, open-source app for reading and listening to the Bible with professional narration, configurable pauses, and verse-by-verse multilingual playback."
   og_description: "Free, open-source iOS app for multilingual Bible reading with audio."
 landing:
+  articles:
+    all: All articles
   nav:
     features: Features
     opensource: Open Source
