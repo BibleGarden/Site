@@ -296,12 +296,8 @@ because its asset URLs are root absolute.
 
 ## Production deployment
 
-This cleanup PR must be merged only after the Deploy root switch has been
-verified on production. It removes the frozen legacy tree and moves static
-sources under `static/`; the served `dist/` bytes stay unchanged. After this
-merge, deploy Site normally: `git pull --ff-only origin main` in
-`/root/cep/site`, then restart the `web` Compose service as in the Deploy
-runbook. The transactional root-switch script is a one-time operation.
+Deploy Site with `git pull --ff-only origin main` in `/root/cep/site`, then
+restart the `web` Compose service as described in the Deploy runbook.
 
 ## Analytics
 
