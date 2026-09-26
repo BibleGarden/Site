@@ -1,6 +1,5 @@
 name: Lampada
 base_url: https://lampada.app
-output_dir: dist/lampada
 languages: [en, ru, uk]
 default_language: en
 language_labels: {en: EN, ru: RU, uk: UK}

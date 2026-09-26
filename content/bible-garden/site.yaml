@@ -1,6 +1,5 @@
 name: Bible Garden
 base_url: https://bible.garden
-output_dir: dist/bible-garden
 languages: [en, ru, uk]
 default_language: en
 language_labels: {en: EN, ru: RU, uk: UA}

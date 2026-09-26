@@ -45,10 +45,6 @@ def check_build_output() -> None:
 
 def run_checks() -> tuple[int, int]:
     """Return (JSON-LD blocks, hreflang links) after validating every generated HTML file."""
-    for name in ("index.html", "404.html", "robots.txt", "sitemap.xml", "llms.txt", "privacy.html",
-                 "about", "articles", "ru", "uk", "css", "js", "img", "lampada"):
-        if (REPO_ROOT / name).exists():
-            raise BuildError(f"legacy public path remains outside dist: {name}")
     check_build_output()
     sites = [load_site(directory, REPO_ROOT) for directory in sorted(CONTENT_DIR.iterdir()) if directory.is_dir()]
     pages = {path: path.read_text(encoding="utf-8") for path in html_files()}
