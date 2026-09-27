@@ -287,14 +287,16 @@ verse in voice A, waits two seconds, plays it in voice B, then waits two seconds
 before the next verse. The ru pair is BTI (Kulakov), Nikita Semyonov-Prozorovsky
 and BSB, Bob Souer; en is BSB, Bob Souer and Synodal, Ilya Prudovsky; uk is UBH
 (Khomenko), Ihor Kozlov and BSB, Bob Souer. Play/Pause resumes the current verse
-or pause, and the player stops after verse 5. Printing keeps the text and hides
-the controls. Without JavaScript, the text and two native audio controls remain
-available; each native control plays one narrator's five-verse clip manually.
+or pause, and the player stops after verse 5. Each verse and narrator has its
+own MP3, so playback does not seek or need HTTP Range support. The next clip
+loads while the current one plays. Printing keeps the text and hides the
+controls. Without JavaScript, the text and links to each individual verse
+recording remain available; opening a link uses the browser's audio player.
 
 The marker must match exactly; an unknown, duplicate or malformed demo marker
 stops the build. `content/bible-garden/demos/multi-reading.json` holds the
-localized labels, verse texts, clip paths and relative verse timings. The build
-rejects missing or changed clips and timings beyond a declared clip length.
+localized labels, verse texts and the five clip paths per narrator. The build
+rejects missing, changed or malformed verse clips.
 
 The committed `tools/data/john1-texts.tsv` comes from
 `cep_public.translation_verses`; `tools/data/john1-timings.tsv` comes from
@@ -303,7 +305,7 @@ recordings are not committed. Their URLs come from
 `cep_public.voices.link_template`: `prozorovsky.mp3` from 4bbl.ru,
 `bsb_souer.mp3` from openbible.com, `prudovsky.mp3` from mp3.only.bible and
 `kozlov_uk.mp3` from wordproaudio.net. Put those files in a local directory
-and regenerate the mono, 56 kbps clips and manifest with:
+and regenerate the mono, 56 kbps verse clips and manifest with:
 
 ```bash
 python3 tools/build_demo_audio.py --source-dir /path/to/john1-mp3s

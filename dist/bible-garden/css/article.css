@@ -35,9 +35,11 @@
 .multi-reading-secondary { color: #a3b8aa; }
 .multi-reading-line.is-playing { color: #fff; background: rgba(212, 168, 67, 0.28); box-shadow: inset 3px 0 #d4a843; }
 .multi-reading-manual-label { margin: 0.5rem 0; font-size: 0.85rem; }
-.multi-reading-manual { display: grid; gap: 0.6rem; }
-.multi-reading-manual > div { display: grid; gap: 0.2rem; font-size: 0.85rem; }
-.multi-reading-manual audio { width: 100%; max-width: 26rem; }
+.article-body .multi-reading-manual { display: grid; gap: 0.35rem; margin: 0; padding: 0; list-style: none; }
+.multi-reading-manual li { display: flex; flex-wrap: wrap; gap: 0.4rem 0.8rem; font-size: 0.85rem; }
+.multi-reading-manual li + li { margin-top: 0; }
+.multi-reading-manual li > span { min-width: 1rem; color: #d4a843; }
+.multi-reading-demo [data-demo-player] { display: none; }
 
 .article-body {
     color: #cbd5d0;
@@ -451,6 +453,7 @@
     .has-multi-reading-demo .multi-reading-key { color: #000; background: transparent; }
     .has-multi-reading-demo .multi-reading-secondary { color: #444; }
     .has-multi-reading-demo .multi-reading-demo { border: 0; padding: 0; }
+    .has-multi-reading-demo .multi-reading-line.is-playing { color: #000; background: none; box-shadow: none; }
     .has-reading-plan { background: #fff !important; color: #000 !important; }
     .has-reading-plan > nav,
     .has-reading-plan > footer,

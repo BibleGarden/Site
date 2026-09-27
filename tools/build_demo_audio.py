@@ -63,27 +63,35 @@ def build(source_dir: Path) -> dict:
     OUTPUT.mkdir(parents=True, exist_ok=True)
     clips = {}
     for narrator, info in NARRATORS.items():
-        first = timings[narrator, 1][0] - Decimal("0.100")
-        last = timings[narrator, 5][1] + Decimal("0.200")
         source = source_dir / f"{narrator}.mp3"
         if not source.is_file():
             raise FileNotFoundError(source)
-        target = OUTPUT / f"{narrator}.mp3"
-        subprocess.run([
-            "ffmpeg", "-nostdin", "-v", "error", "-y", "-i", str(source),
-            "-ss", str(first), "-t", str(last - first), "-vn", "-ac", "1", "-ar", "24000",
-            "-c:a", "libmp3lame", "-b:a", "56k", "-map_metadata", "-1", str(target),
-        ], check=True)
-        duration = Decimal(subprocess.run([
-            "ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=noprint_wrappers=1:nokey=1", str(target),
-        ], capture_output=True, text=True, check=True).stdout.strip())
-        verses = [[float(begin - first), float(end - first)] for verse in range(1, 6) for begin, end in [timings[narrator, verse]]]
-        if any(end > duration for _, end in verses):
-            raise ValueError(f"{target}: verse ends outside clip")
+        narrator_dir = OUTPUT / narrator
+        narrator_dir.mkdir(parents=True, exist_ok=True)
+        verses = []
+        for verse in range(1, 6):
+            begin, end = timings[narrator, verse]
+            clip_begin = begin - Decimal("0.050")
+            clip_end = end + Decimal("0.150")
+            if clip_begin < 0:
+                raise ValueError(f"{narrator}:{verse}: cannot add leading margin")
+            target = narrator_dir / f"{verse}.mp3"
+            subprocess.run([
+                "ffmpeg", "-nostdin", "-v", "error", "-y", "-i", str(source),
+                "-ss", str(clip_begin), "-t", str(clip_end - clip_begin), "-vn", "-ac", "1", "-ar", "24000",
+                "-c:a", "libmp3lame", "-b:a", "56k", "-map_metadata", "-1", str(target),
+            ], check=True)
+            duration = Decimal(subprocess.run([
+                "ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=noprint_wrappers=1:nokey=1", str(target),
+            ], capture_output=True, text=True, check=True).stdout.strip())
+            if duration < clip_end - clip_begin:
+                raise ValueError(f"{target}: shorter than requested verse interval")
+            verses.append({
+                "path": f"/audio/demo/{narrator}/{verse}.mp3",
+                "sha256": hashlib.sha256(target.read_bytes()).hexdigest(),
+                "duration": float(duration),
+            })
         clips[narrator] = {
-            "path": f"/audio/demo/{narrator}.mp3",
-            "sha256": hashlib.sha256(target.read_bytes()).hexdigest(),
-            "duration": float(duration),
             "translation": info["translation"],
             "names": info["names"],
             "verses": verses,
@@ -92,6 +100,8 @@ def build(source_dir: Path) -> dict:
             "texts": {translation: [texts[translation, verse] for verse in range(1, 6)] for translation in sorted({item["translation"] for item in NARRATORS.values()})}}
     MANIFEST.parent.mkdir(parents=True, exist_ok=True)
     MANIFEST.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    for narrator in NARRATORS:
+        (OUTPUT / f"{narrator}.mp3").unlink(missing_ok=True)
     return data
 
 

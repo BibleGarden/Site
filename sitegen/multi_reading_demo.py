@@ -70,21 +70,10 @@ def validate_demo(data: object, path: Path = DATA_PATH, static_root: Path = ROOT
         if not isinstance(verses, list) or len(verses) != 5 or any(not isinstance(text, str) or not text.strip() for text in verses):
             fail(f"{translation}: expected five nonempty verse texts")
     for narrator, clip in data["clips"].items():
-        if not isinstance(clip, dict) or set(clip) != {"path", "sha256", "duration", "translation", "names", "verses"}:
+        if not isinstance(clip, dict) or set(clip) != {"translation", "names", "verses"}:
             fail(f"{narrator}: invalid clip fields")
-        expected_path = f"/audio/demo/{narrator}.mp3"
-        if clip["path"] != expected_path or clip["translation"] != TRANSLATIONS[narrator]:
-            fail(f"{narrator}: invalid clip path or translation")
-        clip_file = static_root / expected_path.lstrip("/")
-        if not clip_file.is_file():
-            fail(f"{narrator}: missing clip {expected_path}")
-        if not isinstance(clip["sha256"], str) or not re.fullmatch(r"[0-9a-f]{64}", clip["sha256"]):
-            fail(f"{narrator}: invalid clip SHA-256")
-        if hashlib.sha256(clip_file.read_bytes()).hexdigest() != clip["sha256"]:
-            fail(f"{narrator}: clip checksum mismatch")
-        duration = clip["duration"]
-        if type(duration) not in (int, float) or not math.isfinite(duration) or duration <= 0:
-            fail(f"{narrator}: invalid clip duration")
+        if clip["translation"] != TRANSLATIONS[narrator]:
+            fail(f"{narrator}: invalid translation")
         names = clip["names"]
         if not isinstance(names, dict) or set(names) != set(PAIRS) or any(
             not isinstance(pair, list) or len(pair) != 2 or any(not isinstance(name, str) or not name.strip() for name in pair)
@@ -93,15 +82,23 @@ def validate_demo(data: object, path: Path = DATA_PATH, static_root: Path = ROOT
             fail(f"{narrator}: invalid localized translation or narrator names")
         verses = clip["verses"]
         if not isinstance(verses, list) or len(verses) != 5:
-            fail(f"{narrator}: expected five verse timings")
-        previous_end = 0
-        for index, pair in enumerate(verses, 1):
-            if not isinstance(pair, list) or len(pair) != 2 or any(type(value) not in (int, float) or not math.isfinite(value) for value in pair):
-                fail(f"{narrator}: verse {index} has invalid timing")
-            begin, end = pair
-            if begin < previous_end or begin >= end or end > duration:
-                fail(f"{narrator}: verse {index} timing outside clip length or overlaps")
-            previous_end = end
+            fail(f"{narrator}: expected five verse clips")
+        for index, verse in enumerate(verses, 1):
+            if not isinstance(verse, dict) or set(verse) != {"path", "sha256", "duration"}:
+                fail(f"{narrator}: verse {index} has invalid clip fields")
+            expected_path = f"/audio/demo/{narrator}/{index}.mp3"
+            if verse["path"] != expected_path:
+                fail(f"{narrator}: verse {index} has invalid clip path")
+            clip_file = static_root / expected_path.lstrip("/")
+            if not clip_file.is_file():
+                fail(f"{narrator}: verse {index} missing clip {expected_path}")
+            if not isinstance(verse["sha256"], str) or not re.fullmatch(r"[0-9a-f]{64}", verse["sha256"]):
+                fail(f"{narrator}: verse {index} has invalid clip SHA-256")
+            if hashlib.sha256(clip_file.read_bytes()).hexdigest() != verse["sha256"]:
+                fail(f"{narrator}: verse {index} clip checksum mismatch")
+            duration = verse["duration"]
+            if type(duration) not in (int, float) or not math.isfinite(duration) or duration <= 0:
+                fail(f"{narrator}: verse {index} has invalid clip duration")
     return data
 
 
@@ -143,12 +140,14 @@ def render_demo(data: dict, lang: str, strings: object) -> str:
                    f'<div class="multi-reading-lines"><p class="multi-reading-line" data-step="a" lang="{first_lang}">{esc(data["texts"][first["translation"]][index])}</p>'
                    f'<p class="multi-reading-line multi-reading-secondary" data-step="b" lang="{second_lang}">{esc(data["texts"][second["translation"]][index])}</p></div></li>')
     out.append('</ol>')
-    out.append(f'<p class="multi-reading-manual-label">{esc(strings["manual_audio"])}</p><div class="multi-reading-manual">')
-    for key, clip in (("a", first), ("b", second)):
-        translation, narrator = clip["names"][lang]
-        timing = esc(json.dumps(clip["verses"], separators=(",", ":")), quote=True)
-        name = f"{translation} · {narrator}"
-        out.append(f'<div><span>{esc(name)}</span>'
-                   f'<audio controls preload="none" aria-label="{esc(name, quote=True)}" data-audio="{key}" data-verses="{timing}" src="{esc(clip["path"], quote=True)}"></audio></div>')
-    out.append('</div></section>')
+    out.append(f'<p class="multi-reading-manual-label">{esc(strings["manual_audio"])}</p><ol class="multi-reading-manual">')
+    for index in range(5):
+        out.append(f'<li><span>{index + 1}</span>')
+        for key, clip in (("a", first), ("b", second)):
+            translation = clip["names"][lang][0]
+            path = esc(clip["verses"][index]["path"], quote=True)
+            out.append(f'<a data-demo-clip href="{path}" aria-label="{index + 1}: {esc(translation, quote=True)}">{key.upper()} · {esc(translation)}</a>')
+        out.append('</li>')
+    first_path = esc(first["verses"][0]["path"], quote=True)
+    out.append(f'</ol><audio data-demo-player preload="none" src="{first_path}"></audio></section>')
     return "\n".join(out)

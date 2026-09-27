@@ -7,47 +7,39 @@
     const error = demo.querySelector('.multi-reading-error');
     const manual = demo.querySelector('.multi-reading-manual');
     const manualLabel = demo.querySelector('.multi-reading-manual-label');
-    const audio = ['a', 'b'].map((key) => demo.querySelector(`[data-audio="${key}"]`));
-    const timings = audio.map((item) => JSON.parse(item.dataset.verses));
+    const player = demo.querySelector('[data-demo-player]');
+    const clips = [...demo.querySelectorAll('[data-demo-clip]')].map((link) => link.href);
     const lines = [...demo.querySelectorAll('.multi-reading-line')];
+    if (clips.length !== 10 || lines.length !== 10) throw new Error('Invalid Multi Reading demo markup');
+
+    const prefetched = new Map();
     let step = 0;
+    let loadedStep = 0; // HTML already points at A1, so its first play() stays inside the click gesture.
     let active = false;
+    let playing = false;
     let inGap = false;
+    let completed = false;
     let gapRemaining = 2000;
     let gapDeadline = 0;
-    let timer = 0;
-    let segmentTimer = 0;
-    let frame = 0;
+    let gapTimer = 0;
     let generation = 0;
-
-    function label(value) {
-        button.textContent = demo.dataset[value];
-    }
 
     function highlight() {
         lines.forEach((line, index) => {
-            const playing = active && !inGap && index === step;
-            line.classList.toggle('is-playing', playing);
-            if (playing) line.setAttribute('aria-current', 'true');
+            const current = playing && active && !inGap && index === step;
+            line.classList.toggle('is-playing', current);
+            if (current) line.setAttribute('aria-current', 'true');
             else line.removeAttribute('aria-current');
         });
     }
 
-    function stopTimers() {
-        window.clearTimeout(timer);
-        window.clearTimeout(segmentTimer);
-        window.cancelAnimationFrame(frame);
-        timer = 0;
-        segmentTimer = 0;
-        frame = 0;
-    }
-
     function showError() {
-        if (error.hidden === false) return;
+        if (!error.hidden) return;
         generation += 1;
         active = false;
-        stopTimers();
-        audio.forEach((item) => item.pause());
+        playing = false;
+        window.clearTimeout(gapTimer);
+        player.pause();
         highlight();
         error.textContent = demo.dataset.error;
         error.hidden = false;
@@ -56,117 +48,100 @@
         manualLabel.hidden = false;
     }
 
-    function finishSegment() {
-        if (!active || inGap) return;
-        const last = step === 9;
-        if (last) active = false;
-        else inGap = true;
-        stopTimers();
-        audio[step % 2].pause();
-        if (last) {
-            step = 0;
-            gapRemaining = 2000;
-            highlight();
-            label('playAgain');
-            return;
-        }
-        gapRemaining = 2000;
-        highlight();
-        beginGap();
+    function prefetch(index) {
+        if (index >= clips.length || prefetched.has(index)) return;
+        const pending = fetch(clips[index]).then((response) => {
+            if (!response.ok) throw new Error(`Audio request failed: ${response.status}`);
+            return response.blob();
+        }).then((blob) => URL.createObjectURL(blob)).catch(() => null);
+        prefetched.set(index, pending);
     }
 
-    function monitor() {
-        frame = 0;
-        if (!active || inGap) return;
-        const item = audio[step % 2];
-        const end = timings[step % 2][Math.floor(step / 2)][1];
-        if (item.currentTime >= end - 0.015) {
-            finishSegment();
-            return;
-        }
-        frame = window.requestAnimationFrame(monitor);
-    }
-
-    audio.forEach((item, index) => {
-        item.addEventListener('timeupdate', () => {
-            if (active && !inGap && step % 2 === index &&
-                item.currentTime >= timings[index][Math.floor(step / 2)][1] - 0.015) finishSegment();
-        });
-        item.addEventListener('ended', () => {
-            if (active && !inGap && step % 2 === index) showError();
-        });
-    });
-
-    function beginGap() {
-        if (!active) return;
-        gapDeadline = performance.now() + gapRemaining;
-        timer = window.setTimeout(() => {
-            if (!active) return;
-            timer = 0;
-            inGap = false;
-            step += 1;
-            startSegment(false);
-        }, gapRemaining);
-    }
-
-    function ready(item) {
-        if (item.readyState >= HTMLMediaElement.HAVE_METADATA) return Promise.resolve();
-        return new Promise((resolve, reject) => {
-            const timeout = window.setTimeout(() => { cleanup(); reject(new Error('Audio load timed out')); }, 20000);
-            const cleanup = () => {
-                window.clearTimeout(timeout);
-                item.removeEventListener('loadedmetadata', loaded);
-                item.removeEventListener('error', failed);
-            };
-            const loaded = () => { cleanup(); resolve(); };
-            const failed = () => { cleanup(); reject(new Error('Audio metadata failed')); };
-            item.addEventListener('loadedmetadata', loaded);
-            item.addEventListener('error', failed);
-            item.preload = 'auto';
-            item.load();
-        });
-    }
-
-    async function startSegment(resume) {
+    async function startClip() {
         const token = ++generation;
-        const item = audio[step % 2];
-        const [begin, end] = timings[step % 2][Math.floor(step / 2)];
-        highlight();
         try {
-            await ready(item);
-            if (!active || inGap || token !== generation) return;
-            if (!resume || item.currentTime < begin || item.currentTime >= end) item.currentTime = begin;
-            if (item.seeking) {
-                await new Promise((resolve) => item.addEventListener('seeked', resolve, { once: true }));
+            if (loadedStep !== step || player.ended) {
+                const url = prefetched.has(step) ? await prefetched.get(step) : clips[step];
+                if (!url) { showError(); return; }
+                if (!active || inGap || token !== generation) return;
+                player.src = url;
+                loadedStep = step;
             }
-            if (!active || inGap || token !== generation) return;
-            await item.play();
-            if (!active || inGap || token !== generation) { item.pause(); return; }
-            segmentTimer = window.setTimeout(finishSegment, Math.max(0, (end - item.currentTime) * 1000));
-            monitor();
+            player.preload = 'auto';
+            const playback = player.play();
+            prefetch(step + 1);
+            await playback;
+            if (token !== generation) return;
+            if (!active || inGap) player.pause();
         } catch (reason) {
             if (active && token === generation) showError();
         }
     }
+
+    function beginGap() {
+        if (!active) return;
+        const token = generation;
+        gapDeadline = performance.now() + gapRemaining;
+        gapTimer = window.setTimeout(() => {
+            if (!active || !inGap || token !== generation) return;
+            gapTimer = 0;
+            inGap = false;
+            step += 1;
+            startClip();
+        }, gapRemaining);
+    }
+
+    player.addEventListener('playing', () => {
+        if (!active || inGap) return;
+        playing = true;
+        highlight();
+    });
+    player.addEventListener('waiting', () => { playing = false; highlight(); });
+    player.addEventListener('pause', () => { playing = false; highlight(); });
+    player.addEventListener('error', showError);
+    player.addEventListener('ended', () => {
+        if (!active || inGap || !player.ended) return;
+        playing = false;
+        if (step === clips.length - 1) {
+            active = false;
+            completed = true;
+            step = 0;
+            button.textContent = demo.dataset.playAgain;
+            highlight();
+            return;
+        }
+        inGap = true;
+        gapRemaining = 2000;
+        highlight();
+        beginGap();
+    });
 
     button.addEventListener('click', () => {
         if (active) {
             active = false;
             generation += 1;
             if (inGap) gapRemaining = Math.max(0, gapDeadline - performance.now());
-            stopTimers();
-            audio.forEach((item) => item.pause());
+            window.clearTimeout(gapTimer);
+            player.pause();
+            playing = false;
             highlight();
-            label('play');
+            button.textContent = demo.dataset.play;
             return;
         }
         active = true;
-        label('pause');
+        button.textContent = demo.dataset.pause;
+        if (completed) {
+            completed = false;
+            inGap = false;
+            step = 0;
+        }
         if (inGap) beginGap();
-        else startSegment(step !== 0 || audio[0].currentTime > 0);
+        else startClip();
     });
 
-    audio.forEach((item) => item.addEventListener('error', showError));
+    window.addEventListener('pagehide', () => {
+        prefetched.forEach((pending) => pending.then((url) => { if (url) URL.revokeObjectURL(url); }));
+    });
     manual.hidden = true;
     manualLabel.hidden = true;
     controls.hidden = false;

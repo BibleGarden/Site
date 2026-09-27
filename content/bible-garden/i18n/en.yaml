@@ -89,8 +89,8 @@ articles:
     play: Play
     pause: Pause
     play_again: Play again
-    error: "Audio could not be played. Please try the manual audio controls below."
-    manual_audio: "Listen to each narrator separately:"
+    error: "Audio could not be played. Open a verse recording below."
+    manual_audio: "Open individual verse recordings:"
   reading_plan:
     choose_plan: Reading order
     parallel: Parallel

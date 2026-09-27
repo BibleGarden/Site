@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+import re
 import tempfile
 import unittest
 from pathlib import Path
@@ -20,13 +21,25 @@ class MultiReadingDemoTest(unittest.TestCase):
         cls.data = load_demo()
         cls.site = load_site(ROOT / "content/bible-garden", ROOT)
 
-    def test_data_rejects_missing_clip_and_out_of_range_timing(self) -> None:
+    def test_data_rejects_missing_or_invalid_verse_clips(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             with self.assertRaisesRegex(BuildError, "missing clip"):
                 validate_demo(self.data, static_root=Path(directory))
         changed = copy.deepcopy(self.data)
-        changed["clips"]["bsb_souer"]["verses"][4][1] = changed["clips"]["bsb_souer"]["duration"] + 1
-        with self.assertRaisesRegex(BuildError, "outside clip length"):
+        changed["clips"]["bsb_souer"]["verses"][4]["duration"] = -1
+        with self.assertRaisesRegex(BuildError, "invalid clip duration"):
+            validate_demo(changed)
+        changed = copy.deepcopy(self.data)
+        changed["clips"]["bsb_souer"]["verses"].pop()
+        with self.assertRaisesRegex(BuildError, "five verse clips"):
+            validate_demo(changed)
+        changed = copy.deepcopy(self.data)
+        changed["clips"]["bsb_souer"]["verses"][1]["path"] = changed["clips"]["bsb_souer"]["verses"][0]["path"]
+        with self.assertRaisesRegex(BuildError, "invalid clip path"):
+            validate_demo(changed)
+        changed = copy.deepcopy(self.data)
+        changed["clips"]["bsb_souer"]["verses"][0]["sha256"] = "0" * 64
+        with self.assertRaisesRegex(BuildError, "checksum mismatch"):
             validate_demo(changed)
         changed = copy.deepcopy(self.data)
         changed["texts"]["bti"] = changed["texts"]["bti"][:-1]
@@ -65,7 +78,13 @@ class MultiReadingDemoTest(unittest.TestCase):
                     self.assertIn(first["names"][lang][1], body)
                     self.assertIn(second["names"][lang][1], body)
                     self.assertIn('class="multi-reading-controls" hidden', body)
-                    self.assertIn('<audio controls preload="none"', body)
+                    self.assertIn('<audio data-demo-player preload="none"', body)
+                    self.assertEqual(body.count('data-demo-clip href='), 10)
+                    paths = re.findall(r'data-demo-clip href="([^"]+)"', body)
+                    self.assertEqual(paths, [
+                        clip["verses"][verse]["path"]
+                        for verse in range(5) for clip in (first, second)
+                    ])
 
 
 if __name__ == "__main__":
