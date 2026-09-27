@@ -74,7 +74,7 @@ The reading plan itself is on this page: Bible Garden does not have built-in rea
 <!-- screen: multi-setup-translations -->
 
 <div class="article-callout" markdown="1">
-**Multi Reading is Bible Garden's key feature.** Build a sequence of steps—reading (translation and narrator), pause, then another reading—and the app plays it verse by verse. You can also group the steps by paragraph or chapter, in two translations of one language or in two different languages.
+**Multi Reading is Bible Garden's key feature.** Build a sequence of steps—reading (translation and narrator), pause, then another reading—and the app plays it verse by verse. You can also group the steps by paragraph or chapter. A setup can have two, three, or more translations, in one language or several. Learn more in [Bilingual Bible: Read and Listen in English and Russian](/articles/bible-in-two-languages/).
 </div>
 
 For an English comparison, try BSB with Bob Souer, a short pause, then WEBUS with Winfred Henson. Hearing the same verse in different words can make you notice a detail you missed the first time. Without pauses, the two English recordings add up to about 25 minutes per day on this plan; add as much time as you need to think.
