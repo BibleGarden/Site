@@ -15,9 +15,10 @@ from sitegen.content import load_site, parse_article
 from sitegen.errors import BuildError
 from sitegen.reading_plan import (
     DISPLAY_RULES, MERGED_PAIRS, Chapter, annotate_plan_marker, display_chapter,
-    format_range, load_chapters, load_plan, reading_units, render_plan, streams, validate_plan,
+    format_range, load_chapters, load_plan, load_plans, load_sequential_plan,
+    reading_units, render_plan, streams, validate_plan, validate_sequential_plan,
 )
-from tools.build_reading_plan import build_data, partition
+from tools.build_reading_plan import build_data, build_sequential_data, partition
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -25,7 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 class ReadingPlanTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        cls.days, cls.chapters = load_plan()
+        cls.days, cls.sequential_days, cls.chapters = load_plans()
 
     def test_generator_covers_each_stream_once_in_order(self) -> None:
         a, b = streams(self.chapters)
@@ -43,6 +44,16 @@ class ReadingPlanTest(unittest.TestCase):
         for day in self.days:
             for key in ("a", "b"):
                 self.assertNotIn((day[key]["end"]["book"], day[key]["end"]["chapter"]), MERGED_PAIRS)
+
+    def test_sequential_plan_covers_canonical_order_once(self) -> None:
+        self.assertEqual(build_sequential_data(), {"days": self.sequential_days})
+        self.assertEqual(len(self.sequential_days), 365)
+        self.assertEqual(self.sequential_days[0]["reading"]["start"], {"book": 1, "chapter": 1})
+        self.assertEqual(self.sequential_days[-1]["reading"]["end"], {"book": 66, "chapter": 22})
+        self.assertTrue(any(day["reading"]["start"]["book"] != day["reading"]["end"]["book"] for day in self.sequential_days))
+        self.assertAlmostEqual(sum(day["seconds"] for day in self.sequential_days), sum(chapter.tenths for chapter in self.chapters) / 10)
+        for day in self.sequential_days:
+            self.assertNotIn((day["reading"]["end"]["book"], day["reading"]["end"]["chapter"]), MERGED_PAIRS)
 
     def test_partition_uses_day_total_targets_and_squared_error(self) -> None:
         values = [10, 12, 8, 8, 10]
@@ -74,6 +85,16 @@ class ReadingPlanTest(unittest.TestCase):
             changed[0] = dict(self.days[0], **{key: dict(self.days[0][key], end={"book": book, "chapter": chapter})})
             with self.subTest(book=book, chapter=chapter), self.assertRaisesRegex(BuildError, "boundary splits a merged chapter unit"):
                 validate_plan({"days": changed}, self.chapters)
+
+        validate_sequential_plan({"days": self.sequential_days}, self.chapters)
+        changed = [dict(day) for day in self.sequential_days]
+        changed[0]["seconds"] = 0
+        with self.assertRaisesRegex(BuildError, "incorrect total seconds"):
+            validate_sequential_plan({"days": changed}, self.chapters)
+        changed = [dict(day) for day in self.sequential_days]
+        changed[0] = dict(self.sequential_days[0], reading=dict(self.sequential_days[0]["reading"], end={"book": 19, "chapter": 9}))
+        with self.assertRaisesRegex(BuildError, "boundary splits a merged chapter unit"):
+            validate_sequential_plan({"days": changed}, self.chapters)
 
     def test_localized_chapter_numbering(self) -> None:
         names = {19: "Псалмы", 39: "Малахії"}
@@ -121,11 +142,11 @@ class ReadingPlanTest(unittest.TestCase):
         self.assertFalse(found)
         self.assertIn("<!-- plan: bible-in-a-year -->", body)
 
-    def test_article_renders_365_localized_rows(self) -> None:
+    def test_article_renders_both_localized_calendars(self) -> None:
         strings = {
-            "en": {"start_date": "Start date", "print": "Print", "day": "Day", "date": "Date", "reading": "Reading", "days": "Days {first}–{last}", "caption_days": "Reading plan: days {first}–{last}", "caption_month": "Reading plan: {month}, days {first}–{last}", "done": "Done"},
-            "ru": {"start_date": "Дата начала", "print": "Распечатать", "day": "День", "date": "Дата", "reading": "Чтение", "days": "Дни {first}–{last}", "caption_days": "План чтения: дни {first}–{last}", "caption_month": "План чтения: {month}, дни {first}–{last}", "done": "Отметка"},
-            "uk": {"start_date": "Дата початку", "print": "Роздрукувати", "day": "День", "date": "Дата", "reading": "Читання", "days": "Дні {first}–{last}", "caption_days": "План читання: дні {first}–{last}", "caption_month": "План читання: {month}, дні {first}–{last}", "done": "Позначка"},
+            "en": {"choose_plan": "Reading order", "parallel": "Parallel", "sequential": "Straight through", "start_date": "Start date", "print": "Print", "day": "Day", "date": "Date", "reading": "Reading", "days": "Days {first}–{last}", "caption_days": "Reading plan: days {first}–{last}", "caption_month": "Reading plan: {month}, days {first}–{last}", "done": "Done"},
+            "ru": {"choose_plan": "Порядок чтения", "parallel": "Параллельно", "sequential": "Подряд", "start_date": "Дата начала", "print": "Распечатать", "day": "День", "date": "Дата", "reading": "Чтение", "days": "Дни {first}–{last}", "caption_days": "План чтения: дни {first}–{last}", "caption_month": "План чтения: {month}, дни {first}–{last}", "done": "Отметка"},
+            "uk": {"choose_plan": "Порядок читання", "parallel": "Паралельно", "sequential": "Підряд", "start_date": "Дата початку", "print": "Роздрукувати", "day": "День", "date": "Дата", "reading": "Читання", "days": "Дні {first}–{last}", "caption_days": "План читання: дні {first}–{last}", "caption_month": "План читання: {month}, дні {first}–{last}", "done": "Позначка"},
         }
         for lang, first_name in (("en", "Genesis"), ("ru", "Бытие"), ("uk", "Буття")):
             with self.subTest(lang=lang):
@@ -135,16 +156,22 @@ class ReadingPlanTest(unittest.TestCase):
                     article = parse_article(source, "test", lang, {}, {}, {"reading_plan": strings[lang]}, ROOT / "dist/bible-garden")
                 html = article.body_html
                 self.assertTrue(article.has_plan)
-                self.assertEqual(len(re.findall(r'<tr data-day="\d+">', html)), 365)
-                self.assertEqual(html.count('<details class="reading-plan-month"'), 12)
-                self.assertEqual(html.count('<details class="reading-plan-month" open>'), 1)
-                self.assertEqual(html.count('<caption class="sr-only">'), 12)
+                self.assertEqual(len(re.findall(r'<tr data-day="\d+">', html)), 730)
+                self.assertEqual(html.count('<details class="reading-plan-month"'), 24)
+                self.assertEqual(html.count('<details class="reading-plan-month" open>'), 2)
+                self.assertEqual(html.count('<caption class="sr-only">'), 24)
+                self.assertIn('<fieldset class="reading-plan-switcher" hidden>', html)
+                self.assertIn('data-plan-kind="parallel"', html)
+                self.assertIn('data-plan-kind="sequential"', html)
+                self.assertIn(f'>{strings[lang]["parallel"]}</h3>', html)
+                self.assertIn(f'>{strings[lang]["sequential"]}</h3>', html)
                 self.assertIn(strings[lang]["days"].format(first=1, last=31), html)
                 self.assertIn(strings[lang]["days"].format(first=32, last=62), html)
                 self.assertIn(strings[lang]["days"].format(first=342, last=365), html)
                 self.assertIn(strings[lang]["caption_days"].format(first=94, last=124), html)
                 self.assertIn(f'<span class="sr-only">{strings[lang]["done"]}</span>', html)
                 self.assertIn(f"{first_name} 1", html)
+                self.assertIn('data-day="365"', html)
                 self.assertIn(strings[lang]["start_date"], html)
                 self.assertIn('class="reading-plan-date"></td>', html)
                 self.assertNotIn("<!-- plan:", html)
@@ -168,7 +195,7 @@ class ReadingPlanTest(unittest.TestCase):
         strings = dict(site.i18n["en"]["articles"]["reading_plan"])
         strings["days"] += " {month}"
         with self.assertRaisesRegex(BuildError, "needs exactly first, last"):
-            render_plan(self.days, self.chapters, "en", strings)
+            render_plan(self.days, self.sequential_days, self.chapters, "en", strings)
 
     def test_missing_source_or_plan_fails(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -177,6 +204,8 @@ class ReadingPlanTest(unittest.TestCase):
                 load_chapters(missing)
             with self.assertRaisesRegex(BuildError, "missing reading plan"):
                 load_plan(Path(directory) / "missing.json")
+            with self.assertRaisesRegex(BuildError, "missing reading plan"):
+                load_sequential_plan(Path(directory) / "missing-sequential.json")
             invalid = Path(directory) / "invalid.json"
             invalid.write_text('{"days": [], "days": []}', encoding="utf-8")
             with self.assertRaisesRegex(BuildError, "duplicate JSON key"):

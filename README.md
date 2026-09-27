@@ -230,21 +230,27 @@ Only one `{#faq}` section per article; every question needs an answer.
 ### Reading plan in articles
 
 On bible.garden, put `<!-- plan: bible-in-a-year -->` on its own line where the
-365-day calendar should appear. The build rejects unknown or malformed plan
-markers. Without JavaScript the HTML groups days in 31-day blocks (`Days 1–31`,
-`Days 32–62`, and so on). With JavaScript, the selected start date fills the
-date column and groups all 365 days by real calendar month, including partial
-first and last months. Printing flows through the blocks without a page break
-per month; the readings and print checkboxes are always in the HTML.
+calendars should appear. The build rejects unknown or malformed markers. Both
+365-day plans are in the HTML: **Parallel** reads the Old Testament without
+Psalms alongside the New Testament followed by Psalms; **Straight through**
+reads Genesis through Revelation in canonical order. Without JavaScript both
+appear, each with a heading and 31-day blocks (`Days 1–31`, `Days 32–62`, etc.).
+With JavaScript a radio switcher shows one plan and remembers the choice. The
+selected start date fills both calendars and groups their days by real calendar
+month, including partial first and last months. Printing includes only the
+selected plan and flows without a page break per month; without JavaScript,
+both plans print. The readings and print checkboxes are always in the HTML.
 
 The committed `tools/data/chapters.tsv` comes from `cep_public.voice_alignments`
 (BSB, Bob Souer), exported on 2026-09-27. Its New Testament IDs 45–65 place
 James–Jude before Romans–Hebrews; the generator explicitly maps them to
 Protestant canonical order. It first partitions the New Testament–Psalms
 stream, then exactly partitions the Old Testament stream against those day
-durations. It alternates the two streams for up to eight improvements. Each
-partition minimizes the maximum deviation of whole-day audio duration from
-the 365-day mean, then the total squared deviation.
+durations. It alternates the two streams for up to eight improvements. The
+sequential plan exactly partitions all 1189 chapters as one stream. Each
+partition minimizes the maximum deviation of daily audio duration from the
+365-day mean, then the total squared deviation. The two committed JSON files
+are in `content/bible-garden/plans/`.
 
 The JSON keeps Hebrew/BSB chapter numbers. Days never split Psalms 9–10 or
 114–115, or Malachi 3–4. The ru calendar displays Greek/Septuagint Psalm

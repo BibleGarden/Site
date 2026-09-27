@@ -17,6 +17,7 @@ from .errors import BuildError
 ROOT = Path(__file__).resolve().parent.parent
 CHAPTERS_PATH = ROOT / "tools/data/chapters.tsv"
 PLAN_PATH = ROOT / "content/bible-garden/plans/bible-in-a-year.json"
+SEQUENTIAL_PLAN_PATH = ROOT / "content/bible-garden/plans/bible-in-a-year-sequential.json"
 PLAN_ID = "bible-in-a-year"
 PLACEHOLDER = '<div data-reading-plan-placeholder="bible-in-a-year"></div>'
 MARKER_RE = re.compile(r"^<!-- plan: ([a-z0-9]+(?:-[a-z0-9]+)*) -->$")
@@ -154,38 +155,58 @@ def validate_plan(data: object, chapters: list[Chapter], path: Path = PLAN_PATH)
             raise BuildError(f"{path}: day {number}: expected a, b and seconds")
         total = 0
         for index, key in enumerate(("a", "b")):
-            stream = (a, b)[index]
-            start = positions[index]
-            if start >= len(stream) or not isinstance(day[key], dict) or set(day[key]) != {"start", "end"}:
-                raise BuildError(f"{path}: day {number}: invalid or empty {key} range")
-            first = stream[start]
-            if day[key]["start"] != {"book": first.book, "chapter": first.chapter}:
-                raise BuildError(f"{path}: day {number}: {key} does not start at the next chapter")
-            end = day[key]["end"]
-            if not isinstance(end, dict) or set(end) != {"book", "chapter"} or type(end["book"]) is not int or type(end["chapter"]) is not int:
-                raise BuildError(f"{path}: day {number}: invalid {key} end")
-            if (end["book"], end["chapter"]) in MERGED_PAIRS:
-                raise BuildError(f"{path}: day {number}: {key} boundary splits a merged chapter unit")
-            while positions[index] < len(stream):
-                item = stream[positions[index]]
-                positions[index] += 1
-                total += item.tenths
-                if (item.book, item.chapter) == (end["book"], end["chapter"]):
-                    break
-            else:
-                raise BuildError(f"{path}: day {number}: {key} end chapter is missing")
-        if (type(day["seconds"]) not in (int, float) or not math.isfinite(day["seconds"])
-                or abs(day["seconds"] * 10 - total) > 1e-7):
-            raise BuildError(f"{path}: day {number}: incorrect total seconds")
+            positions[index], duration = _validate_range(day[key], (a, b)[index], positions[index], path, number, key)
+            total += duration
+        _validate_seconds(day["seconds"], total, path, number)
     if positions != [len(a), len(b)]:
         raise BuildError(f"{path}: plan omits chapters")
     return data["days"]
 
 
-def load_plan(path: Path = PLAN_PATH, chapter_path: Path = CHAPTERS_PATH) -> tuple[list[dict], list[Chapter]]:
-    chapters = load_chapters(chapter_path)
+def _validate_range(value: object, stream: list[Chapter], position: int, path: Path, number: int, key: str) -> tuple[int, int]:
+    if position >= len(stream) or not isinstance(value, dict) or set(value) != {"start", "end"}:
+        raise BuildError(f"{path}: day {number}: invalid or empty {key} range")
+    first = stream[position]
+    if value["start"] != {"book": first.book, "chapter": first.chapter}:
+        raise BuildError(f"{path}: day {number}: {key} does not start at the next chapter")
+    end = value["end"]
+    if not isinstance(end, dict) or set(end) != {"book", "chapter"} or type(end["book"]) is not int or type(end["chapter"]) is not int:
+        raise BuildError(f"{path}: day {number}: invalid {key} end")
+    if (end["book"], end["chapter"]) in MERGED_PAIRS:
+        raise BuildError(f"{path}: day {number}: {key} boundary splits a merged chapter unit")
+    total = 0
+    while position < len(stream):
+        item = stream[position]
+        position += 1
+        total += item.tenths
+        if (item.book, item.chapter) == (end["book"], end["chapter"]):
+            return position, total
+    raise BuildError(f"{path}: day {number}: {key} end chapter is missing")
+
+
+def _validate_seconds(value: object, total: int, path: Path, number: int) -> None:
+    if type(value) not in (int, float) or not math.isfinite(value) or abs(value * 10 - total) > 1e-7:
+        raise BuildError(f"{path}: day {number}: incorrect total seconds")
+
+
+def validate_sequential_plan(data: object, chapters: list[Chapter], path: Path = SEQUENTIAL_PLAN_PATH) -> list[dict]:
+    if not isinstance(data, dict) or set(data) != {"days"} or not isinstance(data["days"], list) or len(data["days"]) != 365:
+        raise BuildError(f"{path}: expected exactly 365 sequential plan days")
+    position = 0
+    for number, day in enumerate(data["days"], 1):
+        if not isinstance(day, dict) or set(day) != {"reading", "seconds"}:
+            raise BuildError(f"{path}: day {number}: expected reading and seconds")
+        position, total = _validate_range(day["reading"], chapters, position, path, number, "reading")
+        _validate_seconds(day["seconds"], total, path, number)
+    if position != len(chapters):
+        raise BuildError(f"{path}: sequential plan omits chapters")
+    return data["days"]
+
+
+def _load_plan_json(path: Path) -> object:
     if not path.is_file():
         raise BuildError(f"{path}: missing reading plan; run tools/build_reading_plan.py")
+
     def unique_keys(pairs: list[tuple[str, object]]) -> dict:
         result = {}
         for key, value in pairs:
@@ -201,7 +222,24 @@ def load_plan(path: Path = PLAN_PATH, chapter_path: Path = CHAPTERS_PATH) -> tup
         data = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=unique_keys, parse_constant=reject_constant)
     except (OSError, ValueError) as error:
         raise BuildError(f"{path}: invalid reading plan JSON: {error}") from error
-    return validate_plan(data, chapters, path), chapters
+    return data
+
+
+def load_plan(path: Path = PLAN_PATH, chapter_path: Path = CHAPTERS_PATH) -> tuple[list[dict], list[Chapter]]:
+    chapters = load_chapters(chapter_path)
+    return validate_plan(_load_plan_json(path), chapters, path), chapters
+
+
+def load_sequential_plan(path: Path = SEQUENTIAL_PLAN_PATH, chapter_path: Path = CHAPTERS_PATH) -> tuple[list[dict], list[Chapter]]:
+    chapters = load_chapters(chapter_path)
+    return validate_sequential_plan(_load_plan_json(path), chapters, path), chapters
+
+
+def load_plans() -> tuple[list[dict], list[dict], list[Chapter]]:
+    chapters = load_chapters()
+    parallel = validate_plan(_load_plan_json(PLAN_PATH), chapters, PLAN_PATH)
+    sequential = validate_sequential_plan(_load_plan_json(SEQUENTIAL_PLAN_PATH), chapters, SEQUENTIAL_PLAN_PATH)
+    return parallel, sequential, chapters
 
 
 def annotate_plan_marker(body: str, source: Path, site: str, body_start_line: int = 1) -> tuple[str, bool]:
@@ -261,8 +299,11 @@ def format_range(value: dict, names: dict[int, str], lang: str) -> str:
     return f"{first_name} {shown_first}"
 
 
-def render_plan(days: list[dict], chapters: list[Chapter], lang: str, strings: dict) -> str:
-    required = {"start_date", "print", "day", "date", "reading", "days", "caption_days", "caption_month", "done"}
+def render_plan(parallel: list[dict], sequential: list[dict], chapters: list[Chapter], lang: str, strings: dict) -> str:
+    required = {
+        "start_date", "print", "day", "date", "reading", "days", "caption_days", "caption_month", "done",
+        "choose_plan", "parallel", "sequential",
+    }
     if not isinstance(strings, dict) or set(strings) != required or not all(isinstance(value, str) and value.strip() for value in strings.values()):
         raise BuildError(f"reading plan: missing or invalid translation for {lang}")
     for key, fields in (("days", ("first", "last")), ("caption_days", ("first", "last")),
@@ -280,32 +321,47 @@ def render_plan(days: list[dict], chapters: list[Chapter], lang: str, strings: d
         for chapter in range(1, CHAPTER_COUNTS[book - 1] + 1):
             display_chapter(lang, book, chapter)
     names = {item.book: item.names[lang] for item in chapters}
-    out = [f'<section class="reading-plan" lang="{lang}" data-reading-plan="{PLAN_ID}"'
+    out = [f'<section class="reading-plans" lang="{lang}" data-reading-plan="{PLAN_ID}"'
            f' data-block-length="{BLOCK_LENGTH}"'
            f' data-days-label="{html.escape(strings["days"], quote=True)}"'
            f' data-caption-days="{html.escape(strings["caption_days"], quote=True)}"'
            f' data-caption-month="{html.escape(strings["caption_month"], quote=True)}">',
+           '<fieldset class="reading-plan-switcher" hidden>',
+           f'<legend>{html.escape(strings["choose_plan"])}</legend>']
+    for mode in ("parallel", "sequential"):
+        out.append(f'<label><input type="radio" name="reading-plan-mode" value="{mode}"'
+                   f'{" checked" if mode == "parallel" else ""}> {html.escape(strings[mode])}</label>')
+    out.extend(('</fieldset>',
            '<div class="reading-plan-controls">',
            f'<label>{html.escape(strings["start_date"])} <input type="date" class="reading-plan-start-date"></label>',
            f'<button type="button" class="reading-plan-print">{html.escape(strings["print"])}</button>',
-           '</div>', '<div class="reading-plan-blocks">']
-    for offset in range(0, len(days), BLOCK_LENGTH):
-        first, last = offset + 1, min(offset + BLOCK_LENGTH, len(days))
-        label = strings["days"].format(first=first, last=last)
-        caption = strings["caption_days"].format(first=first, last=last)
-        out.append(f'<details class="reading-plan-month"{" open" if offset == 0 else ""}>')
-        out.append(f'<summary>{html.escape(label)}</summary>')
-        out.append(f'<div class="reading-plan-month-body"><table><caption class="sr-only">{html.escape(caption)}</caption><thead><tr>')
-        for label in ("day", "date", "reading"):
-            out.append(f'<th scope="col">{html.escape(strings[label])}</th>')
-        out.append(f'<th scope="col" class="reading-plan-check-heading"><span aria-hidden="true">✓</span>'
-                   f'<span class="sr-only">{html.escape(strings["done"])}</span></th></tr></thead><tbody>')
-        for day_number in range(first, last + 1):
-            day = days[day_number - 1]
-            reading = f'{format_range(day["a"], names, lang)} · {format_range(day["b"], names, lang)}'
-            out.append(f'<tr data-day="{day_number}"><th scope="row">{day_number}</th>'
-                       f'<td class="reading-plan-date"></td><td class="reading-plan-reading">{reading}</td>'
-                       '<td class="reading-plan-checkbox">☐</td></tr>')
-        out.append('</tbody></table></div></details>')
-    out.extend(('</div>', '</section>'))
+           '</div>'))
+    for mode, days in (("parallel", parallel), ("sequential", sequential)):
+        title_id = f"reading-plan-{mode}-title"
+        out.append(f'<section class="reading-plan" data-plan-kind="{mode}" aria-labelledby="{title_id}">')
+        out.append(f'<h3 id="{title_id}" class="reading-plan-heading">{html.escape(strings[mode])}</h3>')
+        out.append('<div class="reading-plan-blocks">')
+        for offset in range(0, len(days), BLOCK_LENGTH):
+            first, last = offset + 1, min(offset + BLOCK_LENGTH, len(days))
+            label = strings["days"].format(first=first, last=last)
+            caption = strings["caption_days"].format(first=first, last=last)
+            out.append(f'<details class="reading-plan-month"{" open" if offset == 0 else ""}>')
+            out.append(f'<summary>{html.escape(label)}</summary>')
+            out.append(f'<div class="reading-plan-month-body"><table><caption class="sr-only">{html.escape(caption)}</caption><thead><tr>')
+            for column in ("day", "date", "reading"):
+                out.append(f'<th scope="col">{html.escape(strings[column])}</th>')
+            out.append(f'<th scope="col" class="reading-plan-check-heading"><span aria-hidden="true">✓</span>'
+                       f'<span class="sr-only">{html.escape(strings["done"])}</span></th></tr></thead><tbody>')
+            for day_number in range(first, last + 1):
+                day = days[day_number - 1]
+                if mode == "parallel":
+                    reading = f'{format_range(day["a"], names, lang)} · {format_range(day["b"], names, lang)}'
+                else:
+                    reading = format_range(day["reading"], names, lang)
+                out.append(f'<tr data-day="{day_number}"><th scope="row">{day_number}</th>'
+                           f'<td class="reading-plan-date"></td><td class="reading-plan-reading">{reading}</td>'
+                           '<td class="reading-plan-checkbox">☐</td></tr>')
+            out.append('</tbody></table></div></details>')
+        out.extend(('</div>', '</section>'))
+    out.append('</section>')
     return "\n".join(out)

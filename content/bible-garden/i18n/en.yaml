@@ -85,6 +85,9 @@ articles:
   screen_viewer: App screenshot
   screen_close: Close screenshot
   reading_plan:
+    choose_plan: Reading order
+    parallel: Parallel
+    sequential: Straight through
     start_date: Start date
     print: Print
     day: Day

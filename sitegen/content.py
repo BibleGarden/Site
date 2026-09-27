@@ -14,7 +14,7 @@ from markdown.extensions.toc import slugify_unicode
 from markupsafe import Markup, escape
 
 from .errors import BuildError
-from .reading_plan import PLACEHOLDER, annotate_plan_marker, load_plan, render_plan
+from .reading_plan import PLACEHOLDER, annotate_plan_marker, load_plans, render_plan
 from .screens import Screen, ScreenFigureExtension, ScreenRef, VARIANTS, check_asset, load_catalog, load_checksums
 
 FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---\n(.*)\Z", re.DOTALL)
@@ -252,7 +252,7 @@ def load_articles(site: Site, content_dir: Path) -> dict[str, dict[str, Article]
     screens = load_catalog(content_dir / "screens.yaml", site.languages)
     checksums = load_checksums(content_dir / "screens.sha256", screens, site.languages) if screens else {}
     if site.key == "bible-garden":
-        load_plan()
+        load_plans()
     for slug_dir in sorted(articles_dir.iterdir()):
         if slug_dir.name == ".gitkeep":
             continue
@@ -349,10 +349,10 @@ def parse_article(
     else:
         body_html = render_markdown(marked_body)
     if has_plan:
-        days, chapters = load_plan()
+        parallel, sequential, chapters = load_plans()
         if body_html.count(PLACEHOLDER) != 1:
             raise BuildError(f"{source}: reading plan marker did not render exactly once")
-        body_html = body_html.replace(PLACEHOLDER, render_plan(days, chapters, lang, strings.get("reading_plan")))
+        body_html = body_html.replace(PLACEHOLDER, render_plan(parallel, sequential, chapters, lang, strings.get("reading_plan")))
     return Article(
         slug=slug,
         lang=lang,

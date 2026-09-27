@@ -85,6 +85,9 @@ articles:
   screen_viewer: Знімок екрана застосунку
   screen_close: Закрити знімок екрана
   reading_plan:
+    choose_plan: Порядок читання
+    parallel: Паралельно
+    sequential: Підряд
     start_date: Дата початку
     print: Роздрукувати
     day: День

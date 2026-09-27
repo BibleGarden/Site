@@ -9,7 +9,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from sitegen.reading_plan import PLAN_PATH, load_chapters, range_data, reading_units, streams, validate_plan  # noqa: E402
+from sitegen.reading_plan import (  # noqa: E402
+    PLAN_PATH, SEQUENTIAL_PLAN_PATH, load_chapters, range_data, reading_units,
+    streams, validate_plan, validate_sequential_plan,
+)
 
 
 MAX_ALTERNATIONS = 8
@@ -105,11 +108,25 @@ def build_data() -> dict:
     return data
 
 
+def build_sequential_data() -> dict:
+    chapters = load_chapters()
+    chunks = partition(reading_units(chapters))
+    days = []
+    for chunk in chunks:
+        reading = [chapter for unit in chunk for chapter in unit.chapters]
+        days.append({"reading": range_data(reading), "seconds": sum(unit.tenths for unit in chunk) / 10})
+    data = {"days": days}
+    validate_sequential_plan(data, chapters)
+    return data
+
+
 def main() -> None:
-    data = build_data()
+    parallel = build_data()
+    sequential = build_sequential_data()
     PLAN_PATH.parent.mkdir(parents=True, exist_ok=True)
-    PLAN_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"wrote {PLAN_PATH} ({len(data['days'])} days)")
+    PLAN_PATH.write_text(json.dumps(parallel, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    SEQUENTIAL_PLAN_PATH.write_text(json.dumps(sequential, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"wrote {PLAN_PATH} and {SEQUENTIAL_PLAN_PATH} (365 days each)")
 
 
 if __name__ == "__main__":

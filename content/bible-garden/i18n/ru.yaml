@@ -85,6 +85,9 @@ articles:
   screen_viewer: Скриншот приложения
   screen_close: Закрыть скриншот
   reading_plan:
+    choose_plan: Порядок чтения
+    parallel: Параллельно
+    sequential: Подряд
     start_date: Дата начала
     print: Распечатать
     day: День
