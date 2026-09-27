@@ -2,7 +2,7 @@ name: Bible Garden
 base_url: https://bible.garden
 languages: [en, ru, uk]
 default_language: en
-language_labels: {en: EN, ru: RU, uk: UA}
+language_labels: {en: EN, ru: RU, uk: UK}
 logo: /img/logo.png
 storage_key: bg-lang
 # Landing pages link here; generated pages (articles, /about/, 404) use the campaign link below.
