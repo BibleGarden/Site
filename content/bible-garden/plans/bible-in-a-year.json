@@ -1,0 +1,8399 @@
+{
+  "days": [
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 1
+        },
+        "end": {
+          "book": 1,
+          "chapter": 2
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 1
+        },
+        "end": {
+          "book": 40,
+          "chapter": 1
+        }
+      },
+      "seconds": 683.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 3
+        },
+        "end": {
+          "book": 1,
+          "chapter": 4
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 2
+        },
+        "end": {
+          "book": 40,
+          "chapter": 2
+        }
+      },
+      "seconds": 635.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 5
+        },
+        "end": {
+          "book": 1,
+          "chapter": 7
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 3
+        },
+        "end": {
+          "book": 40,
+          "chapter": 3
+        }
+      },
+      "seconds": 675.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 8
+        },
+        "end": {
+          "book": 1,
+          "chapter": 10
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 4
+        },
+        "end": {
+          "book": 40,
+          "chapter": 4
+        }
+      },
+      "seconds": 751.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 11
+        },
+        "end": {
+          "book": 1,
+          "chapter": 11
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 5
+        },
+        "end": {
+          "book": 40,
+          "chapter": 5
+        }
+      },
+      "seconds": 567.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 12
+        },
+        "end": {
+          "book": 1,
+          "chapter": 13
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 6
+        },
+        "end": {
+          "book": 40,
+          "chapter": 6
+        }
+      },
+      "seconds": 555.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 14
+        },
+        "end": {
+          "book": 1,
+          "chapter": 15
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 7
+        },
+        "end": {
+          "book": 40,
+          "chapter": 7
+        }
+      },
+      "seconds": 566.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 16
+        },
+        "end": {
+          "book": 1,
+          "chapter": 17
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 8
+        },
+        "end": {
+          "book": 40,
+          "chapter": 8
+        }
+      },
+      "seconds": 584.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 18
+        },
+        "end": {
+          "book": 1,
+          "chapter": 18
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 9
+        },
+        "end": {
+          "book": 40,
+          "chapter": 9
+        }
+      },
+      "seconds": 549.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 19
+        },
+        "end": {
+          "book": 1,
+          "chapter": 19
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 10
+        },
+        "end": {
+          "book": 40,
+          "chapter": 10
+        }
+      },
+      "seconds": 634.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 20
+        },
+        "end": {
+          "book": 1,
+          "chapter": 21
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 11
+        },
+        "end": {
+          "book": 40,
+          "chapter": 11
+        }
+      },
+      "seconds": 620.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 22
+        },
+        "end": {
+          "book": 1,
+          "chapter": 22
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 12
+        },
+        "end": {
+          "book": 40,
+          "chapter": 12
+        }
+      },
+      "seconds": 561.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 23
+        },
+        "end": {
+          "book": 1,
+          "chapter": 23
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 13
+        },
+        "end": {
+          "book": 40,
+          "chapter": 13
+        }
+      },
+      "seconds": 575.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 24
+        },
+        "end": {
+          "book": 1,
+          "chapter": 24
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 14
+        },
+        "end": {
+          "book": 40,
+          "chapter": 14
+        }
+      },
+      "seconds": 736.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 25
+        },
+        "end": {
+          "book": 1,
+          "chapter": 26
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 15
+        },
+        "end": {
+          "book": 40,
+          "chapter": 15
+        }
+      },
+      "seconds": 776.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 27
+        },
+        "end": {
+          "book": 1,
+          "chapter": 28
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 16
+        },
+        "end": {
+          "book": 40,
+          "chapter": 16
+        }
+      },
+      "seconds": 778.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 29
+        },
+        "end": {
+          "book": 1,
+          "chapter": 30
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 17
+        },
+        "end": {
+          "book": 40,
+          "chapter": 17
+        }
+      },
+      "seconds": 797.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 31
+        },
+        "end": {
+          "book": 1,
+          "chapter": 31
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 18
+        },
+        "end": {
+          "book": 40,
+          "chapter": 18
+        }
+      },
+      "seconds": 689.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 32
+        },
+        "end": {
+          "book": 1,
+          "chapter": 33
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 19
+        },
+        "end": {
+          "book": 40,
+          "chapter": 19
+        }
+      },
+      "seconds": 661.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 34
+        },
+        "end": {
+          "book": 1,
+          "chapter": 35
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 20
+        },
+        "end": {
+          "book": 40,
+          "chapter": 20
+        }
+      },
+      "seconds": 689.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 36
+        },
+        "end": {
+          "book": 1,
+          "chapter": 36
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 21
+        },
+        "end": {
+          "book": 40,
+          "chapter": 21
+        }
+      },
+      "seconds": 677.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 37
+        },
+        "end": {
+          "book": 1,
+          "chapter": 38
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 22
+        },
+        "end": {
+          "book": 40,
+          "chapter": 22
+        }
+      },
+      "seconds": 806.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 39
+        },
+        "end": {
+          "book": 1,
+          "chapter": 40
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 23
+        },
+        "end": {
+          "book": 40,
+          "chapter": 23
+        }
+      },
+      "seconds": 630.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 41
+        },
+        "end": {
+          "book": 1,
+          "chapter": 41
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 24
+        },
+        "end": {
+          "book": 40,
+          "chapter": 24
+        }
+      },
+      "seconds": 771.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 42
+        },
+        "end": {
+          "book": 1,
+          "chapter": 42
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 25
+        },
+        "end": {
+          "book": 40,
+          "chapter": 25
+        }
+      },
+      "seconds": 634.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 43
+        },
+        "end": {
+          "book": 1,
+          "chapter": 43
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 26
+        },
+        "end": {
+          "book": 40,
+          "chapter": 26
+        }
+      },
+      "seconds": 813.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 44
+        },
+        "end": {
+          "book": 1,
+          "chapter": 44
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 27
+        },
+        "end": {
+          "book": 40,
+          "chapter": 27
+        }
+      },
+      "seconds": 691.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 45
+        },
+        "end": {
+          "book": 1,
+          "chapter": 46
+        }
+      },
+      "b": {
+        "start": {
+          "book": 40,
+          "chapter": 28
+        },
+        "end": {
+          "book": 40,
+          "chapter": 28
+        }
+      },
+      "seconds": 615.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 47
+        },
+        "end": {
+          "book": 1,
+          "chapter": 47
+        }
+      },
+      "b": {
+        "start": {
+          "book": 41,
+          "chapter": 1
+        },
+        "end": {
+          "book": 41,
+          "chapter": 1
+        }
+      },
+      "seconds": 596.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 48
+        },
+        "end": {
+          "book": 1,
+          "chapter": 49
+        }
+      },
+      "b": {
+        "start": {
+          "book": 41,
+          "chapter": 2
+        },
+        "end": {
+          "book": 41,
+          "chapter": 2
+        }
+      },
+      "seconds": 672.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 1,
+          "chapter": 50
+        },
+        "end": {
+          "book": 2,
+          "chapter": 1
+        }
+      },
+      "b": {
+        "start": {
+          "book": 41,
+          "chapter": 3
+        },
+        "end": {
+          "book": 41,
+          "chapter": 3
+        }
+      },
+      "seconds": 584.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 2
+        },
+        "end": {
+          "book": 2,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 41,
+          "chapter": 4
+        },
+        "end": {
+          "book": 41,
+          "chapter": 4
+        }
+      },
+      "seconds": 710.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 4
+        },
+        "end": {
+          "book": 2,
+          "chapter": 5
+        }
+      },
+      "b": {
+        "start": {
+          "book": 41,
+          "chapter": 5
+        },
+        "end": {
+          "book": 41,
+          "chapter": 5
+        }
+      },
+      "seconds": 706.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 6
+        },
+        "end": {
+          "book": 2,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 41,
+          "chapter": 6
+        },
+        "end": {
+          "book": 41,
+          "chapter": 6
+        }
+      },
+      "seconds": 636.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 7
+        },
+        "end": {
+          "book": 2,
+          "chapter": 8
+        }
+      },
+      "b": {
+        "start": {
+          "book": 41,
+          "chapter": 7
+        },
+        "end": {
+          "book": 41,
+          "chapter": 7
+        }
+      },
+      "seconds": 759.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 9
+        },
+        "end": {
+          "book": 2,
+          "chapter": 9
+        }
+      },
+      "b": {
+        "start": {
+          "book": 41,
+          "chapter": 8
+        },
+        "end": {
+          "book": 41,
+          "chapter": 8
+        }
+      },
+      "seconds": 566.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 10
+        },
+        "end": {
+          "book": 2,
+          "chapter": 11
+        }
+      },
+      "b": {
+        "start": {
+          "book": 41,
+          "chapter": 9
+        },
+        "end": {
+          "book": 41,
+          "chapter": 9
+        }
+      },
+      "seconds": 700.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 12
+        },
+        "end": {
+          "book": 2,
+          "chapter": 12
+        }
+      },
+      "b": {
+        "start": {
+          "book": 41,
+          "chapter": 10
+        },
+        "end": {
+          "book": 41,
+          "chapter": 10
+        }
+      },
+      "seconds": 785.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 13
+        },
+        "end": {
+          "book": 2,
+          "chapter": 14
+        }
+      },
+      "b": {
+        "start": {
+          "book": 41,
+          "chapter": 11
+        },
+        "end": {
+          "book": 41,
+          "chapter": 11
+        }
+      },
+      "seconds": 690.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 15
+        },
+        "end": {
+          "book": 2,
+          "chapter": 15
+        }
+      },
+      "b": {
+        "start": {
+          "book": 41,
+          "chapter": 12
+        },
+        "end": {
+          "book": 41,
+          "chapter": 12
+        }
+      },
+      "seconds": 549.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 16
+        },
+        "end": {
+          "book": 2,
+          "chapter": 16
+        }
+      },
+      "b": {
+        "start": {
+          "book": 41,
+          "chapter": 13
+        },
+        "end": {
+          "book": 41,
+          "chapter": 13
+        }
+      },
+      "seconds": 544.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 17
+        },
+        "end": {
+          "book": 2,
+          "chapter": 17
+        }
+      },
+      "b": {
+        "start": {
+          "book": 41,
+          "chapter": 14
+        },
+        "end": {
+          "book": 41,
+          "chapter": 14
+        }
+      },
+      "seconds": 652.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 18
+        },
+        "end": {
+          "book": 2,
+          "chapter": 19
+        }
+      },
+      "b": {
+        "start": {
+          "book": 41,
+          "chapter": 15
+        },
+        "end": {
+          "book": 41,
+          "chapter": 15
+        }
+      },
+      "seconds": 726.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 20
+        },
+        "end": {
+          "book": 2,
+          "chapter": 21
+        }
+      },
+      "b": {
+        "start": {
+          "book": 41,
+          "chapter": 16
+        },
+        "end": {
+          "book": 41,
+          "chapter": 16
+        }
+      },
+      "seconds": 568.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 22
+        },
+        "end": {
+          "book": 2,
+          "chapter": 22
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 1
+        },
+        "end": {
+          "book": 42,
+          "chapter": 1
+        }
+      },
+      "seconds": 724.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 23
+        },
+        "end": {
+          "book": 2,
+          "chapter": 23
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 2
+        },
+        "end": {
+          "book": 42,
+          "chapter": 2
+        }
+      },
+      "seconds": 591.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 24
+        },
+        "end": {
+          "book": 2,
+          "chapter": 25
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 3
+        },
+        "end": {
+          "book": 42,
+          "chapter": 3
+        }
+      },
+      "seconds": 657.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 26
+        },
+        "end": {
+          "book": 2,
+          "chapter": 27
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 4
+        },
+        "end": {
+          "book": 42,
+          "chapter": 4
+        }
+      },
+      "seconds": 703.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 28
+        },
+        "end": {
+          "book": 2,
+          "chapter": 28
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 5
+        },
+        "end": {
+          "book": 42,
+          "chapter": 5
+        }
+      },
+      "seconds": 669.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 29
+        },
+        "end": {
+          "book": 2,
+          "chapter": 29
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 6
+        },
+        "end": {
+          "book": 42,
+          "chapter": 6
+        }
+      },
+      "seconds": 747.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 30
+        },
+        "end": {
+          "book": 2,
+          "chapter": 30
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 7
+        },
+        "end": {
+          "book": 42,
+          "chapter": 7
+        }
+      },
+      "seconds": 658.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 31
+        },
+        "end": {
+          "book": 2,
+          "chapter": 31
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 8
+        },
+        "end": {
+          "book": 42,
+          "chapter": 8
+        }
+      },
+      "seconds": 606.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 32
+        },
+        "end": {
+          "book": 2,
+          "chapter": 32
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 9
+        },
+        "end": {
+          "book": 42,
+          "chapter": 9
+        }
+      },
+      "seconds": 791.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 33
+        },
+        "end": {
+          "book": 2,
+          "chapter": 33
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 10
+        },
+        "end": {
+          "book": 42,
+          "chapter": 10
+        }
+      },
+      "seconds": 536.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 34
+        },
+        "end": {
+          "book": 2,
+          "chapter": 34
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 11
+        },
+        "end": {
+          "book": 42,
+          "chapter": 11
+        }
+      },
+      "seconds": 744.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 35
+        },
+        "end": {
+          "book": 2,
+          "chapter": 35
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 12
+        },
+        "end": {
+          "book": 42,
+          "chapter": 12
+        }
+      },
+      "seconds": 712.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 36
+        },
+        "end": {
+          "book": 2,
+          "chapter": 36
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 13
+        },
+        "end": {
+          "book": 42,
+          "chapter": 13
+        }
+      },
+      "seconds": 541.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 37
+        },
+        "end": {
+          "book": 2,
+          "chapter": 38
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 14
+        },
+        "end": {
+          "book": 42,
+          "chapter": 14
+        }
+      },
+      "seconds": 696.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 39
+        },
+        "end": {
+          "book": 2,
+          "chapter": 39
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 15
+        },
+        "end": {
+          "book": 42,
+          "chapter": 15
+        }
+      },
+      "seconds": 555.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 2,
+          "chapter": 40
+        },
+        "end": {
+          "book": 3,
+          "chapter": 1
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 16
+        },
+        "end": {
+          "book": 42,
+          "chapter": 16
+        }
+      },
+      "seconds": 643.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 2
+        },
+        "end": {
+          "book": 3,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 17
+        },
+        "end": {
+          "book": 42,
+          "chapter": 17
+        }
+      },
+      "seconds": 534.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 4
+        },
+        "end": {
+          "book": 3,
+          "chapter": 4
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 18
+        },
+        "end": {
+          "book": 42,
+          "chapter": 18
+        }
+      },
+      "seconds": 604.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 5
+        },
+        "end": {
+          "book": 3,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 19
+        },
+        "end": {
+          "book": 42,
+          "chapter": 19
+        }
+      },
+      "seconds": 771.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 7
+        },
+        "end": {
+          "book": 3,
+          "chapter": 7
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 20
+        },
+        "end": {
+          "book": 42,
+          "chapter": 20
+        }
+      },
+      "seconds": 622.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 8
+        },
+        "end": {
+          "book": 3,
+          "chapter": 8
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 21
+        },
+        "end": {
+          "book": 42,
+          "chapter": 21
+        }
+      },
+      "seconds": 556.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 9
+        },
+        "end": {
+          "book": 3,
+          "chapter": 9
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 22
+        },
+        "end": {
+          "book": 42,
+          "chapter": 22
+        }
+      },
+      "seconds": 666.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 10
+        },
+        "end": {
+          "book": 3,
+          "chapter": 10
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 23
+        },
+        "end": {
+          "book": 42,
+          "chapter": 23
+        }
+      },
+      "seconds": 589.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 11
+        },
+        "end": {
+          "book": 3,
+          "chapter": 12
+        }
+      },
+      "b": {
+        "start": {
+          "book": 42,
+          "chapter": 24
+        },
+        "end": {
+          "book": 42,
+          "chapter": 24
+        }
+      },
+      "seconds": 739.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 13
+        },
+        "end": {
+          "book": 3,
+          "chapter": 13
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 1
+        },
+        "end": {
+          "book": 43,
+          "chapter": 1
+        }
+      },
+      "seconds": 845.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 14
+        },
+        "end": {
+          "book": 3,
+          "chapter": 14
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 2
+        },
+        "end": {
+          "book": 43,
+          "chapter": 2
+        }
+      },
+      "seconds": 599.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 15
+        },
+        "end": {
+          "book": 3,
+          "chapter": 15
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 3
+        },
+        "end": {
+          "book": 43,
+          "chapter": 3
+        }
+      },
+      "seconds": 530.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 16
+        },
+        "end": {
+          "book": 3,
+          "chapter": 16
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 4
+        },
+        "end": {
+          "book": 43,
+          "chapter": 4
+        }
+      },
+      "seconds": 699.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 17
+        },
+        "end": {
+          "book": 3,
+          "chapter": 18
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 5
+        },
+        "end": {
+          "book": 43,
+          "chapter": 5
+        }
+      },
+      "seconds": 704.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 19
+        },
+        "end": {
+          "book": 3,
+          "chapter": 19
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 6
+        },
+        "end": {
+          "book": 43,
+          "chapter": 6
+        }
+      },
+      "seconds": 768.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 20
+        },
+        "end": {
+          "book": 3,
+          "chapter": 21
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 7
+        },
+        "end": {
+          "book": 43,
+          "chapter": 7
+        }
+      },
+      "seconds": 750.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 22
+        },
+        "end": {
+          "book": 3,
+          "chapter": 22
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 8
+        },
+        "end": {
+          "book": 43,
+          "chapter": 8
+        }
+      },
+      "seconds": 678.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 23
+        },
+        "end": {
+          "book": 3,
+          "chapter": 24
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 9
+        },
+        "end": {
+          "book": 43,
+          "chapter": 9
+        }
+      },
+      "seconds": 784.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 25
+        },
+        "end": {
+          "book": 3,
+          "chapter": 25
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 10
+        },
+        "end": {
+          "book": 43,
+          "chapter": 10
+        }
+      },
+      "seconds": 688.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 26
+        },
+        "end": {
+          "book": 3,
+          "chapter": 26
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 11
+        },
+        "end": {
+          "book": 43,
+          "chapter": 11
+        }
+      },
+      "seconds": 743.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 3,
+          "chapter": 27
+        },
+        "end": {
+          "book": 3,
+          "chapter": 27
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 12
+        },
+        "end": {
+          "book": 43,
+          "chapter": 12
+        }
+      },
+      "seconds": 648.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 1
+        },
+        "end": {
+          "book": 4,
+          "chapter": 1
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 13
+        },
+        "end": {
+          "book": 43,
+          "chapter": 13
+        }
+      },
+      "seconds": 651.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 2
+        },
+        "end": {
+          "book": 4,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 14
+        },
+        "end": {
+          "book": 43,
+          "chapter": 14
+        }
+      },
+      "seconds": 826.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 4
+        },
+        "end": {
+          "book": 4,
+          "chapter": 4
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 15
+        },
+        "end": {
+          "book": 43,
+          "chapter": 15
+        }
+      },
+      "seconds": 552.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 5
+        },
+        "end": {
+          "book": 4,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 16
+        },
+        "end": {
+          "book": 43,
+          "chapter": 16
+        }
+      },
+      "seconds": 723.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 7
+        },
+        "end": {
+          "book": 4,
+          "chapter": 7
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 17
+        },
+        "end": {
+          "book": 43,
+          "chapter": 17
+        }
+      },
+      "seconds": 838.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 8
+        },
+        "end": {
+          "book": 4,
+          "chapter": 9
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 18
+        },
+        "end": {
+          "book": 43,
+          "chapter": 18
+        }
+      },
+      "seconds": 719.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 10
+        },
+        "end": {
+          "book": 4,
+          "chapter": 10
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 19
+        },
+        "end": {
+          "book": 43,
+          "chapter": 19
+        }
+      },
+      "seconds": 585.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 11
+        },
+        "end": {
+          "book": 4,
+          "chapter": 12
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 20
+        },
+        "end": {
+          "book": 43,
+          "chapter": 20
+        }
+      },
+      "seconds": 662.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 13
+        },
+        "end": {
+          "book": 4,
+          "chapter": 14
+        }
+      },
+      "b": {
+        "start": {
+          "book": 43,
+          "chapter": 21
+        },
+        "end": {
+          "book": 43,
+          "chapter": 21
+        }
+      },
+      "seconds": 819.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 15
+        },
+        "end": {
+          "book": 4,
+          "chapter": 15
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 1
+        },
+        "end": {
+          "book": 44,
+          "chapter": 1
+        }
+      },
+      "seconds": 510.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 16
+        },
+        "end": {
+          "book": 4,
+          "chapter": 16
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 2
+        },
+        "end": {
+          "book": 44,
+          "chapter": 2
+        }
+      },
+      "seconds": 739.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 17
+        },
+        "end": {
+          "book": 4,
+          "chapter": 18
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 3
+        },
+        "end": {
+          "book": 44,
+          "chapter": 3
+        }
+      },
+      "seconds": 590.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 19
+        },
+        "end": {
+          "book": 4,
+          "chapter": 20
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 4
+        },
+        "end": {
+          "book": 44,
+          "chapter": 4
+        }
+      },
+      "seconds": 705.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 21
+        },
+        "end": {
+          "book": 4,
+          "chapter": 21
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 5
+        },
+        "end": {
+          "book": 44,
+          "chapter": 5
+        }
+      },
+      "seconds": 617.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 22
+        },
+        "end": {
+          "book": 4,
+          "chapter": 23
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 6
+        },
+        "end": {
+          "book": 44,
+          "chapter": 6
+        }
+      },
+      "seconds": 688.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 24
+        },
+        "end": {
+          "book": 4,
+          "chapter": 25
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 7
+        },
+        "end": {
+          "book": 44,
+          "chapter": 7
+        }
+      },
+      "seconds": 774.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 26
+        },
+        "end": {
+          "book": 4,
+          "chapter": 26
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 8
+        },
+        "end": {
+          "book": 44,
+          "chapter": 8
+        }
+      },
+      "seconds": 728.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 27
+        },
+        "end": {
+          "book": 4,
+          "chapter": 28
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 9
+        },
+        "end": {
+          "book": 44,
+          "chapter": 9
+        }
+      },
+      "seconds": 751.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 29
+        },
+        "end": {
+          "book": 4,
+          "chapter": 30
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 10
+        },
+        "end": {
+          "book": 44,
+          "chapter": 10
+        }
+      },
+      "seconds": 758.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 31
+        },
+        "end": {
+          "book": 4,
+          "chapter": 32
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 11
+        },
+        "end": {
+          "book": 44,
+          "chapter": 11
+        }
+      },
+      "seconds": 835.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 33
+        },
+        "end": {
+          "book": 4,
+          "chapter": 34
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 12
+        },
+        "end": {
+          "book": 44,
+          "chapter": 12
+        }
+      },
+      "seconds": 695.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 35
+        },
+        "end": {
+          "book": 4,
+          "chapter": 35
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 13
+        },
+        "end": {
+          "book": 44,
+          "chapter": 13
+        }
+      },
+      "seconds": 688.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 4,
+          "chapter": 36
+        },
+        "end": {
+          "book": 5,
+          "chapter": 1
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 14
+        },
+        "end": {
+          "book": 44,
+          "chapter": 14
+        }
+      },
+      "seconds": 710.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 2
+        },
+        "end": {
+          "book": 5,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 15
+        },
+        "end": {
+          "book": 44,
+          "chapter": 15
+        }
+      },
+      "seconds": 838.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 4
+        },
+        "end": {
+          "book": 5,
+          "chapter": 4
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 16
+        },
+        "end": {
+          "book": 44,
+          "chapter": 16
+        }
+      },
+      "seconds": 714.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 5
+        },
+        "end": {
+          "book": 5,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 17
+        },
+        "end": {
+          "book": 44,
+          "chapter": 17
+        }
+      },
+      "seconds": 738.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 7
+        },
+        "end": {
+          "book": 5,
+          "chapter": 8
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 18
+        },
+        "end": {
+          "book": 44,
+          "chapter": 18
+        }
+      },
+      "seconds": 643.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 9
+        },
+        "end": {
+          "book": 5,
+          "chapter": 9
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 19
+        },
+        "end": {
+          "book": 44,
+          "chapter": 19
+        }
+      },
+      "seconds": 602.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 10
+        },
+        "end": {
+          "book": 5,
+          "chapter": 11
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 20
+        },
+        "end": {
+          "book": 44,
+          "chapter": 20
+        }
+      },
+      "seconds": 734.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 12
+        },
+        "end": {
+          "book": 5,
+          "chapter": 13
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 21
+        },
+        "end": {
+          "book": 44,
+          "chapter": 21
+        }
+      },
+      "seconds": 797.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 14
+        },
+        "end": {
+          "book": 5,
+          "chapter": 15
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 22
+        },
+        "end": {
+          "book": 44,
+          "chapter": 22
+        }
+      },
+      "seconds": 637.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 16
+        },
+        "end": {
+          "book": 5,
+          "chapter": 17
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 23
+        },
+        "end": {
+          "book": 44,
+          "chapter": 23
+        }
+      },
+      "seconds": 676.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 18
+        },
+        "end": {
+          "book": 5,
+          "chapter": 20
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 24
+        },
+        "end": {
+          "book": 44,
+          "chapter": 24
+        }
+      },
+      "seconds": 733.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 21
+        },
+        "end": {
+          "book": 5,
+          "chapter": 22
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 25
+        },
+        "end": {
+          "book": 44,
+          "chapter": 25
+        }
+      },
+      "seconds": 672.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 23
+        },
+        "end": {
+          "book": 5,
+          "chapter": 25
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 26
+        },
+        "end": {
+          "book": 44,
+          "chapter": 26
+        }
+      },
+      "seconds": 773.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 26
+        },
+        "end": {
+          "book": 5,
+          "chapter": 27
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 27
+        },
+        "end": {
+          "book": 44,
+          "chapter": 27
+        }
+      },
+      "seconds": 724.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 28
+        },
+        "end": {
+          "book": 5,
+          "chapter": 28
+        }
+      },
+      "b": {
+        "start": {
+          "book": 44,
+          "chapter": 28
+        },
+        "end": {
+          "book": 44,
+          "chapter": 28
+        }
+      },
+      "seconds": 837.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 29
+        },
+        "end": {
+          "book": 5,
+          "chapter": 29
+        }
+      },
+      "b": {
+        "start": {
+          "book": 45,
+          "chapter": 1
+        },
+        "end": {
+          "book": 45,
+          "chapter": 1
+        }
+      },
+      "seconds": 524.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 30
+        },
+        "end": {
+          "book": 5,
+          "chapter": 31
+        }
+      },
+      "b": {
+        "start": {
+          "book": 45,
+          "chapter": 2
+        },
+        "end": {
+          "book": 45,
+          "chapter": 2
+        }
+      },
+      "seconds": 700.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 32
+        },
+        "end": {
+          "book": 5,
+          "chapter": 32
+        }
+      },
+      "b": {
+        "start": {
+          "book": 45,
+          "chapter": 3
+        },
+        "end": {
+          "book": 45,
+          "chapter": 3
+        }
+      },
+      "seconds": 640.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 5,
+          "chapter": 33
+        },
+        "end": {
+          "book": 5,
+          "chapter": 34
+        }
+      },
+      "b": {
+        "start": {
+          "book": 45,
+          "chapter": 4
+        },
+        "end": {
+          "book": 45,
+          "chapter": 4
+        }
+      },
+      "seconds": 570.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 6,
+          "chapter": 1
+        },
+        "end": {
+          "book": 6,
+          "chapter": 2
+        }
+      },
+      "b": {
+        "start": {
+          "book": 45,
+          "chapter": 5
+        },
+        "end": {
+          "book": 45,
+          "chapter": 5
+        }
+      },
+      "seconds": 599.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 6,
+          "chapter": 3
+        },
+        "end": {
+          "book": 6,
+          "chapter": 4
+        }
+      },
+      "b": {
+        "start": {
+          "book": 45,
+          "chapter": 6
+        },
+        "end": {
+          "book": 45,
+          "chapter": 6
+        }
+      },
+      "seconds": 537.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 6,
+          "chapter": 5
+        },
+        "end": {
+          "book": 6,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 45,
+          "chapter": 7
+        },
+        "end": {
+          "book": 45,
+          "chapter": 7
+        }
+      },
+      "seconds": 642.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 6,
+          "chapter": 7
+        },
+        "end": {
+          "book": 6,
+          "chapter": 7
+        }
+      },
+      "b": {
+        "start": {
+          "book": 45,
+          "chapter": 8
+        },
+        "end": {
+          "book": 45,
+          "chapter": 8
+        }
+      },
+      "seconds": 597.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 6,
+          "chapter": 8
+        },
+        "end": {
+          "book": 6,
+          "chapter": 8
+        }
+      },
+      "b": {
+        "start": {
+          "book": 45,
+          "chapter": 9
+        },
+        "end": {
+          "book": 45,
+          "chapter": 9
+        }
+      },
+      "seconds": 588.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 6,
+          "chapter": 9
+        },
+        "end": {
+          "book": 6,
+          "chapter": 10
+        }
+      },
+      "b": {
+        "start": {
+          "book": 45,
+          "chapter": 10
+        },
+        "end": {
+          "book": 45,
+          "chapter": 10
+        }
+      },
+      "seconds": 783.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 6,
+          "chapter": 11
+        },
+        "end": {
+          "book": 6,
+          "chapter": 12
+        }
+      },
+      "b": {
+        "start": {
+          "book": 45,
+          "chapter": 11
+        },
+        "end": {
+          "book": 45,
+          "chapter": 11
+        }
+      },
+      "seconds": 650.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 6,
+          "chapter": 13
+        },
+        "end": {
+          "book": 6,
+          "chapter": 14
+        }
+      },
+      "b": {
+        "start": {
+          "book": 45,
+          "chapter": 12
+        },
+        "end": {
+          "book": 45,
+          "chapter": 12
+        }
+      },
+      "seconds": 577.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 6,
+          "chapter": 15
+        },
+        "end": {
+          "book": 6,
+          "chapter": 16
+        }
+      },
+      "b": {
+        "start": {
+          "book": 45,
+          "chapter": 13
+        },
+        "end": {
+          "book": 45,
+          "chapter": 13
+        }
+      },
+      "seconds": 603.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 6,
+          "chapter": 17
+        },
+        "end": {
+          "book": 6,
+          "chapter": 18
+        }
+      },
+      "b": {
+        "start": {
+          "book": 45,
+          "chapter": 14
+        },
+        "end": {
+          "book": 45,
+          "chapter": 14
+        }
+      },
+      "seconds": 609.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 6,
+          "chapter": 19
+        },
+        "end": {
+          "book": 6,
+          "chapter": 20
+        }
+      },
+      "b": {
+        "start": {
+          "book": 45,
+          "chapter": 15
+        },
+        "end": {
+          "book": 45,
+          "chapter": 15
+        }
+      },
+      "seconds": 649.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 6,
+          "chapter": 21
+        },
+        "end": {
+          "book": 6,
+          "chapter": 22
+        }
+      },
+      "b": {
+        "start": {
+          "book": 45,
+          "chapter": 16
+        },
+        "end": {
+          "book": 45,
+          "chapter": 16
+        }
+      },
+      "seconds": 821.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 6,
+          "chapter": 23
+        },
+        "end": {
+          "book": 6,
+          "chapter": 24
+        }
+      },
+      "b": {
+        "start": {
+          "book": 46,
+          "chapter": 1
+        },
+        "end": {
+          "book": 46,
+          "chapter": 1
+        }
+      },
+      "seconds": 682.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 7,
+          "chapter": 1
+        },
+        "end": {
+          "book": 7,
+          "chapter": 2
+        }
+      },
+      "b": {
+        "start": {
+          "book": 46,
+          "chapter": 2
+        },
+        "end": {
+          "book": 46,
+          "chapter": 2
+        }
+      },
+      "seconds": 638.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 7,
+          "chapter": 3
+        },
+        "end": {
+          "book": 7,
+          "chapter": 4
+        }
+      },
+      "b": {
+        "start": {
+          "book": 46,
+          "chapter": 3
+        },
+        "end": {
+          "book": 46,
+          "chapter": 3
+        }
+      },
+      "seconds": 643.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 7,
+          "chapter": 5
+        },
+        "end": {
+          "book": 7,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 46,
+          "chapter": 4
+        },
+        "end": {
+          "book": 46,
+          "chapter": 4
+        }
+      },
+      "seconds": 804.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 7,
+          "chapter": 7
+        },
+        "end": {
+          "book": 7,
+          "chapter": 8
+        }
+      },
+      "b": {
+        "start": {
+          "book": 46,
+          "chapter": 5
+        },
+        "end": {
+          "book": 46,
+          "chapter": 5
+        }
+      },
+      "seconds": 671.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 7,
+          "chapter": 9
+        },
+        "end": {
+          "book": 7,
+          "chapter": 10
+        }
+      },
+      "b": {
+        "start": {
+          "book": 46,
+          "chapter": 6
+        },
+        "end": {
+          "book": 46,
+          "chapter": 6
+        }
+      },
+      "seconds": 756.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 7,
+          "chapter": 11
+        },
+        "end": {
+          "book": 7,
+          "chapter": 11
+        }
+      },
+      "b": {
+        "start": {
+          "book": 46,
+          "chapter": 7
+        },
+        "end": {
+          "book": 46,
+          "chapter": 7
+        }
+      },
+      "seconds": 668.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 7,
+          "chapter": 12
+        },
+        "end": {
+          "book": 7,
+          "chapter": 14
+        }
+      },
+      "b": {
+        "start": {
+          "book": 46,
+          "chapter": 8
+        },
+        "end": {
+          "book": 46,
+          "chapter": 8
+        }
+      },
+      "seconds": 640.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 7,
+          "chapter": 15
+        },
+        "end": {
+          "book": 7,
+          "chapter": 16
+        }
+      },
+      "b": {
+        "start": {
+          "book": 46,
+          "chapter": 9
+        },
+        "end": {
+          "book": 46,
+          "chapter": 9
+        }
+      },
+      "seconds": 752.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 7,
+          "chapter": 17
+        },
+        "end": {
+          "book": 7,
+          "chapter": 18
+        }
+      },
+      "b": {
+        "start": {
+          "book": 46,
+          "chapter": 10
+        },
+        "end": {
+          "book": 46,
+          "chapter": 10
+        }
+      },
+      "seconds": 624.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 7,
+          "chapter": 19
+        },
+        "end": {
+          "book": 7,
+          "chapter": 19
+        }
+      },
+      "b": {
+        "start": {
+          "book": 46,
+          "chapter": 11
+        },
+        "end": {
+          "book": 46,
+          "chapter": 11
+        }
+      },
+      "seconds": 525.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 7,
+          "chapter": 20
+        },
+        "end": {
+          "book": 7,
+          "chapter": 21
+        }
+      },
+      "b": {
+        "start": {
+          "book": 46,
+          "chapter": 12
+        },
+        "end": {
+          "book": 46,
+          "chapter": 12
+        }
+      },
+      "seconds": 811.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 8,
+          "chapter": 1
+        },
+        "end": {
+          "book": 8,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 46,
+          "chapter": 13
+        },
+        "end": {
+          "book": 46,
+          "chapter": 13
+        }
+      },
+      "seconds": 681.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 8,
+          "chapter": 4
+        },
+        "end": {
+          "book": 9,
+          "chapter": 1
+        }
+      },
+      "b": {
+        "start": {
+          "book": 46,
+          "chapter": 14
+        },
+        "end": {
+          "book": 46,
+          "chapter": 14
+        }
+      },
+      "seconds": 729.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 9,
+          "chapter": 2
+        },
+        "end": {
+          "book": 9,
+          "chapter": 2
+        }
+      },
+      "b": {
+        "start": {
+          "book": 46,
+          "chapter": 15
+        },
+        "end": {
+          "book": 46,
+          "chapter": 15
+        }
+      },
+      "seconds": 736.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 9,
+          "chapter": 3
+        },
+        "end": {
+          "book": 9,
+          "chapter": 5
+        }
+      },
+      "b": {
+        "start": {
+          "book": 46,
+          "chapter": 16
+        },
+        "end": {
+          "book": 46,
+          "chapter": 16
+        }
+      },
+      "seconds": 637.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 9,
+          "chapter": 6
+        },
+        "end": {
+          "book": 9,
+          "chapter": 8
+        }
+      },
+      "b": {
+        "start": {
+          "book": 47,
+          "chapter": 1
+        },
+        "end": {
+          "book": 47,
+          "chapter": 1
+        }
+      },
+      "seconds": 756.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 9,
+          "chapter": 9
+        },
+        "end": {
+          "book": 9,
+          "chapter": 10
+        }
+      },
+      "b": {
+        "start": {
+          "book": 47,
+          "chapter": 2
+        },
+        "end": {
+          "book": 47,
+          "chapter": 2
+        }
+      },
+      "seconds": 634.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 9,
+          "chapter": 11
+        },
+        "end": {
+          "book": 9,
+          "chapter": 13
+        }
+      },
+      "b": {
+        "start": {
+          "book": 47,
+          "chapter": 3
+        },
+        "end": {
+          "book": 47,
+          "chapter": 3
+        }
+      },
+      "seconds": 714.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 9,
+          "chapter": 14
+        },
+        "end": {
+          "book": 9,
+          "chapter": 14
+        }
+      },
+      "b": {
+        "start": {
+          "book": 47,
+          "chapter": 4
+        },
+        "end": {
+          "book": 47,
+          "chapter": 4
+        }
+      },
+      "seconds": 649.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 9,
+          "chapter": 15
+        },
+        "end": {
+          "book": 9,
+          "chapter": 16
+        }
+      },
+      "b": {
+        "start": {
+          "book": 47,
+          "chapter": 5
+        },
+        "end": {
+          "book": 47,
+          "chapter": 5
+        }
+      },
+      "seconds": 676.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 9,
+          "chapter": 17
+        },
+        "end": {
+          "book": 9,
+          "chapter": 17
+        }
+      },
+      "b": {
+        "start": {
+          "book": 47,
+          "chapter": 6
+        },
+        "end": {
+          "book": 47,
+          "chapter": 6
+        }
+      },
+      "seconds": 629.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 9,
+          "chapter": 18
+        },
+        "end": {
+          "book": 9,
+          "chapter": 19
+        }
+      },
+      "b": {
+        "start": {
+          "book": 47,
+          "chapter": 7
+        },
+        "end": {
+          "book": 47,
+          "chapter": 7
+        }
+      },
+      "seconds": 620.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 9,
+          "chapter": 20
+        },
+        "end": {
+          "book": 9,
+          "chapter": 21
+        }
+      },
+      "b": {
+        "start": {
+          "book": 47,
+          "chapter": 8
+        },
+        "end": {
+          "book": 47,
+          "chapter": 8
+        }
+      },
+      "seconds": 708.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 9,
+          "chapter": 22
+        },
+        "end": {
+          "book": 9,
+          "chapter": 23
+        }
+      },
+      "b": {
+        "start": {
+          "book": 47,
+          "chapter": 9
+        },
+        "end": {
+          "book": 47,
+          "chapter": 9
+        }
+      },
+      "seconds": 604.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 9,
+          "chapter": 24
+        },
+        "end": {
+          "book": 9,
+          "chapter": 25
+        }
+      },
+      "b": {
+        "start": {
+          "book": 47,
+          "chapter": 10
+        },
+        "end": {
+          "book": 47,
+          "chapter": 10
+        }
+      },
+      "seconds": 739.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 9,
+          "chapter": 26
+        },
+        "end": {
+          "book": 9,
+          "chapter": 27
+        }
+      },
+      "b": {
+        "start": {
+          "book": 47,
+          "chapter": 11
+        },
+        "end": {
+          "book": 47,
+          "chapter": 11
+        }
+      },
+      "seconds": 616.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 9,
+          "chapter": 28
+        },
+        "end": {
+          "book": 9,
+          "chapter": 30
+        }
+      },
+      "b": {
+        "start": {
+          "book": 47,
+          "chapter": 12
+        },
+        "end": {
+          "book": 47,
+          "chapter": 12
+        }
+      },
+      "seconds": 782.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 9,
+          "chapter": 31
+        },
+        "end": {
+          "book": 10,
+          "chapter": 2
+        }
+      },
+      "b": {
+        "start": {
+          "book": 47,
+          "chapter": 13
+        },
+        "end": {
+          "book": 47,
+          "chapter": 13
+        }
+      },
+      "seconds": 696.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 10,
+          "chapter": 3
+        },
+        "end": {
+          "book": 10,
+          "chapter": 5
+        }
+      },
+      "b": {
+        "start": {
+          "book": 48,
+          "chapter": 1
+        },
+        "end": {
+          "book": 48,
+          "chapter": 1
+        }
+      },
+      "seconds": 832.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 10,
+          "chapter": 6
+        },
+        "end": {
+          "book": 10,
+          "chapter": 7
+        }
+      },
+      "b": {
+        "start": {
+          "book": 48,
+          "chapter": 2
+        },
+        "end": {
+          "book": 48,
+          "chapter": 2
+        }
+      },
+      "seconds": 654.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 10,
+          "chapter": 8
+        },
+        "end": {
+          "book": 10,
+          "chapter": 10
+        }
+      },
+      "b": {
+        "start": {
+          "book": 48,
+          "chapter": 3
+        },
+        "end": {
+          "book": 48,
+          "chapter": 3
+        }
+      },
+      "seconds": 691.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 10,
+          "chapter": 11
+        },
+        "end": {
+          "book": 10,
+          "chapter": 12
+        }
+      },
+      "b": {
+        "start": {
+          "book": 48,
+          "chapter": 4
+        },
+        "end": {
+          "book": 48,
+          "chapter": 4
+        }
+      },
+      "seconds": 730.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 10,
+          "chapter": 13
+        },
+        "end": {
+          "book": 10,
+          "chapter": 14
+        }
+      },
+      "b": {
+        "start": {
+          "book": 48,
+          "chapter": 5
+        },
+        "end": {
+          "book": 48,
+          "chapter": 5
+        }
+      },
+      "seconds": 840.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 10,
+          "chapter": 15
+        },
+        "end": {
+          "book": 10,
+          "chapter": 16
+        }
+      },
+      "b": {
+        "start": {
+          "book": 48,
+          "chapter": 6
+        },
+        "end": {
+          "book": 48,
+          "chapter": 6
+        }
+      },
+      "seconds": 672.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 10,
+          "chapter": 17
+        },
+        "end": {
+          "book": 10,
+          "chapter": 18
+        }
+      },
+      "b": {
+        "start": {
+          "book": 49,
+          "chapter": 1
+        },
+        "end": {
+          "book": 49,
+          "chapter": 1
+        }
+      },
+      "seconds": 752.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 10,
+          "chapter": 19
+        },
+        "end": {
+          "book": 10,
+          "chapter": 20
+        }
+      },
+      "b": {
+        "start": {
+          "book": 49,
+          "chapter": 2
+        },
+        "end": {
+          "book": 49,
+          "chapter": 2
+        }
+      },
+      "seconds": 826.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 10,
+          "chapter": 21
+        },
+        "end": {
+          "book": 10,
+          "chapter": 22
+        }
+      },
+      "b": {
+        "start": {
+          "book": 49,
+          "chapter": 3
+        },
+        "end": {
+          "book": 49,
+          "chapter": 3
+        }
+      },
+      "seconds": 652.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 10,
+          "chapter": 23
+        },
+        "end": {
+          "book": 10,
+          "chapter": 24
+        }
+      },
+      "b": {
+        "start": {
+          "book": 49,
+          "chapter": 4
+        },
+        "end": {
+          "book": 49,
+          "chapter": 4
+        }
+      },
+      "seconds": 746.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 11,
+          "chapter": 1
+        },
+        "end": {
+          "book": 11,
+          "chapter": 1
+        }
+      },
+      "b": {
+        "start": {
+          "book": 49,
+          "chapter": 5
+        },
+        "end": {
+          "book": 49,
+          "chapter": 5
+        }
+      },
+      "seconds": 639.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 11,
+          "chapter": 2
+        },
+        "end": {
+          "book": 11,
+          "chapter": 2
+        }
+      },
+      "b": {
+        "start": {
+          "book": 49,
+          "chapter": 6
+        },
+        "end": {
+          "book": 49,
+          "chapter": 6
+        }
+      },
+      "seconds": 579.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 11,
+          "chapter": 3
+        },
+        "end": {
+          "book": 11,
+          "chapter": 4
+        }
+      },
+      "b": {
+        "start": {
+          "book": 50,
+          "chapter": 1
+        },
+        "end": {
+          "book": 50,
+          "chapter": 1
+        }
+      },
+      "seconds": 700.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 11,
+          "chapter": 5
+        },
+        "end": {
+          "book": 11,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 50,
+          "chapter": 2
+        },
+        "end": {
+          "book": 50,
+          "chapter": 2
+        }
+      },
+      "seconds": 638.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 11,
+          "chapter": 7
+        },
+        "end": {
+          "book": 11,
+          "chapter": 7
+        }
+      },
+      "b": {
+        "start": {
+          "book": 50,
+          "chapter": 3
+        },
+        "end": {
+          "book": 50,
+          "chapter": 3
+        }
+      },
+      "seconds": 602.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 11,
+          "chapter": 8
+        },
+        "end": {
+          "book": 11,
+          "chapter": 8
+        }
+      },
+      "b": {
+        "start": {
+          "book": 50,
+          "chapter": 4
+        },
+        "end": {
+          "book": 50,
+          "chapter": 4
+        }
+      },
+      "seconds": 762.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 11,
+          "chapter": 9
+        },
+        "end": {
+          "book": 11,
+          "chapter": 10
+        }
+      },
+      "b": {
+        "start": {
+          "book": 51,
+          "chapter": 1
+        },
+        "end": {
+          "book": 51,
+          "chapter": 1
+        }
+      },
+      "seconds": 713.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 11,
+          "chapter": 11
+        },
+        "end": {
+          "book": 11,
+          "chapter": 11
+        }
+      },
+      "b": {
+        "start": {
+          "book": 51,
+          "chapter": 2
+        },
+        "end": {
+          "book": 51,
+          "chapter": 2
+        }
+      },
+      "seconds": 577.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 11,
+          "chapter": 12
+        },
+        "end": {
+          "book": 11,
+          "chapter": 13
+        }
+      },
+      "b": {
+        "start": {
+          "book": 51,
+          "chapter": 3
+        },
+        "end": {
+          "book": 51,
+          "chapter": 3
+        }
+      },
+      "seconds": 759.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 11,
+          "chapter": 14
+        },
+        "end": {
+          "book": 11,
+          "chapter": 15
+        }
+      },
+      "b": {
+        "start": {
+          "book": 51,
+          "chapter": 4
+        },
+        "end": {
+          "book": 51,
+          "chapter": 4
+        }
+      },
+      "seconds": 696.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 11,
+          "chapter": 16
+        },
+        "end": {
+          "book": 11,
+          "chapter": 17
+        }
+      },
+      "b": {
+        "start": {
+          "book": 52,
+          "chapter": 1
+        },
+        "end": {
+          "book": 52,
+          "chapter": 1
+        }
+      },
+      "seconds": 613.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 11,
+          "chapter": 18
+        },
+        "end": {
+          "book": 11,
+          "chapter": 19
+        }
+      },
+      "b": {
+        "start": {
+          "book": 52,
+          "chapter": 2
+        },
+        "end": {
+          "book": 52,
+          "chapter": 2
+        }
+      },
+      "seconds": 822.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 11,
+          "chapter": 20
+        },
+        "end": {
+          "book": 11,
+          "chapter": 21
+        }
+      },
+      "b": {
+        "start": {
+          "book": 52,
+          "chapter": 3
+        },
+        "end": {
+          "book": 52,
+          "chapter": 3
+        }
+      },
+      "seconds": 806.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 11,
+          "chapter": 22
+        },
+        "end": {
+          "book": 12,
+          "chapter": 1
+        }
+      },
+      "b": {
+        "start": {
+          "book": 52,
+          "chapter": 4
+        },
+        "end": {
+          "book": 52,
+          "chapter": 4
+        }
+      },
+      "seconds": 787.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 12,
+          "chapter": 2
+        },
+        "end": {
+          "book": 12,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 52,
+          "chapter": 5
+        },
+        "end": {
+          "book": 52,
+          "chapter": 5
+        }
+      },
+      "seconds": 659.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 12,
+          "chapter": 4
+        },
+        "end": {
+          "book": 12,
+          "chapter": 5
+        }
+      },
+      "b": {
+        "start": {
+          "book": 53,
+          "chapter": 1
+        },
+        "end": {
+          "book": 53,
+          "chapter": 1
+        }
+      },
+      "seconds": 769.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 12,
+          "chapter": 6
+        },
+        "end": {
+          "book": 12,
+          "chapter": 7
+        }
+      },
+      "b": {
+        "start": {
+          "book": 53,
+          "chapter": 2
+        },
+        "end": {
+          "book": 53,
+          "chapter": 2
+        }
+      },
+      "seconds": 646.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 12,
+          "chapter": 8
+        },
+        "end": {
+          "book": 12,
+          "chapter": 9
+        }
+      },
+      "b": {
+        "start": {
+          "book": 53,
+          "chapter": 3
+        },
+        "end": {
+          "book": 53,
+          "chapter": 3
+        }
+      },
+      "seconds": 769.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 12,
+          "chapter": 10
+        },
+        "end": {
+          "book": 12,
+          "chapter": 11
+        }
+      },
+      "b": {
+        "start": {
+          "book": 54,
+          "chapter": 1
+        },
+        "end": {
+          "book": 54,
+          "chapter": 1
+        }
+      },
+      "seconds": 724.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 12,
+          "chapter": 12
+        },
+        "end": {
+          "book": 12,
+          "chapter": 13
+        }
+      },
+      "b": {
+        "start": {
+          "book": 54,
+          "chapter": 2
+        },
+        "end": {
+          "book": 54,
+          "chapter": 2
+        }
+      },
+      "seconds": 545.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 12,
+          "chapter": 14
+        },
+        "end": {
+          "book": 12,
+          "chapter": 15
+        }
+      },
+      "b": {
+        "start": {
+          "book": 54,
+          "chapter": 3
+        },
+        "end": {
+          "book": 54,
+          "chapter": 3
+        }
+      },
+      "seconds": 714.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 12,
+          "chapter": 16
+        },
+        "end": {
+          "book": 12,
+          "chapter": 17
+        }
+      },
+      "b": {
+        "start": {
+          "book": 54,
+          "chapter": 4
+        },
+        "end": {
+          "book": 54,
+          "chapter": 4
+        }
+      },
+      "seconds": 673.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 12,
+          "chapter": 18
+        },
+        "end": {
+          "book": 12,
+          "chapter": 18
+        }
+      },
+      "b": {
+        "start": {
+          "book": 54,
+          "chapter": 5
+        },
+        "end": {
+          "book": 54,
+          "chapter": 5
+        }
+      },
+      "seconds": 532.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 12,
+          "chapter": 19
+        },
+        "end": {
+          "book": 12,
+          "chapter": 20
+        }
+      },
+      "b": {
+        "start": {
+          "book": 54,
+          "chapter": 6
+        },
+        "end": {
+          "book": 54,
+          "chapter": 6
+        }
+      },
+      "seconds": 715.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 12,
+          "chapter": 21
+        },
+        "end": {
+          "book": 12,
+          "chapter": 22
+        }
+      },
+      "b": {
+        "start": {
+          "book": 55,
+          "chapter": 1
+        },
+        "end": {
+          "book": 55,
+          "chapter": 1
+        }
+      },
+      "seconds": 551.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 12,
+          "chapter": 23
+        },
+        "end": {
+          "book": 12,
+          "chapter": 24
+        }
+      },
+      "b": {
+        "start": {
+          "book": 55,
+          "chapter": 2
+        },
+        "end": {
+          "book": 55,
+          "chapter": 2
+        }
+      },
+      "seconds": 759.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 12,
+          "chapter": 25
+        },
+        "end": {
+          "book": 13,
+          "chapter": 1
+        }
+      },
+      "b": {
+        "start": {
+          "book": 55,
+          "chapter": 3
+        },
+        "end": {
+          "book": 55,
+          "chapter": 3
+        }
+      },
+      "seconds": 676.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 13,
+          "chapter": 2
+        },
+        "end": {
+          "book": 13,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 55,
+          "chapter": 4
+        },
+        "end": {
+          "book": 55,
+          "chapter": 4
+        }
+      },
+      "seconds": 658.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 13,
+          "chapter": 4
+        },
+        "end": {
+          "book": 13,
+          "chapter": 5
+        }
+      },
+      "b": {
+        "start": {
+          "book": 56,
+          "chapter": 1
+        },
+        "end": {
+          "book": 56,
+          "chapter": 1
+        }
+      },
+      "seconds": 659.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 13,
+          "chapter": 6
+        },
+        "end": {
+          "book": 13,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 56,
+          "chapter": 2
+        },
+        "end": {
+          "book": 56,
+          "chapter": 2
+        }
+      },
+      "seconds": 568.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 13,
+          "chapter": 7
+        },
+        "end": {
+          "book": 13,
+          "chapter": 8
+        }
+      },
+      "b": {
+        "start": {
+          "book": 56,
+          "chapter": 3
+        },
+        "end": {
+          "book": 56,
+          "chapter": 3
+        }
+      },
+      "seconds": 622.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 13,
+          "chapter": 9
+        },
+        "end": {
+          "book": 13,
+          "chapter": 10
+        }
+      },
+      "b": {
+        "start": {
+          "book": 57,
+          "chapter": 1
+        },
+        "end": {
+          "book": 57,
+          "chapter": 1
+        }
+      },
+      "seconds": 573.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 13,
+          "chapter": 11
+        },
+        "end": {
+          "book": 13,
+          "chapter": 12
+        }
+      },
+      "b": {
+        "start": {
+          "book": 58,
+          "chapter": 1
+        },
+        "end": {
+          "book": 58,
+          "chapter": 1
+        }
+      },
+      "seconds": 720.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 13,
+          "chapter": 13
+        },
+        "end": {
+          "book": 13,
+          "chapter": 15
+        }
+      },
+      "b": {
+        "start": {
+          "book": 58,
+          "chapter": 2
+        },
+        "end": {
+          "book": 58,
+          "chapter": 2
+        }
+      },
+      "seconds": 625.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 13,
+          "chapter": 16
+        },
+        "end": {
+          "book": 13,
+          "chapter": 18
+        }
+      },
+      "b": {
+        "start": {
+          "book": 58,
+          "chapter": 3
+        },
+        "end": {
+          "book": 58,
+          "chapter": 3
+        }
+      },
+      "seconds": 784.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 13,
+          "chapter": 19
+        },
+        "end": {
+          "book": 13,
+          "chapter": 21
+        }
+      },
+      "b": {
+        "start": {
+          "book": 58,
+          "chapter": 4
+        },
+        "end": {
+          "book": 58,
+          "chapter": 4
+        }
+      },
+      "seconds": 677.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 13,
+          "chapter": 22
+        },
+        "end": {
+          "book": 13,
+          "chapter": 24
+        }
+      },
+      "b": {
+        "start": {
+          "book": 58,
+          "chapter": 5
+        },
+        "end": {
+          "book": 58,
+          "chapter": 5
+        }
+      },
+      "seconds": 713.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 13,
+          "chapter": 25
+        },
+        "end": {
+          "book": 13,
+          "chapter": 26
+        }
+      },
+      "b": {
+        "start": {
+          "book": 58,
+          "chapter": 6
+        },
+        "end": {
+          "book": 58,
+          "chapter": 6
+        }
+      },
+      "seconds": 609.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 13,
+          "chapter": 27
+        },
+        "end": {
+          "book": 13,
+          "chapter": 28
+        }
+      },
+      "b": {
+        "start": {
+          "book": 58,
+          "chapter": 7
+        },
+        "end": {
+          "book": 58,
+          "chapter": 7
+        }
+      },
+      "seconds": 705.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 13,
+          "chapter": 29
+        },
+        "end": {
+          "book": 14,
+          "chapter": 2
+        }
+      },
+      "b": {
+        "start": {
+          "book": 58,
+          "chapter": 8
+        },
+        "end": {
+          "book": 58,
+          "chapter": 8
+        }
+      },
+      "seconds": 749.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 14,
+          "chapter": 3
+        },
+        "end": {
+          "book": 14,
+          "chapter": 5
+        }
+      },
+      "b": {
+        "start": {
+          "book": 58,
+          "chapter": 9
+        },
+        "end": {
+          "book": 58,
+          "chapter": 9
+        }
+      },
+      "seconds": 694.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 14,
+          "chapter": 6
+        },
+        "end": {
+          "book": 14,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 58,
+          "chapter": 10
+        },
+        "end": {
+          "book": 58,
+          "chapter": 10
+        }
+      },
+      "seconds": 646.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 14,
+          "chapter": 7
+        },
+        "end": {
+          "book": 14,
+          "chapter": 8
+        }
+      },
+      "b": {
+        "start": {
+          "book": 58,
+          "chapter": 11
+        },
+        "end": {
+          "book": 58,
+          "chapter": 11
+        }
+      },
+      "seconds": 678.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 14,
+          "chapter": 9
+        },
+        "end": {
+          "book": 14,
+          "chapter": 10
+        }
+      },
+      "b": {
+        "start": {
+          "book": 58,
+          "chapter": 12
+        },
+        "end": {
+          "book": 58,
+          "chapter": 12
+        }
+      },
+      "seconds": 636.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 14,
+          "chapter": 11
+        },
+        "end": {
+          "book": 14,
+          "chapter": 13
+        }
+      },
+      "b": {
+        "start": {
+          "book": 58,
+          "chapter": 13
+        },
+        "end": {
+          "book": 58,
+          "chapter": 13
+        }
+      },
+      "seconds": 695.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 14,
+          "chapter": 14
+        },
+        "end": {
+          "book": 14,
+          "chapter": 16
+        }
+      },
+      "b": {
+        "start": {
+          "book": 59,
+          "chapter": 1
+        },
+        "end": {
+          "book": 59,
+          "chapter": 1
+        }
+      },
+      "seconds": 632.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 14,
+          "chapter": 17
+        },
+        "end": {
+          "book": 14,
+          "chapter": 18
+        }
+      },
+      "b": {
+        "start": {
+          "book": 59,
+          "chapter": 2
+        },
+        "end": {
+          "book": 59,
+          "chapter": 2
+        }
+      },
+      "seconds": 649.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 14,
+          "chapter": 19
+        },
+        "end": {
+          "book": 14,
+          "chapter": 20
+        }
+      },
+      "b": {
+        "start": {
+          "book": 59,
+          "chapter": 3
+        },
+        "end": {
+          "book": 59,
+          "chapter": 3
+        }
+      },
+      "seconds": 597.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 14,
+          "chapter": 21
+        },
+        "end": {
+          "book": 14,
+          "chapter": 23
+        }
+      },
+      "b": {
+        "start": {
+          "book": 59,
+          "chapter": 4
+        },
+        "end": {
+          "book": 59,
+          "chapter": 4
+        }
+      },
+      "seconds": 698.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 14,
+          "chapter": 24
+        },
+        "end": {
+          "book": 14,
+          "chapter": 25
+        }
+      },
+      "b": {
+        "start": {
+          "book": 59,
+          "chapter": 5
+        },
+        "end": {
+          "book": 59,
+          "chapter": 5
+        }
+      },
+      "seconds": 706.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 14,
+          "chapter": 26
+        },
+        "end": {
+          "book": 14,
+          "chapter": 28
+        }
+      },
+      "b": {
+        "start": {
+          "book": 60,
+          "chapter": 1
+        },
+        "end": {
+          "book": 60,
+          "chapter": 1
+        }
+      },
+      "seconds": 781.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 14,
+          "chapter": 29
+        },
+        "end": {
+          "book": 14,
+          "chapter": 30
+        }
+      },
+      "b": {
+        "start": {
+          "book": 60,
+          "chapter": 2
+        },
+        "end": {
+          "book": 60,
+          "chapter": 2
+        }
+      },
+      "seconds": 828.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 14,
+          "chapter": 31
+        },
+        "end": {
+          "book": 14,
+          "chapter": 32
+        }
+      },
+      "b": {
+        "start": {
+          "book": 60,
+          "chapter": 3
+        },
+        "end": {
+          "book": 60,
+          "chapter": 3
+        }
+      },
+      "seconds": 762.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 14,
+          "chapter": 33
+        },
+        "end": {
+          "book": 14,
+          "chapter": 34
+        }
+      },
+      "b": {
+        "start": {
+          "book": 60,
+          "chapter": 4
+        },
+        "end": {
+          "book": 60,
+          "chapter": 4
+        }
+      },
+      "seconds": 733.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 14,
+          "chapter": 35
+        },
+        "end": {
+          "book": 15,
+          "chapter": 1
+        }
+      },
+      "b": {
+        "start": {
+          "book": 60,
+          "chapter": 5
+        },
+        "end": {
+          "book": 60,
+          "chapter": 5
+        }
+      },
+      "seconds": 735.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 15,
+          "chapter": 2
+        },
+        "end": {
+          "book": 15,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 61,
+          "chapter": 1
+        },
+        "end": {
+          "book": 61,
+          "chapter": 1
+        }
+      },
+      "seconds": 700.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 15,
+          "chapter": 4
+        },
+        "end": {
+          "book": 15,
+          "chapter": 5
+        }
+      },
+      "b": {
+        "start": {
+          "book": 61,
+          "chapter": 2
+        },
+        "end": {
+          "book": 61,
+          "chapter": 2
+        }
+      },
+      "seconds": 603.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 15,
+          "chapter": 6
+        },
+        "end": {
+          "book": 15,
+          "chapter": 7
+        }
+      },
+      "b": {
+        "start": {
+          "book": 61,
+          "chapter": 3
+        },
+        "end": {
+          "book": 61,
+          "chapter": 3
+        }
+      },
+      "seconds": 625.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 15,
+          "chapter": 8
+        },
+        "end": {
+          "book": 15,
+          "chapter": 9
+        }
+      },
+      "b": {
+        "start": {
+          "book": 62,
+          "chapter": 1
+        },
+        "end": {
+          "book": 62,
+          "chapter": 1
+        }
+      },
+      "seconds": 576.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 15,
+          "chapter": 10
+        },
+        "end": {
+          "book": 16,
+          "chapter": 1
+        }
+      },
+      "b": {
+        "start": {
+          "book": 62,
+          "chapter": 2
+        },
+        "end": {
+          "book": 62,
+          "chapter": 2
+        }
+      },
+      "seconds": 685.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 16,
+          "chapter": 2
+        },
+        "end": {
+          "book": 16,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 62,
+          "chapter": 3
+        },
+        "end": {
+          "book": 62,
+          "chapter": 3
+        }
+      },
+      "seconds": 675.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 16,
+          "chapter": 4
+        },
+        "end": {
+          "book": 16,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 62,
+          "chapter": 4
+        },
+        "end": {
+          "book": 62,
+          "chapter": 4
+        }
+      },
+      "seconds": 728.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 16,
+          "chapter": 7
+        },
+        "end": {
+          "book": 16,
+          "chapter": 7
+        }
+      },
+      "b": {
+        "start": {
+          "book": 62,
+          "chapter": 5
+        },
+        "end": {
+          "book": 62,
+          "chapter": 5
+        }
+      },
+      "seconds": 583.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 16,
+          "chapter": 8
+        },
+        "end": {
+          "book": 16,
+          "chapter": 9
+        }
+      },
+      "b": {
+        "start": {
+          "book": 63,
+          "chapter": 1
+        },
+        "end": {
+          "book": 63,
+          "chapter": 1
+        }
+      },
+      "seconds": 729.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 16,
+          "chapter": 10
+        },
+        "end": {
+          "book": 16,
+          "chapter": 11
+        }
+      },
+      "b": {
+        "start": {
+          "book": 64,
+          "chapter": 1
+        },
+        "end": {
+          "book": 64,
+          "chapter": 1
+        }
+      },
+      "seconds": 596.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 16,
+          "chapter": 12
+        },
+        "end": {
+          "book": 16,
+          "chapter": 12
+        }
+      },
+      "b": {
+        "start": {
+          "book": 65,
+          "chapter": 1
+        },
+        "end": {
+          "book": 65,
+          "chapter": 1
+        }
+      },
+      "seconds": 570.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 16,
+          "chapter": 13
+        },
+        "end": {
+          "book": 17,
+          "chapter": 1
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 1
+        },
+        "end": {
+          "book": 66,
+          "chapter": 1
+        }
+      },
+      "seconds": 708.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 17,
+          "chapter": 2
+        },
+        "end": {
+          "book": 17,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 2
+        },
+        "end": {
+          "book": 66,
+          "chapter": 2
+        }
+      },
+      "seconds": 663.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 17,
+          "chapter": 4
+        },
+        "end": {
+          "book": 17,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 3
+        },
+        "end": {
+          "book": 66,
+          "chapter": 3
+        }
+      },
+      "seconds": 652.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 17,
+          "chapter": 7
+        },
+        "end": {
+          "book": 17,
+          "chapter": 9
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 4
+        },
+        "end": {
+          "book": 66,
+          "chapter": 4
+        }
+      },
+      "seconds": 719.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 17,
+          "chapter": 10
+        },
+        "end": {
+          "book": 18,
+          "chapter": 4
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 5
+        },
+        "end": {
+          "book": 66,
+          "chapter": 5
+        }
+      },
+      "seconds": 724.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 18,
+          "chapter": 5
+        },
+        "end": {
+          "book": 18,
+          "chapter": 8
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 6
+        },
+        "end": {
+          "book": 66,
+          "chapter": 6
+        }
+      },
+      "seconds": 687.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 18,
+          "chapter": 9
+        },
+        "end": {
+          "book": 18,
+          "chapter": 12
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 7
+        },
+        "end": {
+          "book": 66,
+          "chapter": 7
+        }
+      },
+      "seconds": 693.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 18,
+          "chapter": 13
+        },
+        "end": {
+          "book": 18,
+          "chapter": 16
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 8
+        },
+        "end": {
+          "book": 66,
+          "chapter": 8
+        }
+      },
+      "seconds": 688.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 18,
+          "chapter": 17
+        },
+        "end": {
+          "book": 18,
+          "chapter": 20
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 9
+        },
+        "end": {
+          "book": 66,
+          "chapter": 9
+        }
+      },
+      "seconds": 656.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 18,
+          "chapter": 21
+        },
+        "end": {
+          "book": 18,
+          "chapter": 24
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 10
+        },
+        "end": {
+          "book": 66,
+          "chapter": 10
+        }
+      },
+      "seconds": 659.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 18,
+          "chapter": 25
+        },
+        "end": {
+          "book": 18,
+          "chapter": 29
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 11
+        },
+        "end": {
+          "book": 66,
+          "chapter": 11
+        }
+      },
+      "seconds": 680.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 18,
+          "chapter": 30
+        },
+        "end": {
+          "book": 18,
+          "chapter": 32
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 12
+        },
+        "end": {
+          "book": 66,
+          "chapter": 12
+        }
+      },
+      "seconds": 664.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 18,
+          "chapter": 33
+        },
+        "end": {
+          "book": 18,
+          "chapter": 35
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 13
+        },
+        "end": {
+          "book": 66,
+          "chapter": 13
+        }
+      },
+      "seconds": 615.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 18,
+          "chapter": 36
+        },
+        "end": {
+          "book": 18,
+          "chapter": 38
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 14
+        },
+        "end": {
+          "book": 66,
+          "chapter": 14
+        }
+      },
+      "seconds": 699.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 18,
+          "chapter": 39
+        },
+        "end": {
+          "book": 18,
+          "chapter": 42
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 15
+        },
+        "end": {
+          "book": 66,
+          "chapter": 15
+        }
+      },
+      "seconds": 656.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 20,
+          "chapter": 1
+        },
+        "end": {
+          "book": 20,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 16
+        },
+        "end": {
+          "book": 66,
+          "chapter": 16
+        }
+      },
+      "seconds": 639.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 20,
+          "chapter": 4
+        },
+        "end": {
+          "book": 20,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 17
+        },
+        "end": {
+          "book": 66,
+          "chapter": 17
+        }
+      },
+      "seconds": 632.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 20,
+          "chapter": 7
+        },
+        "end": {
+          "book": 20,
+          "chapter": 9
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 18
+        },
+        "end": {
+          "book": 66,
+          "chapter": 18
+        }
+      },
+      "seconds": 679.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 20,
+          "chapter": 10
+        },
+        "end": {
+          "book": 20,
+          "chapter": 12
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 19
+        },
+        "end": {
+          "book": 66,
+          "chapter": 19
+        }
+      },
+      "seconds": 746.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 20,
+          "chapter": 13
+        },
+        "end": {
+          "book": 20,
+          "chapter": 15
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 20
+        },
+        "end": {
+          "book": 66,
+          "chapter": 20
+        }
+      },
+      "seconds": 710.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 20,
+          "chapter": 16
+        },
+        "end": {
+          "book": 20,
+          "chapter": 17
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 21
+        },
+        "end": {
+          "book": 66,
+          "chapter": 21
+        }
+      },
+      "seconds": 612.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 20,
+          "chapter": 18
+        },
+        "end": {
+          "book": 20,
+          "chapter": 20
+        }
+      },
+      "b": {
+        "start": {
+          "book": 66,
+          "chapter": 22
+        },
+        "end": {
+          "book": 66,
+          "chapter": 22
+        }
+      },
+      "seconds": 679.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 20,
+          "chapter": 21
+        },
+        "end": {
+          "book": 20,
+          "chapter": 23
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 1
+        },
+        "end": {
+          "book": 19,
+          "chapter": 2
+        }
+      },
+      "seconds": 695.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 20,
+          "chapter": 24
+        },
+        "end": {
+          "book": 20,
+          "chapter": 26
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 3
+        },
+        "end": {
+          "book": 19,
+          "chapter": 4
+        }
+      },
+      "seconds": 665.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 20,
+          "chapter": 27
+        },
+        "end": {
+          "book": 20,
+          "chapter": 29
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 5
+        },
+        "end": {
+          "book": 19,
+          "chapter": 6
+        }
+      },
+      "seconds": 662.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 20,
+          "chapter": 30
+        },
+        "end": {
+          "book": 21,
+          "chapter": 1
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 7
+        },
+        "end": {
+          "book": 19,
+          "chapter": 8
+        }
+      },
+      "seconds": 680.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 21,
+          "chapter": 2
+        },
+        "end": {
+          "book": 21,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 9
+        },
+        "end": {
+          "book": 19,
+          "chapter": 11
+        }
+      },
+      "seconds": 682.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 21,
+          "chapter": 4
+        },
+        "end": {
+          "book": 21,
+          "chapter": 7
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 12
+        },
+        "end": {
+          "book": 19,
+          "chapter": 12
+        }
+      },
+      "seconds": 653.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 21,
+          "chapter": 8
+        },
+        "end": {
+          "book": 21,
+          "chapter": 11
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 13
+        },
+        "end": {
+          "book": 19,
+          "chapter": 14
+        }
+      },
+      "seconds": 630.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 21,
+          "chapter": 12
+        },
+        "end": {
+          "book": 22,
+          "chapter": 4
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 15
+        },
+        "end": {
+          "book": 19,
+          "chapter": 15
+        }
+      },
+      "seconds": 660.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 22,
+          "chapter": 5
+        },
+        "end": {
+          "book": 22,
+          "chapter": 8
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 16
+        },
+        "end": {
+          "book": 19,
+          "chapter": 17
+        }
+      },
+      "seconds": 673.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 1
+        },
+        "end": {
+          "book": 23,
+          "chapter": 2
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 18
+        },
+        "end": {
+          "book": 19,
+          "chapter": 18
+        }
+      },
+      "seconds": 755.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 3
+        },
+        "end": {
+          "book": 23,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 19
+        },
+        "end": {
+          "book": 19,
+          "chapter": 19
+        }
+      },
+      "seconds": 742.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 7
+        },
+        "end": {
+          "book": 23,
+          "chapter": 9
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 20
+        },
+        "end": {
+          "book": 19,
+          "chapter": 21
+        }
+      },
+      "seconds": 736.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 10
+        },
+        "end": {
+          "book": 23,
+          "chapter": 12
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 22
+        },
+        "end": {
+          "book": 19,
+          "chapter": 22
+        }
+      },
+      "seconds": 683.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 13
+        },
+        "end": {
+          "book": 23,
+          "chapter": 15
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 23
+        },
+        "end": {
+          "book": 19,
+          "chapter": 24
+        }
+      },
+      "seconds": 648.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 16
+        },
+        "end": {
+          "book": 23,
+          "chapter": 19
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 25
+        },
+        "end": {
+          "book": 19,
+          "chapter": 25
+        }
+      },
+      "seconds": 673.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 20
+        },
+        "end": {
+          "book": 23,
+          "chapter": 23
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 26
+        },
+        "end": {
+          "book": 19,
+          "chapter": 26
+        }
+      },
+      "seconds": 619.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 24
+        },
+        "end": {
+          "book": 23,
+          "chapter": 26
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 27
+        },
+        "end": {
+          "book": 19,
+          "chapter": 28
+        }
+      },
+      "seconds": 651.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 27
+        },
+        "end": {
+          "book": 23,
+          "chapter": 29
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 29
+        },
+        "end": {
+          "book": 19,
+          "chapter": 29
+        }
+      },
+      "seconds": 674.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 30
+        },
+        "end": {
+          "book": 23,
+          "chapter": 31
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 30
+        },
+        "end": {
+          "book": 19,
+          "chapter": 31
+        }
+      },
+      "seconds": 672.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 32
+        },
+        "end": {
+          "book": 23,
+          "chapter": 35
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 32
+        },
+        "end": {
+          "book": 19,
+          "chapter": 32
+        }
+      },
+      "seconds": 706.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 36
+        },
+        "end": {
+          "book": 23,
+          "chapter": 37
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 33
+        },
+        "end": {
+          "book": 19,
+          "chapter": 33
+        }
+      },
+      "seconds": 671.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 38
+        },
+        "end": {
+          "book": 23,
+          "chapter": 40
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 34
+        },
+        "end": {
+          "book": 19,
+          "chapter": 34
+        }
+      },
+      "seconds": 661.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 41
+        },
+        "end": {
+          "book": 23,
+          "chapter": 42
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 35
+        },
+        "end": {
+          "book": 19,
+          "chapter": 35
+        }
+      },
+      "seconds": 661.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 43
+        },
+        "end": {
+          "book": 23,
+          "chapter": 44
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 36
+        },
+        "end": {
+          "book": 19,
+          "chapter": 36
+        }
+      },
+      "seconds": 614.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 45
+        },
+        "end": {
+          "book": 23,
+          "chapter": 47
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 37
+        },
+        "end": {
+          "book": 19,
+          "chapter": 37
+        }
+      },
+      "seconds": 747.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 48
+        },
+        "end": {
+          "book": 23,
+          "chapter": 50
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 38
+        },
+        "end": {
+          "book": 19,
+          "chapter": 38
+        }
+      },
+      "seconds": 702.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 51
+        },
+        "end": {
+          "book": 23,
+          "chapter": 53
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 39
+        },
+        "end": {
+          "book": 19,
+          "chapter": 39
+        }
+      },
+      "seconds": 625.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 54
+        },
+        "end": {
+          "book": 23,
+          "chapter": 57
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 40
+        },
+        "end": {
+          "book": 19,
+          "chapter": 40
+        }
+      },
+      "seconds": 725.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 58
+        },
+        "end": {
+          "book": 23,
+          "chapter": 60
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 41
+        },
+        "end": {
+          "book": 19,
+          "chapter": 41
+        }
+      },
+      "seconds": 652.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 61
+        },
+        "end": {
+          "book": 23,
+          "chapter": 64
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 42
+        },
+        "end": {
+          "book": 19,
+          "chapter": 43
+        }
+      },
+      "seconds": 662.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 23,
+          "chapter": 65
+        },
+        "end": {
+          "book": 23,
+          "chapter": 66
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 44
+        },
+        "end": {
+          "book": 19,
+          "chapter": 44
+        }
+      },
+      "seconds": 650.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 1
+        },
+        "end": {
+          "book": 24,
+          "chapter": 2
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 45
+        },
+        "end": {
+          "book": 19,
+          "chapter": 45
+        }
+      },
+      "seconds": 626.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 3
+        },
+        "end": {
+          "book": 24,
+          "chapter": 4
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 46
+        },
+        "end": {
+          "book": 19,
+          "chapter": 47
+        }
+      },
+      "seconds": 687.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 5
+        },
+        "end": {
+          "book": 24,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 48
+        },
+        "end": {
+          "book": 19,
+          "chapter": 48
+        }
+      },
+      "seconds": 642.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 7
+        },
+        "end": {
+          "book": 24,
+          "chapter": 8
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 49
+        },
+        "end": {
+          "book": 19,
+          "chapter": 49
+        }
+      },
+      "seconds": 641.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 9
+        },
+        "end": {
+          "book": 24,
+          "chapter": 10
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 50
+        },
+        "end": {
+          "book": 19,
+          "chapter": 50
+        }
+      },
+      "seconds": 601.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 11
+        },
+        "end": {
+          "book": 24,
+          "chapter": 13
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 51
+        },
+        "end": {
+          "book": 19,
+          "chapter": 51
+        }
+      },
+      "seconds": 731.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 14
+        },
+        "end": {
+          "book": 24,
+          "chapter": 16
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 52
+        },
+        "end": {
+          "book": 19,
+          "chapter": 52
+        }
+      },
+      "seconds": 705.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 17
+        },
+        "end": {
+          "book": 24,
+          "chapter": 18
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 53
+        },
+        "end": {
+          "book": 19,
+          "chapter": 54
+        }
+      },
+      "seconds": 571.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 19
+        },
+        "end": {
+          "book": 24,
+          "chapter": 21
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 55
+        },
+        "end": {
+          "book": 19,
+          "chapter": 55
+        }
+      },
+      "seconds": 632.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 22
+        },
+        "end": {
+          "book": 24,
+          "chapter": 23
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 56
+        },
+        "end": {
+          "book": 19,
+          "chapter": 56
+        }
+      },
+      "seconds": 726.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 24
+        },
+        "end": {
+          "book": 24,
+          "chapter": 25
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 57
+        },
+        "end": {
+          "book": 19,
+          "chapter": 58
+        }
+      },
+      "seconds": 610.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 26
+        },
+        "end": {
+          "book": 24,
+          "chapter": 27
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 59
+        },
+        "end": {
+          "book": 19,
+          "chapter": 59
+        }
+      },
+      "seconds": 567.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 28
+        },
+        "end": {
+          "book": 24,
+          "chapter": 29
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 60
+        },
+        "end": {
+          "book": 19,
+          "chapter": 61
+        }
+      },
+      "seconds": 607.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 30
+        },
+        "end": {
+          "book": 24,
+          "chapter": 31
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 62
+        },
+        "end": {
+          "book": 19,
+          "chapter": 62
+        }
+      },
+      "seconds": 692.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 32
+        },
+        "end": {
+          "book": 24,
+          "chapter": 33
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 63
+        },
+        "end": {
+          "book": 19,
+          "chapter": 63
+        }
+      },
+      "seconds": 739.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 34
+        },
+        "end": {
+          "book": 24,
+          "chapter": 36
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 64
+        },
+        "end": {
+          "book": 19,
+          "chapter": 64
+        }
+      },
+      "seconds": 801.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 37
+        },
+        "end": {
+          "book": 24,
+          "chapter": 38
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 65
+        },
+        "end": {
+          "book": 19,
+          "chapter": 66
+        }
+      },
+      "seconds": 675.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 39
+        },
+        "end": {
+          "book": 24,
+          "chapter": 40
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 67
+        },
+        "end": {
+          "book": 19,
+          "chapter": 68
+        }
+      },
+      "seconds": 650.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 41
+        },
+        "end": {
+          "book": 24,
+          "chapter": 43
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 69
+        },
+        "end": {
+          "book": 19,
+          "chapter": 69
+        }
+      },
+      "seconds": 713.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 44
+        },
+        "end": {
+          "book": 24,
+          "chapter": 46
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 70
+        },
+        "end": {
+          "book": 19,
+          "chapter": 70
+        }
+      },
+      "seconds": 703.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 47
+        },
+        "end": {
+          "book": 24,
+          "chapter": 48
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 71
+        },
+        "end": {
+          "book": 19,
+          "chapter": 71
+        }
+      },
+      "seconds": 640.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 49
+        },
+        "end": {
+          "book": 24,
+          "chapter": 49
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 72
+        },
+        "end": {
+          "book": 19,
+          "chapter": 73
+        }
+      },
+      "seconds": 668.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 50
+        },
+        "end": {
+          "book": 24,
+          "chapter": 50
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 74
+        },
+        "end": {
+          "book": 19,
+          "chapter": 74
+        }
+      },
+      "seconds": 608.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 51
+        },
+        "end": {
+          "book": 24,
+          "chapter": 51
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 75
+        },
+        "end": {
+          "book": 19,
+          "chapter": 75
+        }
+      },
+      "seconds": 659.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 24,
+          "chapter": 52
+        },
+        "end": {
+          "book": 25,
+          "chapter": 1
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 76
+        },
+        "end": {
+          "book": 19,
+          "chapter": 76
+        }
+      },
+      "seconds": 650.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 25,
+          "chapter": 2
+        },
+        "end": {
+          "book": 25,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 77
+        },
+        "end": {
+          "book": 19,
+          "chapter": 77
+        }
+      },
+      "seconds": 691.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 25,
+          "chapter": 4
+        },
+        "end": {
+          "book": 25,
+          "chapter": 5
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 78
+        },
+        "end": {
+          "book": 19,
+          "chapter": 78
+        }
+      },
+      "seconds": 691.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 1
+        },
+        "end": {
+          "book": 26,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 79
+        },
+        "end": {
+          "book": 19,
+          "chapter": 79
+        }
+      },
+      "seconds": 674.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 4
+        },
+        "end": {
+          "book": 26,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 80
+        },
+        "end": {
+          "book": 19,
+          "chapter": 80
+        }
+      },
+      "seconds": 604.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 7
+        },
+        "end": {
+          "book": 26,
+          "chapter": 9
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 81
+        },
+        "end": {
+          "book": 19,
+          "chapter": 81
+        }
+      },
+      "seconds": 654.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 10
+        },
+        "end": {
+          "book": 26,
+          "chapter": 12
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 82
+        },
+        "end": {
+          "book": 19,
+          "chapter": 82
+        }
+      },
+      "seconds": 691.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 13
+        },
+        "end": {
+          "book": 26,
+          "chapter": 14
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 83
+        },
+        "end": {
+          "book": 19,
+          "chapter": 84
+        }
+      },
+      "seconds": 654.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 15
+        },
+        "end": {
+          "book": 26,
+          "chapter": 16
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 85
+        },
+        "end": {
+          "book": 19,
+          "chapter": 85
+        }
+      },
+      "seconds": 696.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 17
+        },
+        "end": {
+          "book": 26,
+          "chapter": 18
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 86
+        },
+        "end": {
+          "book": 19,
+          "chapter": 87
+        }
+      },
+      "seconds": 684.3
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 19
+        },
+        "end": {
+          "book": 26,
+          "chapter": 20
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 88
+        },
+        "end": {
+          "book": 19,
+          "chapter": 88
+        }
+      },
+      "seconds": 702.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 21
+        },
+        "end": {
+          "book": 26,
+          "chapter": 21
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 89
+        },
+        "end": {
+          "book": 19,
+          "chapter": 90
+        }
+      },
+      "seconds": 688.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 22
+        },
+        "end": {
+          "book": 26,
+          "chapter": 23
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 91
+        },
+        "end": {
+          "book": 19,
+          "chapter": 91
+        }
+      },
+      "seconds": 756.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 24
+        },
+        "end": {
+          "book": 26,
+          "chapter": 26
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 92
+        },
+        "end": {
+          "book": 19,
+          "chapter": 92
+        }
+      },
+      "seconds": 665.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 27
+        },
+        "end": {
+          "book": 26,
+          "chapter": 28
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 93
+        },
+        "end": {
+          "book": 19,
+          "chapter": 94
+        }
+      },
+      "seconds": 656.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 29
+        },
+        "end": {
+          "book": 26,
+          "chapter": 31
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 95
+        },
+        "end": {
+          "book": 19,
+          "chapter": 95
+        }
+      },
+      "seconds": 688.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 32
+        },
+        "end": {
+          "book": 26,
+          "chapter": 33
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 96
+        },
+        "end": {
+          "book": 19,
+          "chapter": 96
+        }
+      },
+      "seconds": 730.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 34
+        },
+        "end": {
+          "book": 26,
+          "chapter": 35
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 97
+        },
+        "end": {
+          "book": 19,
+          "chapter": 100
+        }
+      },
+      "seconds": 624.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 36
+        },
+        "end": {
+          "book": 26,
+          "chapter": 37
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 101
+        },
+        "end": {
+          "book": 19,
+          "chapter": 101
+        }
+      },
+      "seconds": 701.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 38
+        },
+        "end": {
+          "book": 26,
+          "chapter": 39
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 102
+        },
+        "end": {
+          "book": 19,
+          "chapter": 102
+        }
+      },
+      "seconds": 667.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 40
+        },
+        "end": {
+          "book": 26,
+          "chapter": 41
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 103
+        },
+        "end": {
+          "book": 19,
+          "chapter": 103
+        }
+      },
+      "seconds": 828.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 42
+        },
+        "end": {
+          "book": 26,
+          "chapter": 43
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 104
+        },
+        "end": {
+          "book": 19,
+          "chapter": 104
+        }
+      },
+      "seconds": 642.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 44
+        },
+        "end": {
+          "book": 26,
+          "chapter": 45
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 105
+        },
+        "end": {
+          "book": 19,
+          "chapter": 105
+        }
+      },
+      "seconds": 802.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 46
+        },
+        "end": {
+          "book": 26,
+          "chapter": 47
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 106
+        },
+        "end": {
+          "book": 19,
+          "chapter": 106
+        }
+      },
+      "seconds": 741.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 26,
+          "chapter": 48
+        },
+        "end": {
+          "book": 27,
+          "chapter": 1
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 107
+        },
+        "end": {
+          "book": 19,
+          "chapter": 107
+        }
+      },
+      "seconds": 735.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 27,
+          "chapter": 2
+        },
+        "end": {
+          "book": 27,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 108
+        },
+        "end": {
+          "book": 19,
+          "chapter": 108
+        }
+      },
+      "seconds": 859.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 27,
+          "chapter": 4
+        },
+        "end": {
+          "book": 27,
+          "chapter": 4
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 109
+        },
+        "end": {
+          "book": 19,
+          "chapter": 109
+        }
+      },
+      "seconds": 581.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 27,
+          "chapter": 5
+        },
+        "end": {
+          "book": 27,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 110
+        },
+        "end": {
+          "book": 19,
+          "chapter": 110
+        }
+      },
+      "seconds": 639.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 27,
+          "chapter": 7
+        },
+        "end": {
+          "book": 27,
+          "chapter": 8
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 111
+        },
+        "end": {
+          "book": 19,
+          "chapter": 111
+        }
+      },
+      "seconds": 627.0
+    },
+    {
+      "a": {
+        "start": {
+          "book": 27,
+          "chapter": 9
+        },
+        "end": {
+          "book": 27,
+          "chapter": 10
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 112
+        },
+        "end": {
+          "book": 19,
+          "chapter": 113
+        }
+      },
+      "seconds": 599.4
+    },
+    {
+      "a": {
+        "start": {
+          "book": 27,
+          "chapter": 11
+        },
+        "end": {
+          "book": 27,
+          "chapter": 11
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 114
+        },
+        "end": {
+          "book": 19,
+          "chapter": 116
+        }
+      },
+      "seconds": 649.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 27,
+          "chapter": 12
+        },
+        "end": {
+          "book": 28,
+          "chapter": 2
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 117
+        },
+        "end": {
+          "book": 19,
+          "chapter": 118
+        }
+      },
+      "seconds": 617.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 28,
+          "chapter": 3
+        },
+        "end": {
+          "book": 28,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 119
+        },
+        "end": {
+          "book": 19,
+          "chapter": 119
+        }
+      },
+      "seconds": 918.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 28,
+          "chapter": 4
+        },
+        "end": {
+          "book": 28,
+          "chapter": 7
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 120
+        },
+        "end": {
+          "book": 19,
+          "chapter": 123
+        }
+      },
+      "seconds": 678.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 28,
+          "chapter": 8
+        },
+        "end": {
+          "book": 28,
+          "chapter": 11
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 124
+        },
+        "end": {
+          "book": 19,
+          "chapter": 126
+        }
+      },
+      "seconds": 654.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 28,
+          "chapter": 12
+        },
+        "end": {
+          "book": 29,
+          "chapter": 1
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 127
+        },
+        "end": {
+          "book": 19,
+          "chapter": 130
+        }
+      },
+      "seconds": 682.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 29,
+          "chapter": 2
+        },
+        "end": {
+          "book": 29,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 131
+        },
+        "end": {
+          "book": 19,
+          "chapter": 134
+        }
+      },
+      "seconds": 651.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 30,
+          "chapter": 1
+        },
+        "end": {
+          "book": 30,
+          "chapter": 4
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 135
+        },
+        "end": {
+          "book": 19,
+          "chapter": 135
+        }
+      },
+      "seconds": 649.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 30,
+          "chapter": 5
+        },
+        "end": {
+          "book": 30,
+          "chapter": 8
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 136
+        },
+        "end": {
+          "book": 19,
+          "chapter": 136
+        }
+      },
+      "seconds": 747.6
+    },
+    {
+      "a": {
+        "start": {
+          "book": 30,
+          "chapter": 9
+        },
+        "end": {
+          "book": 32,
+          "chapter": 1
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 137
+        },
+        "end": {
+          "book": 19,
+          "chapter": 138
+        }
+      },
+      "seconds": 649.7
+    },
+    {
+      "a": {
+        "start": {
+          "book": 32,
+          "chapter": 2
+        },
+        "end": {
+          "book": 33,
+          "chapter": 2
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 139
+        },
+        "end": {
+          "book": 19,
+          "chapter": 139
+        }
+      },
+      "seconds": 674.8
+    },
+    {
+      "a": {
+        "start": {
+          "book": 33,
+          "chapter": 3
+        },
+        "end": {
+          "book": 33,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 140
+        },
+        "end": {
+          "book": 19,
+          "chapter": 140
+        }
+      },
+      "seconds": 621.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 33,
+          "chapter": 7
+        },
+        "end": {
+          "book": 34,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 141
+        },
+        "end": {
+          "book": 19,
+          "chapter": 141
+        }
+      },
+      "seconds": 701.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 35,
+          "chapter": 1
+        },
+        "end": {
+          "book": 35,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 142
+        },
+        "end": {
+          "book": 19,
+          "chapter": 143
+        }
+      },
+      "seconds": 658.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 36,
+          "chapter": 1
+        },
+        "end": {
+          "book": 36,
+          "chapter": 3
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 144
+        },
+        "end": {
+          "book": 19,
+          "chapter": 144
+        }
+      },
+      "seconds": 627.2
+    },
+    {
+      "a": {
+        "start": {
+          "book": 37,
+          "chapter": 1
+        },
+        "end": {
+          "book": 38,
+          "chapter": 1
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 145
+        },
+        "end": {
+          "book": 19,
+          "chapter": 145
+        }
+      },
+      "seconds": 653.5
+    },
+    {
+      "a": {
+        "start": {
+          "book": 38,
+          "chapter": 2
+        },
+        "end": {
+          "book": 38,
+          "chapter": 6
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 146
+        },
+        "end": {
+          "book": 19,
+          "chapter": 147
+        }
+      },
+      "seconds": 681.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 38,
+          "chapter": 7
+        },
+        "end": {
+          "book": 38,
+          "chapter": 10
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 148
+        },
+        "end": {
+          "book": 19,
+          "chapter": 148
+        }
+      },
+      "seconds": 684.1
+    },
+    {
+      "a": {
+        "start": {
+          "book": 38,
+          "chapter": 11
+        },
+        "end": {
+          "book": 38,
+          "chapter": 14
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 149
+        },
+        "end": {
+          "book": 19,
+          "chapter": 149
+        }
+      },
+      "seconds": 637.9
+    },
+    {
+      "a": {
+        "start": {
+          "book": 39,
+          "chapter": 1
+        },
+        "end": {
+          "book": 39,
+          "chapter": 4
+        }
+      },
+      "b": {
+        "start": {
+          "book": 19,
+          "chapter": 150
+        },
+        "end": {
+          "book": 19,
+          "chapter": 150
+        }
+      },
+      "seconds": 589.7
+    }
+  ]
+}

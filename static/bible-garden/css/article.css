@@ -73,6 +73,18 @@
     color: #a3b8aa;
 }
 
+.article-body .article-callout {
+    margin: 1.5em 0;
+    padding: 1em 1.25em;
+    border: 1px solid rgba(212, 168, 67, 0.45);
+    border-left: 4px solid #d4a843;
+    border-radius: 0.75rem;
+    background: rgba(212, 168, 67, 0.08);
+}
+
+.article-body .article-callout > :first-child { margin-top: 0; }
+.article-body .article-callout > :last-child { margin-bottom: 0; }
+
 .article-body table {
     width: 100%;
     border-collapse: collapse;
@@ -269,4 +281,170 @@
 .lang-unavailable {
     color: #2e4a38;
     cursor: default;
+}
+
+/* Both calendars remain in the HTML; JavaScript enables the order switcher. */
+.reading-plan-switcher {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    padding: 0;
+    border: 0;
+}
+
+.reading-plan-switcher[hidden],
+.reading-plan[hidden] {
+    display: none !important;
+}
+
+.reading-plan-switcher legend {
+    margin-bottom: 0.4rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.reading-plan-switcher label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    cursor: pointer;
+}
+
+.reading-plan-switcher input {
+    accent-color: #d4a843;
+}
+
+.reading-plan-heading {
+    margin: 1.2rem 0 0.5rem;
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+/* The calendar uses real table cells so it remains usable without JavaScript. */
+.reading-plan {
+    max-width: 100%;
+    font-size: 0.875rem;
+    line-height: 1.35;
+}
+
+.reading-plan-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.reading-plan-controls label {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.reading-plan-controls input,
+.reading-plan-controls button {
+    min-height: 2.5rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid #45634c;
+    border-radius: 0.4rem;
+    background: #102015;
+    color: #fff;
+}
+
+.reading-plan-month {
+    border-top: 1px solid #45634c;
+    margin-top: 0.6rem;
+}
+
+.reading-plan-month summary {
+    padding: 0.6rem 0;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.article-body .reading-plan table {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    overflow: visible;
+    font-size: inherit;
+}
+
+.reading-plan th:first-child { width: 3.6rem; }
+.reading-plan th:nth-child(2) { width: 5.5rem; }
+.reading-plan th:last-child { width: 2rem; }
+
+.article-body .reading-plan th,
+.article-body .reading-plan td {
+    padding: 0.35rem 0.4rem;
+    overflow-wrap: anywhere;
+}
+
+.article-body .reading-plan th { overflow-wrap: normal; }
+
+.reading-plan-checkbox {
+    text-align: center !important;
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+@media (max-width: 480px) {
+    .reading-plan { font-size: 0.75rem; }
+    .reading-plan th:first-child { width: 2.6rem; }
+    .reading-plan th:nth-child(2) { width: 4.4rem; }
+    .reading-plan th:last-child { width: 1.6rem; }
+    .article-body .reading-plan th,
+    .article-body .reading-plan td { padding: 0.25rem 0.2rem; }
+}
+
+@media print {
+    .has-reading-plan { background: #fff !important; color: #000 !important; }
+    .has-reading-plan > nav,
+    .has-reading-plan > footer,
+    .has-reading-plan article > nav,
+    .has-reading-plan article > header,
+    .has-reading-plan article > aside,
+    .has-reading-plan .article-screen-aside,
+    .has-reading-plan .article-screen-dialog,
+    .has-reading-plan .article-body > :not(.reading-plans),
+    .has-reading-plan .reading-plan-switcher,
+    .has-reading-plan .reading-plan-controls { display: none !important; }
+
+    .has-reading-plan main,
+    .has-reading-plan article { margin: 0; padding: 0; max-width: none; }
+    .has-reading-plan .article-screen-layout { display: block; }
+    .has-reading-plan .reading-plans { margin-top: 0; }
+    .has-reading-plan .reading-plan[hidden] { display: none !important; }
+    .reading-plan { color: #000; font-size: 9pt; line-height: 1.15; }
+    .reading-plan-heading {
+        color: #000;
+        font-size: 11pt;
+        margin: 0 0 0.2rem;
+        break-after: avoid;
+    }
+    .reading-plan-month { break-before: auto; break-inside: auto; border: 0; margin: 0; }
+    .reading-plan-month summary {
+        display: block;
+        color: #000;
+        padding: 0.15rem 0 0.25rem;
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+    .reading-plan-month summary::marker { content: ''; }
+    .reading-plan-month summary::-webkit-details-marker { display: none; }
+    .reading-plan-month:not([open]) > .reading-plan-month-body { display: block !important; }
+    .reading-plan-month-body,
+    .reading-plan-month table { break-inside: auto; }
+    .reading-plan-month thead { display: table-header-group; break-after: avoid; }
+    .reading-plan-month tr { break-inside: avoid; page-break-inside: avoid; }
+    .article-body .reading-plan th,
+    .article-body .reading-plan td { color: #000; background: #fff; border: 1px solid #888; padding: 1px 3px; }
+    .reading-plan th:first-child { width: 2.5rem; }
+    .reading-plan th:nth-child(2) { width: 5rem; }
+    .reading-plan th:last-child { width: 1.5rem; }
 }

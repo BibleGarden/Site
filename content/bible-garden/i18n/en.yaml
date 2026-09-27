@@ -84,6 +84,19 @@ articles:
   screen_open: "Open larger screenshot: {caption}"
   screen_viewer: App screenshot
   screen_close: Close screenshot
+  reading_plan:
+    choose_plan: Reading order
+    parallel: Parallel
+    sequential: Straight through
+    start_date: Start date
+    print: Print
+    day: Day
+    date: Date
+    reading: Reading
+    days: "Days {first}–{last}"
+    caption_days: "Reading plan: days {first}–{last}"
+    caption_month: "Reading plan: {month}, days {first}–{last}"
+    done: Done
   download_title: Read and listen with Bible Garden
   download_text: "A free, open-source app for reading and listening to the Bible in multiple languages, with professional narration and configurable pauses."
   download_cta: Download on the App Store

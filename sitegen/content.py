@@ -14,6 +14,7 @@ from markdown.extensions.toc import slugify_unicode
 from markupsafe import Markup, escape
 
 from .errors import BuildError
+from .reading_plan import PLACEHOLDER, annotate_plan_marker, load_plans, render_plan
 from .screens import Screen, ScreenFigureExtension, ScreenRef, VARIANTS, check_asset, load_catalog, load_checksums
 
 FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---\n(.*)\Z", re.DOTALL)
@@ -127,6 +128,7 @@ class Article:
     body_html: str
     faq: tuple[FaqItem, ...]
     screens: tuple[ScreenRef, ...]
+    has_plan: bool = False
 
     @property
     def path(self) -> str:
@@ -249,6 +251,8 @@ def load_articles(site: Site, content_dir: Path) -> dict[str, dict[str, Article]
         raise BuildError(f"{articles_dir}: missing articles directory (keep it, even if empty, with a .gitkeep)")
     screens = load_catalog(content_dir / "screens.yaml", site.languages)
     checksums = load_checksums(content_dir / "screens.sha256", screens, site.languages) if screens else {}
+    if site.key == "bible-garden":
+        load_plans()
     for slug_dir in sorted(articles_dir.iterdir()):
         if slug_dir.name == ".gitkeep":
             continue
@@ -264,7 +268,8 @@ def load_articles(site: Site, content_dir: Path) -> dict[str, dict[str, Article]
             if lang not in site.languages:
                 raise BuildError(f"{source}: unknown language '{lang}', expected one of {', '.join(site.languages)}")
             versions[lang] = parse_article(
-                source, slug_dir.name, lang, screens, checksums, site.i18n[lang]["articles"], site.output_dir
+                source, slug_dir.name, lang, screens, checksums, site.i18n[lang]["articles"], site.output_dir,
+                site_key=site.key,
             )
         if not versions:
             raise BuildError(f"{slug_dir}: article directory has no language versions")
@@ -328,9 +333,12 @@ def parse_article(
     checksums: dict[Path, str],
     strings: dict,
     output_dir: Path,
+    *,
+    site_key: str = "bible-garden",
 ) -> Article:
     meta, body, body_start_line = _frontmatter(source, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS)
-    marked_body, clean_body, refs = annotate_screens(body, source, lang, screens, body_start_line)
+    plan_body, has_plan = annotate_plan_marker(body, source, site_key, body_start_line)
+    marked_body, clean_body, refs = annotate_screens(plan_body, source, lang, screens, body_start_line)
     for ref in refs:
         for variant in VARIANTS:
             check_asset(ref.screen, lang, variant, output_dir, checksums[ref.screen.path(lang, variant)])
@@ -340,6 +348,11 @@ def parse_article(
         body_html = render_markdown(marked_body, refs, strings["screen_open"])
     else:
         body_html = render_markdown(marked_body)
+    if has_plan:
+        parallel, sequential, chapters = load_plans()
+        if body_html.count(PLACEHOLDER) != 1:
+            raise BuildError(f"{source}: reading plan marker did not render exactly once")
+        body_html = body_html.replace(PLACEHOLDER, render_plan(parallel, sequential, chapters, lang, strings.get("reading_plan")))
     return Article(
         slug=slug,
         lang=lang,
@@ -350,8 +363,9 @@ def parse_article(
         draft=_require_bool(meta, "draft", source) if "draft" in meta else False,
         image=_require_str(meta, "image", source) if "image" in meta else None,
         body_html=body_html,
-        faq=extract_faq(clean_body, source),
+        faq=extract_faq(clean_body.replace(PLACEHOLDER, ""), source),
         screens=refs,
+        has_plan=has_plan,
     )
 
 

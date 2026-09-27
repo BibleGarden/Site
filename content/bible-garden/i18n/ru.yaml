@@ -84,6 +84,19 @@ articles:
   screen_open: "Открыть скриншот крупнее: {caption}"
   screen_viewer: Скриншот приложения
   screen_close: Закрыть скриншот
+  reading_plan:
+    choose_plan: Порядок чтения
+    parallel: Параллельно
+    sequential: Подряд
+    start_date: Дата начала
+    print: Распечатать
+    day: День
+    date: Дата
+    reading: Чтение
+    days: "Дни {first}–{last}"
+    caption_days: "План чтения: дни {first}–{last}"
+    caption_month: "План чтения: {month}, дни {first}–{last}"
+    done: Отметка
   download_title: Читайте и слушайте с Bible Garden
   download_text: "Бесплатное приложение с открытым кодом для чтения и прослушивания Библии на нескольких языках с профессиональной озвучкой и настраиваемыми паузами."
   download_cta: Скачать в App Store

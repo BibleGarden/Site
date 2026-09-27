@@ -1,0 +1,4749 @@
+{
+  "days": [
+    {
+      "reading": {
+        "start": {
+          "book": 1,
+          "chapter": 1
+        },
+        "end": {
+          "book": 1,
+          "chapter": 3
+        }
+      },
+      "seconds": 682.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 1,
+          "chapter": 4
+        },
+        "end": {
+          "book": 1,
+          "chapter": 7
+        }
+      },
+      "seconds": 747.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 1,
+          "chapter": 8
+        },
+        "end": {
+          "book": 1,
+          "chapter": 11
+        }
+      },
+      "seconds": 772.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 1,
+          "chapter": 12
+        },
+        "end": {
+          "book": 1,
+          "chapter": 16
+        }
+      },
+      "seconds": 792.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 1,
+          "chapter": 17
+        },
+        "end": {
+          "book": 1,
+          "chapter": 19
+        }
+      },
+      "seconds": 793.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 1,
+          "chapter": 20
+        },
+        "end": {
+          "book": 1,
+          "chapter": 23
+        }
+      },
+      "seconds": 729.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 1,
+          "chapter": 24
+        },
+        "end": {
+          "book": 1,
+          "chapter": 25
+        }
+      },
+      "seconds": 758.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 1,
+          "chapter": 26
+        },
+        "end": {
+          "book": 1,
+          "chapter": 27
+        }
+      },
+      "seconds": 648.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 1,
+          "chapter": 28
+        },
+        "end": {
+          "book": 1,
+          "chapter": 30
+        }
+      },
+      "seconds": 764.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 1,
+          "chapter": 31
+        },
+        "end": {
+          "book": 1,
+          "chapter": 32
+        }
+      },
+      "seconds": 677.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 1,
+          "chapter": 33
+        },
+        "end": {
+          "book": 1,
+          "chapter": 35
+        }
+      },
+      "seconds": 617.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 1,
+          "chapter": 36
+        },
+        "end": {
+          "book": 1,
+          "chapter": 37
+        }
+      },
+      "seconds": 597.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 1,
+          "chapter": 38
+        },
+        "end": {
+          "book": 1,
+          "chapter": 40
+        }
+      },
+      "seconds": 598.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 1,
+          "chapter": 41
+        },
+        "end": {
+          "book": 1,
+          "chapter": 42
+        }
+      },
+      "seconds": 717.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 1,
+          "chapter": 43
+        },
+        "end": {
+          "book": 1,
+          "chapter": 45
+        }
+      },
+      "seconds": 746.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 1,
+          "chapter": 46
+        },
+        "end": {
+          "book": 1,
+          "chapter": 48
+        }
+      },
+      "seconds": 735.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 1,
+          "chapter": 49
+        },
+        "end": {
+          "book": 2,
+          "chapter": 2
+        }
+      },
+      "seconds": 800.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 2,
+          "chapter": 3
+        },
+        "end": {
+          "book": 2,
+          "chapter": 5
+        }
+      },
+      "seconds": 640.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 2,
+          "chapter": 6
+        },
+        "end": {
+          "book": 2,
+          "chapter": 8
+        }
+      },
+      "seconds": 722.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 2,
+          "chapter": 9
+        },
+        "end": {
+          "book": 2,
+          "chapter": 11
+        }
+      },
+      "seconds": 625.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 2,
+          "chapter": 12
+        },
+        "end": {
+          "book": 2,
+          "chapter": 13
+        }
+      },
+      "seconds": 591.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 2,
+          "chapter": 14
+        },
+        "end": {
+          "book": 2,
+          "chapter": 16
+        }
+      },
+      "seconds": 775.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 2,
+          "chapter": 17
+        },
+        "end": {
+          "book": 2,
+          "chapter": 20
+        }
+      },
+      "seconds": 722.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 2,
+          "chapter": 21
+        },
+        "end": {
+          "book": 2,
+          "chapter": 23
+        }
+      },
+      "seconds": 740.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 2,
+          "chapter": 24
+        },
+        "end": {
+          "book": 2,
+          "chapter": 27
+        }
+      },
+      "seconds": 756.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 2,
+          "chapter": 28
+        },
+        "end": {
+          "book": 2,
+          "chapter": 29
+        }
+      },
+      "seconds": 721.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 2,
+          "chapter": 30
+        },
+        "end": {
+          "book": 2,
+          "chapter": 32
+        }
+      },
+      "seconds": 709.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 2,
+          "chapter": 33
+        },
+        "end": {
+          "book": 2,
+          "chapter": 35
+        }
+      },
+      "seconds": 754.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 2,
+          "chapter": 36
+        },
+        "end": {
+          "book": 2,
+          "chapter": 38
+        }
+      },
+      "seconds": 695.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 2,
+          "chapter": 39
+        },
+        "end": {
+          "book": 3,
+          "chapter": 1
+        }
+      },
+      "seconds": 688.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 3,
+          "chapter": 2
+        },
+        "end": {
+          "book": 3,
+          "chapter": 5
+        }
+      },
+      "seconds": 766.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 3,
+          "chapter": 6
+        },
+        "end": {
+          "book": 3,
+          "chapter": 8
+        }
+      },
+      "seconds": 812.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 3,
+          "chapter": 9
+        },
+        "end": {
+          "book": 3,
+          "chapter": 11
+        }
+      },
+      "seconds": 708.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 3,
+          "chapter": 12
+        },
+        "end": {
+          "book": 3,
+          "chapter": 13
+        }
+      },
+      "seconds": 563.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 3,
+          "chapter": 14
+        },
+        "end": {
+          "book": 3,
+          "chapter": 15
+        }
+      },
+      "seconds": 680.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 3,
+          "chapter": 16
+        },
+        "end": {
+          "book": 3,
+          "chapter": 18
+        }
+      },
+      "seconds": 674.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 3,
+          "chapter": 19
+        },
+        "end": {
+          "book": 3,
+          "chapter": 21
+        }
+      },
+      "seconds": 667.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 3,
+          "chapter": 22
+        },
+        "end": {
+          "book": 3,
+          "chapter": 24
+        }
+      },
+      "seconds": 770.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 3,
+          "chapter": 25
+        },
+        "end": {
+          "book": 3,
+          "chapter": 26
+        }
+      },
+      "seconds": 778.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 3,
+          "chapter": 27
+        },
+        "end": {
+          "book": 4,
+          "chapter": 1
+        }
+      },
+      "seconds": 634.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 4,
+          "chapter": 2
+        },
+        "end": {
+          "book": 4,
+          "chapter": 3
+        }
+      },
+      "seconds": 580.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 4,
+          "chapter": 4
+        },
+        "end": {
+          "book": 4,
+          "chapter": 6
+        }
+      },
+      "seconds": 809.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 4,
+          "chapter": 7
+        },
+        "end": {
+          "book": 4,
+          "chapter": 7
+        }
+      },
+      "seconds": 633.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 4,
+          "chapter": 8
+        },
+        "end": {
+          "book": 4,
+          "chapter": 10
+        }
+      },
+      "seconds": 640.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 4,
+          "chapter": 11
+        },
+        "end": {
+          "book": 4,
+          "chapter": 13
+        }
+      },
+      "seconds": 628.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 4,
+          "chapter": 14
+        },
+        "end": {
+          "book": 4,
+          "chapter": 15
+        }
+      },
+      "seconds": 665.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 4,
+          "chapter": 16
+        },
+        "end": {
+          "book": 4,
+          "chapter": 18
+        }
+      },
+      "seconds": 791.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 4,
+          "chapter": 19
+        },
+        "end": {
+          "book": 4,
+          "chapter": 21
+        }
+      },
+      "seconds": 728.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 4,
+          "chapter": 22
+        },
+        "end": {
+          "book": 4,
+          "chapter": 24
+        }
+      },
+      "seconds": 760.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 4,
+          "chapter": 25
+        },
+        "end": {
+          "book": 4,
+          "chapter": 27
+        }
+      },
+      "seconds": 771.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 4,
+          "chapter": 28
+        },
+        "end": {
+          "book": 4,
+          "chapter": 30
+        }
+      },
+      "seconds": 645.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 4,
+          "chapter": 31
+        },
+        "end": {
+          "book": 4,
+          "chapter": 32
+        }
+      },
+      "seconds": 630.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 4,
+          "chapter": 33
+        },
+        "end": {
+          "book": 4,
+          "chapter": 35
+        }
+      },
+      "seconds": 766.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 4,
+          "chapter": 36
+        },
+        "end": {
+          "book": 5,
+          "chapter": 2
+        }
+      },
+      "seconds": 791.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 5,
+          "chapter": 3
+        },
+        "end": {
+          "book": 5,
+          "chapter": 4
+        }
+      },
+      "seconds": 646.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 5,
+          "chapter": 5
+        },
+        "end": {
+          "book": 5,
+          "chapter": 7
+        }
+      },
+      "seconds": 699.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 5,
+          "chapter": 8
+        },
+        "end": {
+          "book": 5,
+          "chapter": 10
+        }
+      },
+      "seconds": 642.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 5,
+          "chapter": 11
+        },
+        "end": {
+          "book": 5,
+          "chapter": 13
+        }
+      },
+      "seconds": 723.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 5,
+          "chapter": 14
+        },
+        "end": {
+          "book": 5,
+          "chapter": 16
+        }
+      },
+      "seconds": 591.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 5,
+          "chapter": 17
+        },
+        "end": {
+          "book": 5,
+          "chapter": 20
+        }
+      },
+      "seconds": 720.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 5,
+          "chapter": 21
+        },
+        "end": {
+          "book": 5,
+          "chapter": 23
+        }
+      },
+      "seconds": 621.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 5,
+          "chapter": 24
+        },
+        "end": {
+          "book": 5,
+          "chapter": 27
+        }
+      },
+      "seconds": 730.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 5,
+          "chapter": 28
+        },
+        "end": {
+          "book": 5,
+          "chapter": 28
+        }
+      },
+      "seconds": 591.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 5,
+          "chapter": 29
+        },
+        "end": {
+          "book": 5,
+          "chapter": 31
+        }
+      },
+      "seconds": 724.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 5,
+          "chapter": 32
+        },
+        "end": {
+          "book": 5,
+          "chapter": 33
+        }
+      },
+      "seconds": 683.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 5,
+          "chapter": 34
+        },
+        "end": {
+          "book": 6,
+          "chapter": 3
+        }
+      },
+      "seconds": 657.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 6,
+          "chapter": 4
+        },
+        "end": {
+          "book": 6,
+          "chapter": 6
+        }
+      },
+      "seconds": 629.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 6,
+          "chapter": 7
+        },
+        "end": {
+          "book": 6,
+          "chapter": 8
+        }
+      },
+      "seconds": 643.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 6,
+          "chapter": 9
+        },
+        "end": {
+          "book": 6,
+          "chapter": 10
+        }
+      },
+      "seconds": 620.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 6,
+          "chapter": 11
+        },
+        "end": {
+          "book": 6,
+          "chapter": 13
+        }
+      },
+      "seconds": 653.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 6,
+          "chapter": 14
+        },
+        "end": {
+          "book": 6,
+          "chapter": 16
+        }
+      },
+      "seconds": 615.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 6,
+          "chapter": 17
+        },
+        "end": {
+          "book": 6,
+          "chapter": 19
+        }
+      },
+      "seconds": 749.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 6,
+          "chapter": 20
+        },
+        "end": {
+          "book": 6,
+          "chapter": 22
+        }
+      },
+      "seconds": 736.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 6,
+          "chapter": 23
+        },
+        "end": {
+          "book": 7,
+          "chapter": 1
+        }
+      },
+      "seconds": 759.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 7,
+          "chapter": 2
+        },
+        "end": {
+          "book": 7,
+          "chapter": 4
+        }
+      },
+      "seconds": 685.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 7,
+          "chapter": 5
+        },
+        "end": {
+          "book": 7,
+          "chapter": 6
+        }
+      },
+      "seconds": 625.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 7,
+          "chapter": 7
+        },
+        "end": {
+          "book": 7,
+          "chapter": 8
+        }
+      },
+      "seconds": 558.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 7,
+          "chapter": 9
+        },
+        "end": {
+          "book": 7,
+          "chapter": 10
+        }
+      },
+      "seconds": 591.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 7,
+          "chapter": 11
+        },
+        "end": {
+          "book": 7,
+          "chapter": 13
+        }
+      },
+      "seconds": 677.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 7,
+          "chapter": 14
+        },
+        "end": {
+          "book": 7,
+          "chapter": 16
+        }
+      },
+      "seconds": 715.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 7,
+          "chapter": 17
+        },
+        "end": {
+          "book": 7,
+          "chapter": 19
+        }
+      },
+      "seconds": 673.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 7,
+          "chapter": 20
+        },
+        "end": {
+          "book": 7,
+          "chapter": 21
+        }
+      },
+      "seconds": 594.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 8,
+          "chapter": 1
+        },
+        "end": {
+          "book": 8,
+          "chapter": 3
+        }
+      },
+      "seconds": 576.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 8,
+          "chapter": 4
+        },
+        "end": {
+          "book": 9,
+          "chapter": 2
+        }
+      },
+      "seconds": 769.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 9,
+          "chapter": 3
+        },
+        "end": {
+          "book": 9,
+          "chapter": 6
+        }
+      },
+      "seconds": 717.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 9,
+          "chapter": 7
+        },
+        "end": {
+          "book": 9,
+          "chapter": 9
+        }
+      },
+      "seconds": 596.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 9,
+          "chapter": 10
+        },
+        "end": {
+          "book": 9,
+          "chapter": 12
+        }
+      },
+      "seconds": 614.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 9,
+          "chapter": 13
+        },
+        "end": {
+          "book": 9,
+          "chapter": 14
+        }
+      },
+      "seconds": 714.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 9,
+          "chapter": 15
+        },
+        "end": {
+          "book": 9,
+          "chapter": 16
+        }
+      },
+      "seconds": 516.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 9,
+          "chapter": 17
+        },
+        "end": {
+          "book": 9,
+          "chapter": 18
+        }
+      },
+      "seconds": 738.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 9,
+          "chapter": 19
+        },
+        "end": {
+          "book": 9,
+          "chapter": 21
+        }
+      },
+      "seconds": 742.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 9,
+          "chapter": 22
+        },
+        "end": {
+          "book": 9,
+          "chapter": 24
+        }
+      },
+      "seconds": 668.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 9,
+          "chapter": 25
+        },
+        "end": {
+          "book": 9,
+          "chapter": 26
+        }
+      },
+      "seconds": 656.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 9,
+          "chapter": 27
+        },
+        "end": {
+          "book": 9,
+          "chapter": 30
+        }
+      },
+      "seconds": 710.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 9,
+          "chapter": 31
+        },
+        "end": {
+          "book": 10,
+          "chapter": 2
+        }
+      },
+      "seconds": 588.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 10,
+          "chapter": 3
+        },
+        "end": {
+          "book": 10,
+          "chapter": 5
+        }
+      },
+      "seconds": 667.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 10,
+          "chapter": 6
+        },
+        "end": {
+          "book": 10,
+          "chapter": 9
+        }
+      },
+      "seconds": 732.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 10,
+          "chapter": 10
+        },
+        "end": {
+          "book": 10,
+          "chapter": 12
+        }
+      },
+      "seconds": 697.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 10,
+          "chapter": 13
+        },
+        "end": {
+          "book": 10,
+          "chapter": 14
+        }
+      },
+      "seconds": 668.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 10,
+          "chapter": 15
+        },
+        "end": {
+          "book": 10,
+          "chapter": 17
+        }
+      },
+      "seconds": 822.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 10,
+          "chapter": 18
+        },
+        "end": {
+          "book": 10,
+          "chapter": 19
+        }
+      },
+      "seconds": 741.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 10,
+          "chapter": 20
+        },
+        "end": {
+          "book": 10,
+          "chapter": 22
+        }
+      },
+      "seconds": 760.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 10,
+          "chapter": 23
+        },
+        "end": {
+          "book": 10,
+          "chapter": 24
+        }
+      },
+      "seconds": 544.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 11,
+          "chapter": 1
+        },
+        "end": {
+          "book": 11,
+          "chapter": 2
+        }
+      },
+      "seconds": 872.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 11,
+          "chapter": 3
+        },
+        "end": {
+          "book": 11,
+          "chapter": 5
+        }
+      },
+      "seconds": 634.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 11,
+          "chapter": 6
+        },
+        "end": {
+          "book": 11,
+          "chapter": 7
+        }
+      },
+      "seconds": 722.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 11,
+          "chapter": 8
+        },
+        "end": {
+          "book": 11,
+          "chapter": 8
+        }
+      },
+      "seconds": 602.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 11,
+          "chapter": 9
+        },
+        "end": {
+          "book": 11,
+          "chapter": 10
+        }
+      },
+      "seconds": 494.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 11,
+          "chapter": 11
+        },
+        "end": {
+          "book": 11,
+          "chapter": 12
+        }
+      },
+      "seconds": 692.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 11,
+          "chapter": 13
+        },
+        "end": {
+          "book": 11,
+          "chapter": 14
+        }
+      },
+      "seconds": 576.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 11,
+          "chapter": 15
+        },
+        "end": {
+          "book": 11,
+          "chapter": 16
+        }
+      },
+      "seconds": 615.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 11,
+          "chapter": 17
+        },
+        "end": {
+          "book": 11,
+          "chapter": 18
+        }
+      },
+      "seconds": 626.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 11,
+          "chapter": 19
+        },
+        "end": {
+          "book": 11,
+          "chapter": 20
+        }
+      },
+      "seconds": 673.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 11,
+          "chapter": 21
+        },
+        "end": {
+          "book": 11,
+          "chapter": 22
+        }
+      },
+      "seconds": 714.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 12,
+          "chapter": 1
+        },
+        "end": {
+          "book": 12,
+          "chapter": 3
+        }
+      },
+      "seconds": 712.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 12,
+          "chapter": 4
+        },
+        "end": {
+          "book": 12,
+          "chapter": 5
+        }
+      },
+      "seconds": 671.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 12,
+          "chapter": 6
+        },
+        "end": {
+          "book": 12,
+          "chapter": 8
+        }
+      },
+      "seconds": 797.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 12,
+          "chapter": 9
+        },
+        "end": {
+          "book": 12,
+          "chapter": 10
+        }
+      },
+      "seconds": 725.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 12,
+          "chapter": 11
+        },
+        "end": {
+          "book": 12,
+          "chapter": 13
+        }
+      },
+      "seconds": 653.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 12,
+          "chapter": 14
+        },
+        "end": {
+          "book": 12,
+          "chapter": 15
+        }
+      },
+      "seconds": 592.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 12,
+          "chapter": 16
+        },
+        "end": {
+          "book": 12,
+          "chapter": 17
+        }
+      },
+      "seconds": 558.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 12,
+          "chapter": 18
+        },
+        "end": {
+          "book": 12,
+          "chapter": 19
+        }
+      },
+      "seconds": 695.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 12,
+          "chapter": 20
+        },
+        "end": {
+          "book": 12,
+          "chapter": 22
+        }
+      },
+      "seconds": 612.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 12,
+          "chapter": 23
+        },
+        "end": {
+          "book": 12,
+          "chapter": 25
+        }
+      },
+      "seconds": 846.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 13,
+          "chapter": 1
+        },
+        "end": {
+          "book": 13,
+          "chapter": 2
+        }
+      },
+      "seconds": 626.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 13,
+          "chapter": 3
+        },
+        "end": {
+          "book": 13,
+          "chapter": 5
+        }
+      },
+      "seconds": 689.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 13,
+          "chapter": 6
+        },
+        "end": {
+          "book": 13,
+          "chapter": 7
+        }
+      },
+      "seconds": 766.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 13,
+          "chapter": 8
+        },
+        "end": {
+          "book": 13,
+          "chapter": 10
+        }
+      },
+      "seconds": 624.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 13,
+          "chapter": 11
+        },
+        "end": {
+          "book": 13,
+          "chapter": 13
+        }
+      },
+      "seconds": 717.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 13,
+          "chapter": 14
+        },
+        "end": {
+          "book": 13,
+          "chapter": 16
+        }
+      },
+      "seconds": 653.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 13,
+          "chapter": 17
+        },
+        "end": {
+          "book": 13,
+          "chapter": 20
+        }
+      },
+      "seconds": 633.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 13,
+          "chapter": 21
+        },
+        "end": {
+          "book": 13,
+          "chapter": 23
+        }
+      },
+      "seconds": 684.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 13,
+          "chapter": 24
+        },
+        "end": {
+          "book": 13,
+          "chapter": 26
+        }
+      },
+      "seconds": 656.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 13,
+          "chapter": 27
+        },
+        "end": {
+          "book": 13,
+          "chapter": 29
+        }
+      },
+      "seconds": 805.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 14,
+          "chapter": 1
+        },
+        "end": {
+          "book": 14,
+          "chapter": 4
+        }
+      },
+      "seconds": 652.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 14,
+          "chapter": 5
+        },
+        "end": {
+          "book": 14,
+          "chapter": 7
+        }
+      },
+      "seconds": 746.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 14,
+          "chapter": 8
+        },
+        "end": {
+          "book": 14,
+          "chapter": 11
+        }
+      },
+      "seconds": 735.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 14,
+          "chapter": 12
+        },
+        "end": {
+          "book": 14,
+          "chapter": 15
+        }
+      },
+      "seconds": 654.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 14,
+          "chapter": 16
+        },
+        "end": {
+          "book": 14,
+          "chapter": 19
+        }
+      },
+      "seconds": 722.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 14,
+          "chapter": 20
+        },
+        "end": {
+          "book": 14,
+          "chapter": 22
+        }
+      },
+      "seconds": 693.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 14,
+          "chapter": 23
+        },
+        "end": {
+          "book": 14,
+          "chapter": 25
+        }
+      },
+      "seconds": 777.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 14,
+          "chapter": 26
+        },
+        "end": {
+          "book": 14,
+          "chapter": 28
+        }
+      },
+      "seconds": 580.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 14,
+          "chapter": 29
+        },
+        "end": {
+          "book": 14,
+          "chapter": 30
+        }
+      },
+      "seconds": 632.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 14,
+          "chapter": 31
+        },
+        "end": {
+          "book": 14,
+          "chapter": 33
+        }
+      },
+      "seconds": 828.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 14,
+          "chapter": 34
+        },
+        "end": {
+          "book": 14,
+          "chapter": 35
+        }
+      },
+      "seconds": 633.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 14,
+          "chapter": 36
+        },
+        "end": {
+          "book": 15,
+          "chapter": 2
+        }
+      },
+      "seconds": 717.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 15,
+          "chapter": 3
+        },
+        "end": {
+          "book": 15,
+          "chapter": 6
+        }
+      },
+      "seconds": 783.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 15,
+          "chapter": 7
+        },
+        "end": {
+          "book": 15,
+          "chapter": 9
+        }
+      },
+      "seconds": 735.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 15,
+          "chapter": 10
+        },
+        "end": {
+          "book": 16,
+          "chapter": 2
+        }
+      },
+      "seconds": 646.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 16,
+          "chapter": 3
+        },
+        "end": {
+          "book": 16,
+          "chapter": 5
+        }
+      },
+      "seconds": 672.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 16,
+          "chapter": 6
+        },
+        "end": {
+          "book": 16,
+          "chapter": 8
+        }
+      },
+      "seconds": 818.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 16,
+          "chapter": 9
+        },
+        "end": {
+          "book": 16,
+          "chapter": 10
+        }
+      },
+      "seconds": 652.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 16,
+          "chapter": 11
+        },
+        "end": {
+          "book": 16,
+          "chapter": 12
+        }
+      },
+      "seconds": 608.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 16,
+          "chapter": 13
+        },
+        "end": {
+          "book": 17,
+          "chapter": 2
+        }
+      },
+      "seconds": 759.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 17,
+          "chapter": 3
+        },
+        "end": {
+          "book": 17,
+          "chapter": 7
+        }
+      },
+      "seconds": 722.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 17,
+          "chapter": 8
+        },
+        "end": {
+          "book": 18,
+          "chapter": 1
+        }
+      },
+      "seconds": 708.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 18,
+          "chapter": 2
+        },
+        "end": {
+          "book": 18,
+          "chapter": 6
+        }
+      },
+      "seconds": 646.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 18,
+          "chapter": 7
+        },
+        "end": {
+          "book": 18,
+          "chapter": 11
+        }
+      },
+      "seconds": 632.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 18,
+          "chapter": 12
+        },
+        "end": {
+          "book": 18,
+          "chapter": 16
+        }
+      },
+      "seconds": 690.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 18,
+          "chapter": 17
+        },
+        "end": {
+          "book": 18,
+          "chapter": 21
+        }
+      },
+      "seconds": 649.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 18,
+          "chapter": 22
+        },
+        "end": {
+          "book": 18,
+          "chapter": 28
+        }
+      },
+      "seconds": 740.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 18,
+          "chapter": 29
+        },
+        "end": {
+          "book": 18,
+          "chapter": 32
+        }
+      },
+      "seconds": 629.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 18,
+          "chapter": 33
+        },
+        "end": {
+          "book": 18,
+          "chapter": 36
+        }
+      },
+      "seconds": 616.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 18,
+          "chapter": 37
+        },
+        "end": {
+          "book": 18,
+          "chapter": 40
+        }
+      },
+      "seconds": 605.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 18,
+          "chapter": 41
+        },
+        "end": {
+          "book": 19,
+          "chapter": 6
+        }
+      },
+      "seconds": 676.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 7
+        },
+        "end": {
+          "book": 19,
+          "chapter": 15
+        }
+      },
+      "seconds": 660.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 16
+        },
+        "end": {
+          "book": 19,
+          "chapter": 20
+        }
+      },
+      "seconds": 644.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 21
+        },
+        "end": {
+          "book": 19,
+          "chapter": 27
+        }
+      },
+      "seconds": 678.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 28
+        },
+        "end": {
+          "book": 19,
+          "chapter": 34
+        }
+      },
+      "seconds": 712.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 35
+        },
+        "end": {
+          "book": 19,
+          "chapter": 38
+        }
+      },
+      "seconds": 605.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 39
+        },
+        "end": {
+          "book": 19,
+          "chapter": 44
+        }
+      },
+      "seconds": 613.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 45
+        },
+        "end": {
+          "book": 19,
+          "chapter": 50
+        }
+      },
+      "seconds": 608.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 51
+        },
+        "end": {
+          "book": 19,
+          "chapter": 57
+        }
+      },
+      "seconds": 632.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 58
+        },
+        "end": {
+          "book": 19,
+          "chapter": 65
+        }
+      },
+      "seconds": 662.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 66
+        },
+        "end": {
+          "book": 19,
+          "chapter": 70
+        }
+      },
+      "seconds": 670.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 71
+        },
+        "end": {
+          "book": 19,
+          "chapter": 75
+        }
+      },
+      "seconds": 658.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 76
+        },
+        "end": {
+          "book": 19,
+          "chapter": 79
+        }
+      },
+      "seconds": 687.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 80
+        },
+        "end": {
+          "book": 19,
+          "chapter": 86
+        }
+      },
+      "seconds": 641.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 87
+        },
+        "end": {
+          "book": 19,
+          "chapter": 91
+        }
+      },
+      "seconds": 663.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 92
+        },
+        "end": {
+          "book": 19,
+          "chapter": 101
+        }
+      },
+      "seconds": 693.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 102
+        },
+        "end": {
+          "book": 19,
+          "chapter": 105
+        }
+      },
+      "seconds": 700.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 106
+        },
+        "end": {
+          "book": 19,
+          "chapter": 109
+        }
+      },
+      "seconds": 756.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 110
+        },
+        "end": {
+          "book": 19,
+          "chapter": 118
+        }
+      },
+      "seconds": 629.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 119
+        },
+        "end": {
+          "book": 19,
+          "chapter": 119
+        }
+      },
+      "seconds": 869.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 120
+        },
+        "end": {
+          "book": 19,
+          "chapter": 134
+        }
+      },
+      "seconds": 658.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 135
+        },
+        "end": {
+          "book": 19,
+          "chapter": 141
+        }
+      },
+      "seconds": 709.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 142
+        },
+        "end": {
+          "book": 19,
+          "chapter": 149
+        }
+      },
+      "seconds": 679.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 19,
+          "chapter": 150
+        },
+        "end": {
+          "book": 20,
+          "chapter": 4
+        }
+      },
+      "seconds": 643.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 20,
+          "chapter": 5
+        },
+        "end": {
+          "book": 20,
+          "chapter": 9
+        }
+      },
+      "seconds": 725.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 20,
+          "chapter": 10
+        },
+        "end": {
+          "book": 20,
+          "chapter": 13
+        }
+      },
+      "seconds": 691.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 20,
+          "chapter": 14
+        },
+        "end": {
+          "book": 20,
+          "chapter": 17
+        }
+      },
+      "seconds": 768.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 20,
+          "chapter": 18
+        },
+        "end": {
+          "book": 20,
+          "chapter": 21
+        }
+      },
+      "seconds": 678.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 20,
+          "chapter": 22
+        },
+        "end": {
+          "book": 20,
+          "chapter": 24
+        }
+      },
+      "seconds": 619.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 20,
+          "chapter": 25
+        },
+        "end": {
+          "book": 20,
+          "chapter": 28
+        }
+      },
+      "seconds": 681.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 20,
+          "chapter": 29
+        },
+        "end": {
+          "book": 21,
+          "chapter": 1
+        }
+      },
+      "seconds": 672.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 21,
+          "chapter": 2
+        },
+        "end": {
+          "book": 21,
+          "chapter": 5
+        }
+      },
+      "seconds": 676.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 21,
+          "chapter": 6
+        },
+        "end": {
+          "book": 21,
+          "chapter": 9
+        }
+      },
+      "seconds": 624.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 21,
+          "chapter": 10
+        },
+        "end": {
+          "book": 22,
+          "chapter": 3
+        }
+      },
+      "seconds": 689.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 22,
+          "chapter": 4
+        },
+        "end": {
+          "book": 22,
+          "chapter": 8
+        }
+      },
+      "seconds": 640.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 1
+        },
+        "end": {
+          "book": 23,
+          "chapter": 3
+        }
+      },
+      "seconds": 632.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 4
+        },
+        "end": {
+          "book": 23,
+          "chapter": 7
+        }
+      },
+      "seconds": 668.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 8
+        },
+        "end": {
+          "book": 23,
+          "chapter": 10
+        }
+      },
+      "seconds": 670.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 11
+        },
+        "end": {
+          "book": 23,
+          "chapter": 14
+        }
+      },
+      "seconds": 654.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 15
+        },
+        "end": {
+          "book": 23,
+          "chapter": 20
+        }
+      },
+      "seconds": 698.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 21
+        },
+        "end": {
+          "book": 23,
+          "chapter": 24
+        }
+      },
+      "seconds": 681.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 25
+        },
+        "end": {
+          "book": 23,
+          "chapter": 28
+        }
+      },
+      "seconds": 685.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 29
+        },
+        "end": {
+          "book": 23,
+          "chapter": 31
+        }
+      },
+      "seconds": 636.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 32
+        },
+        "end": {
+          "book": 23,
+          "chapter": 35
+        }
+      },
+      "seconds": 618.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 36
+        },
+        "end": {
+          "book": 23,
+          "chapter": 38
+        }
+      },
+      "seconds": 746.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 39
+        },
+        "end": {
+          "book": 23,
+          "chapter": 41
+        }
+      },
+      "seconds": 603.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 42
+        },
+        "end": {
+          "book": 23,
+          "chapter": 44
+        }
+      },
+      "seconds": 753.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 45
+        },
+        "end": {
+          "book": 23,
+          "chapter": 48
+        }
+      },
+      "seconds": 730.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 49
+        },
+        "end": {
+          "book": 23,
+          "chapter": 51
+        }
+      },
+      "seconds": 623.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 52
+        },
+        "end": {
+          "book": 23,
+          "chapter": 55
+        }
+      },
+      "seconds": 566.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 56
+        },
+        "end": {
+          "book": 23,
+          "chapter": 59
+        }
+      },
+      "seconds": 664.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 60
+        },
+        "end": {
+          "book": 23,
+          "chapter": 64
+        }
+      },
+      "seconds": 731.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 23,
+          "chapter": 65
+        },
+        "end": {
+          "book": 24,
+          "chapter": 1
+        }
+      },
+      "seconds": 661.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 2
+        },
+        "end": {
+          "book": 24,
+          "chapter": 3
+        }
+      },
+      "seconds": 600.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 4
+        },
+        "end": {
+          "book": 24,
+          "chapter": 5
+        }
+      },
+      "seconds": 565.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 6
+        },
+        "end": {
+          "book": 24,
+          "chapter": 8
+        }
+      },
+      "seconds": 797.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 9
+        },
+        "end": {
+          "book": 24,
+          "chapter": 11
+        }
+      },
+      "seconds": 686.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 12
+        },
+        "end": {
+          "book": 24,
+          "chapter": 14
+        }
+      },
+      "seconds": 606.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 15
+        },
+        "end": {
+          "book": 24,
+          "chapter": 17
+        }
+      },
+      "seconds": 674.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 18
+        },
+        "end": {
+          "book": 24,
+          "chapter": 21
+        }
+      },
+      "seconds": 683.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 22
+        },
+        "end": {
+          "book": 24,
+          "chapter": 23
+        }
+      },
+      "seconds": 639.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 24
+        },
+        "end": {
+          "book": 24,
+          "chapter": 26
+        }
+      },
+      "seconds": 673.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 27
+        },
+        "end": {
+          "book": 24,
+          "chapter": 29
+        }
+      },
+      "seconds": 681.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 30
+        },
+        "end": {
+          "book": 24,
+          "chapter": 31
+        }
+      },
+      "seconds": 599.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 32
+        },
+        "end": {
+          "book": 24,
+          "chapter": 33
+        }
+      },
+      "seconds": 668.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 34
+        },
+        "end": {
+          "book": 24,
+          "chapter": 36
+        }
+      },
+      "seconds": 736.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 37
+        },
+        "end": {
+          "book": 24,
+          "chapter": 39
+        }
+      },
+      "seconds": 624.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 40
+        },
+        "end": {
+          "book": 24,
+          "chapter": 42
+        }
+      },
+      "seconds": 565.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 43
+        },
+        "end": {
+          "book": 24,
+          "chapter": 45
+        }
+      },
+      "seconds": 523.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 46
+        },
+        "end": {
+          "book": 24,
+          "chapter": 48
+        }
+      },
+      "seconds": 742.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 49
+        },
+        "end": {
+          "book": 24,
+          "chapter": 50
+        }
+      },
+      "seconds": 852.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 51
+        },
+        "end": {
+          "book": 24,
+          "chapter": 51
+        }
+      },
+      "seconds": 590.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 24,
+          "chapter": 52
+        },
+        "end": {
+          "book": 25,
+          "chapter": 1
+        }
+      },
+      "seconds": 574.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 25,
+          "chapter": 2
+        },
+        "end": {
+          "book": 25,
+          "chapter": 4
+        }
+      },
+      "seconds": 758.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 25,
+          "chapter": 5
+        },
+        "end": {
+          "book": 26,
+          "chapter": 3
+        }
+      },
+      "seconds": 688.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 26,
+          "chapter": 4
+        },
+        "end": {
+          "book": 26,
+          "chapter": 7
+        }
+      },
+      "seconds": 737.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 26,
+          "chapter": 8
+        },
+        "end": {
+          "book": 26,
+          "chapter": 11
+        }
+      },
+      "seconds": 705.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 26,
+          "chapter": 12
+        },
+        "end": {
+          "book": 26,
+          "chapter": 14
+        }
+      },
+      "seconds": 705.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 26,
+          "chapter": 15
+        },
+        "end": {
+          "book": 26,
+          "chapter": 16
+        }
+      },
+      "seconds": 618.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 26,
+          "chapter": 17
+        },
+        "end": {
+          "book": 26,
+          "chapter": 19
+        }
+      },
+      "seconds": 642.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 26,
+          "chapter": 20
+        },
+        "end": {
+          "book": 26,
+          "chapter": 21
+        }
+      },
+      "seconds": 753.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 26,
+          "chapter": 22
+        },
+        "end": {
+          "book": 26,
+          "chapter": 23
+        }
+      },
+      "seconds": 666.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 26,
+          "chapter": 24
+        },
+        "end": {
+          "book": 26,
+          "chapter": 26
+        }
+      },
+      "seconds": 580.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 26,
+          "chapter": 27
+        },
+        "end": {
+          "book": 26,
+          "chapter": 29
+        }
+      },
+      "seconds": 690.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 26,
+          "chapter": 30
+        },
+        "end": {
+          "book": 26,
+          "chapter": 32
+        }
+      },
+      "seconds": 747.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 26,
+          "chapter": 33
+        },
+        "end": {
+          "book": 26,
+          "chapter": 35
+        }
+      },
+      "seconds": 716.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 26,
+          "chapter": 36
+        },
+        "end": {
+          "book": 26,
+          "chapter": 37
+        }
+      },
+      "seconds": 637.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 26,
+          "chapter": 38
+        },
+        "end": {
+          "book": 26,
+          "chapter": 39
+        }
+      },
+      "seconds": 505.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 26,
+          "chapter": 40
+        },
+        "end": {
+          "book": 26,
+          "chapter": 41
+        }
+      },
+      "seconds": 702.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 26,
+          "chapter": 42
+        },
+        "end": {
+          "book": 26,
+          "chapter": 44
+        }
+      },
+      "seconds": 757.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 26,
+          "chapter": 45
+        },
+        "end": {
+          "book": 26,
+          "chapter": 46
+        }
+      },
+      "seconds": 532.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 26,
+          "chapter": 47
+        },
+        "end": {
+          "book": 27,
+          "chapter": 1
+        }
+      },
+      "seconds": 724.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 27,
+          "chapter": 2
+        },
+        "end": {
+          "book": 27,
+          "chapter": 3
+        }
+      },
+      "seconds": 778.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 27,
+          "chapter": 4
+        },
+        "end": {
+          "book": 27,
+          "chapter": 5
+        }
+      },
+      "seconds": 711.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 27,
+          "chapter": 6
+        },
+        "end": {
+          "book": 27,
+          "chapter": 7
+        }
+      },
+      "seconds": 580.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 27,
+          "chapter": 8
+        },
+        "end": {
+          "book": 27,
+          "chapter": 10
+        }
+      },
+      "seconds": 746.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 27,
+          "chapter": 11
+        },
+        "end": {
+          "book": 28,
+          "chapter": 1
+        }
+      },
+      "seconds": 654.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 28,
+          "chapter": 2
+        },
+        "end": {
+          "book": 28,
+          "chapter": 7
+        }
+      },
+      "seconds": 767.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 28,
+          "chapter": 8
+        },
+        "end": {
+          "book": 28,
+          "chapter": 12
+        }
+      },
+      "seconds": 637.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 28,
+          "chapter": 13
+        },
+        "end": {
+          "book": 29,
+          "chapter": 2
+        }
+      },
+      "seconds": 684.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 29,
+          "chapter": 3
+        },
+        "end": {
+          "book": 30,
+          "chapter": 4
+        }
+      },
+      "seconds": 704.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 30,
+          "chapter": 5
+        },
+        "end": {
+          "book": 30,
+          "chapter": 8
+        }
+      },
+      "seconds": 600.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 30,
+          "chapter": 9
+        },
+        "end": {
+          "book": 32,
+          "chapter": 3
+        }
+      },
+      "seconds": 679.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 32,
+          "chapter": 4
+        },
+        "end": {
+          "book": 33,
+          "chapter": 4
+        }
+      },
+      "seconds": 624.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 33,
+          "chapter": 5
+        },
+        "end": {
+          "book": 34,
+          "chapter": 1
+        }
+      },
+      "seconds": 609.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 34,
+          "chapter": 2
+        },
+        "end": {
+          "book": 35,
+          "chapter": 2
+        }
+      },
+      "seconds": 635.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 35,
+          "chapter": 3
+        },
+        "end": {
+          "book": 36,
+          "chapter": 3
+        }
+      },
+      "seconds": 685.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 37,
+          "chapter": 1
+        },
+        "end": {
+          "book": 38,
+          "chapter": 3
+        }
+      },
+      "seconds": 723.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 38,
+          "chapter": 4
+        },
+        "end": {
+          "book": 38,
+          "chapter": 8
+        }
+      },
+      "seconds": 639.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 38,
+          "chapter": 9
+        },
+        "end": {
+          "book": 38,
+          "chapter": 12
+        }
+      },
+      "seconds": 574.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 38,
+          "chapter": 13
+        },
+        "end": {
+          "book": 39,
+          "chapter": 2
+        }
+      },
+      "seconds": 627.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 39,
+          "chapter": 3
+        },
+        "end": {
+          "book": 40,
+          "chapter": 2
+        }
+      },
+      "seconds": 642.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 40,
+          "chapter": 3
+        },
+        "end": {
+          "book": 40,
+          "chapter": 5
+        }
+      },
+      "seconds": 694.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 40,
+          "chapter": 6
+        },
+        "end": {
+          "book": 40,
+          "chapter": 8
+        }
+      },
+      "seconds": 712.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 40,
+          "chapter": 9
+        },
+        "end": {
+          "book": 40,
+          "chapter": 10
+        }
+      },
+      "seconds": 591.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 40,
+          "chapter": 11
+        },
+        "end": {
+          "book": 40,
+          "chapter": 12
+        }
+      },
+      "seconds": 595.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 40,
+          "chapter": 13
+        },
+        "end": {
+          "book": 40,
+          "chapter": 14
+        }
+      },
+      "seconds": 661.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 40,
+          "chapter": 15
+        },
+        "end": {
+          "book": 40,
+          "chapter": 17
+        }
+      },
+      "seconds": 690.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 40,
+          "chapter": 18
+        },
+        "end": {
+          "book": 40,
+          "chapter": 20
+        }
+      },
+      "seconds": 745.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 40,
+          "chapter": 21
+        },
+        "end": {
+          "book": 40,
+          "chapter": 22
+        }
+      },
+      "seconds": 636.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 40,
+          "chapter": 23
+        },
+        "end": {
+          "book": 40,
+          "chapter": 24
+        }
+      },
+      "seconds": 638.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 40,
+          "chapter": 25
+        },
+        "end": {
+          "book": 40,
+          "chapter": 26
+        }
+      },
+      "seconds": 865.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 40,
+          "chapter": 27
+        },
+        "end": {
+          "book": 40,
+          "chapter": 28
+        }
+      },
+      "seconds": 586.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 41,
+          "chapter": 1
+        },
+        "end": {
+          "book": 41,
+          "chapter": 3
+        }
+      },
+      "seconds": 769.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 41,
+          "chapter": 4
+        },
+        "end": {
+          "book": 41,
+          "chapter": 5
+        }
+      },
+      "seconds": 579.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 41,
+          "chapter": 6
+        },
+        "end": {
+          "book": 41,
+          "chapter": 7
+        }
+      },
+      "seconds": 674.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 41,
+          "chapter": 8
+        },
+        "end": {
+          "book": 41,
+          "chapter": 9
+        }
+      },
+      "seconds": 642.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 41,
+          "chapter": 10
+        },
+        "end": {
+          "book": 41,
+          "chapter": 11
+        }
+      },
+      "seconds": 612.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 41,
+          "chapter": 12
+        },
+        "end": {
+          "book": 41,
+          "chapter": 13
+        }
+      },
+      "seconds": 591.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 41,
+          "chapter": 14
+        },
+        "end": {
+          "book": 41,
+          "chapter": 15
+        }
+      },
+      "seconds": 825.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 41,
+          "chapter": 16
+        },
+        "end": {
+          "book": 42,
+          "chapter": 1
+        }
+      },
+      "seconds": 638.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 42,
+          "chapter": 2
+        },
+        "end": {
+          "book": 42,
+          "chapter": 3
+        }
+      },
+      "seconds": 622.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 42,
+          "chapter": 4
+        },
+        "end": {
+          "book": 42,
+          "chapter": 5
+        }
+      },
+      "seconds": 632.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 42,
+          "chapter": 6
+        },
+        "end": {
+          "book": 42,
+          "chapter": 7
+        }
+      },
+      "seconds": 771.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 42,
+          "chapter": 8
+        },
+        "end": {
+          "book": 42,
+          "chapter": 8
+        }
+      },
+      "seconds": 474.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 42,
+          "chapter": 9
+        },
+        "end": {
+          "book": 42,
+          "chapter": 9
+        }
+      },
+      "seconds": 484.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 42,
+          "chapter": 10
+        },
+        "end": {
+          "book": 42,
+          "chapter": 11
+        }
+      },
+      "seconds": 779.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 42,
+          "chapter": 12
+        },
+        "end": {
+          "book": 42,
+          "chapter": 13
+        }
+      },
+      "seconds": 737.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 42,
+          "chapter": 14
+        },
+        "end": {
+          "book": 42,
+          "chapter": 16
+        }
+      },
+      "seconds": 775.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 42,
+          "chapter": 17
+        },
+        "end": {
+          "book": 42,
+          "chapter": 18
+        }
+      },
+      "seconds": 566.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 42,
+          "chapter": 19
+        },
+        "end": {
+          "book": 42,
+          "chapter": 20
+        }
+      },
+      "seconds": 673.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 42,
+          "chapter": 21
+        },
+        "end": {
+          "book": 42,
+          "chapter": 22
+        }
+      },
+      "seconds": 748.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 42,
+          "chapter": 23
+        },
+        "end": {
+          "book": 42,
+          "chapter": 24
+        }
+      },
+      "seconds": 730.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 43,
+          "chapter": 1
+        },
+        "end": {
+          "book": 43,
+          "chapter": 3
+        }
+      },
+      "seconds": 811.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 43,
+          "chapter": 4
+        },
+        "end": {
+          "book": 43,
+          "chapter": 5
+        }
+      },
+      "seconds": 729.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 43,
+          "chapter": 6
+        },
+        "end": {
+          "book": 43,
+          "chapter": 7
+        }
+      },
+      "seconds": 851.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 43,
+          "chapter": 8
+        },
+        "end": {
+          "book": 43,
+          "chapter": 9
+        }
+      },
+      "seconds": 692.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 43,
+          "chapter": 10
+        },
+        "end": {
+          "book": 43,
+          "chapter": 11
+        }
+      },
+      "seconds": 653.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 43,
+          "chapter": 12
+        },
+        "end": {
+          "book": 43,
+          "chapter": 13
+        }
+      },
+      "seconds": 665.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 43,
+          "chapter": 14
+        },
+        "end": {
+          "book": 43,
+          "chapter": 16
+        }
+      },
+      "seconds": 712.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 43,
+          "chapter": 17
+        },
+        "end": {
+          "book": 43,
+          "chapter": 18
+        }
+      },
+      "seconds": 519.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 43,
+          "chapter": 19
+        },
+        "end": {
+          "book": 43,
+          "chapter": 20
+        }
+      },
+      "seconds": 600.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 43,
+          "chapter": 21
+        },
+        "end": {
+          "book": 44,
+          "chapter": 2
+        }
+      },
+      "seconds": 789.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 44,
+          "chapter": 3
+        },
+        "end": {
+          "book": 44,
+          "chapter": 5
+        }
+      },
+      "seconds": 790.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 44,
+          "chapter": 6
+        },
+        "end": {
+          "book": 44,
+          "chapter": 7
+        }
+      },
+      "seconds": 573.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 44,
+          "chapter": 8
+        },
+        "end": {
+          "book": 44,
+          "chapter": 9
+        }
+      },
+      "seconds": 606.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 44,
+          "chapter": 10
+        },
+        "end": {
+          "book": 44,
+          "chapter": 12
+        }
+      },
+      "seconds": 756.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 44,
+          "chapter": 13
+        },
+        "end": {
+          "book": 44,
+          "chapter": 14
+        }
+      },
+      "seconds": 627.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 44,
+          "chapter": 15
+        },
+        "end": {
+          "book": 44,
+          "chapter": 16
+        }
+      },
+      "seconds": 606.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 44,
+          "chapter": 17
+        },
+        "end": {
+          "book": 44,
+          "chapter": 18
+        }
+      },
+      "seconds": 517.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 44,
+          "chapter": 19
+        },
+        "end": {
+          "book": 44,
+          "chapter": 20
+        }
+      },
+      "seconds": 595.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 44,
+          "chapter": 21
+        },
+        "end": {
+          "book": 44,
+          "chapter": 22
+        }
+      },
+      "seconds": 584.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 44,
+          "chapter": 23
+        },
+        "end": {
+          "book": 44,
+          "chapter": 25
+        }
+      },
+      "seconds": 716.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 44,
+          "chapter": 26
+        },
+        "end": {
+          "book": 44,
+          "chapter": 27
+        }
+      },
+      "seconds": 592.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 44,
+          "chapter": 28
+        },
+        "end": {
+          "book": 45,
+          "chapter": 2
+        }
+      },
+      "seconds": 746.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 45,
+          "chapter": 3
+        },
+        "end": {
+          "book": 45,
+          "chapter": 5
+        }
+      },
+      "seconds": 626.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 45,
+          "chapter": 6
+        },
+        "end": {
+          "book": 45,
+          "chapter": 8
+        }
+      },
+      "seconds": 693.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 45,
+          "chapter": 9
+        },
+        "end": {
+          "book": 45,
+          "chapter": 11
+        }
+      },
+      "seconds": 682.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 45,
+          "chapter": 12
+        },
+        "end": {
+          "book": 45,
+          "chapter": 15
+        }
+      },
+      "seconds": 700.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 45,
+          "chapter": 16
+        },
+        "end": {
+          "book": 46,
+          "chapter": 3
+        }
+      },
+      "seconds": 698.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 46,
+          "chapter": 4
+        },
+        "end": {
+          "book": 46,
+          "chapter": 7
+        }
+      },
+      "seconds": 783.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 46,
+          "chapter": 8
+        },
+        "end": {
+          "book": 46,
+          "chapter": 10
+        }
+      },
+      "seconds": 576.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 46,
+          "chapter": 11
+        },
+        "end": {
+          "book": 46,
+          "chapter": 13
+        }
+      },
+      "seconds": 565.5
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 46,
+          "chapter": 14
+        },
+        "end": {
+          "book": 46,
+          "chapter": 15
+        }
+      },
+      "seconds": 696.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 46,
+          "chapter": 16
+        },
+        "end": {
+          "book": 47,
+          "chapter": 4
+        }
+      },
+      "seconds": 750.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 47,
+          "chapter": 5
+        },
+        "end": {
+          "book": 47,
+          "chapter": 8
+        }
+      },
+      "seconds": 637.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 47,
+          "chapter": 9
+        },
+        "end": {
+          "book": 47,
+          "chapter": 12
+        }
+      },
+      "seconds": 707.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 47,
+          "chapter": 13
+        },
+        "end": {
+          "book": 48,
+          "chapter": 3
+        }
+      },
+      "seconds": 702.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 48,
+          "chapter": 4
+        },
+        "end": {
+          "book": 49,
+          "chapter": 1
+        }
+      },
+      "seconds": 670.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 49,
+          "chapter": 2
+        },
+        "end": {
+          "book": 49,
+          "chapter": 5
+        }
+      },
+      "seconds": 690.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 49,
+          "chapter": 6
+        },
+        "end": {
+          "book": 50,
+          "chapter": 3
+        }
+      },
+      "seconds": 740.6
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 50,
+          "chapter": 4
+        },
+        "end": {
+          "book": 51,
+          "chapter": 3
+        }
+      },
+      "seconds": 730.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 51,
+          "chapter": 4
+        },
+        "end": {
+          "book": 52,
+          "chapter": 4
+        }
+      },
+      "seconds": 615.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 52,
+          "chapter": 5
+        },
+        "end": {
+          "book": 54,
+          "chapter": 1
+        }
+      },
+      "seconds": 656.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 54,
+          "chapter": 2
+        },
+        "end": {
+          "book": 54,
+          "chapter": 6
+        }
+      },
+      "seconds": 690.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 55,
+          "chapter": 1
+        },
+        "end": {
+          "book": 56,
+          "chapter": 1
+        }
+      },
+      "seconds": 728.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 56,
+          "chapter": 2
+        },
+        "end": {
+          "book": 58,
+          "chapter": 2
+        }
+      },
+      "seconds": 639.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 58,
+          "chapter": 3
+        },
+        "end": {
+          "book": 58,
+          "chapter": 7
+        }
+      },
+      "seconds": 717.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 58,
+          "chapter": 8
+        },
+        "end": {
+          "book": 58,
+          "chapter": 10
+        }
+      },
+      "seconds": 611.3
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 58,
+          "chapter": 11
+        },
+        "end": {
+          "book": 58,
+          "chapter": 13
+        }
+      },
+      "seconds": 696.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 59,
+          "chapter": 1
+        },
+        "end": {
+          "book": 59,
+          "chapter": 4
+        }
+      },
+      "seconds": 643.9
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 59,
+          "chapter": 5
+        },
+        "end": {
+          "book": 60,
+          "chapter": 3
+        }
+      },
+      "seconds": 720.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 60,
+          "chapter": 4
+        },
+        "end": {
+          "book": 61,
+          "chapter": 2
+        }
+      },
+      "seconds": 631.4
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 61,
+          "chapter": 3
+        },
+        "end": {
+          "book": 62,
+          "chapter": 3
+        }
+      },
+      "seconds": 660.8
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 62,
+          "chapter": 4
+        },
+        "end": {
+          "book": 65,
+          "chapter": 1
+        }
+      },
+      "seconds": 745.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 66,
+          "chapter": 1
+        },
+        "end": {
+          "book": 66,
+          "chapter": 3
+        }
+      },
+      "seconds": 653.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 66,
+          "chapter": 4
+        },
+        "end": {
+          "book": 66,
+          "chapter": 8
+        }
+      },
+      "seconds": 724.1
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 66,
+          "chapter": 9
+        },
+        "end": {
+          "book": 66,
+          "chapter": 12
+        }
+      },
+      "seconds": 640.7
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 66,
+          "chapter": 13
+        },
+        "end": {
+          "book": 66,
+          "chapter": 16
+        }
+      },
+      "seconds": 622.2
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 66,
+          "chapter": 17
+        },
+        "end": {
+          "book": 66,
+          "chapter": 19
+        }
+      },
+      "seconds": 652.0
+    },
+    {
+      "reading": {
+        "start": {
+          "book": 66,
+          "chapter": 20
+        },
+        "end": {
+          "book": 66,
+          "chapter": 22
+        }
+      },
+      "seconds": 584.4
+    }
+  ]
+}

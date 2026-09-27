@@ -206,6 +206,19 @@ accept a new archive version, update `ARCHIVE_SHA256` in the same script
 captions in `screens.yaml`, then import and commit the WebP and checksums in
 the same change.
 
+### Callout
+
+To make a key paragraph stand out for skimming readers, wrap it in a callout
+(Markdown inside is rendered thanks to `md_in_html` from `extra`):
+
+```markdown
+<div class="article-callout" markdown="1">
+**Multi Reading is the app's key feature.** Every verse plays twice…
+</div>
+```
+
+Use it sparingly — at most one per article.
+
 ### FAQ block
 
 A second-level heading with the `{#faq}` id marks the FAQ section. Every
@@ -226,6 +239,45 @@ It depends on your pace; the app shows the audio length of every book.
 ```
 
 Only one `{#faq}` section per article; every question needs an answer.
+
+### Reading plan in articles
+
+On bible.garden, put `<!-- plan: bible-in-a-year -->` on its own line where the
+calendars should appear. The build rejects unknown or malformed markers. Both
+365-day plans are in the HTML: **Parallel** reads the Old Testament without
+Psalms alongside the New Testament followed by Psalms; **Straight through**
+reads Genesis through Revelation in canonical order. Without JavaScript both
+appear, each with a heading and 31-day blocks (`Days 1–31`, `Days 32–62`, etc.).
+With JavaScript a radio switcher shows one plan and remembers the choice. The
+selected start date fills both calendars and groups their days by real calendar
+month, including partial first and last months. Printing includes only the
+selected plan and flows without a page break per month; without JavaScript,
+both plans print. The readings and print checkboxes are always in the HTML.
+
+The committed `tools/data/chapters.tsv` comes from `cep_public.voice_alignments`
+(BSB, Bob Souer), exported on 2026-09-27. Its New Testament IDs 45–65 place
+James–Jude before Romans–Hebrews; the generator explicitly maps them to
+Protestant canonical order. It first partitions the New Testament–Psalms
+stream, then exactly partitions the Old Testament stream against those day
+durations. It alternates the two streams for up to eight improvements. The
+sequential plan exactly partitions all 1189 chapters as one stream. Each
+partition minimizes the maximum deviation of daily audio duration from the
+365-day mean, then the total squared deviation. The two committed JSON files
+are in `content/bible-garden/plans/`.
+
+The JSON keeps Hebrew/BSB chapter numbers. Days never split Psalms 9–10 or
+114–115, or Malachi 3–4. The ru calendar displays Greek/Septuagint Psalm
+numbers used by Synodal and Kulakov/BTI; uk displays Malachi as three chapters
+and keeps Hebrew Psalm numbers. These translation chapter schemes were checked
+against `cep_public.translation_verses` on 2026-09-27.
+The TSV corrects the export's Russian book 22 name to «Песнь песней».
+
+Regenerate and rebuild with:
+
+```bash
+.venv/bin/python tools/build_reading_plan.py
+.venv/bin/python -m sitegen build
+```
 
 ## Author
 
