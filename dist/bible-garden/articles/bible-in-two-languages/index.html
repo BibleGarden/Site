@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="sitegen">
+    <title>Bilingual Bible App: Read and Listen in Two Languages — Bible Garden</title>
+    <meta name="description" content="Compare a parallel or bilingual Bible verse by verse. Hear English and Russian in Multi Reading, explore translations, and try a John 1 audio demo.">
+    <link rel="canonical" href="https://bible.garden/articles/bible-in-two-languages/">
+    <link rel="alternate" hreflang="en" href="https://bible.garden/articles/bible-in-two-languages/">
+    <link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/bible-in-two-languages/">
+    <link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/bible-in-two-languages/">
+    <link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/bible-in-two-languages/">
+    <meta property="og:site_name" content="Bible Garden">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bible.garden/articles/bible-in-two-languages/">
+    <meta property="og:title" content="Bilingual Bible App: Read and Listen in Two Languages — Bible Garden">
+    <meta property="og:description" content="Compare a parallel or bilingual Bible verse by verse. Hear English and Russian in Multi Reading, explore translations, and try a John 1 audio demo.">
+    <meta property="og:image" content="https://bible.garden/img/logo.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ru_RU">
+    <meta property="og:locale:alternate" content="uk_UA">
+    <script>
+        // Language handling without a server:
+        //  1. landing pages only: legacy ?lang=en|ru|uk links (ua = uk) go to the language URL
+        //     and record the choice;
+        //  2. English landing page only: a language chosen explicitly before wins; otherwise
+        //     a browser that prefers ru or uk is sent to that version;
+        //  3. clicking the language switcher records the explicit choice.
+        (function () {
+            var storageKey = "bg-lang";
+
+            function remember(language) {
+                try { window.localStorage.setItem(storageKey, language); } catch (error) { /* storage unavailable */ }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var links = document.querySelectorAll('a[data-lang]');
+                for (var index = 0; index < links.length; index += 1) {
+                    links[index].addEventListener('click', function (event) {
+                        remember(event.currentTarget.getAttribute('data-lang'));
+                    });
+                }
+            });
+        })();
+    </script>
+    <link rel="icon" type="image/png" href="/img/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        garden: {
+                            50: '#f0f7f2',
+                            100: '#d8ede0',
+                            200: '#b3dbc3',
+                            300: '#82c29f',
+                            400: '#52a379',
+                            500: '#35875c',
+                            600: '#266c49',
+                            700: '#1f563c',
+                            800: '#182e1e',
+                            900: '#121f17',
+                            950: '#0a1510',
+                        },
+                        gold: {
+                            300: '#f0cc6b',
+                            400: '#e8b84b',
+                            500: '#d4a843',
+                            600: '#b8923a',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Lora', 'Georgia', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/article.css">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bible.garden/articles/bible-in-two-languages/"
+  },
+  "headline": "Bilingual Bible App: Read and Listen in Two Languages",
+  "description": "Compare a parallel or bilingual Bible verse by verse. Hear English and Russian in Multi Reading, explore translations, and try a John 1 audio demo.",
+  "image": [
+    "https://bible.garden/img/logo.png"
+  ],
+  "inLanguage": "en",
+  "datePublished": "2026-09-27",
+  "dateModified": "2026-09-27",
+  "author": {
+    "@type": "Organization",
+    "name": "Bible Garden team",
+    "url": "https://bible.garden/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bible Garden",
+    "url": "https://bible.garden/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bible.garden/img/logo.png"
+    }
+  }
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bible.garden/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Articles",
+      "item": "https://bible.garden/articles/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Bilingual Bible App: Read and Listen in Two Languages",
+      "item": "https://bible.garden/articles/bible-in-two-languages/"
+    }
+  ]
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a bilingual Bible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>It gives the same passage in two languages, usually verse by verse, side by side or one beneath the other. It can help people read together or follow a language they are learning. In Bible Garden, you can also hear each verse in both languages.<\/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which parallel Bible app is the best?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>That depends on which languages, translations, and ways of reading you need. Bible Garden offers English, Russian, and Ukrainian text and audio on iPhone and iPad. Multi Reading shows and plays the same verse in two, three, or more translations; it does not offer interlinear text. Check whether its available translations and narrators suit you.<\/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a Duolingo but for the Bible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Bible Garden is a Bible reading and listening app, not a language course: it has no lessons or quizzes. Multi Reading can play a verse in a language you know and then one you are learning, so you can hear both in context. If you need a place to begin reading, try the <a href=\"/articles/how-to-start-reading-the-bible/\">seven-day plan in John<\/a>.<\/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I listen to the Bible in two languages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Yes. In Bible Garden's Multi Reading, choose a narrator for each translation and play a verse in one language, then the same verse in another. You can add a pause between them and include a third translation or more. The app is free and available for iPhone and iPad; the languages are English, Russian, and Ukrainian.<\/p>"
+      }
+    }
+  ]
+}</script>
+    <script defer src="/js/article-screens.js"></script>
+    <script defer src="/js/multi-reading-demo.js"></script>
+    <script defer src="https://stats.bible.garden/script.js" data-website-id="492eb2a8-fa4c-4d86-90c8-568f53fbccd4" data-domains="bible.garden" data-exclude-search="true" data-exclude-hash="true"></script>
+</head>
+
+<body class="bg-garden-950 text-gray-200 font-sans antialiased has-multi-reading-demo">
+
+    <nav class="nav-solid fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="flex items-center gap-2.5 group">
+                    <img src="/img/logo.png" alt="Bible Garden" class="w-8 h-8 rounded-lg">
+                    <span class="site-brand-name font-serif font-semibold text-lg text-white whitespace-nowrap">Bible Garden</span>
+                </a>
+
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <a href="/articles/" class="text-sm text-gray-400 hover:text-white transition-colors">Articles</a>
+
+                    <div class="flex items-center gap-1 text-sm text-gray-500">
+                        <a href="/articles/bible-in-two-languages/" hreflang="en" data-lang="en" class="lang-btn active px-1.5 py-0.5 cursor-pointer" aria-current="page">EN</a>
+                        <span class="text-garden-700">|</span>
+                        <a href="/ru/articles/bible-in-two-languages/" hreflang="ru" data-lang="ru" class="lang-btn px-1.5 py-0.5 cursor-pointer">RU</a>
+                        <span class="text-garden-700">|</span>
+                        <a href="/uk/articles/bible-in-two-languages/" hreflang="uk" data-lang="uk" class="lang-btn px-1.5 py-0.5 cursor-pointer">UK</a>
+                    </div>
+
+                    <a href="https://github.com/BibleGarden/" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition-colors cursor-pointer" aria-label="GitHub">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
+            <ol class="flex flex-wrap items-center gap-2">
+                <li><a href="/" class="hover:text-gray-300 transition-colors">Home</a></li>
+                <li aria-hidden="true">›</li>
+                <li><a href="/articles/" class="hover:text-gray-300 transition-colors">Articles</a></li>
+                <li aria-hidden="true">›</li>
+                <li class="text-gray-400" aria-current="page">Bilingual Bible App: Read and Listen in Two Languages</li>
+            </ol>
+        </nav>
+
+        <header class="mb-10 max-w-3xl">
+            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">Bilingual Bible App: Read and Listen in Two Languages</h1>
+            <p class="text-lg text-gray-400 leading-relaxed mb-4">Compare a parallel or bilingual Bible verse by verse. Hear English and Russian in Multi Reading, explore translations, and try a John 1 audio demo.</p>
+            <p class="text-xs text-gray-500">
+                By <a href="/about/" class="underline decoration-gray-600 underline-offset-2 hover:text-gray-300 transition-colors">Bible Garden team</a> · Published <time datetime="2026-09-27">2026-09-27</time>
+            </p>
+        </header>
+
+        <div class="article-screen-layout">
+        <div class="article-body">
+<p>A Bible in two languages can help you follow a passage with someone who speaks another language, or notice what changes between translations. A <strong>parallel Bible</strong> places two or more translations together; a <strong>bilingual Bible</strong> pairs the same text in two languages. An <strong>interlinear Bible</strong> is different: it places a word-by-word translation beneath the Hebrew or Greek original. In the free <a href="/">Bible Garden app</a> for iPhone and iPad, you can read and hear verses in English, Russian, or Ukrainian, with several translations in one sequence. Here is how it works and which recordings you can choose.</p>
+<h2 id="parallel-bilingual-and-interlinear-bibles-whats-the-difference">Parallel, bilingual, and interlinear Bibles: what's the difference?</h2>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>What you see</th>
+<th>Why use it</th>
+<th>In Bible Garden</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Parallel Bible</strong></td>
+<td>Two or more translations of the same passage together, in one language or several</td>
+<td>Compare how translators handle a difficult verse</td>
+<td>Yes: translations appear and play in sequence, verse by verse</td>
+</tr>
+<tr>
+<td><strong>Bilingual Bible</strong></td>
+<td>The same passage in two languages, verse alongside verse</td>
+<td>Follow a second language or read with a bilingual family</td>
+<td>Yes: pair English with Russian or Ukrainian, or Russian with Ukrainian</td>
+</tr>
+<tr>
+<td><strong>Interlinear Bible</strong></td>
+<td>Hebrew or Greek words aligned with a word-by-word translation</td>
+<td>Examine the wording of the original text</td>
+<td>No; specialized sites such as BibleHub offer interlinear texts</td>
+</tr>
+</tbody>
+</table>
+<p>These formats answer different questions. Parallel and bilingual readings let you compare the sense of a verse; an interlinear text helps you examine individual words in the original language.</p>
+<h2 data-screen="multi-reading" id="multi-reading-hear-each-verse-in-another-language">Multi Reading: hear each verse in another language</h2>
+<figure class="article-screen-inline"><a aria-label="Open larger screenshot: Multi Reading plays a verse in two translations" class="article-screen-link" data-zoom-height="2086" data-zoom-width="960" href="/img/article-screens/zoom/multi-reading.en.webp"><img alt="Multi Reading plays a verse in two translations" decoding="async" height="783" loading="lazy" sizes="180px" src="/img/article-screens/mobile/multi-reading.en.webp" srcset="/img/article-screens/mobile/multi-reading.en.webp 360w, /img/article-screens/phone/multi-reading.en.webp 480w" width="360" /></a></figure><div class="article-callout">
+<p><strong>Multi Reading is Bible Garden's key feature.</strong> Build a sequence with two, three, or more translations in any combination of English, Russian, and Ukrainian. Each verse plays in the chosen order, with optional pauses between readings. The other translations appear beneath the verse on screen, and the current reading is highlighted.</p>
+</div>
+<p>The screen shows John 1 with the English BSB verse above its Russian Synodal counterpart; the player shows the Russian reader, Илья Прудовский. Try the audio example below: John 1:1–5 plays each verse first in English (BSB, read by Bob Souer), then after a two-second pause in Russian (Synodal, read by Ilya Prudovsky).</p>
+<section class="multi-reading-demo" data-multi-reading-demo data-play="Play" data-pause="Pause" data-play-again="Play again" data-error="Audio could not be played." data-clips="[&quot;/audio/demo/bsb_souer/1.mp3&quot;,&quot;/audio/demo/prudovsky/1.mp3&quot;,&quot;/audio/demo/bsb_souer/2.mp3&quot;,&quot;/audio/demo/prudovsky/2.mp3&quot;,&quot;/audio/demo/bsb_souer/3.mp3&quot;,&quot;/audio/demo/prudovsky/3.mp3&quot;,&quot;/audio/demo/bsb_souer/4.mp3&quot;,&quot;/audio/demo/prudovsky/4.mp3&quot;,&quot;/audio/demo/bsb_souer/5.mp3&quot;,&quot;/audio/demo/prudovsky/5.mp3&quot;]" aria-labelledby="multi-reading-demo-title">
+<h3 id="multi-reading-demo-title">Listen to John 1:1–5 in two languages</h3>
+<div class="multi-reading-legend">
+<p><span class="multi-reading-key multi-reading-key-A">A</span> Berean Standard Bible (BSB) · Bob Souer</p>
+<p><span class="multi-reading-key multi-reading-key-B">B</span> Russian Synodal Bible · Ilya Prudovsky</p>
+</div><div class="multi-reading-controls" hidden><button type="button" class="multi-reading-toggle">Play</button><p class="multi-reading-error" role="alert" hidden></p></div>
+<ol class="multi-reading-verses">
+<li data-verse="1"><span class="multi-reading-number">1</span><div class="multi-reading-lines"><p class="multi-reading-line" data-step="a" lang="en">In the beginning was the Word, and the Word was with God, and the Word was God.</p><p class="multi-reading-line multi-reading-secondary" data-step="b" lang="ru">В начале было Слово, и Слово было у Бога, и Слово было Бог.</p></div></li>
+<li data-verse="2"><span class="multi-reading-number">2</span><div class="multi-reading-lines"><p class="multi-reading-line" data-step="a" lang="en">He was with God in the beginning.</p><p class="multi-reading-line multi-reading-secondary" data-step="b" lang="ru">Оно было в начале у Бога.</p></div></li>
+<li data-verse="3"><span class="multi-reading-number">3</span><div class="multi-reading-lines"><p class="multi-reading-line" data-step="a" lang="en">Through Him all things were made, and without Him nothing was made that has been made.</p><p class="multi-reading-line multi-reading-secondary" data-step="b" lang="ru">Все чрез Него на́чало быть, и без Него ничто не на́чало быть, что на́чало быть.</p></div></li>
+<li data-verse="4"><span class="multi-reading-number">4</span><div class="multi-reading-lines"><p class="multi-reading-line" data-step="a" lang="en">In Him was life, and that life was the light of men.</p><p class="multi-reading-line multi-reading-secondary" data-step="b" lang="ru">В Нем была жизнь, и жизнь была свет человеков.</p></div></li>
+<li data-verse="5"><span class="multi-reading-number">5</span><div class="multi-reading-lines"><p class="multi-reading-line" data-step="a" lang="en">The Light shines in the darkness, and the darkness has not overcome it.</p><p class="multi-reading-line multi-reading-secondary" data-step="b" lang="ru">И свет во тьме светит, и тьма не объяла его.</p></div></li>
+</ol><audio data-demo-player preload="none" src="/audio/demo/bsb_souer/1.mp3"></audio></section>
+
+<p>You can keep listening through a book this way. Hearing a verse twice gives you a moment to notice wording you might have passed over in a single reading.</p>
+<h2 data-screen="multi-setup-bilingual" id="how-to-set-up-multi-reading">How to set up Multi Reading</h2>
+<figure class="article-screen-inline"><a aria-label="Open larger screenshot: Setting up Multi Reading in two languages" class="article-screen-link" data-zoom-height="2086" data-zoom-width="960" href="/img/article-screens/zoom/multi-setup-bilingual.en.webp"><img alt="Setting up Multi Reading in two languages" decoding="async" height="783" loading="lazy" sizes="180px" src="/img/article-screens/mobile/multi-setup-bilingual.en.webp" srcset="/img/article-screens/mobile/multi-setup-bilingual.en.webp 360w, /img/article-screens/phone/multi-setup-bilingual.en.webp 480w" width="360" /></a></figure><ol>
+<li>Open Multi Reading in the app and create a new setup.</li>
+<li>Add a reading with a translation and narrator. The screen here starts with World English Bible, US edition (WEBUS), read by Winfred Henson.</li>
+<li>Add a pause. The example uses two seconds before the next language.</li>
+<li>Add a second reading: Russian Synodal (SYNO), read by Ilya Prudovsky.</li>
+<li>Choose whether to repeat the sequence for each verse, paragraph, or chapter. Verse by verse lets you compare the same lines directly.</li>
+</ol>
+<p>A setup can include three or more translations too. For example, try BSB, WEBUS, and Russian Synodal so each verse plays three times. Save the setup to use it again with one tap.</p>
+<h2 id="available-translations-and-narrators">Available translations and narrators</h2>
+<p>Bible Garden has seven translations in three languages. You can combine two, three, or more in one Multi Reading setup. Audio coverage varies: Alexander Bondarenko's recording omits four books, and the New Ukrainian Translation has audio only for the New Testament and Psalms.</p>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>Translation</th>
+<th>Narrator</th>
+<th>Audio coverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Russian</td>
+<td>Synodal</td>
+<td>Ilya Prudovsky</td>
+<td>All 66 books</td>
+</tr>
+<tr>
+<td>Russian</td>
+<td>Synodal</td>
+<td>Alexander Bondarenko (with music)</td>
+<td>62 of 66 books</td>
+</tr>
+<tr>
+<td>Russian</td>
+<td>Kulakov translation (BTI)</td>
+<td>Nikita Semyonov-Prozorovsky</td>
+<td>All 66 books</td>
+</tr>
+<tr>
+<td>English</td>
+<td>Berean Standard Bible (BSB)</td>
+<td>Bob Souer; David</td>
+<td>All 66 books</td>
+</tr>
+<tr>
+<td>English</td>
+<td>World English Bible, US edition (WEBUS)</td>
+<td>Winfred Henson</td>
+<td>All 66 books</td>
+</tr>
+<tr>
+<td>English</td>
+<td>World English Bible, British edition (WEBBE)</td>
+<td>Narrator uncredited</td>
+<td>All 66 books</td>
+</tr>
+<tr>
+<td>Ukrainian</td>
+<td>Khomenko translation (UBH)</td>
+<td>Ihor Kozlov</td>
+<td>All 66 books</td>
+</tr>
+<tr>
+<td>Ukrainian</td>
+<td>New Ukrainian Translation (NPU)</td>
+<td>Biblica; narrator uncredited</td>
+<td>New Testament and Psalms</td>
+</tr>
+</tbody>
+</table>
+<p>“All 66 books” means the Protestant canon. The app does not include deuterocanonical books. Bondarenko's audio lacks 1 and 2 Chronicles, Song of Songs, and Isaiah.</p>
+<h2 data-screen="translation-picker" id="which-english-translation-to-choose">Which English translation to choose</h2>
+<figure class="article-screen-inline"><a aria-label="Open larger screenshot: Choosing a Bible translation to read" class="article-screen-link" data-zoom-height="2086" data-zoom-width="960" href="/img/article-screens/zoom/translation-picker.en.webp"><img alt="Choosing a Bible translation to read" decoding="async" height="783" loading="lazy" sizes="180px" src="/img/article-screens/mobile/translation-picker.en.webp" srcset="/img/article-screens/mobile/translation-picker.en.webp 360w, /img/article-screens/phone/translation-picker.en.webp 480w" width="360" /></a></figure><p>If you want a parallel Bible in English, start with two translations you can follow comfortably. The screen here shows English selected as the Bible language, with BSB, WEBUS, and WEBBE in the translation list and Bob Souer as the reader. The app offers two modern English translations, with two editions of one:</p>
+<ul>
+<li><strong>Berean Standard Bible (BSB)</strong> uses contemporary English. You can hear it read by Bob Souer or David.</li>
+<li><strong>World English Bible (WEB)</strong> also uses modern English and was placed in the public domain from the start. Its US edition (WEBUS) is read by Winfred Henson; the British edition (WEBBE) has an uncredited narrator.</li>
+</ul>
+<p>Try BSB with WEBUS to compare two English renderings of a verse. For a bilingual Bible, pair either with Russian Synodal or the Kulakov translation, or with Ukrainian Khomenko — all with audio for the whole Bible. Ukrainian NPU has audio only for the New Testament and Psalms. These pairs can also help families who speak different languages and people learning one of them. The King James Version (KJV) is not in the app.</p>
+<h2 id="why-read-the-bible-in-two-languages">Why read the Bible in two languages?</h2>
+<ul>
+<li><strong>To understand a passage more fully.</strong> A phrase that feels unclear in English may be easier to follow in Russian or Ukrainian, and the reverse can be true. Differences can also point to a choice the translators made.</li>
+<li><strong>To learn a language through a familiar text.</strong> Hear a verse in the language you know, then in the language you are learning. This gives you context for each sentence without turning the reading into a vocabulary drill.</li>
+<li><strong>To read together.</strong> A family or group can follow the same passage even when some members are more at home in English and others in Russian or Ukrainian.</li>
+<li><strong>To pay attention.</strong> Hearing the same verse in two voices gives you time to take in its meaning.</li>
+</ul>
+<p>If you are new to the Bible, try our <a href="/articles/how-to-start-reading-the-bible/">seven-day plan starting with John</a>. For a full read-through, use the <a href="/articles/bible-in-a-year/">one-year plan</a>. You can use Multi Reading with either plan.</p>
+<h2 id="faq">Frequently asked questions</h2>
+<h3 id="what-is-a-bilingual-bible">What is a bilingual Bible?</h3>
+<p>It gives the same passage in two languages, usually verse by verse, side by side or one beneath the other. It can help people read together or follow a language they are learning. In Bible Garden, you can also hear each verse in both languages.</p>
+<h3 id="which-parallel-bible-app-is-the-best">Which parallel Bible app is the best?</h3>
+<p>That depends on which languages, translations, and ways of reading you need. Bible Garden offers English, Russian, and Ukrainian text and audio on iPhone and iPad. Multi Reading shows and plays the same verse in two, three, or more translations; it does not offer interlinear text. Check whether its available translations and narrators suit you.</p>
+<h3 id="is-there-a-duolingo-but-for-the-bible">Is there a Duolingo but for the Bible?</h3>
+<p>Bible Garden is a Bible reading and listening app, not a language course: it has no lessons or quizzes. Multi Reading can play a verse in a language you know and then one you are learning, so you can hear both in context. If you need a place to begin reading, try the <a href="/articles/how-to-start-reading-the-bible/">seven-day plan in John</a>.</p>
+<h3 id="can-i-listen-to-the-bible-in-two-languages">Can I listen to the Bible in two languages?</h3>
+<p>Yes. In Bible Garden's Multi Reading, choose a narrator for each translation and play a verse in one language, then the same verse in another. You can add a pause between them and include a third translation or more. The app is free and available for iPhone and iPad; the languages are English, Russian, and Ukrainian.</p>
+        </div>
+            <aside class="article-screen-aside" aria-label="App screenshot">
+                <div class="article-screen-phone">
+                    <img data-src="/img/article-screens/phone/multi-reading.en.webp" alt="Multi Reading plays a verse in two translations" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                    <img data-src="/img/article-screens/phone/multi-setup-bilingual.en.webp" alt="Setting up Multi Reading in two languages" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                    <img data-src="/img/article-screens/phone/translation-picker.en.webp" alt="Choosing a Bible translation to read" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                    <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/multi-reading.en.webp" alt="Multi Reading plays a verse in two translations" width="480" height="1043"></noscript>
+                </div>
+            </aside>
+        </div>
+        <dialog class="article-screen-dialog" aria-label="App screenshot">
+            <button type="button" class="article-screen-close" aria-label="Close screenshot">×</button>
+            <img alt="" width="960" height="2086">
+        </dialog>
+
+        <aside class="feature-card rounded-2xl p-6 sm:p-8 mt-14 text-center max-w-3xl">
+            <h2 class="font-serif text-2xl font-semibold text-white mb-3">Read and listen with Bible Garden</h2>
+            <p class="text-gray-400 mb-6">A free, open-source app for reading and listening to the Bible in multiple languages, with professional narration and configurable pauses.</p>
+            <a href="https://apps.apple.com/app/apple-store/id6758955373?pt=119043617&amp;ct=seo-en&amp;mt=8" data-umami-event="app-store-click" target="_blank" rel="noopener" class="btn-gold px-6 py-3.5 rounded-xl text-sm inline-flex items-center justify-center gap-2.5 cursor-pointer">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <span>Download on the App Store</span>
+            </a>
+        </aside>
+
+        <nav class="grid sm:grid-cols-2 gap-4 mt-10 text-sm max-w-3xl" aria-label="Articles">
+            <div>
+                <a href="/articles/bible-in-a-year/" class="block feature-card rounded-xl px-5 py-4 hover:border-gray-400/30 transition-colors">
+                    <span class="block text-xs text-gray-500 mb-1">← Previous article</span>
+                    <span class="text-gray-200">How to Read the Bible in a Year: A 365-Day Plan</span>
+                </a>
+            </div>
+            <div class="sm:text-right">
+            </div>
+        </nav>
+    </article>
+    </main>
+
+    <footer class="py-10 border-t border-garden-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2.5">
+                    <img src="/img/logo.png" alt="Bible Garden" class="w-6 h-6 rounded-md">
+                    <span class="font-serif text-sm text-gray-400">Bible Garden</span>
+                </div>
+
+                <p class="text-xs text-gray-600">Open source project under AGPL license. All rights belong to God.</p>
+
+                <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+                    <a href="/about/" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">How we write</a>
+                    <a href="/articles/" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">Articles</a>
+                    <a href="/privacy.html" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">Privacy Policy</a>
+                    <a href="https://apps.apple.com/app/apple-store/id6758955373?pt=119043617&amp;ct=seo-en&amp;mt=8" data-umami-event="app-store-click" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-300 transition-colors cursor-pointer" aria-label="App Store">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

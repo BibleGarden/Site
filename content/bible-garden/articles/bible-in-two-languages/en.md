@@ -1,11 +1,10 @@
 ---
-title: "Bilingual Bible: Read and Listen in English and Russian"
+title: "Bilingual Bible App: Read and Listen in Two Languages"
 description: "Compare a parallel or bilingual Bible verse by verse. Hear English and Russian in Multi Reading, explore translations, and try a John 1 audio demo."
 date: 2026-09-27
-draft: true
 ---
 
-A Bible in two languages can help you follow a passage with someone who speaks another language, or notice what changes between translations. A **parallel Bible** places two or more translations together; a **bilingual Bible** pairs the same text in two languages. An **interlinear Bible** is different: it maps individual words to the Hebrew or Greek original. In the free [Bible Garden app](/) for iPhone and iPad, you can read and hear verses in English, Russian, or Ukrainian, with several translations in one sequence. Here is how it works and which recordings you can choose.
+A Bible in two languages can help you follow a passage with someone who speaks another language, or notice what changes between translations. A **parallel Bible** places two or more translations together; a **bilingual Bible** pairs the same text in two languages. An **interlinear Bible** is different: it places a word-by-word translation beneath the Hebrew or Greek original. In the free [Bible Garden app](/) for iPhone and iPad, you can read and hear verses in English, Russian, or Ukrainian, with several translations in one sequence. Here is how it works and which recordings you can choose.
 
 ## Parallel, bilingual, and interlinear Bibles: what's the difference?
 
@@ -66,7 +65,7 @@ If you want a parallel Bible in English, start with two translations you can fol
 - **Berean Standard Bible (BSB)** uses contemporary English. You can hear it read by Bob Souer or David.
 - **World English Bible (WEB)** also uses modern English and was placed in the public domain from the start. Its US edition (WEBUS) is read by Winfred Henson; the British edition (WEBBE) has an uncredited narrator.
 
-Try BSB with WEBUS to compare two English renderings of a verse. For a bilingual Bible, pair either with Russian Synodal or the Kulakov translation, or with Ukrainian Khomenko or NPU. These pairs can also help families who speak different languages and people learning one of them. The King James Version (KJV) is not in the app.
+Try BSB with WEBUS to compare two English renderings of a verse. For a bilingual Bible, pair either with Russian Synodal or the Kulakov translation, or with Ukrainian Khomenko — all with audio for the whole Bible. Ukrainian NPU has audio only for the New Testament and Psalms. These pairs can also help families who speak different languages and people learning one of them. The King James Version (KJV) is not in the app.
 
 ## Why read the Bible in two languages?
 
