@@ -290,8 +290,8 @@ and BSB, Bob Souer; en is BSB, Bob Souer and Synodal, Ilya Prudovsky; uk is UBH
 or pause, and the player stops after verse 5. Each verse and narrator has its
 own MP3, so playback does not seek or need HTTP Range support. The next clip
 loads while the current one plays. Printing keeps the text and hides the
-controls. Without JavaScript, the text and links to each individual verse
-recording remain available; opening a link uses the browser's audio player.
+controls. Without JavaScript, only the verse texts and narrator labels remain
+visible; the player button appears only when JavaScript initializes.
 
 The marker must match exactly; an unknown, duplicate or malformed demo marker
 stops the build. `content/bible-garden/demos/multi-reading.json` holds the

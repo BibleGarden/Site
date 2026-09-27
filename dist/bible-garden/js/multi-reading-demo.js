@@ -5,12 +5,12 @@
     const controls = demo.querySelector('.multi-reading-controls');
     const button = demo.querySelector('.multi-reading-toggle');
     const error = demo.querySelector('.multi-reading-error');
-    const manual = demo.querySelector('.multi-reading-manual');
-    const manualLabel = demo.querySelector('.multi-reading-manual-label');
     const player = demo.querySelector('[data-demo-player]');
-    const clips = [...demo.querySelectorAll('[data-demo-clip]')].map((link) => link.href);
+    const clips = JSON.parse(demo.dataset.clips);
     const lines = [...demo.querySelectorAll('.multi-reading-line')];
-    if (clips.length !== 10 || lines.length !== 10) throw new Error('Invalid Multi Reading demo markup');
+    if (!Array.isArray(clips) || clips.length !== 10 || clips.some((path) => typeof path !== 'string' || !path.startsWith('/audio/demo/')) || lines.length !== 10) {
+        throw new Error('Invalid Multi Reading demo markup');
+    }
 
     const prefetched = new Map();
     let step = 0;
@@ -44,8 +44,6 @@
         error.textContent = demo.dataset.error;
         error.hidden = false;
         button.disabled = true;
-        manual.hidden = false;
-        manualLabel.hidden = false;
     }
 
     function prefetch(index) {
@@ -142,7 +140,5 @@
     window.addEventListener('pagehide', () => {
         prefetched.forEach((pending) => pending.then((url) => { if (url) URL.revokeObjectURL(url); }));
     });
-    manual.hidden = true;
-    manualLabel.hidden = true;
     controls.hidden = false;
 })();

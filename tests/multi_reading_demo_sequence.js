@@ -5,8 +5,8 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 
 const paths = Array.from({ length: 5 }, (_, verse) => [
-    `http://demo.test/audio/demo/prozorovsky/${verse + 1}.mp3`,
-    `http://demo.test/audio/demo/bsb_souer/${verse + 1}.mp3`,
+    `/audio/demo/prozorovsky/${verse + 1}.mp3`,
+    `/audio/demo/bsb_souer/${verse + 1}.mp3`,
 ]).flat();
 
 function element() {
@@ -31,8 +31,6 @@ const controls = element();
 const button = element();
 const error = element();
 error.hidden = true;
-const manual = element();
-const manualLabel = element();
 const lines = paths.map(element);
 const played = [];
 let pausedGap = false;
@@ -60,19 +58,16 @@ player.play = function () {
 };
 
 const demo = {
-    dataset: { play: 'Play', pause: 'Pause', playAgain: 'Play again', error: 'Audio error' },
+    dataset: { play: 'Play', pause: 'Pause', playAgain: 'Play again', error: 'Audio error', clips: JSON.stringify(paths) },
     querySelector(selector) {
         return {
             '.multi-reading-controls': controls,
             '.multi-reading-toggle': button,
             '.multi-reading-error': error,
-            '.multi-reading-manual': manual,
-            '.multi-reading-manual-label': manualLabel,
             '[data-demo-player]': player,
         }[selector];
     },
     querySelectorAll(selector) {
-        if (selector === '[data-demo-clip]') return paths.map((href) => ({ href }));
         if (selector === '.multi-reading-line') return lines;
         throw new Error(selector);
     },

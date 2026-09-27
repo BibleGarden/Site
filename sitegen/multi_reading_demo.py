@@ -113,7 +113,7 @@ def load_demo(path: Path = DATA_PATH, static_root: Path = ROOT / "static/bible-g
 
 
 def render_demo(data: dict, lang: str, strings: object) -> str:
-    required = {"title", "play", "pause", "play_again", "error", "manual_audio"}
+    required = {"title", "play", "pause", "play_again", "error"}
     if lang not in PAIRS or not isinstance(strings, dict) or set(strings) != required or any(
         not isinstance(value, str) or not value.strip() for value in strings.values()
     ):
@@ -122,9 +122,11 @@ def render_demo(data: dict, lang: str, strings: object) -> str:
     first_lang = TEXT_LANG[first["translation"]]
     second_lang = TEXT_LANG[second["translation"]]
     esc = html.escape
+    clip_paths = [clip["verses"][index]["path"] for index in range(5) for clip in (first, second)]
+    clip_data = esc(json.dumps(clip_paths, separators=(",", ":")), quote=True)
     out = [f'<section class="multi-reading-demo" data-multi-reading-demo data-play="{esc(strings["play"], quote=True)}"'
            f' data-pause="{esc(strings["pause"], quote=True)}" data-play-again="{esc(strings["play_again"], quote=True)}"'
-           f' data-error="{esc(strings["error"], quote=True)}" aria-labelledby="multi-reading-demo-title">',
+           f' data-error="{esc(strings["error"], quote=True)}" data-clips="{clip_data}" aria-labelledby="multi-reading-demo-title">',
            f'<h3 id="multi-reading-demo-title">{esc(strings["title"])}</h3>',
            '<div class="multi-reading-legend">']
     for key, clip in (("a", first), ("b", second)):
@@ -139,15 +141,6 @@ def render_demo(data: dict, lang: str, strings: object) -> str:
         out.append(f'<li data-verse="{index + 1}"><span class="multi-reading-number">{index + 1}</span>'
                    f'<div class="multi-reading-lines"><p class="multi-reading-line" data-step="a" lang="{first_lang}">{esc(data["texts"][first["translation"]][index])}</p>'
                    f'<p class="multi-reading-line multi-reading-secondary" data-step="b" lang="{second_lang}">{esc(data["texts"][second["translation"]][index])}</p></div></li>')
-    out.append('</ol>')
-    out.append(f'<p class="multi-reading-manual-label">{esc(strings["manual_audio"])}</p><ol class="multi-reading-manual">')
-    for index in range(5):
-        out.append(f'<li><span>{index + 1}</span>')
-        for key, clip in (("a", first), ("b", second)):
-            translation = clip["names"][lang][0]
-            path = esc(clip["verses"][index]["path"], quote=True)
-            out.append(f'<a data-demo-clip href="{path}" aria-label="{index + 1}: {esc(translation, quote=True)}">{key.upper()} · {esc(translation)}</a>')
-        out.append('</li>')
     first_path = esc(first["verses"][0]["path"], quote=True)
     out.append(f'</ol><audio data-demo-player preload="none" src="{first_path}"></audio></section>')
     return "\n".join(out)

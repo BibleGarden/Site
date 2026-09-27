@@ -89,8 +89,7 @@ articles:
     play: Play
     pause: Pause
     play_again: Play again
-    error: "Audio could not be played. Open a verse recording below."
-    manual_audio: "Open individual verse recordings:"
+    error: "Audio could not be played."
   reading_plan:
     choose_plan: Reading order
     parallel: Parallel

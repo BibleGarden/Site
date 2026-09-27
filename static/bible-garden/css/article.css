@@ -13,7 +13,7 @@
 .multi-reading-key { color: #d4a843; font-weight: 700; }
 .multi-reading-key-B { color: #a3b8aa; }
 .multi-reading-controls { margin: 0.9rem 0; }
-.multi-reading-controls[hidden], .multi-reading-manual[hidden], .multi-reading-manual-label[hidden], .multi-reading-error[hidden] { display: none; }
+.multi-reading-controls[hidden], .multi-reading-error[hidden] { display: none; }
 .multi-reading-toggle {
     padding: 0.4rem 1.2rem;
     border: 1px solid #d4a843;
@@ -34,11 +34,6 @@
 .multi-reading-line { margin: 0; padding: 0.1rem 0.4rem; border-radius: 0.25rem; }
 .multi-reading-secondary { color: #a3b8aa; }
 .multi-reading-line.is-playing { color: #fff; background: rgba(212, 168, 67, 0.28); box-shadow: inset 3px 0 #d4a843; }
-.multi-reading-manual-label { margin: 0.5rem 0; font-size: 0.85rem; }
-.article-body .multi-reading-manual { display: grid; gap: 0.35rem; margin: 0; padding: 0; list-style: none; }
-.multi-reading-manual li { display: flex; flex-wrap: wrap; gap: 0.4rem 0.8rem; font-size: 0.85rem; }
-.multi-reading-manual li + li { margin-top: 0; }
-.multi-reading-manual li > span { min-width: 1rem; color: #d4a843; }
 .multi-reading-demo [data-demo-player] { display: none; }
 
 .article-body {
@@ -445,9 +440,7 @@
 }
 
 @media print {
-    .has-multi-reading-demo .multi-reading-controls,
-    .has-multi-reading-demo .multi-reading-manual,
-    .has-multi-reading-demo .multi-reading-manual-label { display: none !important; }
+    .has-multi-reading-demo .multi-reading-controls { display: none !important; }
     .has-multi-reading-demo .multi-reading-demo,
     .has-multi-reading-demo .multi-reading-demo h3,
     .has-multi-reading-demo .multi-reading-key { color: #000; background: transparent; }

@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import copy
+import html
+import json
 import re
 import tempfile
 import unittest
@@ -79,8 +81,11 @@ class MultiReadingDemoTest(unittest.TestCase):
                     self.assertIn(second["names"][lang][1], body)
                     self.assertIn('class="multi-reading-controls" hidden', body)
                     self.assertIn('<audio data-demo-player preload="none"', body)
-                    self.assertEqual(body.count('data-demo-clip href='), 10)
-                    paths = re.findall(r'data-demo-clip href="([^"]+)"', body)
+                    self.assertEqual(body.count('<audio '), 1)
+                    self.assertNotIn('<a ', body)
+                    self.assertNotIn('data-demo-clip', body)
+                    self.assertNotIn('multi-reading-manual', body)
+                    paths = json.loads(html.unescape(re.search(r'data-clips="([^"]+)"', body).group(1)))
                     self.assertEqual(paths, [
                         clip["verses"][verse]["path"]
                         for verse in range(5) for clip in (first, second)
