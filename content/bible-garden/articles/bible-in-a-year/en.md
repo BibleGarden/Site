@@ -1,6 +1,6 @@
 ---
 title: "How to Read the Bible in a Year: A 365-Day Plan"
-description: "Read the Bible in a year with a printable 365-day calendar, two reading orders, English audio times, and room to slow down."
+description: "A printable 365-day Bible reading plan for beginners: pick a start date, choose one of two reading orders, listen along, and take time to slow down."
 date: 2026-09-27
 draft: true
 ---
@@ -93,7 +93,7 @@ An English and Russian pairing takes about 28–31 minutes of audio a day with B
 Leviticus and Numbers can slow a first-time reader down; so can missing a week and feeling you must catch up. A few habits help:
 
 - **Pick a regular moment.** Read with your morning coffee, on the train, or before bed.
-- **Missed a day? Resume where you stopped.** Move your start date back by the number of days you have completed, so the remaining readings get new dates. You may finish later than planned, and that is fine.
+- **Missed a day? Resume where you stopped.** Set the start date to today minus the number of days you have completed, so your next unread day falls on today and the remaining readings get new dates. You may finish later than planned, and that is fine.
 - **Switch between text and audio.** Read at home and listen when you are out.
 - **Notice what you have finished.** Marks on a printed calendar or the app's progress percentage show how far you have come.
 - **Read with someone.** A friend or church group can follow the same plan and talk through difficult passages together.
