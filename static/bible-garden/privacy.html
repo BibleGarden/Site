@@ -54,7 +54,7 @@
         </div>
 
         <h1 class="font-serif text-2xl sm:text-4xl font-bold text-white mb-2 break-words" data-i18n="title">Privacy Policy</h1>
-        <p class="text-sm text-gray-500 mb-12" data-i18n="updated">Last updated: September 26, 2026</p>
+        <p class="text-sm text-gray-500 mb-12" data-i18n="updated">Last updated: September 27, 2026</p>
 
         <div class="space-y-8 text-gray-400 leading-relaxed">
             <section>
@@ -76,9 +76,9 @@
 
             <section>
                 <h2 class="font-serif text-xl font-semibold text-white mb-3" data-i18n="s3.title">Server Request Data</h2>
-                <p data-i18n="s3.text">For every /api endpoint, Bible API stores request statistics with the time, path, method, status, response time and a keyed HMAC pseudonym of the client IP address. The raw IP address is not stored in these statistics. The user agent is kept for other endpoints but omitted for private AI endpoints. The IP address is processed in memory during a request for rate limiting and abuse protection, without being stored for those purposes.</p>
-                <p data-i18n="s3.retention">Request rows are deleted from the live database after 14 days. Permanent daily aggregates contain counts only, including the number of distinct pseudonyms. Database backups made before this change may still contain full IP addresses from earlier statistics rows.</p>
-                <p data-i18n="s3.proxy">Reverse-proxy access logs contain only time, host, method, path, status, response size and response time; they exclude the client IP address, user agent, referrer and query string. Bible API writes no per-request access log. The nginx error log records only critical errors, which may include a client IP address.</p>
+                <p data-i18n="s3.text">For every /api request we store the time, path, HTTP method, status and response time. The IP address itself is not stored: we record a pseudonym instead, which cannot be turned back into the address without our secret key. The user agent is stored for all endpoints except the private AI endpoints. The IP address is needed only while a request is processed, to protect against abuse.</p>
+                <p data-i18n="s3.retention">Request records are deleted from the live database after 14 days; backups may keep them longer. Only daily counts are kept permanently, including the number of distinct pseudonyms.</p>
+                <p data-i18n="s3.proxy">Server logs contain no IP address, user agent, referrer or query parameters. An IP address can appear only in the web server’s critical-error log.</p>
             </section>
 
             <section>
@@ -88,7 +88,7 @@
 
             <section>
                 <h2 class="font-serif text-xl font-semibold text-white mb-3" data-i18n="web.title">The bible.garden Website</h2>
-                <p data-i18n="web.text">The bible.garden website (not the app) counts visits with Umami, open-source analytics that runs on our own server, <code class="text-garden-400">stats.bible.garden</code>. Umami sets no cookies and does not store IP addresses: an address is used only while a visit is being processed, to derive an anonymous visitor identifier that changes every month; the country is taken from Cloudflare. Region and city are not stored. What is stored: the page address without query string or fragment, the page title, the referring site (its address without query string or fragment), browser, operating system, device type, screen size, language, country and the time of the visit, plus clicks on the App Store link. The statistics are kept on servers under our control (the main server and its backups) and are not used for advertising or profiling. Records older than 13 months are deleted from the live database daily. Backups normally keep them for up to 7 more days; if backups fail, the last verified recovery copy remains until a new verified copy replaces it, which can take longer. Cloudflare processes requests to stats.bible.garden as CDN and proxy, like the rest of the site, and receives no stored statistics from us.</p>
+                <p data-i18n="web.text">The bible.garden website (not the app) counts visits with Umami, open-source analytics running on our own server, <code class="text-garden-400">stats.bible.garden</code>. Umami sets no cookies and stores no IP addresses: the address is used only during the visit to derive an anonymous visitor ID that changes every month. The country comes from Cloudflare; region and city are not stored. What is stored: the page address and title, the site you came from (addresses without query parameters), browser, operating system, device type, screen size, language, country, time of visit and clicks on the App Store link. The statistics stay on our own servers and are not used for advertising or profiling. Records older than 13 months are deleted; backups usually keep them for up to 7 more days. Like the rest of the site, stats.bible.garden runs through Cloudflare, which receives no stored statistics from us.</p>
             </section>
 
             <section>
@@ -98,7 +98,7 @@
 
             <section>
                 <h2 class="font-serif text-xl font-semibold text-white mb-3" data-i18n="s6.title">Changes to This Policy</h2>
-                <p data-i18n="s6.text">If we ever change this policy, we will update this page with the new date. Given the nature of our app, we do not anticipate significant changes.</p>
+                <p data-i18n="s6.text">If we change this policy, we will update the date on this page.</p>
             </section>
 
             <section>
@@ -123,7 +123,7 @@
         en: {
             'back': 'Back to Bible Garden',
             'title': 'Privacy Policy',
-            'updated': 'Last updated: September 26, 2026',
+            'updated': 'Last updated: September 27, 2026',
             's1.title': 'Overview',
             's1.text': 'Bible Garden is a free, open-source application for reading and listening to the Bible. We respect your privacy: <strong class="text-gray-200">the app requires no account or personal details.</strong> The app sends no analytics; the bible.garden website counts visits anonymously, as described in “The bible.garden Website” below.',
             's2.title': 'Data the App Does Not Collect',
@@ -134,19 +134,19 @@
             's2.p5': 'No advertising',
             's2.p6': 'No cookies',
             's3.title': 'Server Request Data',
-            's3.text': 'For every /api endpoint, Bible API stores request statistics with the time, path, method, status, response time and a keyed HMAC pseudonym of the client IP address. The raw IP address is not stored in these statistics. The user agent is kept for other endpoints but omitted for private AI endpoints. The IP address is processed in memory during a request for rate limiting and abuse protection, without being stored for those purposes.',
-            's3.retention': 'Request rows are deleted from the live database after 14 days. Permanent daily aggregates contain counts only, including the number of distinct pseudonyms. Database backups made before this change may still contain full IP addresses from earlier statistics rows.',
-            's3.proxy': 'Reverse-proxy access logs contain only time, host, method, path, status, response size and response time; they exclude the client IP address, user agent, referrer and query string. Bible API writes no per-request access log. The nginx error log records only critical errors, which may include a client IP address.',
+            's3.text': 'For every /api request we store the time, path, HTTP method, status and response time. The IP address itself is not stored: we record a pseudonym instead, which cannot be turned back into the address without our secret key. The user agent is stored for all endpoints except the private AI endpoints. The IP address is needed only while a request is processed, to protect against abuse.',
+            's3.retention': 'Request records are deleted from the live database after 14 days; backups may keep them longer. Only daily counts are kept permanently, including the number of distinct pseudonyms.',
+            's3.proxy': 'Server logs contain no IP address, user agent, referrer or query parameters. An IP address can appear only in the web server’s critical-error log.',
             's4.title': 'Third-Party Services',
             's4.text': 'Bible Garden does not integrate any third-party analytics, advertising, or tracking services. The app communicates only with our own server (<code class="text-garden-400">api.bible.garden</code>) to retrieve Bible content and audio files.',
             'web.title': 'The bible.garden Website',
-            'web.text': 'The bible.garden website (not the app) counts visits with Umami, open-source analytics that runs on our own server, <code class="text-garden-400">stats.bible.garden</code>. Umami sets no cookies and does not store IP addresses: an address is used only while a visit is being processed, to derive an anonymous visitor identifier that changes every month; the country is taken from Cloudflare. Region and city are not stored. What is stored: the page address without query string or fragment, the page title, the referring site (its address without query string or fragment), browser, operating system, device type, screen size, language, country and the time of the visit, plus clicks on the App Store link. The statistics are kept on servers under our control (the main server and its backups) and are not used for advertising or profiling. Records older than 13 months are deleted from the live database daily. Backups normally keep them for up to 7 more days; if backups fail, the last verified recovery copy remains until a new verified copy replaces it, which can take longer. Cloudflare processes requests to stats.bible.garden as CDN and proxy, like the rest of the site, and receives no stored statistics from us.',
+            'web.text': 'The bible.garden website (not the app) counts visits with Umami, open-source analytics running on our own server, <code class="text-garden-400">stats.bible.garden</code>. Umami sets no cookies and stores no IP addresses: the address is used only during the visit to derive an anonymous visitor ID that changes every month. The country comes from Cloudflare; region and city are not stored. What is stored: the page address and title, the site you came from (addresses without query parameters), browser, operating system, device type, screen size, language, country, time of visit and clicks on the App Store link. The statistics stay on our own servers and are not used for advertising or profiling. Records older than 13 months are deleted; backups usually keep them for up to 7 more days. Like the rest of the site, stats.bible.garden runs through Cloudflare, which receives no stored statistics from us.',
             's5.title': 'Open Source',
-            's5.text': 'Bible Garden is fully open source. You can review the complete source code on <a href="https://github.com/Bible-Garden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a> to verify these privacy practices yourself.',
+            's5.text': 'Bible Garden is fully open source. You can review the complete source code on <a href="https://github.com/BibleGarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a> to verify these privacy practices yourself.',
             's6.title': 'Changes to This Policy',
-            's6.text': 'If we ever change this policy, we will update this page with the new date. Given the nature of our app, we do not anticipate significant changes.',
+            's6.text': 'If we change this policy, we will update the date on this page.',
             's7.title': 'Contact',
-            's7.text': 'If you have any questions about this privacy policy, feel free to reach out via <a href="https://t.me/biblegarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">Telegram</a> or <a href="https://github.com/Bible-Garden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>.',
+            's7.text': 'If you have any questions about this privacy policy, feel free to reach out via <a href="https://t.me/biblegarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">Telegram</a> or <a href="https://github.com/BibleGarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>.',
             'footer': 'Open source project under AGPL license. All rights belong to God.',
             'about': 'How we write',
             'articles': 'Articles',
@@ -154,7 +154,7 @@
         ru: {
             'back': 'Назад к Bible Garden',
             'title': 'Политика конфиденциальности',
-            'updated': 'Последнее обновление: 26 сентября 2026',
+            'updated': 'Последнее обновление: 27 сентября 2026',
             's1.title': 'Обзор',
             's1.text': 'Bible Garden — бесплатное приложение с открытым исходным кодом для чтения и прослушивания Библии. Мы уважаем вашу конфиденциальность: <strong class="text-gray-200">приложение не требует аккаунта или личных данных.</strong> Приложение не отправляет аналитику; сайт bible.garden анонимно считает посещения — см. раздел «Сайт bible.garden» ниже.',
             's2.title': 'Данные, которые приложение не собирает',
@@ -165,19 +165,19 @@
             's2.p5': 'Нет рекламы',
             's2.p6': 'Нет файлов cookie',
             's3.title': 'Данные запросов на сервере',
-            's3.text': 'Для каждого метода /api Bible API сохраняет статистику запросов: время, путь, HTTP-метод, статус, время ответа и псевдоним IP-адреса клиента на основе HMAC с секретным ключом. Исходный IP-адрес в этой статистике не хранится. Для остальных методов User-Agent сохраняется, для приватных AI-методов — нет. Во время запроса IP-адрес обрабатывается в памяти для ограничения частоты запросов и защиты от злоупотреблений, но для этих целей не сохраняется.',
-            's3.retention': 'Строки запросов удаляются из рабочей базы через 14 дней. Постоянные суточные агрегаты содержат только счётчики, включая число различных псевдонимов. Резервные копии, созданные до этого изменения, могут всё ещё содержать полные IP-адреса из прежних строк статистики.',
-            's3.proxy': 'Журнал доступа reverse proxy содержит только время, хост, HTTP-метод, путь, статус, размер ответа и время обработки; IP-адрес клиента, User-Agent, referrer и параметры запроса в него не записываются. Bible API не ведёт построчный журнал доступа. В журнал ошибок nginx записываются только критические ошибки, которые могут содержать IP-адрес клиента.',
+            's3.text': 'Для каждого запроса к /api мы сохраняем время, путь, HTTP-метод, статус и время ответа. IP-адрес при этом не хранится: вместо него записывается псевдоним, по которому без нашего секретного ключа нельзя узнать адрес. User-Agent сохраняется для всех методов, кроме приватных AI-методов. IP-адрес нужен только во время запроса — для защиты от злоупотреблений.',
+            's3.retention': 'Записи о запросах удаляются из рабочей базы через 14 дней, в резервных копиях они могут храниться дольше. Навсегда остаются только суточные счётчики, в том числе число разных псевдонимов.',
+            's3.proxy': 'Журналы сервера не содержат IP-адрес, User-Agent, referrer и параметры запроса. IP-адрес может попасть только в журнал критических ошибок веб-сервера.',
             's4.title': 'Сторонние сервисы',
             's4.text': 'Bible Garden не интегрирует сторонние сервисы аналитики, рекламы или отслеживания. Приложение взаимодействует только с нашим собственным сервером (<code class="text-garden-400">api.bible.garden</code>) для получения текстов и аудиофайлов Библии.',
             'web.title': 'Сайт bible.garden',
-            'web.text': 'Сайт bible.garden (не приложение) считает посещения с помощью Umami — аналитики с открытым исходным кодом, которая работает на нашем собственном сервере, <code class="text-garden-400">stats.bible.garden</code>. Umami не устанавливает cookie и не хранит IP-адреса: адрес используется только во время обработки посещения, чтобы вычислить анонимный идентификатор посетителя, который меняется каждый месяц; страну сообщает Cloudflare. Регион и город не сохраняются. Сохраняются: адрес страницы без параметров запроса и фрагмента, заголовок страницы, сайт, с которого пришёл посетитель (его адрес без параметров запроса и фрагмента), браузер, операционная система, тип устройства, размер экрана, язык, страна и время посещения, а также клики по ссылке на App Store. Статистика хранится на серверах под нашим контролем (основной сервер и резервные копии) и не используется для рекламы или профилирования. Записи старше 13 месяцев ежедневно удаляются из рабочей базы. В резервных копиях они обычно хранятся не более 7 дней сверх этого срока; при сбое резервного копирования последняя проверенная копия сохраняется до появления новой проверенной копии, поэтому срок может быть больше. Cloudflare обрабатывает запросы к stats.bible.garden как CDN и прокси, как и для остального сайта, и не получает от нас сохранённую статистику.',
+            'web.text': 'Сайт bible.garden (не приложение) считает посещения с помощью Umami — открытой системы аналитики, которая работает на нашем сервере <code class="text-garden-400">stats.bible.garden</code>. Umami не использует cookie и не хранит IP-адреса: адрес нужен только в момент посещения, чтобы получить анонимный идентификатор посетителя, который меняется каждый месяц. Страну определяет Cloudflare, регион и город не сохраняются. Сохраняются: адрес и заголовок страницы, сайт, с которого вы пришли (адреса — без параметров), браузер, операционная система, тип устройства, размер экрана, язык, страна, время посещения и клики по ссылке на App Store. Статистика хранится только на наших серверах и не используется для рекламы или профилирования. Записи старше 13 месяцев удаляются; в резервных копиях они обычно остаются ещё до 7 дней. Как и весь сайт, stats.bible.garden работает через Cloudflare, но сохранённую статистику Cloudflare от нас не получает.',
             's5.title': 'Открытый исходный код',
-            's5.text': 'Bible Garden имеет полностью открытый исходный код. Вы можете ознакомиться с ним на <a href="https://github.com/Bible-Garden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>, чтобы самостоятельно убедиться в соблюдении данной политики.',
+            's5.text': 'Bible Garden имеет полностью открытый исходный код. Вы можете ознакомиться с ним на <a href="https://github.com/BibleGarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>, чтобы самостоятельно убедиться в соблюдении данной политики.',
             's6.title': 'Изменения в политике',
-            's6.text': 'Если мы когда-либо изменим эту политику, мы обновим дату на этой странице. Учитывая характер нашего приложения, мы не ожидаем существенных изменений.',
+            's6.text': 'Если мы изменим эту политику, мы обновим дату на этой странице.',
             's7.title': 'Контакты',
-            's7.text': 'Если у вас есть вопросы по данной политике конфиденциальности, свяжитесь с нами через <a href="https://t.me/biblegarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">Telegram</a> или <a href="https://github.com/Bible-Garden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>.',
+            's7.text': 'Если у вас есть вопросы по данной политике конфиденциальности, свяжитесь с нами через <a href="https://t.me/biblegarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">Telegram</a> или <a href="https://github.com/BibleGarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>.',
             'footer': 'Проект с открытым кодом под лицензией AGPL. Все права принадлежат Богу.',
             'about': 'Как мы пишем',
             'articles': 'Статьи',
@@ -185,7 +185,7 @@
         ua: {
             'back': 'Назад до Bible Garden',
             'title': 'Політика конфіденційності',
-            'updated': 'Останнє оновлення: 26 вересня 2026',
+            'updated': 'Останнє оновлення: 27 вересня 2026',
             's1.title': 'Огляд',
             's1.text': 'Bible Garden — безкоштовний застосунок з відкритим вихідним кодом для читання та прослуховування Біблії. Ми поважаємо вашу конфіденційність: <strong class="text-gray-200">застосунок не потребує облікового запису чи особистих даних.</strong> Застосунок не надсилає аналітику; сайт bible.garden анонімно рахує відвідування — див. розділ «Сайт bible.garden» нижче.',
             's2.title': 'Дані, які застосунок не збирає',
@@ -196,19 +196,19 @@
             's2.p5': 'Немає реклами',
             's2.p6': 'Немає файлів cookie',
             's3.title': 'Дані запитів на сервері',
-            's3.text': 'Для кожного методу /api Bible API зберігає статистику запитів: час, шлях, HTTP-метод, статус, час відповіді та псевдонім IP-адреси клієнта на основі HMAC із секретним ключем. Вихідна IP-адреса в цій статистиці не зберігається. Для інших методів User-Agent зберігається, для приватних AI-методів — ні. Під час запиту IP-адреса обробляється в пам’яті для обмеження частоти запитів і захисту від зловживань, але для цих цілей не зберігається.',
-            's3.retention': 'Рядки запитів видаляються з робочої бази через 14 днів. Постійні добові агрегати містять лише лічильники, зокрема кількість різних псевдонімів. Резервні копії, створені до цієї зміни, можуть досі містити повні IP-адреси з попередніх рядків статистики.',
-            's3.proxy': 'Журнал доступу reverse proxy містить лише час, хост, HTTP-метод, шлях, статус, розмір відповіді та час обробки; IP-адреса клієнта, User-Agent, referrer і параметри запиту до нього не записуються. Bible API не веде построковий журнал доступу. До журналу помилок nginx записуються лише критичні помилки, які можуть містити IP-адресу клієнта.',
+            's3.text': 'Для кожного запиту до /api ми зберігаємо час, шлях, HTTP-метод, статус і час відповіді. IP-адреса при цьому не зберігається: замість неї записується псевдонім, за яким без нашого секретного ключа не можна дізнатися адресу. User-Agent зберігається для всіх методів, крім приватних AI-методів. IP-адреса потрібна лише під час запиту — для захисту від зловживань.',
+            's3.retention': 'Записи про запити видаляються з робочої бази через 14 днів, у резервних копіях вони можуть зберігатися довше. Назавжди залишаються лише добові лічильники, зокрема кількість різних псевдонімів.',
+            's3.proxy': 'Журнали сервера не містять IP-адреси, User-Agent, referrer і параметрів запиту. IP-адреса може потрапити лише до журналу критичних помилок вебсервера.',
             's4.title': 'Сторонні сервіси',
             's4.text': 'Bible Garden не інтегрує сторонні сервіси аналітики, реклами або відстеження. Застосунок взаємодіє лише з нашим власним сервером (<code class="text-garden-400">api.bible.garden</code>) для отримання текстів та аудіофайлів Біблії.',
             'web.title': 'Сайт bible.garden',
-            'web.text': 'Сайт bible.garden (не застосунок) рахує відвідування за допомогою Umami — аналітики з відкритим вихідним кодом, яка працює на нашому власному сервері, <code class="text-garden-400">stats.bible.garden</code>. Umami не встановлює cookie і не зберігає IP-адреси: адреса використовується лише під час обробки відвідування, щоб обчислити анонімний ідентифікатор відвідувача, який змінюється щомісяця; країну повідомляє Cloudflare. Регіон і місто не зберігаються. Зберігаються: адреса сторінки без параметрів запиту та фрагмента, заголовок сторінки, сайт, з якого прийшов відвідувач (його адреса без параметрів запиту та фрагмента), браузер, операційна система, тип пристрою, розмір екрана, мова, країна та час відвідування, а також кліки за посиланням на App Store. Статистика зберігається на серверах під нашим контролем (основний сервер і резервні копії) і не використовується для реклами чи профілювання. Записи, старші за 13 місяців, щодня видаляються з робочої бази. У резервних копіях вони зазвичай зберігаються не більш як 7 днів понад цей строк; якщо резервне копіювання не працює, остання перевірена копія зберігається до появи нової перевіреної копії, тому строк може бути довшим. Cloudflare обробляє запити до stats.bible.garden як CDN і проксі, як і для решти сайту, і не отримує від нас збереженої статистики.',
+            'web.text': 'Сайт bible.garden (не застосунок) рахує відвідування за допомогою Umami — відкритої системи аналітики, яка працює на нашому сервері <code class="text-garden-400">stats.bible.garden</code>. Umami не використовує cookie і не зберігає IP-адреси: адреса потрібна лише під час відвідування, щоб отримати анонімний ідентифікатор відвідувача, який змінюється щомісяця. Країну визначає Cloudflare, регіон і місто не зберігаються. Зберігаються: адреса й заголовок сторінки, сайт, з якого ви прийшли (адреси — без параметрів), браузер, операційна система, тип пристрою, розмір екрана, мова, країна, час відвідування та кліки за посиланням на App Store. Статистика зберігається лише на наших серверах і не використовується для реклами чи профілювання. Записи, старші за 13 місяців, видаляються; у резервних копіях вони зазвичай залишаються ще до 7 днів. Як і весь сайт, stats.bible.garden працює через Cloudflare, але збереженої статистики Cloudflare від нас не отримує.',
             's5.title': 'Відкритий вихідний код',
-            's5.text': 'Bible Garden має повністю відкритий вихідний код. Ви можете ознайомитися з ним на <a href="https://github.com/Bible-Garden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>, щоб самостійно переконатися у дотриманні цієї політики.',
+            's5.text': 'Bible Garden має повністю відкритий вихідний код. Ви можете ознайомитися з ним на <a href="https://github.com/BibleGarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>, щоб самостійно переконатися у дотриманні цієї політики.',
             's6.title': 'Зміни в політиці',
-            's6.text': 'Якщо ми колись змінимо цю політику, ми оновимо дату на цій сторінці. Зважаючи на характер нашого застосунку, ми не очікуємо суттєвих змін.',
+            's6.text': 'Якщо ми змінимо цю політику, ми оновимо дату на цій сторінці.',
             's7.title': 'Контакти',
-            's7.text': 'Якщо у вас є питання щодо цієї політики конфіденційності, зв\'яжіться з нами через <a href="https://t.me/biblegarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">Telegram</a> або <a href="https://github.com/Bible-Garden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>.',
+            's7.text': 'Якщо у вас є питання щодо цієї політики конфіденційності, зв\'яжіться з нами через <a href="https://t.me/biblegarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">Telegram</a> або <a href="https://github.com/BibleGarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>.',
             'footer': 'Проект з відкритим кодом під ліцензією AGPL. Усі права належать Богу.',
             'about': 'Як ми пишемо',
             'articles': 'Статті',
