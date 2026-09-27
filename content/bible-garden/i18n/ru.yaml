@@ -84,6 +84,13 @@ articles:
   screen_open: "Открыть скриншот крупнее: {caption}"
   screen_viewer: Скриншот приложения
   screen_close: Закрыть скриншот
+  multi_reading_demo:
+    title: "Послушайте Ин 1:1–5 на двух языках"
+    play: Слушать
+    pause: Пауза
+    play_again: Слушать снова
+    error: "Не удалось воспроизвести аудио. Попробуйте плееры ниже."
+    manual_audio: "Каждая запись отдельно:"
   reading_plan:
     choose_plan: Порядок чтения
     parallel: Параллельно

@@ -84,6 +84,13 @@ articles:
   screen_open: "Open larger screenshot: {caption}"
   screen_viewer: App screenshot
   screen_close: Close screenshot
+  multi_reading_demo:
+    title: "Listen to John 1:1–5 in two languages"
+    play: Play
+    pause: Pause
+    play_again: Play again
+    error: "Audio could not be played. Please try the manual audio controls below."
+    manual_audio: "Listen to each narrator separately:"
   reading_plan:
     choose_plan: Reading order
     parallel: Parallel

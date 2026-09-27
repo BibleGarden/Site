@@ -1,0 +1,217 @@
+{
+  "passages": "John 1:1–5",
+  "pairs": {
+    "ru": [
+      "prozorovsky",
+      "bsb_souer"
+    ],
+    "en": [
+      "bsb_souer",
+      "prudovsky"
+    ],
+    "uk": [
+      "kozlov_uk",
+      "bsb_souer"
+    ]
+  },
+  "clips": {
+    "bsb_souer": {
+      "path": "/audio/demo/bsb_souer.mp3",
+      "sha256": "aefb0e97feed3e447b2d47f1dfefb8ad16350f2b9f974b9182caa2c0dd2b4cfd",
+      "duration": 22.992,
+      "translation": "bsb",
+      "names": {
+        "en": [
+          "Berean Standard Bible (BSB)",
+          "Bob Souer"
+        ],
+        "ru": [
+          "Berean Standard Bible (BSB)",
+          "Bob Souer"
+        ],
+        "uk": [
+          "Berean Standard Bible (BSB)",
+          "Bob Souer"
+        ]
+      },
+      "verses": [
+        [
+          0.1,
+          5.11
+        ],
+        [
+          5.77,
+          7.56
+        ],
+        [
+          8.26,
+          13.49
+        ],
+        [
+          14.26,
+          17.61
+        ],
+        [
+          18.21,
+          22.74
+        ]
+      ]
+    },
+    "prozorovsky": {
+      "path": "/audio/demo/prozorovsky.mp3",
+      "sha256": "c6752f203093f8dbacf508603bcaa406c3b8b193faa3c527deaa9742c3d45238",
+      "duration": 43.368,
+      "translation": "bti",
+      "names": {
+        "en": [
+          "Kulakov translation (Russian)",
+          "Nikita Semyonov-Prozorovsky"
+        ],
+        "ru": [
+          "Перевод Кулаковых",
+          "Никита Семёнов-Прозоровский"
+        ],
+        "uk": [
+          "Переклад Кулакових (російською)",
+          "Нікіта Семенов-Прозоровський"
+        ]
+      },
+      "verses": [
+        [
+          0.1,
+          13.1
+        ],
+        [
+          14.94,
+          17.7
+        ],
+        [
+          18.73,
+          26.76
+        ],
+        [
+          28.27,
+          35.13
+        ],
+        [
+          36.85,
+          43.11
+        ]
+      ]
+    },
+    "prudovsky": {
+      "path": "/audio/demo/prudovsky.mp3",
+      "sha256": "bc0d7009425ca5f5fe4feeb3e432fbca1be72eb26c5f9d48e2801c081883e3b3",
+      "duration": 40.296,
+      "translation": "syn",
+      "names": {
+        "en": [
+          "Russian Synodal Bible",
+          "Ilya Prudovsky"
+        ],
+        "ru": [
+          "Синодальный перевод",
+          "Илья Прудовский"
+        ],
+        "uk": [
+          "Синодальний переклад (російською)",
+          "Ілля Прудовський"
+        ]
+      },
+      "verses": [
+        [
+          0.1,
+          11.35
+        ],
+        [
+          12.3,
+          15.31
+        ],
+        [
+          16.36,
+          25.43
+        ],
+        [
+          26.56,
+          32.76
+        ],
+        [
+          33.71,
+          40.03
+        ]
+      ]
+    },
+    "kozlov_uk": {
+      "path": "/audio/demo/kozlov_uk.mp3",
+      "sha256": "459e12f8a7376da7b1d1a3f5b04ddd98934f4b4ffcea4a9a9df5421dc65bb315",
+      "duration": 39.336,
+      "translation": "ubh",
+      "names": {
+        "en": [
+          "Khomenko translation (Ukrainian)",
+          "Ihor Kozlov"
+        ],
+        "ru": [
+          "Перевод Хоменка (украинский)",
+          "Игорь Козлов"
+        ],
+        "uk": [
+          "Переклад Хоменка",
+          "Ігор Козлов"
+        ]
+      },
+      "verses": [
+        [
+          0.1,
+          10.03
+        ],
+        [
+          11.68,
+          14.6
+        ],
+        [
+          15.66,
+          22.52
+        ],
+        [
+          23.9,
+          30.83
+        ],
+        [
+          32.87,
+          39.07
+        ]
+      ]
+    }
+  },
+  "texts": {
+    "bsb": [
+      "In the beginning was the Word, and the Word was with God, and the Word was God.",
+      "He was with God in the beginning.",
+      "Through Him all things were made, and without Him nothing was made that has been made.",
+      "In Him was life, and that life was the light of men.",
+      "The Light shines in the darkness, and the darkness has not overcome it."
+    ],
+    "bti": [
+      "В начале всего было Слово, и Слово было с Богом, и Само Оно было Бог.",
+      "Слово от начала уже было с Богом.",
+      "Через Него всё обрело свое бытие, и без Него ничто из существующего не появилось.",
+      "В Слове была жизнь, и жизнь эта — Свет людям.",
+      "Этот Свет и во тьме светит: не одолела она Его."
+    ],
+    "syn": [
+      "В начале было Слово, и Слово было у Бога, и Слово было Бог.",
+      "Оно было в начале у Бога.",
+      "Все чрез Него на́чало быть, и без Него ничто не на́чало быть, что на́чало быть.",
+      "В Нем была жизнь, и жизнь была свет человеков.",
+      "И свет во тьме светит, и тьма не объяла его."
+    ],
+    "ubh": [
+      "Споконвіку було Слово, і з Богом було Слово, і Слово було — Бог.",
+      "З Богом було воно споконвіку.",
+      "Ним постало все, і ніщо, що постало, не постало без нього.",
+      "У ньому було життя, і життя було — світло людей.",
+      "І світло світить у темряві, і не пойняла його темрява."
+    ]
+  }
+}

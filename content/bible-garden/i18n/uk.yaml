@@ -84,6 +84,13 @@ articles:
   screen_open: "Відкрити знімок екрана крупніше: {caption}"
   screen_viewer: Знімок екрана застосунку
   screen_close: Закрити знімок екрана
+  multi_reading_demo:
+    title: "Послухайте Ів 1:1–5 двома мовами"
+    play: Слухати
+    pause: Пауза
+    play_again: Слухати знову
+    error: "Не вдалося відтворити аудіо. Спробуйте плеєри нижче."
+    manual_audio: "Кожен запис окремо:"
   reading_plan:
     choose_plan: Порядок читання
     parallel: Паралельно
