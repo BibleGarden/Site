@@ -64,6 +64,30 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/about/"/>
   </url>
   <url>
+    <loc>https://bible.garden/articles/bible-in-a-year/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/bible-in-a-year/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/bible-in-a-year/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/bible-in-a-year/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/bible-in-a-year/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/ru/articles/bible-in-a-year/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/bible-in-a-year/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/bible-in-a-year/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/bible-in-a-year/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/bible-in-a-year/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/uk/articles/bible-in-a-year/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/bible-in-a-year/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/bible-in-a-year/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/bible-in-a-year/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/bible-in-a-year/"/>
+  </url>
+  <url>
     <loc>https://bible.garden/articles/how-to-start-reading-the-bible/</loc>
     <lastmod>2026-09-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/how-to-start-reading-the-bible/"/>

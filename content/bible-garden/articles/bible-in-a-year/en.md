@@ -2,7 +2,6 @@
 title: "How to Read the Bible in a Year: A 365-Day Plan"
 description: "A printable 365-day Bible reading plan for beginners: pick a start date, choose one of two reading orders, listen along, and take time to slow down."
 date: 2026-09-27
-draft: true
 ---
 
 To read the Bible in a year, aim for about three or four chapters a day: the 66 books in this plan contain 1,189 chapters. Listening takes about 11–14 minutes a day with the English recordings in Bible Garden, before any pauses. The calendar below gives you a daily reading from the Old Testament and either the New Testament or Psalms, or you can read straight through. Choose a pace that leaves time to pay attention.
