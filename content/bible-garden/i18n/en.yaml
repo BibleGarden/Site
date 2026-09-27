@@ -91,6 +91,8 @@ articles:
     date: Date
     reading: Reading
     month: "Month {n}"
+    caption: "Reading plan: month {month}, days {first}–{last}"
+    done: Done
   download_title: Read and listen with Bible Garden
   download_text: "A free, open-source app for reading and listening to the Bible in multiple languages, with professional narration and configurable pauses."
   download_cta: Download on the App Store

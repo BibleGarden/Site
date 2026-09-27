@@ -249,6 +249,7 @@ The JSON keeps Hebrew/BSB chapter numbers. Days never split Psalms 9–10 or
 numbers used by Synodal and Kulakov/BTI; uk displays Malachi as three chapters
 and keeps Hebrew Psalm numbers. These translation chapter schemes were checked
 against `cep_public.translation_verses` on 2026-09-27.
+The TSV corrects the export's Russian book 22 name to «Песнь песней».
 
 Regenerate and rebuild with:
 

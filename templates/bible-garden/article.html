@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "icons.html" import appstore_icon, github_icon %}
+{% block body_class %}{% if article.has_plan %} has-reading-plan{% endif %}{% endblock %}
 {% block head %}
 {% for block in json_ld %}
     <script type="application/ld+json">{{ block | jsonld }}</script>

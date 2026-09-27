@@ -349,20 +349,20 @@
 }
 
 @media print {
-    body:has(.reading-plan) { background: #fff !important; color: #000 !important; }
-    body:has(.reading-plan) > nav,
-    body:has(.reading-plan) > footer,
-    body:has(.reading-plan) article > nav,
-    body:has(.reading-plan) article > header,
-    body:has(.reading-plan) article > aside,
-    body:has(.reading-plan) .article-screen-aside,
-    body:has(.reading-plan) .article-screen-dialog,
-    body:has(.reading-plan) .article-body > :not(.reading-plan),
-    .reading-plan-controls { display: none !important; }
+    .has-reading-plan { background: #fff !important; color: #000 !important; }
+    .has-reading-plan > nav,
+    .has-reading-plan > footer,
+    .has-reading-plan article > nav,
+    .has-reading-plan article > header,
+    .has-reading-plan article > aside,
+    .has-reading-plan .article-screen-aside,
+    .has-reading-plan .article-screen-dialog,
+    .has-reading-plan .article-body > :not(.reading-plan),
+    .has-reading-plan .reading-plan-controls { display: none !important; }
 
-    body:has(.reading-plan) main,
-    body:has(.reading-plan) article { margin: 0; padding: 0; max-width: none; }
-    body:has(.reading-plan) .article-screen-layout { display: block; }
+    .has-reading-plan main,
+    .has-reading-plan article { margin: 0; padding: 0; max-width: none; }
+    .has-reading-plan .article-screen-layout { display: block; }
     .reading-plan { color: #000; font-size: 9pt; line-height: 1.15; }
     .reading-plan-month { break-before: page; border: 0; margin: 0; }
     .reading-plan-month:first-of-type { break-before: auto; }

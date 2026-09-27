@@ -4,8 +4,10 @@
 
     const input = plan.querySelector('.reading-plan-start-date');
     const cells = [...plan.querySelectorAll('tr[data-day] .reading-plan-date')];
+    const months = [...plan.querySelectorAll('.reading-plan-month')];
     const locale = { en: 'en', ru: 'ru', uk: 'uk' }[plan.lang];
     const formatter = new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'short', timeZone: 'UTC' });
+    const rangeFormatter = new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
     const storageKey = 'bible-garden-reading-plan-start';
 
     function parseDate(value) {
@@ -17,14 +19,24 @@
 
     function fillDates(value) {
         const start = parseDate(value);
-        cells.forEach((cell, index) => {
-            if (!start) {
-                cell.textContent = '';
-                return;
-            }
+        function dayAt(index) {
             const date = new Date(start);
             date.setUTCDate(start.getUTCDate() + index);
-            cell.textContent = formatter.format(date);
+            return date;
+        }
+        cells.forEach((cell, index) => {
+            cell.textContent = start ? formatter.format(dayAt(index)) : '';
+        });
+        months.forEach((month) => {
+            const dates = month.querySelector('.reading-plan-month-dates');
+            if (!start) {
+                dates.textContent = '';
+                return;
+            }
+            const rows = month.querySelectorAll('tr[data-day]');
+            const first = Number(rows[0].dataset.day) - 1;
+            const last = Number(rows[rows.length - 1].dataset.day) - 1;
+            dates.textContent = ` · ${rangeFormatter.format(dayAt(first))} – ${rangeFormatter.format(dayAt(last))}`;
         });
     }
 
@@ -48,7 +60,6 @@
     });
 
     plan.querySelector('.reading-plan-print').addEventListener('click', () => window.print());
-    const months = [...plan.querySelectorAll('.reading-plan-month')];
     let previousOpen = [];
     window.addEventListener('beforeprint', () => {
         previousOpen = months.map((month) => month.open);

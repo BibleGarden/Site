@@ -261,7 +261,7 @@ def format_range(value: dict, names: dict[int, str], lang: str) -> str:
 
 
 def render_plan(days: list[dict], chapters: list[Chapter], lang: str, strings: dict) -> str:
-    required = {"start_date", "print", "day", "date", "reading", "month"}
+    required = {"start_date", "print", "day", "date", "reading", "month", "caption", "done"}
     if not isinstance(strings, dict) or set(strings) != required or not all(isinstance(value, str) and value.strip() for value in strings.values()):
         raise BuildError(f"reading plan: missing or invalid translation for {lang}")
     if not re.fullmatch(r"[^{}]*\{n\}[^{}]*", strings["month"]):
@@ -279,12 +279,18 @@ def render_plan(days: list[dict], chapters: list[Chapter], lang: str, strings: d
            '</div>']
     offset = 0
     for month, length in enumerate(MONTH_LENGTHS, 1):
+        try:
+            caption = strings["caption"].format(month=month, first=offset + 1, last=offset + length)
+        except (KeyError, ValueError) as error:
+            raise BuildError(f"reading plan: invalid caption translation for {lang}: {error}") from error
         out.append(f'<details class="reading-plan-month"{" open" if month == 1 else ""}>')
-        out.append(f'<summary>{html.escape(strings["month"].format(n=month))}</summary>')
-        out.append('<div class="reading-plan-month-body"><table><thead><tr>')
+        out.append(f'<summary>{html.escape(strings["month"].format(n=month))}'
+                   '<span class="reading-plan-month-dates"></span></summary>')
+        out.append(f'<div class="reading-plan-month-body"><table><caption class="sr-only">{html.escape(caption)}</caption><thead><tr>')
         for label in ("day", "date", "reading"):
             out.append(f'<th scope="col">{html.escape(strings[label])}</th>')
-        out.append('<th scope="col" class="reading-plan-check-heading"><span class="sr-only">✓</span></th></tr></thead><tbody>')
+        out.append(f'<th scope="col" class="reading-plan-check-heading"><span aria-hidden="true">✓</span>'
+                   f'<span class="sr-only">{html.escape(strings["done"])}</span></th></tr></thead><tbody>')
         for day_number in range(offset + 1, offset + length + 1):
             day = days[day_number - 1]
             reading = f'{format_range(day["a"], names, lang)} · {format_range(day["b"], names, lang)}'

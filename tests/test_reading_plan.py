@@ -5,10 +5,12 @@ from __future__ import annotations
 import re
 import tempfile
 import unittest
+from dataclasses import replace
 from itertools import combinations
 from pathlib import Path
 from unittest.mock import patch
 
+from sitegen.build import SiteBuilder
 from sitegen.content import parse_article
 from sitegen.errors import BuildError
 from sitegen.reading_plan import (
@@ -33,6 +35,7 @@ class ReadingPlanTest(unittest.TestCase):
         self.assertEqual([item.book for item in b[:3]], [40, 40, 40])
         self.assertEqual(next(item.names["en"] for item in b if item.book == 45), "Romans")
         self.assertEqual(next(item.names["en"] for item in b if item.book == 59), "James")
+        self.assertEqual(next(item.names["ru"] for item in a if item.book == 22), "Песнь песней")
         self.assertEqual([item.book for item in b[-3:]], [19, 19, 19])
         for stream in (a, b):
             units = reading_units(stream)
@@ -120,9 +123,9 @@ class ReadingPlanTest(unittest.TestCase):
 
     def test_article_renders_365_localized_rows(self) -> None:
         strings = {
-            "en": {"start_date": "Start date", "print": "Print", "day": "Day", "date": "Date", "reading": "Reading", "month": "Month {n}"},
-            "ru": {"start_date": "Дата начала", "print": "Распечатать", "day": "День", "date": "Дата", "reading": "Чтение", "month": "Месяц {n}"},
-            "uk": {"start_date": "Дата початку", "print": "Роздрукувати", "day": "День", "date": "Дата", "reading": "Читання", "month": "Місяць {n}"},
+            "en": {"start_date": "Start date", "print": "Print", "day": "Day", "date": "Date", "reading": "Reading", "month": "Month {n}", "caption": "Reading plan: month {month}, days {first}–{last}", "done": "Done"},
+            "ru": {"start_date": "Дата начала", "print": "Распечатать", "day": "День", "date": "Дата", "reading": "Чтение", "month": "Месяц {n}", "caption": "План чтения: месяц {month}, дни {first}–{last}", "done": "Отметка"},
+            "uk": {"start_date": "Дата початку", "print": "Роздрукувати", "day": "День", "date": "Дата", "reading": "Читання", "month": "Місяць {n}", "caption": "План читання: місяць {month}, дні {first}–{last}", "done": "Позначка"},
         }
         for lang, first_name in (("en", "Genesis"), ("ru", "Бытие"), ("uk", "Буття")):
             with self.subTest(lang=lang):
@@ -135,10 +138,25 @@ class ReadingPlanTest(unittest.TestCase):
                 self.assertEqual(len(re.findall(r'<tr data-day="\d+">', html)), 365)
                 self.assertEqual(html.count('<details class="reading-plan-month"'), 12)
                 self.assertEqual(html.count('<details class="reading-plan-month" open>'), 1)
+                self.assertEqual(html.count('<caption class="sr-only">'), 12)
+                self.assertEqual(html.count('<span class="reading-plan-month-dates"></span>'), 12)
+                self.assertIn(strings[lang]["caption"].format(month=4, first=91, last=120), html)
+                self.assertIn(f'<span class="sr-only">{strings[lang]["done"]}</span>', html)
                 self.assertIn(f"{first_name} 1", html)
                 self.assertIn(strings[lang]["start_date"], html)
                 self.assertIn('class="reading-plan-date"></td>', html)
                 self.assertNotIn("<!-- plan:", html)
+
+    def test_article_page_marks_plan_for_print_without_has_selector(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            builder = SiteBuilder(ROOT / "content/bible-garden", Path(directory) / "bible-garden", preview=True)
+            slug = "how-to-start-reading-the-bible"
+            article = builder.articles[slug]["en"]
+            builder.articles[slug]["en"] = replace(article, has_plan=True)
+            builder.build_article(slug, "en")
+            page = builder.output_path("en", f"articles/{slug}/index.html").read_text(encoding="utf-8")
+        self.assertIn('antialiased has-reading-plan">', page)
+        self.assertNotIn(":has(", (ROOT / "static/bible-garden/css/article.css").read_text(encoding="utf-8"))
 
     def test_missing_source_or_plan_fails(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

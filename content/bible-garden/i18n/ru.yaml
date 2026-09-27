@@ -91,6 +91,8 @@ articles:
     date: Дата
     reading: Чтение
     month: "Месяц {n}"
+    caption: "План чтения: месяц {month}, дни {first}–{last}"
+    done: Отметка
   download_title: Читайте и слушайте с Bible Garden
   download_text: "Бесплатное приложение с открытым кодом для чтения и прослушивания Библии на нескольких языках с профессиональной озвучкой и настраиваемыми паузами."
   download_cta: Скачать в App Store
