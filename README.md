@@ -206,6 +206,19 @@ accept a new archive version, update `ARCHIVE_SHA256` in the same script
 captions in `screens.yaml`, then import and commit the WebP and checksums in
 the same change.
 
+### Callout
+
+To make a key paragraph stand out for skimming readers, wrap it in a callout
+(Markdown inside is rendered thanks to `md_in_html` from `extra`):
+
+```markdown
+<div class="article-callout" markdown="1">
+**Multi Reading is the app's key feature.** Every verse plays twice…
+</div>
+```
+
+Use it sparingly — at most one per article.
+
 ### FAQ block
 
 A second-level heading with the `{#faq}` id marks the FAQ section. Every

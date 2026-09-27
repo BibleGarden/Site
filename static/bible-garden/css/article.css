@@ -73,6 +73,18 @@
     color: #a3b8aa;
 }
 
+.article-body .article-callout {
+    margin: 1.5em 0;
+    padding: 1em 1.25em;
+    border: 1px solid rgba(212, 168, 67, 0.45);
+    border-left: 4px solid #d4a843;
+    border-radius: 0.75rem;
+    background: rgba(212, 168, 67, 0.08);
+}
+
+.article-body .article-callout > :first-child { margin-top: 0; }
+.article-body .article-callout > :last-child { margin-bottom: 0; }
+
 .article-body table {
     width: 100%;
     border-collapse: collapse;
