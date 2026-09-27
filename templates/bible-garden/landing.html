@@ -52,7 +52,7 @@
                     {% endif %}
                     <!-- Language switcher -->
                     <div class="flex items-center gap-1 text-sm text-gray-500">
-                        {% for code, label in [("en", "EN"), ("ru", "RU"), ("uk", "UA")] %}
+                        {% for code in site.languages %}{% set label = site.config.language_labels[code] %}
                         {% if not loop.first %}
                         <span class="text-garden-700">|</span>
                         {% endif %}
