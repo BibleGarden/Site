@@ -231,9 +231,11 @@ Only one `{#faq}` section per article; every question needs an answer.
 
 On bible.garden, put `<!-- plan: bible-in-a-year -->` on its own line where the
 365-day calendar should appear. The build rejects unknown or malformed plan
-markers. The first 11 sections use ordinary non-leap month lengths; section 12
-covers days 335–365. The date column fills from a visitor-selected start date
-when JavaScript is available; the readings and print checkboxes are in the HTML.
+markers. Without JavaScript the HTML groups days in 31-day blocks (`Days 1–31`,
+`Days 32–62`, and so on). With JavaScript, the selected start date fills the
+date column and groups all 365 days by real calendar month, including partial
+first and last months. Printing flows through the blocks without a page break
+per month; the readings and print checkboxes are always in the HTML.
 
 The committed `tools/data/chapters.tsv` comes from `cep_public.voice_alignments`
 (BSB, Bob Souer), exported on 2026-09-27. Its New Testament IDs 45–65 place

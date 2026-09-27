@@ -11,11 +11,11 @@ from pathlib import Path
 from unittest.mock import patch
 
 from sitegen.build import SiteBuilder
-from sitegen.content import parse_article
+from sitegen.content import load_site, parse_article
 from sitegen.errors import BuildError
 from sitegen.reading_plan import (
     DISPLAY_RULES, MERGED_PAIRS, Chapter, annotate_plan_marker, display_chapter,
-    format_range, load_chapters, load_plan, reading_units, streams, validate_plan,
+    format_range, load_chapters, load_plan, reading_units, render_plan, streams, validate_plan,
 )
 from tools.build_reading_plan import build_data, partition
 
@@ -123,9 +123,9 @@ class ReadingPlanTest(unittest.TestCase):
 
     def test_article_renders_365_localized_rows(self) -> None:
         strings = {
-            "en": {"start_date": "Start date", "print": "Print", "day": "Day", "date": "Date", "reading": "Reading", "month": "Month {n}", "caption": "Reading plan: month {month}, days {first}–{last}", "done": "Done"},
-            "ru": {"start_date": "Дата начала", "print": "Распечатать", "day": "День", "date": "Дата", "reading": "Чтение", "month": "Месяц {n}", "caption": "План чтения: месяц {month}, дни {first}–{last}", "done": "Отметка"},
-            "uk": {"start_date": "Дата початку", "print": "Роздрукувати", "day": "День", "date": "Дата", "reading": "Читання", "month": "Місяць {n}", "caption": "План читання: місяць {month}, дні {first}–{last}", "done": "Позначка"},
+            "en": {"start_date": "Start date", "print": "Print", "day": "Day", "date": "Date", "reading": "Reading", "days": "Days {first}–{last}", "caption_days": "Reading plan: days {first}–{last}", "caption_month": "Reading plan: {month}, days {first}–{last}", "done": "Done"},
+            "ru": {"start_date": "Дата начала", "print": "Распечатать", "day": "День", "date": "Дата", "reading": "Чтение", "days": "Дни {first}–{last}", "caption_days": "План чтения: дни {first}–{last}", "caption_month": "План чтения: {month}, дни {first}–{last}", "done": "Отметка"},
+            "uk": {"start_date": "Дата початку", "print": "Роздрукувати", "day": "День", "date": "Дата", "reading": "Читання", "days": "Дні {first}–{last}", "caption_days": "План читання: дні {first}–{last}", "caption_month": "План читання: {month}, дні {first}–{last}", "done": "Позначка"},
         }
         for lang, first_name in (("en", "Genesis"), ("ru", "Бытие"), ("uk", "Буття")):
             with self.subTest(lang=lang):
@@ -139,8 +139,10 @@ class ReadingPlanTest(unittest.TestCase):
                 self.assertEqual(html.count('<details class="reading-plan-month"'), 12)
                 self.assertEqual(html.count('<details class="reading-plan-month" open>'), 1)
                 self.assertEqual(html.count('<caption class="sr-only">'), 12)
-                self.assertEqual(html.count('<span class="reading-plan-month-dates"></span>'), 12)
-                self.assertIn(strings[lang]["caption"].format(month=4, first=91, last=120), html)
+                self.assertIn(strings[lang]["days"].format(first=1, last=31), html)
+                self.assertIn(strings[lang]["days"].format(first=32, last=62), html)
+                self.assertIn(strings[lang]["days"].format(first=342, last=365), html)
+                self.assertIn(strings[lang]["caption_days"].format(first=94, last=124), html)
                 self.assertIn(f'<span class="sr-only">{strings[lang]["done"]}</span>', html)
                 self.assertIn(f"{first_name} 1", html)
                 self.assertIn(strings[lang]["start_date"], html)
@@ -156,7 +158,17 @@ class ReadingPlanTest(unittest.TestCase):
             builder.build_article(slug, "en")
             page = builder.output_path("en", f"articles/{slug}/index.html").read_text(encoding="utf-8")
         self.assertIn('antialiased has-reading-plan">', page)
-        self.assertNotIn(":has(", (ROOT / "static/bible-garden/css/article.css").read_text(encoding="utf-8"))
+        css = (ROOT / "static/bible-garden/css/article.css").read_text(encoding="utf-8")
+        self.assertNotIn(":has(", css)
+        self.assertNotIn("break-before: page", css)
+        self.assertIn(".reading-plan-month tr { break-inside: avoid", css)
+
+    def test_group_labels_reject_extra_placeholders(self) -> None:
+        site = load_site(ROOT / "content/bible-garden", ROOT)
+        strings = dict(site.i18n["en"]["articles"]["reading_plan"])
+        strings["days"] += " {month}"
+        with self.assertRaisesRegex(BuildError, "needs exactly first, last"):
+            render_plan(self.days, self.chapters, "en", strings)
 
     def test_missing_source_or_plan_fails(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

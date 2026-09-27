@@ -90,8 +90,9 @@ articles:
     day: День
     date: Дата
     reading: Читання
-    month: "Місяць {n}"
-    caption: "План читання: місяць {month}, дні {first}–{last}"
+    days: "Дні {first}–{last}"
+    caption_days: "План читання: дні {first}–{last}"
+    caption_month: "План читання: {month}, дні {first}–{last}"
     done: Позначка
   download_title: Читайте та слухайте з Bible Garden
   download_text: "Безкоштовний застосунок із відкритим кодом для читання та прослуховування Біблії кількома мовами з професійною озвучкою та налаштовуваними паузами."

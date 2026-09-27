@@ -7,6 +7,7 @@ import html
 import json
 import math
 import re
+import string
 from dataclasses import dataclass
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
@@ -25,7 +26,7 @@ CHAPTER_COUNTS = (
     31, 12, 8, 66, 52, 5, 48, 12, 14, 3, 9, 1, 4, 7, 3, 3, 3, 2, 14, 4,
     28, 16, 24, 21, 28, 16, 16, 13, 6, 6, 4, 4, 5, 3, 6, 4, 3, 1, 13, 5, 5, 3, 5, 1, 1, 1, 22,
 )
-MONTH_LENGTHS = (31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+BLOCK_LENGTH = 31
 MERGED_PAIRS = {(19, 9), (19, 114), (39, 3)}
 # Hebrew interval, followed by the first and last displayed chapter in that interval.
 # Equal display endpoints merge chapters; a one-chapter interval may expand to two.
@@ -261,43 +262,50 @@ def format_range(value: dict, names: dict[int, str], lang: str) -> str:
 
 
 def render_plan(days: list[dict], chapters: list[Chapter], lang: str, strings: dict) -> str:
-    required = {"start_date", "print", "day", "date", "reading", "month", "caption", "done"}
+    required = {"start_date", "print", "day", "date", "reading", "days", "caption_days", "caption_month", "done"}
     if not isinstance(strings, dict) or set(strings) != required or not all(isinstance(value, str) and value.strip() for value in strings.values()):
         raise BuildError(f"reading plan: missing or invalid translation for {lang}")
-    if not re.fullmatch(r"[^{}]*\{n\}[^{}]*", strings["month"]):
-        raise BuildError(f"reading plan: month translation for {lang} needs {{n}}")
+    for key, fields in (("days", ("first", "last")), ("caption_days", ("first", "last")),
+                        ("caption_month", ("month", "first", "last"))):
+        try:
+            used = [field for _, field, _, _ in string.Formatter().parse(strings[key]) if field is not None]
+            if sorted(used) != sorted(fields) or any(strings[key].count("{" + field + "}") != 1 for field in fields):
+                raise BuildError(f"reading plan: {key} translation for {lang} needs exactly {', '.join(fields)}")
+            strings[key].format(month="October 2026", first=5, last=35)
+        except (KeyError, ValueError) as error:
+            raise BuildError(f"reading plan: invalid {key} translation for {lang}: {error}") from error
     if lang not in ("en", "ru", "uk"):
         raise BuildError(f"reading plan: unknown language {lang!r}")
     for book in DISPLAY_RULES.get(lang, {}):
         for chapter in range(1, CHAPTER_COUNTS[book - 1] + 1):
             display_chapter(lang, book, chapter)
     names = {item.book: item.names[lang] for item in chapters}
-    out = [f'<section class="reading-plan" lang="{lang}" data-reading-plan="{PLAN_ID}">',
+    out = [f'<section class="reading-plan" lang="{lang}" data-reading-plan="{PLAN_ID}"'
+           f' data-block-length="{BLOCK_LENGTH}"'
+           f' data-days-label="{html.escape(strings["days"], quote=True)}"'
+           f' data-caption-days="{html.escape(strings["caption_days"], quote=True)}"'
+           f' data-caption-month="{html.escape(strings["caption_month"], quote=True)}">',
            '<div class="reading-plan-controls">',
            f'<label>{html.escape(strings["start_date"])} <input type="date" class="reading-plan-start-date"></label>',
            f'<button type="button" class="reading-plan-print">{html.escape(strings["print"])}</button>',
-           '</div>']
-    offset = 0
-    for month, length in enumerate(MONTH_LENGTHS, 1):
-        try:
-            caption = strings["caption"].format(month=month, first=offset + 1, last=offset + length)
-        except (KeyError, ValueError) as error:
-            raise BuildError(f"reading plan: invalid caption translation for {lang}: {error}") from error
-        out.append(f'<details class="reading-plan-month"{" open" if month == 1 else ""}>')
-        out.append(f'<summary>{html.escape(strings["month"].format(n=month))}'
-                   '<span class="reading-plan-month-dates"></span></summary>')
+           '</div>', '<div class="reading-plan-blocks">']
+    for offset in range(0, len(days), BLOCK_LENGTH):
+        first, last = offset + 1, min(offset + BLOCK_LENGTH, len(days))
+        label = strings["days"].format(first=first, last=last)
+        caption = strings["caption_days"].format(first=first, last=last)
+        out.append(f'<details class="reading-plan-month"{" open" if offset == 0 else ""}>')
+        out.append(f'<summary>{html.escape(label)}</summary>')
         out.append(f'<div class="reading-plan-month-body"><table><caption class="sr-only">{html.escape(caption)}</caption><thead><tr>')
         for label in ("day", "date", "reading"):
             out.append(f'<th scope="col">{html.escape(strings[label])}</th>')
         out.append(f'<th scope="col" class="reading-plan-check-heading"><span aria-hidden="true">✓</span>'
                    f'<span class="sr-only">{html.escape(strings["done"])}</span></th></tr></thead><tbody>')
-        for day_number in range(offset + 1, offset + length + 1):
+        for day_number in range(first, last + 1):
             day = days[day_number - 1]
             reading = f'{format_range(day["a"], names, lang)} · {format_range(day["b"], names, lang)}'
             out.append(f'<tr data-day="{day_number}"><th scope="row">{day_number}</th>'
                        f'<td class="reading-plan-date"></td><td class="reading-plan-reading">{reading}</td>'
                        '<td class="reading-plan-checkbox">☐</td></tr>')
         out.append('</tbody></table></div></details>')
-        offset += length
-    out.append('</section>')
+    out.extend(('</div>', '</section>'))
     return "\n".join(out)
