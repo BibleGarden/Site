@@ -84,6 +84,13 @@ articles:
   screen_open: "Открыть скриншот крупнее: {caption}"
   screen_viewer: Скриншот приложения
   screen_close: Закрыть скриншот
+  reading_plan:
+    start_date: Дата начала
+    print: Распечатать
+    day: День
+    date: Дата
+    reading: Чтение
+    month: "Месяц {n}"
   download_title: Читайте и слушайте с Bible Garden
   download_text: "Бесплатное приложение с открытым кодом для чтения и прослушивания Библии на нескольких языках с профессиональной озвучкой и настраиваемыми паузами."
   download_cta: Скачать в App Store

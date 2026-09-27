@@ -227,6 +227,36 @@ It depends on your pace; the app shows the audio length of every book.
 
 Only one `{#faq}` section per article; every question needs an answer.
 
+### Reading plan in articles
+
+On bible.garden, put `<!-- plan: bible-in-a-year -->` on its own line where the
+365-day calendar should appear. The build rejects unknown or malformed plan
+markers. The first 11 sections use ordinary non-leap month lengths; section 12
+covers days 335–365. The date column fills from a visitor-selected start date
+when JavaScript is available; the readings and print checkboxes are in the HTML.
+
+The committed `tools/data/chapters.tsv` comes from `cep_public.voice_alignments`
+(BSB, Bob Souer), exported on 2026-09-27. Its New Testament IDs 45–65 place
+James–Jude before Romans–Hebrews; the generator explicitly maps them to
+Protestant canonical order. It first partitions the New Testament–Psalms
+stream, then exactly partitions the Old Testament stream against those day
+durations. It alternates the two streams for up to eight improvements. Each
+partition minimizes the maximum deviation of whole-day audio duration from
+the 365-day mean, then the total squared deviation.
+
+The JSON keeps Hebrew/BSB chapter numbers. Days never split Psalms 9–10 or
+114–115, or Malachi 3–4. The ru calendar displays Greek/Septuagint Psalm
+numbers used by Synodal and Kulakov/BTI; uk displays Malachi as three chapters
+and keeps Hebrew Psalm numbers. These translation chapter schemes were checked
+against `cep_public.translation_verses` on 2026-09-27.
+
+Regenerate and rebuild with:
+
+```bash
+.venv/bin/python tools/build_reading_plan.py
+.venv/bin/python -m sitegen build
+```
+
 ## Author
 
 Articles are signed by an organization, not a person. `site.yaml` defines it:

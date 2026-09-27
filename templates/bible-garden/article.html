@@ -7,6 +7,9 @@
 {% if article.screens %}
     <script defer src="/js/article-screens.js"></script>
 {% endif %}
+{% if article.has_plan %}
+    <script defer src="/js/reading-plan.js"></script>
+{% endif %}
 {% endblock %}
 {% block main %}
     <article class="{% if article.screens %}max-w-6xl{% else %}max-w-3xl{% endif %} mx-auto px-4 sm:px-6 lg:px-8 py-16">
