@@ -5,20 +5,7 @@
     "uk": "Послухайте Ів 1:1–5 у двох перекладах"
   },
   "passages": "John 1:1–5",
-  "pairs": {
-    "ru": [
-      "bondarenko",
-      "prozorovsky"
-    ],
-    "en": [
-      "bsb_souer",
-      "winfred_henson"
-    ],
-    "uk": [
-      "kozlov_uk",
-      "npu_uk"
-    ]
-  },
+  "kind": "multi-reading",
   "clips": {
     "bondarenko": {
       "translation": "syn",
@@ -327,6 +314,20 @@
       "All things were made through him. Without him, nothing was made that has been made.",
       "In him was life, and the life was the light of men.",
       "The light shines in the darkness, and the darkness hasn’t overcome it."
+    ]
+  },
+  "pairs": {
+    "ru": [
+      "bondarenko",
+      "prozorovsky"
+    ],
+    "en": [
+      "bsb_souer",
+      "winfred_henson"
+    ],
+    "uk": [
+      "kozlov_uk",
+      "npu_uk"
     ]
   }
 }

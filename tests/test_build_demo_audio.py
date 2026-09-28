@@ -19,6 +19,20 @@ class BuildDemoAudioTest(unittest.TestCase):
     def setUp(self) -> None:
         self.timings, _ = BUILD_DEMO_AUDIO.source_data()
 
+    def test_committed_timing_fingerprints_match_tsv(self) -> None:
+        for narrator, fingerprint in BUILD_DEMO_AUDIO.REUSABLE_TIMING_FINGERPRINTS.items():
+            with self.subTest(narrator=narrator):
+                self.assertEqual(BUILD_DEMO_AUDIO.timing_fingerprint(narrator, self.timings), fingerprint)
+
+    def test_continuous_clips_cover_all_five_verses(self) -> None:
+        records = BUILD_DEMO_AUDIO.recorded_continuous()
+        self.assertEqual(set(records), set(BUILD_DEMO_AUDIO.NARRATORS))
+        for narrator, record in records.items():
+            with self.subTest(narrator=narrator):
+                self.assertEqual(BUILD_DEMO_AUDIO.continuous_info(narrator, self.timings), record)
+                self.assertEqual(record["intervals"][0]["start"], 0.05)
+                self.assertLess(record["intervals"][-1]["end"], record["duration"])
+
     def test_reused_clips_require_source_when_timings_change(self) -> None:
         narrator = "bsb_souer"
         clips = [{"sha256": str(verse), "duration": float(verse)} for verse in range(1, 6)]

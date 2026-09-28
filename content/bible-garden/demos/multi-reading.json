@@ -5,20 +5,7 @@
     "uk": "Послухайте Ів 1:1–5 двома мовами"
   },
   "passages": "John 1:1–5",
-  "pairs": {
-    "ru": [
-      "prozorovsky",
-      "bsb_souer"
-    ],
-    "en": [
-      "bsb_souer",
-      "prudovsky"
-    ],
-    "uk": [
-      "kozlov_uk",
-      "bsb_souer"
-    ]
-  },
+  "kind": "multi-reading",
   "clips": {
     "bsb_souer": {
       "translation": "bsb",
@@ -171,27 +158,27 @@
       "verses": [
         {
           "path": "/audio/demo/prudovsky/1.mp3",
-          "sha256": "3dc6577555db63256d8e505dc524de699a8cd4ce90cf925a279ae91f976b3ce8",
+          "sha256": "5e0a512bc55904d1fe361fcb608ea553453a50d7fff3c5a4e23173de7f327b0e",
           "duration": 11.52
         },
         {
           "path": "/audio/demo/prudovsky/2.mp3",
-          "sha256": "cd8a28efcda3b1b37207f23a77c974c6bc8a18f4390ccaf1cda9ccef428695b0",
+          "sha256": "9773fe94defa6fc3bb2027233f71fe0209c7d1b47c5e75a2f4560e11ada02dbe",
           "duration": 3.264
         },
         {
           "path": "/audio/demo/prudovsky/3.mp3",
-          "sha256": "49d20551845b012c853e7e9f932ae3166913d167c89cefd7975ee48568e97168",
+          "sha256": "446e1e40ff82db1e149e0221f20e0322762a682419507311c5cf7a92082eed69",
           "duration": 9.336
         },
         {
           "path": "/audio/demo/prudovsky/4.mp3",
-          "sha256": "f9e5bdfbf381db323b7cd898b3f55ee5647c9b60fcfb739533a82931375671b1",
+          "sha256": "dc8cc70e7bc2993c8a600999c6e38143f2f09e1ea1f9d138aa996f2077991b20",
           "duration": 6.456
         },
         {
           "path": "/audio/demo/prudovsky/5.mp3",
-          "sha256": "8250a99f6508e5347260fd31d03a8df4fda6e153452c09ffc8d45de623f2b619",
+          "sha256": "b460d6ca781d5060e66a9213e86fb78fbaecdd368cb26d3a17362e6a4804bc29",
           "duration": 6.576
         }
       ]
@@ -225,6 +212,20 @@
       "Ним постало все, і ніщо, що постало, не постало без нього.",
       "У ньому було життя, і життя було — світло людей.",
       "І світло світить у темряві, і не пойняла його темрява."
+    ]
+  },
+  "pairs": {
+    "ru": [
+      "prozorovsky",
+      "bsb_souer"
+    ],
+    "en": [
+      "bsb_souer",
+      "prudovsky"
+    ],
+    "uk": [
+      "kozlov_uk",
+      "bsb_souer"
     ]
   }
 }

@@ -64,6 +64,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/about/"/>
   </url>
   <url>
+    <loc>https://bible.garden/ru/articles/audio-bible-narrators/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/audio-bible-narrators/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/ru/articles/audio-bible-narrators/"/>
+  </url>
+  <url>
     <loc>https://bible.garden/articles/bible-in-a-year/</loc>
     <lastmod>2026-09-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/bible-in-a-year/"/>
