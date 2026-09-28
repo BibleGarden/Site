@@ -35,6 +35,21 @@
 .multi-reading-secondary { color: #a3b8aa; }
 .multi-reading-line.is-playing { color: #fff; background: rgba(212, 168, 67, 0.28); box-shadow: inset 3px 0 #d4a843; }
 .multi-reading-demo [data-demo-player] { display: none; }
+.voices-demo { padding: 0.85rem; }
+.voices-rows { display: grid; gap: 0.4rem; }
+.voices-row { min-width: 0; padding: 0.55rem 0.65rem; border: 1px solid rgba(163, 184, 170, 0.25); border-radius: 0.55rem; }
+.voices-row-heading { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+.voices-row-meta { min-width: 0; overflow-wrap: anywhere; }
+.voices-row h4 { margin: 0; font-size: 0.9rem; line-height: 1.3; }
+.voices-note { margin: 0.1rem 0 0; color: #a3b8aa; font-size: 0.78rem; line-height: 1.3; }
+.voices-row .multi-reading-controls { flex: none; margin: 0; }
+.voices-row .multi-reading-toggle { padding: 0.35rem 0.6rem; }
+.voices-passage { margin: 0.45rem 0 0; line-height: 1.45; font-size: 0.85rem; }
+.voices-passage[hidden] { display: none; }
+.voices-passage span { border-radius: 0.2rem; }
+.voices-passage span + span { margin-left: 0.25rem; }
+.voices-passage sup { font-size: 0.7em; color: #d4a843; }
+.voices-passage .is-playing { color: #fff; background: rgba(212, 168, 67, 0.28); }
 
 .article-body {
     color: #cbd5d0;
@@ -440,6 +455,11 @@
 }
 
 @media print {
+    .voices-row { border-color: #888; break-inside: avoid; }
+    .voices-note { color: #444; }
+    .voices-passage[hidden] { display: block !important; }
+    .voices-passage .is-playing { color: #000; background: transparent; }
+    .voices-passage sup { color: #000; }
     .has-multi-reading-demo .multi-reading-controls { display: none !important; }
     .has-multi-reading-demo .multi-reading-demo,
     .has-multi-reading-demo .multi-reading-demo h3,

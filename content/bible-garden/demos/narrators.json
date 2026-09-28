@@ -1,0 +1,745 @@
+{
+  "title": {
+    "ru": "Послушайте Ин 1:1–5 в чтении каждого диктора",
+    "en": "Listen to John 1:1–5 read by each narrator",
+    "uk": "Послухайте Ів 1:1–5 у читанні кожного диктора"
+  },
+  "passages": "John 1:1–5",
+  "kind": "voices",
+  "clips": {
+    "bondarenko": {
+      "translation": "syn",
+      "names": {
+        "en": [
+          "Russian Synodal Bible",
+          "Alexander Bondarenko"
+        ],
+        "ru": [
+          "Синодальный перевод",
+          "Александр Бондаренко"
+        ],
+        "uk": [
+          "Синодальний переклад (російською)",
+          "Олександр Бондаренко"
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/bondarenko/1.mp3",
+          "sha256": "9d2ec2bba4eaa894cb7d6d71f5dbc8d9c6924d9f7a90262c7e514e0a4ee4527b",
+          "duration": 10.536
+        },
+        {
+          "path": "/audio/demo/bondarenko/2.mp3",
+          "sha256": "40927cab0ffb5a90744d1931e2faa44a8c98dd5f265ab676848f2e5b281438e6",
+          "duration": 2.688
+        },
+        {
+          "path": "/audio/demo/bondarenko/3.mp3",
+          "sha256": "6be8288703dbd51bda2bc64e29fa6be01b8f6e4b80c161f5d8b90dfc3f85cf2c",
+          "duration": 8.136
+        },
+        {
+          "path": "/audio/demo/bondarenko/4.mp3",
+          "sha256": "e9f0100c81fa29d1651bbe0453baa84c172347adef23cec5e8b714d98091cf39",
+          "duration": 5.544
+        },
+        {
+          "path": "/audio/demo/bondarenko/5.mp3",
+          "sha256": "412e612c2846a52f1697b9e02286557aa0b1d0c70e41b2bd8a87e50e592cadc8",
+          "duration": 6.408
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/bondarenko/1-5.mp3",
+        "sha256": "320ecf6636a5758fe0d1f600f20725130f8aa071ebde4ab88d0d73722f980a0a",
+        "duration": 37.104,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 10.33
+          },
+          {
+            "start": 11.7,
+            "end": 14.12
+          },
+          {
+            "start": 15.5,
+            "end": 23.38
+          },
+          {
+            "start": 24.54,
+            "end": 29.82
+          },
+          {
+            "start": 30.76,
+            "end": 36.9
+          }
+        ]
+      }
+    },
+    "bsb_david": {
+      "translation": "bsb",
+      "names": {
+        "en": [
+          "Berean Standard Bible (BSB)",
+          "David"
+        ],
+        "ru": [
+          "Berean Standard Bible (BSB)",
+          "David"
+        ],
+        "uk": [
+          "Berean Standard Bible (BSB)",
+          "David"
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/bsb_david/1.mp3",
+          "sha256": "7ffeab50ebdc439b071dab808c182b0cda9d4a63ea81148a9e721f9ba99f54ad",
+          "duration": 5.424
+        },
+        {
+          "path": "/audio/demo/bsb_david/2.mp3",
+          "sha256": "f92e575889be10891349ba358b633bf82b2761108fbaa4cf5acd31b54d611d97",
+          "duration": 1.992
+        },
+        {
+          "path": "/audio/demo/bsb_david/3.mp3",
+          "sha256": "5fc1d4238183770b91966c742c2004843a98d9860cdcb30c3ff22297c0affa55",
+          "duration": 5.904
+        },
+        {
+          "path": "/audio/demo/bsb_david/4.mp3",
+          "sha256": "cc1f5b3a1b8b037d12be9b3bb6dd35926665a69a8db3a0188bb23018c7c99383",
+          "duration": 3.72
+        },
+        {
+          "path": "/audio/demo/bsb_david/5.mp3",
+          "sha256": "5320bb5aa64489a8c9869fef37a124ab5b1cabc6e3065e609148fe4db295cf19",
+          "duration": 4.32
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/bsb_david/1-5.mp3",
+        "sha256": "c9169054347cc395561353487042ce4f4690f065cd93b203054480cde38b7530",
+        "duration": 21.936,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 5.21
+          },
+          {
+            "start": 5.55,
+            "end": 7.29
+          },
+          {
+            "start": 7.91,
+            "end": 13.56
+          },
+          {
+            "start": 13.84,
+            "end": 17.3
+          },
+          {
+            "start": 17.68,
+            "end": 21.73
+          }
+        ]
+      }
+    },
+    "bsb_souer": {
+      "translation": "bsb",
+      "names": {
+        "en": [
+          "Berean Standard Bible (BSB)",
+          "Bob Souer"
+        ],
+        "ru": [
+          "Berean Standard Bible (BSB)",
+          "Bob Souer"
+        ],
+        "uk": [
+          "Berean Standard Bible (BSB)",
+          "Bob Souer"
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/bsb_souer/1.mp3",
+          "sha256": "f8ba1c01ce457656ab96d61e19bcf18d1fb2f5ee31f7ee12e3df98a2a7924379",
+          "duration": 5.28
+        },
+        {
+          "path": "/audio/demo/bsb_souer/2.mp3",
+          "sha256": "03a4d5416cacfa6d590deecb12ff270f1f52e5840f42c4976a2195967fcce396",
+          "duration": 2.04
+        },
+        {
+          "path": "/audio/demo/bsb_souer/3.mp3",
+          "sha256": "9dd9d332286353a598b690a7cb34247b47a3e71342b3ccd6c646d34733897207",
+          "duration": 5.496
+        },
+        {
+          "path": "/audio/demo/bsb_souer/4.mp3",
+          "sha256": "badaea7525748663386c62ce8e1171140662ca58af2343ed6536a194bdb762f5",
+          "duration": 3.6
+        },
+        {
+          "path": "/audio/demo/bsb_souer/5.mp3",
+          "sha256": "a80075976a9acbebd23d2e5a0b8c8668679eb807dca49e0e4670b0eb94f421f7",
+          "duration": 4.8
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/bsb_souer/1-5.mp3",
+        "sha256": "af098eb5f9e147e013d50dc45411fda4195f5c065439875bf527b599ee725970",
+        "duration": 22.896,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 5.06
+          },
+          {
+            "start": 5.72,
+            "end": 7.51
+          },
+          {
+            "start": 8.21,
+            "end": 13.44
+          },
+          {
+            "start": 14.21,
+            "end": 17.56
+          },
+          {
+            "start": 18.16,
+            "end": 22.69
+          }
+        ]
+      }
+    },
+    "kozlov_uk": {
+      "translation": "ubh",
+      "names": {
+        "en": [
+          "Khomenko translation (Ukrainian)",
+          "Ihor Kozlov"
+        ],
+        "ru": [
+          "Перевод Хоменка (украинский)",
+          "Игорь Козлов"
+        ],
+        "uk": [
+          "Переклад Хоменка",
+          "Ігор Козлов"
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/kozlov_uk/1.mp3",
+          "sha256": "2569b1f1f7cc82404bbd6a052e79381863adf4ab1c432fc227f6dfe6b02dc211",
+          "duration": 10.2
+        },
+        {
+          "path": "/audio/demo/kozlov_uk/2.mp3",
+          "sha256": "915b6a3c10c8191b2ab90f61396e0cfb42a397af664ed35376a071e9dceef510",
+          "duration": 3.168
+        },
+        {
+          "path": "/audio/demo/kozlov_uk/3.mp3",
+          "sha256": "f097aaeeff4b5c97c152547f3d434347a45b377b0899cf671393a26d0933b713",
+          "duration": 7.128
+        },
+        {
+          "path": "/audio/demo/kozlov_uk/4.mp3",
+          "sha256": "582794befb9bac0c1dcd0e5b37783a3c9a35a26ba93f30a67bfc7c07b1d21edb",
+          "duration": 7.2
+        },
+        {
+          "path": "/audio/demo/kozlov_uk/5.mp3",
+          "sha256": "30727081518a4fee85ed6c32b80d17065e24456d736821c610f7bd6495d736ac",
+          "duration": 6.456
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/kozlov_uk/1-5.mp3",
+        "sha256": "b2d6c2e621a2ee8bd4092ee829e93a304ae42d4dca0f8708e75cd36386cee204",
+        "duration": 39.24,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 9.98
+          },
+          {
+            "start": 11.63,
+            "end": 14.55
+          },
+          {
+            "start": 15.61,
+            "end": 22.47
+          },
+          {
+            "start": 23.85,
+            "end": 30.78
+          },
+          {
+            "start": 32.82,
+            "end": 39.02
+          }
+        ]
+      }
+    },
+    "npu_uk": {
+      "translation": "npu",
+      "names": {
+        "en": [
+          "New Ukrainian Translation (NPU)",
+          null
+        ],
+        "ru": [
+          "Новый перевод на украинский (НПУ)",
+          null
+        ],
+        "uk": [
+          "Новий переклад українською (НПУ)",
+          null
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/npu_uk/1.mp3",
+          "sha256": "7d15c563464704743209e936c0a9471a5244b8ef135664d2acc6b924c44512ba",
+          "duration": 6.168
+        },
+        {
+          "path": "/audio/demo/npu_uk/2.mp3",
+          "sha256": "ecbe4467f3be2396dcf48f4d44902d3d79d119693e69726aae8e85cf7cfe83ec",
+          "duration": 2.256
+        },
+        {
+          "path": "/audio/demo/npu_uk/3.mp3",
+          "sha256": "27cd5babb570b094140c80a99503a950fda4bc6427e61310e39a432e9eefcef5",
+          "duration": 4.992
+        },
+        {
+          "path": "/audio/demo/npu_uk/4.mp3",
+          "sha256": "97159add33e8c2a06bf6b465a94d940a93f950a42ad557bbe1e67d308b52a402",
+          "duration": 4.296
+        },
+        {
+          "path": "/audio/demo/npu_uk/5.mp3",
+          "sha256": "71e11cec654a1564e2f1fa59b07f88d9ef8db76983c9b2c9e7f96c13b7fc8019",
+          "duration": 4.272
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/npu_uk/1-5.mp3",
+        "sha256": "49eefdccccda1a4c58a57a3836cc15c4a3df389948caca10db6a0a52c39d94e4",
+        "duration": 22.248,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 5.95
+          },
+          {
+            "start": 6.31,
+            "end": 8.31
+          },
+          {
+            "start": 8.68,
+            "end": 13.41
+          },
+          {
+            "start": 13.68,
+            "end": 17.71
+          },
+          {
+            "start": 18.01,
+            "end": 22.03
+          }
+        ]
+      }
+    },
+    "prozorovsky": {
+      "translation": "bti",
+      "names": {
+        "en": [
+          "Kulakov translation (Russian)",
+          "Nikita Semyonov-Prozorovsky"
+        ],
+        "ru": [
+          "Перевод Кулаковых",
+          "Никита Семёнов-Прозоровский"
+        ],
+        "uk": [
+          "Переклад Кулакових (російською)",
+          "Нікіта Семенов-Прозоровський"
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/prozorovsky/1.mp3",
+          "sha256": "f63784ceef415133ee295ae0844916378b455e1e0169aa7b48c8065892faf4c7",
+          "duration": 13.248
+        },
+        {
+          "path": "/audio/demo/prozorovsky/2.mp3",
+          "sha256": "02604f8e38bc2ab97d2eef099aae5df7ac0266b031652cfb6ebe18414d13ad06",
+          "duration": 3.024
+        },
+        {
+          "path": "/audio/demo/prozorovsky/3.mp3",
+          "sha256": "ee9cb8f63f57a04eac03def9b329b9656d1d41de7fde11fcd1b7979882217579",
+          "duration": 8.28
+        },
+        {
+          "path": "/audio/demo/prozorovsky/4.mp3",
+          "sha256": "e2ecc95d65ba8fa2a2ebe6c3d84a856320213f92798590bb32663a3bf405a903",
+          "duration": 7.128
+        },
+        {
+          "path": "/audio/demo/prozorovsky/5.mp3",
+          "sha256": "6529348e107429fba6aa19c071259eaca27057559cca4071203be05bc0b97362",
+          "duration": 6.528
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/prozorovsky/1-5.mp3",
+        "sha256": "2f4598f57cbbba6bff4ebe073c88e79f14d78dfc55b1023927d01ccbdecd8d6b",
+        "duration": 43.272,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 13.05
+          },
+          {
+            "start": 14.89,
+            "end": 17.65
+          },
+          {
+            "start": 18.68,
+            "end": 26.71
+          },
+          {
+            "start": 28.22,
+            "end": 35.08
+          },
+          {
+            "start": 36.8,
+            "end": 43.06
+          }
+        ]
+      }
+    },
+    "prudovsky": {
+      "translation": "syn",
+      "names": {
+        "en": [
+          "Russian Synodal Bible",
+          "Ilya Prudovsky"
+        ],
+        "ru": [
+          "Синодальный перевод",
+          "Илья Прудовский"
+        ],
+        "uk": [
+          "Синодальний переклад (російською)",
+          "Ілля Прудовський"
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/prudovsky/1.mp3",
+          "sha256": "5e0a512bc55904d1fe361fcb608ea553453a50d7fff3c5a4e23173de7f327b0e",
+          "duration": 11.52
+        },
+        {
+          "path": "/audio/demo/prudovsky/2.mp3",
+          "sha256": "9773fe94defa6fc3bb2027233f71fe0209c7d1b47c5e75a2f4560e11ada02dbe",
+          "duration": 3.264
+        },
+        {
+          "path": "/audio/demo/prudovsky/3.mp3",
+          "sha256": "446e1e40ff82db1e149e0221f20e0322762a682419507311c5cf7a92082eed69",
+          "duration": 9.336
+        },
+        {
+          "path": "/audio/demo/prudovsky/4.mp3",
+          "sha256": "dc8cc70e7bc2993c8a600999c6e38143f2f09e1ea1f9d138aa996f2077991b20",
+          "duration": 6.456
+        },
+        {
+          "path": "/audio/demo/prudovsky/5.mp3",
+          "sha256": "b460d6ca781d5060e66a9213e86fb78fbaecdd368cb26d3a17362e6a4804bc29",
+          "duration": 6.576
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/prudovsky/1-5.mp3",
+        "sha256": "cdebe20cd0b74a787da1f8b64cd010c46be29bcaecc00ec1049b579891128090",
+        "duration": 40.2,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 11.3
+          },
+          {
+            "start": 12.25,
+            "end": 15.26
+          },
+          {
+            "start": 16.31,
+            "end": 25.38
+          },
+          {
+            "start": 26.51,
+            "end": 32.71
+          },
+          {
+            "start": 33.66,
+            "end": 39.98
+          }
+        ]
+      }
+    },
+    "web_british": {
+      "translation": "webbe",
+      "names": {
+        "en": [
+          "World English Bible, British Edition (WEBBE)",
+          null
+        ],
+        "ru": [
+          "World English Bible, British Edition (WEBBE)",
+          null
+        ],
+        "uk": [
+          "World English Bible, British Edition (WEBBE)",
+          null
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/web_british/1.mp3",
+          "sha256": "d6a7c56e314da21103ddbfe5e254062124dc1d149dfa747846efdeacb2c5b0dd",
+          "duration": 4.176
+        },
+        {
+          "path": "/audio/demo/web_british/2.mp3",
+          "sha256": "7e0d6763715eed690dd13b0380800c6fdeae070b1d0d423a049ffeb70099e1b5",
+          "duration": 2.16
+        },
+        {
+          "path": "/audio/demo/web_british/3.mp3",
+          "sha256": "ef6365fdc2cefc49163483ce96a2cd5f0b19c8dd3b28dbddb17ef5b8ed55be9e",
+          "duration": 4.848
+        },
+        {
+          "path": "/audio/demo/web_british/4.mp3",
+          "sha256": "40707c3b2ec705b8a32fe64053100af55dd0ab49d26762ad0bf222af43dd2ccc",
+          "duration": 2.976
+        },
+        {
+          "path": "/audio/demo/web_british/5.mp3",
+          "sha256": "77a4d9b166f238491d1566f07ee59bd43abef153a1cce8972b8d1e993bbf1e68",
+          "duration": 4.008
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/web_british/1-5.mp3",
+        "sha256": "a6bc602bb7f49822896bae9129b7d01b8e8afc392096a7de2344a6c8d431a9fd",
+        "duration": 18.84,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 3.97
+          },
+          {
+            "start": 4.6,
+            "end": 6.49
+          },
+          {
+            "start": 6.73,
+            "end": 11.33
+          },
+          {
+            "start": 11.57,
+            "end": 14.29
+          },
+          {
+            "start": 14.89,
+            "end": 18.64
+          }
+        ]
+      }
+    },
+    "winfred_henson": {
+      "translation": "webus",
+      "names": {
+        "en": [
+          "World English Bible (WEB)",
+          "Winfred Henson"
+        ],
+        "ru": [
+          "World English Bible (WEB)",
+          "Winfred Henson"
+        ],
+        "uk": [
+          "World English Bible (WEB)",
+          "Winfred Henson"
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/winfred_henson/1.mp3",
+          "sha256": "66f6ee5d5477fb7ce70e40597dd9a8b97a57b112b96f5a7b3f778969de33d2c6",
+          "duration": 6.072
+        },
+        {
+          "path": "/audio/demo/winfred_henson/2.mp3",
+          "sha256": "534be5a6272cb173c98359a58029fc96679198e25ebea04455350cddb13939df",
+          "duration": 2.568
+        },
+        {
+          "path": "/audio/demo/winfred_henson/3.mp3",
+          "sha256": "c8f42cefb583f659515f468c8dfe93557caf86f31a29941aa91a1b556d973394",
+          "duration": 5.928
+        },
+        {
+          "path": "/audio/demo/winfred_henson/4.mp3",
+          "sha256": "51102b6680ebebf1ce58ecacc8da1727fc415163e50f9e455d754a52648df914",
+          "duration": 3.96
+        },
+        {
+          "path": "/audio/demo/winfred_henson/5.mp3",
+          "sha256": "ce334e8fa58268d30dfc3a0eda9ec00e539454e6624ef7d56315c654f7e12c0a",
+          "duration": 4.344
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/winfred_henson/1-5.mp3",
+        "sha256": "7a25820b3e7fddeeca03a657ebf3aa056bd3268e34cafa4ae79eefc3d205e776",
+        "duration": 23.64,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 5.86
+          },
+          {
+            "start": 6.34,
+            "end": 8.66
+          },
+          {
+            "start": 9.0,
+            "end": 14.66
+          },
+          {
+            "start": 15.09,
+            "end": 18.79
+          },
+          {
+            "start": 19.36,
+            "end": 23.44
+          }
+        ]
+      }
+    }
+  },
+  "texts": {
+    "bsb": [
+      "In the beginning was the Word, and the Word was with God, and the Word was God.",
+      "He was with God in the beginning.",
+      "Through Him all things were made, and without Him nothing was made that has been made.",
+      "In Him was life, and that life was the light of men.",
+      "The Light shines in the darkness, and the darkness has not overcome it."
+    ],
+    "bti": [
+      "В начале всего было Слово, и Слово было с Богом, и Само Оно было Бог.",
+      "Слово от начала уже было с Богом.",
+      "Через Него всё обрело свое бытие, и без Него ничто из существующего не появилось.",
+      "В Слове была жизнь, и жизнь эта — Свет людям.",
+      "Этот Свет и во тьме светит: не одолела она Его."
+    ],
+    "npu": [
+      "На початку було Слово, і Слово було з Богом, і Слово було Бог.",
+      "Воно на початку було з Богом.",
+      "Усе через Нього було створено, і нічого не було створено без Нього.",
+      "У Ньому було життя, і життя було світлом для людей.",
+      "Світло світить у темряві, і темрява не здолала його."
+    ],
+    "syn": [
+      "В начале было Слово, и Слово было у Бога, и Слово было Бог.",
+      "Оно было в начале у Бога.",
+      "Все чрез Него на́чало быть, и без Него ничто не на́чало быть, что на́чало быть.",
+      "В Нем была жизнь, и жизнь была свет человеков.",
+      "И свет во тьме светит, и тьма не объяла его."
+    ],
+    "ubh": [
+      "Споконвіку було Слово, і з Богом було Слово, і Слово було — Бог.",
+      "З Богом було воно споконвіку.",
+      "Ним постало все, і ніщо, що постало, не постало без нього.",
+      "У ньому було життя, і життя було — світло людей.",
+      "І світло світить у темряві, і не пойняла його темрява."
+    ],
+    "webbe": [
+      "In the beginning was the Word, and the Word was with God, and the Word was God.",
+      "The same was in the beginning with God.",
+      "All things were made through him. Without him, nothing was made that has been made.",
+      "In him was life, and the life was the light of men.",
+      "The light shines in the darkness, and the darkness hasn’t overcome it."
+    ],
+    "webus": [
+      "In the beginning was the Word, and the Word was with God, and the Word was God.",
+      "The same was in the beginning with God.",
+      "All things were made through him. Without him, nothing was made that has been made.",
+      "In him was life, and the life was the light of men.",
+      "The light shines in the darkness, and the darkness hasn’t overcome it."
+    ]
+  },
+  "rows": {
+    "ru": [
+      {
+        "narrator": "bondarenko",
+        "note": "с музыкой"
+      },
+      {
+        "narrator": "prudovsky",
+        "note": "без музыки"
+      },
+      {
+        "narrator": "prozorovsky",
+        "note": "без музыки"
+      }
+    ],
+    "en": [
+      {
+        "narrator": "bsb_souer",
+        "note": "voice only"
+      },
+      {
+        "narrator": "bsb_david",
+        "note": "voice only"
+      },
+      {
+        "narrator": "winfred_henson",
+        "note": "voice only"
+      },
+      {
+        "narrator": "web_british",
+        "note": "voice only"
+      }
+    ],
+    "uk": [
+      {
+        "narrator": "kozlov_uk",
+        "note": "без музики"
+      },
+      {
+        "narrator": "npu_uk",
+        "note": "без музики"
+      }
+    ]
+  }
+}

@@ -1,10 +1,8 @@
-"""Validated, server-rendered Multi Reading article demos.
+"""Validated, server-rendered John 1 article audio demos.
 
 A demo marker `<!-- demo: <id> -->` loads
-`content/bible-garden/demos/<id>.json`. Every demo plays John 1:1-5 verse by
-verse in two voices (multi-reading: the same passage in two languages;
-translation-compare: two translations of the same language), sharing the
-generic player markup, CSS and JS. Verse clips live under
+`content/bible-garden/demos/<id>.json`. Demos share the player markup, CSS and
+JS. Verse clips live under
 `static/bible-garden/audio/demo/<narrator>/<verse>.mp3` and are shared
 between demos.
 """
@@ -28,7 +26,7 @@ PASSAGE = "John 1:1–5"
 LANGS = {"en", "ru", "uk"}
 # Language of each translation's text, for the verse line's `lang` attribute.
 # Fixed per translation regardless of which demo(s) use it.
-TEXT_LANG = {"bsb": "en", "bti": "ru", "syn": "ru", "ubh": "uk", "webus": "en", "npu": "uk"}
+TEXT_LANG = {"bsb": "en", "bti": "ru", "syn": "ru", "ubh": "uk", "webus": "en", "webbe": "en", "npu": "uk"}
 
 
 def placeholder_for(demo_id: str) -> str:
@@ -76,8 +74,12 @@ def validate_demo(data: object, demo_id: str, path: Path, static_root: Path = RO
     def fail(message: str) -> None:
         raise BuildError(f"{path}: {message}")
 
-    if not isinstance(data, dict) or set(data) != {"title", "passages", "pairs", "clips", "texts"} or data.get("passages") != PASSAGE:
+    if not isinstance(data, dict) or data.get("kind") not in {"multi-reading", "voices"} or data.get("passages") != PASSAGE:
         fail("expected John 1:1–5 demo data")
+    kind = data["kind"]
+    expected_fields = {"kind", "title", "passages", "clips", "texts", "pairs" if kind == "multi-reading" else "rows"}
+    if set(data) != expected_fields:
+        fail("invalid demo fields")
 
     title = data["title"]
     if not isinstance(title, dict) or set(title) != LANGS or any(
@@ -89,16 +91,35 @@ def validate_demo(data: object, demo_id: str, path: Path, static_root: Path = RO
     if not isinstance(clips, dict) or not clips:
         fail("invalid narrator set")
 
-    pairs = data["pairs"]
-    if not isinstance(pairs, dict) or set(pairs) != LANGS:
-        fail("invalid language pairs")
-    for lang, pair in pairs.items():
-        if not isinstance(pair, list) or len(pair) != 2 or pair[0] == pair[1] or any(
-            not isinstance(narrator, str) or narrator not in clips for narrator in pair
-        ):
-            fail(f"{lang}: invalid narrator pair")
-    if {narrator for pair in pairs.values() for narrator in pair} != set(clips):
-        fail("clips must match the narrators used in pairs")
+    if kind == "multi-reading":
+        pairs = data["pairs"]
+        if not isinstance(pairs, dict) or set(pairs) != LANGS:
+            fail("invalid language pairs")
+        for lang, pair in pairs.items():
+            if not isinstance(pair, list) or len(pair) != 2 or pair[0] == pair[1] or any(
+                not isinstance(narrator, str) or narrator not in clips for narrator in pair
+            ):
+                fail(f"{lang}: invalid narrator pair")
+        used = {narrator for pair in pairs.values() for narrator in pair}
+    else:
+        rows = data["rows"]
+        if not isinstance(rows, dict) or set(rows) != LANGS:
+            fail("invalid language rows")
+        used = set()
+        for lang, entries in rows.items():
+            if not isinstance(entries, list) or not entries:
+                fail(f"{lang}: invalid narrator rows")
+            seen = set()
+            for row in entries:
+                if not isinstance(row, dict) or set(row) != {"narrator", "note"}:
+                    fail(f"{lang}: invalid narrator row")
+                narrator, note = row["narrator"], row["note"]
+                if not isinstance(narrator, str) or narrator not in clips or narrator in seen or not isinstance(note, str) or not note.strip():
+                    fail(f"{lang}: invalid narrator row")
+                seen.add(narrator)
+                used.add(narrator)
+    if used != set(clips):
+        fail("clips must match the narrators used in the demo")
 
     texts = data["texts"]
     if not isinstance(texts, dict):
@@ -106,7 +127,8 @@ def validate_demo(data: object, demo_id: str, path: Path, static_root: Path = RO
 
     translations = set()
     for narrator, clip in clips.items():
-        if not isinstance(clip, dict) or set(clip) != {"translation", "names", "verses"}:
+        clip_fields = {"translation", "names", "verses"} | ({"continuous"} if kind == "voices" else set())
+        if not isinstance(clip, dict) or set(clip) != clip_fields:
             fail(f"{narrator}: invalid clip fields")
         translation = clip["translation"]
         if not isinstance(translation, str) or translation not in TEXT_LANG:
@@ -142,6 +164,36 @@ def validate_demo(data: object, demo_id: str, path: Path, static_root: Path = RO
             duration = verse["duration"]
             if type(duration) not in (int, float) or not math.isfinite(duration) or duration <= 0:
                 fail(f"{narrator}: verse {index} has invalid clip duration")
+        if kind == "voices":
+            continuous = clip["continuous"]
+            if not isinstance(continuous, dict) or set(continuous) != {"path", "sha256", "duration", "intervals"}:
+                fail(f"{narrator}: invalid continuous clip fields")
+            expected_path = f"/audio/demo/{narrator}/1-5.mp3"
+            if continuous["path"] != expected_path:
+                fail(f"{narrator}: invalid continuous clip path")
+            clip_file = static_root / expected_path.lstrip("/")
+            if not clip_file.is_file():
+                fail(f"{narrator}: missing continuous clip {expected_path}")
+            if not isinstance(continuous["sha256"], str) or not re.fullmatch(r"[0-9a-f]{64}", continuous["sha256"]):
+                fail(f"{narrator}: invalid continuous clip SHA-256")
+            if hashlib.sha256(clip_file.read_bytes()).hexdigest() != continuous["sha256"]:
+                fail(f"{narrator}: continuous clip checksum mismatch")
+            duration = continuous["duration"]
+            if type(duration) not in (int, float) or not math.isfinite(duration) or duration <= 0:
+                fail(f"{narrator}: invalid continuous clip duration")
+            intervals = continuous["intervals"]
+            if not isinstance(intervals, list) or len(intervals) != 5:
+                fail(f"{narrator}: expected five verse intervals")
+            previous_end = 0
+            for interval in intervals:
+                if not isinstance(interval, dict) or set(interval) != {"start", "end"}:
+                    fail(f"{narrator}: invalid verse interval")
+                start, end = interval["start"], interval["end"]
+                if (type(start) not in (int, float) or type(end) not in (int, float)
+                        or not math.isfinite(start) or not math.isfinite(end)
+                        or start < previous_end or end <= start or end > duration):
+                    fail(f"{narrator}: invalid verse interval")
+                previous_end = end
 
     if set(texts) != translations:
         fail("invalid translation set")
@@ -162,21 +214,28 @@ def load_demo(demo_id: str, demos_dir: Path = DEMOS_DIR, static_root: Path = ROO
     return validate_demo(data, demo_id, path, static_root)
 
 
+# Highlighting alone is silent for screen readers; JS announces the current verse here.
+STATUS = '<p class="sr-only" data-demo-status aria-live="polite"></p>'
+
+
 def render_demo(data: dict, lang: str, strings: object) -> str:
-    required = {"play", "pause", "play_again", "error"}
+    required = {"play", "pause", "play_again", "error", "verse"}
     if lang not in LANGS or not isinstance(strings, dict) or set(strings) != required or any(
         not isinstance(value, str) or not value.strip() for value in strings.values()
     ):
         raise BuildError(f"Multi Reading demo: missing or invalid translation for {lang}")
+    if data["kind"] == "voices":
+        return _render_voices(data, lang, strings)
     first, second = (data["clips"][narrator] for narrator in data["pairs"][lang])
     first_lang = TEXT_LANG[first["translation"]]
     second_lang = TEXT_LANG[second["translation"]]
     esc = html.escape
     clip_paths = [clip["verses"][index]["path"] for index in range(5) for clip in (first, second)]
     clip_data = esc(json.dumps(clip_paths, separators=(",", ":")), quote=True)
-    out = [f'<section class="multi-reading-demo" data-multi-reading-demo data-play="{esc(strings["play"], quote=True)}"'
+    out = [f'<section class="multi-reading-demo" data-multi-reading-demo data-kind="multi-reading" data-play="{esc(strings["play"], quote=True)}"'
            f' data-pause="{esc(strings["pause"], quote=True)}" data-play-again="{esc(strings["play_again"], quote=True)}"'
-           f' data-error="{esc(strings["error"], quote=True)}" data-clips="{clip_data}" aria-labelledby="multi-reading-demo-title">',
+           f' data-error="{esc(strings["error"], quote=True)}" data-verse-label="{esc(strings["verse"], quote=True)}"'
+           f' data-clips="{clip_data}" aria-labelledby="multi-reading-demo-title">',
            f'<h3 id="multi-reading-demo-title">{esc(data["title"][lang])}</h3>',
            '<div class="multi-reading-legend">']
     for key, clip in (("a", first), ("b", second)):
@@ -187,6 +246,7 @@ def render_demo(data: dict, lang: str, strings: object) -> str:
     out.append('</div><div class="multi-reading-controls" hidden>'
                f'<button type="button" class="multi-reading-toggle">{esc(strings["play"])}</button>'
                '<p class="multi-reading-error" role="alert" hidden></p></div>')
+    out.append(STATUS)
     out.append('<ol class="multi-reading-verses">')
     for index in range(5):
         out.append(f'<li data-verse="{index + 1}"><span class="multi-reading-number">{index + 1}</span>'
@@ -194,4 +254,38 @@ def render_demo(data: dict, lang: str, strings: object) -> str:
                    f'<p class="multi-reading-line multi-reading-secondary" data-step="b" lang="{second_lang}">{esc(data["texts"][second["translation"]][index])}</p></div></li>')
     first_path = esc(first["verses"][0]["path"], quote=True)
     out.append(f'</ol><audio data-demo-player preload="none" src="{first_path}"></audio></section>')
+    return "\n".join(out)
+
+
+def _render_voices(data: dict, lang: str, strings: dict) -> str:
+    esc = html.escape
+    out = [f'<section class="multi-reading-demo voices-demo" data-multi-reading-demo data-kind="voices"'
+           f' data-play="{esc(strings["play"], quote=True)}" data-pause="{esc(strings["pause"], quote=True)}"'
+           f' data-play-again="{esc(strings["play_again"], quote=True)}" data-error="{esc(strings["error"], quote=True)}"'
+           f' data-verse-label="{esc(strings["verse"], quote=True)}" aria-labelledby="multi-reading-demo-title">',
+           f'<h3 id="multi-reading-demo-title">{esc(data["title"][lang])}</h3>',
+           '<div class="voices-rows">']
+    for row in data["rows"][lang]:
+        clip = data["clips"][row["narrator"]]
+        translation, narrator = clip["names"][lang]
+        label = f"{translation} · {narrator}" if narrator else translation
+        continuous = clip["continuous"]
+        intervals = esc(json.dumps(continuous["intervals"], separators=(",", ":")), quote=True)
+        button_label = esc(f'{strings["play"]}: {label}', quote=True)
+        out.append(f'<div class="voices-row" data-demo-track data-clips="{esc(json.dumps([continuous["path"]]), quote=True)}"'
+                   f' data-intervals="{intervals}" data-label="{esc(label, quote=True)}">'
+                   '<div class="voices-row-heading">'
+                   f'<div class="voices-row-meta"><h4>{esc(label)}</h4><p class="voices-note">{esc(row["note"])}</p></div>'
+                   '<div class="multi-reading-controls" hidden>'
+                   f'<button type="button" class="multi-reading-toggle" aria-label="{button_label}">{esc(strings["play"])}</button>'
+                   '<p class="multi-reading-error" role="alert" hidden></p></div></div>'
+                   f'<p class="voices-passage" data-voice-passage lang="{TEXT_LANG[clip["translation"]]}">')
+        for index, verse in enumerate(data["texts"][clip["translation"]], 1):
+            out.append(f'<span data-verse="{index}"><sup>{index}</sup> {esc(verse)}</span>')
+        out.append('</p></div>')
+    out.append('</div>')
+    out.append(STATUS)
+    first_narrator = data["rows"][lang][0]["narrator"]
+    first_path = esc(data["clips"][first_narrator]["continuous"]["path"], quote=True)
+    out.append(f'<audio data-demo-player preload="none" src="{first_path}"></audio></section>')
     return "\n".join(out)

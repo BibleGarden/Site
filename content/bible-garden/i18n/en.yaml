@@ -88,6 +88,7 @@ articles:
     play: Play
     pause: Pause
     play_again: Play again
+    verse: Verse
     error: "Audio could not be played."
   reading_plan:
     choose_plan: Reading order

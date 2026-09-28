@@ -283,18 +283,25 @@ Regenerate and rebuild with:
 
 On bible.garden, place `<!-- demo: <id> -->` on its own line in an article,
 where `<id>` names one of the JSON files in `content/bible-garden/demos/`.
-Every demo renders John 1:1–5 as two lines per verse and plays each verse in
-voice A, waits two seconds, plays it in voice B, then waits two seconds before
-the next verse. Play/Pause resumes the current verse or pause, and the player
-stops after verse 5. Each verse and narrator has its own MP3, so playback does
-not seek or need HTTP Range support. The next clip loads while the current one
-plays. Printing keeps the text and hides the controls. Without JavaScript,
-only the verse texts and narrator labels remain visible; the player button
-appears only when JavaScript initializes. The marker must match exactly; an
+The `multi-reading` kind renders John 1:1–5 as two lines per verse and plays
+each verse in voice A, waits two seconds, plays it in voice B, then waits two
+seconds before the next verse. The `voices` kind renders compact narrator rows;
+each button plays one uninterrupted John 1:1–5 clip, preserving music and pauses
+between verses. Starting another row stops the current one. Only the verse
+currently being spoken is highlighted in a single compact John 1:1–5 paragraph
+beneath that row. The paragraph stays open through music, pauses and completion,
+until another row starts. Without JavaScript, every row's paragraph is visible;
+printing shows every paragraph and hides the controls. Each button's visible label, which is also its accessible name, switches between
+Play and Pause (no `aria-pressed`). A visually hidden polite live region announces
+the verse being read, since highlighting alone is silent for screen readers.
+Play/Pause resumes the current position, and playback
+stops after verse 5. The alternating demos use separate MP3s per verse and
+prefetch the next clip. Neither kind seeks or needs HTTP Range support. Without
+JavaScript, buttons stay hidden. The marker must match exactly; an
 unknown, duplicate or malformed demo marker stops the build. At most one demo
 renders per article.
 
-Two demos exist:
+Three demos exist:
 
 - `multi-reading` — the same passage in two languages. The ru pair is BTI
   (Kulakov), Nikita Semyonov-Prozorovsky and BSB, Bob Souer; en is BSB, Bob
@@ -306,37 +313,52 @@ Two demos exist:
   English Bible, Winfred Henson; uk is UBH (Khomenko), Ihor Kozlov and the New
   Ukrainian Translation (NPU) — Biblica does not credit a narrator for NPU, so
   its clips carry no narrator name.
+- `narrators` — separate rows for each available narrator in the article's
+  language, with a localized note about background music. Only Alexander
+  Bondarenko's recording has music. The British WEBBE and Ukrainian NPU
+  recordings have no credited narrator name.
 
 Each demo's JSON holds its localized title, the localized labels, verse texts
-and the five clip paths per narrator; a narrator's localized name may be
+and the five per-verse clip paths per narrator. `voices` also stores one
+`1-5.mp3` clip and five verse intervals per narrator. A narrator's localized name may be
 `null` when the publisher does not credit one, in which case only the
 translation name renders. The build rejects missing, changed or malformed
 verse clips. Clips are shared between demos under
-`static/bible-garden/audio/demo/<narrator>/<verse>.mp3`.
+`static/bible-garden/audio/demo/<narrator>/<verse>.mp3`; continuous clips live
+beside them at `static/bible-garden/audio/demo/<narrator>/1-5.mp3`.
 
 `tools/build_demo_audio.py` keeps a narrator registry (translation and
-localized names) and a per-demo definition (id, pairs, localized title); it
+localized names) and a per-demo definition (id, required kind, pairs or rows, localized title); it
 cuts one manifest per demo. The committed `tools/data/john1-texts.tsv` comes
-from `cep_public.translation_verses`; `tools/data/john1-timings.tsv` comes
+from `cep_public.translation_verses` (WEBBE exported 2026-09-28); `tools/data/john1-timings.tsv` comes
 from `cep_public.voice_alignments` (John 1; bsb/bti/syn/ubh and their
 narrators exported 2026-09-27, webus/npu, their narrators and the Synodal narrator
-`bondarenko` exported 2026-09-28). The full-chapter recordings are not committed. Their URLs come
-from `cep_public.voices.link_template`: `prozorovsky.mp3` and `bondarenko.mp3` from 4bbl.ru,
+`bondarenko`, plus `bsb_david` and `web_british` exported 2026-09-28). The full-chapter recordings are not committed. Cut clips from the files served by the app,
+`bible-parser/audio/<translation>/<voice>/mp3/43/01.mp3`. Public URL provenance
+comes from `cep_public.voices.link_template`: `prozorovsky.mp3` and `bondarenko.mp3` from 4bbl.ru,
 `bsb_souer.mp3` from openbible.com, `prudovsky.mp3` from mp3.only.bible,
 `kozlov_uk.mp3` from wordproaudio.net and `winfred_henson.mp3` from
 publicdomainaudiobibles.com (`https://www.publicdomainaudiobibles.com/content/
-mp3/WEBW/...`); `npu_uk.mp3` has no public URL (Biblica does not publish one).
+mp3/WEBW/...`); `bsb_david.mp3` is from `bible-parser/audio/bsb/bsb_david/mp3/43/01.mp3`
+(`https://openbible.com/audio/david/BSB_{book_code5}_{chapter_zerofill3}_D.mp3`);
+`web_british.mp3` is from `bible-parser/audio/webbe/web_british/mp3/43/01.mp3`
+(`https://ebible.org/eng-webbe/mp3/...`); `npu_uk.mp3` has no public URL
+(Biblica does not publish one). The public mp3.only.bible Prudovsky file is the
+unprocessed original: the app serves `bible-parser/audio/syn/prudovsky/mp3/43/01.mp3`
+with the sibilant whistle removed. Use that improved local file for demo cuts;
+the verse timings were aligned on it.
 
 Put any subset of `<narrator>.mp3` files (named after the registry keys in
 `tools/build_demo_audio.py`) in one or more local directories and regenerate
-the mono, 56 kbps verse clips and every demo's manifest with:
+the mono, 56 kbps verse and continuous clips and every demo's manifest with:
 
 ```bash
 python3 tools/build_demo_audio.py --source-dir /path/to/john1-mp3s
 .venv/bin/python -m sitegen build
 ```
 
-`--source-dir` may be repeated; only narrators whose `<narrator>.mp3` is found
+`--source-dir` may be repeated; every given directory must exist and together
+they must hold at least one source, otherwise the tool stops. Only narrators whose `<narrator>.mp3` is found
 in one of the given directories are (re-)cut — ffmpeg is deterministic, so
 re-cutting an existing narrator from the same source reproduces byte-identical
 clips, and narrators already cut in an earlier run do not need their source

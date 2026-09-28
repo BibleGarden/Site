@@ -15,7 +15,8 @@ from sitegen.errors import BuildError
 from sitegen.multi_reading_demo import DEMOS_DIR, annotate_demo_marker, load_demo, validate_demo
 
 ROOT = Path(__file__).resolve().parent.parent
-DEMO_IDS = ("multi-reading", "translation-compare")
+DEMO_IDS = ("multi-reading", "translation-compare", "narrators")
+PAIR_DEMOS = ("multi-reading", "translation-compare")
 
 
 class MultiReadingDemoTest(unittest.TestCase):
@@ -96,7 +97,7 @@ class MultiReadingDemoTest(unittest.TestCase):
         self.assertIsNone(found)
 
     def test_article_has_correct_text_pair_in_each_language(self) -> None:
-        for demo_id in DEMO_IDS:
+        for demo_id in PAIR_DEMOS:
             data = self.data[demo_id]
             with self.subTest(demo_id=demo_id), tempfile.TemporaryDirectory() as directory:
                 source = Path(directory) / "demo.md"
@@ -120,6 +121,8 @@ class MultiReadingDemoTest(unittest.TestCase):
                             if narrator_name is not None:
                                 self.assertIn(narrator_name, body)
                         self.assertIn('class="multi-reading-controls" hidden', body)
+                        self.assertNotIn('aria-pressed', body)
+                        self.assertEqual(body.count('data-demo-status aria-live="polite"'), 1)
                         self.assertIn('<audio data-demo-player preload="none"', body)
                         self.assertEqual(body.count('<audio '), 1)
                         self.assertNotIn('<a ', body)
@@ -140,6 +143,68 @@ class MultiReadingDemoTest(unittest.TestCase):
             self.assertEqual(TEXT_LANG[first["translation"]], lang)
             self.assertEqual(TEXT_LANG[second["translation"]], lang)
             self.assertNotEqual(first["translation"], second["translation"])
+
+    def test_voices_rows_and_rendering(self) -> None:
+        data = self.data["narrators"]
+        expected = {
+            "ru": ["bondarenko", "prudovsky", "prozorovsky"],
+            "en": ["bsb_souer", "bsb_david", "winfred_henson", "web_british"],
+            "uk": ["kozlov_uk", "npu_uk"],
+        }
+        self.assertEqual(data["kind"], "voices")
+        for lang, narrators in expected.items():
+            self.assertEqual([row["narrator"] for row in data["rows"][lang]], narrators)
+            with self.subTest(lang=lang), tempfile.TemporaryDirectory() as directory:
+                source = Path(directory) / "demo.md"
+                source.write_text("---\ntitle: Demo\ndescription: Demo article\ndate: 2026-09-28\n---\n\n<!-- demo: narrators -->\n", encoding="utf-8")
+                article = parse_article(source, "demo", lang, {}, {}, self.site.i18n[lang]["articles"], Path(directory))
+                body = article.body_html
+                self.assertEqual(body.count('data-demo-track'), len(narrators))
+                self.assertEqual(body.count('data-voice-passage'), len(narrators))
+                self.assertEqual(body.count('data-verse="'), len(narrators) * 5)
+                self.assertEqual(body.count('<sup>'), len(narrators) * 5)
+                self.assertEqual(body.count('data-intervals="'), len(narrators))
+                self.assertNotIn('aria-pressed', body)
+                self.assertEqual(body.count('data-demo-status aria-live="polite"'), 1)
+                self.assertEqual(body.count('class="multi-reading-controls" hidden'), len(narrators))
+                self.assertEqual(body.count('<audio '), 1)
+                passages = re.findall(r'<p class="voices-passage" data-voice-passage[^>]*>(.*?)</p>', body, re.S)
+                self.assertEqual(len(passages), len(narrators))
+                for row, passage in zip(data["rows"][lang], passages):
+                    clip = data["clips"][row["narrator"]]
+                    self.assertIn(html.escape(row["note"]), body)
+                    self.assertIn(clip["continuous"]["path"], body)
+                    self.assertEqual(passage.count('data-verse="'), 5)
+                    self.assertIn(html.escape(data["texts"][clip["translation"]][4]), passage)
+                self.assertNotIn('voices-transcripts', body)
+                self.assertNotIn('data-voice-passage hidden', body)
+                if lang == "en":
+                    self.assertIn("World English Bible, British Edition (WEBBE)", body)
+                    self.assertNotIn("None", body)
+
+    def test_voices_schema_rejects_invalid_rows(self) -> None:
+        data = self.data["narrators"]
+        path = DEMOS_DIR / "narrators.json"
+        for change in ("missing-note", "duplicate", "unknown-kind", "extra-field",
+                       "continuous-path", "continuous-hash", "interval-overlap"):
+            invalid = copy.deepcopy(data)
+            if change == "missing-note":
+                del invalid["rows"]["ru"][0]["note"]
+            elif change == "duplicate":
+                invalid["rows"]["ru"][1]["narrator"] = invalid["rows"]["ru"][0]["narrator"]
+            elif change == "unknown-kind":
+                invalid["kind"] = "other"
+            elif change == "continuous-path":
+                invalid["clips"]["bsb_souer"]["continuous"]["path"] = "/audio/demo/bsb_souer/1.mp3"
+            elif change == "continuous-hash":
+                invalid["clips"]["bsb_souer"]["continuous"]["sha256"] = "0" * 64
+            elif change == "interval-overlap":
+                intervals = invalid["clips"]["bsb_souer"]["continuous"]["intervals"]
+                intervals[1]["start"] = intervals[0]["end"] - 0.1
+            else:
+                invalid["unexpected"] = True
+            with self.subTest(change=change), self.assertRaises(BuildError):
+                validate_demo(invalid, "narrators", path)
 
     def test_unknown_demo_id_fails_to_load(self) -> None:
         with self.assertRaisesRegex(BuildError, "missing demo data"):

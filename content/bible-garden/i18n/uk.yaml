@@ -88,6 +88,7 @@ articles:
     play: Слухати
     pause: Пауза
     play_again: Слухати знову
+    verse: Вірш
     error: "Не вдалося відтворити аудіо."
   reading_plan:
     choose_plan: Порядок читання
