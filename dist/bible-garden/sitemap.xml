@@ -159,4 +159,10 @@
     <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/how-to-start-reading-the-bible/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/how-to-start-reading-the-bible/"/>
   </url>
+  <url>
+    <loc>https://bible.garden/ru/articles/which-bible-translation/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/which-bible-translation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/ru/articles/which-bible-translation/"/>
+  </url>
 </urlset>
