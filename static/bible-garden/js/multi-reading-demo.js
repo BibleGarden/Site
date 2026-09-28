@@ -5,6 +5,7 @@
     const voices = demo.dataset.kind === 'voices';
     if (!voices && demo.dataset.kind !== 'multi-reading') throw new Error('Invalid audio demo kind');
     const player = demo.querySelector('[data-demo-player]');
+    const status = demo.querySelector('[data-demo-status]');
     const trackElements = voices ? [...demo.querySelectorAll('[data-demo-track]')] : [demo];
     const tracks = trackElements.map((element) => ({
         controls: element.querySelector('.multi-reading-controls'),
@@ -16,7 +17,7 @@
         passage: voices ? element.querySelector('[data-voice-passage]') : null,
         intervals: voices ? JSON.parse(element.dataset.intervals) : null,
     }));
-    if (!tracks.length || tracks.some((track) => !Array.isArray(track.clips)
+    if (!status || !demo.dataset.verseLabel || !tracks.length || tracks.some((track) => !Array.isArray(track.clips)
         || track.clips.length !== (voices ? 1 : 10)
         || track.clips.some((path) => typeof path !== 'string' || !path.startsWith('/audio/demo/'))
         || (voices ? !track.clips[0].endsWith('/1-5.mp3') || !track.passage
@@ -45,8 +46,12 @@
 
     function setButton(target, state) {
         target.button.textContent = demo.dataset[state];
-        target.button.setAttribute('aria-pressed', state === 'pause' ? 'true' : 'false');
         if (voices) target.button.setAttribute('aria-label', `${demo.dataset[state]}: ${target.label}`);
+    }
+
+    function announce(verse) {
+        const text = `${demo.dataset.verseLabel} ${verse}`;
+        if (status.textContent !== text) status.textContent = text;
     }
 
     function highlight() {
@@ -55,6 +60,7 @@
                 const index = item === track && playing && active
                     ? item.intervals.findIndex((interval) => player.currentTime >= interval.start && player.currentTime <= interval.end)
                     : -1;
+                if (index >= 0) announce(index + 1);
                 item.lines.forEach((line, verse) => {
                     const current = verse === index;
                     line.classList.toggle('is-playing', current);
@@ -64,6 +70,7 @@
             });
             return;
         }
+        if (playing && active && !inGap) announce(Math.floor(step / 2) + 1);
         tracks.forEach((item) => item.lines.forEach((line, index) => {
             const current = item === track && playing && active && !inGap && index === step;
             line.classList.toggle('is-playing', current);
@@ -168,6 +175,7 @@
             player.pause();
             setButton(track, 'play');
             if (voices) track.passage.hidden = true;
+            status.textContent = '';
             track = item;
             step = 0;
             loadedStep = -1;

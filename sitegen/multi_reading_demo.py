@@ -214,8 +214,12 @@ def load_demo(demo_id: str, demos_dir: Path = DEMOS_DIR, static_root: Path = ROO
     return validate_demo(data, demo_id, path, static_root)
 
 
+# Highlighting alone is silent for screen readers; JS announces the current verse here.
+STATUS = '<p class="sr-only" data-demo-status aria-live="polite"></p>'
+
+
 def render_demo(data: dict, lang: str, strings: object) -> str:
-    required = {"play", "pause", "play_again", "error"}
+    required = {"play", "pause", "play_again", "error", "verse"}
     if lang not in LANGS or not isinstance(strings, dict) or set(strings) != required or any(
         not isinstance(value, str) or not value.strip() for value in strings.values()
     ):
@@ -230,7 +234,8 @@ def render_demo(data: dict, lang: str, strings: object) -> str:
     clip_data = esc(json.dumps(clip_paths, separators=(",", ":")), quote=True)
     out = [f'<section class="multi-reading-demo" data-multi-reading-demo data-kind="multi-reading" data-play="{esc(strings["play"], quote=True)}"'
            f' data-pause="{esc(strings["pause"], quote=True)}" data-play-again="{esc(strings["play_again"], quote=True)}"'
-           f' data-error="{esc(strings["error"], quote=True)}" data-clips="{clip_data}" aria-labelledby="multi-reading-demo-title">',
+           f' data-error="{esc(strings["error"], quote=True)}" data-verse-label="{esc(strings["verse"], quote=True)}"'
+           f' data-clips="{clip_data}" aria-labelledby="multi-reading-demo-title">',
            f'<h3 id="multi-reading-demo-title">{esc(data["title"][lang])}</h3>',
            '<div class="multi-reading-legend">']
     for key, clip in (("a", first), ("b", second)):
@@ -239,8 +244,9 @@ def render_demo(data: dict, lang: str, strings: object) -> str:
         out.append(f'<p><span class="multi-reading-key multi-reading-key-{key.upper()}">{key.upper()}</span> '
                    f'{label}</p>')
     out.append('</div><div class="multi-reading-controls" hidden>'
-               f'<button type="button" class="multi-reading-toggle" aria-pressed="false">{esc(strings["play"])}</button>'
+               f'<button type="button" class="multi-reading-toggle">{esc(strings["play"])}</button>'
                '<p class="multi-reading-error" role="alert" hidden></p></div>')
+    out.append(STATUS)
     out.append('<ol class="multi-reading-verses">')
     for index in range(5):
         out.append(f'<li data-verse="{index + 1}"><span class="multi-reading-number">{index + 1}</span>'
@@ -256,7 +262,7 @@ def _render_voices(data: dict, lang: str, strings: dict) -> str:
     out = [f'<section class="multi-reading-demo voices-demo" data-multi-reading-demo data-kind="voices"'
            f' data-play="{esc(strings["play"], quote=True)}" data-pause="{esc(strings["pause"], quote=True)}"'
            f' data-play-again="{esc(strings["play_again"], quote=True)}" data-error="{esc(strings["error"], quote=True)}"'
-           ' aria-labelledby="multi-reading-demo-title">',
+           f' data-verse-label="{esc(strings["verse"], quote=True)}" aria-labelledby="multi-reading-demo-title">',
            f'<h3 id="multi-reading-demo-title">{esc(data["title"][lang])}</h3>',
            '<div class="voices-rows">']
     for row in data["rows"][lang]:
@@ -271,13 +277,14 @@ def _render_voices(data: dict, lang: str, strings: dict) -> str:
                    '<div class="voices-row-heading">'
                    f'<div class="voices-row-meta"><h4>{esc(label)}</h4><p class="voices-note">{esc(row["note"])}</p></div>'
                    '<div class="multi-reading-controls" hidden>'
-                   f'<button type="button" class="multi-reading-toggle" aria-label="{button_label}" aria-pressed="false">{esc(strings["play"])}</button>'
+                   f'<button type="button" class="multi-reading-toggle" aria-label="{button_label}">{esc(strings["play"])}</button>'
                    '<p class="multi-reading-error" role="alert" hidden></p></div></div>'
                    f'<p class="voices-passage" data-voice-passage lang="{TEXT_LANG[clip["translation"]]}">')
         for index, verse in enumerate(data["texts"][clip["translation"]], 1):
             out.append(f'<span data-verse="{index}"><sup>{index}</sup> {esc(verse)}</span>')
         out.append('</p></div>')
     out.append('</div>')
+    out.append(STATUS)
     first_narrator = data["rows"][lang][0]["narrator"]
     first_path = esc(data["clips"][first_narrator]["continuous"]["path"], quote=True)
     out.append(f'<audio data-demo-player preload="none" src="{first_path}"></audio></section>')

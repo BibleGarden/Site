@@ -88,6 +88,7 @@ articles:
     play: Слушать
     pause: Пауза
     play_again: Слушать снова
+    verse: Стих
     error: "Не удалось воспроизвести аудио."
   reading_plan:
     choose_plan: Порядок чтения

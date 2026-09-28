@@ -54,6 +54,31 @@ class BuildDemoAudioTest(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, rf"{narrator}: found in both.*source is ambiguous"):
                 BUILD_DEMO_AUDIO.find_sources([Path(first), Path(second)])
 
+    def test_missing_source_dir_is_rejected(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            missing = Path(directory) / "missing"
+            with self.assertRaisesRegex(FileNotFoundError, "source directory does not exist"):
+                BUILD_DEMO_AUDIO.find_sources([Path(directory), missing])
+
+    def test_source_dirs_without_sources_are_rejected(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            (Path(directory) / "unknown.mp3").touch()
+            with self.assertRaisesRegex(FileNotFoundError, "no <narrator>.mp3 sources found"):
+                BUILD_DEMO_AUDIO.find_sources([Path(directory)])
+
+    def test_every_demo_declares_known_kind(self) -> None:
+        for demo_id, demo in BUILD_DEMO_AUDIO.DEMOS.items():
+            with self.subTest(demo_id=demo_id):
+                self.assertIn(demo["kind"], BUILD_DEMO_AUDIO.DEMO_SELECTIONS)
+        BUILD_DEMO_AUDIO.validate_demos(BUILD_DEMO_AUDIO.DEMOS)
+
+    def test_demo_without_kind_is_rejected(self) -> None:
+        demo = {key: value for key, value in BUILD_DEMO_AUDIO.DEMOS["multi-reading"].items() if key != "kind"}
+        with self.assertRaisesRegex(ValueError, "multi-reading: demo definition has no kind"):
+            BUILD_DEMO_AUDIO.validate_demos({"multi-reading": demo})
+        with self.assertRaisesRegex(ValueError, "unknown demo kind 'pairs'"):
+            BUILD_DEMO_AUDIO.validate_demos({"multi-reading": {**demo, "kind": "pairs"}})
+
 
 if __name__ == "__main__":
     unittest.main()

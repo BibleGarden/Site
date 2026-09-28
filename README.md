@@ -291,7 +291,10 @@ between verses. Starting another row stops the current one. Only the verse
 currently being spoken is highlighted in a single compact John 1:1–5 paragraph
 beneath that row. The paragraph stays open through music, pauses and completion,
 until another row starts. Without JavaScript, every row's paragraph is visible;
-printing shows every paragraph and hides the controls. Play/Pause resumes the current position, and playback
+printing shows every paragraph and hides the controls. Each button's visible label, which is also its accessible name, switches between
+Play and Pause (no `aria-pressed`). A visually hidden polite live region announces
+the verse being read, since highlighting alone is silent for screen readers.
+Play/Pause resumes the current position, and playback
 stops after verse 5. The alternating demos use separate MP3s per verse and
 prefetch the next clip. Neither kind seeks or needs HTTP Range support. Without
 JavaScript, buttons stay hidden. The marker must match exactly; an
@@ -325,7 +328,7 @@ verse clips. Clips are shared between demos under
 beside them at `static/bible-garden/audio/demo/<narrator>/1-5.mp3`.
 
 `tools/build_demo_audio.py` keeps a narrator registry (translation and
-localized names) and a per-demo definition (id, kind, pairs or rows, localized title); it
+localized names) and a per-demo definition (id, required kind, pairs or rows, localized title); it
 cuts one manifest per demo. The committed `tools/data/john1-texts.tsv` comes
 from `cep_public.translation_verses` (WEBBE exported 2026-09-28); `tools/data/john1-timings.tsv` comes
 from `cep_public.voice_alignments` (John 1; bsb/bti/syn/ubh and their
@@ -354,7 +357,8 @@ python3 tools/build_demo_audio.py --source-dir /path/to/john1-mp3s
 .venv/bin/python -m sitegen build
 ```
 
-`--source-dir` may be repeated; only narrators whose `<narrator>.mp3` is found
+`--source-dir` may be repeated; every given directory must exist and together
+they must hold at least one source, otherwise the tool stops. Only narrators whose `<narrator>.mp3` is found
 in one of the given directories are (re-)cut — ffmpeg is deterministic, so
 re-cutting an existing narrator from the same source reproduces byte-identical
 clips, and narrators already cut in an earlier run do not need their source

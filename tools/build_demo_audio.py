@@ -100,9 +100,10 @@ NARRATORS: dict[str, dict] = {
     },
 }
 
-# Per-demo id: narrator pairs or voice rows, localized title and optional notes.
+# Per-demo id: kind (`multi-reading` pairs or `voices` rows), narrators and localized title.
 DEMOS: dict[str, dict] = {
     "multi-reading": {
+        "kind": "multi-reading",
         "pairs": {
             "ru": ["prozorovsky", "bsb_souer"],
             "en": ["bsb_souer", "prudovsky"],
@@ -115,6 +116,7 @@ DEMOS: dict[str, dict] = {
         },
     },
     "translation-compare": {
+        "kind": "multi-reading",
         "pairs": {
             "ru": ["bondarenko", "prozorovsky"],
             "en": ["bsb_souer", "winfred_henson"],
@@ -140,6 +142,9 @@ DEMOS: dict[str, dict] = {
         },
     },
 }
+
+# Demo kind -> the definition key holding its narrator selection per language.
+DEMO_SELECTIONS = {"multi-reading": "pairs", "voices": "rows"}
 
 PASSAGE = "John 1:1–5"
 MUSIC_NOTES = {
@@ -256,6 +261,8 @@ def validate_reused_clips(narrator: str, clips: list[dict], records: list[list[d
 def find_sources(source_dirs: list[Path]) -> dict[str, Path]:
     sources: dict[str, Path] = {}
     for source_dir in source_dirs:
+        if not source_dir.is_dir():
+            raise FileNotFoundError(f"{source_dir}: source directory does not exist")
         for narrator in NARRATORS:
             candidate = source_dir / f"{narrator}.mp3"
             if not candidate.is_file():
@@ -265,6 +272,10 @@ def find_sources(source_dirs: list[Path]) -> dict[str, Path]:
                     f"{narrator}: found in both {sources[narrator]} and {candidate}; source is ambiguous"
                 )
             sources[narrator] = candidate
+    if not sources:
+        raise FileNotFoundError(
+            f"no <narrator>.mp3 sources found in {', '.join(map(str, source_dirs))}"
+        )
     return sources
 
 
@@ -338,14 +349,23 @@ def continuous_info(narrator: str, timings: dict) -> dict:
     }
 
 
+def validate_demos(demos: dict[str, dict]) -> None:
+    for demo_id, demo in demos.items():
+        if "kind" not in demo:
+            raise ValueError(f"{demo_id}: demo definition has no kind")
+        if demo["kind"] not in DEMO_SELECTIONS:
+            raise ValueError(f"{demo_id}: unknown demo kind {demo['kind']!r}")
+
+
 def build(source_dirs: list[Path]) -> dict[str, dict]:
+    validate_demos(DEMOS)
     timings, texts = source_data()
     OUTPUT.mkdir(parents=True, exist_ok=True)
 
     sources = find_sources(source_dirs)
     previous_clips = recorded_clips()
     previous_continuous = recorded_continuous()
-    voice_narrators = {narrator for demo in DEMOS.values() for group in demo.get("rows", {}).values() for narrator in group}
+    voice_narrators = {narrator for demo in DEMOS.values() if demo["kind"] == "voices" for group in demo["rows"].values() for narrator in group}
     for narrator, source in sources.items():
         cut_clips(narrator, source, timings)
         if narrator in voice_narrators:
@@ -362,7 +382,8 @@ def build(source_dirs: list[Path]) -> dict[str, dict]:
 
     manifests = {}
     for demo_id, demo in DEMOS.items():
-        selection = demo.get("pairs", demo.get("rows"))
+        kind = demo["kind"]
+        selection = demo[DEMO_SELECTIONS[kind]]
         narrators_used = sorted({narrator for group in selection.values() for narrator in group})
         clips = {
             narrator: {
@@ -372,21 +393,21 @@ def build(source_dirs: list[Path]) -> dict[str, dict]:
             }
             for narrator in narrators_used
         }
-        if demo.get("kind") == "voices":
+        if kind == "voices":
             for narrator in narrators_used:
                 clips[narrator]["continuous"] = continuous_by_narrator[narrator]
         translations_used = sorted({NARRATORS[narrator]["translation"] for narrator in narrators_used})
         data = {
             "title": demo["title"],
             "passages": PASSAGE,
-            "kind": demo.get("kind", "multi-reading"),
+            "kind": kind,
             "clips": clips,
             "texts": {
                 translation: [texts[translation, verse] for verse in range(1, 6)]
                 for translation in translations_used
             },
         }
-        if data["kind"] == "voices":
+        if kind == "voices":
             data["rows"] = {
                 lang: [{"narrator": narrator, "note": MUSIC_NOTES[lang][narrator != "bondarenko"]} for narrator in narrators]
                 for lang, narrators in demo["rows"].items()

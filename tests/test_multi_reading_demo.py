@@ -121,6 +121,8 @@ class MultiReadingDemoTest(unittest.TestCase):
                             if narrator_name is not None:
                                 self.assertIn(narrator_name, body)
                         self.assertIn('class="multi-reading-controls" hidden', body)
+                        self.assertNotIn('aria-pressed', body)
+                        self.assertEqual(body.count('data-demo-status aria-live="polite"'), 1)
                         self.assertIn('<audio data-demo-player preload="none"', body)
                         self.assertEqual(body.count('<audio '), 1)
                         self.assertNotIn('<a ', body)
@@ -162,7 +164,8 @@ class MultiReadingDemoTest(unittest.TestCase):
                 self.assertEqual(body.count('data-verse="'), len(narrators) * 5)
                 self.assertEqual(body.count('<sup>'), len(narrators) * 5)
                 self.assertEqual(body.count('data-intervals="'), len(narrators))
-                self.assertEqual(body.count('aria-pressed="false"'), len(narrators))
+                self.assertNotIn('aria-pressed', body)
+                self.assertEqual(body.count('data-demo-status aria-live="polite"'), 1)
                 self.assertEqual(body.count('class="multi-reading-controls" hidden'), len(narrators))
                 self.assertEqual(body.count('<audio '), 1)
                 passages = re.findall(r'<p class="voices-passage" data-voice-passage[^>]*>(.*?)</p>', body, re.S)

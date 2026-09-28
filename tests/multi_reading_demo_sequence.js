@@ -32,6 +32,12 @@ const button = element();
 const error = element();
 error.hidden = true;
 const lines = paths.map(element);
+const status = element();
+const announced = [];
+Object.defineProperty(status, 'textContent', {
+    get() { return this.text || ''; },
+    set(value) { this.text = value; if (value) announced.push(value); },
+});
 const played = [];
 let pausedGap = false;
 let resolveFirstPlay;
@@ -58,13 +64,14 @@ player.play = function () {
 };
 
 const demo = {
-    dataset: { kind: 'multi-reading', play: 'Play', pause: 'Pause', playAgain: 'Play again', error: 'Audio error', clips: JSON.stringify(paths) },
+    dataset: { kind: 'multi-reading', play: 'Play', pause: 'Pause', playAgain: 'Play again', error: 'Audio error', verseLabel: 'Verse', clips: JSON.stringify(paths) },
     querySelector(selector) {
         return {
             '.multi-reading-controls': controls,
             '.multi-reading-toggle': button,
             '.multi-reading-error': error,
             '[data-demo-player]': player,
+            '[data-demo-status]': status,
         }[selector];
     },
     querySelectorAll(selector) {
@@ -119,6 +126,8 @@ const poll = setInterval(() => {
     assert.equal(pausedGap, true);
     assert.deepEqual(played.map((url) => blobPaths.get(url) || url), [paths[0], ...paths]);
     assert.equal(played.length, 11);
+    assert.deepEqual(announced, ['Verse 1', 'Verse 2', 'Verse 3', 'Verse 4', 'Verse 5'], 'each verse is announced once');
+    assert.equal(button.attributes['aria-pressed'], undefined, 'the changing label is the only state');
     console.log('A1, B1, A2, B2, A3, B3, A4, B4, A5, B5: OK');
 }, 1);
 
@@ -153,6 +162,7 @@ function testVoices() {
             },
         };
     });
+    const voiceStatus = element();
     const voicePlayer = element();
     const voicePlayed = [];
     voicePlayer.src = voicePaths[0];
@@ -166,9 +176,10 @@ function testVoices() {
         return Promise.resolve();
     };
     const voiceDemo = {
-        dataset: { kind: 'voices', play: 'Play', pause: 'Pause', playAgain: 'Play again', error: 'Audio error' },
+        dataset: { kind: 'voices', play: 'Play', pause: 'Pause', playAgain: 'Play again', error: 'Audio error', verseLabel: 'Verse' },
         querySelector(selector) {
             if (selector === '[data-demo-player]') return voicePlayer;
+            if (selector === '[data-demo-status]') return voiceStatus;
             throw new Error(selector);
         },
         querySelectorAll(selector) {
@@ -187,10 +198,12 @@ function testVoices() {
     rows[0].button.emit('click');
     assert.deepEqual(voicePlayed, [voicePaths[0]]);
     assert.equal(rows[0].passage.hidden, false);
-    assert.equal(rows[0].button.attributes['aria-pressed'], 'true');
+    assert.equal(rows[0].button.attributes['aria-label'], 'Pause: Voice 0');
+    assert.equal(rows[0].button.attributes['aria-pressed'], undefined);
     voicePlayer.currentTime = 0.5;
     voicePlayer.emit('timeupdate');
     assert.equal(rows[0].lines[0].attributes['aria-current'], 'true');
+    assert.equal(voiceStatus.textContent, 'Verse 1');
     voicePlayer.currentTime = 1.5;
     voicePlayer.emit('timeupdate');
     assert.equal(rows[0].lines[0].attributes['aria-current'], undefined);
@@ -201,20 +214,21 @@ function testVoices() {
     assert.equal(rows[0].passage.hidden, false);
     rows[1].button.emit('click');
     assert.deepEqual(voicePlayed, [voicePaths[0], voicePaths[0], voicePaths[1]]);
-    assert.equal(rows[0].button.attributes['aria-pressed'], 'false');
+    assert.equal(rows[0].button.attributes['aria-label'], 'Play: Voice 0');
     assert.equal(rows[0].passage.hidden, true);
     assert.equal(rows[1].passage.hidden, false);
     for (let verse = 0; verse < 5; verse += 1) {
         voicePlayer.currentTime = verse * 2 + 0.5;
         voicePlayer.emit('timeupdate');
         assert.equal(rows[1].lines[verse].attributes['aria-current'], 'true');
+        assert.equal(voiceStatus.textContent, `Verse ${verse + 1}`);
         assert.equal(rows[1].passage.hidden, false);
     }
     assert.equal(rows[1].lines.map((line) => line.textContent).join(','), 'Verse 1,Verse 2,Verse 3,Verse 4,Verse 5');
     voicePlayer.ended = true;
     voicePlayer.emit('ended');
     assert.equal(rows[1].button.textContent, 'Play again');
-    assert.equal(rows[1].button.attributes['aria-pressed'], 'false');
+    assert.equal(rows[1].button.attributes['aria-label'], 'Play again: Voice 1');
     assert.equal(rows[1].passage.hidden, false, 'passage stays open after playback');
     console.log('Persistent passage, verse highlight and switching: OK');
 }
