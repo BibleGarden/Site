@@ -5,7 +5,9 @@ from __future__ import annotations
 import importlib.util
 import tempfile
 import unittest
+from decimal import Decimal
 from pathlib import Path
+from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -29,7 +31,12 @@ class BuildDemoAudioTest(unittest.TestCase):
         self.assertEqual(set(records), set(BUILD_DEMO_AUDIO.NARRATORS))
         for narrator, record in records.items():
             with self.subTest(narrator=narrator):
-                self.assertEqual(BUILD_DEMO_AUDIO.continuous_info(narrator, self.timings), record)
+                # CI has no ffprobe: take the duration from the manifest and check
+                # that committed clips, checksums and verse intervals still agree.
+                duration = Decimal(str(record["duration"]))
+                with mock.patch.object(BUILD_DEMO_AUDIO, "audio_duration", return_value=duration) as probe:
+                    self.assertEqual(BUILD_DEMO_AUDIO.continuous_info(narrator, self.timings), record)
+                probe.assert_called_once_with(BUILD_DEMO_AUDIO.OUTPUT / narrator / "1-5.mp3")
                 self.assertEqual(record["intervals"][0]["start"], 0.05)
                 self.assertLess(record["intervals"][-1]["end"], record["duration"])
 
