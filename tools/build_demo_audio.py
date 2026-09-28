@@ -122,6 +122,20 @@ DEMOS: dict[str, dict] = {
 
 PASSAGE = "John 1:1–5"
 
+# These fingerprints pin the timelines used for the committed clips. Manifests
+# deliberately contain only player data, so they cannot carry extra generator
+# metadata. When a timeline changes, its clips must be re-cut from the source
+# instead of silently reusing clips made for the previous timeline.
+REUSABLE_TIMING_FINGERPRINTS = {
+    "bsb_souer": "138c86e2a7ac060852a911b5e796e8f77995bf9374db45bc67011cde37d83342",
+    "prozorovsky": "f8df66671d4a75da861feaac27bfca65afbf856f8a2bc4f012ec23c3b20c6ca5",
+    "bondarenko": "da43132e71b198a7737c75e0720c257950ff25cbfc7543b937b3858f5e67b136",
+    "prudovsky": "31e6ca37a6ffb7218f92155226ca3f7e5aaa3fc73086193ecf91d4e030a4a5dc",
+    "kozlov_uk": "8e8ca53bfea7f2184a3154b2bd2f39a4d12054460f146b68681dc3ea5fbe8025",
+    "winfred_henson": "e1039fdae6750927c16489d903f0c6a272e5112dc55ba5f68d02355449d889de",
+    "npu_uk": "5c71267036d1ffd34b5537a9718ef789efd8699c0652ad756dd98d1c07d2df89",
+}
+
 
 def rows(path: Path) -> list[dict[str, str]]:
     with path.open(encoding="utf-8", newline="") as handle:
@@ -152,6 +166,66 @@ def source_data() -> tuple[dict, dict]:
     if set(texts) != expected:
         raise ValueError("texts must contain every translation and verse 1-5 exactly once")
     return timings, texts
+
+
+def timing_fingerprint(narrator: str, timings: dict) -> str:
+    values = "\n".join(
+        f"{verse}\t{timings[narrator, verse][0]}\t{timings[narrator, verse][1]}"
+        for verse in range(1, 6)
+    )
+    return hashlib.sha256(values.encode()).hexdigest()
+
+
+def recorded_clips() -> dict[str, list[list[dict]]]:
+    records = {narrator: [] for narrator in NARRATORS}
+    for demo_id in DEMOS:
+        manifest = DEMOS_DIR / f"{demo_id}.json"
+        if not manifest.is_file():
+            continue
+        try:
+            data = json.loads(manifest.read_text(encoding="utf-8"))
+            clips = data["clips"]
+        except (OSError, ValueError, KeyError, TypeError) as error:
+            raise ValueError(f"{manifest}: invalid existing manifest") from error
+        if not isinstance(clips, dict):
+            raise ValueError(f"{manifest}: invalid existing manifest clips")
+        for narrator, clip in clips.items():
+            if narrator not in records or not isinstance(clip, dict):
+                raise ValueError(f"{manifest}: invalid existing narrator {narrator!r}")
+            verses = clip.get("verses")
+            if not isinstance(verses, list) or len(verses) != 5:
+                raise ValueError(f"{manifest}: invalid existing clips for {narrator}")
+            records[narrator].append(verses)
+    return records
+
+
+def validate_reused_clips(narrator: str, clips: list[dict], records: list[list[dict]], timings: dict) -> None:
+    source_hint = f"pass a --source-dir containing {narrator}.mp3"
+    if timing_fingerprint(narrator, timings) != REUSABLE_TIMING_FINGERPRINTS[narrator]:
+        raise ValueError(f"{narrator}: timings changed; {source_hint}")
+    if not records:
+        raise ValueError(f"{narrator}: no existing manifest records; {source_hint}")
+    for recorded in records:
+        for verse, (clip, previous) in enumerate(zip(clips, recorded), 1):
+            if not isinstance(previous, dict) or (
+                clip["sha256"] != previous.get("sha256") or clip["duration"] != previous.get("duration")
+            ):
+                raise ValueError(f"{narrator}:{verse}: clip differs from existing manifest; {source_hint}")
+
+
+def find_sources(source_dirs: list[Path]) -> dict[str, Path]:
+    sources: dict[str, Path] = {}
+    for source_dir in source_dirs:
+        for narrator in NARRATORS:
+            candidate = source_dir / f"{narrator}.mp3"
+            if not candidate.is_file():
+                continue
+            if narrator in sources:
+                raise ValueError(
+                    f"{narrator}: found in both {sources[narrator]} and {candidate}; source is ambiguous"
+                )
+            sources[narrator] = candidate
+    return sources
 
 
 def cut_clips(narrator: str, source: Path, timings: dict) -> None:
@@ -198,16 +272,15 @@ def build(source_dirs: list[Path]) -> dict[str, dict]:
     timings, texts = source_data()
     OUTPUT.mkdir(parents=True, exist_ok=True)
 
-    sources: dict[str, Path] = {}
-    for source_dir in source_dirs:
-        for narrator in NARRATORS:
-            candidate = source_dir / f"{narrator}.mp3"
-            if candidate.is_file():
-                sources[narrator] = candidate
+    sources = find_sources(source_dirs)
+    previous_clips = recorded_clips()
     for narrator, source in sources.items():
         cut_clips(narrator, source, timings)
 
     clips_by_narrator = {narrator: clip_info(narrator, timings) for narrator in NARRATORS}
+    for narrator, clips in clips_by_narrator.items():
+        if narrator not in sources:
+            validate_reused_clips(narrator, clips, previous_clips[narrator], timings)
 
     manifests = {}
     for demo_id, demo in DEMOS.items():

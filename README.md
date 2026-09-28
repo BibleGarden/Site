@@ -301,7 +301,7 @@ Two demos exist:
   Souer and Synodal, Ilya Prudovsky; uk is UBH (Khomenko), Ihor Kozlov and
   BSB, Bob Souer.
 - `translation-compare` — two translations of the same language, so readers
-  hear how translators differ. The ru pair is Synodal, Ilya Prudovsky and BTI
+  hear how translators differ. The ru pair is Synodal, Alexander Bondarenko and BTI
   (Kulakov), Nikita Semyonov-Prozorovsky; en is BSB, Bob Souer and World
   English Bible, Winfred Henson; uk is UBH (Khomenko), Ihor Kozlov and the New
   Ukrainian Translation (NPU) — Biblica does not credit a narrator for NPU, so
@@ -341,7 +341,10 @@ in one of the given directories are (re-)cut — ffmpeg is deterministic, so
 re-cutting an existing narrator from the same source reproduces byte-identical
 clips, and narrators already cut in an earlier run do not need their source
 file again. Adding a new demo or narrator therefore only needs the new
-narrators' source files, not the older ones.
+narrators' source files, not the older ones. Reused clips must match their
+existing manifest checksums and durations, and their timing fingerprint must
+match the committed timeline; changing a narrator's timings requires its
+source MP3.
 
 ## Author
 
