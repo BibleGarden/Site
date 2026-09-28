@@ -350,8 +350,9 @@ because its asset URLs are root absolute.
 
 ## Production deployment
 
-Deploy Site with `git pull --ff-only origin main` in `/root/cep/site`, then
-restart the `web` Compose service as described in the Deploy runbook.
+Deploy Site with `git pull --ff-only origin main` in `/root/cep/site`; nginx
+serves the pulled files without a restart. The full procedure is in the Deploy
+runbook, section "Site".
 
 ## Analytics
 
