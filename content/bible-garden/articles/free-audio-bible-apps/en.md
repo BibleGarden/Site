@@ -2,7 +2,6 @@
 title: "Free audio Bible apps: what to use for listening, reading, and study"
 description: "Compare free Bible apps with audio, from YouVersion and Bible.is to Bible Garden. Find a fit for offline listening, daily reading, or two languages."
 date: 2026-09-28
-draft: true
 ---
 
 Looking for a free audio Bible app? The right choice depends on how you listen. These apps and services each do something different:
@@ -39,7 +38,7 @@ This is a selection of well-known options with distinct uses, not a ranking of e
 
 | | Cost | Audio | Offline audio | Where | Best fit |
 |---|---|---|---|---|---|
-| **YouVersion** | Free, no ads | Audio in selected versions, including NIV, ESV, KJV, and NLT | Not confirmed here for the main app | iPhone, iPad, Android, browser | By far the broadest choice of translations and languages; reading plans |
+| **YouVersion** | Free, no ads | Audio in selected versions, including NIV, ESV, KJV, and NLT | No in the main app; Bible App Lite supports offline audio | iPhone, iPad, Android, browser | By far the broadest choice of translations and languages; reading plans |
 | **Dwell** | Limited free tier; subscription for full access after a trial | 20+ voices, 14 translations, optional music | Yes | iPhone, Android | Choosing a voice and settling in to listen |
 | **Bible.is** | Free, no ads | Recordings in 1,700+ languages, including dramatized audio | Yes | iPhone, Android | Dramatized listening and language choice |
 | **The Bible in a Year** (Ascension) | Free podcast | Daily Scripture with Fr. Mike Schmitz's commentary and prayer | Download through a podcast app | Podcast apps and Ascension | A guided year through the Catholic canon |
@@ -52,7 +51,7 @@ This is a selection of well-known options with distinct uses, not a ranking of e
 
 ### YouVersion
 
-YouVersion is by far the most popular choice here, with millions of App Store ratings and more than 100 million Android installs. Its greatest strength is reach: thousands of Bible versions in more than 2,000 languages, plus thousands of reading plans and ways to read with friends. Selected versions have audio, with playback speed and timer controls. It is free and has no ads. If you want an NIV, ESV, KJV, or NLT recording, or a plan to follow, start here. Offline audio in the main app was not established by the sources used for this article.
+YouVersion is by far the most popular choice here, with millions of App Store ratings and more than 100 million Android installs. Its greatest strength is reach: thousands of Bible versions in more than 2,000 languages, plus thousands of reading plans and ways to read with friends. Selected versions have audio, with playback speed and timer controls. It is free and has no ads. If you want an NIV, ESV, KJV, or NLT recording, or a plan to follow, start here. According to YouVersion’s help page, audio in the main app requires an internet connection; Bible App Lite supports offline audio.
 
 ### Dwell
 
@@ -95,7 +94,7 @@ Bible Garden does not currently have an Android version, offline audio downloads
 ## What should you choose?
 
 - **For the most translations, languages, and reading plans:** YouVersion. It is the strongest all-around library and the most popular app here.
-- **For offline audio:** Bible.is or Dwell; Dwell's full library requires a subscription.
+- **For offline audio:** Bible.is, Bible App Lite, or Dwell; Dwell’s full library requires a subscription.
 - **For a listening-first experience with voices and music:** Dwell. **For dramatized Scripture in many languages:** Bible.is.
 - **For daily Catholic readings with commentary:** *The Bible in a Year* podcast.
 - **For audio in a browser without installing an app:** Bible Gateway.
@@ -103,7 +102,7 @@ Bible Garden does not currently have an Android version, offline audio downloads
 
 ## There are many more apps
 
-This is a short selection. The [faith.tools catalog](https://faith.tools/) lists 674 Christian apps, including an [audio Bible category](https://faith.tools/audio-bible), if you want to browse further.
+This is a short selection. As of September 26, 2026, the [faith.tools catalog](https://faith.tools/) listed 674 app pages, including an [audio Bible category](https://faith.tools/audio-bible).
 
 ## Frequently asked questions {#faq}
 
@@ -115,7 +114,7 @@ It depends on what you want to hear. YouVersion has the widest choice of transla
 
 Yes. YouVersion and Bible.is offer complete audio Bibles in selected translations. Bible Garden has recordings of all 66 books in the Berean Standard Bible (Bob Souer or David) and the World English Bible, US edition (Winfred Henson). Its audio needs an internet connection.
 
-### Is there a Bible app that reads to you with a voice-over?
+### Is there a Bible app that reads to you?
 
 Yes. All the apps compared here play spoken Scripture, though voices and available books vary by translation. Dwell lets you choose among 20+ voices; Bible.is offers dramatized recordings; Bible Garden lets you preview and select narrators for some translations.
 

@@ -51,7 +51,7 @@ class HomeArticlesTest(unittest.TestCase):
     def test_each_language_uses_its_own_published_article(self) -> None:
         for lang, prefix in (("en", "/"), ("ru", "/ru/"), ("uk", "/uk/")):
             with self.subTest(lang=lang):
-                article = self.builder.articles["how-to-start-reading-the-bible"][lang]
+                article = self.builder.published(lang)[-1]
                 html = self.render(lang)
                 block = html.split('<section id="articles"', 1)[1].split("</section>", 1)[0]
                 self.assertIn(article.title, block)

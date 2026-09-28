@@ -326,9 +326,20 @@ def is_tracker(attrs: dict[str, str], tracker_hosts: set[str]) -> bool:
     return url.path.lower().endswith("/script.js") or "umami" in src.lower() or (url.hostname or "") in tracker_hosts
 
 
+def own_app_store_id(site: Site) -> str | None:
+    """The site's own app id (for example id6758955373) taken from app_store_url; None for a site without an app
+    in the App Store yet. Links to other apps are not ours to track."""
+    if "app_store_url" not in site.config:
+        return None
+    match = re.search(r"/(id\d+)", urlsplit(site.config["app_store_url"]).path)
+    if match is None:
+        raise BuildError(f"app_store_url {site.config['app_store_url']} has no App Store id")
+    return match.group(1)
+
+
 def check_analytics(pages: dict[Path, str], owners: dict[Path, Site]) -> None:
     """Every page, hand-written ones included, carries its site's tracker exactly once, or no tracker at all when
-    analytics is 'none'; every App Store link reports the app-store-click event."""
+    analytics is 'none'; every link to the site's own app in the App Store reports the app-store-click event."""
     tracker_hosts = {urlsplit(site.analytics.script_url).hostname for site in owners.values() if site.analytics}
     for path, html in pages.items():
         analytics = owners[path].analytics
@@ -341,7 +352,9 @@ def check_analytics(pages: dict[Path, str], owners: dict[Path, Site]) -> None:
                 raise BuildError(f"{path}: analytics is 'none' in site.yaml, but the page has a tracker script")
         elif trackers != 1 or html.count(analytics.script_tag) != 1:
             raise BuildError(f"{path}: the page must carry exactly one tracker, and it must be {analytics.script_tag}")
+        app_id = own_app_store_id(owners[path])
         for attrs in tags.anchors:
             href = attrs.get("href", "").strip()
-            if href.lower().startswith(APP_STORE_PREFIX) and attrs.get("data-umami-event") != APP_STORE_EVENT:
+            is_own_app = app_id is not None and href.lower().startswith(APP_STORE_PREFIX) and app_id in urlsplit(href).path
+            if is_own_app and attrs.get("data-umami-event") != APP_STORE_EVENT:
                 raise BuildError(f'{path}: App Store link {href} without data-umami-event="{APP_STORE_EVENT}"')
