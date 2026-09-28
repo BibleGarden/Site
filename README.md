@@ -279,38 +279,72 @@ Regenerate and rebuild with:
 .venv/bin/python -m sitegen build
 ```
 
-### Multi Reading demo in articles
+### Multi Reading demos in articles
 
-On bible.garden, place `<!-- demo: multi-reading -->` on its own line in an
-article. The marker renders John 1:1–5 as two lines per verse and plays each
-verse in voice A, waits two seconds, plays it in voice B, then waits two seconds
-before the next verse. The ru pair is BTI (Kulakov), Nikita Semyonov-Prozorovsky
-and BSB, Bob Souer; en is BSB, Bob Souer and Synodal, Ilya Prudovsky; uk is UBH
-(Khomenko), Ihor Kozlov and BSB, Bob Souer. Play/Pause resumes the current verse
-or pause, and the player stops after verse 5. Each verse and narrator has its
-own MP3, so playback does not seek or need HTTP Range support. The next clip
-loads while the current one plays. Printing keeps the text and hides the
-controls. Without JavaScript, only the verse texts and narrator labels remain
-visible; the player button appears only when JavaScript initializes.
+On bible.garden, place `<!-- demo: <id> -->` on its own line in an article,
+where `<id>` names one of the JSON files in `content/bible-garden/demos/`.
+Every demo renders John 1:1–5 as two lines per verse and plays each verse in
+voice A, waits two seconds, plays it in voice B, then waits two seconds before
+the next verse. Play/Pause resumes the current verse or pause, and the player
+stops after verse 5. Each verse and narrator has its own MP3, so playback does
+not seek or need HTTP Range support. The next clip loads while the current one
+plays. Printing keeps the text and hides the controls. Without JavaScript,
+only the verse texts and narrator labels remain visible; the player button
+appears only when JavaScript initializes. The marker must match exactly; an
+unknown, duplicate or malformed demo marker stops the build. At most one demo
+renders per article.
 
-The marker must match exactly; an unknown, duplicate or malformed demo marker
-stops the build. `content/bible-garden/demos/multi-reading.json` holds the
-localized labels, verse texts and the five clip paths per narrator. The build
-rejects missing, changed or malformed verse clips.
+Two demos exist:
 
-The committed `tools/data/john1-texts.tsv` comes from
-`cep_public.translation_verses`; `tools/data/john1-timings.tsv` comes from
-`cep_public.voice_alignments` (John 1, exported 2026-09-27). The full-chapter
-recordings are not committed. Their URLs come from
-`cep_public.voices.link_template`: `prozorovsky.mp3` from 4bbl.ru,
-`bsb_souer.mp3` from openbible.com, `prudovsky.mp3` from mp3.only.bible and
-`kozlov_uk.mp3` from wordproaudio.net. Put those files in a local directory
-and regenerate the mono, 56 kbps verse clips and manifest with:
+- `multi-reading` — the same passage in two languages. The ru pair is BTI
+  (Kulakov), Nikita Semyonov-Prozorovsky and BSB, Bob Souer; en is BSB, Bob
+  Souer and Synodal, Ilya Prudovsky; uk is UBH (Khomenko), Ihor Kozlov and
+  BSB, Bob Souer.
+- `translation-compare` — two translations of the same language, so readers
+  hear how translators differ. The ru pair is Synodal, Alexander Bondarenko and BTI
+  (Kulakov), Nikita Semyonov-Prozorovsky; en is BSB, Bob Souer and World
+  English Bible, Winfred Henson; uk is UBH (Khomenko), Ihor Kozlov and the New
+  Ukrainian Translation (NPU) — Biblica does not credit a narrator for NPU, so
+  its clips carry no narrator name.
+
+Each demo's JSON holds its localized title, the localized labels, verse texts
+and the five clip paths per narrator; a narrator's localized name may be
+`null` when the publisher does not credit one, in which case only the
+translation name renders. The build rejects missing, changed or malformed
+verse clips. Clips are shared between demos under
+`static/bible-garden/audio/demo/<narrator>/<verse>.mp3`.
+
+`tools/build_demo_audio.py` keeps a narrator registry (translation and
+localized names) and a per-demo definition (id, pairs, localized title); it
+cuts one manifest per demo. The committed `tools/data/john1-texts.tsv` comes
+from `cep_public.translation_verses`; `tools/data/john1-timings.tsv` comes
+from `cep_public.voice_alignments` (John 1; bsb/bti/syn/ubh and their
+narrators exported 2026-09-27, webus/npu, their narrators and the Synodal narrator
+`bondarenko` exported 2026-09-28). The full-chapter recordings are not committed. Their URLs come
+from `cep_public.voices.link_template`: `prozorovsky.mp3` and `bondarenko.mp3` from 4bbl.ru,
+`bsb_souer.mp3` from openbible.com, `prudovsky.mp3` from mp3.only.bible,
+`kozlov_uk.mp3` from wordproaudio.net and `winfred_henson.mp3` from
+publicdomainaudiobibles.com (`https://www.publicdomainaudiobibles.com/content/
+mp3/WEBW/...`); `npu_uk.mp3` has no public URL (Biblica does not publish one).
+
+Put any subset of `<narrator>.mp3` files (named after the registry keys in
+`tools/build_demo_audio.py`) in one or more local directories and regenerate
+the mono, 56 kbps verse clips and every demo's manifest with:
 
 ```bash
 python3 tools/build_demo_audio.py --source-dir /path/to/john1-mp3s
 .venv/bin/python -m sitegen build
 ```
+
+`--source-dir` may be repeated; only narrators whose `<narrator>.mp3` is found
+in one of the given directories are (re-)cut — ffmpeg is deterministic, so
+re-cutting an existing narrator from the same source reproduces byte-identical
+clips, and narrators already cut in an earlier run do not need their source
+file again. Adding a new demo or narrator therefore only needs the new
+narrators' source files, not the older ones. Reused clips must match their
+existing manifest checksums and durations, and their timing fingerprint must
+match the committed timeline; changing a narrator's timings requires its
+source MP3.
 
 ## Author
 

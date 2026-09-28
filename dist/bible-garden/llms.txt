@@ -13,6 +13,7 @@
 
 ## Articles (English)
 
+- [Which Bible Translation Is Best? Compare English Versions](https://bible.garden/articles/which-bible-translation/): Compare KJV, NIV, ESV, NLT, BSB, WEB, and other English Bible translations. Choose one for reading or study, then hear two versions verse by verse.
 - [Free audio Bible apps: what to use for listening, reading, and study](https://bible.garden/articles/free-audio-bible-apps/): Compare free Bible apps with audio, from YouVersion and Bible.is to Bible Garden. Find a fit for offline listening, daily reading, or two languages.
 - [Bilingual Bible App: Read and Listen in Two Languages](https://bible.garden/articles/bible-in-two-languages/): Compare a parallel or bilingual Bible verse by verse. Hear English and Russian in Multi Reading, explore translations, and try a John 1 audio demo.
 - [How to Read the Bible in a Year: A 365-Day Plan](https://bible.garden/articles/bible-in-a-year/): A printable 365-day Bible reading plan for beginners: pick a start date, choose one of two reading orders, listen along, and take time to slow down.
@@ -20,6 +21,7 @@
 
 ## Статьи (Русский)
 
+- [Какой перевод Библии лучше: Синодальный, Кулаковых и другие](https://bible.garden/ru/articles/which-bible-translation/): Чем отличаются русские переводы Библии: Синодальный, перевод Кулаковых, РБО, НРП. Дословный и смысловой перевод, как выбрать свой и зачем сравнивать переводы.
 - [Аудио-Библия: бесплатные приложения и сайты, чтобы слушать Библию на русском](https://bible.garden/ru/articles/free-audio-bible-apps/): Где бесплатно слушать Библию на русском: YouVersion, Bible.is, «Радио ВЕРА», «Азбука веры», bible.by и Bible Garden — чем отличаются и что кому подойдёт.
 - [Библия на английском и русском: читать и слушать на двух языках](https://bible.garden/ru/articles/bible-in-two-languages/): Параллельная Библия, билингва и подстрочник — в чём разница. Как читать и слушать Библию на английском с переводом: стих по-русски, затем по-английски.
 - [Библия за год: план чтения на каждый день и как его выдержать](https://bible.garden/ru/articles/bible-in-a-year/): План чтения Библии за год на каждый день: календарь на 365 дней с датой начала и печатью, два порядка чтения, аудио в двух переводах, советы без гонки.
@@ -27,6 +29,7 @@
 
 ## Статті (Українська)
 
+- [Який переклад Біблії вибрати: Огієнка, Хоменка чи НПУ](https://bible.garden/uk/articles/which-bible-translation/): Чим відрізняються українські переклади Біблії: Огієнка, Хоменка, Турконяка, УБТ і НПУ. Як вибрати свій переклад і порівняти їх на слух.
 - [Аудіо-Біблія: безкоштовні застосунки, щоб слухати Біблію українською](https://bible.garden/uk/articles/free-audio-bible-apps/): Де безкоштовно слухати Біблію українською: YouVersion, Bible.is, «Аудіо Біблія» та Bible Garden. Порівнюємо переклади, офлайн і можливості.
 - [Біблія українською та англійською: читати й слухати двома мовами](https://bible.garden/uk/articles/bible-in-two-languages/): Двомовна Біблія: чим відрізняються паралельне читання, білінгва й підрядковий переклад. Як слухати вірші українською та англійською.
 - [Біблія за рік: план читання на кожен день і як його дотримуватися](https://bible.garden/uk/articles/bible-in-a-year/): План читання Біблії за рік: календар на 365 днів, два порядки читання, українське аудіо та поради, як читати уважно й не покинути.

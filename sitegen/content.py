@@ -14,7 +14,7 @@ from markdown.extensions.toc import slugify_unicode
 from markupsafe import Markup, escape
 
 from .errors import BuildError
-from .multi_reading_demo import PLACEHOLDER as DEMO_PLACEHOLDER, annotate_demo_marker, load_demo, render_demo
+from .multi_reading_demo import annotate_demo_marker, load_demo, placeholder_for, render_demo
 from .reading_plan import PLACEHOLDER, annotate_plan_marker, load_plans, render_plan
 from .screens import Screen, ScreenFigureExtension, ScreenRef, VARIANTS, check_asset, load_catalog, load_checksums
 
@@ -340,7 +340,7 @@ def parse_article(
 ) -> Article:
     meta, body, body_start_line = _frontmatter(source, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS)
     plan_body, has_plan = annotate_plan_marker(body, source, site_key, body_start_line)
-    demo_body, has_demo = annotate_demo_marker(plan_body, source, site_key, body_start_line)
+    demo_body, demo_id = annotate_demo_marker(plan_body, source, site_key, body_start_line)
     marked_body, clean_body, refs = annotate_screens(demo_body, source, lang, screens, body_start_line)
     for ref in refs:
         for variant in VARIANTS:
@@ -356,11 +356,14 @@ def parse_article(
         if body_html.count(PLACEHOLDER) != 1:
             raise BuildError(f"{source}: reading plan marker did not render exactly once")
         body_html = body_html.replace(PLACEHOLDER, render_plan(parallel, sequential, chapters, lang, strings.get("reading_plan")))
-    if has_demo:
-        data = load_demo()
-        if body_html.count(DEMO_PLACEHOLDER) != 1:
-            raise BuildError(f"{source}: Multi Reading demo marker did not render exactly once")
-        body_html = body_html.replace(DEMO_PLACEHOLDER, render_demo(data, lang, strings.get("multi_reading_demo")))
+    clean_body_no_demo = clean_body
+    if demo_id:
+        demo_placeholder = placeholder_for(demo_id)
+        data = load_demo(demo_id)
+        if body_html.count(demo_placeholder) != 1:
+            raise BuildError(f"{source}: {demo_id} demo marker did not render exactly once")
+        body_html = body_html.replace(demo_placeholder, render_demo(data, lang, strings.get("multi_reading_demo")))
+        clean_body_no_demo = clean_body.replace(demo_placeholder, "")
     return Article(
         slug=slug,
         lang=lang,
@@ -371,10 +374,10 @@ def parse_article(
         draft=_require_bool(meta, "draft", source) if "draft" in meta else False,
         image=_require_str(meta, "image", source) if "image" in meta else None,
         body_html=body_html,
-        faq=extract_faq(clean_body.replace(PLACEHOLDER, "").replace(DEMO_PLACEHOLDER, ""), source),
+        faq=extract_faq(clean_body_no_demo.replace(PLACEHOLDER, ""), source),
         screens=refs,
         has_plan=has_plan,
-        has_demo=has_demo,
+        has_demo=bool(demo_id),
     )
 
 

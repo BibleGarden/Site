@@ -1,4 +1,13 @@
-"""Validated, server-rendered Multi Reading article demo."""
+"""Validated, server-rendered Multi Reading article demos.
+
+A demo marker `<!-- demo: <id> -->` loads
+`content/bible-garden/demos/<id>.json`. Every demo plays John 1:1-5 verse by
+verse in two voices (multi-reading: the same passage in two languages;
+translation-compare: two translations of the same language), sharing the
+generic player markup, CSS and JS. Verse clips live under
+`static/bible-garden/audio/demo/<narrator>/<verse>.mp3` and are shared
+between demos.
+"""
 
 from __future__ import annotations
 
@@ -12,35 +21,42 @@ from pathlib import Path
 from .errors import BuildError
 
 ROOT = Path(__file__).resolve().parent.parent
-DATA_PATH = ROOT / "content/bible-garden/demos/multi-reading.json"
-MARKER_ID = "multi-reading"
-PLACEHOLDER = '<div data-demo-placeholder="multi-reading"></div>'
+DEMOS_DIR = ROOT / "content/bible-garden/demos"
 MARKER_RE = re.compile(r"^<!-- demo: ([a-z0-9]+(?:-[a-z0-9]+)*) -->$")
 INTENT_RE = re.compile(r"<!--\s*(?:demo|dmeo|demmo)\b", re.IGNORECASE)
-PAIRS = {"en": ["bsb_souer", "prudovsky"], "ru": ["prozorovsky", "bsb_souer"], "uk": ["kozlov_uk", "bsb_souer"]}
-TRANSLATIONS = {"bsb_souer": "bsb", "prozorovsky": "bti", "prudovsky": "syn", "kozlov_uk": "ubh"}
-TEXT_LANG = {"bsb": "en", "bti": "ru", "syn": "ru", "ubh": "uk"}
+PASSAGE = "John 1:1–5"
+LANGS = {"en", "ru", "uk"}
+# Language of each translation's text, for the verse line's `lang` attribute.
+# Fixed per translation regardless of which demo(s) use it.
+TEXT_LANG = {"bsb": "en", "bti": "ru", "syn": "ru", "ubh": "uk", "webus": "en", "npu": "uk"}
 
 
-def annotate_demo_marker(body: str, source: Path, site: str, body_start_line: int = 1) -> tuple[str, bool]:
+def placeholder_for(demo_id: str) -> str:
+    return f'<div data-demo-placeholder="{demo_id}"></div>'
+
+
+def annotate_demo_marker(
+    body: str, source: Path, site: str, body_start_line: int = 1, demos_dir: Path = DEMOS_DIR
+) -> tuple[str, str | None]:
     from .content import _fenced_flags
 
     lines = body.splitlines()
     fenced = _fenced_flags(lines)
-    found = False
+    found_id: str | None = None
     for index, line in enumerate(lines):
         if fenced[index] or not INTENT_RE.search(line):
             continue
         match = MARKER_RE.fullmatch(line)
         if not match:
-            raise BuildError(f"{source}:{body_start_line + index}: expected <!-- demo: multi-reading -->")
-        if site != "bible-garden" or match.group(1) != MARKER_ID:
-            raise BuildError(f"{source}:{body_start_line + index}: unknown demo {match.group(1)!r} for {site}")
-        if found:
-            raise BuildError(f"{source}:{body_start_line + index}: duplicate Multi Reading demo marker")
-        lines[index] = PLACEHOLDER
-        found = True
-    return "\n".join(lines) + ("\n" if body.endswith("\n") else ""), found
+            raise BuildError(f"{source}:{body_start_line + index}: expected <!-- demo: <id> -->")
+        demo_id = match.group(1)
+        if site != "bible-garden" or not (demos_dir / f"{demo_id}.json").is_file():
+            raise BuildError(f"{source}:{body_start_line + index}: unknown demo {demo_id!r} for {site}")
+        if found_id is not None:
+            raise BuildError(f"{source}:{body_start_line + index}: duplicate demo marker")
+        lines[index] = placeholder_for(demo_id)
+        found_id = demo_id
+    return "\n".join(lines) + ("\n" if body.endswith("\n") else ""), found_id
 
 
 def _unique_keys(pairs: list[tuple[str, object]]) -> dict:
@@ -56,30 +72,57 @@ def _reject_constant(value: str) -> None:
     raise ValueError(f"invalid JSON constant {value}")
 
 
-def validate_demo(data: object, path: Path = DATA_PATH, static_root: Path = ROOT / "static/bible-garden") -> dict:
+def validate_demo(data: object, demo_id: str, path: Path, static_root: Path = ROOT / "static/bible-garden") -> dict:
     def fail(message: str) -> None:
         raise BuildError(f"{path}: {message}")
 
-    if not isinstance(data, dict) or set(data) != {"passages", "pairs", "clips", "texts"} or data["passages"] != "John 1:1–5":
+    if not isinstance(data, dict) or set(data) != {"title", "passages", "pairs", "clips", "texts"} or data.get("passages") != PASSAGE:
         fail("expected John 1:1–5 demo data")
-    if data["pairs"] != PAIRS or not isinstance(data["clips"], dict) or set(data["clips"]) != set(TRANSLATIONS):
-        fail("invalid language pairs or narrator set")
-    if not isinstance(data["texts"], dict) or set(data["texts"]) != set(TRANSLATIONS.values()):
+
+    title = data["title"]
+    if not isinstance(title, dict) or set(title) != LANGS or any(
+        not isinstance(value, str) or not value.strip() for value in title.values()
+    ):
+        fail("invalid localized title")
+
+    clips = data["clips"]
+    if not isinstance(clips, dict) or not clips:
+        fail("invalid narrator set")
+
+    pairs = data["pairs"]
+    if not isinstance(pairs, dict) or set(pairs) != LANGS:
+        fail("invalid language pairs")
+    for lang, pair in pairs.items():
+        if not isinstance(pair, list) or len(pair) != 2 or pair[0] == pair[1] or any(
+            not isinstance(narrator, str) or narrator not in clips for narrator in pair
+        ):
+            fail(f"{lang}: invalid narrator pair")
+    if {narrator for pair in pairs.values() for narrator in pair} != set(clips):
+        fail("clips must match the narrators used in pairs")
+
+    texts = data["texts"]
+    if not isinstance(texts, dict):
         fail("invalid translation set")
-    for translation, verses in data["texts"].items():
-        if not isinstance(verses, list) or len(verses) != 5 or any(not isinstance(text, str) or not text.strip() for text in verses):
-            fail(f"{translation}: expected five nonempty verse texts")
-    for narrator, clip in data["clips"].items():
+
+    translations = set()
+    for narrator, clip in clips.items():
         if not isinstance(clip, dict) or set(clip) != {"translation", "names", "verses"}:
             fail(f"{narrator}: invalid clip fields")
-        if clip["translation"] != TRANSLATIONS[narrator]:
-            fail(f"{narrator}: invalid translation")
+        translation = clip["translation"]
+        if not isinstance(translation, str) or translation not in TEXT_LANG:
+            fail(f"{narrator}: unknown translation {translation!r}")
+        translations.add(translation)
         names = clip["names"]
-        if not isinstance(names, dict) or set(names) != set(PAIRS) or any(
-            not isinstance(pair, list) or len(pair) != 2 or any(not isinstance(name, str) or not name.strip() for name in pair)
-            for pair in names.values()
-        ):
+        if not isinstance(names, dict) or set(names) != LANGS:
             fail(f"{narrator}: invalid localized translation or narrator names")
+        for localized in names.values():
+            if not isinstance(localized, list) or len(localized) != 2:
+                fail(f"{narrator}: invalid localized translation or narrator names")
+            translation_name, narrator_name = localized
+            if not isinstance(translation_name, str) or not translation_name.strip():
+                fail(f"{narrator}: invalid localized translation or narrator names")
+            if narrator_name is not None and (not isinstance(narrator_name, str) or not narrator_name.strip()):
+                fail(f"{narrator}: invalid localized translation or narrator names")
         verses = clip["verses"]
         if not isinstance(verses, list) or len(verses) != 5:
             fail(f"{narrator}: expected five verse clips")
@@ -99,26 +142,33 @@ def validate_demo(data: object, path: Path = DATA_PATH, static_root: Path = ROOT
             duration = verse["duration"]
             if type(duration) not in (int, float) or not math.isfinite(duration) or duration <= 0:
                 fail(f"{narrator}: verse {index} has invalid clip duration")
+
+    if set(texts) != translations:
+        fail("invalid translation set")
+    for translation, verses in texts.items():
+        if not isinstance(verses, list) or len(verses) != 5 or any(not isinstance(text, str) or not text.strip() for text in verses):
+            fail(f"{translation}: expected five nonempty verse texts")
     return data
 
 
-def load_demo(path: Path = DATA_PATH, static_root: Path = ROOT / "static/bible-garden") -> dict:
+def load_demo(demo_id: str, demos_dir: Path = DEMOS_DIR, static_root: Path = ROOT / "static/bible-garden") -> dict:
+    path = demos_dir / f"{demo_id}.json"
     if not path.is_file():
-        raise BuildError(f"{path}: missing Multi Reading demo data; run tools/build_demo_audio.py")
+        raise BuildError(f"{path}: missing demo data; run tools/build_demo_audio.py")
     try:
         data = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=_unique_keys, parse_constant=_reject_constant)
     except (OSError, ValueError) as error:
-        raise BuildError(f"{path}: invalid Multi Reading demo JSON: {error}") from error
-    return validate_demo(data, path, static_root)
+        raise BuildError(f"{path}: invalid demo JSON: {error}") from error
+    return validate_demo(data, demo_id, path, static_root)
 
 
 def render_demo(data: dict, lang: str, strings: object) -> str:
-    required = {"title", "play", "pause", "play_again", "error"}
-    if lang not in PAIRS or not isinstance(strings, dict) or set(strings) != required or any(
+    required = {"play", "pause", "play_again", "error"}
+    if lang not in LANGS or not isinstance(strings, dict) or set(strings) != required or any(
         not isinstance(value, str) or not value.strip() for value in strings.values()
     ):
         raise BuildError(f"Multi Reading demo: missing or invalid translation for {lang}")
-    first, second = (data["clips"][narrator] for narrator in PAIRS[lang])
+    first, second = (data["clips"][narrator] for narrator in data["pairs"][lang])
     first_lang = TEXT_LANG[first["translation"]]
     second_lang = TEXT_LANG[second["translation"]]
     esc = html.escape
@@ -127,12 +177,13 @@ def render_demo(data: dict, lang: str, strings: object) -> str:
     out = [f'<section class="multi-reading-demo" data-multi-reading-demo data-play="{esc(strings["play"], quote=True)}"'
            f' data-pause="{esc(strings["pause"], quote=True)}" data-play-again="{esc(strings["play_again"], quote=True)}"'
            f' data-error="{esc(strings["error"], quote=True)}" data-clips="{clip_data}" aria-labelledby="multi-reading-demo-title">',
-           f'<h3 id="multi-reading-demo-title">{esc(strings["title"])}</h3>',
+           f'<h3 id="multi-reading-demo-title">{esc(data["title"][lang])}</h3>',
            '<div class="multi-reading-legend">']
     for key, clip in (("a", first), ("b", second)):
         translation, narrator = clip["names"][lang]
+        label = f"{esc(translation)} · {esc(narrator)}" if narrator else esc(translation)
         out.append(f'<p><span class="multi-reading-key multi-reading-key-{key.upper()}">{key.upper()}</span> '
-                   f'{esc(translation)} · {esc(narrator)}</p>')
+                   f'{label}</p>')
     out.append('</div><div class="multi-reading-controls" hidden>'
                f'<button type="button" class="multi-reading-toggle">{esc(strings["play"])}</button>'
                '<p class="multi-reading-error" role="alert" hidden></p></div>')

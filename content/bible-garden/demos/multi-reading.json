@@ -1,4 +1,9 @@
 {
+  "title": {
+    "en": "Listen to John 1:1–5 in two languages",
+    "ru": "Послушайте Ин 1:1–5 на двух языках",
+    "uk": "Послухайте Ів 1:1–5 двома мовами"
+  },
   "passages": "John 1:1–5",
   "pairs": {
     "ru": [
@@ -56,6 +61,50 @@
           "path": "/audio/demo/bsb_souer/5.mp3",
           "sha256": "a80075976a9acbebd23d2e5a0b8c8668679eb807dca49e0e4670b0eb94f421f7",
           "duration": 4.8
+        }
+      ]
+    },
+    "kozlov_uk": {
+      "translation": "ubh",
+      "names": {
+        "en": [
+          "Khomenko translation (Ukrainian)",
+          "Ihor Kozlov"
+        ],
+        "ru": [
+          "Перевод Хоменка (украинский)",
+          "Игорь Козлов"
+        ],
+        "uk": [
+          "Переклад Хоменка",
+          "Ігор Козлов"
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/kozlov_uk/1.mp3",
+          "sha256": "2569b1f1f7cc82404bbd6a052e79381863adf4ab1c432fc227f6dfe6b02dc211",
+          "duration": 10.2
+        },
+        {
+          "path": "/audio/demo/kozlov_uk/2.mp3",
+          "sha256": "915b6a3c10c8191b2ab90f61396e0cfb42a397af664ed35376a071e9dceef510",
+          "duration": 3.168
+        },
+        {
+          "path": "/audio/demo/kozlov_uk/3.mp3",
+          "sha256": "f097aaeeff4b5c97c152547f3d434347a45b377b0899cf671393a26d0933b713",
+          "duration": 7.128
+        },
+        {
+          "path": "/audio/demo/kozlov_uk/4.mp3",
+          "sha256": "582794befb9bac0c1dcd0e5b37783a3c9a35a26ba93f30a67bfc7c07b1d21edb",
+          "duration": 7.2
+        },
+        {
+          "path": "/audio/demo/kozlov_uk/5.mp3",
+          "sha256": "30727081518a4fee85ed6c32b80d17065e24456d736821c610f7bd6495d736ac",
+          "duration": 6.456
         }
       ]
     },
@@ -144,50 +193,6 @@
           "path": "/audio/demo/prudovsky/5.mp3",
           "sha256": "8250a99f6508e5347260fd31d03a8df4fda6e153452c09ffc8d45de623f2b619",
           "duration": 6.576
-        }
-      ]
-    },
-    "kozlov_uk": {
-      "translation": "ubh",
-      "names": {
-        "en": [
-          "Khomenko translation (Ukrainian)",
-          "Ihor Kozlov"
-        ],
-        "ru": [
-          "Перевод Хоменка (украинский)",
-          "Игорь Козлов"
-        ],
-        "uk": [
-          "Переклад Хоменка",
-          "Ігор Козлов"
-        ]
-      },
-      "verses": [
-        {
-          "path": "/audio/demo/kozlov_uk/1.mp3",
-          "sha256": "2569b1f1f7cc82404bbd6a052e79381863adf4ab1c432fc227f6dfe6b02dc211",
-          "duration": 10.2
-        },
-        {
-          "path": "/audio/demo/kozlov_uk/2.mp3",
-          "sha256": "915b6a3c10c8191b2ab90f61396e0cfb42a397af664ed35376a071e9dceef510",
-          "duration": 3.168
-        },
-        {
-          "path": "/audio/demo/kozlov_uk/3.mp3",
-          "sha256": "f097aaeeff4b5c97c152547f3d434347a45b377b0899cf671393a26d0933b713",
-          "duration": 7.128
-        },
-        {
-          "path": "/audio/demo/kozlov_uk/4.mp3",
-          "sha256": "582794befb9bac0c1dcd0e5b37783a3c9a35a26ba93f30a67bfc7c07b1d21edb",
-          "duration": 7.2
-        },
-        {
-          "path": "/audio/demo/kozlov_uk/5.mp3",
-          "sha256": "30727081518a4fee85ed6c32b80d17065e24456d736821c610f7bd6495d736ac",
-          "duration": 6.456
         }
       ]
     }
