@@ -36,7 +36,7 @@ You can keep listening through a book this way. Hearing a verse twice gives you 
 2. Add a reading with a translation and narrator. The screen here starts with World English Bible, US edition (WEBUS), read by Winfred Henson.
 3. Add a pause. The example uses two seconds before the next language.
 4. Add a second reading: Russian Synodal (SYNO), read by Ilya Prudovsky.
-5. Choose whether to repeat the sequence for each verse, paragraph, or chapter. Verse by verse lets you compare the same lines directly.
+5. Choose whether to repeat the sequence for each verse, paragraph, section, or chapter. Verse by verse lets you compare the same lines directly.
 
 A setup can include three or more translations too. For example, try BSB, WEBUS, and Russian Synodal so each verse plays three times. Save the setup to use it again with one tap.
 
