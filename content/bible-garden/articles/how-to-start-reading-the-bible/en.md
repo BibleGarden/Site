@@ -79,7 +79,7 @@ Audio can fit a walk or a journey when sitting down with a book is difficult. Bi
 - **Pauses during playback.** Add a pause of a few seconds after each verse, paragraph, or section so you have time to think. Playback speed ranges from 0.6× to 2×, the next chapter starts automatically, and you can control playback from the lock screen.
 - **A choice of narrators.** Bob Souer and David read BSB; Winfred Henson reads WEBUS.
 - **Two translations in sequence.** In **Multi Reading**, you can play a verse in BSB, pause, then hear that verse in WEBUS. This lets you compare unfamiliar wording without losing your place.
-- **Reading progress.** The app marks a chapter when you finish its audio or scroll through its text, and shows progress for each book and the Bible as a whole.
+- **Reading progress.** The app marks a chapter when you have listened to 90% of its audio (the default threshold) or scrolled to the end of its text, and shows progress for each book and the Bible as a whole.
 
 The seven-day schedule is in the table above; the app does not include a built-in reading plan. Bible Garden is available for iPhone and iPad.
 
