@@ -20,7 +20,7 @@ Scribes had used red ink long before, for headings and opening letters. But red-
 
 The benefit is simple: open a Gospel and you can see at a glance where Jesus is speaking. That matters most in a translation without quotation marks. The King James Version has none, so red letters do the work quotation marks do in modern versions. They also help untangle quotations nested inside other quotations ([Bible Collectors' World](https://www.biblecollectors.org/articles/red_letter_bible.htm)).
 
-Critics raise two points. The first is theological: red ink can suggest that Jesus' words matter more than the rest of Scripture. Russell Moore describes "red-letter Christianity" as the idea that Jesus' words "are more authoritative than the rest of the Bible and can override theological or ethical teaching found in, say, the Old Testament or the Pauline Epistles" ([Christianity Today, 2022](https://www.christianitytoday.com/2022/03/russell-moore-red-letter-christian-jesus-scripture/)). The second is practical: red type is harder to read, which is why some large-print Bibles are black-letter only.
+Critics raise two points. The first is theological: red ink can suggest that Jesus' words matter more than the rest of Scripture. Red ink did not create that view, but it gives it a name: Russell Moore describes "red-letter Christianity" as the belief that Jesus' words "are more authoritative than the rest of the Bible and can override theological or ethical teaching found in, say, the Old Testament or the Pauline Epistles" ([Christianity Today, 2022](https://www.christianitytoday.com/2022/03/russell-moore-red-letter-christian-jesus-scripture/)). The second is practical: red type is harder to read, which is why some large-print Bibles are black-letter only.
 
 So if you are choosing a printed Bible, pick red letters if you want to find Jesus' sayings quickly, and black letters if you find red tiring to read or simply prefer an unmarked page. The text is the same either way.
 
@@ -45,10 +45,10 @@ None of these choices is simply wrong; they are different readings of the same t
 
 ## Where Jesus speaks outside the Gospels
 
-Nearly all red verses are in the Gospels, but not all of them:
+Nearly all red verses are in the Gospels, but not all of them (quotations from the BSB):
 
 - **Acts**: the risen Jesus speaks to the disciples before the Ascension (Acts 1:4–8) and to Saul on the road to Damascus (Acts 9:4–6). In Acts 20:35, Paul quotes a saying of Jesus that the Gospels do not record: "It is more blessed to give than to receive."
-- **The letters**: the words of the Last Supper in 1 Corinthians 11:24–25 and the answer Paul receives, "My grace is sufficient for you" (2 Corinthians 12:9, BSB).
+- **The letters**: the words of the Last Supper in 1 Corinthians 11:24–25 and the answer Paul receives, "My grace is sufficient for you" (2 Corinthians 12:9).
 - **Revelation**: above all the letters to the seven churches (Revelation 2–3) and the last chapter.
 
 In the app, 2,048 verses of the BSB contain words in red: 1,946 in the Gospels, 31 in Acts, 8 in the letters, and 63 in Revelation. In the WEB, 2,059. There are no red letters in the Old Testament, just as in Klopsch's edition.
