@@ -113,7 +113,7 @@ articles:
     finish: Finish by
     voice: Narrator
     not_selected: Not selected
-    app_features: Like in the Bible Garden app
+    app_features: "More options: speed, pauses, Multi Reading"
     speed: Playback speed (×)
     pause: Pause after
     pause_seconds: Pause (seconds)

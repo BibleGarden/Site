@@ -113,7 +113,7 @@ articles:
     finish: Закончить к дате
     voice: Диктор
     not_selected: Не выбран
-    app_features: Как в приложении Bible Garden
+    app_features: "Больше опций: скорость, паузы, Мультичтение"
     speed: Скорость воспроизведения (×)
     pause: Пауза после
     pause_seconds: Пауза (секунды)
