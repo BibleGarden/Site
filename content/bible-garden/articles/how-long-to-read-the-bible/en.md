@@ -36,22 +36,22 @@ If you'd rather not plan it yourself, use the ready-made "[Bible in a Year](/art
 | Winfred Henson | World English Bible, US edition (WEBUS) | 84 hours | 14 |
 | Narrator uncredited | World English Bible, British edition (WEBBE) | 66 hours | 11 |
 
-All four recordings cover the 66 books. Audio takes 25–60% longer than silent reading because a narrator speaks every word and pauses between verses: Bob Souer reads about 175 words a minute, Winfred Henson about 148. The pace that suits you is best chosen by ear: before you pick a narrator, the app plays a voice sample, John 1:1–3. More about each one in "[Audio Bible narrators](/articles/audio-bible-narrators/)."
+All four recordings cover the 66 books. These recordings take about 30–66% longer than the silent-reading estimate because a narrator speaks every word and pauses between verses: Bob Souer reads about 175 words a minute, Winfred Henson about 148. The pace that suits you is best chosen by ear: before you pick a narrator, the app plays a voice sample, John 1:1–3. More about each one in "[Audio Bible narrators](/articles/audio-bible-narrators/)."
 
 ## How to slow down or speed up
 <!-- screen: multi-reading -->
 
-**Speed.** In Bible Garden, playback speed goes from 0.6× to 2× in steps of 0.2. At 2×, Bob Souer's recording takes about 35 hours — less than reading silently.
+**Speed.** In Bible Garden, normal playback supports 0.6–2× in 0.2 increments; each Multi Reading step supports 0.5–2.5× in 0.1 increments. At 2×, Bob Souer's recording takes about 35 hours — less than reading silently.
 
 **Pauses.** You can add a pause after every verse, paragraph, or section — for a set time or until you tap Play — so there's room to think about what you heard. A 2-second pause after every verse adds about 17 hours to a full recording, or almost 3 minutes a day on a one-year plan. Pauses don't speed up with the audio: 2 seconds stay 2 seconds even at 2×.
 
 <div class="article-callout" markdown="1">
-**Multi Reading is Bible Garden's key feature.** Each verse plays in several translations in a row — in one language or several — and the screen shows the same verse in every translation you picked. For example, BSB read by Bob Souer, a pause, then the same verse in WEBUS read by Winfred Henson: the whole Bible takes about 177 hours this way, or 29 minutes a day for a year. You can also pair English with Russian or Ukrainian; see "[Bilingual Bible App](/articles/bible-in-two-languages/)."
+**Multi Reading is Bible Garden's key feature.** Each verse plays in several translations in a row — in one language or several — and the screen shows the same verse in every translation you picked. For example, BSB read by Bob Souer, then the same verse in WEBUS read by Winfred Henson. At 1×, with a 2-second pause after each reading, this takes about 177 hours for the whole Bible, or 29 minutes a day for a year. You can also pair English with Russian or Ukrainian; see "[Bilingual Bible App](/articles/bible-in-two-languages/)."
 </div>
 
 Bible Garden is free, with no ads or in-app purchases. It currently runs on iPhone and iPad; listening on the website and an Android version are in our plans.
 
-**How we measured.** Audio times are the full length of the app's MP3 files, measured on October 4, 2026, at normal speed. Silent reading uses the BSB's word count (about 726,000 words) and 238 words per minute, the average for adults reading non-fiction silently in English in a meta-analysis by [Brysbaert (2019)](https://doi.org/10.1016/j.jml.2019.104047).
+**How we measured.** Audio times are the full length of the app's MP3 files, measured on October 4, 2026, at normal speed. Multi Reading estimates use aligned verse segments plus the configured pauses. Silent reading uses the BSB's word count (about 726,000 words) and 238 words per minute, the average for adults reading non-fiction silently in English in a meta-analysis by [Brysbaert (2019)](https://doi.org/10.1016/j.jml.2019.104047).
 
 ## Frequently asked questions {#faq}
 
@@ -73,4 +73,4 @@ About 12 hours reading silently. Listening takes 15 to 19 hours with the English
 
 ### Can I listen to the Bible faster?
 
-Yes. In Bible Garden, speed goes from 0.6× to 2×: at 1.6×, Bob Souer's recording takes about 43 hours, and at 2× about 35 hours.
+Yes. In Bible Garden, normal playback supports 0.6–2× in 0.2 increments, and each Multi Reading step supports 0.5–2.5× in 0.1 increments. At 1.6×, Bob Souer's recording takes about 43 hours, and at 2× about 35 hours.

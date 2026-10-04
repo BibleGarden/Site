@@ -59,6 +59,13 @@ class ReadingTimeArithmeticTest(unittest.TestCase):
                 with self.assertRaisesRegex(BuildError,'strict decoder error'):
                     decode(Path(source.name),strict=True)
 
+    def test_decoder_nonzero_exit_after_partial_output_is_a_failure(self):
+        result=subprocess.CompletedProcess([],1,b'out_time_us=123000000',b'error after partial audio')
+        with tempfile.NamedTemporaryFile() as source:
+            for strict in (False,True):
+                with self.subTest(strict=strict), patch('tools.build_reading_time.mp3_payload',return_value=(b'audio',0)), patch('tools.build_reading_time.subprocess.run',return_value=result), self.assertRaisesRegex(BuildError,'decoder failed with exit 1'):
+                    decode(Path(source.name),strict=strict)
+
     def test_id3_filter_preserves_audio_and_rejects_truncated_metadata(self):
         frame=b'\xff\xfb\x90\x00'+bytes(413)
         tag=b'ID3\x04\x00\x00\x00\x00\x00#TSSE\x00\x00\x00\x0f\x00\x00\x03Lavf59.27.100'+bytes(11)

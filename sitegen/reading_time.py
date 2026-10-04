@@ -188,8 +188,17 @@ def render_calculator(data: dict, lang: str, strings: dict) -> str:
             raise BuildError(f'reading time: invalid i18n template {key}') from error
     t = {key:html.escape(value,quote=True) for key,value in strings.items() if key not in PLURAL_KEYS}
     def select(name: str, label: str, options: list[tuple[str,str]], default: str) -> str:
-        opts = ''.join(f'<option value="{html.escape(key)}"'+(' selected' if key==default else '')+f'>{value}</option>' for key,value in options)
-        return f'<label for="rt-{name}">{label}<select id="rt-{name}" name="{name}">{opts}</select></label>'
+        option_fragments = []
+        for key,value in options:
+            selected = ' selected' if key==default else ''
+            option_fragments.append(f'<option value="{html.escape(key)}"{selected}>{value}</option>')
+        return ''.join([
+            f'<label for="rt-{name}">{label}',
+            f'<select id="rt-{name}" name="{name}">',
+            *option_fragments,
+            '</select></label>',
+        ])
+
     def recording(name: str, optional: bool=False) -> str:
         groups = [f'<option value="" selected>{t["not_selected"]}</option>'] if optional else []
         for language in ('ru','en','uk'):
@@ -197,20 +206,100 @@ def render_calculator(data: dict, lang: str, strings: dict) -> str:
             for key in VOICES:
                 record = data['voices'][key]
                 if record['lang']==language:
-                    options.append(f'<option value="{key}"'+(' selected' if not optional and key=='bsb_souer' else '')+f'>{html.escape(record["names"][lang])}</option>')
-            groups.append(f'<optgroup label="{t["language_"+language]}">'+''.join(options)+'</optgroup>')
-        return f'<label for="rt-{name}">{t["voice" if optional else "second_voice"]}<select id="rt-{name}" name="{name}">'+''.join(groups)+'</select></label>'
+                    selected = ' selected' if not optional and key=='bsb_souer' else ''
+                    label = html.escape(record['names'][lang])
+                    options.append(f'<option value="{key}"{selected}>{label}</option>')
+            groups.extend([
+                f'<optgroup label="{t["language_"+language]}">',
+                *options,
+                '</optgroup>',
+            ])
+        label = t['voice' if optional else 'second_voice']
+        return ''.join([
+            f'<label for="rt-{name}">{label}',
+            f'<select id="rt-{name}" name="{name}">',
+            *groups,
+            '</select></label>',
+        ])
+
     def number(name: str, label: str, value: float, low: float, step: float, high: float | None=None) -> str:
         maximum = f' max="{high}"' if high is not None else ''
-        return f'<label for="rt-{name}">{label}<input id="rt-{name}" name="{name}" type="number" value="{value}" min="{low}" step="{step}"{maximum} required></label>'
-    units = [(u,t['unit_'+u]) for u in UNITS]
-    controls = select('scope',t['scope'],[(s,t['scope_'+s]) for s in ('bible','ot','nt')],'bible')+number('chapters_day',t['chapters_day'],3,1,1)+f'<label for="rt-finish">{t["finish"]}<input id="rt-finish" name="finish" type="date" required aria-describedby="rt-deadline-hint"></label>'+recording('voice',True)+f'<p id="rt-deadline-hint" class="reading-time-note">{t["deadline_hint"]}</p>'
-    audio = f'<details class="reading-time-audio" hidden><summary>{t["app_features"]}</summary><div class="reading-time-settings">'+number('speed',t['speed'],1,.6,.2,2)+f'<div data-normal>'+select('pause_unit',t['pause'],[('none',t['none']),*units[:3]],'none')+'</div>'+f'<div data-pause hidden>'+number('pause',t['pause_seconds'],0,0,.1,60)+'</div>'+f'<label class="reading-time-check"><input type="checkbox" name="multi">{t["multi"]}</label><div data-multi hidden>'+recording('voice_b')+number('speed_b',t['second_speed'],1,.5,.1,2.5)+select('unit',t['unit'],units,'verse')+f'<p class="reading-time-note">{t["approximation"]}</p></div></div></details>'
-    scopes = {scope:[b for b in data['books'] if scope=='bible' or (b['id']<=39)==(scope=='ot')] for scope in ('bible','ot','nt')}
-    table = [f'<div class="reading-time-table"><table><caption>{t["table_caption"]}</caption><thead><tr><th scope="col">{t["chapters_day"]}</th>'+''.join(f'<th scope="col"><abbr title="{t["scope_"+scope]}">{t["table_"+scope]}</abbr></th>' for scope in scopes)+'</tr></thead><tbody>']
+        return ''.join([
+            f'<label for="rt-{name}">{label}',
+            f'<input id="rt-{name}" name="{name}" type="number"',
+            f' value="{value}" min="{low}" step="{step}"{maximum} required>',
+            '</label>',
+        ])
+
+    units = [(unit,t['unit_'+unit]) for unit in UNITS]
+    primary_controls = [
+        select('scope',t['scope'],[(scope,t['scope_'+scope]) for scope in ('bible','ot','nt')],'bible'),
+        number('chapters_day',t['chapters_day'],3,1,1),
+        f'<label for="rt-finish">{t["finish"]}',
+        '<input id="rt-finish" name="finish" type="date" required aria-describedby="rt-deadline-hint">',
+        '</label>',
+        recording('voice',True),
+        f'<p id="rt-deadline-hint" class="reading-time-note">{t["deadline_hint"]}</p>',
+    ]
+    multi_controls = [
+        '<div data-multi hidden>',
+        recording('voice_b'),
+        number('speed_b',t['second_speed'],1,.5,.1,2.5),
+        select('unit',t['unit'],units,'verse'),
+        f'<p class="reading-time-note">{t["approximation"]}</p>',
+        '</div>',
+    ]
+    audio_controls = [
+        '<details class="reading-time-audio" hidden>',
+        f'<summary>{t["app_features"]}</summary>',
+        '<div class="reading-time-settings">',
+        number('speed',t['speed'],1,.6,.2,2),
+        '<div data-normal>',
+        select('pause_unit',t['pause'],[('none',t['none']),*units[:3]],'none'),
+        '</div>',
+        '<div data-pause hidden>',
+        number('pause',t['pause_seconds'],0,0,.1,60),
+        '</div>',
+        f'<label class="reading-time-check"><input type="checkbox" name="multi">{t["multi"]}</label>',
+        *multi_controls,
+        '</div></details>',
+    ]
+    scope_chapters = {
+        scope:sum(book['chapters'] for book in data['books']
+                  if scope=='bible' or (book['id']<=39)==(scope=='ot'))
+        for scope in ('bible','ot','nt')
+    }
+    reference_table = [
+        '<div class="reading-time-table"><table>',
+        f'<caption>{t["table_caption"]}</caption>',
+        f'<thead><tr><th scope="col">{t["chapters_day"]}</th>',
+    ]
+    for scope in scope_chapters:
+        reference_table.append(
+            f'<th scope="col"><abbr title="{t["scope_"+scope]}">{t["table_"+scope]}</abbr></th>'
+        )
+    reference_table.append('</tr></thead><tbody>')
     for per_day in (1,2,3,4,5,10):
-        cells = ''.join('<td>'+html.escape(duration_label(math.ceil(sum(b['chapters'] for b in books)/per_day),lang,strings))+'</td>' for books in scopes.values())
-        table.append(f'<tr><th scope="row">{per_day}</th>{cells}</tr>')
-    table.append('</tbody></table></div>')
+        reference_table.append(f'<tr><th scope="row">{per_day}</th>')
+        for total in scope_chapters.values():
+            label = html.escape(duration_label(math.ceil(total/per_day),lang,strings))
+            reference_table.append(f'<td>{label}</td>')
+        reference_table.append('</tr>')
+    reference_table.append('</tbody></table></div>')
     payload = json.dumps(dict(data=data,strings=strings,lang=lang),ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
-    return ''.join(table)+'<section class="reading-time" aria-labelledby="reading-time-title">'+f'<h3 id="reading-time-title">{t["title"]}</h3><form class="reading-time-form" hidden>'+controls+audio+'<div class="reading-time-result" aria-live="polite" aria-atomic="true" hidden></div></form>'+f'<script type="application/json" data-reading-time-data>{payload}</script></section><p class="reading-time-method">{t["method"]} <time datetime="{data["measured_on"]}">{data["measured_on"]}</time>.</p>'
+    calculator_card = [
+        '<section class="reading-time" aria-labelledby="reading-time-title">',
+        f'<h3 id="reading-time-title">{t["title"]}</h3>',
+        '<form class="reading-time-form" hidden>',
+        *primary_controls,
+        *audio_controls,
+        '<div class="reading-time-result" aria-live="polite" aria-atomic="true" hidden></div>',
+        '</form>',
+        f'<script type="application/json" data-reading-time-data>{payload}</script>',
+        '</section>',
+    ]
+    method_caption = [
+        f'<p class="reading-time-method">{t["method"]} ',
+        f'<time datetime="{data["measured_on"]}">{data["measured_on"]}</time>.</p>',
+    ]
+    return ''.join([*reference_table,*calculator_card,*method_caption])

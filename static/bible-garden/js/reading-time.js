@@ -64,13 +64,16 @@
         });
         return {minutes_per_chapter:seconds/recorded/60, recorded, missing};
     }
+    function dailyMinutes(audio, chapters, total) {
+        return Math.round(audio.minutes_per_chapter*Math.min(integer(chapters),integer(total)));
+    }
     function format(template, values) {
         return template.replace(/\{([a-z]+)\}/g,(_match,key)=>{
             if (!Object.hasOwn(values,key)) throw new Error(`Missing format field ${key}`);
             return String(values[key]);
         });
     }
-    const api={calendar,scopeBooks,chapterTotal,calculate,date};
+    const api={calendar,scopeBooks,chapterTotal,calculate,dailyMinutes,date};
     if (typeof module!=='undefined' && module.exports) module.exports=api;
     if (typeof document==='undefined') return;
     for (const root of document.querySelectorAll('.reading-time')) {
@@ -117,9 +120,9 @@
             if (!selected) return;
             const settings={scope:el('scope').value,voice:el('voice').value,multi,voice_b:el('voice_b').value,pause_unit:el('pause_unit').value,unit:el('unit').value,speed:Number(el('speed').value),speed_b:Number(el('speed_b').value),pause:Number(el('pause').value)};
             const audio=calculate(data,settings);
-            const minutes=Math.round(audio.minutes_per_chapter*plan.chapters);
-            summary.append(document.createTextNode(' · '+format(t.minutes_day,{minutes,unit:noun(minutes,'minute_units')})));
             const total=chapterTotal(data,settings.scope);
+            const minutes=dailyMinutes(audio,plan.chapters,total);
+            summary.append(document.createTextNode(' · '+format(t.minutes_day,{minutes,unit:noun(minutes,'minute_units')})));
             if (audio.recorded!==total || audio.missing.length) {
                 const note=document.createElement('p');
                 note.className='reading-time-note';

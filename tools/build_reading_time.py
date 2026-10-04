@@ -111,10 +111,12 @@ def decode(path: Path, *, strict: bool = False) -> tuple[float, str, int, int]:
     options = ['-xerror', '-err_detect', 'explode'] if strict else []
     result = subprocess.run(['ffmpeg', '-nostdin', '-v', 'repeat+error', *options, '-f', 'mp3', '-i', 'pipe:0', '-map', '0:a:0', '-f', 'null', '-progress', 'pipe:1', '-'], input=payload, capture_output=True)
     diagnostics = result.stderr.decode()
+    if result.returncode:
+        raise BuildError(f'decoder failed with exit {result.returncode}: {path}: {diagnostics.strip()}')
     times = [int(line.split(b'=', 1)[1]) for line in result.stdout.splitlines() if line.startswith(b'out_time_us=')]
     if not times or times[-1] <= 0:
         raise BuildError(f'decoder produced no audio: {path}: {diagnostics.strip()}')
-    if strict and (result.returncode or diagnostics.strip()):
+    if strict and diagnostics.strip():
         raise BuildError(f'strict decoder error in {path}: {diagnostics.strip()}')
     bad_packets = diagnostics.count('Error submitting packet to decoder')
     if not bad_packets:

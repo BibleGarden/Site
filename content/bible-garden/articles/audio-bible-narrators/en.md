@@ -39,7 +39,7 @@ David is the second BSB narrator in the app. [openbible.com](https://openbible.c
 
 ### Winfred Henson
 
-Winfred Henson is a volunteer reader for LibriVox, the project that records public-domain books. In 2017 he read the complete World English Bible for LibriVox as a solo recording and coordinated the project himself. LibriVox lists its running time as almost 100 hours; the chapter files of the same reading in Bible Garden run about 84 hours. He placed the recording in the public domain, so anyone can use it without restriction. Sources: [LibriVox](https://librivox.org/world-english-bible-complete/), [eBible.org](https://ebible.org/webaudio/).
+Winfred Henson is a volunteer reader for LibriVox, the project that records public-domain books. In 2017 he read the complete World English Bible for LibriVox as a solo recording and coordinated the project himself. The chapter MP3 files used in Bible Garden total about 84 hours, measured from the fully decoded audio. He placed the recording in the public domain, so anyone can use it without restriction. Sources: [LibriVox](https://librivox.org/world-english-bible-complete/), [eBible.org](https://ebible.org/webaudio/).
 
 ### World English Bible, British Edition
 

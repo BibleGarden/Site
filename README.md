@@ -386,7 +386,7 @@ finish date.
 
 Selecting one of nine recordings, grouped by language, adds approximate minutes
 per day: recorded audio minutes divided by recorded chapters, multiplied by
-chapters per day. Missing books are named. Bondarenko has 62 books and NPU has
+chapters per day, capped at the total chapters in the selected scope. Missing books are named. Bondarenko has 62 books and NPU has
 the New Testament and Psalms; neither changes the plan's chapter count or dates.
 Chapter-division differences, such as UBH's three-chapter Malachi, retain the
 recording's actual chapter count in the audio average.
@@ -442,7 +442,7 @@ Durations use complete normal decoding and ffmpeg's final `out_time_us`, never
 MP3 header duration (WEBBE headers overstate length). Initial ID3 metadata and
 David's internal encoder tags are removed in memory, preserving MPEG audio.
 Damaged packets are skipped like in the player and counted in the anomalies
-report; failure to produce audio stops generation. Each export checks identical
+report; a non-zero ffmpeg exit or failure to produce audio stops generation. Each export checks identical
 normal/strict durations on a clean John 1 sample from all nine voices.
 
 Normal listening retains natural gaps: `decoded seconds / speed + units × pause`.

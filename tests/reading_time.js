@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict');
-const {calculate,calendar,chapterTotal,scopeBooks,date}=require('../static/bible-garden/js/reading-time.js');
+const {calculate,calendar,chapterTotal,scopeBooks,dailyMinutes,date}=require('../static/bible-garden/js/reading-time.js');
 const units={verse:{count:10,seconds:80},paragraph:{count:2,seconds:90},section:{count:1,seconds:95},chapter:{count:1,seconds:98}};
 const data={books:[{id:1,chapters:2},{id:40,chapters:3}],voices:{a:{books:{1:{chapters:2,seconds:100,units}}},b:{books:{1:{chapters:2,seconds:200,units}}}}};
 const base={scope:'bible',voice:'a',speed:2,pause_unit:'verse',pause:2,multi:false};
@@ -37,3 +37,11 @@ for (const voice of ['prudovsky','bondarenko','npu_uk']) {
 }
 assert.equal(calculate(real,{...base,voice:'bondarenko'}).recorded,1050);
 assert.equal(calculate(real,{...base,voice:'npu_uk'}).recorded,410);
+
+assert.equal(dailyMinutes({minutes_per_chapter:2},1000,260),520);
+assert.equal(dailyMinutes({minutes_per_chapter:2},3,260),6);
+assert.equal(dailyMinutes({minutes_per_chapter:2},1000,929),1858);
+
+const ntAudio=calculate(real,{...base,scope:'nt',voice:'bsb_souer',speed:1,pause_unit:'none'});
+const ntSeconds=Object.entries(real.voices.bsb_souer.books).filter(([book])=>Number(book)>=40).reduce((sum,[_book,info])=>sum+info.seconds,0);
+assert.equal(dailyMinutes(ntAudio,1000,chapterTotal(real,'nt')),Math.round(ntSeconds/60));
