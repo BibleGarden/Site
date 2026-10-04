@@ -2,6 +2,7 @@
 title: "Bilingual Bible App: Read and Listen in Two Languages"
 description: "Compare a parallel or bilingual Bible verse by verse. Hear English and Russian in Multi Reading, explore translations, and try a John 1 audio demo."
 date: 2026-09-27
+updated: 2026-10-04
 ---
 
 A Bible in two languages can help you follow a passage with someone who speaks another language, or notice what changes between translations. A **parallel Bible** places two or more translations together; a **bilingual Bible** pairs the same text in two languages. An **interlinear Bible** is different: it places a word-by-word translation beneath the Hebrew or Greek original. In the free [Bible Garden app](/) for iPhone and iPad, you can read and hear verses in English, Russian, or Ukrainian, with several translations in one sequence. Here is how it works and which recordings you can choose.
@@ -39,6 +40,8 @@ You can keep listening through a book this way. Hearing a verse twice gives you 
 5. Choose whether to repeat the sequence for each verse, paragraph, section, or chapter. Verse by verse lets you compare the same lines directly.
 
 A setup can include three or more translations too. For example, try BSB, WEBUS, and Russian Synodal so each verse plays three times. Save the setup to use it again with one tap.
+
+In the Psalms, pairings of English with Russian don't line up. The Russian translations follow the Greek Septuagint, so most psalm numbers are one lower than in English, and Multi Reading pairs chapters with the same number and lines up verses in order, so you hear two different psalms. Ukrainian Khomenko numbers the psalms as English Bibles do but often counts a psalm's heading as verse 1, so its verses can run one or two ahead of the English. Listen to the Psalms in each language separately in Classic Reading.
 
 ## Available translations and narrators
 
