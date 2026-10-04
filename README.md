@@ -211,9 +211,10 @@ the same change.
 New article IDs are `translation-picker-english`, `reader-picker-english`,
 `classic-reading-english`, `multi-step-speed`, `multi-step-translation-english`,
 `multi-setup-russian-english`, and `select-psalm`. Each has all three interface
-languages. New markers are integrated into articles 6.3 and 6.13 in en/ru/uk.
-Screens for articles 6.11 and 6.15 are ready; those articles were absent from
-Site main when checked on 2026-10-04.
+languages. New markers are integrated into articles 6.3, 6.11, 6.13 and 6.15
+in en/ru/uk (checked against their source and generated pages on 2026-10-04).
+The Ukrainian bilingual article retains its Ukrainian + English setup image;
+the new Russian + English setup image is used in the Russian and English versions.
 Use the existing `progress` screen for shared Classic / Multi Reading progress.
 The full inventory, intended article sections and capture details are in the
 archive's `manifest.md`; the three byte-identical alias pairs are intentional.

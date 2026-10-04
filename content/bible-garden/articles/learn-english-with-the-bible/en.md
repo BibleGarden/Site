@@ -72,6 +72,7 @@ What you can adjust:
 - **Speed in Classic Reading:** 0.6× to 2.0× in steps of 0.2. At 0.8×, Bob Souer reads at about 140 words per minute.
 - **Speed in Multi Reading** is set for each step, from 0.5× to 2.5× in steps of 0.1. There is no single speed button there.
 - **One verse twice.** BSB at 0.7×, a pause, then BSB at 1×. Or BSB read by David, then by Bob Souer: the same words in two voices.
+
 ## Choose an English narrator
 <!-- screen: reader-picker-english -->
 
