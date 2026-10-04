@@ -1,0 +1,2774 @@
+{
+  "version": 1,
+  "status": "editorial-draft-owner-review-required",
+  "checked_on": "2026-10-04",
+  "chapter_scheme": {
+    "id": "hebrew-bsb",
+    "chapters": 1189,
+    "books": 66,
+    "unit": "whole-chapter"
+  },
+  "sources_compared": [
+    {
+      "id": "blb",
+      "title": "Blue Letter Bible: 1-Year Chronological Plan",
+      "url": "https://www.blueletterbible.org/assets/pdf/dbrp/1Yr_ChronologicalPlan.pdf",
+      "checked_on": "2026-10-04",
+      "sha256": "b055f5f4a14d86fb876237937478374de7c6811cdb70f951dc178dbd09e7fe54",
+      "scope": "Complete 365-reading whole-chapter plan; references compared, no daily schedule imported."
+    },
+    {
+      "id": "bttb",
+      "title": "Back to the Bible: 2025 Chronological Bible Reading Plan",
+      "url": "https://bttbfiles.com/eResources/2025%20Bible%20reading%20plans/2025_BRP_Chronological.pdf",
+      "checked_on": "2026-10-04",
+      "sha256": "e4b2ca109c0e2d921871faf92f5b6a3483bb601e8e2a07c672af5dfa419acaa7",
+      "scope": "Complete public PDF reached from https://bttb.org/Chronological; includes split chapters. Substantial overlap with BLB; independence not established."
+    },
+    {
+      "id": "nlt",
+      "title": "Tyndale/NLT chronology via Bible In A Year Online",
+      "url": "https://bibleinayearonline.com/readingplan/chronologicalbibleinayearreadingplan.pdf",
+      "checked_on": "2026-10-04",
+      "sha256": "11002a685064e8844c7f61eed802877a5f24f4a74c3dd8f32d6f0f83a17bf265",
+      "scope": "Complete verse-level schedule, secondary publication identifying NLT/Tyndale and permission. Broad placements compared, no verse schedule imported."
+    }
+  ],
+  "supplementary_sources": [
+    {
+      "id": "robertson",
+      "title": "A. T. Robertson, A Harmony of the Gospels (1922)",
+      "url": "https://www.gutenberg.org/files/36264/36264-h/36264-h.htm",
+      "checked_on": "2026-10-04",
+      "scope": "Gospel pericope relationships only; Parts II\u2013XIV, not a fourth whole-Bible vote."
+    }
+  ],
+  "source_support_scope": "supported_by records broad historical context, not exact segment endpoints, immediate neighbors, or majority votes. An empty list marks an editorial placement; consult decision_id for precise comparisons. BLB and BTTB overlap substantially.",
+  "eras": [
+    {
+      "id": "origins-patriarchs",
+      "label": "Origins and patriarchs"
+    },
+    {
+      "id": "exodus-wilderness",
+      "label": "Exodus and wilderness"
+    },
+    {
+      "id": "settlement",
+      "label": "Settlement and judges"
+    },
+    {
+      "id": "united-monarchy",
+      "label": "Saul, David and Solomon"
+    },
+    {
+      "id": "divided-monarchy",
+      "label": "Divided kingdoms and their prophets"
+    },
+    {
+      "id": "exile-return",
+      "label": "Exile and return, including undated poetry"
+    },
+    {
+      "id": "life-of-jesus",
+      "label": "Life, ministry, death and resurrection of Jesus"
+    },
+    {
+      "id": "apostolic-church",
+      "label": "Apostolic church and Revelation"
+    }
+  ],
+  "same_day_pairs": [
+    {
+      "book": "PSA",
+      "first": 9,
+      "last": 10
+    },
+    {
+      "book": "PSA",
+      "first": 114,
+      "last": 115
+    },
+    {
+      "book": "MAL",
+      "first": 3,
+      "last": 4
+    }
+  ],
+  "segments": [
+    {
+      "book": "GEN",
+      "first": 1,
+      "last": 50,
+      "era": "origins-patriarchs",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JOB",
+      "first": 1,
+      "last": 42,
+      "era": "origins-patriarchs",
+      "decision_id": "D01",
+      "supported_by": [
+        "nlt"
+      ]
+    },
+    {
+      "book": "EXO",
+      "first": 1,
+      "last": 40,
+      "era": "exodus-wilderness",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "LEV",
+      "first": 1,
+      "last": 27,
+      "era": "exodus-wilderness",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "NUM",
+      "first": 1,
+      "last": 36,
+      "era": "exodus-wilderness",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "DEU",
+      "first": 1,
+      "last": 32,
+      "era": "exodus-wilderness",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 90,
+      "last": 90,
+      "era": "exodus-wilderness",
+      "decision_id": "D03",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "DEU",
+      "first": 33,
+      "last": 34,
+      "era": "exodus-wilderness",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JOS",
+      "first": 1,
+      "last": 24,
+      "era": "settlement",
+      "decision_id": "D02",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JDG",
+      "first": 1,
+      "last": 21,
+      "era": "settlement",
+      "decision_id": "D02",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "RUT",
+      "first": 1,
+      "last": 4,
+      "era": "settlement",
+      "decision_id": "D02",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1CH",
+      "first": 1,
+      "last": 9,
+      "era": "united-monarchy",
+      "decision_id": "D04",
+      "supported_by": [
+        "blb",
+        "bttb"
+      ]
+    },
+    {
+      "book": "1SA",
+      "first": 1,
+      "last": 19,
+      "era": "united-monarchy",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 59,
+      "last": 59,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1SA",
+      "first": 20,
+      "last": 22,
+      "era": "united-monarchy",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 34,
+      "last": 34,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 52,
+      "last": 52,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1SA",
+      "first": 23,
+      "last": 23,
+      "era": "united-monarchy",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 54,
+      "last": 54,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1SA",
+      "first": 24,
+      "last": 24,
+      "era": "united-monarchy",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 57,
+      "last": 57,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 142,
+      "last": 142,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1SA",
+      "first": 25,
+      "last": 31,
+      "era": "united-monarchy",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1CH",
+      "first": 10,
+      "last": 10,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2SA",
+      "first": 1,
+      "last": 5,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1CH",
+      "first": 11,
+      "last": 12,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2SA",
+      "first": 6,
+      "last": 6,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1CH",
+      "first": 13,
+      "last": 16,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2SA",
+      "first": 7,
+      "last": 7,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1CH",
+      "first": 17,
+      "last": 17,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2SA",
+      "first": 8,
+      "last": 8,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1CH",
+      "first": 18,
+      "last": 18,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 60,
+      "last": 60,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2SA",
+      "first": 9,
+      "last": 10,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1CH",
+      "first": 19,
+      "last": 19,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2SA",
+      "first": 11,
+      "last": 12,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1CH",
+      "first": 20,
+      "last": 20,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 51,
+      "last": 51,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 32,
+      "last": 32,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2SA",
+      "first": 13,
+      "last": 15,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 3,
+      "last": 3,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2SA",
+      "first": 16,
+      "last": 22,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 18,
+      "last": 18,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2SA",
+      "first": 23,
+      "last": 24,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1CH",
+      "first": 21,
+      "last": 22,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 30,
+      "last": 30,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1CH",
+      "first": 23,
+      "last": 29,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1KI",
+      "first": 1,
+      "last": 4,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2CH",
+      "first": 1,
+      "last": 1,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PRO",
+      "first": 1,
+      "last": 24,
+      "era": "united-monarchy",
+      "decision_id": "D08",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "SNG",
+      "first": 1,
+      "last": 8,
+      "era": "united-monarchy",
+      "decision_id": "D08",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1KI",
+      "first": 5,
+      "last": 8,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2CH",
+      "first": 2,
+      "last": 7,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 72,
+      "last": 72,
+      "era": "united-monarchy",
+      "decision_id": "D08",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 127,
+      "last": 127,
+      "era": "united-monarchy",
+      "decision_id": "D08",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1KI",
+      "first": 9,
+      "last": 11,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2CH",
+      "first": 8,
+      "last": 9,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "ECC",
+      "first": 1,
+      "last": 12,
+      "era": "united-monarchy",
+      "decision_id": "D08",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1KI",
+      "first": 12,
+      "last": 14,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2CH",
+      "first": 10,
+      "last": 12,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1KI",
+      "first": 15,
+      "last": 15,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2CH",
+      "first": 13,
+      "last": 16,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1KI",
+      "first": 16,
+      "last": 22,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2CH",
+      "first": 17,
+      "last": 20,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2KI",
+      "first": 1,
+      "last": 8,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2CH",
+      "first": 21,
+      "last": 21,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2KI",
+      "first": 9,
+      "last": 11,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2CH",
+      "first": 22,
+      "last": 23,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2KI",
+      "first": 12,
+      "last": 14,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2CH",
+      "first": 24,
+      "last": 25,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JON",
+      "first": 1,
+      "last": 4,
+      "era": "divided-monarchy",
+      "decision_id": "D10",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "AMO",
+      "first": 1,
+      "last": 9,
+      "era": "divided-monarchy",
+      "decision_id": "D10",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2KI",
+      "first": 15,
+      "last": 15,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2CH",
+      "first": 26,
+      "last": 27,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "HOS",
+      "first": 1,
+      "last": 14,
+      "era": "divided-monarchy",
+      "decision_id": "D10",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MIC",
+      "first": 1,
+      "last": 7,
+      "era": "divided-monarchy",
+      "decision_id": "D10",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "ISA",
+      "first": 1,
+      "last": 12,
+      "era": "divided-monarchy",
+      "decision_id": "D11",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2KI",
+      "first": 16,
+      "last": 17,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2CH",
+      "first": 28,
+      "last": 28,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "ISA",
+      "first": 13,
+      "last": 35,
+      "era": "divided-monarchy",
+      "decision_id": "D11",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2KI",
+      "first": 18,
+      "last": 20,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2CH",
+      "first": 29,
+      "last": 32,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "ISA",
+      "first": 36,
+      "last": 39,
+      "era": "divided-monarchy",
+      "decision_id": "D11",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PRO",
+      "first": 25,
+      "last": 31,
+      "era": "divided-monarchy",
+      "decision_id": "D09",
+      "supported_by": [
+        "nlt"
+      ]
+    },
+    {
+      "book": "ISA",
+      "first": 40,
+      "last": 66,
+      "era": "divided-monarchy",
+      "decision_id": "D11",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2KI",
+      "first": 21,
+      "last": 21,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2CH",
+      "first": 33,
+      "last": 33,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "NAM",
+      "first": 1,
+      "last": 3,
+      "era": "divided-monarchy",
+      "decision_id": "D12",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2KI",
+      "first": 22,
+      "last": 23,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2CH",
+      "first": 34,
+      "last": 35,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "ZEP",
+      "first": 1,
+      "last": 3,
+      "era": "divided-monarchy",
+      "decision_id": "D12",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "HAB",
+      "first": 1,
+      "last": 3,
+      "era": "divided-monarchy",
+      "decision_id": "D12",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JER",
+      "first": 1,
+      "last": 20,
+      "era": "divided-monarchy",
+      "decision_id": "D13",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JER",
+      "first": 22,
+      "last": 26,
+      "era": "divided-monarchy",
+      "decision_id": "D13",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JER",
+      "first": 35,
+      "last": 36,
+      "era": "divided-monarchy",
+      "decision_id": "D13",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JER",
+      "first": 45,
+      "last": 45,
+      "era": "divided-monarchy",
+      "decision_id": "D13",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2KI",
+      "first": 24,
+      "last": 24,
+      "era": "exile-return",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "DAN",
+      "first": 1,
+      "last": 3,
+      "era": "exile-return",
+      "decision_id": "D14",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JER",
+      "first": 27,
+      "last": 31,
+      "era": "exile-return",
+      "decision_id": "D13",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "EZK",
+      "first": 1,
+      "last": 24,
+      "era": "exile-return",
+      "decision_id": "D14",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JER",
+      "first": 21,
+      "last": 21,
+      "era": "exile-return",
+      "decision_id": "D13",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JER",
+      "first": 32,
+      "last": 34,
+      "era": "exile-return",
+      "decision_id": "D13",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JER",
+      "first": 37,
+      "last": 39,
+      "era": "exile-return",
+      "decision_id": "D13",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2KI",
+      "first": 25,
+      "last": 25,
+      "era": "exile-return",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2CH",
+      "first": 36,
+      "last": 36,
+      "era": "exile-return",
+      "decision_id": "D05",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JER",
+      "first": 52,
+      "last": 52,
+      "era": "exile-return",
+      "decision_id": "D13",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JER",
+      "first": 40,
+      "last": 44,
+      "era": "exile-return",
+      "decision_id": "D13",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JER",
+      "first": 46,
+      "last": 51,
+      "era": "exile-return",
+      "decision_id": "D13",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "LAM",
+      "first": 1,
+      "last": 5,
+      "era": "exile-return",
+      "decision_id": "D14",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 74,
+      "last": 74,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": [
+        "blb",
+        "bttb"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 79,
+      "last": 79,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": [
+        "blb",
+        "bttb"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 137,
+      "last": 137,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "OBA",
+      "first": 1,
+      "last": 1,
+      "era": "exile-return",
+      "decision_id": "D15",
+      "supported_by": [
+        "nlt"
+      ]
+    },
+    {
+      "book": "EZK",
+      "first": 25,
+      "last": 48,
+      "era": "exile-return",
+      "decision_id": "D14",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "DAN",
+      "first": 4,
+      "last": 4,
+      "era": "exile-return",
+      "decision_id": "D14",
+      "supported_by": [
+        "nlt"
+      ]
+    },
+    {
+      "book": "DAN",
+      "first": 7,
+      "last": 8,
+      "era": "exile-return",
+      "decision_id": "D14",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "DAN",
+      "first": 5,
+      "last": 6,
+      "era": "exile-return",
+      "decision_id": "D14",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "DAN",
+      "first": 9,
+      "last": 12,
+      "era": "exile-return",
+      "decision_id": "D14",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "EZR",
+      "first": 1,
+      "last": 4,
+      "era": "exile-return",
+      "decision_id": "D17",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "HAG",
+      "first": 1,
+      "last": 2,
+      "era": "exile-return",
+      "decision_id": "D17",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "ZEC",
+      "first": 1,
+      "last": 8,
+      "era": "exile-return",
+      "decision_id": "D17",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "EZR",
+      "first": 5,
+      "last": 6,
+      "era": "exile-return",
+      "decision_id": "D17",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "ZEC",
+      "first": 9,
+      "last": 14,
+      "era": "exile-return",
+      "decision_id": "D17",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "EST",
+      "first": 1,
+      "last": 10,
+      "era": "exile-return",
+      "decision_id": "D17",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "EZR",
+      "first": 7,
+      "last": 10,
+      "era": "exile-return",
+      "decision_id": "D17",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "NEH",
+      "first": 1,
+      "last": 13,
+      "era": "exile-return",
+      "decision_id": "D17",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 126,
+      "last": 126,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": [
+        "blb",
+        "bttb"
+      ]
+    },
+    {
+      "book": "PSA",
+      "first": 1,
+      "last": 2,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 4,
+      "last": 17,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 19,
+      "last": 29,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 31,
+      "last": 31,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 33,
+      "last": 33,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 35,
+      "last": 50,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 53,
+      "last": 53,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 55,
+      "last": 56,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 58,
+      "last": 58,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 61,
+      "last": 71,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 73,
+      "last": 73,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 75,
+      "last": 78,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 80,
+      "last": 89,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 91,
+      "last": 125,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 128,
+      "last": 136,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 138,
+      "last": 141,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 143,
+      "last": 150,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": []
+    },
+    {
+      "book": "JOL",
+      "first": 1,
+      "last": 3,
+      "era": "exile-return",
+      "decision_id": "D16",
+      "supported_by": [
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAL",
+      "first": 1,
+      "last": 4,
+      "era": "exile-return",
+      "decision_id": "D17",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "LUK",
+      "first": 1,
+      "last": 2,
+      "era": "life-of-jesus",
+      "decision_id": "D18",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 1,
+      "last": 2,
+      "era": "life-of-jesus",
+      "decision_id": "D18",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JHN",
+      "first": 1,
+      "last": 1,
+      "era": "life-of-jesus",
+      "decision_id": "D18",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 3,
+      "last": 3,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "LUK",
+      "first": 3,
+      "last": 3,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MRK",
+      "first": 1,
+      "last": 1,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 4,
+      "last": 4,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "LUK",
+      "first": 4,
+      "last": 5,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JHN",
+      "first": 2,
+      "last": 4,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MRK",
+      "first": 2,
+      "last": 3,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 5,
+      "last": 7,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "LUK",
+      "first": 6,
+      "last": 6,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 8,
+      "last": 9,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "LUK",
+      "first": 7,
+      "last": 7,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 10,
+      "last": 12,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JHN",
+      "first": 5,
+      "last": 5,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MRK",
+      "first": 4,
+      "last": 5,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 13,
+      "last": 13,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "LUK",
+      "first": 8,
+      "last": 8,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 14,
+      "last": 14,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MRK",
+      "first": 6,
+      "last": 6,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "LUK",
+      "first": 9,
+      "last": 9,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JHN",
+      "first": 6,
+      "last": 6,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 15,
+      "last": 15,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MRK",
+      "first": 7,
+      "last": 7,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 16,
+      "last": 16,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MRK",
+      "first": 8,
+      "last": 8,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 17,
+      "last": 17,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MRK",
+      "first": 9,
+      "last": 9,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 18,
+      "last": 18,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JHN",
+      "first": 7,
+      "last": 10,
+      "era": "life-of-jesus",
+      "decision_id": "D20",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "LUK",
+      "first": 10,
+      "last": 17,
+      "era": "life-of-jesus",
+      "decision_id": "D20",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JHN",
+      "first": 11,
+      "last": 11,
+      "era": "life-of-jesus",
+      "decision_id": "D20",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "LUK",
+      "first": 18,
+      "last": 18,
+      "era": "life-of-jesus",
+      "decision_id": "D20",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 19,
+      "last": 20,
+      "era": "life-of-jesus",
+      "decision_id": "D20",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MRK",
+      "first": 10,
+      "last": 10,
+      "era": "life-of-jesus",
+      "decision_id": "D20",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 21,
+      "last": 21,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MRK",
+      "first": 11,
+      "last": 11,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "LUK",
+      "first": 19,
+      "last": 19,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JHN",
+      "first": 12,
+      "last": 12,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 22,
+      "last": 23,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MRK",
+      "first": 12,
+      "last": 12,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "LUK",
+      "first": 20,
+      "last": 21,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 24,
+      "last": 25,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MRK",
+      "first": 13,
+      "last": 13,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 26,
+      "last": 26,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MRK",
+      "first": 14,
+      "last": 14,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "LUK",
+      "first": 22,
+      "last": 22,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JHN",
+      "first": 13,
+      "last": 17,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 27,
+      "last": 27,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MRK",
+      "first": 15,
+      "last": 15,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "LUK",
+      "first": 23,
+      "last": 23,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JHN",
+      "first": 18,
+      "last": 19,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MAT",
+      "first": 28,
+      "last": 28,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "MRK",
+      "first": 16,
+      "last": 16,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "LUK",
+      "first": 24,
+      "last": 24,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JHN",
+      "first": 20,
+      "last": 21,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "ACT",
+      "first": 1,
+      "last": 12,
+      "era": "apostolic-church",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JAS",
+      "first": 1,
+      "last": 5,
+      "era": "apostolic-church",
+      "decision_id": "D22",
+      "supported_by": [
+        "blb",
+        "bttb"
+      ]
+    },
+    {
+      "book": "ACT",
+      "first": 13,
+      "last": 14,
+      "era": "apostolic-church",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "GAL",
+      "first": 1,
+      "last": 6,
+      "era": "apostolic-church",
+      "decision_id": "D22",
+      "supported_by": [
+        "nlt"
+      ]
+    },
+    {
+      "book": "ACT",
+      "first": 15,
+      "last": 18,
+      "era": "apostolic-church",
+      "decision_id": "D23",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1TH",
+      "first": 1,
+      "last": 5,
+      "era": "apostolic-church",
+      "decision_id": "D23",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2TH",
+      "first": 1,
+      "last": 3,
+      "era": "apostolic-church",
+      "decision_id": "D23",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "ACT",
+      "first": 19,
+      "last": 19,
+      "era": "apostolic-church",
+      "decision_id": "D23",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1CO",
+      "first": 1,
+      "last": 16,
+      "era": "apostolic-church",
+      "decision_id": "D23",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2CO",
+      "first": 1,
+      "last": 13,
+      "era": "apostolic-church",
+      "decision_id": "D23",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "ACT",
+      "first": 20,
+      "last": 20,
+      "era": "apostolic-church",
+      "decision_id": "D23",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "ROM",
+      "first": 1,
+      "last": 16,
+      "era": "apostolic-church",
+      "decision_id": "D23",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "ACT",
+      "first": 21,
+      "last": 28,
+      "era": "apostolic-church",
+      "decision_id": "D23",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "EPH",
+      "first": 1,
+      "last": 6,
+      "era": "apostolic-church",
+      "decision_id": "D24",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "COL",
+      "first": 1,
+      "last": 4,
+      "era": "apostolic-church",
+      "decision_id": "D24",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PHM",
+      "first": 1,
+      "last": 1,
+      "era": "apostolic-church",
+      "decision_id": "D24",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "PHP",
+      "first": 1,
+      "last": 4,
+      "era": "apostolic-church",
+      "decision_id": "D24",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1TI",
+      "first": 1,
+      "last": 6,
+      "era": "apostolic-church",
+      "decision_id": "D24",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "TIT",
+      "first": 1,
+      "last": 3,
+      "era": "apostolic-church",
+      "decision_id": "D24",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1PE",
+      "first": 1,
+      "last": 5,
+      "era": "apostolic-church",
+      "decision_id": "D24",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "HEB",
+      "first": 1,
+      "last": 13,
+      "era": "apostolic-church",
+      "decision_id": "D24",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2TI",
+      "first": 1,
+      "last": 4,
+      "era": "apostolic-church",
+      "decision_id": "D24",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2PE",
+      "first": 1,
+      "last": 3,
+      "era": "apostolic-church",
+      "decision_id": "D24",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "JUD",
+      "first": 1,
+      "last": 1,
+      "era": "apostolic-church",
+      "decision_id": "D24",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "1JN",
+      "first": 1,
+      "last": 5,
+      "era": "apostolic-church",
+      "decision_id": "D24",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "2JN",
+      "first": 1,
+      "last": 1,
+      "era": "apostolic-church",
+      "decision_id": "D24",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "3JN",
+      "first": 1,
+      "last": 1,
+      "era": "apostolic-church",
+      "decision_id": "D24",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    },
+    {
+      "book": "REV",
+      "first": 1,
+      "last": 22,
+      "era": "apostolic-church",
+      "decision_id": "D25",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ]
+    }
+  ]
+}
