@@ -113,7 +113,7 @@
   </url>
   <url>
     <loc>https://bible.garden/articles/bible-in-two-languages/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/bible-in-two-languages/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/bible-in-two-languages/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/bible-in-two-languages/"/>
@@ -121,7 +121,7 @@
   </url>
   <url>
     <loc>https://bible.garden/ru/articles/bible-in-two-languages/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/bible-in-two-languages/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/bible-in-two-languages/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/bible-in-two-languages/"/>
@@ -129,7 +129,7 @@
   </url>
   <url>
     <loc>https://bible.garden/uk/articles/bible-in-two-languages/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/bible-in-two-languages/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/bible-in-two-languages/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/bible-in-two-languages/"/>
@@ -350,6 +350,30 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/red-letter-bible/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/red-letter-bible/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/red-letter-bible/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/articles/russian-english-bible/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/russian-english-bible/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/russian-english-bible/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/russian-english-bible/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/russian-english-bible/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/ru/articles/russian-english-bible/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/russian-english-bible/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/russian-english-bible/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/russian-english-bible/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/russian-english-bible/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/uk/articles/russian-english-bible/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/russian-english-bible/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/russian-english-bible/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/russian-english-bible/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/russian-english-bible/"/>
   </url>
   <url>
     <loc>https://bible.garden/articles/which-bible-translation/</loc>
