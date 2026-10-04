@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="sitegen">
+    <title>Библия с открытым кодом: почему Bible Garden открыт и как помочь проекту — Bible Garden</title>
+    <meta name="description" content="Что в Bible Garden открыто и под какой лицензией, зачем мы публикуем код, на каких условиях в приложении тексты и аудио и чем можно помочь проекту.">
+    <link rel="canonical" href="https://bible.garden/ru/articles/open-source-bible-app/">
+    <link rel="alternate" hreflang="en" href="https://bible.garden/articles/open-source-bible-app/">
+    <link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/open-source-bible-app/">
+    <link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/open-source-bible-app/">
+    <link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/open-source-bible-app/">
+    <meta property="og:site_name" content="Bible Garden">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bible.garden/ru/articles/open-source-bible-app/">
+    <meta property="og:title" content="Библия с открытым кодом: почему Bible Garden открыт и как помочь проекту — Bible Garden">
+    <meta property="og:description" content="Что в Bible Garden открыто и под какой лицензией, зачем мы публикуем код, на каких условиях в приложении тексты и аудио и чем можно помочь проекту.">
+    <meta property="og:image" content="https://bible.garden/img/logo.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="uk_UA">
+    <script>
+        // Language handling without a server:
+        //  1. landing pages only: legacy ?lang=en|ru|uk links (ua = uk) go to the language URL
+        //     and record the choice;
+        //  2. English landing page only: a language chosen explicitly before wins; otherwise
+        //     a browser that prefers ru or uk is sent to that version;
+        //  3. clicking the language switcher records the explicit choice.
+        (function () {
+            var storageKey = "bg-lang";
+
+            function remember(language) {
+                try { window.localStorage.setItem(storageKey, language); } catch (error) { /* storage unavailable */ }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var links = document.querySelectorAll('a[data-lang]');
+                for (var index = 0; index < links.length; index += 1) {
+                    links[index].addEventListener('click', function (event) {
+                        remember(event.currentTarget.getAttribute('data-lang'));
+                    });
+                }
+            });
+        })();
+    </script>
+    <link rel="icon" type="image/png" href="/img/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        garden: {
+                            50: '#f0f7f2',
+                            100: '#d8ede0',
+                            200: '#b3dbc3',
+                            300: '#82c29f',
+                            400: '#52a379',
+                            500: '#35875c',
+                            600: '#266c49',
+                            700: '#1f563c',
+                            800: '#182e1e',
+                            900: '#121f17',
+                            950: '#0a1510',
+                        },
+                        gold: {
+                            300: '#f0cc6b',
+                            400: '#e8b84b',
+                            500: '#d4a843',
+                            600: '#b8923a',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Lora', 'Georgia', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/article.css">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bible.garden/ru/articles/open-source-bible-app/"
+  },
+  "headline": "Библия с открытым кодом: почему Bible Garden открыт и как помочь проекту",
+  "description": "Что в Bible Garden открыто и под какой лицензией, зачем мы публикуем код, на каких условиях в приложении тексты и аудио и чем можно помочь проекту.",
+  "image": [
+    "https://bible.garden/img/logo.png"
+  ],
+  "inLanguage": "ru",
+  "datePublished": "2026-10-04",
+  "dateModified": "2026-10-04",
+  "author": {
+    "@type": "Organization",
+    "name": "Команда Bible Garden",
+    "url": "https://bible.garden/ru/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bible Garden",
+    "url": "https://bible.garden/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bible.garden/img/logo.png"
+    }
+  }
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://bible.garden/ru/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Статьи",
+      "item": "https://bible.garden/ru/articles/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Библия с открытым кодом: почему Bible Garden открыт и как помочь проекту",
+      "item": "https://bible.garden/ru/articles/open-source-bible-app/"
+    }
+  ]
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Bible Garden правда бесплатный?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Да. В приложении нет рекламы, подписки и покупок, аккаунт не нужен. Оно работает на iPhone и iPad с iOS 15 и новее.<\/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Под какой лицензией код Bible Garden?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Под GPL-3.0: iOS-приложение, сервер, админка, сайт и описание архитектуры. Служебные части — настройки сервера, скрипты подготовки данных и исследования ИИ-моделей — закрыты.<\/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли взять тексты и аудио из приложения для своего проекта?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Лицензия нашего кода на них не распространяется. Синодальный перевод, BSB и WEB находятся в общественном достоянии, НПУ доступен по лицензии CC BY-SA 4.0. Аудиозапись НПУ тоже выпущена под CC BY-SA 4.0. Перевод Кулаковых, перевод Хоменка и остальные записи принадлежат своим правообладателям: проверьте условия использования у них.<\/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли подключить своё приложение к API Bible Garden?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Да, по ключу: каждый запрос к API требует ключ приложения. Напишите в <a href=\"https://t.me/Mandarinka4\">Телеграм<\/a> или в <a href=\"https://github.com/BibleGarden/Bible-API/issues\">GitHub Issues<\/a>, расскажите о проекте — и мы выдадим ключ. По запросу можно получить и подготовленные данные, чтобы развернуть сервер у себя. Часть переводов и записей передаётся только в рамках их лицензий.<\/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Есть ли Bible Garden для Android или в браузере?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Пока нет, приложение есть только для iPhone и iPad. Веб-версия и Android — в наших планах. Открытое приложение для Android уже сейчас — например, AndBible.<\/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как помочь добавить в Bible Garden новый язык?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Напишите в <a href=\"https://t.me/Mandarinka4\">Телеграм<\/a>, какой язык нужен и чем вы готовы помочь: найти переводы и записи, разобраться с правами или проверить выравнивание текста и аудио. Мария курирует эту работу и помогает.<\/p>"
+      }
+    }
+  ]
+}</script>
+    <script defer src="/js/article-screens.js"></script>
+    <script defer src="https://stats.bible.garden/script.js" data-website-id="492eb2a8-fa4c-4d86-90c8-568f53fbccd4" data-domains="bible.garden" data-exclude-search="true" data-exclude-hash="true"></script>
+</head>
+
+<body class="bg-garden-950 text-gray-200 font-sans antialiased">
+
+    <nav class="nav-solid fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/ru/" class="flex items-center gap-2.5 group">
+                    <img src="/img/logo.png" alt="Bible Garden" class="w-8 h-8 rounded-lg">
+                    <span class="site-brand-name font-serif font-semibold text-lg text-white whitespace-nowrap">Bible Garden</span>
+                </a>
+
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <a href="/ru/articles/" class="text-sm text-gray-400 hover:text-white transition-colors">Статьи</a>
+
+                    <div class="flex items-center gap-1 text-sm text-gray-500">
+                        <a href="/articles/open-source-bible-app/" hreflang="en" data-lang="en" class="lang-btn px-1.5 py-0.5 cursor-pointer">EN</a>
+                        <span class="text-garden-700">|</span>
+                        <a href="/ru/articles/open-source-bible-app/" hreflang="ru" data-lang="ru" class="lang-btn active px-1.5 py-0.5 cursor-pointer" aria-current="page">RU</a>
+                        <span class="text-garden-700">|</span>
+                        <a href="/uk/articles/open-source-bible-app/" hreflang="uk" data-lang="uk" class="lang-btn px-1.5 py-0.5 cursor-pointer">UK</a>
+                    </div>
+
+                    <a href="https://github.com/BibleGarden/" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition-colors cursor-pointer" aria-label="GitHub">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
+            <ol class="flex flex-wrap items-center gap-2">
+                <li><a href="/ru/" class="hover:text-gray-300 transition-colors">Главная</a></li>
+                <li aria-hidden="true">›</li>
+                <li><a href="/ru/articles/" class="hover:text-gray-300 transition-colors">Статьи</a></li>
+                <li aria-hidden="true">›</li>
+                <li class="text-gray-400" aria-current="page">Библия с открытым кодом: почему Bible Garden открыт и как помочь проекту</li>
+            </ol>
+        </nav>
+
+        <header class="mb-10 max-w-3xl">
+            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">Библия с открытым кодом: почему Bible Garden открыт и как помочь проекту</h1>
+            <p class="text-lg text-gray-400 leading-relaxed mb-4">Что в Bible Garden открыто и под какой лицензией, зачем мы публикуем код, на каких условиях в приложении тексты и аудио и чем можно помочь проекту.</p>
+            <p class="text-xs text-gray-500">
+                Автор <a href="/ru/about/" class="underline decoration-gray-600 underline-offset-2 hover:text-gray-300 transition-colors">Команда Bible Garden</a> · Опубликовано <time datetime="2026-10-04">2026-10-04</time>
+            </p>
+        </header>
+
+        <div class="article-screen-layout">
+        <div class="article-body">
+<p><a href="/ru/">Bible Garden</a> — бесплатное приложение для чтения и прослушивания Библии на iPhone и iPad, без рекламы и покупок. Код приложения, сервера, админки и этого сайта опубликован на <a href="https://github.com/BibleGarden/">GitHub</a>: его можно прочитать, проверить и предложить правку. Ниже — что именно открыто и на каких условиях, зачем это нужно, как обстоят дела с правами на тексты и записи и чем можно помочь. Сразу честно: проект создала Мария Новикова и ведёт его одна, поэтому любая помощь заметна.</p>
+<h2 data-screen="home" id="что-открыто-и-под-какой-лицензией">Что открыто и под какой лицензией</h2>
+<figure class="article-screen-inline"><a aria-label="Открыть скриншот крупнее: Главный экран Bible Garden: режимы чтения и общий прогресс" class="article-screen-link" data-zoom-height="2086" data-zoom-width="960" href="/img/article-screens/zoom/home.ru.webp"><img alt="Главный экран Bible Garden: режимы чтения и общий прогресс" decoding="async" height="783" loading="lazy" sizes="180px" src="/img/article-screens/mobile/home.ru.webp" srcset="/img/article-screens/mobile/home.ru.webp 360w, /img/article-screens/phone/home.ru.webp 480w" width="360" /></a></figure><p>Данные на 4 октября 2026 года, по репозиториям организации <a href="https://github.com/BibleGarden/">BibleGarden на GitHub</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Репозиторий</th>
+<th>Что внутри</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/BibleGarden/iOS-App">iOS-App</a></td>
+<td>приложение для iPhone и iPad (SwiftUI)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/BibleGarden/Bible-API">Bible-API</a></td>
+<td>сервер: тексты, аудио, разметка стихов в записях</td>
+</tr>
+<tr>
+<td><a href="https://github.com/BibleGarden/Dashboard-API">Dashboard-API</a> и <a href="https://github.com/BibleGarden/Dashboard-Web">Dashboard-Web</a></td>
+<td>админка: проверка того, как аудио совпадает с текстом, и подготовка данных</td>
+</tr>
+<tr>
+<td><a href="https://github.com/BibleGarden/Site">Site</a></td>
+<td>сайт bible.garden и эти статьи</td>
+</tr>
+<tr>
+<td><a href="https://github.com/BibleGarden/Architecture">Architecture</a></td>
+<td>описание системы и архитектурные решения</td>
+</tr>
+</tbody>
+</table>
+<p>Весь этот код — под лицензией GPL-3.0. Это свободная лицензия: код можно использовать, изменять и распространять; если вы распространяете изменённую версию, она тоже должна выходить под GPL-3.0 и вместе с исходным кодом (<a href="https://www.gnu.org/licenses/gpl-3.0.html">текст лицензии</a>).</p>
+<p>Закрыты служебные части: настройки продакшен-сервера и ключи, скрипты, которыми тексты и аудио готовятся к загрузке, и исследования ИИ-моделей.</p>
+<h2 id="зачем-открывать-код">Зачем открывать код</h2>
+<p><strong>Чтобы обещания можно было проверить.</strong> В <a href="/privacy.html?lang=ru">политике конфиденциальности</a> сказано: аккаунт не нужен, в приложении нет аналитики, рекламы и сторонних трекеров, а обращается оно только к нашему серверу api.bible.garden. С открытым кодом этому не обязательно верить на слово: разработчик может открыть код и посмотреть сам.</p>
+<p><strong>Чтобы было видно, что приложение бесплатное по-настоящему.</strong> В Bible Garden нет рекламы, подписки и платных функций, и по коду видно, что скрытой монетизации тоже нет.</p>
+<p><strong>Чтобы на наработках можно было учиться.</strong> Самое трудоёмкое в проекте — разметить, с какой секунды записи начинается каждый стих. Код, который это хранит и отдаёт приложению, и админка, в которой разметку проверяют, открыты.</p>
+<p><strong>Чтобы на этой основе можно было сделать что-то лучше.</strong> Хотите построить своё приложение — делайте форк, улучшайте, выпускайте: мы будем только рады. Если вы распространяете изменённую версию, GPL-3.0 требует предоставить её исходный код под той же лицензией. Ключ к API и подготовленные данные можно попросить у нас — в пределах прав на тексты и записи.</p>
+<h2 data-screen="multi-reading" id="что-внутри-библия-которую-слушают-по-стихам">Что внутри: Библия, которую слушают по стихам</h2>
+<figure class="article-screen-inline"><a aria-label="Открыть скриншот крупнее: Режим «Мультичтение» воспроизводит стих в двух переводах" class="article-screen-link" data-zoom-height="2086" data-zoom-width="960" href="/img/article-screens/zoom/multi-reading.ru.webp"><img alt="Режим «Мультичтение» воспроизводит стих в двух переводах" decoding="async" height="783" loading="lazy" sizes="180px" src="/img/article-screens/mobile/multi-reading.ru.webp" srcset="/img/article-screens/mobile/multi-reading.ru.webp 360w, /img/article-screens/phone/multi-reading.ru.webp 480w" width="360" /></a></figure><p>Bible Garden сделан прежде всего для прослушивания. Аудио размечено по стихам, поэтому кнопки «предыдущий / следующий стих» переходят точно к началу стиха, а после каждого стиха, абзаца или раздела можно поставить паузу — на несколько секунд или до нажатия Play. У одного перевода бывает несколько дикторов, и голос каждого можно послушать перед выбором.</p>
+<div class="article-callout">
+<p><strong>Главная особенность Bible Garden — «Мультичтение».</strong> Вы собираете последовательность: перевод, пауза, ещё перевод — и каждый стих, абзац, раздел или глава звучит во всех выбранных переводах по очереди. Например, сначала в Синодальном, потом в переводе Кулаковых или по-английски. Под каждым стихом на экране виден тот же стих во всех переводах. Мультичтение сопоставляет стихи по их позиции, а не по смыслу. Для Псалтири выбирайте переводы с одинаковой нумерацией псалмов: Синодальный, Кулаковых и украинский НПУ используют греческую нумерацию; BSB, оба издания WEB и украинский перевод Хоменка — еврейскую. Не смешивайте эти две группы при прослушивании Псалтири. Подробнее — в статье «<a href="/ru/articles/bible-in-two-languages/">Библия на английском и русском</a>».</p>
+</div>
+<p>Чего в приложении пока нет: скачивания аудио для офлайна, поиска, закладок, заметок, планов чтения и напоминаний. Веб-версия и Android — в наших планах.</p>
+<h2 data-screen="translation-picker" id="тексты-и-записи-лицензия-кода-на-них-не-распространяется">Тексты и записи: лицензия кода на них не распространяется</h2>
+<figure class="article-screen-inline"><a aria-label="Открыть скриншот крупнее: Выбор перевода Библии для чтения" class="article-screen-link" data-zoom-height="2086" data-zoom-width="960" href="/img/article-screens/zoom/translation-picker.ru.webp"><img alt="Выбор перевода Библии для чтения" decoding="async" height="783" loading="lazy" sizes="180px" src="/img/article-screens/mobile/translation-picker.ru.webp" srcset="/img/article-screens/mobile/translation-picker.ru.webp 360w, /img/article-screens/phone/translation-picker.ru.webp 480w" width="360" /></a></figure><p>GPL-3.0 касается только нашего кода. Библейские тексты и аудиозаписи — чужие произведения, и у каждого свой статус:</p>
+<ul>
+<li><strong>Синодальный перевод</strong> издан полностью в 1876 году и находится в общественном достоянии (<a href="https://en.wikipedia.org/wiki/Russian_Synodal_Bible">Википедия</a>).</li>
+<li><strong>Berean Standard Bible (BSB)</strong> издатели передали в общественное достояние 30 апреля 2023 года (<a href="https://berean.bible/licensing.htm">berean.bible</a>).</li>
+<li><strong>World English Bible (WEB)</strong> тоже в общественном достоянии, но название — товарный знак: изменённый текст нельзя называть WEB (<a href="https://ebible.org/eng-web/copyright.htm">eBible.org</a>).</li>
+<li><strong>Новий переклад українською (НПУ)</strong> от Biblica — Новый Завет и Псалтирь, лицензия CC BY-SA 4.0 (<a href="https://ebible.org/find/details.php?id=ukronpu">eBible.org</a>). Под той же лицензией Biblica выпустила и аудиозапись НПУ (<a href="https://open.bible/bibles/ukrainian-biblica-audio-nt/">Open.Bible</a>).</li>
+<li><strong>Перевод Кулаковых, перевод Хоменка и остальные аудиозаписи</strong> принадлежат своим правообладателям. Открытая лицензия нашего кода на них не распространяется.</li>
+</ul>
+<p>Подготовленные данные — тексты и разметка аудио по стихам — в репозиториях не лежат, но по запросу мы можем ими поделиться (подробнее — в разделе для разработчиков). Чем именно, зависит от прав на каждый текст и каждую запись.</p>
+<p>Отсюда и небольшой выбор: на русском — Синодальный перевод и перевод Кулаковых, на английском — BSB и WEB, на украинском — перевод Хоменка и НПУ. Каждый новый текст и каждая запись упираются в права на них, а записи мы ещё и отбираем на слух. Как выбрать перевод — в статье «<a href="/ru/articles/which-bible-translation/">Какой перевод Библии выбрать</a>», о дикторах — «<a href="/ru/articles/audio-bible-narrators/">Кто читает аудио-Библию</a>». Если вы правообладатель и считаете, что текст или запись использованы неправомерно, напишите в <a href="https://t.me/Mandarinka4">Телеграм</a>: мы проверим и исправим.</p>
+<h2 data-screen="classic-reading" id="как-помочь-проекту">Как помочь проекту</h2>
+<figure class="article-screen-inline"><a aria-label="Открыть скриншот крупнее: Глава 1 Евангелия от Иоанна в режиме «Обычное чтение» с аудиоплеером" class="article-screen-link" data-zoom-height="2086" data-zoom-width="960" href="/img/article-screens/zoom/classic-reading.ru.webp"><img alt="Глава 1 Евангелия от Иоанна в режиме «Обычное чтение» с аудиоплеером" decoding="async" height="783" loading="lazy" sizes="180px" src="/img/article-screens/mobile/classic-reading.ru.webp" srcset="/img/article-screens/mobile/classic-reading.ru.webp 360w, /img/article-screens/phone/classic-reading.ru.webp 480w" width="360" /></a></figure><p>Больше всего проекту нужны люди, готовые помочь добавить новые языки: найти хорошие переводы и записи, разобраться с правами на них, проверить, как аудио совпадает с текстом. Мария курирует эту работу и помогает на каждом шаге.</p>
+<p>Подробно о том, что нужно сделать для нового языка и как начать, — в статье «<a href="/ru/articles/help-bible-garden/">Как помочь Bible Garden</a>».</p>
+<h2 id="разработчикам">Разработчикам</h2>
+<ul>
+<li><strong>iOS-приложение</strong> написано на SwiftUI, работает на iOS 15 и новее, на iPhone и iPad. Клиент API генерируется из спецификации OpenAPI при сборке. Для сборки нужны адрес и ключ API в локальных файлах конфигурации (подробности — в README репозитория).</li>
+<li><strong>Сервер и админка</strong>: Bible-API и Dashboard-API на FastAPI и MySQL, админка Dashboard-Web на Vue 3. Тот же Bible-API обслуживает и наше второе приложение — <a href="https://lampada.app/ru/">Lampada</a>, пространство для личной молитвы. Сайт собирается небольшим генератором на Python из Markdown и YAML.</li>
+<li><strong>Доступ к API — по ключу приложения.</strong> Если вы делаете своё приложение или исследование, напишите в <a href="https://t.me/Mandarinka4">Телеграм</a> или откройте задачу в <a href="https://github.com/BibleGarden/Bible-API/issues">GitHub Issues</a>: расскажите о проекте, и мы выдадим ключ. Так же по запросу можно получить подготовленные данные — тексты и разметку аудио по стихам, чтобы развернуть сервер из исходников у себя. Оговорка одна: часть переводов и записей можно передавать только в рамках их лицензий, поэтому состав данных зависит от того, что разрешают правообладатели.</li>
+<li><strong>Файла CONTRIBUTING и шаблонов задач пока нет.</strong> Соглашения о коде и проверках описаны в файлах CLAUDE.md (а у приложения и Bible-API — ещё и AGENTS.md) в репозиториях приложения, сервера и админки. Перед большой правкой откройте Issue и опишите идею, чтобы работа не пропала зря.</li>
+</ul>
+<h2 id="другие-открытые-приложения-для-библии">Другие открытые приложения для Библии</h2>
+<p>Если вам важен именно открытый код, вот несколько давних проектов (лицензии проверены на GitHub 4 октября 2026 года):</p>
+<ul>
+<li><strong><a href="https://andbible.org/">AndBible</a></strong> — приложение для изучения Библии на Android, GPL-3.0;</li>
+<li><strong><a href="https://github.com/yukuku/androidbible">Quick Bible</a></strong> (в Индонезии — Alkitab) — читалка Библии для Android, Apache-2.0;</li>
+<li><strong><a href="https://xiphos.org/">Xiphos</a></strong> и <strong><a href="https://github.com/bibletime/bibletime">BibleTime</a></strong> — программы для изучения Библии на компьютере, GPL-2.0.</li>
+</ul>
+<p>Они сильны в чтении, изучении и библиотеках модулей, а Bible Garden — в прослушивании: стих за стихом, с паузами и в нескольких переводах подряд. Сравнение популярных бесплатных приложений для прослушивания — в статье «<a href="/ru/articles/free-audio-bible-apps/">Аудио-Библия: бесплатные приложения и сайты</a>».</p>
+<h2 id="faq">Частые вопросы</h2>
+<h3 id="bible-garden-правда-бесплатный">Bible Garden правда бесплатный?</h3>
+<p>Да. В приложении нет рекламы, подписки и покупок, аккаунт не нужен. Оно работает на iPhone и iPad с iOS 15 и новее.</p>
+<h3 id="под-какой-лицензией-код-bible-garden">Под какой лицензией код Bible Garden?</h3>
+<p>Под GPL-3.0: iOS-приложение, сервер, админка, сайт и описание архитектуры. Служебные части — настройки сервера, скрипты подготовки данных и исследования ИИ-моделей — закрыты.</p>
+<h3 id="можно-ли-взять-тексты-и-аудио-из-приложения-для-своего-проекта">Можно ли взять тексты и аудио из приложения для своего проекта?</h3>
+<p>Лицензия нашего кода на них не распространяется. Синодальный перевод, BSB и WEB находятся в общественном достоянии, НПУ доступен по лицензии CC BY-SA 4.0. Аудиозапись НПУ тоже выпущена под CC BY-SA 4.0. Перевод Кулаковых, перевод Хоменка и остальные записи принадлежат своим правообладателям: проверьте условия использования у них.</p>
+<h3 id="можно-ли-подключить-своё-приложение-к-api-bible-garden">Можно ли подключить своё приложение к API Bible Garden?</h3>
+<p>Да, по ключу: каждый запрос к API требует ключ приложения. Напишите в <a href="https://t.me/Mandarinka4">Телеграм</a> или в <a href="https://github.com/BibleGarden/Bible-API/issues">GitHub Issues</a>, расскажите о проекте — и мы выдадим ключ. По запросу можно получить и подготовленные данные, чтобы развернуть сервер у себя. Часть переводов и записей передаётся только в рамках их лицензий.</p>
+<h3 id="есть-ли-bible-garden-для-android-или-в-браузере">Есть ли Bible Garden для Android или в браузере?</h3>
+<p>Пока нет, приложение есть только для iPhone и iPad. Веб-версия и Android — в наших планах. Открытое приложение для Android уже сейчас — например, AndBible.</p>
+<h3 id="как-помочь-добавить-в-bible-garden-новый-язык">Как помочь добавить в Bible Garden новый язык?</h3>
+<p>Напишите в <a href="https://t.me/Mandarinka4">Телеграм</a>, какой язык нужен и чем вы готовы помочь: найти переводы и записи, разобраться с правами или проверить выравнивание текста и аудио. Мария курирует эту работу и помогает.</p>
+        </div>
+            <aside class="article-screen-aside" aria-label="Скриншот приложения">
+                <div class="article-screen-phone">
+                    <img data-src="/img/article-screens/phone/home.ru.webp" alt="Главный экран Bible Garden: режимы чтения и общий прогресс" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                    <img data-src="/img/article-screens/phone/multi-reading.ru.webp" alt="Режим «Мультичтение» воспроизводит стих в двух переводах" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                    <img data-src="/img/article-screens/phone/translation-picker.ru.webp" alt="Выбор перевода Библии для чтения" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                    <img data-src="/img/article-screens/phone/classic-reading.ru.webp" alt="Глава 1 Евангелия от Иоанна в режиме «Обычное чтение» с аудиоплеером" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                    <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/home.ru.webp" alt="Главный экран Bible Garden: режимы чтения и общий прогресс" width="480" height="1043"></noscript>
+                </div>
+            </aside>
+        </div>
+        <dialog class="article-screen-dialog" aria-label="Скриншот приложения">
+            <button type="button" class="article-screen-close" aria-label="Закрыть скриншот">×</button>
+            <img alt="" width="960" height="2086">
+        </dialog>
+
+        <aside class="feature-card rounded-2xl p-6 sm:p-8 mt-14 text-center max-w-3xl">
+            <h2 class="font-serif text-2xl font-semibold text-white mb-3">Читайте и слушайте с Bible Garden</h2>
+            <p class="text-gray-400 mb-6">Бесплатное приложение с открытым кодом для чтения и прослушивания Библии на нескольких языках с профессиональной озвучкой и настраиваемыми паузами.</p>
+            <a href="https://apps.apple.com/app/apple-store/id6758955373?pt=119043617&amp;ct=seo-ru&amp;mt=8" data-umami-event="app-store-click" target="_blank" rel="noopener" class="btn-gold px-6 py-3.5 rounded-xl text-sm inline-flex items-center justify-center gap-2.5 cursor-pointer">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <span>Скачать в App Store</span>
+            </a>
+        </aside>
+
+        <nav class="grid sm:grid-cols-2 gap-4 mt-10 text-sm max-w-3xl" aria-label="Статьи">
+            <div>
+                <a href="/ru/articles/new-testament/" class="block feature-card rounded-xl px-5 py-4 hover:border-gray-400/30 transition-colors">
+                    <span class="block text-xs text-gray-500 mb-1">← Предыдущая статья</span>
+                    <span class="text-gray-200">Новый Завет: как слушать и читать — порядок, время, план</span>
+                </a>
+            </div>
+            <div class="sm:text-right">
+                <a href="/ru/articles/popular-bible-reading-plans/" class="block feature-card rounded-xl px-5 py-4 hover:border-gray-400/30 transition-colors">
+                    <span class="block text-xs text-gray-500 mb-1">Следующая статья →</span>
+                    <span class="text-gray-200">Планы чтения Библии: Мак-Чейн, классический, 90 дней и 6 месяцев — сравнение и минуты в день</span>
+                </a>
+            </div>
+        </nav>
+    </article>
+    </main>
+
+    <footer class="py-10 border-t border-garden-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2.5">
+                    <img src="/img/logo.png" alt="Bible Garden" class="w-6 h-6 rounded-md">
+                    <span class="font-serif text-sm text-gray-400">Bible Garden</span>
+                </div>
+
+                <p class="text-xs text-gray-600">Проект с открытым кодом под лицензией GPL-3.0. Все права принадлежат Богу.</p>
+
+                <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+                    <a href="/ru/about/" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">Как мы пишем</a>
+                    <a href="/ru/articles/" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">Статьи</a>
+                    <a href="/privacy.html?lang=ru" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">Политика конфиденциальности</a>
+                    <a href="https://apps.apple.com/app/apple-store/id6758955373?pt=119043617&amp;ct=seo-ru&amp;mt=8" data-umami-event="app-store-click" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-300 transition-colors cursor-pointer" aria-label="App Store">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

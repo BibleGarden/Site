@@ -376,6 +376,30 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/new-testament/"/>
   </url>
   <url>
+    <loc>https://bible.garden/articles/open-source-bible-app/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/open-source-bible-app/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/open-source-bible-app/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/open-source-bible-app/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/open-source-bible-app/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/ru/articles/open-source-bible-app/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/open-source-bible-app/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/open-source-bible-app/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/open-source-bible-app/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/open-source-bible-app/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/uk/articles/open-source-bible-app/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/open-source-bible-app/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/open-source-bible-app/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/open-source-bible-app/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/open-source-bible-app/"/>
+  </url>
+  <url>
     <loc>https://bible.garden/articles/popular-bible-reading-plans/</loc>
     <lastmod>2026-10-04</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/popular-bible-reading-plans/"/>

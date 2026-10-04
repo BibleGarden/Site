@@ -2,7 +2,6 @@
 title: "Open-Source Bible App: Why Bible Garden's Code Is Open and How to Help"
 description: "Bible Garden is a free, open-source Bible app for iPhone and iPad. See what's on GitHub under GPL-3.0, how Bible texts and audio are licensed, and how to get involved."
 date: 2026-10-04
-draft: true
 ---
 
 [Bible Garden](/) is a free Bible app for reading and listening on iPhone and iPad, with no ads and no in-app purchases. The code for the app, the server, the admin tools, and this website is on [GitHub](https://github.com/BibleGarden/) under the GPL-3.0 license: you can read it, check it, build on it, and suggest changes. Below: what exactly is open, why, how the Bible texts and recordings are licensed, and how you can help. To be upfront, the project was created and is run by one person, Maria Novikova, so every bit of help counts.
