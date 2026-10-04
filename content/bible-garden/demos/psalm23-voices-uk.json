@@ -1,0 +1,214 @@
+{
+  "title": {
+    "uk": "Послухайте псалом «Господь — мій пастир» у двох перекладах"
+  },
+  "passages": {
+    "book": 19,
+    "chapters": {
+      "npu": 22,
+      "ubh": 23
+    },
+    "verses": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "audio_dir": "psalm23"
+  },
+  "kind": "voices",
+  "clips": {
+    "kozlov_uk": {
+      "translation": "ubh",
+      "names": {
+        "en": [
+          "Khomenko translation (Ukrainian)",
+          "Ihor Kozlov"
+        ],
+        "ru": [
+          "Перевод Хоменка (украинский)",
+          "Игорь Козлов"
+        ],
+        "uk": [
+          "Переклад Хоменка",
+          "Ігор Козлов"
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/psalm23/kozlov_uk/1.mp3",
+          "sha256": "3d3f1094f83862e563a41acaf4fe732eecc8cfeeed15d9d9fd7666a8e34d32f3",
+          "duration": 6.024
+        },
+        {
+          "path": "/audio/demo/psalm23/kozlov_uk/2.mp3",
+          "sha256": "16ea7e0f3a5f6ab3d55bd9e87bfa7cd512ffd66d51eda7860b78f2b991dd0635",
+          "duration": 7.752
+        },
+        {
+          "path": "/audio/demo/psalm23/kozlov_uk/3.mp3",
+          "sha256": "976d265c3dd395086e7ba8b2938ee21b366cbe2f66da460e4f8220b9fa5e631c",
+          "duration": 8.568
+        },
+        {
+          "path": "/audio/demo/psalm23/kozlov_uk/4.mp3",
+          "sha256": "cbfa5876f18bcfeb01b2b64860854b71b5a0102fa4be32c8908b9245fe7b69b1",
+          "duration": 14.736
+        },
+        {
+          "path": "/audio/demo/psalm23/kozlov_uk/5.mp3",
+          "sha256": "9682314366c004d88e2aa16e5cea512082c1845d584445ad156045a0502f08ff",
+          "duration": 12.384
+        },
+        {
+          "path": "/audio/demo/psalm23/kozlov_uk/6.mp3",
+          "sha256": "5bef0fe6fe6f685ec56d940d744f58be857ddc45142ab9e21bc7eef1fb5b1bc2",
+          "duration": 13.008
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/psalm23/kozlov_uk/1-6.mp3",
+        "sha256": "7e9ed7de7cde8530b28927a1cdb1b6e4fc567ff7e240127a5af2f28d5f6ed860",
+        "duration": 66.6,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 5.81
+          },
+          {
+            "start": 6.64,
+            "end": 14.13
+          },
+          {
+            "start": 15.19,
+            "end": 23.51
+          },
+          {
+            "start": 25.23,
+            "end": 39.71
+          },
+          {
+            "start": 40.85,
+            "end": 52.98
+          },
+          {
+            "start": 53.64,
+            "end": 66.39
+          }
+        ]
+      }
+    },
+    "npu_uk": {
+      "translation": "npu",
+      "names": {
+        "en": [
+          "New Ukrainian Translation (NPU)",
+          null
+        ],
+        "ru": [
+          "Новый перевод на украинский (НПУ)",
+          null
+        ],
+        "uk": [
+          "Новий переклад українською (НПУ)",
+          null
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/psalm23/npu_uk/1.mp3",
+          "sha256": "17b418588f65f663b42ea0987a2dad6800f063295ec621c356687dbef07fbe8a",
+          "duration": 10.32
+        },
+        {
+          "path": "/audio/demo/psalm23/npu_uk/2.mp3",
+          "sha256": "16a3de0320d91edada2731594fb051a1abf08b38f59163dfadc1e05893e070f7",
+          "duration": 8.28
+        },
+        {
+          "path": "/audio/demo/psalm23/npu_uk/3.mp3",
+          "sha256": "4734d6f58cbf70f04c12d5f1c0e826a2f061c0335676a7ca067461638f9686a5",
+          "duration": 7.488
+        },
+        {
+          "path": "/audio/demo/psalm23/npu_uk/4.mp3",
+          "sha256": "b3b8a4e6aa1c37341a0db5d114ce494ad0689934a449cf46ea464a0e23a0e7b8",
+          "duration": 16.272
+        },
+        {
+          "path": "/audio/demo/psalm23/npu_uk/5.mp3",
+          "sha256": "61931f628f21646647570325375bd855a8871c1ed67139101f942ab805afd05b",
+          "duration": 13.128
+        },
+        {
+          "path": "/audio/demo/psalm23/npu_uk/6.mp3",
+          "sha256": "5fd34e1cd5080eb423fc4305985c0e71ff3b1a0decb620c0cbba6c27f4dcf1c3",
+          "duration": 12.192
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/psalm23/npu_uk/1-6.mp3",
+        "sha256": "5b1ee87dd37b42774d0c696ebb502b8e255f51dbbf3c5fb3fdd30fab21e1d357",
+        "duration": 74.136,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 10.12
+          },
+          {
+            "start": 11.76,
+            "end": 19.79
+          },
+          {
+            "start": 20.83,
+            "end": 28.06
+          },
+          {
+            "start": 29.46,
+            "end": 45.47
+          },
+          {
+            "start": 47.73,
+            "end": 60.61
+          },
+          {
+            "start": 61.99,
+            "end": 73.92
+          }
+        ]
+      }
+    }
+  },
+  "texts": {
+    "npu": [
+      "Псалом Давидів Господь – мій Пастир, я нічого більше не потребую.",
+      "Він дає мені спочинок на трав’янистих пасовищах, водить мене до тихих вод.",
+      "Він оживляє мою душу, веде мене стежками правди заради Свого імені.",
+      "Навіть коли я піду долиною тіней смерті, то не боятимусь зла, адже Ти зі мною; Твій жезл і Твій посох – вони заспокоюють мене.",
+      "Ти готуєш для мене святковий стіл на очах у моїх супротивників, Ти намастив мою голову олією, мій келих наповнений вщерть.",
+      "Тож нехай добро й милість супроводжують мене в усі дні мого життя, а я перебуватиму в домі Господньому повіки."
+    ],
+    "ubh": [
+      "Псалом. Давида. Господь — мій пастир: Нічого мені не бракуватиме.",
+      "На буйних пасовиськах він дає мені лежати; веде мене на тихі води.",
+      "Він відживляє мою душу, веде мене по стежках правих імени ради свого.",
+      "Навіть коли б ходив я долиною темряви, — я не боюся лиха, бо ти зо мною. Жезло твоє й палиця твоя — вони дають мені підтримку.",
+      "Готуєш стіл для мене перед моїми противниками; ти голову мою помазав миром, переливається мій кубок.",
+      "Добрість і милість будуть мене супроводити усі дні життя мого, і житиму в домі Господнім по віки вічні."
+    ]
+  },
+  "rows": {
+    "uk": [
+      {
+        "narrator": "kozlov_uk",
+        "note": "без музики"
+      },
+      {
+        "narrator": "npu_uk",
+        "note": "без музики"
+      }
+    ]
+  }
+}

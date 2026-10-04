@@ -4,7 +4,25 @@
     "ru": "Послушайте Ин 1:1–5 в двух переводах",
     "uk": "Послухайте Ів 1:1–5 у двох перекладах"
   },
-  "passages": "John 1:1–5",
+  "passages": {
+    "book": 43,
+    "chapters": {
+      "bsb": 1,
+      "bti": 1,
+      "npu": 1,
+      "syn": 1,
+      "ubh": 1,
+      "webus": 1
+    },
+    "verses": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "audio_dir": ""
+  },
   "kind": "multi-reading",
   "clips": {
     "bondarenko": {

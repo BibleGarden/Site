@@ -1,0 +1,298 @@
+{
+  "title": {
+    "ru": "Послушайте Пс 22 в чтении каждого диктора"
+  },
+  "passages": {
+    "book": 19,
+    "chapters": {
+      "bti": 22,
+      "syn": 22
+    },
+    "verses": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "audio_dir": "psalm23"
+  },
+  "kind": "voices",
+  "clips": {
+    "bondarenko": {
+      "translation": "syn",
+      "names": {
+        "en": [
+          "Russian Synodal Bible",
+          "Alexander Bondarenko"
+        ],
+        "ru": [
+          "Синодальный перевод",
+          "Александр Бондаренко"
+        ],
+        "uk": [
+          "Синодальний переклад (російською)",
+          "Олександр Бондаренко"
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/psalm23/bondarenko/1.mp3",
+          "sha256": "09db6a0f873ae0e11873715c8b49a4ff206156efd3b31b8cfe53948eaac0668a",
+          "duration": 5.52
+        },
+        {
+          "path": "/audio/demo/psalm23/bondarenko/2.mp3",
+          "sha256": "25aa07fb61718312139ae94c2b47a1e0056ce3f78804d6824bb65edea8d04d23",
+          "duration": 5.568
+        },
+        {
+          "path": "/audio/demo/psalm23/bondarenko/3.mp3",
+          "sha256": "23b42eef4dc58408957328483771ecaca514eb7276b1c6c3eeb13af6c534f4a7",
+          "duration": 7.368
+        },
+        {
+          "path": "/audio/demo/psalm23/bondarenko/4.mp3",
+          "sha256": "fc41112f73b4b1c7de0c74255b96b61233d6f4565fa0e22cce4eee49fca548ac",
+          "duration": 13.32
+        },
+        {
+          "path": "/audio/demo/psalm23/bondarenko/5.mp3",
+          "sha256": "88922bcbec861869dde843b5330323fa8a6dd577a1ec5d6537d7e566d31fa3b1",
+          "duration": 10.632
+        },
+        {
+          "path": "/audio/demo/psalm23/bondarenko/6.mp3",
+          "sha256": "499980665d0d6defa6b5cc66fe5c1e4f2be05cdbbf937aee5b2c5cd4ff7fedef",
+          "duration": 12.912
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/psalm23/bondarenko/1-6.mp3",
+        "sha256": "ccc9c44f433236a562eeb92399a6a7d38276f22d30ccb5f12991a93c40a525fa",
+        "duration": 58.2,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 5.31
+          },
+          {
+            "start": 6.19,
+            "end": 11.5
+          },
+          {
+            "start": 12.2,
+            "end": 19.3
+          },
+          {
+            "start": 20.15,
+            "end": 33.2
+          },
+          {
+            "start": 34.1,
+            "end": 44.48
+          },
+          {
+            "start": 45.32,
+            "end": 57.98
+          }
+        ]
+      }
+    },
+    "prozorovsky": {
+      "translation": "bti",
+      "names": {
+        "en": [
+          "Kulakov translation (Russian)",
+          "Nikita Semyonov-Prozorovsky"
+        ],
+        "ru": [
+          "Перевод Кулаковых",
+          "Никита Семёнов-Прозоровский"
+        ],
+        "uk": [
+          "Переклад Кулакових (російською)",
+          "Нікіта Семенов-Прозоровський"
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/psalm23/prozorovsky/1.mp3",
+          "sha256": "d3065ccb4a7f87fc1a36962fd249370a8b722df714646aea97e3652cc80f56a3",
+          "duration": 9.168
+        },
+        {
+          "path": "/audio/demo/psalm23/prozorovsky/2.mp3",
+          "sha256": "f2249ea07acdfda16222c6ea2154e764bdaedcd0afa2f4e6750297694fa4b095",
+          "duration": 6.432
+        },
+        {
+          "path": "/audio/demo/psalm23/prozorovsky/3.mp3",
+          "sha256": "d5e86840cbbb61122ff88eb448a6f422585327537b778a0b6177e576a1e26c52",
+          "duration": 8.688
+        },
+        {
+          "path": "/audio/demo/psalm23/prozorovsky/4.mp3",
+          "sha256": "666df5c7a50cbc2d7f1f47bbcdf94304ba7c6b0542722b0c2aaaffd9fec4c121",
+          "duration": 13.56
+        },
+        {
+          "path": "/audio/demo/psalm23/prozorovsky/5.mp3",
+          "sha256": "2d9a4a463f97b855523e155ab7e22128df2b757c0db158821acb23c0e65fd9fe",
+          "duration": 12.336
+        },
+        {
+          "path": "/audio/demo/psalm23/prozorovsky/6.mp3",
+          "sha256": "df41dc4cac45496cf0afb82665cf332a0ad951a20bca08b0ff9f62114e9911c8",
+          "duration": 13.752
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/psalm23/prozorovsky/1-6.mp3",
+        "sha256": "57d9e6d53ece01b9fa3782fef63061cc31ed354d65a1718bf0981439992e2a47",
+        "duration": 67.152,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 8.96
+          },
+          {
+            "start": 9.66,
+            "end": 15.83
+          },
+          {
+            "start": 16.52,
+            "end": 24.94
+          },
+          {
+            "start": 26.06,
+            "end": 39.35
+          },
+          {
+            "start": 40.26,
+            "end": 52.34
+          },
+          {
+            "start": 53.44,
+            "end": 66.94
+          }
+        ]
+      }
+    },
+    "prudovsky": {
+      "translation": "syn",
+      "names": {
+        "en": [
+          "Russian Synodal Bible",
+          "Ilya Prudovsky"
+        ],
+        "ru": [
+          "Синодальный перевод",
+          "Илья Прудовский"
+        ],
+        "uk": [
+          "Синодальний переклад (російською)",
+          "Ілля Прудовський"
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/psalm23/prudovsky/1.mp3",
+          "sha256": "565091a6379eb4438e976d9fea127d40eca7722820452f3982cb8c6e89adbee8",
+          "duration": 4.608
+        },
+        {
+          "path": "/audio/demo/psalm23/prudovsky/2.mp3",
+          "sha256": "2116ed1a667c8d78f6c1f5077b5839901aea8b9a102a4e7b326dc30314a82ad6",
+          "duration": 6.072
+        },
+        {
+          "path": "/audio/demo/psalm23/prudovsky/3.mp3",
+          "sha256": "fd17de2f677ca047b022763ba9aadb9dd69d21473e423920b1e5ee78b014f94d",
+          "duration": 7.248
+        },
+        {
+          "path": "/audio/demo/psalm23/prudovsky/4.mp3",
+          "sha256": "35031d51e3bfc7b46e66d87c0b758e0893781c243d83c2e7f1be386ae5330a7a",
+          "duration": 13.872
+        },
+        {
+          "path": "/audio/demo/psalm23/prudovsky/5.mp3",
+          "sha256": "b406545ee3194c2a21f90977cce06f8ce9f4000754bc927f81bb5dfd3be36d84",
+          "duration": 10.632
+        },
+        {
+          "path": "/audio/demo/psalm23/prudovsky/6.mp3",
+          "sha256": "b81fbfa5d414567a9097ecf3b54545634e631f2cd0f9a22b73d00b01c2510433",
+          "duration": 11.328
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/psalm23/prudovsky/1-6.mp3",
+        "sha256": "d9005570fb15e876bfda8e8d3202cb3ff8cebb93da9522ee3067a82f727f403c",
+        "duration": 58.248,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 4.39
+          },
+          {
+            "start": 5.4,
+            "end": 11.21
+          },
+          {
+            "start": 12.38,
+            "end": 19.38
+          },
+          {
+            "start": 20.71,
+            "end": 34.33
+          },
+          {
+            "start": 35.47,
+            "end": 45.85
+          },
+          {
+            "start": 46.98,
+            "end": 58.04
+          }
+        ]
+      }
+    }
+  },
+  "texts": {
+    "bti": [
+      "Псалом Давида Господь — Пастырь мой: ни в чем я нуждаться не буду.",
+      "С Ним я спокоен на пастбище злачном, к водам тихим Он водит меня,",
+      "оживляет душу мою, путями правыми водит меня, верный имени Своему.",
+      "Случись идти мне долиной, темной как смерть, не устрашусь и тогда я зла, ибо Ты со мною: Твой жезл и Твой посох уверенность в меня вселяют.",
+      "Ты стол для меня накрываешь у врагов моих на виду, возливаешь елей на голову мою, до краев чашу мою наполняешь.",
+      "Доброта и милость Твоя да сопутствуют мне во всей жизни моей, и, пока живу, ходить я буду в Дом Господень."
+    ],
+    "syn": [
+      "Господь — Пастырь мой; я ни в чем не буду нуждаться:",
+      "Он покоит меня на злачных пажитях и водит меня к водам тихим,",
+      "подкрепляет душу мою, направляет меня на стези правды ради имени Своего.",
+      "Если я пойду и долиною смертной тени, не убоюсь зла, потому что Ты со мной; Твой жезл и Твой посох — они успокаивают меня.",
+      "Ты приготовил предо мною трапезу в виду врагов моих; умастил елеем голову мою; чаша моя преисполнена.",
+      "Так, благость и милость [Твоя] да сопровождают меня во все дни жизни моей, и я пребуду в доме Господнем многие дни."
+    ]
+  },
+  "rows": {
+    "ru": [
+      {
+        "narrator": "prudovsky",
+        "note": "без музыки"
+      },
+      {
+        "narrator": "bondarenko",
+        "note": "с музыкой"
+      },
+      {
+        "narrator": "prozorovsky",
+        "note": "без музыки"
+      }
+    ]
+  }
+}

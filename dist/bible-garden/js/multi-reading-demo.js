@@ -18,14 +18,14 @@
         intervals: voices ? JSON.parse(element.dataset.intervals) : null,
     }));
     if (!status || !demo.dataset.verseLabel || !tracks.length || tracks.some((track) => !Array.isArray(track.clips)
-        || track.clips.length !== (voices ? 1 : 10)
+        || (voices ? track.clips.length !== 1 : !track.clips.length || track.clips.length % 2 !== 0)
         || track.clips.some((path) => typeof path !== 'string' || !path.startsWith('/audio/demo/'))
-        || (voices ? !track.clips[0].endsWith('/1-5.mp3') || !track.passage
-            || !Array.isArray(track.intervals) || track.intervals.length !== 5
+        || (voices ? !/\/\d+-\d+\.mp3$/.test(track.clips[0]) || !track.passage
+            || !Array.isArray(track.intervals) || !track.intervals.length || track.intervals.length !== track.lines.length
             || track.intervals.some((interval, index) => !Number.isFinite(interval.start)
                 || !Number.isFinite(interval.end) || interval.start < 0 || interval.end <= interval.start
                 || (index > 0 && interval.start < track.intervals[index - 1].end))
-            || track.lines.length !== 5
+            || !track.lines.length
             : track.lines.length !== track.clips.length))) {
         throw new Error('Invalid audio demo markup');
     }
@@ -60,7 +60,7 @@
                 const index = item === track && playing && active
                     ? item.intervals.findIndex((interval) => player.currentTime >= interval.start && player.currentTime <= interval.end)
                     : -1;
-                if (index >= 0) announce(index + 1);
+                if (index >= 0) announce(track.lines[index].dataset.verse);
                 item.lines.forEach((line, verse) => {
                     const current = verse === index;
                     line.classList.toggle('is-playing', current);
@@ -70,7 +70,7 @@
             });
             return;
         }
-        if (playing && active && !inGap) announce(Math.floor(step / 2) + 1);
+        if (playing && active && !inGap) announce(track.lines[step].closest('[data-verse]').dataset.verse);
         tracks.forEach((item) => item.lines.forEach((line, index) => {
             const current = item === track && playing && active && !inGap && index === step;
             line.classList.toggle('is-playing', current);
