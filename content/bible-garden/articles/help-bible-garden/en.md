@@ -1,11 +1,11 @@
 ---
 title: "How to Help Bible Garden: New Languages and Volunteering"
-description: "Ways to volunteer for Bible Garden, a free Bible app: find a translation and recording in a new language, sort out the rights, check the audio alignment, or help in five minutes."
+description: "Ways to volunteer for Bible Garden, a free Bible app: find a translation and recording in a new language, sort out the rights, check the verse timing, or help in five minutes."
 date: 2026-10-04
 draft: true
 ---
 
-[Bible Garden](/) is a free app for reading and listening to the Bible on iPhone and iPad, with no ads and no purchases. What the project needs most is people who can help add a new language. This is a ministry, not paid work. Maria Novikova, who created and runs the project, oversees every language and helps at each step, but she can't do it all on her own. You don't need to be fluent to help: a little familiarity with the language is enough, and some tasks don't need the language at all. Checking the alignment means listening to the few verses the system is unsure about and comparing them with the text, and finding recordings or researching their rights works in any language.
+[Bible Garden](/) is a free app for reading and listening to the Bible on iPhone and iPad, with no ads and no purchases. What the project needs most is people who can help add a new language. This is a ministry, not paid work. Maria Novikova, who created and runs the project, oversees every language and helps at each step, but she can't do it all on her own. You don't need to be fluent to help: a little familiarity with the language is enough, and some tasks don't need the language at all. Checking the alignment means listening only to the verses the system flags as uncertain and comparing them with the text, and finding recordings or researching their rights works in any language.
 
 Below: what the work involves and how much of it there is, what you can do with only a few minutes, and how to reach us.
 
@@ -14,11 +14,11 @@ Below: what the work involves and how much of it there is, what you can do with 
 
 Bible Garden currently offers English, Russian, and Ukrainian: two or three translations per language, each with one or more narrators. The full Bible has been translated into 776 languages ([Wycliffe Global Alliance, 2025](https://www.wycliffe.net/2025-global-scripture-access-statistics/)), and we don't translate the Bible ourselves. Our job is to take an existing translation and an existing audio recording and connect them, so the app knows the exact second each verse begins.
 
-We choose every translation and every recording by hand: for the quality of the text, for how it sounds, and for the rights. That's why there are only a few languages so far. Here's [how our English translations differ](/articles/which-bible-translation/), and here you can [hear our narrators](/articles/audio-bible-narrators/).
+We choose every translation and every recording by hand: for the quality of the text, for how it sounds, and for the rights. That's why there are only a few languages so far. Spanish and Portuguese, for example, aren't in the app yet; adding either would mean finding a suitable translation and recording and checking the rights. Here's [how our English translations differ](/articles/which-bible-translation/), and here you can [hear our narrators](/articles/audio-bible-narrators/).
 
-A new language isn't only for the people who speak it. In Multi Reading, each verse plays in several translations one after another, so a new translation can immediately be paired with another: your heart language and English, for example. Here's [how bilingual listening works](/articles/bible-in-two-languages/). Bible Garden and our second app, [Lampada](https://lampada.app/), a space for personal prayer that selects Scripture passages by meaning, also get their Bible texts from the same server. So a language added for Bible Garden will reach Lampada too; it's coming soon to the App Store.
+A new language isn't only for the people who speak it. In Multi Reading, each verse plays in several translations one after another, so a new translation can immediately be paired with another: your native language and English, for example. Here's [how bilingual listening works](/articles/bible-in-two-languages/). Bible Garden and our second app, [Lampada](https://lampada.app/), a space for personal prayer that selects Scripture passages by meaning, also get their Bible texts from the same server. So a language added for Bible Garden will reach Lampada too; it's coming soon to the App Store.
 
-Adding a language takes three steps, or four if there's no recording: then the translation can be voiced with AI. You can take on any part; you don't have to do them all.
+Adding a language takes three steps, or four if there's no recording: then AI can provide the narration. You can take on any part; you don't have to do them all.
 
 ## Step 1. Find a good translation and recording
 <!-- screen: reader-picker-english -->
@@ -52,7 +52,7 @@ Another subtlety is versification, the way the text is divided into chapters and
 
 ## If there's no recording: AI narration
 
-Sometimes there's a good translation but no recording, or the recording can't be used. Then the text can be voiced with a synthetic voice. Technically that's simple, but expensive: the Bible runs to millions of characters (about 3.8 million in the BSB), and speech synthesis services charge by the amount of text.
+Sometimes there's a good translation but no recording, or the recording can't be used. Then the text can be read by a synthetic voice. Technically that's simple, but expensive: the Bible runs to millions of characters (about 3.8 million in the BSB), and speech synthesis services charge by the amount of text.
 
 Rights are needed here too: AI narration is also an audio version of the text, and if the publisher allows audio only with written permission, that permission has to be requested. And if you know the language, there's one more way to help: listen to sample chapters and note where the voice gets stress or names wrong.
 
@@ -65,7 +65,7 @@ Not everyone can take on a whole language. Here's what you can do in a few minut
 - **Rate the app on the App Store.** Ratings appear on the app's page and in search results, and App Store search takes them into account along with downloads ([Apple](https://developer.apple.com/app-store/search/)). Bible Garden has almost no ratings yet, so every one stands out.
 - **Tell others about the app**: friends, your church, your small group, anyone who listens to the Bible or is learning a language.
 
-If you're a developer, you can help with code too: the code of the app, the server, the admin dashboard, and this website is open on [GitHub](https://github.com/BibleGarden/) under the GPL-3.0 license. Before a large change, open an issue and describe the idea, so the work isn't wasted. And if you're building your own app or research project, you can ask the team for an API key and the prepared data: texts and verse-level audio alignment. What data we can share depends on the rights: some translations and recordings can be passed on only within the terms of their licenses.
+If you're a developer, you can help with code too: the code of the app, the server, the admin dashboard, and this website is open on [GitHub](https://github.com/BibleGarden/) under the GPL-3.0 license. Before a large change, open an issue and describe the idea, so the work isn't wasted. And if you're building your own app or research project, you can ask the team for an API key and the prepared data: texts and verse-level verse timing. What data we can share depends on the rights: some translations and recordings can be passed on only within the terms of their licenses.
 
 ## How to get in touch
 
@@ -102,7 +102,7 @@ It already helps: send us links to the text and the recording. After that, the r
 
 ### Which languages will come first?
 
-There's no set list. A language will appear where there's a good translation, a recording or a way to voice it, the rights, and people willing to help. So tell us which language you need, even if you can't help yourself.
+There's no set list. A language will appear where there's a good translation, a recording or a way to create one, the rights, and people willing to help. So tell us which language you need, even if you can't help yourself.
 
 ### Is Bible Garden available on Android or in a browser?
 
