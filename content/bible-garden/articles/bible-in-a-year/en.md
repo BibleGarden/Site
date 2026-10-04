@@ -66,7 +66,7 @@ Audio makes it easier to keep reading on a busy day: listen on a walk, during a 
 
 - **Chapters play in sequence.** The next chapter of the same book starts automatically; open the day's second reading separately. You can control playback from the lock screen.
 - **Choose a narrator.** BSB has recordings by Bob Souer and David. WEBUS is read by Winfred Henson; the WEBBE recording from eBible.org has no named narrator.
-- **Follow your progress.** A chapter is marked complete after its audio ends or you finish reading its text. The app shows progress by book and across the whole Bible.
+- **Follow your progress.** A chapter is marked complete when you have listened to 90% of its audio (the default threshold) or read its text to the end. The app shows progress by book and across the whole Bible.
 
 The reading plan itself is on this page: Bible Garden does not have built-in reading plans. Use the calendar to choose today's chapters and the app to read, listen, and track what you finish.
 
