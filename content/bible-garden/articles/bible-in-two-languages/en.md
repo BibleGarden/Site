@@ -41,7 +41,7 @@ You can keep listening through a book this way. Hearing a verse twice gives you 
 
 A setup can include three or more translations too. For example, try BSB, WEBUS, and Russian Synodal so each verse plays three times. Save the setup to use it again with one tap.
 
-In the Psalms, pairings of English with Russian don't line up. The Russian translations follow the Greek Septuagint, so most psalm numbers are one lower than in English, and Multi Reading pairs chapters with the same number and lines up verses in order, so you hear two different psalms. Ukrainian Khomenko numbers the psalms as English Bibles do but often counts a psalm's heading as verse 1, so its verses can run one or two ahead of the English. Listen to the Psalms in each language separately in Classic Reading.
+In the Psalms, pairings of English with Russian or with Ukrainian NPU don't line up. The Russian translations and NPU follow the Greek Septuagint, so most psalm numbers are one lower than in English, and Multi Reading pairs chapters with the same number and lines up verses in order, so you hear two different psalms. Ukrainian Khomenko numbers the psalms as English Bibles do but often counts a psalm's heading as verse 1, so its verses can run one or two ahead of the English. Listen to the Psalms in each language separately in Classic Reading. More in "[Russian English Bible](/articles/russian-english-bible/)."
 
 ## Available translations and narrators
 

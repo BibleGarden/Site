@@ -2,7 +2,6 @@
 title: "Russian English Bible: Translation Pairs, Listening Order, and Time"
 description: "Four Russian and English Bible pairings with narrators: who each one suits, which language to play first, how long the whole Bible takes, and why the Psalms don't line up."
 date: 2026-10-04
-draft: true
 ---
 
 A Russian English Bible gives you the same passage in both languages, verse by verse. In the free [Bible Garden app](/) for iPhone and iPad, you can read it and also hear it: each verse plays in English, then after a short pause in Russian, all the way through the chapter. The English text is the Berean Standard Bible (BSB) or the World English Bible (WEB) in its US or British edition; the Russian text is the Synodal translation or the Kulakov translation. Every one of them has an audio recording. Below are four ready-made pairings, which language to play first, how long it takes, and where a pairing falls out of step. For what parallel and bilingual Bibles are, and to hear Multi Reading, see "[Bilingual Bible App](/articles/bible-in-two-languages/)."
