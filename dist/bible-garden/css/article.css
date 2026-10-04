@@ -585,7 +585,7 @@
 .reading-time-settings { margin-top: .75rem; }
 .reading-time-check { flex-direction: row !important; align-items: center; gap: .5rem !important; padding-block: .125rem; }
 .reading-time-check input { flex: none; width: 1rem; height: 1rem; margin: 0; accent-color: var(--reading-time-accent); color-scheme: var(--reading-time-scheme); }
-.reading-time-result { margin: .25rem 0; padding: .65rem; border-left: 3px solid var(--reading-time-accent); }
+.reading-time-result { margin: .75rem 0 0; padding: .65rem; border-left: 3px solid var(--reading-time-accent); }
 .reading-time-result p { margin: 0; overflow-wrap: anywhere; }
 .reading-time-summary { font-weight: 600; }
 .reading-time .reading-time-note { font-size: .8rem; line-height: 1.5; color: var(--reading-time-muted); margin: 0; }
