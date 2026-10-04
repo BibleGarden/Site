@@ -2,7 +2,6 @@
 title: "Learn English with the Bible: A Daily Method and Famous Verses"
 description: "How to learn English with the Bible: hear each verse in two English wordings, repeat it aloud, and slow the audio down. BSB or WEB, a 30-day plan, and famous verses."
 date: 2026-10-04
-draft: true
 ---
 
 The Bible works well for learning English because many learners already know its stories. You know what happens, so you can focus on how it is said. The method takes three steps per chapter:

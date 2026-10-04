@@ -280,6 +280,30 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/how-to-start-reading-the-bible/"/>
   </url>
   <url>
+    <loc>https://bible.garden/articles/learn-english-with-the-bible/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/learn-english-with-the-bible/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/learn-english-with-the-bible/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/learn-english-with-the-bible/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/learn-english-with-the-bible/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/ru/articles/learn-english-with-the-bible/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/learn-english-with-the-bible/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/learn-english-with-the-bible/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/learn-english-with-the-bible/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/learn-english-with-the-bible/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/uk/articles/learn-english-with-the-bible/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/learn-english-with-the-bible/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/learn-english-with-the-bible/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/learn-english-with-the-bible/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/learn-english-with-the-bible/"/>
+  </url>
+  <url>
     <loc>https://bible.garden/articles/new-testament/</loc>
     <lastmod>2026-10-04</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/new-testament/"/>
