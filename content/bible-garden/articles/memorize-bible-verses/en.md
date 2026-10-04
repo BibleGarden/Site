@@ -2,7 +2,6 @@
 title: "How to Memorize Bible Verses: Say It Aloud, Test Yourself, Review"
 description: "How to memorize a Bible verse and keep it: learn it aloud phrase by phrase, recall it instead of rereading, and review on day 1, 3, 7, 14 and 30. Plus how audio helps: a pause after each verse, or every verse twice."
 date: 2026-10-04
-draft: true
 ---
 
 "I have hidden Your word in my heart that I might not sin against You" (Psalm 119:11, BSB). To make a verse stick for the long run, four steps are enough:
