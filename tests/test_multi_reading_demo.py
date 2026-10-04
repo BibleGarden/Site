@@ -16,8 +16,8 @@ from sitegen.errors import BuildError
 from sitegen.multi_reading_demo import DEMOS_DIR, annotate_demo_marker, load_demo, validate_demo
 
 ROOT = Path(__file__).resolve().parent.parent
-DEMO_IDS = ("multi-reading", "translation-compare", "narrators")
-PAIR_DEMOS = ("multi-reading", "translation-compare")
+DEMO_IDS = ("multi-reading", "translation-compare", "ukrainian-bible", "narrators")
+PAIR_DEMOS = ("multi-reading", "translation-compare", "ukrainian-bible")
 
 
 class MultiReadingDemoTest(unittest.TestCase):

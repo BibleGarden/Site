@@ -1,14 +1,12 @@
 {
   "title": {
-    "en": "Listen to John 1:1–5 in two languages",
-    "ru": "Послушайте Ин 1:1–5 на двух языках",
-    "uk": "Послухайте Ів 1:1–5 двома мовами"
+    "ru": "Послушайте Ин 1:1–5 по-русски и по-украински",
+    "en": "Listen to John 1:1–5 in English and Ukrainian"
   },
   "passages": {
     "book": 43,
     "chapters": {
       "bsb": 1,
-      "bti": 1,
       "syn": 1,
       "ubh": 1
     },
@@ -72,7 +70,7 @@
       "names": {
         "en": [
           "Khomenko translation (Ukrainian)",
-          "Ihor Kozlov"
+          "Igor Kozlov"
         ],
         "ru": [
           "Перевод Хоменко (украинский)",
@@ -108,50 +106,6 @@
           "path": "/audio/demo/kozlov_uk/5.mp3",
           "sha256": "30727081518a4fee85ed6c32b80d17065e24456d736821c610f7bd6495d736ac",
           "duration": 6.456
-        }
-      ]
-    },
-    "prozorovsky": {
-      "translation": "bti",
-      "names": {
-        "en": [
-          "Kulakov translation (Russian)",
-          "Nikita Semyonov-Prozorovsky"
-        ],
-        "ru": [
-          "Перевод Кулаковых",
-          "Никита Семёнов-Прозоровский"
-        ],
-        "uk": [
-          "Переклад Кулакових (російською)",
-          "Нікіта Семенов-Прозоровський"
-        ]
-      },
-      "verses": [
-        {
-          "path": "/audio/demo/prozorovsky/1.mp3",
-          "sha256": "f63784ceef415133ee295ae0844916378b455e1e0169aa7b48c8065892faf4c7",
-          "duration": 13.248
-        },
-        {
-          "path": "/audio/demo/prozorovsky/2.mp3",
-          "sha256": "02604f8e38bc2ab97d2eef099aae5df7ac0266b031652cfb6ebe18414d13ad06",
-          "duration": 3.024
-        },
-        {
-          "path": "/audio/demo/prozorovsky/3.mp3",
-          "sha256": "ee9cb8f63f57a04eac03def9b329b9656d1d41de7fde11fcd1b7979882217579",
-          "duration": 8.28
-        },
-        {
-          "path": "/audio/demo/prozorovsky/4.mp3",
-          "sha256": "e2ecc95d65ba8fa2a2ebe6c3d84a856320213f92798590bb32663a3bf405a903",
-          "duration": 7.128
-        },
-        {
-          "path": "/audio/demo/prozorovsky/5.mp3",
-          "sha256": "6529348e107429fba6aa19c071259eaca27057559cca4071203be05bc0b97362",
-          "duration": 6.528
         }
       ]
     },
@@ -208,13 +162,6 @@
       "In Him was life, and that life was the light of men.",
       "The Light shines in the darkness, and the darkness has not overcome it."
     ],
-    "bti": [
-      "В начале всего было Слово, и Слово было с Богом, и Само Оно было Бог.",
-      "Слово от начала уже было с Богом.",
-      "Через Него всё обрело свое бытие, и без Него ничто из существующего не появилось.",
-      "В Слове была жизнь, и жизнь эта — Свет людям.",
-      "Этот Свет и во тьме светит: не одолела она Его."
-    ],
     "syn": [
       "В начале было Слово, и Слово было у Бога, и Слово было Бог.",
       "Оно было в начале у Бога.",
@@ -232,16 +179,12 @@
   },
   "pairs": {
     "ru": [
-      "prozorovsky",
-      "bsb_souer"
+      "prudovsky",
+      "kozlov_uk"
     ],
     "en": [
       "bsb_souer",
-      "prudovsky"
-    ],
-    "uk": [
-      "kozlov_uk",
-      "bsb_souer"
+      "kozlov_uk"
     ]
   }
 }

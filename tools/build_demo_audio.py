@@ -78,7 +78,7 @@ NARRATORS: dict[str, dict] = {
         "translation": "ubh",
         "names": {
             "en": ["Khomenko translation (Ukrainian)", "Ihor Kozlov"],
-            "ru": ["Перевод Хоменка (украинский)", "Игорь Козлов"],
+            "ru": ["Перевод Хоменко (украинский)", "Игорь Козлов"],
             "uk": ["Переклад Хоменка", "Ігор Козлов"],
         },
     },
@@ -135,6 +135,18 @@ DEMOS: dict[str, dict] = {
             "en": "Listen to John 1:1–5 in two translations",
             "ru": "Послушайте Ин 1:1–5 в двух переводах",
             "uk": "Послухайте Ів 1:1–5 у двох перекладах",
+        },
+    },
+    "ukrainian-bible": {
+        "kind": "multi-reading",
+        "passage": "john1",
+        "pairs": {
+            "ru": ["prudovsky", "kozlov_uk"],
+            "en": ["bsb_souer", "kozlov_uk"],
+        },
+        "title": {
+            "ru": "Послушайте Ин 1:1–5 по-русски и по-украински",
+            "en": "Listen to John 1:1–5 in English and Ukrainian",
         },
     },
     "narrators": {

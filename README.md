@@ -404,6 +404,10 @@ The John 1:1–5 demos are:
   English Bible, Winfred Henson; uk is UBH (Khomenko), Ihor Kozlov and the New
   Ukrainian Translation (NPU) — Biblica does not credit a narrator for NPU, so
   its clips carry no narrator name.
+- `ukrainian-bible` — a language pair ending in Ukrainian, for the
+  `bible-in-ukrainian` article: ru is Synodal, Ilya Prudovsky and UBH
+  (Khomenko), Ihor Kozlov; en is BSB, Bob Souer and UBH, Ihor Kozlov. It has
+  no uk pair: for Ukrainian readers `translation-compare` pairs UBH and NPU.
 - `narrators` — separate rows for each available narrator in the article's
   language, with a localized note about background music. Only Alexander
   Bondarenko's recording has music. The British WEBBE and Ukrainian NPU
