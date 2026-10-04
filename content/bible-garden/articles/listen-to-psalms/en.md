@@ -38,9 +38,9 @@ Bible Garden is free, with no ads or in-app purchases, and its code is open sour
 
 ## Why psalm numbers differ between Bibles
 
-All four English translations in the app number the psalms by the Hebrew text, as Protestant Bibles and most modern Catholic translations do. Eastern Orthodox Bibles and Catholic liturgical texts such as the Roman Missal follow the Greek Septuagint ([Wikipedia](https://en.wikipedia.org/wiki/Psalms#Numbering)). The Septuagint joins Psalms 9 and 10 and Psalms 114 and 115, and splits Psalms 116 and 147. As a result, the numbers match only for Psalms 1–8 and 148–150; for most of the rest, the Greek number is one lower.
+All the English translations in the app (BSB, WEB, and WEBBE) number the psalms by the Hebrew text, as Protestant Bibles and most modern Catholic translations do. Eastern Orthodox Bibles and Catholic liturgical texts such as the Roman Missal follow the Greek Septuagint ([Wikipedia](https://en.wikipedia.org/wiki/Psalms#Numbering)). The Septuagint joins Psalms 9 and 10 and Psalms 114 and 115, and splits Psalms 116 and 147. As a result, the numbers match only for Psalms 1–8 and 148–150; for most of the rest, the Greek number is one lower.
 
-| Opening line (BSB) | English Bibles (Hebrew) | Septuagint numbering | Bob Souer |
+| Opening line (BSB) | BSB and WEB (Hebrew) | Septuagint numbering | Bob Souer |
 |---|---|---|---|
 | "The Lord is my shepherd" | 23 | 22 | 0:45 |
 | "God is our refuge and strength" | 46 | 45 | 1:24 |
@@ -66,7 +66,7 @@ Pauses add time: three seconds after each verse adds about two hours to the whol
 **Multi Reading is Bible Garden's key feature.** Each verse plays in several translations in a row, with a pause between them: for example, first the BSB read by Bob Souer, then the WEB read by Winfred Henson. On screen, each verse appears in both translations. Hearing a line twice in different words helps it sink in.
 </div>
 
-For the Psalms, pair the BSB with the WEB: both use the Hebrew numbering, and their verse counts match in all 150 psalms. Multi Reading lines up verses by their order within the same chapter number and does not convert psalm numbers. Paired with a Russian translation, it would play different psalms: BSB Psalm 23 alongside Synodal Psalm 23, which is Psalm 24 in English Bibles.
+For the Psalms, pair the BSB with the WEB: both use the Hebrew numbering, and their verse counts match in all 150 psalms. Multi Reading lines up verses by their order within the same chapter number and does not convert psalm numbers. Paired with a Russian translation, it would play different psalms: BSB Psalm 23 alongside Synodal Psalm 23, which is Psalm 24 in the BSB.
 
 With two translations, listening takes about twice as long, so Multi Reading works best for one or two psalms at a time. To set it up, see "[Bilingual Bible App](/articles/bible-in-two-languages/)"; to compare the translations themselves, see "[Which Bible translation is best?](/articles/which-bible-translation/)" To read the Psalms as part of the whole Bible, the [one-year plan](/articles/bible-in-a-year/) covers them on days 261–365.
 
@@ -82,7 +82,7 @@ About 4 hours 18 minutes with Bob Souer, 4 hours 34 minutes with David, 4 hours 
 
 ### Why is Psalm 23 numbered 22 in some Bibles?
 
-English Bibles number the psalms by the Hebrew text, while Orthodox Bibles and Catholic liturgical texts follow the Greek Septuagint. The numbers match only for Psalms 1–8 and 148–150; for most others, the Greek number is one lower.
+The English translations in Bible Garden, like Protestant Bibles and most modern Catholic ones, number the psalms by the Hebrew text, while Orthodox Bibles and Catholic liturgical texts follow the Greek Septuagint. The numbers match only for Psalms 1–8 and 148–150; for most others, the Greek number is one lower.
 
 ### Which recordings of the Psalms have no music?
 
