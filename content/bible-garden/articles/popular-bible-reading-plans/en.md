@@ -2,10 +2,9 @@
 title: "Famous Bible Reading Plans Compared: M'Cheyne, Navigators, The Bible Recap, 90 Days"
 description: "M'Cheyne, Navigators, The Bible Recap, Bible in a Year, 90-day and 6-month plans: how each one works, who it suits, and how many minutes of audio it takes a day."
 date: 2026-10-04
-draft: true
 ---
 
-Most well-known Bible reading plans take a year at three to four chapters a day. M'Cheyne reads about 4.4 chapters a day, a 90-day plan about 13. With the English recordings in the free [Bible Garden](/) app, that's about 11–14 minutes of audio a day for a one-year plan, 15–18 for M'Cheyne, and 46–56 for 90 days. Below is what each plan is, who it suits, and how to follow any of them in the app. Bible Garden has no reading plans of its own: you get the schedule from the plan's author, and the app marks chapters as read on its own.
+Most well-known Bible reading plans take a year at three to four chapters a day. The M'Cheyne plan averages about 4.4 chapters a day; a 90-day plan averages about 13. With the English recordings in the free [Bible Garden](/) app, that's about 11–14 minutes of audio a day for a one-year plan, 15–18 for M'Cheyne, and 46–56 for 90 days. Below is what each plan is, who it suits, and how to follow any of them in the app. Bible Garden has no reading plans of its own: you get the schedule from the plan's author, and the app marks chapters as read on its own.
 
 ## The short answer: which plan to choose
 <!-- screen: classic-reading -->
@@ -21,7 +20,7 @@ There is no best plan: the right one is the one you'll keep going with. For maki
 
 **M'Cheyne.** Robert Murray M'Cheyne, a Scottish pastor at St Peter's in Dundee, drew up the plan for his congregation at the end of 1842. Each day has four readings: he meant two for families to read aloud together and two for private reading. Over the year you read the Old Testament once and the New Testament and Psalms twice. That averages about 4.4 chapters a day, though days vary from three to six. If that's too much, you can stretch it over two years: the first two readings of each day in year one, the other two in year two. Schedules and background are on [mcheyne.info](https://mcheyne.info/) and [bibleplan.org](https://bibleplan.org/plans/mcheyne).
 
-**[The Navigators Bible Reading Plan](https://www.navigators.org/resource/bible-reading-plans/)** also has four tracks: the Gospels, Acts and the letters, the wisdom books, and the rest of the Old Testament. Instead of 365 readings it has 25 a month, and the few free days each month let you catch up. That's about four chapters on a reading day; readings are passages, not always whole chapters.
+**[The Navigators Bible Reading Plan](https://www.navigators.org/resource/bible-reading-plans/)** also has four tracks: the Gospels, Acts and the letters, the wisdom books, and the rest of the Old Testament. Instead of 365 reading days it has 25 reading days a month, each with four passages, and the few free days each month let you catch up. That's about four chapters on a reading day; readings are passages, not always whole chapters.
 
 Both plans read Scripture in parallel tracks: the hard chapters of Leviticus sit next to the Gospels, which makes it easier to keep going. The trade-off is that you open three or four different places every day.
 
@@ -38,7 +37,7 @@ Bible Garden has no podcasts or commentary. With either plan, you can use the ap
 
 These are general names with many versions. The best known 90-day plan is Ted Cooper's Bible in 90 Days ([on YouVersion](https://www.bible.com/reading-plans/13-bible-in-90-days)). Six-month plans vary too; one example is [The Bible in 6 Months](https://www.bible.com/reading-plans/53319-the-bible-in-6-months), 180 days long. Note that "the New Testament in 6 months" is a much smaller reading load.
 
-The pace is fast. Ninety days means about 13 chapters a day: 46 minutes of audio with Bob Souer, 56 with Winfred Henson. Six months is six or seven chapters, 23–28 minutes. These plans suit people who want to see the whole story of the Bible at once and can give it close to an hour a day, such as a long commute: audio keeps playing in the background, and you can pause it from the lock screen. Listening needs an internet connection; downloading audio in advance isn't available yet.
+The pace is fast. Ninety days means about 13 chapters a day: 46 minutes of audio with Bob Souer, 56 with Winfred Henson. Six months is six or seven chapters, 23–28 minutes. These plans suit people who want to see the whole story of the Bible at once and can give it about an hour a day for a 90-day plan or half an hour for a 6-month one, such as on a long commute: audio keeps playing in the background, and you can pause it from the lock screen. Listening needs an internet connection; downloading audio in advance isn't available yet.
 
 ## Comparison: chapters and minutes a day
 <!-- screen: reader-picker -->
@@ -85,7 +84,7 @@ About 4.4 chapters on average, from three to six depending on the day. That's ab
 
 ### How is the Navigators plan different from other one-year plans?
 
-It has 25 readings a month instead of 30 or 31, so a few days each month are free to catch up. Each day has four readings from four parts of the Bible.
+It has 25 reading days a month instead of 30 or 31, so a few days each month are free to catch up. Each day has four readings from four parts of the Bible.
 
 ### Can you read the Bible in 90 days, and how long does it take?
 
