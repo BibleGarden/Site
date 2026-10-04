@@ -47,13 +47,13 @@ The upside of a spreadsheet is that you can add anything: the date, the translat
 <!-- screen: classic-reading-english -->
 
 <div class="article-callout" markdown="1">
-**Bible Garden tracks your progress for you.** A chapter counts as read once 90% of its verses have played; this rule is on by default. If you read the text instead, a chapter counts once you've scrolled to the end. No checkboxes, no spreadsheet.
+**Bible Garden tracks your progress for you.** A chapter counts as read once 90% of its verses have played; this rule is on by default. If you read the text instead, a chapter counts once you've reached its end and spent a total of 10–60 seconds in the chapter while audio is stopped. No checkboxes, no spreadsheet.
 </div>
 
 How the rules work:
 
-- **From 90% listened.** Only verses that actually played count. The 90% is rounded up, so in a short chapter you need to hear every verse. Skip through half a chapter and it won't be marked.
-- **Text read to end.** Scroll to the end of the chapter and stay on it, with audio stopped, for 10 to 60 seconds depending on the chapter's length. A quick two-second scroll doesn't count as reading.
+- **From 90% listened.** Only verses that actually played count. The 90% is rounded up, so in a chapter with fewer than ten verses you need to hear every verse. Skip through half a chapter and it won't be marked.
+- **Text read to end.** Reach the end of the text and spend a total of 10–60 seconds in the chapter while audio is stopped, depending on the chapter's length. The time is counted from when you open the chapter, not from when you reach its end. A quick two-second scroll doesn't count as reading.
 - **Audio completed.** A chapter counts once the player reaches its end. This rule is off by default.
 
 Below the text, next to the player, there's a "Chapter is read" mark. As you listen, a ring around it fills up, so you can see how close you are to 90%. Progress is tracked in both Classic Reading and Multi Reading, where each verse plays in several translations in a row.
@@ -111,11 +111,11 @@ By hand. Mark books you've finished on the progress screen by tapping each book.
 
 ### Will a chapter count if I skipped ahead or didn't listen to the end?
 
-With the default settings, a chapter counts once at least 90% of its verses have played. In a long chapter you can miss the last few verses; in a short one you need to hear them all. If you skip most of a chapter, it won't be marked, unless you've turned on "Audio completed." You can always mark a chapter by hand.
+With the default settings, a chapter counts once at least 90% of its verses have played. In a long chapter you can miss the last few verses; in one with fewer than ten verses you need to hear them all. If you skip most of a chapter, it won't be marked, unless you've turned on "Audio completed." You can always mark a chapter by hand.
 
 ### Will my progress stay if I switch translations or narrators?
 
-Yes. Marks are tied to the book and chapter, not to the translation, so your progress stays when you change translation or narrator.
+Yes. Marks are tied to the book and chapter number, so they stay when you change translation or narrator. The app does not match chapter contents across numbering systems. Psalms use Hebrew numbering in BSB, WEB, WEBBE, and Khomenko, and Greek numbering in Synodal, Kulakov, and NPU. The same number can therefore refer to different psalms. For Multi Reading in Psalms, choose translations from the same numbering group: verses are paired by position.
 
 ### Will my progress carry over to another iPhone or iPad?
 
