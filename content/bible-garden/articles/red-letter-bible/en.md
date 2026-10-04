@@ -2,7 +2,6 @@
 title: "Red Letter Bible: Why the Words of Jesus Are in Red"
 description: "Where red-letter Bibles came from, why publishers print the words of Jesus in red, where editions disagree, and a free red-letter Bible app with BSB and WEB."
 date: 2026-10-04
-draft: true
 ---
 
 A red-letter Bible prints the words Jesus speaks in the New Testament in red so they are easy to find on the page. Louis Klopsch, an American publisher, came up with the idea in 1899. The color is an editor's aid, not part of the biblical text, and editions do not always agree on where Jesus' words begin and end. In the free [Bible Garden app](/) for iPhone and iPad, the words of Jesus are in red in all seven translations, including the Berean Standard Bible (BSB) and both editions of the World English Bible (WEB). Below: where the tradition came from, why some people object to it, and the passages where editions part ways.
