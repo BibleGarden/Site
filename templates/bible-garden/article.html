@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% from "icons.html" import appstore_icon, github_icon %}
-{% block body_class %}{% if article.has_plan %} has-reading-plan{% endif %}{% if article.has_demo %} has-multi-reading-demo{% endif %}{% endblock %}
+{% block body_class %}{% if article.has_plan %} has-reading-plan{% endif %}{% if article.has_demo %} has-multi-reading-demo{% endif %}{% if article.has_calculator %} has-reading-time{% endif %}{% endblock %}
 {% block head %}
 {% for block in json_ld %}
     <script type="application/ld+json">{{ block | jsonld }}</script>
 {% endfor %}
 {% if article.screens %}
     <script defer src="/js/article-screens.js"></script>
+{% endif %}
+{% if article.has_calculator %}
+    <script defer src="/js/reading-time.js"></script>
 {% endif %}
 {% if article.has_plan %}
     <script defer src="/js/reading-plan.js"></script>

@@ -1,0 +1,45 @@
+type	voice	book	chapter	unit	first_verse	last_verse	decoded_seconds	alignment_end_seconds	difference_seconds	bad_packets	error_lines
+duration_mismatch	bondarenko	1	1				482.795102	460.23	22.565102	0	0
+duration_mismatch	bondarenko	1	2				319.89551	297.7	22.19551	0	0
+duration_mismatch	bondarenko	1	6				293.041633	271.85	21.191633	0	0
+duration_mismatch	bondarenko	1	7				303.36	274.38	28.98	0	0
+empty_window	bondarenko	2	1	verse	21	21	207.46449	179.88	-0.2	0	0
+empty_window	bondarenko	2	18	verse	14	14	323.291429	152.16	-0.8	0	0
+duration_mismatch	bondarenko	2	32				523.180408	502.59	20.590408	0	0
+duration_mismatch	bondarenko	5	34				188.26449	161.94	26.32449	0	0
+duration_mismatch	bondarenko	10	22				454.713469	428.66	26.053469	0	0
+duration_mismatch	bondarenko	11	8				997.172245	974.4	22.772245	0	0
+duration_mismatch	bondarenko	11	18				672.809796	643.71	29.099796	0	0
+duration_mismatch	bondarenko	19	46				108.512653	81.68	26.832653	0	0
+duration_mismatch	bondarenko	20	12				263.314286	237.28	26.034286	0	0
+duration_mismatch	bondarenko	20	24				302.550204	279.12	23.430204	0	0
+duration_mismatch	bondarenko	20	31				303.490612	248.95	54.540612	0	0
+duration_mismatch	bondarenko	24	52				463.412245	430.57	32.842245	0	0
+duration_mismatch	bondarenko	26	26				333.818776	263.38	70.438776	0	0
+duration_mismatch	bondarenko	30	7				234.788571	212.91	21.878571	0	0
+duration_mismatch	bondarenko	37	1				217.835102	196.38	21.455102	0	0
+duration_mismatch	bondarenko	38	14				318.876735	296.76	22.116735	0	0
+decoder_errors	bsb_david	41	5				330.527347			4	8
+decoder_errors	bsb_david	41	6				450.298776			2	4
+decoder_errors	bsb_david	41	7				299.206531			6	12
+decoder_errors	bsb_david	41	8				311.092245			2	4
+decoder_errors	bsb_david	41	9				407.745306			1	2
+decoder_errors	bsb_david	41	10				442.723265			2	4
+decoder_errors	bsb_david	41	11				264.150204			9	18
+decoder_errors	bsb_david	42	4				363.337143			1	2
+decoder_errors	bsb_david	42	7				436.715102			3	6
+decoder_errors	bsb_david	42	18				333.740408			1	2
+decoder_errors	bsb_david	42	20				362.657959			2	4
+decoder_errors	bsb_david	42	24				375.771429			8	16
+duration_mismatch	kozlov_uk	22	1				237.165714	189.93	47.235714	0	0
+duration_mismatch	prozorovsky	2	1				244.427755	42.18	202.247755	0	0
+duration_mismatch	prozorovsky	2	4				495.56898	102.83	392.73898	0	0
+empty_window	prozorovsky	2	16	verse	34	34	598.804898	566.78	-31.03	0	0
+empty_window	prozorovsky	18	24	verse	3	3	295.262041	34.84	-57.2	0	0
+duration_mismatch	prozorovsky	34	1				169.920979	291.82	-121.899021	0	0
+duration_mismatch	prozorovsky	34	2				140.496979	267.0	-126.503021	0	0
+duration_mismatch	prozorovsky	34	3				210.912979	363.41	-152.497021	0	0
+duration_mismatch	web_british	3	18				209.712	175.52	34.192	0	0
+empty_window	winfred_henson	1	15	verse	15	15	200.808	150.67	-0.5	0	0
+duration_mismatch	winfred_henson	2	21				664.608	346.74	317.868	0	0
+duration_mismatch	winfred_henson	45	4				207.888	147.038	60.85	0	0
