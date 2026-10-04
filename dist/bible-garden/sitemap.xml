@@ -160,6 +160,30 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/bible-in-two-languages/"/>
   </url>
   <url>
+    <loc>https://bible.garden/articles/bible-in-ukrainian/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/bible-in-ukrainian/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/bible-in-ukrainian/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/bible-in-ukrainian/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/bible-in-ukrainian/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/ru/articles/bible-in-ukrainian/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/bible-in-ukrainian/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/bible-in-ukrainian/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/bible-in-ukrainian/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/bible-in-ukrainian/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/uk/articles/bible-in-ukrainian/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/bible-in-ukrainian/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/bible-in-ukrainian/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/bible-in-ukrainian/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/bible-in-ukrainian/"/>
+  </url>
+  <url>
     <loc>https://bible.garden/articles/bible-reading-tracker/</loc>
     <lastmod>2026-10-04</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/bible-reading-tracker/"/>

@@ -2,7 +2,6 @@
 title: "Ukrainian Bible audio: Khomenko and NPU translations"
 description: "Ukrainian Bible audio with text: the Khomenko translation read by Igor Kozlov (the whole Bible) and the New Ukrainian Translation (New Testament and Psalms). How they differ, where to find Ohienko, and how to hear English and Ukrainian verse by verse."
 date: 2026-10-04
-draft: true
 ---
 
 You can read and listen to the Bible in Ukrainian in [Bible Garden](/), a free app for iPhone and iPad. It has two Ukrainian translations, both with audio. The Khomenko translation covers the whole Bible, read by Igor Kozlov, about 109 hours in all. The New Ukrainian Translation (NPU) is in modern Ukrainian and covers the New Testament and the Psalms. The text stays on screen while the audio plays, and the current verse is highlighted. The Ohienko translation isn't in the app; see below for where to find it. If English is your stronger language, each verse can play in English first and then in Ukrainian.
@@ -21,7 +20,6 @@ In the reading settings, set the Bible language to Ukrainian, then choose a tran
 Lengths come from the app's audio files, measured on October 4, 2026. The NPU has no other Old Testament books: only the New Testament and the Psalms have been published. Neither recording has background music, and both are free: the publisher of Kozlov's recording [distributes it without restrictions](http://www.blagovestnik.org/ukraine/), and Biblica also offers the NPU audio on [YouVersion](https://www.bible.com/audio-bible-app-versions/3269-novii-pierieklad-ukrayinskoiu).
 
 ## Hear English and Ukrainian verse by verse
-<!-- screen: multi-reading -->
 
 <div class="article-callout" markdown="1">
 **Multi Reading is Bible Garden's key feature.** A verse plays in English, then, after a short pause, the same verse plays in Ukrainian, all the way through the chapter. The screen shows both translations of each verse and highlights the one being read. The translations play one after the other, not at the same time.
@@ -59,7 +57,6 @@ The NPU recording is noticeably shorter: about 21 hours for the New Testament ag
 The NPU numbers the psalms the Greek way: "The Lord is my shepherd" is Psalm 22, as in the Russian Synodal Bible, while Khomenko and English Bibles call it Psalm 23.
 
 ## Compare Khomenko and NPU in Multi Reading
-<!-- screen: multi-setup-translations -->
 
 You can pair Khomenko with the NPU in Multi Reading: in the New Testament the verse counts match in all 260 chapters. Don't use that pair for the Psalms, though. Multi Reading lines up chapters with the same number, so Khomenko's Psalm 23 would play next to the NPU's Psalm 23, which is Psalm 24 in the Hebrew count. [Why the psalm numbers differ](/articles/listen-to-psalms/).
 
@@ -95,7 +92,7 @@ One after the other: in Multi Reading, a verse plays in English and then in Ukra
 
 ### What is the New Ukrainian Translation (NPU)?
 
-A modern Ukrainian translation published by Biblica in 2022. It has only the New Testament and the Psalms, and it numbers the psalms the Greek way. The Khomenko translation from 1963 covers the whole Bible and numbers the psalms after the Hebrew text.
+A modern Ukrainian translation published by Biblica in 2022. It has only the New Testament and the Psalms, and it numbers the psalms the Greek way. The Khomenko translation from 1963 covers the whole Bible and uses Hebrew psalm numbering.
 
 ### Is Bible Garden available for Android or on the web?
 
