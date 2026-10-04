@@ -3,7 +3,8 @@
   "status": "editorial-draft-owner-review-required",
   "checked_on": "2026-10-04",
   "chapter_scheme": {
-    "id": "hebrew-bsb",
+    "id": "english-bsb",
+    "psalm_numbering": "hebrew",
     "chapters": 1189,
     "books": 66,
     "unit": "whole-chapter"
@@ -40,10 +41,10 @@
       "title": "A. T. Robertson, A Harmony of the Gospels (1922)",
       "url": "https://www.gutenberg.org/files/36264/36264-h/36264-h.htm",
       "checked_on": "2026-10-04",
-      "scope": "Gospel pericope relationships only; Parts II\u2013XIV, not a fourth whole-Bible vote."
+      "scope": "Gospel pericope relationships only; Parts II–XIV, not a fourth whole-Bible vote."
     }
   ],
-  "source_support_scope": "supported_by records broad historical context, not exact segment endpoints, immediate neighbors, or majority votes. An empty list marks an editorial placement; consult decision_id for precise comparisons. BLB and BTTB overlap substantially.",
+  "source_support_scope": "supported_by identifies only sources verified against the support_basis anchor/context stated on that segment. It never asserts identical whole-chapter boundaries or a majority. Empty lists mark editorial placements, including all undated anthology blocks; consult decision_id. BLB and BTTB overlap substantially.",
   "eras": [
     {
       "id": "origins-patriarchs",
@@ -59,7 +60,7 @@
     },
     {
       "id": "united-monarchy",
-      "label": "Saul, David and Solomon"
+      "label": "Saul, David and Solomon; undated Psalter Books I–II"
     },
     {
       "id": "divided-monarchy",
@@ -67,7 +68,7 @@
     },
     {
       "id": "exile-return",
-      "label": "Exile and return, including undated poetry"
+      "label": "Exile and return; undated Psalter Books III–V"
     },
     {
       "id": "life-of-jesus",
@@ -105,7 +106,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Shared historical backbone: this narrative belongs between the preceding and following historical eras; inserted material is not claimed to match."
     },
     {
       "book": "JOB",
@@ -115,7 +117,8 @@
       "decision_id": "D01",
       "supported_by": [
         "nlt"
-      ]
+      ],
+      "support_basis": "NLT Jan 19–31: Job after the Genesis narrative, before Exodus."
     },
     {
       "book": "EXO",
@@ -126,7 +129,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Shared historical backbone: this narrative belongs between the preceding and following historical eras; inserted material is not claimed to match."
     },
     {
       "book": "LEV",
@@ -137,7 +141,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Shared historical backbone: this narrative belongs between the preceding and following historical eras; inserted material is not claimed to match."
     },
     {
       "book": "NUM",
@@ -148,7 +153,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Shared historical backbone: this narrative belongs between the preceding and following historical eras; inserted material is not claimed to match."
     },
     {
       "book": "DEU",
@@ -159,7 +165,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Shared historical backbone: this narrative belongs between the preceding and following historical eras; inserted material is not claimed to match."
     },
     {
       "book": "PSA",
@@ -168,10 +175,9 @@
       "era": "exodus-wilderness",
       "decision_id": "D03",
       "supported_by": [
-        "blb",
-        "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "NLT Mar 21: Psalm 90 after Deuteronomy 32, before 33–34."
     },
     {
       "book": "DEU",
@@ -182,7 +188,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Shared historical backbone: this narrative belongs between the preceding and following historical eras; inserted material is not claimed to match."
     },
     {
       "book": "JOS",
@@ -194,7 +201,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Shared Joshua → Judges → Ruth narrative order; BLB readings 82–97, BTTB Mar–Apr, NLT Mar–Apr."
     },
     {
       "book": "JDG",
@@ -206,7 +214,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Shared Joshua → Judges → Ruth narrative order; BLB readings 82–97, BTTB Mar–Apr, NLT Mar–Apr."
     },
     {
       "book": "RUT",
@@ -218,18 +227,16 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Shared Joshua → Judges → Ruth narrative order; BLB readings 82–97, BTTB Mar–Apr, NLT Mar–Apr."
     },
     {
       "book": "1CH",
       "first": 1,
-      "last": 9,
+      "last": 8,
       "era": "united-monarchy",
       "decision_id": "D04",
-      "supported_by": [
-        "blb",
-        "bttb"
-      ]
+      "supported_by": []
     },
     {
       "book": "1SA",
@@ -240,7 +247,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Shared historical backbone: this narrative belongs between the preceding and following historical eras; inserted material is not claimed to match."
     },
     {
       "book": "PSA",
@@ -252,18 +260,20 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Saul-pursuit context after 1SA 19: BLB 103, BTTB Apr 13, NLT Apr 14."
     },
     {
       "book": "1SA",
       "first": 20,
-      "last": 22,
+      "last": 21,
       "era": "united-monarchy",
       "supported_by": [
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Shared historical backbone: this narrative belongs between the preceding and following historical eras; inserted material is not claimed to match."
     },
     {
       "book": "PSA",
@@ -275,7 +285,50 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Gath episode in 1SA 21: BLB 104–105, BTTB Apr 14–15, NLT Apr 15."
+    },
+    {
+      "book": "PSA",
+      "first": 56,
+      "last": 56,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": []
+    },
+    {
+      "book": "1SA",
+      "first": 22,
+      "last": 22,
+      "era": "united-monarchy",
+      "supported_by": [
+        "blb",
+        "bttb",
+        "nlt"
+      ],
+      "support_basis": "Shared historical backbone: this narrative belongs between the preceding and following historical eras; inserted material is not claimed to match."
+    },
+    {
+      "book": "PSA",
+      "first": 57,
+      "last": 57,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": [
+        "nlt"
+      ],
+      "support_basis": "NLT Apr 16: cave Psalms with 1SA 22:1–2 (Adullam); our complete 1SA 22 precedes them, before the Doeg Psalm 52."
+    },
+    {
+      "book": "PSA",
+      "first": 142,
+      "last": 142,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": [
+        "nlt"
+      ],
+      "support_basis": "NLT Apr 16: cave Psalms with 1SA 22:1–2 (Adullam); our complete 1SA 22 precedes them, before the Doeg Psalm 52."
     },
     {
       "book": "PSA",
@@ -287,7 +340,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Doeg episode in 1SA 22: BLB 104–105, BTTB Apr 14–15, NLT Apr 16."
     },
     {
       "book": "1SA",
@@ -298,7 +352,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Shared historical backbone: this narrative belongs between the preceding and following historical eras; inserted material is not claimed to match."
     },
     {
       "book": "PSA",
@@ -310,7 +365,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Ziph pursuit: BLB 104–108, BTTB Apr 14–18, NLT Apr 17."
     },
     {
       "book": "1SA",
@@ -321,31 +377,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
-    },
-    {
-      "book": "PSA",
-      "first": 57,
-      "last": 57,
-      "era": "united-monarchy",
-      "decision_id": "D06",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
-    },
-    {
-      "book": "PSA",
-      "first": 142,
-      "last": 142,
-      "era": "united-monarchy",
-      "decision_id": "D06",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      ],
+      "support_basis": "Shared historical backbone: this narrative belongs between the preceding and following historical eras; inserted material is not claimed to match."
     },
     {
       "book": "1SA",
@@ -356,7 +389,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Shared historical backbone: this narrative belongs between the preceding and following historical eras; inserted material is not claimed to match."
     },
     {
       "book": "1CH",
@@ -365,10 +399,10 @@
       "era": "united-monarchy",
       "decision_id": "D05",
       "supported_by": [
-        "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Saul’s death alongside 1SA 31: BTTB Apr 19; NLT Apr 19 includes 1CH 10:1–14; BLB instead reads chapter 10 with genealogies."
     },
     {
       "book": "2SA",
@@ -376,11 +410,7 @@
       "last": 5,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "1CH",
@@ -388,11 +418,7 @@
       "last": 12,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2SA",
@@ -400,11 +426,7 @@
       "last": 6,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "1CH",
@@ -412,11 +434,31 @@
       "last": 16,
       "era": "united-monarchy",
       "decision_id": "D05",
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 96,
+      "last": 96,
+      "era": "united-monarchy",
+      "decision_id": "D06",
       "supported_by": [
         "blb",
-        "bttb",
-        "nlt"
-      ]
+        "bttb"
+      ],
+      "support_basis": "Ark/1CH 16 context: BLB 124–126 and BTTB May 4–6 include both Psalms; NLT reads these complete Psalms in July."
+    },
+    {
+      "book": "PSA",
+      "first": 105,
+      "last": 105,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": [
+        "blb",
+        "bttb"
+      ],
+      "support_basis": "Ark/1CH 16 context: BLB 124–126 and BTTB May 4–6 include both Psalms; NLT reads these complete Psalms in July."
     },
     {
       "book": "2SA",
@@ -424,11 +466,7 @@
       "last": 7,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "1CH",
@@ -436,11 +474,7 @@
       "last": 17,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2SA",
@@ -448,11 +482,7 @@
       "last": 8,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "1CH",
@@ -460,11 +490,7 @@
       "last": 18,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "PSA",
@@ -476,7 +502,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "War narrative near 2SA 8 / 1CH 18: BLB 129–130, BTTB May 9–10, NLT Apr 24."
     },
     {
       "book": "2SA",
@@ -484,11 +511,7 @@
       "last": 10,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "1CH",
@@ -496,11 +519,7 @@
       "last": 19,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2SA",
@@ -508,11 +527,7 @@
       "last": 12,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "1CH",
@@ -520,11 +535,7 @@
       "last": 20,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "PSA",
@@ -534,9 +545,9 @@
       "decision_id": "D06",
       "supported_by": [
         "blb",
-        "bttb",
-        "nlt"
-      ]
+        "bttb"
+      ],
+      "support_basis": "Repentance cluster after 2SA 11–12: BLB 133–134, BTTB May 13–14; NLT reads Psalm 51 there but 32 in its May anthology."
     },
     {
       "book": "PSA",
@@ -546,9 +557,9 @@
       "decision_id": "D06",
       "supported_by": [
         "blb",
-        "bttb",
-        "nlt"
-      ]
+        "bttb"
+      ],
+      "support_basis": "Repentance cluster after 2SA 11–12: BLB 133–134, BTTB May 13–14; NLT reads Psalm 51 there but 32 in its May anthology."
     },
     {
       "book": "2SA",
@@ -556,11 +567,7 @@
       "last": 15,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "PSA",
@@ -572,7 +579,19 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Absalom flight after 2SA 15: BLB 135–136, BTTB May 15–16, NLT Apr 28–29."
+    },
+    {
+      "book": "PSA",
+      "first": 63,
+      "last": 63,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": [
+        "nlt"
+      ],
+      "support_basis": "NLT Apr 29 places Psalm 63 beside Psalm 3 during Absalom’s rebellion."
     },
     {
       "book": "2SA",
@@ -580,11 +599,7 @@
       "last": 22,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "PSA",
@@ -593,10 +608,9 @@
       "era": "united-monarchy",
       "decision_id": "D06",
       "supported_by": [
-        "blb",
-        "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "NLT May 1: Psalm 18 beside 2SA 22; BLB/BTTB put it after Saul’s death."
     },
     {
       "book": "2SA",
@@ -604,11 +618,7 @@
       "last": 24,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "1CH",
@@ -616,11 +626,7 @@
       "last": 22,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "PSA",
@@ -630,9 +636,17 @@
       "decision_id": "D06",
       "supported_by": [
         "blb",
-        "bttb",
-        "nlt"
-      ]
+        "bttb"
+      ],
+      "support_basis": "BLB 143 / BTTB May 23: dedication Psalm with 2SA 24 and 1CH 21–22; event identification remains uncertain."
+    },
+    {
+      "book": "1KI",
+      "first": 1,
+      "last": 1,
+      "era": "united-monarchy",
+      "decision_id": "D05",
+      "supported_by": []
     },
     {
       "book": "1CH",
@@ -640,23 +654,114 @@
       "last": 29,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
+    },
+    {
+      "book": "PSA",
+      "first": 1,
+      "last": 2,
+      "era": "united-monarchy",
+      "decision_id": "D07",
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
+    },
+    {
+      "book": "PSA",
+      "first": 4,
+      "last": 17,
+      "era": "united-monarchy",
+      "decision_id": "D07",
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
+    },
+    {
+      "book": "PSA",
+      "first": 19,
+      "last": 29,
+      "era": "united-monarchy",
+      "decision_id": "D07",
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
+    },
+    {
+      "book": "PSA",
+      "first": 31,
+      "last": 31,
+      "era": "united-monarchy",
+      "decision_id": "D07",
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
+    },
+    {
+      "book": "PSA",
+      "first": 33,
+      "last": 33,
+      "era": "united-monarchy",
+      "decision_id": "D07",
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
+    },
+    {
+      "book": "PSA",
+      "first": 35,
+      "last": 50,
+      "era": "united-monarchy",
+      "decision_id": "D07",
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
+    },
+    {
+      "book": "PSA",
+      "first": 53,
+      "last": 53,
+      "era": "united-monarchy",
+      "decision_id": "D07",
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
+    },
+    {
+      "book": "PSA",
+      "first": 55,
+      "last": 55,
+      "era": "united-monarchy",
+      "decision_id": "D07",
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
+    },
+    {
+      "book": "PSA",
+      "first": 58,
+      "last": 58,
+      "era": "united-monarchy",
+      "decision_id": "D07",
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
+    },
+    {
+      "book": "PSA",
+      "first": 61,
+      "last": 62,
+      "era": "united-monarchy",
+      "decision_id": "D07",
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
+    },
+    {
+      "book": "PSA",
+      "first": 64,
+      "last": 71,
+      "era": "united-monarchy",
+      "decision_id": "D07",
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
     },
     {
       "book": "1KI",
-      "first": 1,
+      "first": 2,
       "last": 4,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2CH",
@@ -664,11 +769,7 @@
       "last": 1,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "PRO",
@@ -677,10 +778,9 @@
       "era": "united-monarchy",
       "decision_id": "D08",
       "supported_by": [
-        "blb",
-        "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "NLT May 27–Jun 4: Proverbs 1–24 before Song, during Solomon’s reign."
     },
     {
       "book": "SNG",
@@ -689,10 +789,9 @@
       "era": "united-monarchy",
       "decision_id": "D08",
       "supported_by": [
-        "blb",
-        "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "NLT May 27–Jun 4: Proverbs 1–24 before Song, during Solomon’s reign."
     },
     {
       "book": "1KI",
@@ -700,11 +799,7 @@
       "last": 8,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2CH",
@@ -712,11 +807,7 @@
       "last": 7,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "PSA",
@@ -725,10 +816,9 @@
       "era": "united-monarchy",
       "decision_id": "D08",
       "supported_by": [
-        "blb",
-        "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "NLT May 26: both Psalms follow Solomon’s temple/kingdom narrative; BTTB/BLB put 127 before his reign."
     },
     {
       "book": "PSA",
@@ -737,10 +827,17 @@
       "era": "united-monarchy",
       "decision_id": "D08",
       "supported_by": [
-        "blb",
-        "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "NLT May 26: both Psalms follow Solomon’s temple/kingdom narrative; BTTB/BLB put 127 before his reign."
+    },
+    {
+      "book": "PSA",
+      "first": 132,
+      "last": 132,
+      "era": "united-monarchy",
+      "decision_id": "D06",
+      "supported_by": []
     },
     {
       "book": "1KI",
@@ -748,11 +845,7 @@
       "last": 11,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2CH",
@@ -760,11 +853,7 @@
       "last": 9,
       "era": "united-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "ECC",
@@ -773,10 +862,9 @@
       "era": "united-monarchy",
       "decision_id": "D08",
       "supported_by": [
-        "blb",
-        "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "NLT Jun 5–8: Ecclesiastes after 1KI 11; BLB/BTTB before the final Solomon narrative."
     },
     {
       "book": "1KI",
@@ -784,11 +872,7 @@
       "last": 14,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2CH",
@@ -796,11 +880,7 @@
       "last": 12,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "1KI",
@@ -808,11 +888,7 @@
       "last": 15,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2CH",
@@ -820,11 +896,7 @@
       "last": 16,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "1KI",
@@ -832,11 +904,7 @@
       "last": 22,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2CH",
@@ -844,11 +912,7 @@
       "last": 20,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2KI",
@@ -856,11 +920,7 @@
       "last": 8,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2CH",
@@ -868,11 +928,7 @@
       "last": 21,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2KI",
@@ -880,11 +936,7 @@
       "last": 11,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2CH",
@@ -892,11 +944,7 @@
       "last": 23,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2KI",
@@ -904,11 +952,7 @@
       "last": 14,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2CH",
@@ -916,11 +960,7 @@
       "last": 25,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "JON",
@@ -929,10 +969,9 @@
       "era": "divided-monarchy",
       "decision_id": "D10",
       "supported_by": [
-        "blb",
-        "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "NLT Jun 20–22: Jonah then Amos in the Jeroboam II / Uzziah context."
     },
     {
       "book": "AMO",
@@ -941,10 +980,9 @@
       "era": "divided-monarchy",
       "decision_id": "D10",
       "supported_by": [
-        "blb",
-        "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "NLT Jun 20–22: Jonah then Amos in the Jeroboam II / Uzziah context."
     },
     {
       "book": "2KI",
@@ -952,11 +990,7 @@
       "last": 15,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2CH",
@@ -964,11 +998,7 @@
       "last": 27,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "HOS",
@@ -977,46 +1007,25 @@
       "era": "divided-monarchy",
       "decision_id": "D10",
       "supported_by": [
-        "blb",
-        "bttb",
         "nlt"
-      ]
-    },
-    {
-      "book": "MIC",
-      "first": 1,
-      "last": 7,
-      "era": "divided-monarchy",
-      "decision_id": "D10",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      ],
+      "support_basis": "NLT Jun 25–27: Hosea in the eighth-century northern-kingdom crisis; BLB/BTTB put it after Hezekiah’s reforms."
     },
     {
       "book": "ISA",
       "first": 1,
-      "last": 12,
+      "last": 6,
       "era": "divided-monarchy",
       "decision_id": "D11",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2KI",
       "first": 16,
-      "last": 17,
+      "last": 16,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2CH",
@@ -1024,11 +1033,34 @@
       "last": 28,
       "era": "divided-monarchy",
       "decision_id": "D05",
+      "supported_by": []
+    },
+    {
+      "book": "ISA",
+      "first": 7,
+      "last": 12,
+      "era": "divided-monarchy",
+      "decision_id": "D11",
       "supported_by": [
-        "blb",
-        "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "NLT Jun 23–25: Isaiah 7–12 beside Ahaz’s narrative in 2KI 16 / 2CH 28."
+    },
+    {
+      "book": "MIC",
+      "first": 1,
+      "last": 7,
+      "era": "divided-monarchy",
+      "decision_id": "D10",
+      "supported_by": []
+    },
+    {
+      "book": "2KI",
+      "first": 17,
+      "last": 17,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": []
     },
     {
       "book": "ISA",
@@ -1036,11 +1068,7 @@
       "last": 35,
       "era": "divided-monarchy",
       "decision_id": "D11",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2KI",
@@ -1048,11 +1076,7 @@
       "last": 20,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2CH",
@@ -1060,11 +1084,18 @@
       "last": 32,
       "era": "divided-monarchy",
       "decision_id": "D05",
+      "supported_by": []
+    },
+    {
+      "book": "PRO",
+      "first": 25,
+      "last": 31,
+      "era": "divided-monarchy",
+      "decision_id": "D09",
       "supported_by": [
-        "blb",
-        "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "NLT Jul 2–3: final Proverbs collection after 2CH 29–31, before Isaiah 36–39."
     },
     {
       "book": "ISA",
@@ -1076,17 +1107,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
-    },
-    {
-      "book": "PRO",
-      "first": 25,
-      "last": 31,
-      "era": "divided-monarchy",
-      "decision_id": "D09",
-      "supported_by": [
-        "nlt"
-      ]
+      ],
+      "support_basis": "BLB 205–213, BTTB Jul 24–Aug 1, NLT Jul 20–28: Isaiah 36–39 precedes 40–66 within the Hezekiah reading context."
     },
     {
       "book": "ISA",
@@ -1098,7 +1120,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "BLB 205–213, BTTB Jul 24–Aug 1, NLT Jul 20–28: Isaiah 36–39 precedes 40–66 within the Hezekiah reading context."
     },
     {
       "book": "2KI",
@@ -1106,11 +1129,7 @@
       "last": 21,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2CH",
@@ -1118,11 +1137,7 @@
       "last": 33,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "NAM",
@@ -1132,33 +1147,25 @@
       "decision_id": "D12",
       "supported_by": [
         "blb",
-        "bttb",
-        "nlt"
-      ]
+        "bttb"
+      ],
+      "support_basis": "BLB 215–216 / BTTB Aug 3–4: Nahum after Manasseh (2CH 33), before Josiah’s reign."
     },
     {
       "book": "2KI",
       "first": 22,
-      "last": 23,
+      "last": 22,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2CH",
       "first": 34,
-      "last": 35,
+      "last": 34,
       "era": "divided-monarchy",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "ZEP",
@@ -1166,11 +1173,31 @@
       "last": 3,
       "era": "divided-monarchy",
       "decision_id": "D12",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
+    },
+    {
+      "book": "JER",
+      "first": 1,
+      "last": 6,
+      "era": "divided-monarchy",
+      "decision_id": "D13",
+      "supported_by": []
+    },
+    {
+      "book": "2KI",
+      "first": 23,
+      "last": 23,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": []
+    },
+    {
+      "book": "2CH",
+      "first": 35,
+      "last": 35,
+      "era": "divided-monarchy",
+      "decision_id": "D05",
+      "supported_by": []
     },
     {
       "book": "HAB",
@@ -1179,34 +1206,33 @@
       "era": "divided-monarchy",
       "decision_id": "D12",
       "supported_by": [
-        "blb",
-        "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "NLT Aug 2: Habakkuk before the final kings/deportation readings, unlike BLB 232 / BTTB Aug 20."
     },
     {
       "book": "JER",
-      "first": 1,
+      "first": 7,
       "last": 20,
       "era": "divided-monarchy",
       "decision_id": "D13",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "JER",
       "first": 22,
+      "last": 23,
+      "era": "divided-monarchy",
+      "decision_id": "D13",
+      "supported_by": []
+    },
+    {
+      "book": "JER",
+      "first": 25,
       "last": 26,
       "era": "divided-monarchy",
       "decision_id": "D13",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "JER",
@@ -1214,11 +1240,7 @@
       "last": 36,
       "era": "divided-monarchy",
       "decision_id": "D13",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "JER",
@@ -1226,23 +1248,7 @@
       "last": 45,
       "era": "divided-monarchy",
       "decision_id": "D13",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
-    },
-    {
-      "book": "2KI",
-      "first": 24,
-      "last": 24,
-      "era": "exile-return",
-      "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "DAN",
@@ -1251,10 +1257,28 @@
       "era": "exile-return",
       "decision_id": "D14",
       "supported_by": [
-        "blb",
-        "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "NLT Aug 6–7: Jehoiakim-era Daniel before Jehoiachin’s 597 BCE deportation readings on Aug 11."
+    },
+    {
+      "book": "2KI",
+      "first": 24,
+      "last": 24,
+      "era": "exile-return",
+      "decision_id": "D05",
+      "supported_by": []
+    },
+    {
+      "book": "JER",
+      "first": 24,
+      "last": 24,
+      "era": "exile-return",
+      "decision_id": "D13",
+      "supported_by": [
+        "nlt"
+      ],
+      "support_basis": "NLT Aug 11–12: JER 23:33–24:10 follows 2KI 24:8–9 / 2CH 36:9 (Jehoiachin)."
     },
     {
       "book": "JER",
@@ -1262,11 +1286,7 @@
       "last": 31,
       "era": "exile-return",
       "decision_id": "D13",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "EZK",
@@ -1275,10 +1295,9 @@
       "era": "exile-return",
       "decision_id": "D14",
       "supported_by": [
-        "blb",
-        "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "NLT Aug 15–22: Ezekiel’s initial visions before the Jerusalem-destruction narrative; BLB/BTTB read them after Lamentations."
     },
     {
       "book": "JER",
@@ -1286,11 +1305,7 @@
       "last": 21,
       "era": "exile-return",
       "decision_id": "D13",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "JER",
@@ -1298,11 +1313,7 @@
       "last": 34,
       "era": "exile-return",
       "decision_id": "D13",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "JER",
@@ -1310,11 +1321,7 @@
       "last": 39,
       "era": "exile-return",
       "decision_id": "D13",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2KI",
@@ -1322,11 +1329,7 @@
       "last": 25,
       "era": "exile-return",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2CH",
@@ -1334,11 +1337,7 @@
       "last": 36,
       "era": "exile-return",
       "decision_id": "D05",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "JER",
@@ -1346,11 +1345,7 @@
       "last": 52,
       "era": "exile-return",
       "decision_id": "D13",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "JER",
@@ -1358,11 +1353,7 @@
       "last": 44,
       "era": "exile-return",
       "decision_id": "D13",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "JER",
@@ -1370,11 +1361,7 @@
       "last": 51,
       "era": "exile-return",
       "decision_id": "D13",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "LAM",
@@ -1386,29 +1373,17 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "All three read Lamentations after the Jerusalem fall account."
     },
     {
       "book": "PSA",
-      "first": 74,
-      "last": 74,
+      "first": 73,
+      "last": 89,
       "era": "exile-return",
       "decision_id": "D07",
-      "supported_by": [
-        "blb",
-        "bttb"
-      ]
-    },
-    {
-      "book": "PSA",
-      "first": 79,
-      "last": 79,
-      "era": "exile-return",
-      "decision_id": "D07",
-      "supported_by": [
-        "blb",
-        "bttb"
-      ]
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
     },
     {
       "book": "PSA",
@@ -1416,11 +1391,7 @@
       "last": 137,
       "era": "exile-return",
       "decision_id": "D07",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "OBA",
@@ -1430,7 +1401,8 @@
       "decision_id": "D15",
       "supported_by": [
         "nlt"
-      ]
+      ],
+      "support_basis": "NLT Aug 28: Obadiah after Lamentations, unlike BLB/BTTB’s Jehoram placement."
     },
     {
       "book": "EZK",
@@ -1438,11 +1410,7 @@
       "last": 48,
       "era": "exile-return",
       "decision_id": "D14",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "DAN",
@@ -1450,9 +1418,7 @@
       "last": 4,
       "era": "exile-return",
       "decision_id": "D14",
-      "supported_by": [
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "DAN",
@@ -1460,11 +1426,7 @@
       "last": 8,
       "era": "exile-return",
       "decision_id": "D14",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "DAN",
@@ -1472,35 +1434,47 @@
       "last": 6,
       "era": "exile-return",
       "decision_id": "D14",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "DAN",
       "first": 9,
-      "last": 12,
+      "last": 9,
       "era": "exile-return",
       "decision_id": "D14",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "EZR",
       "first": 1,
-      "last": 4,
+      "last": 3,
       "era": "exile-return",
       "decision_id": "D17",
       "supported_by": [
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "All three: Cyrus’s return/early rebuilding before later Persian-period readings."
+    },
+    {
+      "book": "DAN",
+      "first": 10,
+      "last": 12,
+      "era": "exile-return",
+      "decision_id": "D14",
+      "supported_by": [
+        "nlt"
+      ],
+      "support_basis": "NLT Sep 9–10: Daniel 10–12 after Ezra 2–4:5, before resumed construction; chapter 10 names Cyrus’s third year."
+    },
+    {
+      "book": "EZR",
+      "first": 4,
+      "last": 4,
+      "era": "exile-return",
+      "decision_id": "D17",
+      "supported_by": []
     },
     {
       "book": "HAG",
@@ -1508,11 +1482,7 @@
       "last": 2,
       "era": "exile-return",
       "decision_id": "D17",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "ZEC",
@@ -1520,11 +1490,7 @@
       "last": 8,
       "era": "exile-return",
       "decision_id": "D17",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "EZR",
@@ -1532,11 +1498,7 @@
       "last": 6,
       "era": "exile-return",
       "decision_id": "D17",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "ZEC",
@@ -1544,11 +1506,7 @@
       "last": 14,
       "era": "exile-return",
       "decision_id": "D17",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "EST",
@@ -1556,11 +1514,7 @@
       "last": 10,
       "era": "exile-return",
       "decision_id": "D17",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "EZR",
@@ -1568,154 +1522,88 @@
       "last": 10,
       "era": "exile-return",
       "decision_id": "D17",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "NEH",
       "first": 1,
+      "last": 11,
+      "era": "exile-return",
+      "decision_id": "D17",
+      "supported_by": []
+    },
+    {
+      "book": "1CH",
+      "first": 9,
+      "last": 9,
+      "era": "exile-return",
+      "decision_id": "D04",
+      "supported_by": [
+        "nlt"
+      ],
+      "support_basis": "NLT Sep 21: 1CH 9:1–34 beside NEH 11:1–12:26; whole chapter retains its concluding Saul genealogy as a flashback."
+    },
+    {
+      "book": "NEH",
+      "first": 12,
       "last": 13,
       "era": "exile-return",
       "decision_id": "D17",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
-    },
-    {
-      "book": "PSA",
-      "first": 126,
-      "last": 126,
-      "era": "exile-return",
-      "decision_id": "D07",
-      "supported_by": [
-        "blb",
-        "bttb"
-      ]
-    },
-    {
-      "book": "PSA",
-      "first": 1,
-      "last": 2,
-      "era": "exile-return",
-      "decision_id": "D07",
-      "supported_by": []
-    },
-    {
-      "book": "PSA",
-      "first": 4,
-      "last": 17,
-      "era": "exile-return",
-      "decision_id": "D07",
-      "supported_by": []
-    },
-    {
-      "book": "PSA",
-      "first": 19,
-      "last": 29,
-      "era": "exile-return",
-      "decision_id": "D07",
-      "supported_by": []
-    },
-    {
-      "book": "PSA",
-      "first": 31,
-      "last": 31,
-      "era": "exile-return",
-      "decision_id": "D07",
-      "supported_by": []
-    },
-    {
-      "book": "PSA",
-      "first": 33,
-      "last": 33,
-      "era": "exile-return",
-      "decision_id": "D07",
-      "supported_by": []
-    },
-    {
-      "book": "PSA",
-      "first": 35,
-      "last": 50,
-      "era": "exile-return",
-      "decision_id": "D07",
-      "supported_by": []
-    },
-    {
-      "book": "PSA",
-      "first": 53,
-      "last": 53,
-      "era": "exile-return",
-      "decision_id": "D07",
-      "supported_by": []
-    },
-    {
-      "book": "PSA",
-      "first": 55,
-      "last": 56,
-      "era": "exile-return",
-      "decision_id": "D07",
-      "supported_by": []
-    },
-    {
-      "book": "PSA",
-      "first": 58,
-      "last": 58,
-      "era": "exile-return",
-      "decision_id": "D07",
-      "supported_by": []
-    },
-    {
-      "book": "PSA",
-      "first": 61,
-      "last": 71,
-      "era": "exile-return",
-      "decision_id": "D07",
-      "supported_by": []
-    },
-    {
-      "book": "PSA",
-      "first": 73,
-      "last": 73,
-      "era": "exile-return",
-      "decision_id": "D07",
-      "supported_by": []
-    },
-    {
-      "book": "PSA",
-      "first": 75,
-      "last": 78,
-      "era": "exile-return",
-      "decision_id": "D07",
-      "supported_by": []
-    },
-    {
-      "book": "PSA",
-      "first": 80,
-      "last": 89,
-      "era": "exile-return",
-      "decision_id": "D07",
       "supported_by": []
     },
     {
       "book": "PSA",
       "first": 91,
-      "last": 125,
+      "last": 95,
       "era": "exile-return",
       "decision_id": "D07",
-      "supported_by": []
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
+    },
+    {
+      "book": "PSA",
+      "first": 97,
+      "last": 104,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
+    },
+    {
+      "book": "PSA",
+      "first": 106,
+      "last": 106,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
+    },
+    {
+      "book": "PSA",
+      "first": 107,
+      "last": 126,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
     },
     {
       "book": "PSA",
       "first": 128,
+      "last": 131,
+      "era": "exile-return",
+      "decision_id": "D07",
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
+    },
+    {
+      "book": "PSA",
+      "first": 133,
       "last": 136,
       "era": "exile-return",
       "decision_id": "D07",
-      "supported_by": []
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
     },
     {
       "book": "PSA",
@@ -1723,7 +1611,8 @@
       "last": 141,
       "era": "exile-return",
       "decision_id": "D07",
-      "supported_by": []
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
     },
     {
       "book": "PSA",
@@ -1731,7 +1620,8 @@
       "last": 150,
       "era": "exile-return",
       "decision_id": "D07",
-      "supported_by": []
+      "supported_by": [],
+      "placement_kind": "undated-anthology"
     },
     {
       "book": "JOL",
@@ -1739,9 +1629,7 @@
       "last": 3,
       "era": "exile-return",
       "decision_id": "D16",
-      "supported_by": [
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MAL",
@@ -1753,7 +1641,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "All three put Malachi after Nehemiah and before the Gospel era; intervening anthology placement is our own."
     },
     {
       "book": "LUK",
@@ -1761,11 +1650,7 @@
       "last": 2,
       "era": "life-of-jesus",
       "decision_id": "D18",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MAT",
@@ -1773,11 +1658,23 @@
       "last": 2,
       "era": "life-of-jesus",
       "decision_id": "D18",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
+    },
+    {
+      "book": "MAT",
+      "first": 3,
+      "last": 3,
+      "era": "life-of-jesus",
+      "decision_id": "D18",
+      "supported_by": []
+    },
+    {
+      "book": "LUK",
+      "first": 3,
+      "last": 3,
+      "era": "life-of-jesus",
+      "decision_id": "D18",
+      "supported_by": []
     },
     {
       "book": "JHN",
@@ -1785,35 +1682,18 @@
       "last": 1,
       "era": "life-of-jesus",
       "decision_id": "D18",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
-      "book": "MAT",
-      "first": 3,
-      "last": 3,
+      "book": "JHN",
+      "first": 2,
+      "last": 4,
       "era": "life-of-jesus",
-      "decision_id": "D19",
+      "decision_id": "D18",
       "supported_by": [
-        "blb",
-        "bttb",
         "nlt"
-      ]
-    },
-    {
-      "book": "LUK",
-      "first": 3,
-      "last": 3,
-      "era": "life-of-jesus",
-      "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      ],
+      "support_basis": "NLT Sep 27–29: John’s early Judean ministry before the post-arrest Galilean opening; BLB/BTTB reverse these whole-chapter blocks."
     },
     {
       "book": "MRK",
@@ -1821,11 +1701,7 @@
       "last": 1,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MAT",
@@ -1833,11 +1709,7 @@
       "last": 4,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "LUK",
@@ -1845,23 +1717,15 @@
       "last": 5,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "JHN",
-      "first": 2,
-      "last": 4,
+      "first": 5,
+      "last": 5,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MRK",
@@ -1869,11 +1733,7 @@
       "last": 3,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MAT",
@@ -1881,11 +1741,7 @@
       "last": 7,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "LUK",
@@ -1893,11 +1749,7 @@
       "last": 6,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MAT",
@@ -1905,11 +1757,7 @@
       "last": 9,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "LUK",
@@ -1917,11 +1765,7 @@
       "last": 7,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MAT",
@@ -1929,23 +1773,7 @@
       "last": 12,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
-    },
-    {
-      "book": "JHN",
-      "first": 5,
-      "last": 5,
-      "era": "life-of-jesus",
-      "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MRK",
@@ -1953,11 +1781,7 @@
       "last": 5,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MAT",
@@ -1965,11 +1789,7 @@
       "last": 13,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "LUK",
@@ -1977,11 +1797,7 @@
       "last": 8,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MAT",
@@ -1989,11 +1805,7 @@
       "last": 14,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MRK",
@@ -2001,23 +1813,7 @@
       "last": 6,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
-    },
-    {
-      "book": "LUK",
-      "first": 9,
-      "last": 9,
-      "era": "life-of-jesus",
-      "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "JHN",
@@ -2025,11 +1821,7 @@
       "last": 6,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MAT",
@@ -2037,11 +1829,7 @@
       "last": 15,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MRK",
@@ -2049,11 +1837,7 @@
       "last": 7,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MAT",
@@ -2061,11 +1845,7 @@
       "last": 16,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MRK",
@@ -2073,11 +1853,7 @@
       "last": 8,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MAT",
@@ -2085,11 +1861,7 @@
       "last": 17,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MRK",
@@ -2097,11 +1869,15 @@
       "last": 9,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
+    },
+    {
+      "book": "LUK",
+      "first": 9,
+      "last": 9,
+      "era": "life-of-jesus",
+      "decision_id": "D19",
+      "supported_by": []
     },
     {
       "book": "MAT",
@@ -2109,11 +1885,7 @@
       "last": 18,
       "era": "life-of-jesus",
       "decision_id": "D19",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "JHN",
@@ -2121,11 +1893,7 @@
       "last": 10,
       "era": "life-of-jesus",
       "decision_id": "D20",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "LUK",
@@ -2133,11 +1901,7 @@
       "last": 17,
       "era": "life-of-jesus",
       "decision_id": "D20",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "JHN",
@@ -2145,11 +1909,7 @@
       "last": 11,
       "era": "life-of-jesus",
       "decision_id": "D20",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "LUK",
@@ -2157,11 +1917,7 @@
       "last": 18,
       "era": "life-of-jesus",
       "decision_id": "D20",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MAT",
@@ -2169,11 +1925,7 @@
       "last": 20,
       "era": "life-of-jesus",
       "decision_id": "D20",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MRK",
@@ -2181,11 +1933,7 @@
       "last": 10,
       "era": "life-of-jesus",
       "decision_id": "D20",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MAT",
@@ -2193,11 +1941,7 @@
       "last": 21,
       "era": "life-of-jesus",
       "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MRK",
@@ -2205,11 +1949,7 @@
       "last": 11,
       "era": "life-of-jesus",
       "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "LUK",
@@ -2217,11 +1957,7 @@
       "last": 19,
       "era": "life-of-jesus",
       "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "JHN",
@@ -2229,11 +1965,7 @@
       "last": 12,
       "era": "life-of-jesus",
       "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MAT",
@@ -2241,11 +1973,7 @@
       "last": 23,
       "era": "life-of-jesus",
       "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MRK",
@@ -2253,11 +1981,7 @@
       "last": 12,
       "era": "life-of-jesus",
       "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "LUK",
@@ -2265,11 +1989,7 @@
       "last": 21,
       "era": "life-of-jesus",
       "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MAT",
@@ -2277,11 +1997,7 @@
       "last": 25,
       "era": "life-of-jesus",
       "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MRK",
@@ -2289,11 +2005,7 @@
       "last": 13,
       "era": "life-of-jesus",
       "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MAT",
@@ -2301,11 +2013,7 @@
       "last": 26,
       "era": "life-of-jesus",
       "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "MRK",
@@ -2313,11 +2021,7 @@
       "last": 14,
       "era": "life-of-jesus",
       "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "LUK",
@@ -2325,11 +2029,7 @@
       "last": 22,
       "era": "life-of-jesus",
       "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "JHN",
@@ -2337,47 +2037,7 @@
       "last": 17,
       "era": "life-of-jesus",
       "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
-    },
-    {
-      "book": "MAT",
-      "first": 27,
-      "last": 27,
-      "era": "life-of-jesus",
-      "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
-    },
-    {
-      "book": "MRK",
-      "first": 15,
-      "last": 15,
-      "era": "life-of-jesus",
-      "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
-    },
-    {
-      "book": "LUK",
-      "first": 23,
-      "last": 23,
-      "era": "life-of-jesus",
-      "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "JHN",
@@ -2385,11 +2045,31 @@
       "last": 19,
       "era": "life-of-jesus",
       "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
+    },
+    {
+      "book": "MAT",
+      "first": 27,
+      "last": 27,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": []
+    },
+    {
+      "book": "MRK",
+      "first": 15,
+      "last": 15,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": []
+    },
+    {
+      "book": "LUK",
+      "first": 23,
+      "last": 23,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": []
     },
     {
       "book": "MAT",
@@ -2397,23 +2077,7 @@
       "last": 28,
       "era": "life-of-jesus",
       "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
-    },
-    {
-      "book": "MRK",
-      "first": 16,
-      "last": 16,
-      "era": "life-of-jesus",
-      "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "LUK",
@@ -2421,11 +2085,15 @@
       "last": 24,
       "era": "life-of-jesus",
       "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
+    },
+    {
+      "book": "MRK",
+      "first": 16,
+      "last": 16,
+      "era": "life-of-jesus",
+      "decision_id": "D21",
+      "supported_by": []
     },
     {
       "book": "JHN",
@@ -2433,11 +2101,7 @@
       "last": 21,
       "era": "life-of-jesus",
       "decision_id": "D21",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "ACT",
@@ -2448,7 +2112,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Shared historical backbone: this narrative belongs between the preceding and following historical eras; inserted material is not claimed to match."
     },
     {
       "book": "JAS",
@@ -2456,10 +2121,7 @@
       "last": 5,
       "era": "apostolic-church",
       "decision_id": "D22",
-      "supported_by": [
-        "blb",
-        "bttb"
-      ]
+      "supported_by": []
     },
     {
       "book": "ACT",
@@ -2470,7 +2132,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "Shared historical backbone: this narrative belongs between the preceding and following historical eras; inserted material is not claimed to match."
     },
     {
       "book": "GAL",
@@ -2480,7 +2143,8 @@
       "decision_id": "D22",
       "supported_by": [
         "nlt"
-      ]
+      ],
+      "support_basis": "NLT Nov 13–14: Galatians after ACT 14, before the council in ACT 15."
     },
     {
       "book": "ACT",
@@ -2488,11 +2152,7 @@
       "last": 18,
       "era": "apostolic-church",
       "decision_id": "D23",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "1TH",
@@ -2500,11 +2160,7 @@
       "last": 5,
       "era": "apostolic-church",
       "decision_id": "D23",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2TH",
@@ -2512,11 +2168,7 @@
       "last": 3,
       "era": "apostolic-church",
       "decision_id": "D23",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "ACT",
@@ -2524,11 +2176,7 @@
       "last": 19,
       "era": "apostolic-church",
       "decision_id": "D23",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "1CO",
@@ -2536,11 +2184,7 @@
       "last": 16,
       "era": "apostolic-church",
       "decision_id": "D23",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2CO",
@@ -2548,23 +2192,7 @@
       "last": 13,
       "era": "apostolic-church",
       "decision_id": "D23",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
-    },
-    {
-      "book": "ACT",
-      "first": 20,
-      "last": 20,
-      "era": "apostolic-church",
-      "decision_id": "D23",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "ROM",
@@ -2572,23 +2200,15 @@
       "last": 16,
       "era": "apostolic-church",
       "decision_id": "D23",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "ACT",
-      "first": 21,
+      "first": 20,
       "last": 28,
       "era": "apostolic-church",
       "decision_id": "D23",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "EPH",
@@ -2596,11 +2216,7 @@
       "last": 6,
       "era": "apostolic-church",
       "decision_id": "D24",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "COL",
@@ -2608,11 +2224,7 @@
       "last": 4,
       "era": "apostolic-church",
       "decision_id": "D24",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "PHM",
@@ -2620,11 +2232,7 @@
       "last": 1,
       "era": "apostolic-church",
       "decision_id": "D24",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "PHP",
@@ -2632,11 +2240,7 @@
       "last": 4,
       "era": "apostolic-church",
       "decision_id": "D24",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "1TI",
@@ -2644,11 +2248,7 @@
       "last": 6,
       "era": "apostolic-church",
       "decision_id": "D24",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "TIT",
@@ -2656,35 +2256,7 @@
       "last": 3,
       "era": "apostolic-church",
       "decision_id": "D24",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
-    },
-    {
-      "book": "1PE",
-      "first": 1,
-      "last": 5,
-      "era": "apostolic-church",
-      "decision_id": "D24",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
-    },
-    {
-      "book": "HEB",
-      "first": 1,
-      "last": 13,
-      "era": "apostolic-church",
-      "decision_id": "D24",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2TI",
@@ -2692,11 +2264,23 @@
       "last": 4,
       "era": "apostolic-church",
       "decision_id": "D24",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
+    },
+    {
+      "book": "HEB",
+      "first": 1,
+      "last": 13,
+      "era": "apostolic-church",
+      "decision_id": "D24",
+      "supported_by": []
+    },
+    {
+      "book": "1PE",
+      "first": 1,
+      "last": 5,
+      "era": "apostolic-church",
+      "decision_id": "D24",
+      "supported_by": []
     },
     {
       "book": "2PE",
@@ -2704,23 +2288,7 @@
       "last": 3,
       "era": "apostolic-church",
       "decision_id": "D24",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
-    },
-    {
-      "book": "JUD",
-      "first": 1,
-      "last": 1,
-      "era": "apostolic-church",
-      "decision_id": "D24",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "1JN",
@@ -2728,11 +2296,7 @@
       "last": 5,
       "era": "apostolic-church",
       "decision_id": "D24",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "2JN",
@@ -2740,11 +2304,7 @@
       "last": 1,
       "era": "apostolic-church",
       "decision_id": "D24",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
     },
     {
       "book": "3JN",
@@ -2752,11 +2312,15 @@
       "last": 1,
       "era": "apostolic-church",
       "decision_id": "D24",
-      "supported_by": [
-        "blb",
-        "bttb",
-        "nlt"
-      ]
+      "supported_by": []
+    },
+    {
+      "book": "JUD",
+      "first": 1,
+      "last": 1,
+      "era": "apostolic-church",
+      "decision_id": "D24",
+      "supported_by": []
     },
     {
       "book": "REV",
@@ -2768,7 +2332,8 @@
         "blb",
         "bttb",
         "nlt"
-      ]
+      ],
+      "support_basis": "All three end with Revelation after the late apostolic letters; exact composition dating remains disputed."
     }
   ]
 }

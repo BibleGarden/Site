@@ -46,7 +46,10 @@ def validate_sequence(data: dict, decisions: str) -> list[tuple[str, int]]:
     if type(data.get("version")) is not int or data["version"] != 1:
         raise ValueError("unsupported sequence version")
     scheme = data.get("chapter_scheme")
-    if scheme != {"id": "hebrew-bsb", "chapters": 1189, "books": 66, "unit": "whole-chapter"}:
+    if scheme != {
+        "id": "english-bsb", "psalm_numbering": "hebrew", "chapters": 1189,
+        "books": 66, "unit": "whole-chapter",
+    }:
         raise ValueError("incorrect chapter scheme")
     inventory = chapter_inventory()
     decision_rows = re.findall(r"^\| (D\d{2}) \|", decisions, re.MULTILINE)
@@ -81,6 +84,11 @@ def validate_sequence(data: dict, decisions: str) -> list[tuple[str, int]]:
             raise ValueError(f"segment {index}: invalid source support")
         if not support and "decision_id" not in segment:
             raise ValueError(f"segment {index}: unsupported placement needs a decision")
+        if support and not segment.get("support_basis", "").strip():
+            raise ValueError(f"segment {index}: source support needs an explicit basis")
+        if "placement_kind" in segment:
+            if segment["placement_kind"] != "undated-anthology" or book != "PSA" or support:
+                raise ValueError(f"segment {index}: invalid undated anthology")
         for chapter in range(first, last + 1):
             key = (book, chapter)
             if key not in inventory:
