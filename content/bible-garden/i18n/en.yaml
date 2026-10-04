@@ -42,10 +42,10 @@ landing:
       p3: Total Bible reading percentage
   opensource:
     title: "Open Source\nby Design"
-    desc: "Bible Garden is fully open source under the AGPL license. Every line of code is available on GitHub. We believe that tools for reading Scripture should be free, transparent, and community-driven."
+    desc: "Bible Garden is open source under the GPL-3.0 license: the app and server code is on GitHub. We believe that tools for reading Scripture should be free, transparent, and community-driven."
     point1: "iOS app, API, and admin tools — all open source"
-    point2: "AGPL license — free to use, modify, and share"
-    point3: "API available for any application, including commercial"
+    point2: "GPL-3.0 — free to use, modify, and share under the same terms"
+    point3: "API access by application key"
     cta: Explore on GitHub
     allrights: All rights belong to God.
   mission:
@@ -65,7 +65,7 @@ landing:
     desc: "Have questions, want to contribute, or just say hello? Reach out through any of these channels."
     telegram: Telegram
   footer:
-    copyright: "Open source project under AGPL license. All rights belong to God."
+    copyright: "Open source project under the GPL-3.0 license. All rights belong to God."
     privacy: Privacy Policy
     about: How we write
 articles:
