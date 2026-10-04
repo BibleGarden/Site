@@ -475,11 +475,11 @@
     .has-reading-plan article > aside,
     .has-reading-plan .article-screen-aside,
     .has-reading-plan .article-screen-dialog,
-    .has-reading-plan .article-body > :not(.reading-plans):not(.multi-reading-demo):not(.reading-time):not(.reading-time-table),
+    .has-reading-plan .article-body > :not(.reading-plans):not(.multi-reading-demo):not(.reading-time):not(.reading-time-table):not(.bible-checklist),
     .has-reading-plan .reading-plan-switcher,
     .has-reading-plan .reading-plan-controls { display: none !important; }
 
-    .has-chronological-plan .article-body > :not(.reading-plans) {
+    .has-chronological-plan .article-body > :not(.reading-plans):not(.bible-checklist) {
         display: none !important;
     }
 
@@ -605,4 +605,67 @@
     .reading-time-table table { display: table; overflow: visible; }
     .reading-time-table caption { color: #000; }
     .article-body .reading-time-table th, .article-body .reading-time-table td { color: #000; background: transparent; border-color: #888; }
+}
+.bible-checklist { margin: 2rem 0; }
+.checklist-controls { margin-bottom: 1rem; }
+.checklist-print {
+    border: 1px solid currentColor;
+    border-radius: 0.4rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+.checklist-print[hidden] { display: none; }
+.article-body .checklist-controls p { font-size: 0.85rem; }
+.checklist-sheet { margin-bottom: 2rem; }
+.article-body .checklist-sheet h2 { margin: 0 0 0.3rem; font-size: 1.3rem; }
+.article-body .checklist-sheet header p { margin: 0 0 1rem; font-size: 0.85rem; }
+.checklist-books { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+.checklist-book { min-width: 0; }
+.article-body .checklist-book h3 { margin: 0 0 0.35rem; font-size: 0.95rem; }
+.checklist-chapters { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 0.25rem 0.5rem; max-width: 36rem; }
+@media (max-width: 480px) {
+    .checklist-chapters { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+.checklist-chapters label { display: flex; align-items: center; gap: 0.3rem; font-size: 0.8rem; font-variant-numeric: tabular-nums; cursor: pointer; }
+.checklist-chapters input { width: 0.85rem; height: 0.85rem; margin: 0.2rem 0; accent-color: #947233; }
+/* As with reading calendars, the article prints only its printable component. */
+@media print {
+    @page bible-checklist { size: A4 portrait; margin: 10mm; }
+    body.has-bible-checklist { background: #fff !important; color: #000 !important; }
+    .has-bible-checklist > :not(main),
+    .has-bible-checklist article > :not(.article-body):not(.article-screen-layout),
+    .has-bible-checklist .article-screen-aside,
+    .has-bible-checklist .article-screen-dialog,
+    .has-bible-checklist .article-body > :not(.bible-checklist),
+    .has-bible-checklist .checklist-controls { display: none !important; }
+    .has-bible-checklist main,
+    .has-bible-checklist article,
+    .has-bible-checklist .article-body,
+    .has-bible-checklist .article-screen-layout,
+    .has-bible-checklist .bible-checklist {
+        display: block; margin: 0 !important; padding: 0 !important; max-width: none; width: auto;
+    }
+    .has-bible-checklist .checklist-sheet {
+        page: bible-checklist;
+        break-after: page;
+        margin: 0;
+        color: #000;
+        background: #fff;
+        font-family: Arial, sans-serif;
+    }
+    .has-bible-checklist .checklist-sheet:last-child { break-after: auto; }
+    .article-body .checklist-sheet h2 { color: #000; font-size: 13pt; line-height: 1.2; margin: 0; }
+    .article-body .checklist-sheet header p { color: #000; font-size: 8pt; line-height: 1.2; margin: 1mm 0 4mm; }
+    .has-bible-checklist .checklist-books {
+        display: block; columns: 3; column-gap: 5mm; column-fill: balance; height: 250mm;
+    }
+    .checklist-book { break-inside: avoid; margin-bottom: 2.5mm; }
+    .article-body .checklist-book h3 { color: #000; font-size: 8.5pt; line-height: 1.2; margin: 0 0 1mm; break-after: avoid; }
+    .checklist-chapters { grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 0; }
+    .checklist-chapters label { flex-direction: row; justify-content: flex-start; gap: 0.5mm; font-size: 7pt; line-height: 4.5mm; color: #000; }
+    .checklist-chapters input {
+        appearance: none; flex: 0 0 2.6mm; width: 2.6mm; height: 2.6mm; margin: 0;
+        border: 0.2mm solid #555; border-radius: 0; background: #fff;
+    }
+    .checklist-chapters input:checked::after { content: '✓'; display: block; font-size: 8pt; line-height: 2mm; text-align: center; }
 }
