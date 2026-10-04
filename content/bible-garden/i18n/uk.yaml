@@ -106,6 +106,65 @@ articles:
   download_title: Читайте та слухайте з Bible Garden
   download_text: "Безкоштовний застосунок із відкритим кодом для читання та прослуховування Біблії кількома мовами з професійною озвучкою та налаштовуваними паузами."
   download_cta: Завантажити в App Store
+  reading_time:
+    title: План читання Біблії за розділами
+    scope: Що читати
+    chapters_day: Розділів на день
+    finish: Закінчити до дати
+    voice: Диктор
+    not_selected: Не вибрано
+    app_features: "Більше опцій: швидкість, паузи, Мультичитання"
+    speed: Швидкість відтворення (×)
+    pause: Пауза після
+    pause_seconds: Пауза (секунди)
+    none: Без доданих пауз
+    multi: Мультичитання
+    second_voice: Другий запис
+    second_speed: Швидкість другого запису (×)
+    unit: Повторювати обидва записи після кожного
+    approximation: 'Слухайте два переклади по черзі. Час приблизний: структура віршів та абзаців відрізняється.'
+    coverage: У записі {recorded} розділів; план розрахований на {total}.
+    missing: Немає запису книг
+    method: Тривалість записів виміряна повним декодуванням MP3
+    table_caption: Скільки триватиме читання залежно від кількості розділів на день
+    result: '{count} {chapters} на день — завершите {date}'
+    minutes_day: ≈ {minutes} {unit} на день
+    date: '{day} {month} {year} року'
+    deadline_hint: Початок — сьогодні. Темп округлюється вгору, тому можна закінчити раніше.
+    invalid: Перевірте кількість розділів і дату
+    language_en: Англійська
+    language_ru: Російська
+    language_uk: Українська
+    scope_bible: Уся Біблія
+    scope_ot: Старий Завіт
+    scope_nt: Новий Завіт
+    table_bible: Біблія
+    table_ot: СЗ
+    table_nt: НЗ
+    unit_verse: Вірша
+    unit_paragraph: Абзацу
+    unit_section: Розділу
+    unit_chapter: Розділу книги
+    chapter_units:
+      one: розділ
+      few: розділи
+      many: розділів
+      other: розділу
+    year_units:
+      one: рік
+      few: роки
+      many: років
+      other: року
+    month_units:
+      one: місяць
+      few: місяці
+      many: місяців
+      other: місяця
+    minute_units:
+      one: хвилина
+      few: хвилини
+      many: хвилин
+      other: хвилини
 not_found:
   title: Сторінку не знайдено
   text: "Такої сторінки немає або її перемістили."

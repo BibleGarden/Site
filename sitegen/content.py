@@ -15,6 +15,7 @@ from markupsafe import Markup, escape
 
 from .errors import BuildError
 from .multi_reading_demo import annotate_demo_marker, load_demo, placeholder_for, render_demo
+from .reading_time import PLACEHOLDER as CALCULATOR_PLACEHOLDER, annotate_calculator_marker, load_data as load_reading_time, render_calculator
 from .reading_plan import PLACEHOLDER, annotate_plan_marker, load_plans, render_plan
 from .screens import Screen, ScreenFigureExtension, ScreenRef, VARIANTS, check_asset, load_catalog, load_checksums
 
@@ -131,6 +132,7 @@ class Article:
     screens: tuple[ScreenRef, ...]
     has_plan: bool = False
     has_demo: bool = False
+    has_calculator: bool = False
 
     @property
     def path(self) -> str:
@@ -255,6 +257,7 @@ def load_articles(site: Site, content_dir: Path) -> dict[str, dict[str, Article]
     checksums = load_checksums(content_dir / "screens.sha256", screens, site.languages) if screens else {}
     if site.key == "bible-garden":
         load_plans()
+        load_reading_time()
     for slug_dir in sorted(articles_dir.iterdir()):
         if slug_dir.name == ".gitkeep":
             continue
@@ -341,7 +344,8 @@ def parse_article(
     meta, body, body_start_line = _frontmatter(source, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS)
     plan_body, has_plan = annotate_plan_marker(body, source, site_key, body_start_line)
     demo_body, demo_id = annotate_demo_marker(plan_body, source, site_key, body_start_line)
-    marked_body, clean_body, refs = annotate_screens(demo_body, source, lang, screens, body_start_line)
+    calculator_body, has_calculator = annotate_calculator_marker(demo_body, source, site_key, body_start_line)
+    marked_body, clean_body, refs = annotate_screens(calculator_body, source, lang, screens, body_start_line)
     for ref in refs:
         for variant in VARIANTS:
             check_asset(ref.screen, lang, variant, output_dir, checksums[ref.screen.path(lang, variant)])
@@ -356,14 +360,18 @@ def parse_article(
         if body_html.count(PLACEHOLDER) != 1:
             raise BuildError(f"{source}: reading plan marker did not render exactly once")
         body_html = body_html.replace(PLACEHOLDER, render_plan(parallel, sequential, chapters, lang, strings.get("reading_plan")))
-    clean_body_no_demo = clean_body
+    if has_calculator:
+        if body_html.count(CALCULATOR_PLACEHOLDER) != 1:
+            raise BuildError(f"{source}: reading-time marker did not render exactly once")
+        body_html = body_html.replace(CALCULATOR_PLACEHOLDER, render_calculator(load_reading_time(), lang, strings.get("reading_time")))
+    clean_body_no_demo = clean_body.replace(CALCULATOR_PLACEHOLDER, "")
     if demo_id:
         demo_placeholder = placeholder_for(demo_id)
         data = load_demo(demo_id)
         if body_html.count(demo_placeholder) != 1:
             raise BuildError(f"{source}: {demo_id} demo marker did not render exactly once")
         body_html = body_html.replace(demo_placeholder, render_demo(data, lang, strings.get("multi_reading_demo")))
-        clean_body_no_demo = clean_body.replace(demo_placeholder, "")
+        clean_body_no_demo = clean_body_no_demo.replace(demo_placeholder, "")
     return Article(
         slug=slug,
         lang=lang,
@@ -378,6 +386,7 @@ def parse_article(
         screens=refs,
         has_plan=has_plan,
         has_demo=bool(demo_id),
+        has_calculator=has_calculator,
     )
 
 

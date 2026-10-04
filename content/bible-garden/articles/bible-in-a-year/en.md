@@ -41,10 +41,10 @@ The average is 3.3 chapters a day. These are the lengths of complete, 66-book En
 
 | Translation and narrator | Full recording | Average per day |
 |---|---:|---:|
-| Berean Standard Bible (BSB), Bob Souer | 68.7 hours | 11.3 minutes |
-| Berean Standard Bible (BSB), David | 78.8 hours | 12.9 minutes |
-| World English Bible, US edition (WEBUS), Winfred Henson | 83.6 hours | 13.7 minutes |
-| World English Bible, British edition (WEBBE), eBible.org, narrator uncredited | 65.8 hours | 10.8 minutes |
+| Berean Standard Bible (BSB), Bob Souer | 69.2 hours | 11.4 minutes |
+| Berean Standard Bible (BSB), David | 78.9 hours | 13.0 minutes |
+| World English Bible, US edition (WEBUS), Winfred Henson | 84.4 hours | 13.9 minutes |
+| World English Bible, British edition (WEBBE), eBible.org, narrator uncredited | 66.2 hours | 10.9 minutes |
 
 Winfred Henson's WEBUS recording is in the public domain. The calendar days were balanced against Bob Souer's BSB audio, so an individual day may take more or less time with another narrator. These averages count playback only; leave extra time for pauses and reflection.
 
@@ -115,7 +115,7 @@ Yes. The calendar averages 3.3 chapters a day. It is a guide, not a deadline: if
 
 ### How long does it take to read the Bible?
 
-Listening to all 66 books takes 68.7 hours with Bob Souer's BSB, 78.8 hours with David's BSB, 83.6 hours with Winfred Henson's WEBUS, or 65.8 hours with the uncredited WEBBE narrator. Over a year that is about 10.8–13.7 minutes per day before pauses. Silent reading time varies with your pace.
+Listening to all 66 books takes 69.2 hours with Bob Souer's BSB, 78.9 hours with David's BSB, 84.4 hours with Winfred Henson's WEBUS, or 66.2 hours with the uncredited WEBBE narrator. Over a year that is about 10.9–13.9 minutes per day before pauses. Silent reading time varies with your pace.
 
 ### Can I listen to the Bible in a year?
 

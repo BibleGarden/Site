@@ -1,0 +1,129 @@
+{
+  "schema_version": 2,
+  "measured_on": "2026-10-04",
+  "source": "local cep_public in cep-mysql; local bible-parser/audio",
+  "method": "normal ffmpeg decoding out_time_us after removing ID3 metadata; clipped and empty iOS spans; own-translation units",
+  "workers": 6,
+  "ffmpeg_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+  "export_seconds": 824.976,
+  "chapter_count": 9782,
+  "strict_sample": [
+    {
+      "voice": "bondarenko",
+      "book": 43,
+      "chapter": 1,
+      "normal_seconds": 564.244898,
+      "strict_seconds": 564.244898
+    },
+    {
+      "voice": "bsb_david",
+      "book": 43,
+      "chapter": 1,
+      "normal_seconds": 381.278938,
+      "strict_seconds": 381.278938
+    },
+    {
+      "voice": "bsb_souer",
+      "book": 43,
+      "chapter": 1,
+      "normal_seconds": 364.487596,
+      "strict_seconds": 364.487596
+    },
+    {
+      "voice": "kozlov_uk",
+      "book": 43,
+      "chapter": 1,
+      "normal_seconds": 588.225306,
+      "strict_seconds": 588.225306
+    },
+    {
+      "voice": "npu_uk",
+      "book": 43,
+      "chapter": 1,
+      "normal_seconds": 416.928,
+      "strict_seconds": 416.928
+    },
+    {
+      "voice": "prozorovsky",
+      "book": 43,
+      "chapter": 1,
+      "normal_seconds": 658.02449,
+      "strict_seconds": 658.02449
+    },
+    {
+      "voice": "prudovsky",
+      "book": 43,
+      "chapter": 1,
+      "normal_seconds": 587.568979,
+      "strict_seconds": 587.568979
+    },
+    {
+      "voice": "web_british",
+      "book": 43,
+      "chapter": 1,
+      "normal_seconds": 325.656,
+      "strict_seconds": 325.656
+    },
+    {
+      "voice": "winfred_henson",
+      "book": 43,
+      "chapter": 1,
+      "normal_seconds": 372.552,
+      "strict_seconds": 372.552
+    }
+  ],
+  "anomaly_count": 44,
+  "anomaly_counts": {
+    "duration_mismatch": 27,
+    "empty_window": 5,
+    "decoder_errors": 12
+  },
+  "bad_packets": 41,
+  "comparisons": [
+    {
+      "pause_2s_deviation_seconds": -1741.79,
+      "pause_2s_deviation_percent": -0.252485,
+      "pair": "prudovsky+bsb_souer",
+      "unit": "verse",
+      "exact_seconds": 564926.9,
+      "approximate_seconds": 563479.11,
+      "deviation_seconds": -1447.79,
+      "deviation_percent": -0.256279
+    },
+    {
+      "pause_2s_deviation_seconds": 23382.36,
+      "pause_2s_deviation_percent": 3.868532,
+      "pair": "prudovsky+bsb_souer",
+      "unit": "paragraph",
+      "exact_seconds": 591444.58,
+      "approximate_seconds": 589824.94,
+      "deviation_seconds": -1619.64,
+      "deviation_percent": -0.273845
+    },
+    {
+      "pause_2s_deviation_seconds": -230.79,
+      "pause_2s_deviation_percent": -0.033067,
+      "pair": "kozlov_uk+bsb_souer",
+      "unit": "verse",
+      "exact_seconds": 573559.84,
+      "approximate_seconds": 573351.05,
+      "deviation_seconds": -208.79,
+      "deviation_percent": -0.036402
+    },
+    {
+      "pause_2s_deviation_seconds": 4270.25,
+      "pause_2s_deviation_percent": 0.661991,
+      "pair": "kozlov_uk+bsb_souer",
+      "unit": "paragraph",
+      "exact_seconds": 594365.91,
+      "approximate_seconds": 592492.16,
+      "deviation_seconds": -1873.75,
+      "deviation_percent": -0.315252
+    }
+  ],
+  "source_fingerprint": "6c0983df07338da88963e1c5d6121405a3ce8836202574a82a557f26ea7c9398",
+  "files": {
+    "voices.tsv": "be16369a5d8645f238ad82d23407ddf1f9f5de0af018b9312124df97eed6fbfc",
+    "alignment-anomalies.tsv": "def5e27c631fd766b98ebb40d622fb020854b25acecdb721225d5348376630a8"
+  }
+}

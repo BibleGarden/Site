@@ -106,6 +106,66 @@ articles:
   download_title: Read and listen with Bible Garden
   download_text: "A free, open-source app for reading and listening to the Bible in multiple languages, with professional narration and configurable pauses."
   download_cta: Download on the App Store
+  reading_time:
+    title: A chapter-by-chapter Bible plan
+    scope: What to read
+    chapters_day: Chapters per day
+    finish: Finish by
+    voice: Narrator
+    not_selected: Not selected
+    app_features: "More options: speed, pauses, Multi Reading"
+    speed: Playback speed (×)
+    pause: Pause after
+    pause_seconds: Pause (seconds)
+    none: No added pauses
+    multi: Multi Reading
+    second_voice: Second recording
+    second_speed: Second recording speed (×)
+    unit: Repeat both recordings after each
+    approximation: Listen to two translations in turn. Timing is approximate because their verse and paragraph
+      structures differ.
+    coverage: 'Recorded chapters: {recorded}; the plan covers {total}.'
+    missing: No recording for
+    method: Recording lengths measured by fully decoding MP3 files on
+    table_caption: How long reading takes at different daily chapter counts
+    result: '{count} {chapters} a day — finish on {date}'
+    minutes_day: ≈ {minutes} {unit} a day
+    date: '{month} {day}, {year}'
+    deadline_hint: Start today. The daily chapter count rounds up, so you may finish earlier.
+    invalid: Check the chapter count and date
+    language_en: English
+    language_ru: Russian
+    language_uk: Ukrainian
+    scope_bible: Whole Bible
+    scope_ot: Old Testament
+    scope_nt: New Testament
+    table_bible: Bible
+    table_ot: OT
+    table_nt: NT
+    unit_verse: Verse
+    unit_paragraph: Paragraph
+    unit_section: Section
+    unit_chapter: Chapter
+    chapter_units:
+      one: chapter
+      few: chapters
+      many: chapters
+      other: chapters
+    year_units:
+      one: year
+      few: years
+      many: years
+      other: years
+    month_units:
+      one: month
+      few: months
+      many: months
+      other: months
+    minute_units:
+      one: minute
+      few: minutes
+      many: minutes
+      other: minutes
 not_found:
   title: Page not found
   text: "The page you are looking for does not exist or has moved."

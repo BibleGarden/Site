@@ -106,6 +106,66 @@ articles:
   download_title: Читайте и слушайте с Bible Garden
   download_text: "Бесплатное приложение с открытым кодом для чтения и прослушивания Библии на нескольких языках с профессиональной озвучкой и настраиваемыми паузами."
   download_cta: Скачать в App Store
+  reading_time:
+    title: План чтения Библии по главам
+    scope: Что читать
+    chapters_day: Глав в день
+    finish: Закончить к дате
+    voice: Диктор
+    not_selected: Не выбран
+    app_features: "Больше опций: скорость, паузы, Мультичтение"
+    speed: Скорость воспроизведения (×)
+    pause: Пауза после
+    pause_seconds: Пауза (секунды)
+    none: Без добавленных пауз
+    multi: Мультичтение
+    second_voice: Вторая запись
+    second_speed: Скорость второй записи (×)
+    unit: Повторять обе записи после каждого
+    approximation: 'Слушайте два перевода по очереди. Время приблизительное: структура стихов и абзацев
+      различается.'
+    coverage: В записи {recorded} глав; план рассчитан на {total}.
+    missing: Нет записи книг
+    method: Длительность записей измерена полным декодированием MP3
+    table_caption: Сколько займёт чтение при разном числе глав в день
+    result: '{count} {chapters} в день — закончите {date}'
+    minutes_day: ≈ {minutes} {unit} в день
+    date: '{day} {month} {year} года'
+    deadline_hint: Начало — сегодня. Темп округляется вверх, поэтому можно закончить раньше.
+    invalid: Проверьте число глав и дату
+    language_en: Английский
+    language_ru: Русский
+    language_uk: Украинский
+    scope_bible: Вся Библия
+    scope_ot: Ветхий Завет
+    scope_nt: Новый Завет
+    table_bible: Библия
+    table_ot: ВЗ
+    table_nt: НЗ
+    unit_verse: Стиха
+    unit_paragraph: Абзаца
+    unit_section: Раздела
+    unit_chapter: Главы
+    chapter_units:
+      one: глава
+      few: главы
+      many: глав
+      other: главы
+    year_units:
+      one: год
+      few: года
+      many: лет
+      other: года
+    month_units:
+      one: месяц
+      few: месяца
+      many: месяцев
+      other: месяца
+    minute_units:
+      one: минута
+      few: минуты
+      many: минут
+      other: минуты
 not_found:
   title: Страница не найдена
   text: "Такой страницы нет или она была перемещена."

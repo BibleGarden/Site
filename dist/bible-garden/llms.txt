@@ -13,6 +13,7 @@
 
 ## Articles (English)
 
+- [How Long Does It Take to Read the Bible? Hours, Minutes a Day, and a Calculator](https://bible.garden/articles/how-long-to-read-the-bible/): How long it takes to read the whole Bible: about 51 hours silently and 66–84 hours of audio, depending on the narrator. A calculator for chapters a day, finish date, and minutes a day.
 - [How to Read the Bible Every Day: Build a Habit That Lasts](https://bible.garden/articles/daily-bible-reading/): How to read the Bible every day: a simple event–place–action rule, a portion you can keep up, audio for busy days, and progress that tracks itself.
 - [Which Bible Translation Is Best? Compare English Versions](https://bible.garden/articles/which-bible-translation/): Compare KJV, NIV, ESV, NLT, BSB, WEB, and other English Bible translations. Choose one for reading or study, then hear two versions verse by verse.
 - [Free audio Bible apps: what to use for listening, reading, and study](https://bible.garden/articles/free-audio-bible-apps/): Compare free Bible apps with audio, from YouVersion and Bible.is to Bible Garden. Find a fit for offline listening, daily reading, or two languages.
@@ -24,6 +25,7 @@
 
 ## Статьи (Русский)
 
+- [Сколько времени читать Библию: часы, минуты в день и калькулятор](https://bible.garden/ru/articles/how-long-to-read-the-bible/): Сколько времени нужно, чтобы прочитать всю Библию: около 51 часа про себя и 102–122 часа в аудиозаписи. Калькулятор: главы в день, дата окончания и минуты в день.
 - [Как читать Библию каждый день и не бросить](https://bible.garden/ru/articles/daily-bible-reading/): Как приучить себя читать Библию каждый день: короткое правило «событие — место — действие», посильный объём, аудио в дороге и прогресс, который отмечается сам.
 - [Какой перевод Библии лучше: Синодальный, Кулаковых и другие](https://bible.garden/ru/articles/which-bible-translation/): Чем отличаются русские переводы Библии: Синодальный, перевод Кулаковых, РБО, НРП. Дословный и смысловой перевод, как выбрать свой и зачем сравнивать переводы.
 - [Аудио-Библия: бесплатные приложения и сайты, чтобы слушать Библию на русском](https://bible.garden/ru/articles/free-audio-bible-apps/): Где бесплатно слушать Библию на русском: YouVersion, Bible.is, «Радио ВЕРА», «Азбука веры», bible.by и Bible Garden — чем отличаются и что кому подойдёт.
@@ -35,6 +37,7 @@
 
 ## Статті (Українська)
 
+- [Скільки часу потрібно, щоб прочитати Біблію: години, хвилини на день і калькулятор](https://bible.garden/uk/articles/how-long-to-read-the-bible/): Скільки часу потрібно, щоб прочитати всю Біблію: близько 50 годин про себе і 109 годин українського аудіо. Калькулятор: розділи на день, дата завершення і хвилини на день.
 - [Як читати Біблію щодня: як виробити звичку](https://bible.garden/uk/articles/daily-bible-reading/): Як щодня читати Біблію й не покинути: просте правило «подія — місце — дія», посильний обсяг, аудіо в дорозі та прогрес, який позначається сам.
 - [Який переклад Біблії вибрати: Огієнка, Хоменка чи НПУ](https://bible.garden/uk/articles/which-bible-translation/): Чим відрізняються українські переклади Біблії: Огієнка, Хоменка, Турконяка, УБТ і НПУ. Як вибрати свій переклад і порівняти їх на слух.
 - [Аудіо-Біблія: безкоштовні застосунки, щоб слухати Біблію українською](https://bible.garden/uk/articles/free-audio-bible-apps/): Де безкоштовно слухати Біблію українською: YouVersion, Bible.is, «Аудіо Біблія» та Bible Garden. Порівнюємо переклади, офлайн і можливості.
