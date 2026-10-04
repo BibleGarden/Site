@@ -61,7 +61,7 @@ Bible Garden has seven translations in three languages. You can combine two, thr
 “All 66 books” means the Protestant canon. The app does not include deuterocanonical books. Bondarenko's audio lacks 1 and 2 Chronicles, Song of Songs, and Isaiah.
 
 ## Which English translation to choose
-<!-- screen: translation-picker -->
+<!-- screen: translation-picker-english -->
 
 If you want a parallel Bible in English, start with two translations you can follow comfortably. The screen here shows English selected as the Bible language, with BSB, WEBUS, and WEBBE in the translation list and Bob Souer as the reader. The app offers two modern English translations, with two editions of one:
 

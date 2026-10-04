@@ -1,5 +1,6 @@
 # Captions describe the visible interface and also become image alt text.
-# Source: ClickUp 123pfqn05hq, accepted v4 screenshot archive (2026-09-24).
+# Base: ClickUp 123pfqn05hq, accepted v4 screenshot archive (2026-09-24).
+# V5 additions: ClickUp 123pfqn0mhr / 123pfqn1u6b (2026-10-04).
 classic-reading:
   kind: app
   captions:
@@ -96,3 +97,46 @@ translation-picker:
     en: Choosing a Bible translation to read
     ru: Выбор перевода Библии для чтения
     uk: Вибір перекладу Біблії для читання
+
+translation-picker-english:
+  kind: app
+  captions:
+    en: 'Choosing an English Bible translation: BSB, WEBUS and WEBBE'
+    ru: 'Выбор английского перевода Библии: BSB, WEBUS и WEBBE'
+    uk: 'Вибір англійського перекладу Біблії: BSB, WEBUS і WEBBE'
+reader-picker-english:
+  kind: app
+  captions:
+    en: 'Choosing an English BSB narrator: David or Bob Souer'
+    ru: 'Выбор английского диктора BSB: David или Bob Souer'
+    uk: 'Вибір англійського диктора BSB: David або Bob Souer'
+classic-reading-english:
+  kind: app
+  captions:
+    en: John 1 in English (BSB) with audio playback
+    ru: Иоанна 1 на английском (BSB) с воспроизведением аудио
+    uk: Йоана 1 англійською (BSB) з відтворенням аудіо
+multi-step-translation-english:
+  kind: app
+  captions:
+    en: Choosing an English translation for a Multi Reading step
+    ru: Выбор английского перевода для шага Мультичтения
+    uk: Вибір англійського перекладу для кроку Мультичитання
+multi-step-speed:
+  kind: app
+  captions:
+    en: Adjusting audio speed for an English BSB Multi Reading step
+    ru: Настройка скорости английского шага BSB в Мультичтении
+    uk: Налаштування швидкості англійського кроку BSB у Мультичитанні
+multi-setup-russian-english:
+  kind: app
+  captions:
+    en: Multi Reading with Russian BTI, a two-second pause and English BSB
+    ru: 'Мультичтение: русский BTI, пауза 2 секунды и английский BSB'
+    uk: 'Мультичитання: російський BTI, пауза 2 секунди й англійський BSB'
+select-psalm:
+  kind: app
+  captions:
+    en: Choosing a psalm from the list of psalms
+    ru: Выбор псалма из списка псалмов
+    uk: Вибір псалма зі списку псалмів
