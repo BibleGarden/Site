@@ -17,7 +17,7 @@ Below is each step in more detail, plus how audio can help. In the free [Bible G
 ## Pick a verse and understand it
 <!-- screen: multi-reading -->
 
-Start with a verse you actually need: a comfort, a promise, a command you want to keep in mind. Short verses are easier. "I can do all things through Christ who gives me strength" (Philippians 4:13) is 12 words in the BSB; John 3:16 is 31.
+Start with a verse you actually need: a comfort, a promise, a command you want to keep in mind. Short verses are easier. "I can do all things through Christ who gives me strength" (Philippians 4:13) is 11 words in the BSB; John 3:16 is 27.
 
 Before you start memorizing, read the paragraph before and after the verse. [The Navigators](https://www.navigators.org/resource/how-to-memorize-scripture/), a Christian ministry known for Scripture memory, recommend this: a verse out of context is easy to misread. Text you understand is also easier to remember. Memory researchers have long held that working with meaning leaves a stronger trace than rote repetition ([Craik & Lockhart, 1972](https://doi.org/10.1016/S0022-5371(72)80001-X)).
 
@@ -112,7 +112,7 @@ Usually because the reviews stop after the first few days, or reviewing turns in
 
 ### Can I memorize a verse just by listening?
 
-Listening many times makes a verse familiar, but familiar isn't memorized. You need to say it yourself: first after the narrator, then from memory before the narrator reads it. Bible Garden's pause after every verse, for a few seconds or until you tap Play, gives you room for that.
+Listening many times makes a verse familiar, but familiar isn't memorized. You need to say it yourself: first after the narrator, then from memory before the narrator reads it. To repeat the verse you just heard, use a timed pause or a full stop until you tap Play. To recall the next verse before hearing it, use a 10–15 second timed pause; the narrator then moves on automatically.
 
 ### Does Bible Garden have a repeat button or flashcards?
 
