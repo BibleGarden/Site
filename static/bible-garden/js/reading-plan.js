@@ -1,10 +1,18 @@
 (() => {
-    const plan = document.querySelector('[data-reading-plan="bible-in-a-year"]');
+    const plan = document.querySelector('.reading-plans[data-reading-plan]');
     if (!plan) return;
+
+    const single = plan.dataset.readingPlan === 'chronological-bible-reading-plan';
+    if (!single && plan.dataset.readingPlan !== 'bible-in-a-year') {
+        throw new Error('Unknown reading plan calendar');
+    }
 
     const input = plan.querySelector('.reading-plan-start-date');
     const switcher = plan.querySelector('.reading-plan-switcher');
-    const radios = [...switcher.querySelectorAll('input[name="reading-plan-mode"]')];
+    if (!input || (single ? switcher !== null : switcher === null)) {
+        throw new Error('Invalid reading plan controls');
+    }
+    const radios = single ? [] : [...switcher.querySelectorAll('input[name="reading-plan-mode"]')];
     const blockLength = Number(plan.dataset.blockLength);
     const calendars = [...plan.querySelectorAll('.reading-plan[data-plan-kind]')].map((section) => {
         const blocks = section.querySelector('.reading-plan-blocks');
@@ -15,16 +23,16 @@
             header: blocks.querySelector('thead').cloneNode(true),
         };
     });
-    if (calendars.length !== 2 || !Number.isInteger(blockLength) || blockLength < 1 ||
+    if (calendars.length !== (single ? 1 : 2) || !Number.isInteger(blockLength) || blockLength < 1 ||
         calendars.some((calendar) => calendar.rows.length !== 365) ||
-        calendars.map((calendar) => calendar.section.dataset.planKind).sort().join(',') !== 'parallel,sequential') {
+        calendars.map((calendar) => calendar.section.dataset.planKind).sort().join(',') !== (single ? 'chronological' : 'parallel,sequential')) {
         throw new Error('Invalid reading plan calendar markup');
     }
 
     const locale = { en: 'en', ru: 'ru', uk: 'uk' }[plan.lang];
     const dateFormatter = new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'short', timeZone: 'UTC' });
     const monthFormatter = new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric', timeZone: 'UTC' });
-    const dateStorageKey = 'bible-garden-reading-plan-start';
+    const dateStorageKey = single ? 'bible-garden-chronological-reading-plan-start' : 'bible-garden-reading-plan-start';
     const modeStorageKey = 'bible-garden-reading-plan-mode';
 
     function parseDate(value) {
@@ -123,6 +131,10 @@
     }
 
     function updateSelection() {
+        if (single) {
+            calendars[0].section.hidden = false;
+            return;
+        }
         const selected = radios.find((radio) => radio.checked);
         if (!selected) throw new Error('No reading plan selected');
         calendars.forEach((calendar) => { calendar.section.hidden = calendar.section.dataset.planKind !== selected.value; });
@@ -137,10 +149,12 @@
     } catch (error) {
         console.warn('Reading plan date storage is unavailable', error);
     }
-    try {
-        savedMode = localStorage.getItem(modeStorageKey);
-    } catch (error) {
-        console.warn('Reading plan mode storage is unavailable', error);
+    if (!single) {
+        try {
+            savedMode = localStorage.getItem(modeStorageKey);
+        } catch (error) {
+            console.warn('Reading plan mode storage is unavailable', error);
+        }
     }
     input.value = parseDate(savedDate) ? savedDate : localToday;
     if (savedMode === 'parallel' || savedMode === 'sequential') {
@@ -148,7 +162,7 @@
     }
     updateDate(input.value);
     updateSelection();
-    switcher.hidden = false;
+    if (!single) switcher.hidden = false;
 
     input.addEventListener('change', () => {
         updateDate(input.value);

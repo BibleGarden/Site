@@ -94,6 +94,7 @@ articles:
     choose_plan: Reading order
     parallel: Parallel
     sequential: Straight through
+    chronological: Chronological
     start_date: Start date
     print: Print
     day: Day

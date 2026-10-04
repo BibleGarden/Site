@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "icons.html" import appstore_icon, github_icon %}
-{% block body_class %}{% if article.has_plan %} has-reading-plan{% endif %}{% if article.has_demo %} has-multi-reading-demo{% endif %}{% if article.has_calculator %} has-reading-time{% endif %}{% endblock %}
+{% block body_class %}{% if article.has_plan %} has-reading-plan{% endif %}{% if article.has_chronological_plan %} has-chronological-plan{% endif %}{% if article.has_demo %} has-multi-reading-demo{% endif %}{% if article.has_calculator %} has-reading-time{% endif %}{% endblock %}
 {% block head %}
 {% for block in json_ld %}
     <script type="application/ld+json">{{ block | jsonld }}</script>

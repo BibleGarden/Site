@@ -94,6 +94,7 @@ articles:
     choose_plan: Порядок чтения
     parallel: Параллельно
     sequential: Подряд
+    chronological: Хронологический
     start_date: Дата начала
     print: Распечатать
     day: День
