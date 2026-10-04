@@ -9,6 +9,8 @@ from dataclasses import replace
 from datetime import date
 from pathlib import Path
 
+from markupsafe import escape
+
 from sitegen.build import SiteBuilder
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -54,8 +56,8 @@ class HomeArticlesTest(unittest.TestCase):
                 article = self.builder.published(lang)[-1]
                 html = self.render(lang)
                 block = html.split('<section id="articles"', 1)[1].split("</section>", 1)[0]
-                self.assertIn(article.title, block)
-                self.assertIn(article.description, block)
+                self.assertIn(str(escape(article.title)), block)
+                self.assertIn(str(escape(article.description)), block)
                 self.assertIn(f'href="{prefix}{article.path}"', block)
                 self.assertIn(f'href="{prefix}articles/"', block)
                 self.assertNotIn("template-check", block)
