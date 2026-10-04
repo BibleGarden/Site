@@ -70,6 +70,18 @@ class BibleChecklistTest(unittest.TestCase):
             self.assertIn("Before", article.body_html)
             self.assertIn("After", article.body_html)
 
+    def test_marker_must_be_top_level(self):
+        wrappers = (
+            '<div class="article-callout" markdown="1">\n' + MARKER + '\n</div>\n',
+            '<div markdown="1">\n\n' + MARKER + '\n\n</div>\n',
+        )
+        for body in wrappers:
+            with self.subTest(body=body), tempfile.TemporaryDirectory() as directory:
+                source = Path(directory) / "ru.md"
+                source.write_text("---\ntitle: Test\ndescription: Test\ndate: 2026-10-04\n---\nBefore\n\n" + body)
+                with self.assertRaisesRegex(BuildError, "top-level block"):
+                    parse_article(source, "test", "ru", {}, {}, {}, ROOT / "dist/bible-garden")
+
     def test_print_css_and_script_are_scoped(self):
         css = (ROOT / "static/bible-garden/css/article.css").read_text()
         for rule in ("@page bible-checklist", "size: A4 portrait", "break-after: page", "columns: 3",

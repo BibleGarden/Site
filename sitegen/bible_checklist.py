@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import html
 import re
+from html.parser import HTMLParser
 from pathlib import Path
 
 from .errors import BuildError
@@ -36,6 +37,38 @@ def annotate_checklist_marker(body: str, source: Path, site: str, body_start_lin
             raise BuildError(f"{source}:{body_start_line + index}: duplicate checklist marker")
         lines[index], found = PLACEHOLDER, True
     return "\n".join(lines) + ("\n" if body.endswith("\n") else ""), found
+
+
+VOID_ELEMENTS = frozenset({"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"})
+
+
+class _PlaceholderDepth(HTMLParser):
+    """Records the element nesting depth at which the checklist placeholder opens."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.depth = 0
+        self.placeholder_depths: list[int] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if ("data-checklist-placeholder", "bible-chapters") in attrs:
+            self.placeholder_depths.append(self.depth)
+        if tag not in VOID_ELEMENTS:
+            self.depth += 1
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag not in VOID_ELEMENTS:
+            self.depth -= 1
+
+
+def require_top_level(body_html: str, source: Path) -> None:
+    """Print CSS hides every other child of .article-body, so the checklist must be one of those children."""
+    parser = _PlaceholderDepth()
+    parser.feed(body_html)
+    parser.close()
+    if parser.placeholder_depths != [0]:
+        raise BuildError(f"{source}: checklist marker must be a top-level block of the article, "
+                         "not inside an HTML wrapper (print would hide it)")
 
 
 def checklist_books(lang: str) -> list[tuple[int, str, list[int]]]:

@@ -261,6 +261,9 @@ Only one `{#faq}` section per article; every question needs an answer.
 
 Put `<!-- checklist: bible-chapters -->` on its own line in a bible.garden
 article. The author chooses its position; no article text is generated.
+The marker must stay a top-level block of the article body: inside an HTML
+wrapper such as a callout the build fails, because printing hides every other
+child of the article body.
 Unknown, malformed, duplicate and cross-site markers fail the build; markers
 inside fenced code blocks remain examples. The static HTML has one labeled
 checkbox per chapter, grouped by all 66 canonical books, and works without
