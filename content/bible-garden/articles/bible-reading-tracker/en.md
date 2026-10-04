@@ -2,7 +2,6 @@
 title: "Bible Reading Tracker: Printable Checklist, Spreadsheet, or App"
 description: "Track your Bible reading chapter by chapter: a free printable checklist of all 1,189 chapters on two A4 pages, a simple spreadsheet, or an app that marks chapters for you."
 date: 2026-10-04
-draft: true
 ---
 
 The 66 books of the Bible shared by every Christian tradition contain 1,189 chapters: 929 in the Old Testament and 260 in the New. A Bible reading tracker shows which ones you've covered, so you don't have to keep it all in your head. There are three ways to track: check boxes on a printed chart (a free one is below), keep a spreadsheet in Google Sheets or Excel, or let an app do it. Paper suits people who read a print Bible. A spreadsheet is for those who like their own stats. An app makes sense if you read or listen on your phone: in [Bible Garden](/), a free app for iPhone and iPad, a chapter is marked as read automatically once you've listened to it or read it to the end.
