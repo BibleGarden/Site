@@ -13,7 +13,7 @@ The Bible works well for learning English because many learners already know its
 Start with the Gospel of John in the Berean Standard Bible (BSB), a modern translation. You can do all of this in the free [Bible Garden app](/) for iPhone and iPad. Below: how to set up each step, which English translation is easier, a 30-day plan, and famous Bible verses with their best-known idioms.
 
 ## Why the Bible works for learning English
-<!-- screen: classic-reading -->
+<!-- screen: classic-reading-english -->
 
 - **A familiar text.** When you know what a chapter is about, you can often guess a new word from context instead of reaching for a dictionary.
 - **Short pieces.** A verse is one or two sentences, easy to replay and repeat.
@@ -54,7 +54,7 @@ How to set it up in Bible Garden:
 For shadowing, choose short verses and start at a slower speed.
 
 ## Slow it down: speed and voices
-<!-- screen: reader-picker -->
+<!-- screen: multi-step-speed -->
 
 For a beginner, the hard part is often keeping up rather than knowing the words. In an experiment by [Yong Zhao (1997)](https://doi.org/10.1093/applin/18.1.49), listeners learning English understood more when they controlled the speech rate themselves, and they mostly slowed it down.
 
@@ -72,10 +72,13 @@ What you can adjust:
 - **Speed in Classic Reading:** 0.6× to 2.0× in steps of 0.2. At 0.8×, Bob Souer reads at about 140 words per minute.
 - **Speed in Multi Reading** is set for each step, from 0.5× to 2.5× in steps of 0.1. There is no single speed button there.
 - **One verse twice.** BSB at 0.7×, a pause, then BSB at 1×. Or BSB read by David, then by Bob Souer: the same words in two voices.
-- **Hear a voice first.** Before choosing a narrator, you can play a sample, John 1:1–3. More about each voice: [Audio Bible narrators](/articles/audio-bible-narrators/).
+## Choose an English narrator
+<!-- screen: reader-picker-english -->
+
+**Hear a voice first.** Before choosing a narrator, you can play a sample, John 1:1–3. More about each voice: [Audio Bible narrators](/articles/audio-bible-narrators/).
 
 ## BSB or WEB: which English is easier?
-<!-- screen: translation-picker -->
+<!-- screen: translation-picker-english -->
 
 Both are modern translations without thee and thou, and both are free of copyright: BSB was [dedicated to the public domain in 2023](https://berean.bible/terms.htm), and [WEB](https://worldenglish.bible/) has been public domain from the start. They still sound different.
 
@@ -97,6 +100,7 @@ Start with BSB. Once you're comfortable, pair BSB with WEB in Multi Reading to c
 One difference matters in Multi Reading, which pairs verses by position: first with first, second with second. In the Gospels, BSB leaves out 11 verses that are missing from some early manuscripts, such as John 5:4 and Mark 9:44 and 46; WEB keeps them. From that point on, the two translations in a pair drift apart. This happens in 10 of the 89 Gospel chapters. In those chapters, use BSB twice instead of BSB with WEB.
 
 ## Famous Bible verses in English
+<!-- screen: classic-reading-english -->
 
 Ten well-known verses in both English translations, exactly as they appear in the app.
 
