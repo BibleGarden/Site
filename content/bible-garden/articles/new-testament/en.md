@@ -2,7 +2,6 @@
 title: "New Testament Reading Plan: Book Order, Audio Length, and How to Listen"
 description: "How long the New Testament and each Gospel take on audio in the BSB and WEB, what order to read the 27 books in, and a reading plan from one month to one year."
 date: 2026-10-04
-draft: true
 ---
 
 The New Testament has 27 books and 260 chapters. Reading silently, you can get through it in about 12 hours; the English audio recordings in Bible Garden run 15 to 19 hours, depending on the narrator, and the four Gospels take 7 to 8½ hours. At one chapter a day, the New Testament takes 260 days; at three a day, under three months. Below you'll find an audio sample, the length of each Gospel for every English narrator, a reading order for your first time through, and a reading plan table.
@@ -78,7 +77,7 @@ Pick how many chapters a day you want to read or hear. Minutes are averages: the
 | 1 | 260 (about 8½ months) | 4 | 4 | 4 | 4 |
 | 2 | 130 (about 4 months) | 8 | 9 | 8 | 7 |
 | 3 | 87 (about 3 months) | 12 | 13 | 13 | 11 |
-| 5 | 52 (7½ weeks) | 19 | 22 | 21 | 18 |
+| 5 | 52 (7½ weeks) | 19 | 21 | 21 | 18 |
 | 9 | 29 (a month) | 35 | 39 | 38 | 32 |
 
 Read one chapter on weekdays only, and the New Testament takes a year: 52 weeks of 5 days is exactly 260 reading days. Weekends stay free for catching up on anything you missed. The 5x5x5 plan works the same way and promises 5 minutes a day; in English audio, a chapter averages about 4 minutes.

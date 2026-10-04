@@ -14,6 +14,7 @@
 ## Articles (English)
 
 - [Famous Bible Reading Plans Compared: M'Cheyne, Navigators, The Bible Recap, 90 Days](https://bible.garden/articles/popular-bible-reading-plans/): M'Cheyne, Navigators, The Bible Recap, Bible in a Year, 90-day and 6-month plans: how each one works, who it suits, and how many minutes of audio it takes a day.
+- [New Testament Reading Plan: Book Order, Audio Length, and How to Listen](https://bible.garden/articles/new-testament/): How long the New Testament and each Gospel take on audio in the BSB and WEB, what order to read the 27 books in, and a reading plan from one month to one year.
 - [How Long Does It Take to Read the Bible? Hours, Minutes a Day, and a Calculator](https://bible.garden/articles/how-long-to-read-the-bible/): How long it takes to read the whole Bible: about 51 hours silently and 66–84 hours of audio, depending on the narrator. A calculator for chapters a day, finish date, and minutes a day.
 - [How to Read the Bible Every Day: Build a Habit That Lasts](https://bible.garden/articles/daily-bible-reading/): How to read the Bible every day: a simple event–place–action rule, a portion you can keep up, audio for busy days, and progress that tracks itself.
 - [Which Bible Translation Is Best? Compare English Versions](https://bible.garden/articles/which-bible-translation/): Compare KJV, NIV, ESV, NLT, BSB, WEB, and other English Bible translations. Choose one for reading or study, then hear two versions verse by verse.
@@ -27,6 +28,7 @@
 ## Статьи (Русский)
 
 - [Планы чтения Библии: Мак-Чейн, классический, 90 дней и 6 месяцев — сравнение и минуты в день](https://bible.garden/ru/articles/popular-bible-reading-plans/): Известные планы чтения Библии: Мак-Чейн, «План победы», классический, 90 дней и 6 месяцев. Как устроены, кому подходят и сколько минут аудио в день занимают.
+- [Новый Завет: как слушать и читать — порядок, время, план](https://bible.garden/ru/articles/new-testament/): Сколько звучит Новый Завет и каждое Евангелие у Прудовского, Бондаренко и Семёнова-Прозоровского, в каком порядке читать 27 книг и план чтения от месяца до года.
 - [Сколько времени читать Библию: часы, минуты в день и калькулятор](https://bible.garden/ru/articles/how-long-to-read-the-bible/): Сколько времени нужно, чтобы прочитать всю Библию: около 51 часа про себя и 102–122 часа в аудиозаписи. Калькулятор: главы в день, дата окончания и минуты в день.
 - [Как читать Библию каждый день и не бросить](https://bible.garden/ru/articles/daily-bible-reading/): Как приучить себя читать Библию каждый день: короткое правило «событие — место — действие», посильный объём, аудио в дороге и прогресс, который отмечается сам.
 - [Какой перевод Библии лучше: Синодальный, Кулаковых и другие](https://bible.garden/ru/articles/which-bible-translation/): Чем отличаются русские переводы Библии: Синодальный, перевод Кулаковых, РБО, НРП. Дословный и смысловой перевод, как выбрать свой и зачем сравнивать переводы.
@@ -40,6 +42,7 @@
 ## Статті (Українська)
 
 - [Відомі плани читання Біблії: Мак-Чейн, Navigators, 90 днів — що обрати](https://bible.garden/uk/articles/popular-bible-reading-plans/): Плани читання Біблії Мак-Чейна (зокрема дворічний), Navigators, на 90 днів і 6 місяців: як вони влаштовані, кому підходять і скільки хвилин аудіо на день займають.
+- [Новий Завіт: як слухати й читати — порядок, час, план](https://bible.garden/uk/articles/new-testament/): Скільки звучить Новий Завіт і кожне Євангеліє в перекладі Хоменка та НПУ, у якому порядку читати 27 книг і план читання від місяця до року.
 - [Скільки часу потрібно, щоб прочитати Біблію: години, хвилини на день і калькулятор](https://bible.garden/uk/articles/how-long-to-read-the-bible/): Скільки часу потрібно, щоб прочитати всю Біблію: близько 50 годин про себе і 109 годин українського аудіо. Калькулятор: розділи на день, дата завершення і хвилини на день.
 - [Як читати Біблію щодня: як виробити звичку](https://bible.garden/uk/articles/daily-bible-reading/): Як щодня читати Біблію й не покинути: просте правило «подія — місце — дія», посильний обсяг, аудіо в дорозі та прогрес, який позначається сам.
 - [Який переклад Біблії вибрати: Огієнка, Хоменка чи НПУ](https://bible.garden/uk/articles/which-bible-translation/): Чим відрізняються українські переклади Біблії: Огієнка, Хоменка, Турконяка, УБТ і НПУ. Як вибрати свій переклад і порівняти їх на слух.
