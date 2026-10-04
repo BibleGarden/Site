@@ -126,7 +126,7 @@ articles:
     coverage: У записі {recorded} розділів; план розрахований на {total}.
     missing: Немає запису книг
     method: Тривалість записів виміряна повним декодуванням MP3
-    table_caption: Приблизний строк за умови щоденного читання
+    table_caption: Скільки триватиме читання залежно від кількості розділів на день
     result: '{count} {chapters} на день — завершите {date}'
     minutes_day: ≈ {minutes} {unit} на день
     date: '{day} {month} {year} року'

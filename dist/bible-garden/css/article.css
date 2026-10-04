@@ -475,7 +475,7 @@
     .has-reading-plan article > aside,
     .has-reading-plan .article-screen-aside,
     .has-reading-plan .article-screen-dialog,
-    .has-reading-plan .article-body > :not(.reading-plans):not(.multi-reading-demo):not(.reading-time),
+    .has-reading-plan .article-body > :not(.reading-plans):not(.multi-reading-demo):not(.reading-time):not(.reading-time-table),
     .has-reading-plan .reading-plan-switcher,
     .has-reading-plan .reading-plan-controls { display: none !important; }
 
@@ -589,23 +589,15 @@
 .reading-time-result p { margin: 0; overflow-wrap: anywhere; }
 .reading-time-summary { font-weight: 600; }
 .reading-time .reading-time-note { font-size: .8rem; line-height: 1.5; color: var(--reading-time-muted); margin: 0; }
-.reading-time > .reading-time-note { margin-top: .75rem; }
-.reading-time-table { overflow-x: auto; margin-top: 1rem; }
-.reading-time-table table { width: 100%; font-size: .85rem; margin: 0; }
-.reading-time-table caption { text-align: left; margin: 0 0 .5rem; color: var(--reading-time-muted); }
-.reading-time-table th, .reading-time-table td { padding: .5rem !important; color: var(--reading-time-text); border-color: var(--reading-time-border); }
-.reading-time-table th { background: var(--reading-time-control); }
-.reading-time-table th:first-child { width: 20%; }
-.reading-time-table abbr { text-decoration: none; }
+.reading-time-method { font-size: .8rem; }
+.reading-time-table caption { text-align: left; margin-bottom: .5rem; }
 @media (max-width: 480px) {
     .reading-time { padding: .6rem; }
     .reading-time-form, .reading-time-settings, .reading-time-settings > [data-multi] { grid-template-columns: minmax(0,1fr); }
-    .reading-time-table table { font-size: .75rem; }
 }
 @media print {
-    .reading-time > :not(.reading-time-table) { display: none !important; }
-    .reading-time { color: #000; background: #fff; border: 0; padding: 0; }
-    .reading-time-table { overflow: visible; }
+    .reading-time { display: none !important; }
+    .reading-time-table table { display: table; overflow: visible; }
     .reading-time-table caption { color: #000; }
     .article-body .reading-time-table th, .article-body .reading-time-table td { color: #000; background: transparent; border-color: #888; }
 }

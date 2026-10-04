@@ -127,7 +127,7 @@ articles:
     coverage: В записи {recorded} глав; план рассчитан на {total}.
     missing: Нет записи книг
     method: Длительность записей измерена полным декодированием MP3
-    table_caption: Примерный срок при чтении каждый день
+    table_caption: Сколько займёт чтение при разном числе глав в день
     result: '{count} {chapters} в день — закончите {date}'
     minutes_day: ≈ {minutes} {unit} в день
     date: '{day} {month} {year} года'

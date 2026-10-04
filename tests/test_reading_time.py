@@ -112,6 +112,11 @@ class ReadingTimeDataTest(unittest.TestCase):
         for lang in ('en','ru','uk'):
             strings=yaml.safe_load((ROOT/f'content/bible-garden/i18n/{lang}.yaml').read_text())['articles']['reading_time']
             html=render_calculator(self.data,lang,strings)
+            self.assertLess(html.index('class="reading-time-table"'),html.index('class="reading-time"'))
+            self.assertNotIn('<table',html.split('<section class="reading-time"',1)[1])
+            self.assertEqual(html.count('class="reading-time-method"'),1)
+            self.assertLess(html.index('</section>'),html.index('class="reading-time-method"'))
+            self.assertIn(strings['table_caption'],html)
             self.assertIn('aria-live="polite"',html)
             self.assertIn('class="reading-time-form" hidden',html)
             self.assertIn('<option value="" selected>',html)

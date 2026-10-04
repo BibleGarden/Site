@@ -400,13 +400,16 @@ by their common recorded chapter count. It sums each voice's own unit spans,
 an approximation to the app's first-translation boundaries. Timed pauses remain
 wall-clock time, independent of playback speed.
 
-The server-rendered reference table is always visible, with or without
-JavaScript: 1, 2, 3, 4, 5 and 10 chapters per day for Bible / OT / NT.
+The server-rendered reference table appears before the calculator card as a
+standalone article table, using the normal article table styles. It is always
+visible, with or without JavaScript: 1, 2, 3, 4, 5 and 10 chapters per day
+for Bible / OT / NT.
 Durations round to whole months using 365 days per year and 12 months per year,
 with localized year/month forms (e.g. “3 года 3 месяца”). Without JavaScript the
-interactive controls stay hidden. Printing includes only the reference table
-within the calculator block. The form works at 320 px and announces results
-through a polite live region.
+interactive controls stay hidden. Printing shows the reference table and hides
+the calculator card. The single marker renders both elements; the measured-audio
+method caption appears once beneath the calculator card. The form
+works at 320 px and announces results through a polite live region.
 
 Rebuild deterministically from the committed chapter aggregates, without a
 connection to the database or MP3s:

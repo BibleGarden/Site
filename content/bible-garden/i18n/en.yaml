@@ -127,7 +127,7 @@ articles:
     coverage: 'Recorded chapters: {recorded}; the plan covers {total}.'
     missing: No recording for
     method: Recording lengths measured by fully decoding MP3 files on
-    table_caption: Approximate time to finish, reading every day
+    table_caption: How long reading takes at different daily chapter counts
     result: '{count} {chapters} a day — finish on {date}'
     minutes_day: ≈ {minutes} {unit} a day
     date: '{month} {day}, {year}'
