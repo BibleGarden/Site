@@ -25,7 +25,7 @@ Psalm 23 is short enough to compare the voices: each reading takes less than a m
 <!-- demo: psalm23-voices-en -->
 
 ## How to play a psalm
-<!-- screen: classic-reading-psalm -->
+<!-- screen: select-psalm -->
 
 1. Open Classic Reading and choose the book of Psalms.
 2. Choose a chapter: in Psalms, each chapter is one psalm.
@@ -36,7 +36,6 @@ The text is highlighted as the narrator reads, so you can follow along. Audio ke
 Bible Garden is free, with no ads or in-app purchases, and its code is open source. You need an internet connection to listen, since audio cannot be downloaded in advance yet. The app runs on iPhone and iPad; listening right on this website and an Android version are in our plans. For other free apps, see "[Free audio Bible apps](/articles/free-audio-bible-apps/)."
 
 ## Why psalm numbers differ between Bibles
-<!-- screen: select-psalm -->
 
 All the English translations in the app (BSB, WEB, and WEBBE) number the psalms by the Hebrew text, as Protestant Bibles and most modern Catholic translations do. Eastern Orthodox Bibles and Catholic liturgical texts such as the Roman Missal follow the Greek Septuagint ([Wikipedia](https://en.wikipedia.org/wiki/Psalms#Numbering)). The Septuagint joins Psalms 9 and 10 and Psalms 114 and 115, and splits Psalms 116 and 147. As a result, the numbers match only for Psalms 1–8 and 148–150; for most of the rest, the Greek number is one lower.
 

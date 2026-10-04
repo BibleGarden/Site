@@ -24,7 +24,7 @@ That last point matters. In a study by [Brown, Waring, and Donkaewbua (2008)](ht
 One caveat: Bible English is not everyday English. You'll meet words like disciples and righteousness and few words for daily life, so the Bible works best alongside a course, not instead of one.
 
 ## A three-step method for each chapter
-<!-- screen: multi-setup-translations -->
+<!-- screen: multi-step-translation-english -->
 
 <div class="article-callout" markdown="1">
 **Multi Reading is Bible Garden's key feature.** It plays each verse in several translations in a row, with pauses you choose. Every translation of the verse appears on screen, and the one being read is highlighted.
