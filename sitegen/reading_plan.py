@@ -19,6 +19,7 @@ CHAPTERS_PATH = ROOT / "tools/data/chapters.tsv"
 PLAN_PATH = ROOT / "content/bible-garden/plans/bible-in-a-year.json"
 SEQUENTIAL_PLAN_PATH = ROOT / "content/bible-garden/plans/bible-in-a-year-sequential.json"
 PLAN_ID = "bible-in-a-year"
+CHRONOLOGICAL_PLAN_ID = "chronological-bible-reading-plan"
 PLACEHOLDER = '<div data-reading-plan-placeholder="bible-in-a-year"></div>'
 MARKER_RE = re.compile(r"^<!-- plan: ([a-z0-9]+(?:-[a-z0-9]+)*) -->$")
 PLAN_INTENT_RE = re.compile(r"<!--\s*(?:plan|paln|plna)\b|<!--\s*plan\s*:", re.IGNORECASE)
@@ -254,11 +255,11 @@ def annotate_plan_marker(body: str, source: Path, site: str, body_start_line: in
         match = MARKER_RE.fullmatch(line)
         if not match:
             raise BuildError(f"{source}:{body_start_line + index}: expected <!-- plan: bible-in-a-year -->")
-        if site != "bible-garden" or match.group(1) != PLAN_ID:
+        if site != "bible-garden" or match.group(1) not in (PLAN_ID, CHRONOLOGICAL_PLAN_ID):
             raise BuildError(f"{source}:{body_start_line + index}: unknown plan {match.group(1)!r} for {site}")
         if found:
             raise BuildError(f"{source}:{body_start_line + index}: duplicate reading plan marker")
-        lines[index] = PLACEHOLDER
+        lines[index] = f'<div data-reading-plan-placeholder="{match.group(1)}"></div>'
         found = True
     return "\n".join(lines) + ("\n" if body.endswith("\n") else ""), found
 
@@ -299,12 +300,14 @@ def format_range(value: dict, names: dict[int, str], lang: str) -> str:
     return f"{first_name} {shown_first}"
 
 
-def render_plan(parallel: list[dict], sequential: list[dict], chapters: list[Chapter], lang: str, strings: dict) -> str:
+def render_plan(parallel: list[dict], sequential: list[dict], chapters: list[Chapter], lang: str, strings: dict,
+                *, chronological: list[dict] | None = None) -> str:
     required = {
         "start_date", "print", "day", "date", "reading", "days", "caption_days", "caption_month", "done",
         "choose_plan", "parallel", "sequential",
     }
-    if not isinstance(strings, dict) or set(strings) != required or not all(isinstance(value, str) and value.strip() for value in strings.values()):
+    valid_keys = (required | {"chronological"},) if chronological is not None else (required, required | {"chronological"})
+    if not isinstance(strings, dict) or set(strings) not in valid_keys or not all(isinstance(value, str) and value.strip() for value in strings.values()):
         raise BuildError(f"reading plan: missing or invalid translation for {lang}")
     for key, fields in (("days", ("first", "last")), ("caption_days", ("first", "last")),
                         ("caption_month", ("month", "first", "last"))):
@@ -321,22 +324,26 @@ def render_plan(parallel: list[dict], sequential: list[dict], chapters: list[Cha
         for chapter in range(1, CHAPTER_COUNTS[book - 1] + 1):
             display_chapter(lang, book, chapter)
     names = {item.book: item.names[lang] for item in chapters}
-    out = [f'<section class="reading-plans" lang="{lang}" data-reading-plan="{PLAN_ID}"'
+    plan_id = PLAN_ID if chronological is None else CHRONOLOGICAL_PLAN_ID
+    out = [f'<section class="reading-plans" lang="{lang}" data-reading-plan="{plan_id}"'
            f' data-block-length="{BLOCK_LENGTH}"'
            f' data-days-label="{html.escape(strings["days"], quote=True)}"'
            f' data-caption-days="{html.escape(strings["caption_days"], quote=True)}"'
-           f' data-caption-month="{html.escape(strings["caption_month"], quote=True)}">',
-           '<fieldset class="reading-plan-switcher" hidden>',
-           f'<legend>{html.escape(strings["choose_plan"])}</legend>']
-    for mode in ("parallel", "sequential"):
-        out.append(f'<label><input type="radio" name="reading-plan-mode" value="{mode}"'
-                   f'{" checked" if mode == "parallel" else ""}> {html.escape(strings[mode])}</label>')
-    out.extend(('</fieldset>',
+           f' data-caption-month="{html.escape(strings["caption_month"], quote=True)}">']
+    if chronological is None:
+        out.extend(('<fieldset class="reading-plan-switcher" hidden>',
+                    f'<legend>{html.escape(strings["choose_plan"])}</legend>'))
+        for mode in ("parallel", "sequential"):
+            out.append(f'<label><input type="radio" name="reading-plan-mode" value="{mode}"'
+                       f'{" checked" if mode == "parallel" else ""}> {html.escape(strings[mode])}</label>')
+        out.append('</fieldset>')
+    out.extend((
            '<div class="reading-plan-controls">',
            f'<label>{html.escape(strings["start_date"])} <input type="date" class="reading-plan-start-date"></label>',
            f'<button type="button" class="reading-plan-print">{html.escape(strings["print"])}</button>',
            '</div>'))
-    for mode, days in (("parallel", parallel), ("sequential", sequential)):
+    calendars = (("parallel", parallel), ("sequential", sequential)) if chronological is None else (("chronological", chronological),)
+    for mode, days in calendars:
         title_id = f"reading-plan-{mode}-title"
         out.append(f'<section class="reading-plan" data-plan-kind="{mode}" aria-labelledby="{title_id}">')
         out.append(f'<h3 id="{title_id}" class="reading-plan-heading">{html.escape(strings[mode])}</h3>')
@@ -356,8 +363,13 @@ def render_plan(parallel: list[dict], sequential: list[dict], chapters: list[Cha
                 day = days[day_number - 1]
                 if mode == "parallel":
                     reading = f'{format_range(day["a"], names, lang)} · {format_range(day["b"], names, lang)}'
-                else:
+                elif mode == "sequential":
                     reading = format_range(day["reading"], names, lang)
+                else:
+                    reading = ' · '.join(format_range({
+                        "start": {"book": item["book"], "chapter": item["first"]},
+                        "end": {"book": item["book"], "chapter": item["last"]},
+                    }, names, lang) for item in day["readings"])
                 out.append(f'<tr data-day="{day_number}"><th scope="row">{day_number}</th>'
                            f'<td class="reading-plan-date"></td><td class="reading-plan-reading">{reading}</td>'
                            '<td class="reading-plan-checkbox">☐</td></tr>')

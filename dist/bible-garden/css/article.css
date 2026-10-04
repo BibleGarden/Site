@@ -479,6 +479,10 @@
     .has-reading-plan .reading-plan-switcher,
     .has-reading-plan .reading-plan-controls { display: none !important; }
 
+    .has-chronological-plan .article-body > :not(.reading-plans) {
+        display: none !important;
+    }
+
     .has-reading-plan main,
     .has-reading-plan article { margin: 0; padding: 0; max-width: none; }
     .has-reading-plan .article-screen-layout { display: block; }
@@ -502,6 +506,7 @@
     .reading-plan-month summary::marker { content: ''; }
     .reading-plan-month summary::-webkit-details-marker { display: none; }
     .reading-plan-month:not([open]) > .reading-plan-month-body { display: block !important; }
+    .reading-plan-month::details-content { content-visibility: visible; }
     .reading-plan-month-body,
     .reading-plan-month table { break-inside: auto; }
     .reading-plan-month thead { display: table-header-group; break-after: avoid; }

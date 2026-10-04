@@ -17,6 +17,7 @@ from .errors import BuildError
 from .multi_reading_demo import annotate_demo_marker, load_demo, placeholder_for, render_demo
 from .reading_time import PLACEHOLDER as CALCULATOR_PLACEHOLDER, annotate_calculator_marker, load_data as load_reading_time, render_calculator
 from .reading_plan import PLACEHOLDER, annotate_plan_marker, load_plans, render_plan
+from .chronological_plan import PLACEHOLDER as CHRONOLOGICAL_PLACEHOLDER, load_plan as load_chronological_plan
 from .screens import Screen, ScreenFigureExtension, ScreenRef, VARIANTS, check_asset, load_catalog, load_checksums
 
 FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---\n(.*)\Z", re.DOTALL)
@@ -131,6 +132,7 @@ class Article:
     faq: tuple[FaqItem, ...]
     screens: tuple[ScreenRef, ...]
     has_plan: bool = False
+    has_chronological_plan: bool = False
     has_demo: bool = False
     has_calculator: bool = False
 
@@ -257,6 +259,7 @@ def load_articles(site: Site, content_dir: Path) -> dict[str, dict[str, Article]
     checksums = load_checksums(content_dir / "screens.sha256", screens, site.languages) if screens else {}
     if site.key == "bible-garden":
         load_plans()
+        load_chronological_plan()
         load_reading_time()
     for slug_dir in sorted(articles_dir.iterdir()):
         if slug_dir.name == ".gitkeep":
@@ -356,15 +359,22 @@ def parse_article(
     else:
         body_html = render_markdown(marked_body)
     if has_plan:
-        parallel, sequential, chapters = load_plans()
-        if body_html.count(PLACEHOLDER) != 1:
+        if CHRONOLOGICAL_PLACEHOLDER in body_html:
+            days, chapters = load_chronological_plan()
+            placeholder = CHRONOLOGICAL_PLACEHOLDER
+            calendar = render_plan([], [], chapters, lang, strings.get("reading_plan"), chronological=days)
+        else:
+            parallel, sequential, chapters = load_plans()
+            placeholder = PLACEHOLDER
+            calendar = render_plan(parallel, sequential, chapters, lang, strings.get("reading_plan"))
+        if body_html.count(placeholder) != 1:
             raise BuildError(f"{source}: reading plan marker did not render exactly once")
-        body_html = body_html.replace(PLACEHOLDER, render_plan(parallel, sequential, chapters, lang, strings.get("reading_plan")))
+        body_html = body_html.replace(placeholder, calendar)
     if has_calculator:
         if body_html.count(CALCULATOR_PLACEHOLDER) != 1:
             raise BuildError(f"{source}: reading-time marker did not render exactly once")
         body_html = body_html.replace(CALCULATOR_PLACEHOLDER, render_calculator(load_reading_time(), lang, strings.get("reading_time")))
-    clean_body_no_demo = clean_body.replace(CALCULATOR_PLACEHOLDER, "")
+    clean_body_no_demo = clean_body.replace(CALCULATOR_PLACEHOLDER, "").replace(CHRONOLOGICAL_PLACEHOLDER, "")
     if demo_id:
         demo_placeholder = placeholder_for(demo_id)
         data = load_demo(demo_id)
@@ -385,6 +395,7 @@ def parse_article(
         faq=extract_faq(clean_body_no_demo.replace(PLACEHOLDER, ""), source),
         screens=refs,
         has_plan=has_plan,
+        has_chronological_plan=has_plan and placeholder == CHRONOLOGICAL_PLACEHOLDER,
         has_demo=bool(demo_id),
         has_calculator=has_calculator,
     )

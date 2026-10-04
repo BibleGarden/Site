@@ -26,7 +26,7 @@ Both plans read Scripture in parallel tracks: the hard chapters of Leviticus sit
 
 ## Plans with a podcast: The Bible Recap and Bible in a Year
 
-**[The Bible Recap](https://www.thebiblerecap.com/start)** by Tara-Leigh Cobble is a one-year chronological plan: events come in the order they happened. Each day has a podcast of about eight minutes. It's a recap of what you read, not the reading itself.
+**[The Bible Recap](https://www.thebiblerecap.com/start)** by Tara-Leigh Cobble is a one-year chronological plan: events come in the order they happened. Each day has a podcast of about eight minutes. It's a recap of what you read, not the reading itself. Our own chronological calendar, with a table of eras, is in [Chronological Bible Reading Plan](/articles/chronological-bible-reading-plan/).
 
 **[Bible in a Year](https://ascension.helpscoutdocs.com/article/25-bible-in-a-year-explained)** with Fr. Mike Schmitz, from Ascension, is a Catholic podcast: 365 episodes of 20–25 minutes, each with two or three readings, a reflection, and a prayer. It follows the Catholic canon of 73 books, including Tobit, Judith, Sirach, and Maccabees. Bible Garden has the 66 books found in Protestant Bibles, so you can't follow this plan all the way through in the app, and we don't give minutes for it.
 

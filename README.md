@@ -279,6 +279,47 @@ Regenerate and rebuild with:
 .venv/bin/python -m sitegen build
 ```
 
+For the single chronological calendar, use
+`<!-- plan: chronological-bible-reading-plan -->`. It has one 365-day calendar
+and no reading-order switcher. Without JavaScript it contains all readings in
+31-day blocks; JavaScript groups the days by real calendar months from the
+chosen start date. Printing includes only this calendar and its checkboxes.
+Its saved start date is independent of the two `bible-in-a-year` calendars.
+
+The approved [chapter sequence](tools/data/chronological-sequence.json) compares
+Blue Letter Bible, Back to the Bible and Tyndale/NLT through Bible In A Year
+Online, with Robertson as a supplementary Gospel source. URLs, source hashes
+and placement evidence are in the data; the [decision log](tools/data/chronological-decisions.md)
+records disputed dates, editorial anthology contexts and source similarities.
+Chapter numbering is English BSB, with Hebrew Psalm numbering. The existing
+localized book names and ru/uk display mappings are reused.
+
+The generator preserves the sequence exactly and groups the three translation
+chapter pairs into indivisible units before partitioning by BSB/Bob Souer audio
+duration. It first finds the smallest possible maximum deviation from the
+365-day mean, then minimizes squared deviation with that maximum fixed; integer
+tenths of seconds and stable tie-breaking make the result deterministic.
+`chronological-bible-reading-plan.json` stores each day's `readings` as an
+ordered list of `{book, first, last}` ranges (canonical numeric book IDs 1–66).
+Only consecutive ascending chapters of one book are compressed; every book
+change, backward jump and chapter gap remains a separate reading.
+
+Regenerate only the chronological calendar without recomputing the existing
+two calendars:
+
+```bash
+.venv/bin/python tools/validate_chronological_sequence.py
+.venv/bin/python tools/build_reading_plan.py --chronological-only
+.venv/bin/python -m unittest discover -s tests -p 'test_chronological*.py'
+.venv/bin/python -m sitegen build
+.venv/bin/python -m sitegen check
+.venv/bin/python -m sitegen preview
+```
+
+Running `tools/build_reading_plan.py` without arguments regenerates all three
+calendars. The build validates all plan files, including exact chronological
+coverage/order, durations, non-empty days and indivisible chapter pairs.
+
 ### Multi Reading demos in articles
 
 On bible.garden, place `<!-- demo: <id> -->` on its own line in an article,
