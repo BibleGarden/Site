@@ -257,6 +257,36 @@ It depends on your pace; the app shows the audio length of every book.
 
 Only one `{#faq}` section per article; every question needs an answer.
 
+### Bible chapter checklist in articles
+
+Put `<!-- checklist: bible-chapters -->` on its own line in a bible.garden
+article. The author chooses its position; no article text is generated.
+Unknown, malformed, duplicate and cross-site markers fail the build; markers
+inside fenced code blocks remain examples. The static HTML has one labeled
+checkbox per chapter, grouped by all 66 canonical books, and works without
+JavaScript at widths down to 320 px. Marks are temporary, with no storage or
+network requests; reloading starts a fresh checklist. JavaScript only reveals
+the localized **Print checklist** button, which calls the browser print dialog.
+Without JavaScript use the browser's Print command.
+
+As with reading-plan calendars, printing an article containing this marker
+prints only the checklist, excluding site navigation, header, footer and other
+article content (including calendars if present). Two explicit sheets, split
+after Psalms, print in three columns on two A4 portrait pages with 10 mm margins.
+Use the default 100% scale and disable browser headers/footers.
+
+Names and numbering reuse `tools/data/chapters.tsv`, `SOURCE_NT` and
+`display_chapter` from `sitegen/reading_plan.py`: en uses BSB names and order;
+ru uses Synodal names and app order (James–Jude immediately after Acts), with
+150 Synodal-numbered Psalms and four Malachi chapters; uk uses Khomenko names
+and three Malachi chapters. Totals are **1189 for en/ru**, **1188 for uk**.
+Checked on 2026-10-04 with a read-only grouped chapter query against local
+`cep_public.translation_verses` joined to `translations` (`bsb`, `syn`, `ubh`)
+and the existing reading-time canonical limits. Translation additions outside
+those limits (2 Chronicles 37, Psalm 151, Esther 11–12, Daniel 13–14) are excluded.
+The three Playwright Chrome PDFs were verified with `pdfinfo`: two A4 pages
+each. Regression tests: `python -m unittest discover -s tests -p test_bible_checklist.py`.
+
 ### Reading plan in articles
 
 On bible.garden, put `<!-- plan: bible-in-a-year -->` on its own line where the

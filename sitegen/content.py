@@ -17,6 +17,7 @@ from .errors import BuildError
 from .multi_reading_demo import annotate_demo_marker, load_demo, placeholder_for, render_demo
 from .reading_time import PLACEHOLDER as CALCULATOR_PLACEHOLDER, annotate_calculator_marker, load_data as load_reading_time, render_calculator
 from .reading_plan import PLACEHOLDER, annotate_plan_marker, load_plans, render_plan
+from .bible_checklist import PLACEHOLDER as CHECKLIST_PLACEHOLDER, annotate_checklist_marker, render_checklist
 from .chronological_plan import PLACEHOLDER as CHRONOLOGICAL_PLACEHOLDER, load_plan as load_chronological_plan
 from .screens import Screen, ScreenFigureExtension, ScreenRef, VARIANTS, check_asset, load_catalog, load_checksums
 
@@ -135,6 +136,7 @@ class Article:
     has_chronological_plan: bool = False
     has_demo: bool = False
     has_calculator: bool = False
+    has_checklist: bool = False
 
     @property
     def path(self) -> str:
@@ -348,7 +350,8 @@ def parse_article(
     plan_body, has_plan = annotate_plan_marker(body, source, site_key, body_start_line)
     demo_body, demo_id = annotate_demo_marker(plan_body, source, site_key, body_start_line)
     calculator_body, has_calculator = annotate_calculator_marker(demo_body, source, site_key, body_start_line)
-    marked_body, clean_body, refs = annotate_screens(calculator_body, source, lang, screens, body_start_line)
+    checklist_body, has_checklist = annotate_checklist_marker(calculator_body, source, site_key, body_start_line)
+    marked_body, clean_body, refs = annotate_screens(checklist_body, source, lang, screens, body_start_line)
     for ref in refs:
         for variant in VARIANTS:
             check_asset(ref.screen, lang, variant, output_dir, checksums[ref.screen.path(lang, variant)])
@@ -374,7 +377,11 @@ def parse_article(
         if body_html.count(CALCULATOR_PLACEHOLDER) != 1:
             raise BuildError(f"{source}: reading-time marker did not render exactly once")
         body_html = body_html.replace(CALCULATOR_PLACEHOLDER, render_calculator(load_reading_time(), lang, strings.get("reading_time")))
-    clean_body_no_demo = clean_body.replace(CALCULATOR_PLACEHOLDER, "").replace(CHRONOLOGICAL_PLACEHOLDER, "")
+    if has_checklist:
+        if body_html.count(CHECKLIST_PLACEHOLDER) != 1:
+            raise BuildError(f"{source}: checklist marker did not render exactly once")
+        body_html = body_html.replace(CHECKLIST_PLACEHOLDER, render_checklist(lang))
+    clean_body_no_demo = clean_body.replace(CALCULATOR_PLACEHOLDER, "").replace(CHRONOLOGICAL_PLACEHOLDER, "").replace(CHECKLIST_PLACEHOLDER, "")
     if demo_id:
         demo_placeholder = placeholder_for(demo_id)
         data = load_demo(demo_id)
@@ -398,6 +405,7 @@ def parse_article(
         has_chronological_plan=has_plan and placeholder == CHRONOLOGICAL_PLACEHOLDER,
         has_demo=bool(demo_id),
         has_calculator=has_calculator,
+        has_checklist=has_checklist,
     )
 
 
