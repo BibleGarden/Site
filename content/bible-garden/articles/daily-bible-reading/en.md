@@ -2,7 +2,6 @@
 title: "How to Read the Bible Every Day: Build a Habit That Lasts"
 description: "How to read the Bible every day: a simple event–place–action rule, a portion you can keep up, audio for busy days, and progress that tracks itself."
 date: 2026-10-04
-draft: true
 ---
 
 This isn't a reading plan or today's passage. It's about making Bible reading part of every day. Start with one rule and fill it in for yourself:
@@ -24,7 +23,7 @@ How to fill in the rule:
 
 Bible Garden doesn't send reminders, and this is where the rule does the work: the cue is an event in your day, not a notification. If the rule hasn't worked for a week, don't blame yourself; change the cue. Maybe mornings are too hectic and evenings are calmer.
 
-## Choose an amount you can keep, not a deadline
+## Choose a manageable amount rather than a deadline
 
 A habit grows from repetition, not volume. Pick what you can manage even on your busiest day: a chapter, half a chapter, even a single paragraph. Simple actions become habitual faster than complex ones (Gardner et al., 2012). If you have energy left, keep going, but keep the required part small.
 
@@ -67,7 +66,7 @@ Two caveats. It isn't a streak counter: the app counts chapters, not consecutive
 
 ## Missed a day? Just come back
 
-You will miss days: illness, travel, a hard week. In a study by Phillippa Lally and colleagues, missing one opportunity did not materially affect habit formation ([Lally et al., 2010](https://doi.org/10.1002/ejsp.674)). So after a miss you don't need to start over or catch up with a double portion. The next time your event comes around, open the place where you left off. If misses keep happening, adjust the rule: choose a different cue or a smaller amount.
+You will miss days: illness, travel, a hard week. In a study by Phillippa Lally and colleagues, missing one opportunity did not materially affect habit formation ([Lally et al., 2010](https://doi.org/10.1002/ejsp.674)). So after a miss you don't need to start over or catch up with a double portion. When your chosen cue next occurs, pick up where you left off. If misses keep happening, adjust the rule: choose a different cue or a smaller amount.
 
 "Daily Bible reading" can mean different practices:
 

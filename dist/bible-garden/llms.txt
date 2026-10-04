@@ -13,6 +13,7 @@
 
 ## Articles (English)
 
+- [How to Read the Bible Every Day: Build a Habit That Lasts](https://bible.garden/articles/daily-bible-reading/): How to read the Bible every day: a simple event–place–action rule, a portion you can keep up, audio for busy days, and progress that tracks itself.
 - [Which Bible Translation Is Best? Compare English Versions](https://bible.garden/articles/which-bible-translation/): Compare KJV, NIV, ESV, NLT, BSB, WEB, and other English Bible translations. Choose one for reading or study, then hear two versions verse by verse.
 - [Free audio Bible apps: what to use for listening, reading, and study](https://bible.garden/articles/free-audio-bible-apps/): Compare free Bible apps with audio, from YouVersion and Bible.is to Bible Garden. Find a fit for offline listening, daily reading, or two languages.
 - [Books of the Bible in Order: How Many Books and Chapters](https://bible.garden/articles/books-of-the-bible/): All 66 books of the Bible in order, with sections, chapters, verses, and listening time for each. Why Catholic and Orthodox Bibles have more books.
@@ -23,6 +24,7 @@
 
 ## Статьи (Русский)
 
+- [Как читать Библию каждый день и не бросить](https://bible.garden/ru/articles/daily-bible-reading/): Как приучить себя читать Библию каждый день: короткое правило «событие — место — действие», посильный объём, аудио в дороге и прогресс, который отмечается сам.
 - [Какой перевод Библии лучше: Синодальный, Кулаковых и другие](https://bible.garden/ru/articles/which-bible-translation/): Чем отличаются русские переводы Библии: Синодальный, перевод Кулаковых, РБО, НРП. Дословный и смысловой перевод, как выбрать свой и зачем сравнивать переводы.
 - [Аудио-Библия: бесплатные приложения и сайты, чтобы слушать Библию на русском](https://bible.garden/ru/articles/free-audio-bible-apps/): Где бесплатно слушать Библию на русском: YouVersion, Bible.is, «Радио ВЕРА», «Азбука веры», bible.by и Bible Garden — чем отличаются и что кому подойдёт.
 - [Книги Библии по порядку: сколько книг, глав и стихов](https://bible.garden/ru/articles/books-of-the-bible/): Все 66 книг Библии по порядку: разделы, число глав и стихов, время прослушивания. Сколько книг в Библии — 66 или 77, у православных, католиков и протестантов.
@@ -33,6 +35,7 @@
 
 ## Статті (Українська)
 
+- [Як читати Біблію щодня: як виробити звичку](https://bible.garden/uk/articles/daily-bible-reading/): Як щодня читати Біблію й не покинути: просте правило «подія — місце — дія», посильний обсяг, аудіо в дорозі та прогрес, який позначається сам.
 - [Який переклад Біблії вибрати: Огієнка, Хоменка чи НПУ](https://bible.garden/uk/articles/which-bible-translation/): Чим відрізняються українські переклади Біблії: Огієнка, Хоменка, Турконяка, УБТ і НПУ. Як вибрати свій переклад і порівняти їх на слух.
 - [Аудіо-Біблія: безкоштовні застосунки, щоб слухати Біблію українською](https://bible.garden/uk/articles/free-audio-bible-apps/): Де безкоштовно слухати Біблію українською: YouVersion, Bible.is, «Аудіо Біблія» та Bible Garden. Порівнюємо переклади, офлайн і можливості.
 - [Книги Біблії по порядку: скільки книг, розділів і віршів](https://bible.garden/uk/articles/books-of-the-bible/): Усі 66 книг Біблії по порядку: групи книг, кількість розділів і віршів, тривалість аудіо. Скільки книг у Біблії протестантів, католиків і православних.
