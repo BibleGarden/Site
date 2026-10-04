@@ -2,7 +2,6 @@
 title: "How to Help Bible Garden: New Languages and Volunteering"
 description: "Ways to volunteer for Bible Garden, a free Bible app: find a translation and recording in a new language, sort out the rights, check the verse timing, or help in five minutes."
 date: 2026-10-04
-draft: true
 ---
 
 [Bible Garden](/) is a free app for reading and listening to the Bible on iPhone and iPad, with no ads and no purchases. What the project needs most is people who can help add a new language. This is a ministry, not paid work. Maria Novikova, who created and runs the project, oversees every language and helps at each step, but she can't do it all on her own. You don't need to be fluent to help: a little familiarity with the language is enough, and some tasks don't need the language at all. Checking the alignment means listening only to the verses the system flags as uncertain and comparing them with the text, and finding recordings or researching their rights works in any language.
@@ -65,7 +64,7 @@ Not everyone can take on a whole language. Here's what you can do in a few minut
 - **Rate the app on the App Store.** Ratings appear on the app's page and in search results, and App Store search takes them into account along with downloads ([Apple](https://developer.apple.com/app-store/search/)). Bible Garden has almost no ratings yet, so every one stands out.
 - **Tell others about the app**: friends, your church, your small group, anyone who listens to the Bible or is learning a language.
 
-If you're a developer, you can help with code too: the code of the app, the server, the admin dashboard, and this website is open on [GitHub](https://github.com/BibleGarden/) under the GPL-3.0 license. Before a large change, open an issue and describe the idea, so the work isn't wasted. And if you're building your own app or research project, you can ask the team for an API key and the prepared data: texts and verse-level verse timing. What data we can share depends on the rights: some translations and recordings can be passed on only within the terms of their licenses.
+If you're a developer, you can help with code too: the code of the app, the server, the admin dashboard, and this website is open on [GitHub](https://github.com/BibleGarden/) under the GPL-3.0 license. Before a large change, open an issue and describe the idea, so the work isn't wasted. And if you're building your own app or research project, you can ask the team for an API key and the prepared data: texts and verse-level audio timing. What data we can share depends on the rights: some translations and recordings can be passed on only within the terms of their licenses.
 
 ## How to get in touch
 
