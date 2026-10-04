@@ -2,7 +2,6 @@
 title: "Audio Bible for Sleep: Listen at Night and Let It Stop on Its Own"
 description: "How to fall asleep listening to the Bible on iPhone without it playing until morning: the Clock timer's Stop Playing option, or stopping at the end of a chapter in Bible Garden. Plus short psalms and Gospel chapters for bedtime."
 date: 2026-10-04
-draft: true
 ---
 
 You can listen to the Bible while falling asleep tonight without leaving it playing until morning, even though the free [Bible Garden](/) app for iPhone and iPad has no sleep timer of its own. There are two ways:
@@ -71,7 +70,7 @@ So the choice comes down to the voice and the translation. The US edition of the
 You can set the playback speed from 0.6× to 2.0×, so in the evening you can slow the reading down a little. More about each narrator: "[Audio Bible narrators](/articles/audio-bible-narrators/)."
 
 ## What to listen to before sleep
-<!-- screen: select-psalm -->
+<!-- screen: classic-reading-psalm -->
 
 These short passages speak of night, sleep, and rest. Durations come from the app's MP3 files at 1× speed, measured on October 4, 2026.
 
@@ -117,7 +116,7 @@ Yes, if 90% of its verses have played (the default threshold): the app marks the
 
 ### Is it okay to fall asleep listening to the Bible?
 
-Christians see it differently. Some listen to Scripture to settle down and fall asleep. Others prefer to give it their full attention rather than half-hear it while drifting off. If that's closer to you, listen to one chapter with auto-stop and pauses after verses, and save the timer for nights when you want to fall asleep to the reading.
+Christians see it differently. Some listen to Scripture to settle down and fall asleep. Others prefer to give it their full attention rather than half-hear it while drifting off. For example, Protodeacon Sergiy Shalberov makes that case in an [Orthodox forum discussion (in Russian)](https://azbyka.ru/forum/threads/dopustimo-li-slushat-evangelie-v-audio-formate-pered-snom.24098/). If you prefer to listen attentively, listen to one chapter with auto-stop and pauses after verses, and save the timer for nights when you want to fall asleep to the reading.
 
 ### Is Bible Garden available on Android?
 
