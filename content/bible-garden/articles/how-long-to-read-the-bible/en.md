@@ -2,7 +2,6 @@
 title: "How Long Does It Take to Read the Bible? Hours, Minutes a Day, and a Calculator"
 description: "How long it takes to read the whole Bible: about 51 hours silently and 66–84 hours of audio, depending on the narrator. A calculator for chapters a day, finish date, and minutes a day."
 date: 2026-10-04
-draft: true
 ---
 
 Reading silently, most adults can get through the whole Bible in about 51 hours. Listening takes longer: the complete English recordings in Bible Garden run 66 to 84 hours, depending on the narrator. To finish in a year, three or four chapters a day is enough — about 8–9 minutes of reading or 11–14 minutes of audio. Below you'll find a calculator for your own pace, the length of each recording, and ways to slow down or speed up in the free [Bible Garden](/) app for iPhone and iPad.
