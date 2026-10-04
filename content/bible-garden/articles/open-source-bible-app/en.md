@@ -32,21 +32,21 @@ A few internal pieces stay private: production server settings and keys, the scr
 
 **So others can learn from the work.** The most laborious part of the project is marking the exact second each verse starts in a recording. The code that stores and serves those timings, and the admin tools used to check them, are open.
 
-**So you can build something better on top of it.** Want to make your own app? Fork it, improve it, ship it — we'd love that. GPL-3.0 asks one thing: if you distribute a modified version, keep it open under GPL-3.0. You can ask us for an API key and the prepared data, within the rights for each text and recording.
+**So you can build something better on top of it.** Want to make your own app? Fork it, improve it, ship it — we'd love that. If you distribute a modified version, GPL-3.0 requires you to share its source code under the same license. You can ask us for an API key and the prepared data, within the rights for each text and recording.
 
 ## What's inside: a Bible you can listen to verse by verse
 <!-- screen: multi-reading -->
 
-Bible Garden is built for listening first. The audio is timed verse by verse, so the "previous / next verse" buttons jump to the exact start of a verse, and you can add a pause after every verse, paragraph, or section — for a few seconds or until you tap Play. Some translations have more than one narrator, and you can hear a sample of each voice before you choose.
+Bible Garden is built for listening first. The audio is timed verse by verse, so the "previous / next verse" buttons jump to the exact start of a verse, and you can add a pause after every verse, paragraph, or section — for a few seconds or until you tap Play. For BSB, you can choose Bob Souer or David; the US edition of WEB is read by Winfred Henson. You can hear a sample of each voice before you choose.
 
 <div class="article-callout" markdown="1">
-**Bible Garden's signature feature is Multi Reading.** You build a sequence — a translation, a pause, another translation — and every verse, paragraph, section, or chapter plays in each translation in turn. For example, a verse in the Berean Standard Bible, then the same verse in the World English Bible, or in Russian or Ukrainian. The screen shows the same verse in every translation of the sequence. One caveat: the Russian translations and the Ukrainian NPU number most psalms differently from English Bibles, so in Psalms those pairs play different psalms. More in "[Bilingual Bible App](/articles/bible-in-two-languages/)."
+**Bible Garden's signature feature is Multi Reading.** You build a sequence — a translation, a pause, another translation — and every verse, paragraph, section, or chapter plays in each translation in turn. For example, a verse in the Berean Standard Bible, then the same verse in the World English Bible, or in Russian or Ukrainian. The screen shows the same verse in every translation of the sequence. Multi Reading pairs verses by their position, not by matching their meaning. For Psalms, use translations with the same psalm numbering: BSB and both WEB editions use Hebrew numbering, as does the Ukrainian Khomenko translation. The Russian Synodal and Kulakov translations and Ukrainian NPU use Greek numbering; avoid mixing the two groups in Psalms. More in "[Bilingual Bible App](/articles/bible-in-two-languages/)."
 </div>
 
 What the app doesn't have yet: offline audio downloads, search, bookmarks, notes, reading plans, and reminders. A web version and Android are in our plans.
 
 ## Bible texts and recordings: the code license doesn't cover them
-<!-- screen: translation-picker -->
+<!-- screen: translation-picker-english -->
 
 GPL-3.0 applies only to our code. Bible texts and audio recordings are other people's works, and each has its own status:
 
@@ -61,7 +61,7 @@ That's a big reason we offer BSB and WEB in English: both are modern, readable, 
 It's also why the selection is small: BSB and WEB in English, Synodal and Kulakov in Russian, Khomenko and NPU in Ukrainian. Every new text and recording comes down to rights, and we also pick recordings by ear. For help choosing, see "[Which Bible Translation Is Best?](/articles/which-bible-translation/)" and, on narrators, "[Audio Bible narrators](/articles/audio-bible-narrators/)." If you're a rights holder and believe a text or recording is used improperly, message us on [Telegram](https://t.me/Mandarinka4) and we'll look into it and fix it.
 
 ## How to help
-<!-- screen: classic-reading -->
+<!-- screen: classic-reading-english -->
 
 What the project needs most is people who can help add new languages: find good translations and recordings, sort out the rights, and check how the audio lines up with the text. Maria coordinates this work and helps at every step.
 
@@ -72,7 +72,7 @@ For the steps involved and how to get started, see "[How to help Bible Garden](/
 - **The iOS app** is written in SwiftUI and runs on iOS 15 or later, on iPhone and iPad. The API client is generated from an OpenAPI spec at build time. To build it, you need an API URL and key in local config files (see the repository's README).
 - **Server and admin tools:** Bible-API and Dashboard-API use FastAPI and MySQL; the Dashboard-Web admin uses Vue 3. The same Bible-API also powers our second app, [Lampada](https://lampada.app/), a space for personal prayer. The website is built by a small Python generator from Markdown and YAML.
 - **API access requires an app key.** If you're building an app or doing research, message us on [Telegram](https://t.me/Mandarinka4) or open an issue in [GitHub Issues](https://github.com/BibleGarden/Bible-API/issues): tell us about your project, and we'll issue a key. You can also request the prepared data — texts and verse timings — to run the server from source yourself. One caveat: some translations and recordings can only be shared within their licenses, so what we can provide depends on what the rights holders allow.
-- **There's no CONTRIBUTING file or issue templates yet.** Code and testing conventions are described in CLAUDE.md files (plus AGENTS.md in the app and Bible-API) in the app, server, and admin repositories. Before a large change, open an issue and describe your idea so your work doesn't go to waste.
+- **There's no CONTRIBUTING file or issue templates yet.** Code and testing conventions are described in CLAUDE.md files (plus AGENTS.md in the app and Bible-API) in the app, server, and admin repositories. Before a large change, open an issue and describe your idea so your work doesn't go to waste. For a machine-readable index of this site, see [llms.txt](/llms.txt).
 
 ## Other open-source Bible apps
 
