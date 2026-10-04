@@ -212,7 +212,8 @@ New article IDs are `translation-picker-english`, `reader-picker-english`,
 `classic-reading-english`, `multi-step-speed`, `multi-step-translation-english`,
 `multi-setup-russian-english`, and `select-psalm`. Each has all three interface
 languages. The first is used in article 6.3; the others are ready for articles
-6.11–6.15, which were absent from Site main when checked on 2026-10-04.
+6.11, 6.13 and 6.15, which were absent from Site main when checked on 2026-10-04.
+Articles 6.12 and 6.14 were merged before this screenshot change was published.
 Use the existing `progress` screen for shared Classic / Multi Reading progress.
 The full inventory, intended article sections and capture details are in the
 archive's `manifest.md`; the three byte-identical alias pairs are intentional.
