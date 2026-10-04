@@ -2,7 +2,6 @@
 title: "Psalms Audio: Listen to the Psalms Free, Without Ads"
 description: "Listen to all 150 Psalms free and without ads in four English recordings (BSB and WEB). How long each takes, why psalm numbers differ between Bibles, and how to listen slowly."
 date: 2026-10-04
-draft: true
 ---
 
 You can listen to the Psalms free and without ads in the [Bible Garden](/) app for iPhone and iPad. It has four complete recordings of all 150 psalms: the Berean Standard Bible read by Bob Souer (4 h 18 min) and by David (4 h 34 min), the World English Bible read by Winfred Henson (4 h 58 min), and the British Edition of the World English Bible, whose narrator is not named (4 h 2 min). An average psalm takes under two minutes, so you can hear one on a short walk, or the whole book in a month at 8–10 minutes a day. Below: how to play a psalm, why Psalm 23 is Psalm 22 in some Bibles, and how to listen slowly enough to pray.
