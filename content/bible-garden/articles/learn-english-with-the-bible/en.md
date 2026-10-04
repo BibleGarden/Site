@@ -35,7 +35,7 @@ Here is John 1:1–5 in the two English translations: BSB read by Bob Souer, the
 
 <!-- demo: translation-compare -->
 
-**Step 1. Understand.** In Multi Reading, add BSB, a 2-second pause, and WEB, and choose to read by verse. Two wordings of the same idea often explain each other: one says "worry," the other "be anxious." A chapter of John takes about 11 minutes this way at 1× speed. You can also add BSB twice, slower and then at normal speed (see below). If Russian or Ukrainian is your first language, put a translation in that language first; [Bilingual Bible App](/articles/bible-in-two-languages/) shows that setup.
+**Step 1. Understand.** In Multi Reading, add BSB, a 2-second pause, and WEB, and choose to read by verse. Two wordings of the same idea often explain each other: one says "worry," the other "be anxious." A chapter of John takes about 11 minutes this way at 1× speed. You can also add BSB twice, slower and then at normal speed (see below). If Russian or Ukrainian is your first language, put a translation in that language first; [Bilingual Bible App](/articles/bible-in-two-languages/) shows that setup. With such a pair, listen to Psalms separately in Classic Reading: their verse numbering differs from English Bibles, so the paired verses don't match.
 
 **Step 2. Listen.** Play the same chapter in Classic Reading, in English only, and follow the text. Bob Souer reads a chapter of John in about 5 minutes on average.
 
@@ -114,7 +114,7 @@ Ten well-known verses in both English translations, exactly as they appear in th
 | 1 Corinthians 13:13 | And now these three remain: faith, hope, and love; but the greatest of these is love. | But now faith, hope, and love remain — these three. The greatest of these is love. |
 | Philippians 4:13 | I can do all things through Christ who gives me strength. | I can do all things through Christ who strengthens me. |
 
-The Bible has also shaped everyday English. Linguist David Crystal counted 257 idioms that entered the language through the King James Bible, twice as many as Shakespeare introduced; most of them already appeared in earlier 16th-century English Bibles ([NPR, 2010](https://www.npr.org/2010/12/22/132262167/thank-the-king-james-bible-for-favorite-phrases)). The King James Version is not in the app, but you'll hear these phrases in BSB too:
+The Bible has also shaped everyday English. Linguist David Crystal counted 257 idioms that entered the language through the King James Bible, twice as many as Shakespeare introduced; most of them already appeared in earlier 16th-century English Bibles ([NPR, 2010](https://www.npr.org/2010/12/22/132262167/thank-the-king-james-bible-for-favorite-phrases)). The King James Version is not in the app, but these BSB passages show where the idioms come from:
 
 | Idiom | Meaning | Source (BSB) |
 |---|---|---|
