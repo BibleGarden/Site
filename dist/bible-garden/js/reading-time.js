@@ -1,149 +1,136 @@
-/* Reading-time arithmetic is shared by the UI and Node regression tests. */
+/* Chapter-based plans; optional audio settings affect only daily listening time. */
 (function () {
     'use strict';
     const DAY = 86400000;
-    function positive(value) {
-        if (!Number.isFinite(value) || value <= 0) throw new Error('Expected a positive number');
+    function integer(value) {
+        if (!Number.isSafeInteger(value) || value < 1) throw new RangeError('Expected positive integer chapters');
         return value;
     }
     function date(value) {
-        if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) throw new Error('Invalid date');
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) throw new RangeError('Invalid date');
         const result = new Date(`${value}T00:00:00Z`);
-        if (!Number.isFinite(result.getTime()) || result.toISOString().slice(0, 10) !== value) throw new Error('Invalid date');
+        if (!Number.isFinite(result.getTime()) || result.toISOString().slice(0,10)!==value) throw new RangeError('Invalid date');
         return result;
     }
-    function calendar(seconds, start, mode, value) {
-        positive(seconds);
+    function calendar(total, start, driver, value) {
+        integer(total);
         const first = date(start);
-        let days, minutes;
-        if (mode === 'daily') {
-            minutes = positive(Number(value));
-            days = Math.ceil(seconds / (minutes * 60));
-        } else if (mode === 'deadline') {
-            days = (date(value) - first) / DAY + 1;
-            positive(days);
-            minutes = seconds / days / 60;
-        } else throw new Error('Invalid plan mode');
-        const finish = new Date(first.getTime() + (days - 1) * DAY);
-        if (!Number.isFinite(finish.getTime()) || finish.getUTCFullYear() > 9999) throw new RangeError('Finish date out of range');
-        return {days, minutes, finish: finish.toISOString().slice(0, 10)};
+        let chapters;
+        if (driver==='chapters') chapters = integer(Number(value));
+        else if (driver==='finish') {
+            const days = (date(value)-first)/DAY+1;
+            integer(days);
+            chapters = Math.ceil(total/days);
+        } else throw new Error('Invalid calendar driver');
+        const days = Math.ceil(total/chapters);
+        const finish = new Date(first.getTime()+(days-1)*DAY);
+        if (!Number.isFinite(finish.getTime()) || finish.getUTCFullYear()>9999) throw new RangeError('Finish date out of range');
+        return {chapters, days, finish:finish.toISOString().slice(0,10)};
     }
-    function scopeBooks(scope, book) {
-        const all = Array.from({length: 66}, (_, i) => i + 1);
-        if (scope === 'bible') return all;
-        if (scope === 'ot') return all.filter((b) => b <= 39);
-        if (scope === 'nt') return all.filter((b) => b >= 40);
-        if (scope === 'gospels') return [40, 41, 42, 43];
-        if (scope === 'psalms') return [19];
-        if (scope === 'book' && Number.isInteger(book) && book >= 1 && book <= 66) return [book];
-        throw new Error('Invalid scope');
+    function scopeBooks(data, scope) {
+        if (!['bible','ot','nt'].includes(scope)) throw new Error('Invalid scope');
+        return data.books.filter((book)=>scope==='bible' || (book.id<=39)===(scope==='ot'));
     }
-    function speed(value, multi) {
-        positive(value);
-        const low = multi ? .5 : .6, high = multi ? 2.5 : 2, step = multi ? .1 : .2;
-        if (value < low || value > high || Math.abs((value - low) / step - Math.round((value - low) / step)) > 1e-7) throw new Error('Invalid speed');
-        return value;
+    function chapterTotal(data, scope) {
+        return scopeBooks(data,scope).reduce((total,book)=>total+book.chapters,0);
     }
-    function pause(value) {
-        if (!Number.isFinite(value) || value < 0 || value > 60) throw new Error('Invalid pause');
+    function speed(value, second) {
+        const low=second ? .5 : .6, high=second ? 2.5 : 2, step=second ? .1 : .2;
+        if (!Number.isFinite(value) || value<low || value>high || Math.abs((value-low)/step-Math.round((value-low)/step))>1e-7) throw new Error('Invalid speed');
         return value;
     }
     function calculate(data, settings) {
-        const requested = scopeBooks(settings.scope, Number(settings.book));
-        if (!['listen', 'silent'].includes(settings.mode)) throw new Error('Invalid mode');
-        const records = settings.mode === 'silent' ? [data.translations[settings.translation]] : [data.voices[settings.voice]];
-        const multi = settings.mode === 'listen' && settings.multi;
-        if (multi) records.push(data.voices[settings.voice_b]);
-        if (records.some((r) => !r)) throw new Error('Unknown voice or translation');
-        const books = requested.filter((b) => records.every((r) => Object.hasOwn(r.books, String(b))));
-        const missing = requested.filter((b) => !books.includes(b));
-        let speech = 0, pauses = 0;
-        if (settings.mode === 'silent') {
-            const wpm = positive(settings.wpm);
-            for (const b of books) speech += records[0].books[b].words / wpm * 60;
-        } else {
-            for (const [index, record] of records.entries()) {
-                const playback = speed(multi ? settings[index ? 'speed_b' : 'speed_a'] : settings.speed, multi);
-                const unit = multi ? settings.unit : settings.pause_unit;
-                if (!(multi ? ['verse','paragraph','section','chapter'] : ['none','verse','paragraph','section']).includes(unit)) throw new Error('Invalid unit');
-                const wait = pause(multi ? settings[index ? 'pause_b' : 'pause_a'] : settings.pause);
-                for (const b of books) {
-                    const item = record.books[b];
-                    speech += (multi ? item.units[unit].seconds : item.seconds) / playback;
-                    if (unit !== 'none') pauses += item.units[unit].count * wait;
-                }
+        if (settings.voice==='') return null;
+        const requested=scopeBooks(data,settings.scope).map((book)=>book.id);
+        const records=[data.voices[settings.voice]];
+        if (settings.multi) records.push(data.voices[settings.voice_b]);
+        if (records.some((record)=>!record)) throw new Error('Unknown voice');
+        const books=requested.filter((book)=>records.every((record)=>Object.hasOwn(record.books,String(book))));
+        const missing=requested.filter((book)=>!books.includes(book));
+        const recorded=books.reduce((total,book)=>total+Math.min(...records.map((record)=>record.books[book].chapters)),0);
+        if (!recorded) throw new Error('No recorded chapters in supported scope');
+        const unit=settings.multi?settings.unit:settings.pause_unit;
+        if (!(settings.multi?['verse','paragraph','section','chapter']:['none','verse','paragraph','section']).includes(unit)) throw new Error('Invalid unit');
+        const wait=unit==='none'?0:settings.pause;
+        if (!Number.isFinite(wait) || wait<0 || wait>60) throw new Error('Invalid pause');
+        let seconds=0;
+        records.forEach((record,index)=>{
+            const playback=speed(index?settings.speed_b:settings.speed,index>0);
+            for (const book of books) {
+                const item=record.books[book];
+                seconds+=(settings.multi?item.units[unit].seconds:item.seconds)/playback;
+                if (unit!=='none') seconds+=item.units[unit].count*wait;
             }
-        }
-        return {speech, pauses, total: speech + pauses, missing, books};
+        });
+        return {minutes_per_chapter:seconds/recorded/60, recorded, missing};
     }
-    function hMM(seconds) {
-        const minutes = Math.ceil(seconds / 60);
-        return `${Math.floor(minutes / 60)}:${String(minutes % 60).padStart(2, '0')}`;
+    function format(template, values) {
+        return template.replace(/\{([a-z]+)\}/g,(_match,key)=>{
+            if (!Object.hasOwn(values,key)) throw new Error(`Missing format field ${key}`);
+            return String(values[key]);
+        });
     }
-    const api = {calculate, calendar, scopeBooks, hMM, date};
-    if (typeof module !== 'undefined' && module.exports) module.exports = api;
-    if (typeof document === 'undefined') return;
+    const api={calendar,scopeBooks,chapterTotal,calculate,date};
+    if (typeof module!=='undefined' && module.exports) module.exports=api;
+    if (typeof document==='undefined') return;
     for (const root of document.querySelectorAll('.reading-time')) {
-        const {data, strings: t, lang} = JSON.parse(root.querySelector('[data-reading-time-data]').textContent);
-        const form = root.querySelector('form');
-        const output = root.querySelector('.reading-time-result');
-        const formatter = new Intl.DateTimeFormat(lang, {dateStyle:'medium', timeZone:'UTC'});
-        const decimal = new Intl.NumberFormat(lang, {maximumFractionDigits:1});
-        const el = (name) => form.elements.namedItem(name);
-        const now = new Date();
-        el('start').value = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
-        el('finish').value = new Date(date(el('start').value).getTime()+364*DAY).toISOString().slice(0,10);
+        const {data,strings:t,lang}=JSON.parse(root.querySelector('[data-reading-time-data]').textContent);
+        const form=root.querySelector('form'), output=root.querySelector('.reading-time-result');
+        const el=(name)=>form.elements.namedItem(name);
+        const now=new Date();
+        const start=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+        const dates=new Intl.DateTimeFormat(lang,{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'});
+        const plurals=new Intl.PluralRules(lang);
+        const noun=(number,key)=>t[key][plurals.select(number)];
+        let driver='chapters';
+        el('finish').min=start;
         function show(selector, visible) {
-            for (const node of form.querySelectorAll(selector)) node.hidden = !visible;
+            for (const node of form.querySelectorAll(selector)) node.hidden=!visible;
         }
-        function line(label, value) {
-            const row = document.createElement('p');
-            const title = document.createElement('strong');
-            title.textContent = `${label}: `;
-            row.append(title, document.createTextNode(value));
-            output.append(row);
-        }
-        function update() {
-            const listen = el('mode').value === 'listen', multi = listen && el('multi').checked;
-            show('[data-listen]',listen);
-            show('[data-silent]',!listen);
-            show('[data-normal]',listen && !multi);
+        function update(event) {
+            if (event && event.target.name==='finish') driver='finish';
+            if (event && event.target.name==='chapters_day') driver='chapters';
+            const selected=el('voice').value!=='';
+            const multi=selected && el('multi').checked;
+            show('.reading-time-audio',selected);
+            show('[data-normal]',!multi);
             show('[data-multi]',multi);
-            show('[data-book]',el('scope').value==='book');
-            show('[data-pause]',el('pause_unit').value!=='none');
-            show('[data-daily]',el('plan').value==='daily');
-            show('[data-deadline]',el('plan').value==='deadline');
-            for (const input of form.querySelectorAll('input, select')) input.disabled = Boolean(input.closest('[hidden]'));
-            el('finish').min = el('start').value;
+            show('[data-pause]',multi || el('pause_unit').value!=='none');
+            for (const field of form.querySelectorAll('input,select')) field.disabled=Boolean(field.closest('[hidden]'));
             output.replaceChildren();
-            if (!form.checkValidity()) { line(t.invalid, ''); return; }
-            const settings = Object.fromEntries(new FormData(form));
-            settings.multi = multi;
-            for (const name of ['book','wpm','speed','pause','speed_a','speed_b','pause_a','pause_b']) {
-                settings[name] = Number(el(name).value);
-            }
-            const result = calculate(data,settings);
-            if (result.missing.length) line(t.missing,result.missing.map((b) => data.books[b-1].names[lang]).join(', '));
-            if (!result.books.length || result.total === 0) { line(t.empty, ''); return; }
             let plan;
             try {
-                plan = calendar(result.total,el('start').value,el('plan').value,el(el('plan').value==='daily'?'minutes':'finish').value);
+                plan=calendar(chapterTotal(data,el('scope').value),start,driver,el(driver==='chapters'?'chapters_day':'finish').value);
             } catch (error) {
                 if (!(error instanceof RangeError)) throw error;
-                line(t.invalid, '');
+                output.textContent=t.invalid;
                 return;
             }
-            line(t.total,hMM(result.total));
-            line(t.speech,hMM(result.speech));
-            line(t.pauses,hMM(result.pauses));
-            line(t.days,String(plan.days));
-            line(t.finish,formatter.format(date(plan.finish)));
-            if (el('plan').value==='deadline') line(t.minutes_day,decimal.format(Math.ceil(plan.minutes*10)/10));
+            el('chapters_day').value=plan.chapters;
+            if (driver==='chapters') el('finish').value=plan.finish;
+            if (!form.checkValidity()) { output.textContent=t.invalid; return; }
+            const values=Object.fromEntries(dates.formatToParts(date(plan.finish)).filter((part)=>['day','month','year'].includes(part.type)).map((part)=>[part.type,part.value]));
+            const summary=document.createElement('p');
+            summary.className='reading-time-summary';
+            summary.textContent=format(t.result,{count:plan.chapters,chapters:noun(plan.chapters,'chapter_units'),date:format(t.date,values)});
+            output.append(summary);
+            if (!selected) return;
+            const settings={scope:el('scope').value,voice:el('voice').value,multi,voice_b:el('voice_b').value,pause_unit:el('pause_unit').value,unit:el('unit').value,speed:Number(el('speed').value),speed_b:Number(el('speed_b').value),pause:Number(el('pause').value)};
+            const audio=calculate(data,settings);
+            const minutes=Math.round(audio.minutes_per_chapter*plan.chapters);
+            summary.append(document.createTextNode(' · '+format(t.minutes_day,{minutes,unit:noun(minutes,'minute_units')})));
+            const total=chapterTotal(data,settings.scope);
+            if (audio.recorded!==total || audio.missing.length) {
+                const note=document.createElement('p');
+                note.className='reading-time-note';
+                note.textContent=format(t.coverage,{recorded:audio.recorded,total});
+                if (audio.missing.length) note.append(document.createTextNode(' '+t.missing+': '+audio.missing.map((book)=>data.books[book-1].names[lang]).join(', ')+'.'));
+                output.append(note);
+            }
         }
         form.addEventListener('input',update);
-        form.addEventListener('submit',(event) => event.preventDefault());
-        form.hidden = false;
-        output.hidden = false;
+        form.addEventListener('submit',(event)=>event.preventDefault());
+        form.hidden=false; output.hidden=false;
         update();
     }
 }());

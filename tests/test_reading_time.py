@@ -10,8 +10,8 @@ from unittest.mock import patch
 import yaml
 from sitegen.content import load_site, parse_article
 from sitegen.errors import BuildError
-from sitegen.reading_time import LANGS, VOICES, DATA_PATH, PLACEHOLDER, annotate_calculator_marker, h_mm, load_data, render_calculator, validate_data
-from tools.build_reading_time import DATA, VOICE_BOOKS, TRANS_BOOKS, build_data, canonical_book, chapter_count, decode, mp3_payload, ranges, span_sum
+from sitegen.reading_time import LANGS, VOICES, DATA_PATH, PLACEHOLDER, annotate_calculator_marker, duration_label, load_data, render_calculator, validate_data
+from tools.build_reading_time import DATA, VOICE_BOOKS, build_data, canonical_book, chapter_count, decode, mp3_payload, ranges, span_sum
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -43,7 +43,6 @@ class ReadingTimeArithmeticTest(unittest.TestCase):
         self.assertEqual(chapter_count('bsb',39),4)
         self.assertEqual(chapter_count('syn',19),150)
         self.assertEqual(chapter_count('syn',27),12)
-        self.assertEqual(h_mm(3601),'1:01')
 
     def test_decoder_reports_bad_packets_and_fails_only_without_audio(self):
         with tempfile.NamedTemporaryFile() as source:
@@ -91,22 +90,10 @@ class ReadingTimeArithmeticTest(unittest.TestCase):
 class ReadingTimeDataTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        from sitegen.reading_plan import load_chapters
-        names={c.book:c.names for c in load_chapters()}
-        cls.data=dict(schema_version=1,measured_on='2026-10-04',method='mp3-decoded',books=[dict(id=b,names=names[b]) for b in range(1,67)],voices={},translations={})
-        for kind,registry in [('voices',VOICES),('translations',LANGS)]:
-            for key,value in registry.items():
-                translation=value if kind=='voices' else key
-                allowed=VOICE_BOOKS[key] if kind=='voices' else TRANS_BOOKS[key]
-                books={}
-                for b in allowed:
-                    chapters=chapter_count(translation,b)
-                    units={u:dict(count=chapters*(10 if u=='verse' else 1),**({'seconds':800 if u=='verse' else 900} if kind=='voices' else {})) for u in ('verse','paragraph','section','chapter')}
-                    books[str(b)]=dict(chapters=chapters,units=units,**({'seconds':1000} if kind=='voices' else {'words':10000}))
-                cls.data[kind][key]=dict(names={l:key for l in ('en','ru','uk')},books=books,**({'translation':value} if kind=='voices' else {'lang':value}))
+        cls.data=load_data()
 
     def test_corrupt_data_stops_build(self):
-        mutations=[lambda d: d.pop('method'),lambda d: d['voices'].pop('bsb_souer'),lambda d: d['books'].reverse(),lambda d: d['voices']['bsb_souer']['books']['1'].update(seconds=float('nan')),lambda d: d['voices']['bsb_souer']['books']['1'].update(chapters=49),lambda d: d['voices']['bsb_souer']['books']['1']['units']['verse'].update(count=-1),lambda d: d['voices']['bsb_souer']['books']['1']['units']['chapter'].update(seconds=1e9),lambda d: d['translations']['bsb']['books']['1'].update(words=True),lambda d: d['translations']['bsb']['books']['1'].update(words=10**400)]
+        mutations=[lambda d: d.pop('method'),lambda d: d['voices'].pop('bsb_souer'),lambda d: d['books'].reverse(),lambda d: d['voices']['bsb_souer']['books']['1'].update(seconds=float('nan')),lambda d: d['voices']['bsb_souer']['books']['1'].update(chapters=49),lambda d: d['voices']['bsb_souer']['books']['1']['units']['verse'].update(count=-1),lambda d: d['voices']['bsb_souer']['books']['1']['units']['chapter'].update(seconds=1e9),lambda d: d['books'][0].update(chapters=True),lambda d: d['voices']['bsb_souer']['books']['1'].update(seconds=10**400),lambda d: d.update(translations={})]
         for change in mutations:
             data=copy.deepcopy(self.data)
             change(data)
@@ -121,20 +108,26 @@ class ReadingTimeDataTest(unittest.TestCase):
                 load_data(Path(directory)/'missing.json')
 
     def test_renderer_localized_table_controls_and_i18n(self):
+        durations={'en':'3 years 3 months','ru':'3 года 3 месяца','uk':'3 роки 3 місяці'}
         for lang in ('en','ru','uk'):
             strings=yaml.safe_load((ROOT/f'content/bible-garden/i18n/{lang}.yaml').read_text())['articles']['reading_time']
             html=render_calculator(self.data,lang,strings)
             self.assertIn('aria-live="polite"',html)
             self.assertIn('class="reading-time-form" hidden',html)
-            self.assertIn('<caption>',html)
+            self.assertIn('<option value="" selected>',html)
+            self.assertIn('class="reading-time-audio" hidden',html)
+            self.assertIn(durations[lang],html)
+            self.assertEqual(duration_label(1189,lang,strings),durations[lang])
             self.assertIn(self.data['measured_on'],html)
-            default={'en':'bsb_souer','ru':'prudovsky','uk':'kozlov_uk'}[lang]
-            self.assertIn(f'value="{default}" selected',html)
-            seconds=sum(b['seconds'] for b in self.data['voices'][default]['books'].values())
-            self.assertIn('<td>'+h_mm(seconds)+'</td>',html)
-            bad=dict(strings)
-            bad.pop('title')
+            self.assertNotIn('name="wpm"',html)
+            self.assertNotIn('name="mode"',html)
+            self.assertNotIn('name="book"',html)
+            self.assertEqual(html.split('<tbody>')[1].split('</tbody>')[0].count('<tr>'),6)
+            bad=dict(strings);bad.pop('title')
             with self.assertRaisesRegex(BuildError,'i18n'):
+                render_calculator(self.data,lang,bad)
+            bad=dict(strings);bad['result']='{unknown}'
+            with self.assertRaisesRegex(BuildError,'i18n template'):
                 render_calculator(self.data,lang,bad)
         data=copy.deepcopy(self.data)
         data['voices']['bsb_souer']['names']['en']='</script><b>bad</b>'
@@ -162,6 +155,10 @@ class ReadingTimeCommittedDataTest(unittest.TestCase):
 
     def test_rebuild_is_identical_and_coverage_is_explicit(self):
         self.assertEqual(build_data(),self.data)
+        self.assertNotIn('translations',self.data)
+        self.assertFalse((DATA/'translations.tsv').exists())
+        self.assertEqual(sum(b['chapters'] for b in self.data['books']),1189)
+        self.assertEqual(sum(b['chapters'] for b in self.data['books'] if b['id']<=39),929)
         self.assertEqual(len(self.data['voices']['bondarenko']['books']),62)
         self.assertEqual(len(self.data['voices']['npu_uk']['books']),28)
         webbe=sum(b['seconds'] for b in self.data['voices']['web_british']['books'].values())/3600

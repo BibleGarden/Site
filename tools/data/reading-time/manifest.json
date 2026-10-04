@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "measured_on": "2026-10-04",
   "source": "local cep_public in cep-mysql; local bible-parser/audio",
   "method": "normal ffmpeg decoding out_time_us after removing ID3 metadata; clipped and empty iOS spans; own-translation units",
@@ -124,7 +124,6 @@
   "source_fingerprint": "6c0983df07338da88963e1c5d6121405a3ce8836202574a82a557f26ea7c9398",
   "files": {
     "voices.tsv": "be16369a5d8645f238ad82d23407ddf1f9f5de0af018b9312124df97eed6fbfc",
-    "translations.tsv": "bcce0097a260047c7ff280f6e50a2925a205fdb243af1590da88f5895ddb7e78",
     "alignment-anomalies.tsv": "def5e27c631fd766b98ebb40d622fb020854b25acecdb721225d5348376630a8"
   }
 }

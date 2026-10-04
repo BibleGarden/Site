@@ -107,60 +107,65 @@ articles:
   download_text: "A free, open-source app for reading and listening to the Bible in multiple languages, with professional narration and configurable pauses."
   download_cta: Download on the App Store
   reading_time:
-    table_bible: Bible
-    table_ot: OT
-    table_nt: NT
-    title: Reading time calculator
-    mode: Mode
-    listen: Listen
-    silent: Read silently
-    voice: Recording
-    translation: Translation
-    scope: Scope
-    book: Book
+    title: A chapter-by-chapter Bible plan
+    scope: What to read
+    chapters_day: Chapters per day
+    finish: Finish by
+    voice: Narrator
+    not_selected: Not selected
+    app_features: Like in the Bible Garden app
     speed: Playback speed (×)
     pause: Pause after
     pause_seconds: Pause (seconds)
     none: No added pauses
     multi: Multi Reading
-    second_voice: Add a second recording
-    first_step: First recording
-    second_step: Second recording
+    second_voice: Second recording
+    second_speed: Second recording speed (×)
     unit: Repeat both recordings after each
-    start: Start date
-    plan: Daily plan
-    daily: Minutes per day
-    deadline: Finish by a date
-    minutes: Minutes per day
-    finish: Finish date
-    total: Total time (h:mm)
-    speech: Reading / audio (h:mm)
-    pauses: Added pauses (h:mm)
-    days: Days
-    minutes_day: Minutes per day
-    missing: 'Not included: missing recording or text'
-    empty: Nothing in this scope is available
+    approximation: Listen to two translations in turn. Timing is approximate because their verse and paragraph
+      structures differ.
+    coverage: 'Recorded chapters: {recorded}; the plan covers {total}.'
+    missing: No recording for
     method: Recording lengths measured by fully decoding MP3 files on
-    approximation: 'Estimate: each recording uses its own verse and paragraph structure; the app uses the first translation’s
-      units for both. Pauses follow each step.'
-    silent_method: 'Default pace: 238 words/min in English, 190 in Russian/Ukrainian (Brysbaert, 2019; Ukrainian is an estimate).
-      Edit it to match your pace.'
-    wpm: Words per minute
-    table_caption: At 1×, without added pauses; silent reading at the default pace. Available books only. Times are h:mm.
-    invalid: Check the fields and dates
+    table_caption: Approximate time to finish, reading every day
+    result: '{count} {chapters} a day — finish on {date}'
+    minutes_day: ≈ {minutes} {unit} a day
+    date: '{month} {day}, {year}'
+    deadline_hint: Start today. The daily chapter count rounds up, so you may finish earlier.
+    invalid: Check the chapter count and date
     language_en: English
     language_ru: Russian
     language_uk: Ukrainian
     scope_bible: Whole Bible
     scope_ot: Old Testament
     scope_nt: New Testament
-    scope_gospels: Gospels
-    scope_psalms: Psalms
-    scope_book: One book
+    table_bible: Bible
+    table_ot: OT
+    table_nt: NT
     unit_verse: Verse
     unit_paragraph: Paragraph
     unit_section: Section
     unit_chapter: Chapter
+    chapter_units:
+      one: chapter
+      few: chapters
+      many: chapters
+      other: chapters
+    year_units:
+      one: year
+      few: years
+      many: years
+      other: years
+    month_units:
+      one: month
+      few: months
+      many: months
+      other: months
+    minute_units:
+      one: minute
+      few: minutes
+      many: minutes
+      other: minutes
 not_found:
   title: Page not found
   text: "The page you are looking for does not exist or has moved."

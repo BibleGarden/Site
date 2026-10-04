@@ -29,10 +29,7 @@ LANGS = {'syn': 'ru', 'bti': 'ru', 'bsb': 'en', 'webus': 'en', 'webbe': 'en', 'u
 VOICE_BOOKS = {v: set(range(1, 67)) for v in NARRATORS}
 VOICE_BOOKS['bondarenko'] -= {13, 14, 22, 23}
 VOICE_BOOKS['npu_uk'] = {19, *range(40, 67)}
-TRANS_BOOKS = {t: set(range(1, 67)) for t in LANGS}
-TRANS_BOOKS['npu'] = VOICE_BOOKS['npu_uk']
 VOICE_FIELDS = ['voice', 'book', 'chapter', 'decoded_seconds'] + [f'{u}_{k}' for u in UNITS for k in ('count', 'seconds')]
-TEXT_FIELDS = ['translation', 'book', 'chapter', 'words'] + [f'{u}_count' for u in UNITS]
 ANOMALY_FIELDS = ['type', 'voice', 'book', 'chapter', 'unit', 'first_verse', 'last_verse', 'decoded_seconds', 'alignment_end_seconds', 'difference_seconds', 'bad_packets', 'error_lines']
 
 
@@ -149,22 +146,22 @@ def write_tsv(path: Path, fields: list[str], rows: list[dict]) -> None:
 
 def export_local(audio_root: Path, workers: int) -> None:
     started = time.monotonic()
-    voices = local_query('SELECT JSON_ARRAY(v.alias,v.code,t.alias,t.code,t.language) FROM voices v JOIN translations t ON v.translation=t.code WHERE v.active=1 AND t.active=1 ORDER BY v.alias')
+    voices = local_query('SELECT JSON_ARRAY(v.alias,v.code,t.alias,t.code) FROM voices v JOIN translations t ON v.translation=t.code WHERE v.active=1 AND t.active=1 ORDER BY v.alias')
     registry = {v[0]: v for v in voices}
     if set(registry) != set(NARRATORS) or any(registry[v][2] != NARRATORS[v]['translation'] for v in registry):
         raise BuildError('local voice registry differs from the nine supported voices')
-    verses = local_query('SELECT JSON_ARRAY(v.translation,v.book_number,v.chapter_number,v.verse_number,v.verse_number_join,v.start_paragraph,tt.before_translation_verse IS NOT NULL,v.text) FROM translation_verses v JOIN translations t ON t.code=v.translation LEFT JOIN (SELECT DISTINCT before_translation_verse FROM translation_titles) tt ON tt.before_translation_verse=v.code WHERE t.active=1 ORDER BY v.translation,v.book_number,v.chapter_number,v.verse_number')
+    verses = local_query('SELECT JSON_ARRAY(v.translation,v.book_number,v.chapter_number,v.verse_number,v.verse_number_join,v.start_paragraph,tt.before_translation_verse IS NOT NULL) FROM translation_verses v JOIN translations t ON t.code=v.translation LEFT JOIN (SELECT DISTINCT before_translation_verse FROM translation_titles) tt ON tt.before_translation_verse=v.code WHERE t.active=1 ORDER BY v.translation,v.book_number,v.chapter_number,v.verse_number')
     tid = {v[3]: v[2] for v in voices}
     vid = {v[1]: v[0] for v in voices}
     texts = defaultdict(list)
-    for t, b, c, number, join, paragraph, title, text in verses:
+    for t, b, c, number, join, paragraph, title in verses:
         translation = tid[t]
         book = canonical_book(b)
-        if book not in TRANS_BOOKS[translation] or c > chapter_count(translation, book):
+        if (translation=='npu' and book not in VOICE_BOOKS['npu_uk']) or c > chapter_count(translation, book):
             continue
         if c < 1 or number < 1:
             raise BuildError('invalid text chapter or verse')
-        texts[translation, book, c].append((number, join, paragraph, title, sum(any(ch.isalnum() for ch in word) for word in text.split())))
+        texts[translation, book, c].append((number, join, paragraph, title))
     for rows in texts.values():
         rows.sort(key=lambda row: (row[0] + row[1], row[0]))
     alignments = local_query('SELECT JSON_ARRAY(voice,book_number,chapter_number,verse_number,begin,end) FROM voice_alignments ORDER BY voice,book_number,chapter_number,verse_number')
@@ -213,10 +210,8 @@ def export_local(audio_root: Path, workers: int) -> None:
                 print(f'decoded {index}/{len(paths)} ({time.monotonic()-started:.1f}s)', flush=True)
     if failures:
         raise BuildError(f'full decoding failed in {len(failures)} chapters after {time.monotonic()-started:.3f}s:\n' + '\n'.join(failures))
-    voice_rows, text_rows, anomalies = [], [], []
+    voice_rows, anomalies = [], []
     audio_by_chapter = {}
-    for (translation, book, chapter), rows in sorted(texts.items()):
-        text_rows.append(dict(translation=translation, book=book, chapter=chapter, words=sum(r[4] for r in rows), **{f'{u}_count': len(ranges(rows, u)) for u in UNITS}))
     for key, (duration, digest, bad_packets, error_lines) in decoded.items():
         voice, book, chapter = key
         rows = texts[NARRATORS[voice]['translation'], book, chapter]
@@ -266,10 +261,10 @@ def export_local(audio_root: Path, workers: int) -> None:
             approximate_count += sum(r[f'{unit}_count'] for k, r in by_key.items() if k[0] == second and (first,k[1],k[2]) not in by_key)
             comparisons.append(dict(pause_2s_deviation_seconds=round((approximate+2*approximate_count)-(exact+2*exact_count),6), pause_2s_deviation_percent=round(100*((approximate+2*approximate_count)/(exact+2*exact_count)-1),6), pair=f'{first}+{second}', unit=unit, exact_seconds=round(exact,6), approximate_seconds=round(approximate,6), deviation_seconds=round(approximate-exact,6), deviation_percent=round(100*(approximate/exact-1),6)))
     DATA.mkdir(parents=True, exist_ok=True)
-    for name, fields, rows in [('voices.tsv',VOICE_FIELDS,voice_rows),('translations.tsv',TEXT_FIELDS,text_rows),('alignment-anomalies.tsv',ANOMALY_FIELDS,anomalies)]:
+    for name, fields, rows in [('voices.tsv',VOICE_FIELDS,voice_rows),('alignment-anomalies.tsv',ANOMALY_FIELDS,anomalies)]:
         write_tsv(DATA/name, fields, rows)
     ffmpeg_version = subprocess.run(['ffmpeg','-version'],check=True,capture_output=True,text=True).stdout.splitlines()[0]
-    manifest = dict(schema_version=1, measured_on=datetime.now(timezone.utc).date().isoformat(), source='local cep_public in cep-mysql; local bible-parser/audio', method='normal ffmpeg decoding out_time_us after removing ID3 metadata; clipped and empty iOS spans; own-translation units', workers=workers, ffmpeg_version=ffmpeg_version, export_seconds=round(time.monotonic()-started,3), chapter_count=len(decoded), strict_sample=strict_sample, anomaly_count=len(anomalies), anomaly_counts={kind:sum(r['type']==kind for r in anomalies) for kind in ('duration_mismatch','empty_window','decoder_errors')}, bad_packets=sum(v[2] for v in decoded.values()), comparisons=comparisons, source_fingerprint=hashlib.sha256(json.dumps([verses,alignments,[(str(k),*values) for k,values in decoded.items()]],ensure_ascii=False).encode()).hexdigest(), files={name: hashlib.sha256((DATA/name).read_bytes()).hexdigest() for name in ('voices.tsv','translations.tsv','alignment-anomalies.tsv')})
+    manifest = dict(schema_version=2, measured_on=datetime.now(timezone.utc).date().isoformat(), source='local cep_public in cep-mysql; local bible-parser/audio', method='normal ffmpeg decoding out_time_us after removing ID3 metadata; clipped and empty iOS spans; own-translation units', workers=workers, ffmpeg_version=ffmpeg_version, export_seconds=round(time.monotonic()-started,3), chapter_count=len(decoded), strict_sample=strict_sample, anomaly_count=len(anomalies), anomaly_counts={kind:sum(r['type']==kind for r in anomalies) for kind in ('duration_mismatch','empty_window','decoder_errors')}, bad_packets=sum(v[2] for v in decoded.values()), comparisons=comparisons, source_fingerprint=hashlib.sha256(json.dumps([verses,alignments,[(str(k),*values) for k,values in decoded.items()]],ensure_ascii=False).encode()).hexdigest(), files={name: hashlib.sha256((DATA/name).read_bytes()).hexdigest() for name in ('voices.tsv','alignment-anomalies.tsv')})
     (DATA/'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2)+'\n')
     print(f'Export: {manifest["export_seconds"]}s; anomalies={manifest["anomaly_counts"]}; bad packets={manifest["bad_packets"]}', flush=True)
     for item in comparisons:
@@ -289,51 +284,40 @@ def read_tsv(path: Path, fields: list[str]) -> list[dict]:
 
 def build_data() -> dict:
     manifest = json.loads((DATA/'manifest.json').read_text())
-    if manifest['schema_version'] != 1 or set(manifest['files']) != {'voices.tsv','translations.tsv','alignment-anomalies.tsv'}:
+    if manifest['schema_version'] != 2 or set(manifest['files']) != {'voices.tsv','alignment-anomalies.tsv'}:
         raise BuildError('reading-time manifest: unsupported version or file list')
     for name, digest in manifest['files'].items():
         if hashlib.sha256((DATA/name).read_bytes()).hexdigest() != digest:
             raise BuildError(f'{DATA/name}: checksum mismatch')
-    chapters = load_chapters()
-    books = {c.book: c.names for c in chapters}
-    data = dict(schema_version=1, measured_on=manifest['measured_on'], method='mp3-decoded', books=[dict(id=b, names=books[b]) for b in range(1,67)], voices={}, translations={})
-    for translation, lang in LANGS.items():
-        label = next(v['names'] for v in NARRATORS.values() if v['translation']==translation)
-        data['translations'][translation] = dict(lang=lang, names={l: label[l][0] for l in ('en','ru','uk')}, books={})
-    for voice, info in NARRATORS.items():
-        data['voices'][voice] = dict(translation=info['translation'], names={l: ' · '.join(x for x in info['names'][l] if x) for l in ('en','ru','uk')}, books={})
-    for filename, fields, kind, id_field in [('voices.tsv',VOICE_FIELDS,'voices','voice'),('translations.tsv',TEXT_FIELDS,'translations','translation')]:
-        seen = set()
-        rows = read_tsv(DATA/filename, fields)
-        for row in rows:
-            key = row[id_field]
-            book, chapter = int(row['book']), int(row['chapter'])
-            translation = NARRATORS[key]['translation'] if kind=='voices' else key
-            allowed = VOICE_BOOKS[key] if kind=='voices' else TRANS_BOOKS[key]
-            if book not in allowed or not 1 <= chapter <= chapter_count(translation,book) or (key,book,chapter) in seen:
-                raise BuildError(f'{filename}: invalid or duplicate chapter {key}:{book}:{chapter}')
-            seen.add((key,book,chapter))
-            target = data[kind][key]['books'].setdefault(str(book), dict(chapters=0, units={u:dict(count=0, **({'seconds':0} if kind=='voices' else {})) for u in UNITS}, **({'seconds':0} if kind=='voices' else {'words':0})))
-            target['chapters'] += 1
-            field = 'decoded_seconds' if kind=='voices' else 'words'
-            value = float(row[field]) if kind=='voices' else int(row[field])
-            if not math.isfinite(value) or value <= 0:
-                raise BuildError(f'{filename}: invalid {field}')
-            target['seconds' if kind=='voices' else 'words'] += value
-            for unit in UNITS:
-                count = int(row[f'{unit}_count'])
-                if count < 1 or (unit=='chapter' and count!=1):
-                    raise BuildError(f'{filename}: invalid unit count')
-                target['units'][unit]['count'] += count
-                if kind=='voices':
-                    seconds = float(row[f'{unit}_seconds'])
-                    if not math.isfinite(seconds) or seconds < 0 or seconds > value + .001:
-                        raise BuildError(f'{filename}: invalid unit seconds')
-                    target['units'][unit]['seconds'] += seconds
-        coverage = VOICE_BOOKS if kind=='voices' else TRANS_BOOKS
-        expected = {(k,b,c) for k in coverage for b in coverage[k] for c in range(1,chapter_count(NARRATORS[k]['translation'] if kind=='voices' else k,b)+1)}
-        if seen != expected:
-            raise BuildError(f'{filename}: chapter coverage mismatch')
+    names = {c.book:c.names for c in load_chapters()}
+    data = dict(schema_version=2,measured_on=manifest['measured_on'],method='mp3-decoded',books=[dict(id=b,names=names[b],chapters=CHAPTER_COUNTS[b-1]) for b in range(1,67)],voices={})
+    for voice,info in NARRATORS.items():
+        data['voices'][voice] = dict(lang=LANGS[info['translation']],names={lang:' · '.join(x for x in info['names'][lang] if x) for lang in ('en','ru','uk')},books={})
+    seen = set()
+    for row in read_tsv(DATA/'voices.tsv',VOICE_FIELDS):
+        voice = row['voice']
+        if voice not in NARRATORS:
+            raise BuildError(f'voices.tsv: unknown voice {voice}')
+        book,chapter = int(row['book']),int(row['chapter'])
+        translation = NARRATORS[voice]['translation']
+        if book not in VOICE_BOOKS[voice] or not 1<=chapter<=chapter_count(translation,book) or (voice,book,chapter) in seen:
+            raise BuildError(f'voices.tsv: invalid or duplicate chapter {voice}:{book}:{chapter}')
+        seen.add((voice,book,chapter))
+        target = data['voices'][voice]['books'].setdefault(str(book),dict(chapters=0,seconds=0,units={u:dict(count=0,seconds=0) for u in UNITS}))
+        seconds = float(row['decoded_seconds'])
+        if not math.isfinite(seconds) or seconds<=0:
+            raise BuildError('voices.tsv: invalid decoded_seconds')
+        target['chapters'] += 1
+        target['seconds'] += seconds
+        for unit in UNITS:
+            count,span = int(row[f'{unit}_count']),float(row[f'{unit}_seconds'])
+            if count<1 or (unit=='chapter' and count!=1) or not math.isfinite(span) or span<0 or span>seconds+.001:
+                raise BuildError('voices.tsv: invalid unit count or seconds')
+            target['units'][unit]['count'] += count
+            target['units'][unit]['seconds'] += span
+    expected = {(v,b,c) for v in VOICE_BOOKS for b in VOICE_BOOKS[v] for c in range(1,chapter_count(NARRATORS[v]['translation'],b)+1)}
+    if seen!=expected:
+        raise BuildError('voices.tsv: chapter coverage mismatch')
     for voice in data['voices'].values():
         for book in voice['books'].values():
             book['seconds'] = round(book['seconds'],6)

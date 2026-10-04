@@ -513,43 +513,37 @@
     .reading-plan th:last-child { width: 1.5rem; }
 }
 
-/* Reading-time calculator shares the article's dark green/gold palette. */
+/* Chapter-based calculator in the article palette. */
 .reading-time { margin: 1.5em 0; padding: 1rem; border: 1px solid rgba(212,168,67,.45); border-radius: .75rem; background: rgba(24,46,30,.6); }
 .reading-time h3 { margin-top: 0; }
 .reading-time [hidden] { display: none !important; }
-.reading-time-form { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .75rem; }
-.reading-time-form > div, .reading-time-form > fieldset { min-width: 0; }
-.reading-time-form label { display: flex; flex-direction: column; gap: .25rem; font-size: .9rem; }
+.reading-time-form, .reading-time-settings { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .75rem; }
+.reading-time-form label { display: flex; flex-direction: column; gap: .25rem; font-size: .9rem; min-width: 0; }
 .reading-time-form input, .reading-time-form select { width: 100%; min-width: 0; box-sizing: border-box; padding: .45rem; border: 1px solid #a3b8aa; border-radius: .3rem; color: #cbd5d0; background: #182e1e; font: inherit; }
 .reading-time-form input:focus-visible, .reading-time-form select:focus-visible, .reading-time-form summary:focus-visible { outline: 2px solid #d4a843; outline-offset: 2px; }
-.reading-time-form fieldset { border: 1px solid rgba(163,184,170,.4); padding: .65rem; border-radius: .3rem; }
-.reading-time-form fieldset label + label { margin-top: .5rem; }
-.reading-time-form > fieldset, .reading-time-form > div:has(.reading-time-multi) { grid-column: 1 / -1; }
-.reading-time-multi summary { cursor: pointer; color: #d4a843; }
-.reading-time-check { flex-direction: row !important; align-items: center; margin: .5rem 0; }
+.reading-time-form > p, .reading-time-result, .reading-time-audio, .reading-time-settings > [data-multi], .reading-time-check { grid-column: 1 / -1; }
+.reading-time-audio summary { cursor: pointer; color: #d4a843; }
+.reading-time-settings { margin-top: .6rem; }
+.reading-time-check { flex-direction: row !important; align-items: center; }
 .reading-time-check input { width: auto; }
-.reading-time-result { margin: 1rem 0; padding: .75rem; border-left: 3px solid #d4a843; }
-.reading-time-result p { margin: .25rem 0; overflow-wrap: anywhere; }
-.reading-time-note { font-size: .8rem; color: #a3b8aa; margin: .5rem 0; }
+.reading-time-result { margin: 1rem 0; padding: .65rem; border-left: 3px solid #d4a843; }
+.reading-time-result p { margin: 0; overflow-wrap: anywhere; }
+.reading-time-summary { font-weight: 600; }
+.reading-time-note { font-size: .8rem; color: #a3b8aa; margin: .35rem 0; }
 .reading-time-table { overflow-x: auto; }
-.reading-time-table table { width: 100%; font-size: .8rem; }
-.reading-time-table caption { text-align: left; margin: .75rem 0 .4rem; }
-.reading-time-table small { display: block; font-weight: normal; }
-.reading-time-table th, .reading-time-table td { padding: .4rem !important; overflow-wrap: anywhere; }
+.reading-time-table table { width: 100%; font-size: .85rem; }
+.reading-time-table caption { text-align: left; margin: .5rem 0; }
+.reading-time-table th, .reading-time-table td { padding: .4rem !important; }
+.reading-time-table th:first-child { width: 20%; }
+.reading-time-table abbr { text-decoration: none; }
 @media (max-width: 480px) {
     .reading-time { padding: .6rem; }
-    .reading-time-form { grid-template-columns: minmax(0,1fr); }
-    .reading-time-table table { font-size: .7rem; }
+    .reading-time-form, .reading-time-settings { grid-template-columns: minmax(0,1fr); }
+    .reading-time-table table { font-size: .75rem; }
 }
 @media print {
-    .reading-time-form, .reading-time-result { display: none !important; }
+    .reading-time > :not(.reading-time-table) { display: none !important; }
     .reading-time { color: #000; background: #fff; border: 0; padding: 0; }
-    .reading-time h3, .reading-time-note { color: #000; }
     .reading-time-table { overflow: visible; }
-}
-.reading-time-table td { white-space: nowrap; }
-.reading-time-table th:first-child { width: 40%; }
-.reading-time-table abbr { text-decoration: none; }
-@media print {
     .article-body .reading-time-table th, .article-body .reading-time-table td { color: #000; background: transparent; border-color: #888; }
 }

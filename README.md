@@ -372,101 +372,98 @@ source MP3.
 
 On bible.garden, place `<!-- calculator: reading-time -->` on its own line.
 Unknown, malformed, duplicate or cross-site markers stop the build. The JSON
-in `content/bible-garden/calculator/reading-time.json` is validated during every
-Bible Garden build, including when no published article uses the marker.
+in `content/bible-garden/calculator/reading-time.json` is strictly validated
+on every Bible Garden build.
 
-The block estimates listening or silent reading for the whole Bible, either
-Testament, the Gospels, Psalms, or one of 66 books. Defaults follow the page
-language: Prudovsky / Bob Souer / Kozlov, and 190 / 238 / 190 words per minute.
-The silent-reading defaults follow Brysbaert (2019), with Russian/Ukrainian
-scaled by word count; the Ukrainian value is an estimate, not a measured norm.
-Users can edit their pace, playback speed, timed pauses, and daily minutes or
-an inclusive finish date. Two-step Multi Reading has separate speeds and
-pauses. Only books available in both selected recordings are included; missing
-books are named and never extrapolated.
+Choose the whole Bible, the Old Testament or the New Testament, and either
+chapters per day (any positive integer, including 1–50) or a finish-by date.
+Reading starts today. Editing either field updates the other; a deadline rounds
+the daily chapter count up, and the result shows the actual completion date,
+which can be earlier. Dates count every canonical chapter in scope: 1189 / 929 /
+260, regardless of available audio. The default is three chapters per day and
+no narrator. The primary result is one sentence with chapters per day and the
+finish date.
 
-Without JavaScript, a server-rendered table lists the page language's recordings
-at 1× and translations at the default silent-reading pace for Bible / OT / NT.
-Printing shows that table and the method caption, with controls and interactive
-results hidden. The form is usable at 320 px and announces results politely.
+Selecting one of nine recordings, grouped by language, adds approximate minutes
+per day: recorded audio minutes divided by recorded chapters, multiplied by
+chapters per day. Missing books are named. Bondarenko has 62 books and NPU has
+the New Testament and Psalms; neither changes the plan's chapter count or dates.
+Chapter-division differences, such as UBH's three-chapter Malachi, retain the
+recording's actual chapter count in the audio average.
 
-Regenerate from the committed chapter aggregates, without a database or MP3s:
+The compact “Like in the Bible Garden app” details block appears only after
+choosing a narrator. It offers playback speed, pauses after verses, paragraphs
+or sections, and two-step Multi Reading with a second recording, its own speed
+and a shared unit and pause duration. These settings change only the daily
+minutes estimate. Multi Reading uses books recorded by both voices and divides
+by their common recorded chapter count. It sums each voice's own unit spans,
+an approximation to the app's first-translation boundaries. Timed pauses remain
+wall-clock time, independent of playback speed.
+
+The server-rendered reference table is always visible, with or without
+JavaScript: 1, 2, 3, 4, 5 and 10 chapters per day for Bible / OT / NT.
+Durations round to whole months using 365 days per year and 12 months per year,
+with localized year/month forms (e.g. “3 года 3 месяца”). Without JavaScript the
+interactive controls stay hidden. Printing includes only the reference table
+within the calculator block. The form works at 320 px and announces results
+through a polite live region.
+
+Rebuild deterministically from the committed chapter aggregates, without a
+connection to the database or MP3s:
 
 ```bash
 .venv/bin/python tools/build_reading_time.py
+.venv/bin/python -m unittest discover -s tests -p 'test_reading_time.py'
 .venv/bin/python -m sitegen build
 .venv/bin/python -m sitegen check
-.venv/bin/python -m unittest discover -s tests -p 'test_reading_time.py'
+.venv/bin/python -m sitegen preview
 ```
 
-To replace the source measurements, install `ffmpeg` on PATH, keep the original
-app recordings under `/root/cep/bible-parser/audio`, and run:
+To replace source measurements, install ffmpeg on PATH and run:
 
 ```bash
 .venv/bin/python tools/build_reading_time.py --export-local --decode --workers 6
 ```
 
-`--audio-root /path/to/local/audio` can select another local recording directory.
-The exporter connects only to the local `cep-mysql` container's `cep_public`,
-using read-only SQL transactions. It reads `DB_PASSWORD` from the local
-`/root/cep/Bible-API/.env`; credentials are never stored in this repository.
-It exports only chapter aggregates (`voices.tsv`, `translations.tsv`), an
-`alignment-anomalies.tsv` report and a manifest under `tools/data/reading-time/`.
-The manifest fingerprints the sources and checksums every TSV. Raw verses and
-alignments stay in memory and are not committed. The existing `chapters.tsv`
-provides localized book names and the explicit New Testament order mapping.
-Canonical additions (Daniel 13–14, Psalm 151, Esther 11–12, etc.) are excluded;
-UBH's three-chapter Malachi is a numbering difference, not missing coverage.
+The exporter reads only local `cep_public` in `cep-mysql`, using read-only SQL
+transactions and credentials from `/root/cep/Bible-API/.env`. Local recordings
+come from `/root/cep/bible-parser/audio`; `--audio-root` can select another local
+directory. Credentials and raw verse/alignment dumps are never committed.
+`tools/data/reading-time/` contains only per-voice per-chapter `voices.tsv`,
+`alignment-anomalies.tsv` and their manifest. The existing `chapters.tsv`
+provides localized book names, canonical chapter counts and the explicit New
+Testament ID mapping. The generator reads verse, paragraph and heading structure for audio units. Non-canonical additions are
+excluded; UBH's Malachi has three chapters rather than four.
 
-Recording lengths come from complete normal decoding, using final ffmpeg
-`out_time_us`, never MP3 header duration (WEBBE headers overstate length).
-Initial ID3 metadata and David's exact internal `Lavf59.27.100` encoder tags are
-removed in memory before decoding; MPEG audio is unchanged. Normal decoding
-skips damaged packets, matching playable audio. Every file with decoder errors
-is listed with its bad-packet count; a hard failure producing no audio stops
-generation. Each export compares normal and strict durations on nine clean
-John 1 files (one per voice); they must be identical.
+Durations use complete normal decoding and ffmpeg's final `out_time_us`, never
+MP3 header duration (WEBBE headers overstate length). Initial ID3 metadata and
+David's internal encoder tags are removed in memory, preserving MPEG audio.
+Damaged packets are skipped like in the player and counted in the anomalies
+report; failure to produce audio stops generation. Each export checks identical
+normal/strict durations on a clean John 1 sample from all nine voices.
 
-Normal listening is `decoded seconds / speed + unit count × pause seconds`;
-it retains natural gaps. Multi Reading sums each unit from
-`max(first begin − 0.2, previous verse end, 0)` to its last verse end,
-intersected with the decoded file's duration (empty windows contribute zero),
-then divides by that step's speed
-and adds wall-clock pauses. Units follow paragraph starts and all preceding
-titles, including the first block of every chapter; joined verses follow the
-app's `(number + join, number)` order. Every chapter differing from alignment
-end by more than 20 seconds appears in the anomaly report, alongside decoder
-errors and overlapping units with empty windows. These are separate report
-rows (`duration_mismatch`, `decoder_errors`, `empty_window`); packet counts
-exclude the ID3 metadata removed before decoding.
+Normal listening retains natural gaps: `decoded seconds / speed + units × pause`.
+Multi Reading spans run from `max(first begin − 0.2, previous verse end, 0)` to
+the unit's last verse end, clipped to decoded duration. Empty windows add zero.
+The report lists duration differences over 20 seconds, empty windows and decoder
+errors; packet counts exclude the removed ID3 metadata.
 
-Multi Reading uses each voice's own units, approximating the app's first-
-translation boundaries; the exporter measures deviation at 1×,
-both without pauses and with 2 seconds after each step, for Prudovsky+Souer and Kozlov+Souer (verse/paragraph).
-It also reports UBH/Souer's Malachi chapter-count difference in that comparison.
-Measured on 2026-10-04 by the full export command above: 9,782 chapters,
-six workers, **824.976 seconds**. Rebuilding JSON from the committed TSVs
-took **0.079 seconds**, without database access or decoding. The clean sample's
-nine normal/strict durations matched exactly. The report contains **27 duration
-mismatches, 5 empty windows and 12 files with decoder errors (41 bad packets)**.
-The empty windows include Bondarenko Exodus 1:21 / 18:14, Henson Genesis 15:15,
-and Semyonov-Prozorovsky Exodus 16:34 / Job 24:3 after joined-verse ordering.
+The voice measurements were exported on 2026-10-04: 9,782 chapters, six workers,
+824.976 seconds. The report contains 27 duration mismatches, 5 empty windows and
+12 files with decoder errors (41 bad packets). At 1×, speech-only verse/paragraph
+pair approximation deviations are −0.256279% / −0.273845% for Prudovsky+Souer and
+−0.036402% / −0.315252% for Kozlov+Souer; with 2-second pauses, paragraph
+deviations are +3.868532% / +0.661991%.
 
-At 1×, speech-only verse/paragraph deviations against exact app pair indexing
-are **−0.256279% / −0.273845%** for Prudovsky+Souer and
-**−0.036402% / −0.315252%** for Kozlov+Souer; with 2-second pauses after each
-step, paragraph deviations are **+3.868532% / +0.661991%**, respectively.
-
-Data sizes measured on 2026-10-04 with `Path.read_bytes()` and
+Data sizes checked on 2026-10-04 with `Path.read_bytes()` and
 `gzip.compress(data, compresslevel=9, mtime=0)`; gzip files are not committed:
 
 | File | Raw bytes | Gzip bytes |
 | --- | ---: | ---: |
 | `alignment-anomalies.tsv` | 2,934 | 999 |
-| `manifest.json` | 3,604 | 1,104 |
-| `translations.tsv` | 176,408 | 48,007 |
+| `manifest.json` | 3,512 | 1,057 |
 | `voices.tsv` | 615,723 | 203,421 |
-| `reading-time.json` | 185,557 | 27,412 |
+| `reading-time.json` | 127,377 | 22,587 |
 
 
 ## Author
