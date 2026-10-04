@@ -1,10 +1,10 @@
-"""Build the John 1:1-5 article audio demos from uncommitted full-chapter
+"""Build passage-based article audio demos from uncommitted full-chapter
 recordings.
 
 A narrator registry lists every voice with its translation and localized
 names; per-demo definitions select narrators in each language. Per-verse clips
-under `static/bible-garden/audio/demo/<narrator>/<verse>.mp3` are shared by
-alternating demos. Voices demos also use continuous `1-5.mp3` clips. Each
+under `static/bible-garden/audio/demo/[<passage>/]<narrator>/<verse>.mp3`
+are shared by demos of the same passage. Voices demos also use continuous passage clips. Each
 `--source-dir` may hold any subset of the
 registered narrators' full-chapter <narrator>.mp3 files; only narrators whose
 source file is found get (re)cut, so adding a new demo/narrator does not
@@ -100,10 +100,18 @@ NARRATORS: dict[str, dict] = {
     },
 }
 
+JOHN = {"book": 43, "chapters": {data["translation"]: 1 for data in NARRATORS.values()},
+        "verses": list(range(1, 6)), "audio_dir": ""}
+PSALM = {"book": 19, "chapters": {translation: (22 if translation in {"syn", "bti", "npu"} else 23)
+                               for translation in JOHN["chapters"]},
+         "verses": list(range(1, 7)), "audio_dir": "psalm23"}
+PASSAGES = {"john1": JOHN, "psalm23": PSALM}
+
 # Per-demo id: kind (`multi-reading` pairs or `voices` rows), narrators and localized title.
 DEMOS: dict[str, dict] = {
     "multi-reading": {
         "kind": "multi-reading",
+        "passage": "john1",
         "pairs": {
             "ru": ["prozorovsky", "bsb_souer"],
             "en": ["bsb_souer", "prudovsky"],
@@ -117,6 +125,7 @@ DEMOS: dict[str, dict] = {
     },
     "translation-compare": {
         "kind": "multi-reading",
+        "passage": "john1",
         "pairs": {
             "ru": ["bondarenko", "prozorovsky"],
             "en": ["bsb_souer", "winfred_henson"],
@@ -130,6 +139,7 @@ DEMOS: dict[str, dict] = {
     },
     "narrators": {
         "kind": "voices",
+        "passage": "john1",
         "rows": {
             "ru": ["bondarenko", "prudovsky", "prozorovsky"],
             "en": ["bsb_souer", "bsb_david", "winfred_henson", "web_british"],
@@ -143,10 +153,18 @@ DEMOS: dict[str, dict] = {
     },
 }
 
+for lang, narrators, title in (
+    ("ru", ["prudovsky", "bondarenko", "prozorovsky"], "Послушайте Пс 22 в чтении каждого диктора"),
+    ("en", ["bsb_souer", "bsb_david", "winfred_henson", "web_british"], "Listen to Psalm 23 read by each narrator"),
+    ("uk", ["kozlov_uk", "npu_uk"], "Послухайте псалом «Господь — мій пастир» у двох перекладах"),
+):
+    DEMOS[f"psalm23-voices-{lang}"] = {
+        "kind": "voices", "passage": "psalm23", "rows": {lang: narrators}, "title": {lang: title},
+    }
+
 # Demo kind -> the definition key holding its narrator selection per language.
 DEMO_SELECTIONS = {"multi-reading": "pairs", "voices": "rows"}
 
-PASSAGE = "John 1:1–5"
 MUSIC_NOTES = {
     "ru": ("с музыкой", "без музыки"),
     "en": ("with music", "voice only"),
@@ -169,49 +187,85 @@ REUSABLE_TIMING_FINGERPRINTS = {
     "web_british": "de3d2b78bc5eaae12466ef285862c5e67315b0fbafd2ccb24ea9fcc3b893a897",
 }
 
+PSALM_TIMING_FINGERPRINTS = {
+    "bondarenko": "ed1d91e966642ea79c1ab40474121e08745e2fd1bc3ec136ca2bdcdd121cc6b0",
+    "bsb_david": "09807488ef758695c1a54961c493c39f183ac492e48ba22f7f07c7d2f41dc37e",
+    "bsb_souer": "8aa9bec80e26f14d8de9a560169c4c87269d34d3a11792d0e12012a994d7eef7",
+    "kozlov_uk": "3f83b751981e7dd33d72a83c20365f2875da13c0e4b364964963a9c8bbbc2ce0",
+    "npu_uk": "164b616a5e228ce8650af21c24a01bfb31da3bad3739316fcb010fed0ed48fba",
+    "prozorovsky": "13f5bdd52cadc7e6345c853e975b94d6880968ceff9b9089955152beb5f81df4",
+    "prudovsky": "73dac4dc9394d1877942045d35ce310a3dc85ca38b9b544f81dc7305e7b8fccd",
+    "web_british": "e802d7fadf0bf4e91f011cf99299f800be3da7c1656f630bf48d66171e8d0a87",
+    "winfred_henson": "1ca6feed1125b80f0c631471f9a98714351ac562aeb3178b673c35a71edb9472",
+}
+
+TIMING_FINGERPRINTS = {"john1": REUSABLE_TIMING_FINGERPRINTS, "psalm23": PSALM_TIMING_FINGERPRINTS}
+
+
+def data_id(passage: dict) -> str:
+    return next(key for key, value in PASSAGES.items() if value == passage)
+
+
+def audio_output(passage: dict) -> Path:
+    return OUTPUT / passage["audio_dir"]
+
+
+def audio_url(passage: dict) -> str:
+    return "/audio/demo" + ("/" + passage["audio_dir"] if passage["audio_dir"] else "")
+
+
+def verse_span(passage: dict) -> str:
+    return f'{passage["verses"][0]}-{passage["verses"][-1]}'
+
 
 def rows(path: Path) -> list[dict[str, str]]:
     with path.open(encoding="utf-8", newline="") as handle:
         return list(csv.DictReader(handle, delimiter="\t"))
 
 
-def source_data() -> tuple[dict, dict]:
+def source_data(passage: dict = JOHN) -> tuple[dict, dict]:
     timings = {}
-    for row in rows(DATA / "john1-timings.tsv"):
+    for row in rows(DATA / f"{data_id(passage)}-timings.tsv"):
         narrator, verse = row["narrator"], int(row["verse"])
         key = (narrator, verse)
-        if narrator not in NARRATORS or not 1 <= verse <= 5 or key in timings:
+        if narrator not in NARRATORS or verse not in passage["verses"] or key in timings:
             raise ValueError(f"invalid or duplicate timing: {key}")
+        if "chapter" in row and int(row["chapter"]) != passage["chapters"][NARRATORS[narrator]["translation"]]:
+            raise ValueError(f"wrong chapter for timing: {key}")
         begin, end = Decimal(row["begin"]), Decimal(row["end"])
         if not begin.is_finite() or not end.is_finite() or begin < 0 or end <= begin:
             raise ValueError(f"invalid interval: {key}")
         timings[key] = (begin, end)
-    expected = {(narrator, verse) for narrator in NARRATORS for verse in range(1, 6)}
+    expected = {(narrator, verse) for narrator in NARRATORS for verse in passage["verses"]}
     if set(timings) != expected:
-        raise ValueError("timings must contain every narrator and verse 1-5 exactly once")
+        raise ValueError("timings must contain every narrator and selected verses exactly once")
     texts = {}
-    for row in rows(DATA / "john1-texts.tsv"):
+    for row in rows(DATA / f"{data_id(passage)}-texts.tsv"):
         key = (row["translation"], int(row["verse"]))
         if key in texts or not row["text"].strip():
             raise ValueError(f"invalid or duplicate text: {key}")
+        if "chapter" in row and int(row["chapter"]) != passage["chapters"][row["translation"]]:
+            raise ValueError(f"wrong chapter for text: {key}")
         texts[key] = row["text"]
-    expected = {(data["translation"], verse) for data in NARRATORS.values() for verse in range(1, 6)}
+    expected = {(data["translation"], verse) for data in NARRATORS.values() for verse in passage["verses"]}
     if set(texts) != expected:
-        raise ValueError("texts must contain every translation and verse 1-5 exactly once")
+        raise ValueError("texts must contain every translation and selected verses exactly once")
     return timings, texts
 
 
-def timing_fingerprint(narrator: str, timings: dict) -> str:
+def timing_fingerprint(narrator: str, timings: dict, passage: dict = JOHN) -> str:
     values = "\n".join(
         f"{verse}\t{timings[narrator, verse][0]}\t{timings[narrator, verse][1]}"
-        for verse in range(1, 6)
+        for verse in passage["verses"]
     )
     return hashlib.sha256(values.encode()).hexdigest()
 
 
-def recorded_clips() -> dict[str, list[list[dict]]]:
+def recorded_clips(passage: dict = JOHN) -> dict[str, list[list[dict]]]:
     records = {narrator: [] for narrator in NARRATORS}
-    for demo_id in DEMOS:
+    for demo_id, demo in DEMOS.items():
+        if PASSAGES[demo["passage"]] != passage:
+            continue
         manifest = DEMOS_DIR / f"{demo_id}.json"
         if not manifest.is_file():
             continue
@@ -226,27 +280,32 @@ def recorded_clips() -> dict[str, list[list[dict]]]:
             if narrator not in records or not isinstance(clip, dict):
                 raise ValueError(f"{manifest}: invalid existing narrator {narrator!r}")
             verses = clip.get("verses")
-            if not isinstance(verses, list) or len(verses) != 5:
+            if not isinstance(verses, list) or len(verses) != len(passage["verses"]):
                 raise ValueError(f"{manifest}: invalid existing clips for {narrator}")
             records[narrator].append(verses)
     return records
 
 
-def recorded_continuous() -> dict[str, dict]:
-    manifest = DEMOS_DIR / "narrators.json"
-    if not manifest.is_file():
-        return {}
-    data = json.loads(manifest.read_text(encoding="utf-8"))
-    return {
-        narrator: clip["continuous"]
-        for narrator, clip in data["clips"].items()
-        if "continuous" in clip
-    }
+def recorded_continuous(passage: dict = JOHN) -> dict[str, dict]:
+    records = {}
+    for demo_id, demo in DEMOS.items():
+        if demo["kind"] != "voices" or PASSAGES[demo["passage"]] != passage:
+            continue
+        manifest = DEMOS_DIR / f"{demo_id}.json"
+        if not manifest.is_file():
+            continue
+        data = json.loads(manifest.read_text(encoding="utf-8"))
+        for narrator, clip in data["clips"].items():
+            record = clip["continuous"]
+            if narrator in records and records[narrator] != record:
+                raise ValueError(f"{manifest}: conflicting continuous clip for {narrator}")
+            records[narrator] = record
+    return records
 
 
-def validate_reused_clips(narrator: str, clips: list[dict], records: list[list[dict]], timings: dict) -> None:
+def validate_reused_clips(narrator: str, clips: list[dict], records: list[list[dict]], timings: dict, passage: dict = JOHN) -> None:
     source_hint = f"pass a --source-dir containing {narrator}.mp3"
-    if timing_fingerprint(narrator, timings) != REUSABLE_TIMING_FINGERPRINTS[narrator]:
+    if timing_fingerprint(narrator, timings, passage) != TIMING_FINGERPRINTS[data_id(passage)][narrator]:
         raise ValueError(f"{narrator}: timings changed; {source_hint}")
     if not records:
         raise ValueError(f"{narrator}: no existing manifest records; {source_hint}")
@@ -292,13 +351,15 @@ def cut_audio(source: Path, target: Path, begin: Decimal, end: Decimal) -> None:
     ], check=True)
 
 
-def cut_clips(narrator: str, source: Path, timings: dict) -> None:
-    for verse in range(1, 6):
-        cut_audio(source, OUTPUT / narrator / f"{verse}.mp3", *timings[narrator, verse])
+def cut_clips(narrator: str, source: Path, timings: dict, passage: dict = JOHN) -> None:
+    for verse in passage["verses"]:
+        cut_audio(source, audio_output(passage) / narrator / f"{verse}.mp3", *timings[narrator, verse])
 
 
-def cut_continuous(narrator: str, source: Path, timings: dict) -> None:
-    cut_audio(source, OUTPUT / narrator / "1-5.mp3", timings[narrator, 1][0], timings[narrator, 5][1])
+def cut_continuous(narrator: str, source: Path, timings: dict, passage: dict = JOHN) -> None:
+    first, last = passage["verses"][0], passage["verses"][-1]
+    cut_audio(source, audio_output(passage) / narrator / f"{verse_span(passage)}.mp3",
+              timings[narrator, first][0], timings[narrator, last][1])
 
 
 def audio_duration(target: Path) -> Decimal:
@@ -307,10 +368,10 @@ def audio_duration(target: Path) -> Decimal:
     ], capture_output=True, text=True, check=True).stdout.strip())
 
 
-def clip_info(narrator: str, timings: dict) -> list[dict]:
-    narrator_dir = OUTPUT / narrator
+def clip_info(narrator: str, timings: dict, passage: dict = JOHN) -> list[dict]:
+    narrator_dir = audio_output(passage) / narrator
     verses = []
-    for verse in range(1, 6):
+    for verse in passage["verses"]:
         target = narrator_dir / f"{verse}.mp3"
         if not target.is_file():
             raise FileNotFoundError(
@@ -321,28 +382,28 @@ def clip_info(narrator: str, timings: dict) -> list[dict]:
         if duration < end - begin:
             raise ValueError(f"{target}: shorter than requested verse interval")
         verses.append({
-            "path": f"/audio/demo/{narrator}/{verse}.mp3",
+            "path": f"{audio_url(passage)}/{narrator}/{verse}.mp3",
             "sha256": hashlib.sha256(target.read_bytes()).hexdigest(),
             "duration": float(duration),
         })
     return verses
 
 
-def continuous_info(narrator: str, timings: dict) -> dict:
-    target = OUTPUT / narrator / "1-5.mp3"
+def continuous_info(narrator: str, timings: dict, passage: dict = JOHN) -> dict:
+    target = audio_output(passage) / narrator / f"{verse_span(passage)}.mp3"
     if not target.is_file():
         raise FileNotFoundError(f"{target}: missing; pass a --source-dir containing {narrator}.mp3")
     duration = audio_duration(target)
-    first_begin = timings[narrator, 1][0] - Decimal("0.050")
+    first_begin = timings[narrator, passage["verses"][0]][0] - Decimal("0.050")
     intervals = [
         {"start": float(timings[narrator, verse][0] - first_begin),
          "end": float(timings[narrator, verse][1] - first_begin)}
-        for verse in range(1, 6)
+        for verse in passage["verses"]
     ]
-    if duration < timings[narrator, 5][1] - first_begin:
+    if duration < timings[narrator, passage["verses"][-1]][1] - first_begin:
         raise ValueError(f"{target}: shorter than requested continuous interval")
     return {
-        "path": f"/audio/demo/{narrator}/1-5.mp3",
+        "path": f"{audio_url(passage)}/{narrator}/{verse_span(passage)}.mp3",
         "sha256": hashlib.sha256(target.read_bytes()).hexdigest(),
         "duration": float(duration),
         "intervals": intervals,
@@ -355,33 +416,37 @@ def validate_demos(demos: dict[str, dict]) -> None:
             raise ValueError(f"{demo_id}: demo definition has no kind")
         if demo["kind"] not in DEMO_SELECTIONS:
             raise ValueError(f"{demo_id}: unknown demo kind {demo['kind']!r}")
+        if demo.get("passage") not in PASSAGES:
+            raise ValueError(f"{demo_id}: unknown passage")
 
 
-def build(source_dirs: list[Path]) -> dict[str, dict]:
+def build(source_dirs: list[Path], passage_id: str = "john1") -> dict[str, dict]:
     validate_demos(DEMOS)
-    timings, texts = source_data()
+    passage = PASSAGES[passage_id]
+    demos = {key: demo for key, demo in DEMOS.items() if demo["passage"] == passage_id}
+    timings, texts = source_data(passage)
     OUTPUT.mkdir(parents=True, exist_ok=True)
 
     sources = find_sources(source_dirs)
-    previous_clips = recorded_clips()
-    previous_continuous = recorded_continuous()
-    voice_narrators = {narrator for demo in DEMOS.values() if demo["kind"] == "voices" for group in demo["rows"].values() for narrator in group}
+    previous_clips = recorded_clips(passage)
+    previous_continuous = recorded_continuous(passage)
+    voice_narrators = {narrator for demo in demos.values() if demo["kind"] == "voices" for group in demo["rows"].values() for narrator in group}
     for narrator, source in sources.items():
-        cut_clips(narrator, source, timings)
+        cut_clips(narrator, source, timings, passage)
         if narrator in voice_narrators:
-            cut_continuous(narrator, source, timings)
+            cut_continuous(narrator, source, timings, passage)
 
-    clips_by_narrator = {narrator: clip_info(narrator, timings) for narrator in NARRATORS}
+    clips_by_narrator = {narrator: clip_info(narrator, timings, passage) for narrator in NARRATORS}
     for narrator, clips in clips_by_narrator.items():
         if narrator not in sources:
-            validate_reused_clips(narrator, clips, previous_clips[narrator], timings)
-    continuous_by_narrator = {narrator: continuous_info(narrator, timings) for narrator in voice_narrators}
+            validate_reused_clips(narrator, clips, previous_clips[narrator], timings, passage)
+    continuous_by_narrator = {narrator: continuous_info(narrator, timings, passage) for narrator in voice_narrators}
     for narrator, info in continuous_by_narrator.items():
         if narrator not in sources and info != previous_continuous.get(narrator):
             raise ValueError(f"{narrator}: continuous clip differs from existing manifest; pass a --source-dir containing {narrator}.mp3")
 
     manifests = {}
-    for demo_id, demo in DEMOS.items():
+    for demo_id, demo in demos.items():
         kind = demo["kind"]
         selection = demo[DEMO_SELECTIONS[kind]]
         narrators_used = sorted({narrator for group in selection.values() for narrator in group})
@@ -399,11 +464,11 @@ def build(source_dirs: list[Path]) -> dict[str, dict]:
         translations_used = sorted({NARRATORS[narrator]["translation"] for narrator in narrators_used})
         data = {
             "title": demo["title"],
-            "passages": PASSAGE,
+            "passages": {**passage, "chapters": {key: passage["chapters"][key] for key in translations_used}},
             "kind": kind,
             "clips": clips,
             "texts": {
-                translation: [texts[translation, verse] for verse in range(1, 6)]
+                translation: [texts[translation, verse] for verse in passage["verses"]]
                 for translation in translations_used
             },
         }
@@ -419,8 +484,6 @@ def build(source_dirs: list[Path]) -> dict[str, dict]:
         manifest.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         manifests[demo_id] = data
 
-    for narrator in NARRATORS:
-        (OUTPUT / f"{narrator}.mp3").unlink(missing_ok=True)
     return manifests
 
 
@@ -428,6 +491,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--source-dir", type=Path, action="append", required=True, dest="source_dirs",
-        help="directory with full John 1 MP3s named <narrator>.mp3; may be given more than once",
+        help="directory with full-chapter MP3s for the selected passage named <narrator>.mp3; may be given more than once",
     )
-    build(parser.parse_args().source_dirs)
+    parser.add_argument("--passage", choices=PASSAGES, default="john1", help="passage whose demos to regenerate")
+    args = parser.parse_args()
+    build(args.source_dirs, args.passage)

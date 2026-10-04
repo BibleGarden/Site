@@ -40,6 +40,37 @@ class BuildDemoAudioTest(unittest.TestCase):
                 self.assertEqual(record["intervals"][0]["start"], 0.05)
                 self.assertLess(record["intervals"][-1]["end"], record["duration"])
 
+    def test_psalm_sources_and_continuous_clips_match_all_six_verses(self) -> None:
+        passage = BUILD_DEMO_AUDIO.PSALM
+        timings, texts = BUILD_DEMO_AUDIO.source_data(passage)
+        self.assertEqual(passage["chapters"]["npu"], 22)
+        self.assertEqual(passage["chapters"]["ubh"], 23)
+        self.assertEqual(texts["bsb", 1], "The Lord is my shepherd; I shall not want.")
+        records = BUILD_DEMO_AUDIO.recorded_continuous(passage)
+        self.assertEqual(set(records), set(BUILD_DEMO_AUDIO.NARRATORS))
+        for narrator, record in records.items():
+            with self.subTest(narrator=narrator):
+                self.assertEqual(BUILD_DEMO_AUDIO.timing_fingerprint(narrator, timings, passage),
+                                 BUILD_DEMO_AUDIO.PSALM_TIMING_FINGERPRINTS[narrator])
+                with mock.patch.object(BUILD_DEMO_AUDIO, "audio_duration", return_value=Decimal(str(record["duration"]))):
+                    self.assertEqual(BUILD_DEMO_AUDIO.continuous_info(narrator, timings, passage), record)
+                self.assertEqual(len(record["intervals"]), 6)
+                self.assertTrue(record["path"].startswith("/audio/demo/psalm23/"))
+                self.assertTrue(record["path"].endswith("/1-6.mp3"))
+                self.assertLess(record["intervals"][-1]["end"], record["duration"])
+
+    def test_psalm_sources_reject_wrong_chapter_numbering(self) -> None:
+        original_rows = BUILD_DEMO_AUDIO.rows
+        def wrong_chapter(path):
+            result = original_rows(path)
+            for row in result:
+                if row.get("narrator") == "npu_uk":
+                    row["chapter"] = "23"
+            return result
+        with mock.patch.object(BUILD_DEMO_AUDIO, "rows", side_effect=wrong_chapter):
+            with self.assertRaisesRegex(ValueError, "wrong chapter for timing"):
+                BUILD_DEMO_AUDIO.source_data(BUILD_DEMO_AUDIO.PSALM)
+
     def test_reused_clips_require_source_when_timings_change(self) -> None:
         narrator = "bsb_souer"
         clips = [{"sha256": str(verse), "duration": float(verse)} for verse in range(1, 6)]

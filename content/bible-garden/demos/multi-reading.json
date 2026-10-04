@@ -4,7 +4,23 @@
     "ru": "Послушайте Ин 1:1–5 на двух языках",
     "uk": "Послухайте Ів 1:1–5 двома мовами"
   },
-  "passages": "John 1:1–5",
+  "passages": {
+    "book": 43,
+    "chapters": {
+      "bsb": 1,
+      "bti": 1,
+      "syn": 1,
+      "ubh": 1
+    },
+    "verses": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "audio_dir": ""
+  },
   "kind": "multi-reading",
   "clips": {
     "bsb_souer": {

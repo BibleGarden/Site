@@ -327,22 +327,22 @@ where `<id>` names one of the JSON files in `content/bible-garden/demos/`.
 The `multi-reading` kind renders John 1:1–5 as two lines per verse and plays
 each verse in voice A, waits two seconds, plays it in voice B, then waits two
 seconds before the next verse. The `voices` kind renders compact narrator rows;
-each button plays one uninterrupted John 1:1–5 clip, preserving music and pauses
+each button plays one uninterrupted passage clip, preserving music and pauses
 between verses. Starting another row stops the current one. Only the verse
-currently being spoken is highlighted in a single compact John 1:1–5 paragraph
+currently being spoken is highlighted in a single compact passage paragraph
 beneath that row. The paragraph stays open through music, pauses and completion,
 until another row starts. Without JavaScript, every row's paragraph is visible;
 printing shows every paragraph and hides the controls. Each button's visible label, which is also its accessible name, switches between
 Play and Pause (no `aria-pressed`). A visually hidden polite live region announces
 the verse being read, since highlighting alone is silent for screen readers.
 Play/Pause resumes the current position, and playback
-stops after verse 5. The alternating demos use separate MP3s per verse and
+stops after the selected passage. The alternating demos use separate MP3s per verse and
 prefetch the next clip. Neither kind seeks or needs HTTP Range support. Without
 JavaScript, buttons stay hidden. The marker must match exactly; an
 unknown, duplicate or malformed demo marker stops the build. At most one demo
 renders per article.
 
-Three demos exist:
+The John 1:1–5 demos are:
 
 - `multi-reading` — the same passage in two languages. The ru pair is BTI
   (Kulakov), Nikita Semyonov-Prozorovsky and BSB, Bob Souer; en is BSB, Bob
@@ -360,17 +360,22 @@ Three demos exist:
   recordings have no credited narrator name.
 
 Each demo's JSON holds its localized title, the localized labels, verse texts
-and the five per-verse clip paths per narrator. `voices` also stores one
-`1-5.mp3` clip and five verse intervals per narrator. A narrator's localized name may be
+and per-verse clip paths per narrator. `passages` declares the book number,
+chapter per translation (so Greek and Hebrew psalm numbering can differ), an
+ordered contiguous list of verse numbers, and the audio directory. Titles and
+rows cover exactly the demo's supported languages; using a marker in an
+unsupported language fails the build. `voices` also stores one continuous
+`<first>-<last>.mp3` clip and one interval per verse. A narrator's localized name may be
 `null` when the publisher does not credit one, in which case only the
 translation name renders. The build rejects missing, changed or malformed
-verse clips. Clips are shared between demos under
+verse clips. John clips are shared between demos under
 `static/bible-garden/audio/demo/<narrator>/<verse>.mp3`; continuous clips live
-beside them at `static/bible-garden/audio/demo/<narrator>/1-5.mp3`.
+beside them as `1-5.mp3`. Other passages use their own `audio_dir` below
+`audio/demo/`.
 
 `tools/build_demo_audio.py` keeps a narrator registry (translation and
 localized names) and a per-demo definition (id, required kind, pairs or rows, localized title); it
-cuts one manifest per demo. The committed `tools/data/john1-texts.tsv` comes
+cuts one manifest per demo for the selected `--passage` (default `john1`). The committed `tools/data/john1-texts.tsv` comes
 from `cep_public.translation_verses` (WEBBE exported 2026-09-28); `tools/data/john1-timings.tsv` comes
 from `cep_public.voice_alignments` (John 1; bsb/bti/syn/ubh and their
 narrators exported 2026-09-27, webus/npu, their narrators and the Synodal narrator
@@ -408,6 +413,47 @@ narrators' source files, not the older ones. Reused clips must match their
 existing manifest checksums and durations, and their timing fingerprint must
 match the committed timeline; changing a narrator's timings requires its
 source MP3.
+
+The psalm voice demos use all six verses of “The Lord is my shepherd”:
+
+| Demo id / article language | Voices | Source psalm number |
+| --- | --- | --- |
+| `psalm23-voices-ru` | Prudovsky, Bondarenko, Semyonov-Prozorovsky | Synodal and BTI 22 (Greek) |
+| `psalm23-voices-en` | Bob Souer, David (BSB), Winfred Henson (WEB), WEBBE (uncredited) | 23 (Hebrew) |
+| `psalm23-voices-uk` | Ihor Kozlov (Khomenko), NPU (uncredited) | Khomenko 23 (Hebrew), NPU 22 (Greek) |
+
+`tools/data/psalm23-texts.tsv` and `psalm23-timings.tsv` were exported on
+2026-10-04 from local `cep_public.translation_verses` and `voice_alignments`,
+joined to `translations` and `voices` by alias, for book 19 and the chapters
+above; their `chapter` columns pin the numbering. Texts are exact exports
+except BSB 23:1: its wrongly embedded section title `The Lord Is My Shepherd `
+is removed for display (defect ticket `123pfqn1u6a`); the displayed verse is
+`The Lord is my shepherd; I shall not want.` Other psalm superscriptions remain
+as published. The continuous cut uses the aligned beginning of verse 1 minus
+50 ms through the end of verse 6 plus 150 ms, preserving intervening music and
+pauses. It excludes BSB's spoken section heading before verse 1. Highlighting
+uses the original aligned verse intervals relative to that cut.
+
+Prepare `<narrator>.mp3` files from the corresponding local app recordings
+`bible-parser/audio/<translation>/<narrator>/mp3/19/<chapter:02>.mp3` (use the
+processed Prudovsky file, as for John), then run:
+
+```bash
+python3 tools/build_demo_audio.py --passage psalm23 --source-dir /path/to/psalm-mp3s
+.venv/bin/python -m sitegen build
+.venv/bin/python -m sitegen check
+.venv/bin/python -m sitegen preview
+.venv/bin/python -m unittest discover -s tests
+```
+
+Psalm clips live in `static/bible-garden/audio/demo/psalm23/<narrator>/`;
+John's paths stay unchanged. Use the marker `<!-- demo: psalm23-voices-ru -->`,
+`<!-- demo: psalm23-voices-en -->` or `<!-- demo: psalm23-voices-uk -->` in the
+corresponding language's article. Only the ru article is wired
+here; the en/uk manifests are ready for their article writers. No-JS and print
+behavior uses the same voices renderer, stylesheet and player as `narrators`.
+On 2026-10-04, built `audio-bible-narrators/index.html` in en/ru/uk was compared
+with the pre-change build using `cmp`: all three pages were byte-identical.
 
 ### Reading-time calculator in articles
 

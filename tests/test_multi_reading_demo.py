@@ -6,6 +6,7 @@ import copy
 import html
 import json
 import re
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -39,7 +40,7 @@ class MultiReadingDemoTest(unittest.TestCase):
                     validate_demo(changed, demo_id, path)
                 changed = copy.deepcopy(data)
                 changed["clips"]["bsb_souer"]["verses"].pop()
-                with self.assertRaisesRegex(BuildError, "five verse clips"):
+                with self.assertRaisesRegex(BuildError, "5 verse clips"):
                     validate_demo(changed, demo_id, path)
                 changed = copy.deepcopy(data)
                 changed["clips"]["bsb_souer"]["verses"][1]["path"] = changed["clips"]["bsb_souer"]["verses"][0]["path"]
@@ -52,7 +53,7 @@ class MultiReadingDemoTest(unittest.TestCase):
                 changed = copy.deepcopy(data)
                 first_translation = next(iter(changed["texts"]))
                 changed["texts"][first_translation] = changed["texts"][first_translation][:-1]
-                with self.assertRaisesRegex(BuildError, "five nonempty verse texts"):
+                with self.assertRaisesRegex(BuildError, "5 nonempty verse texts"):
                     validate_demo(changed, demo_id, path)
 
     def test_data_rejects_invalid_narrator_pairs_and_names(self) -> None:
@@ -205,6 +206,59 @@ class MultiReadingDemoTest(unittest.TestCase):
                 invalid["unexpected"] = True
             with self.subTest(change=change), self.assertRaises(BuildError):
                 validate_demo(invalid, "narrators", path)
+
+    def test_psalm_demos_render_six_verses_in_their_language(self) -> None:
+        expected = {
+            "ru": ["prudovsky", "bondarenko", "prozorovsky"],
+            "en": ["bsb_souer", "bsb_david", "winfred_henson", "web_british"],
+            "uk": ["kozlov_uk", "npu_uk"],
+        }
+        for lang, narrators in expected.items():
+            demo_id = f"psalm23-voices-{lang}"
+            data = load_demo(demo_id)
+            self.assertEqual(list(data["rows"]), [lang])
+            self.assertEqual([row["narrator"] for row in data["rows"][lang]], narrators)
+            self.assertEqual(data["passages"]["book"], 19)
+            self.assertEqual(data["passages"]["verses"], list(range(1, 7)))
+            with self.subTest(lang=lang), tempfile.TemporaryDirectory() as directory:
+                source = Path(directory) / "demo.md"
+                source.write_text(f"---\ntitle: Demo\ndescription: Demo article\ndate: 2026-10-04\n---\n\n<!-- demo: {demo_id} -->\n")
+                body = parse_article(source, "demo", lang, {}, {}, self.site.i18n[lang]["articles"], Path(directory)).body_html
+                self.assertEqual(body.count('data-demo-track'), len(narrators))
+                self.assertEqual(body.count('data-verse="'), 6 * len(narrators))
+                self.assertEqual(body.count('class="multi-reading-controls" hidden'), len(narrators))
+                self.assertEqual(body.count('data-demo-status aria-live="polite"'), 1)
+                self.assertNotIn('aria-pressed', body)
+                self.assertNotIn('The Lord Is My Shepherd', body)
+                self.assertNotRegex(body, r'<p class="voices-passage"[^>]* hidden')
+                for narrator in narrators:
+                    clip = data["clips"][narrator]
+                    self.assertIn(clip["continuous"]["path"], body)
+                    for text in data["texts"][clip["translation"]]:
+                        self.assertIn(html.escape(text), body)
+                other_lang = "en" if lang != "en" else "ru"
+                with self.assertRaisesRegex(BuildError, "no rows for language"):
+                    parse_article(source, "demo", other_lang, {}, {}, self.site.i18n[other_lang]["articles"], Path(directory))
+
+    def test_passage_schema_rejects_invalid_metadata_and_intervals(self) -> None:
+        demo_id = "psalm23-voices-uk"
+        data = load_demo(demo_id)
+        for field, value in (("book", True), ("book", 0), ("chapters", {}),
+                             ("chapters", {"ubh": 23, "npu": True}),
+                             ("verses", []), ("verses", [1, 3]), ("verses", [True, 2]),
+                             ("audio_dir", "../psalm23")):
+            changed = copy.deepcopy(data)
+            changed["passages"][field] = value
+            with self.subTest(field=field, value=value), self.assertRaises(BuildError):
+                validate_demo(changed, demo_id, DEMOS_DIR / f"{demo_id}.json")
+        changed = copy.deepcopy(data)
+        changed["clips"]["npu_uk"]["continuous"]["intervals"].pop()
+        with self.assertRaisesRegex(BuildError, "expected 6 verse intervals"):
+            validate_demo(changed, demo_id, DEMOS_DIR / f"{demo_id}.json")
+
+    def test_player_sequences_for_john_and_psalm(self) -> None:
+        subprocess.run(["node", str(ROOT / "tests/multi_reading_demo_sequence.js")],
+                       cwd=ROOT, check=True, capture_output=True, text=True)
 
     def test_unknown_demo_id_fails_to_load(self) -> None:
         with self.assertRaisesRegex(BuildError, "missing demo data"):

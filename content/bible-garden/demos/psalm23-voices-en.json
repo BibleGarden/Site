@@ -1,0 +1,391 @@
+{
+  "title": {
+    "en": "Listen to Psalm 23 read by each narrator"
+  },
+  "passages": {
+    "book": 19,
+    "chapters": {
+      "bsb": 23,
+      "webbe": 23,
+      "webus": 23
+    },
+    "verses": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "audio_dir": "psalm23"
+  },
+  "kind": "voices",
+  "clips": {
+    "bsb_david": {
+      "translation": "bsb",
+      "names": {
+        "en": [
+          "Berean Standard Bible (BSB)",
+          "David"
+        ],
+        "ru": [
+          "Berean Standard Bible (BSB)",
+          "David"
+        ],
+        "uk": [
+          "Berean Standard Bible (BSB)",
+          "David"
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/psalm23/bsb_david/1.mp3",
+          "sha256": "65cc1cf108dc2b129ded8eeed907835ad84a91dae3794a22bff22e856eb6f574",
+          "duration": 3.096
+        },
+        {
+          "path": "/audio/demo/psalm23/bsb_david/2.mp3",
+          "sha256": "a7402e22559abbbe3878be99dceaaf9991e00414697f1226cf648a7fde14386e",
+          "duration": 5.232
+        },
+        {
+          "path": "/audio/demo/psalm23/bsb_david/3.mp3",
+          "sha256": "01d7ed68b1ac6769938b5633a6a730129c8c4bb21bbb6ddc847e06474cfdc72f",
+          "duration": 5.904
+        },
+        {
+          "path": "/audio/demo/psalm23/bsb_david/4.mp3",
+          "sha256": "76b41a658dd277832cbb89396758c1475bf9a3a4ff0a5902748f3421194532ce",
+          "duration": 9.744
+        },
+        {
+          "path": "/audio/demo/psalm23/bsb_david/5.mp3",
+          "sha256": "93c93f34b949e27e28fc2b4f103cefbc8fecbbeadd0455b4a937a3c38d1f07f5",
+          "duration": 8.328
+        },
+        {
+          "path": "/audio/demo/psalm23/bsb_david/6.mp3",
+          "sha256": "717a143d7101499aa35afcc4a91385c2d2aba5d0211903a24d4d247c298d4b1b",
+          "duration": 7.176
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/psalm23/bsb_david/1-6.mp3",
+        "sha256": "b79e8d151fb3ef80d58bb7cdf933bf24aeef06584dff3de2034080fdbd9c7ede",
+        "duration": 40.872,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 2.89
+          },
+          {
+            "start": 3.24,
+            "end": 8.22
+          },
+          {
+            "start": 8.53,
+            "end": 14.18
+          },
+          {
+            "start": 14.87,
+            "end": 24.36
+          },
+          {
+            "start": 25.0,
+            "end": 33.06
+          },
+          {
+            "start": 33.75,
+            "end": 40.67
+          }
+        ]
+      }
+    },
+    "bsb_souer": {
+      "translation": "bsb",
+      "names": {
+        "en": [
+          "Berean Standard Bible (BSB)",
+          "Bob Souer"
+        ],
+        "ru": [
+          "Berean Standard Bible (BSB)",
+          "Bob Souer"
+        ],
+        "uk": [
+          "Berean Standard Bible (BSB)",
+          "Bob Souer"
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/psalm23/bsb_souer/1.mp3",
+          "sha256": "3ab38249bdc99299aad8ef4a5f38ce59eefa28cc5ce756e6bca0f083f6135793",
+          "duration": 2.976
+        },
+        {
+          "path": "/audio/demo/psalm23/bsb_souer/2.mp3",
+          "sha256": "7c0bc21a3b1f69c2d379d393a6162a1cb1189502f492372b38a890ee416fcc99",
+          "duration": 5.28
+        },
+        {
+          "path": "/audio/demo/psalm23/bsb_souer/3.mp3",
+          "sha256": "c2742a01885b7530d884ac785b48a1f3b959cc5b1e90fea2594e159abf8a7157",
+          "duration": 5.52
+        },
+        {
+          "path": "/audio/demo/psalm23/bsb_souer/4.mp3",
+          "sha256": "630b45e45f84cc9f1b3919a09bdf3c6feb23cdf8627911c6c393088d396b988a",
+          "duration": 8.376
+        },
+        {
+          "path": "/audio/demo/psalm23/bsb_souer/5.mp3",
+          "sha256": "ebc9a5a6a697365ad6035b2138af6cd3601b836ff5a16a2f11f519543696d70c",
+          "duration": 7.488
+        },
+        {
+          "path": "/audio/demo/psalm23/bsb_souer/6.mp3",
+          "sha256": "7fc0630f330d341b69440b58f9d1339c5e509b2ef403379d7555c619eb95dcb5",
+          "duration": 6.624
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/psalm23/bsb_souer/1-6.mp3",
+        "sha256": "7a422c3ff8cc08fdbf3474cc1368582d466a0dbf37546a8e0440fd66ad2edf8b",
+        "duration": 38.016,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 2.76
+          },
+          {
+            "start": 3.11,
+            "end": 8.12
+          },
+          {
+            "start": 8.5,
+            "end": 13.75
+          },
+          {
+            "start": 14.62,
+            "end": 22.73
+          },
+          {
+            "start": 23.7,
+            "end": 30.92
+          },
+          {
+            "start": 31.44,
+            "end": 37.81
+          }
+        ]
+      }
+    },
+    "web_british": {
+      "translation": "webbe",
+      "names": {
+        "en": [
+          "World English Bible, British Edition (WEBBE)",
+          null
+        ],
+        "ru": [
+          "World English Bible, British Edition (WEBBE)",
+          null
+        ],
+        "uk": [
+          "World English Bible, British Edition (WEBBE)",
+          null
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/psalm23/web_british/1.mp3",
+          "sha256": "c2fa07060b23a4af0927e620f0eb5b0535db228c8e28bf43ea46585bd5cb6aec",
+          "duration": 2.856
+        },
+        {
+          "path": "/audio/demo/psalm23/web_british/2.mp3",
+          "sha256": "863192273e1f3ec4473e646fa4f12fbcab46d577e9893187b0a8cc0e1cc625ef",
+          "duration": 5.304
+        },
+        {
+          "path": "/audio/demo/psalm23/web_british/3.mp3",
+          "sha256": "a939ee11a02cd63258b6fef95943e8eec55c7cd51ff94a9cdeca2c242aaaf67e",
+          "duration": 5.232
+        },
+        {
+          "path": "/audio/demo/psalm23/web_british/4.mp3",
+          "sha256": "b1605efb017cd6d1cef5b2bb74adfee3891ab34dc232e581ec30db40598489fe",
+          "duration": 8.184
+        },
+        {
+          "path": "/audio/demo/psalm23/web_british/5.mp3",
+          "sha256": "7a09415f2ffd753f610980672f0f88f90ccdfa795f5160b0d541798022e79b86",
+          "duration": 7.512
+        },
+        {
+          "path": "/audio/demo/psalm23/web_british/6.mp3",
+          "sha256": "f502e540989250d17aadd386eb8463c0db59ddf31fcb19bdc7004627d3d391bd",
+          "duration": 6.6
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/psalm23/web_british/1-6.mp3",
+        "sha256": "94d0b58fd897dd619e725c74287370d633bb119874a1f8befce0dc3e98cc4097",
+        "duration": 35.88,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 2.64
+          },
+          {
+            "start": 2.88,
+            "end": 7.93
+          },
+          {
+            "start": 8.16,
+            "end": 13.13
+          },
+          {
+            "start": 13.88,
+            "end": 21.81
+          },
+          {
+            "start": 22.03,
+            "end": 29.28
+          },
+          {
+            "start": 29.32,
+            "end": 35.67
+          }
+        ]
+      }
+    },
+    "winfred_henson": {
+      "translation": "webus",
+      "names": {
+        "en": [
+          "World English Bible (WEB)",
+          "Winfred Henson"
+        ],
+        "ru": [
+          "World English Bible (WEB)",
+          "Winfred Henson"
+        ],
+        "uk": [
+          "World English Bible (WEB)",
+          "Winfred Henson"
+        ]
+      },
+      "verses": [
+        {
+          "path": "/audio/demo/psalm23/winfred_henson/1.mp3",
+          "sha256": "c3c368cf1c9d4c5af3ee5ab73a0aec8cd31b879c35293b80c657debd3c570261",
+          "duration": 3.696
+        },
+        {
+          "path": "/audio/demo/psalm23/winfred_henson/2.mp3",
+          "sha256": "6c5bc1768ba40f48da0a5a5a75ce888fe23586689fc0080fcf3b7385655315ab",
+          "duration": 5.448
+        },
+        {
+          "path": "/audio/demo/psalm23/winfred_henson/3.mp3",
+          "sha256": "08edda6b361512dbc752c1e46d5ea8580ca35b258ff5bd90ca60429bb6ebb011",
+          "duration": 6.168
+        },
+        {
+          "path": "/audio/demo/psalm23/winfred_henson/4.mp3",
+          "sha256": "911c49dec74f52694e90e2dc1f89c97a2a83580d02bb6f3a3e31e6ebe20292c0",
+          "duration": 9.624
+        },
+        {
+          "path": "/audio/demo/psalm23/winfred_henson/5.mp3",
+          "sha256": "ce39c8d61e50b061b0f51c8a65ba8919032bebf0d258ffd83afae164049a29ec",
+          "duration": 8.88
+        },
+        {
+          "path": "/audio/demo/psalm23/winfred_henson/6.mp3",
+          "sha256": "43d9c23f6ef84adc6b73b67b69811b7d495edbc3dfba2eddee55064f5f2a49b3",
+          "duration": 8.592
+        }
+      ],
+      "continuous": {
+        "path": "/audio/demo/psalm23/winfred_henson/1-6.mp3",
+        "sha256": "1b374574c71a499460f797cfdcaba1e1e4ff8682e7c35d4f386537d100591d82",
+        "duration": 43.824,
+        "intervals": [
+          {
+            "start": 0.05,
+            "end": 3.48
+          },
+          {
+            "start": 3.98,
+            "end": 9.18
+          },
+          {
+            "start": 9.63,
+            "end": 15.54
+          },
+          {
+            "start": 16.07,
+            "end": 25.43
+          },
+          {
+            "start": 26.04,
+            "end": 34.67
+          },
+          {
+            "start": 35.29,
+            "end": 43.62
+          }
+        ]
+      }
+    }
+  },
+  "texts": {
+    "bsb": [
+      "The Lord is my shepherd; I shall not want.",
+      "He makes me lie down in green pastures; He leads me beside quiet waters.",
+      "He restores my soul; He guides me in the paths of righteousness for the sake of His name.",
+      "Even though I walk through the valley of the shadow of death, I will fear no evil, for You are with me; Your rod and Your staff, they comfort me.",
+      "You prepare a table before me in the presence of my enemies. You anoint my head with oil; my cup overflows.",
+      "Surely goodness and mercy will follow me all the days of my life, and I will dwell in the house of the Lord forever."
+    ],
+    "webbe": [
+      "The LORD is my shepherd; I shall lack nothing.",
+      "He makes me lie down in green pastures. He leads me beside still waters.",
+      "He restores my soul. He guides me in the paths of righteousness for his name’s sake.",
+      "Even though I walk through the valley of the shadow of death, I will fear no evil, for you are with me. Your rod and your staff, they comfort me.",
+      "You prepare a table before me in the presence of my enemies. You anoint my head with oil. My cup runs over.",
+      "Surely goodness and loving kindness shall follow me all the days of my life, and I will dwell in the LORD’s house forever."
+    ],
+    "webus": [
+      "Yahweh is my shepherd; I shall lack nothing.",
+      "He makes me lie down in green pastures. He leads me beside still waters.",
+      "He restores my soul. He guides me in the paths of righteousness for his name’s sake.",
+      "Even though I walk through the valley of the shadow of death, I will fear no evil, for you are with me. Your rod and your staff, they comfort me.",
+      "You prepare a table before me in the presence of my enemies. You anoint my head with oil. My cup runs over.",
+      "Surely goodness and loving kindness shall follow me all the days of my life, and I will dwell in Yahweh’s house forever."
+    ]
+  },
+  "rows": {
+    "en": [
+      {
+        "narrator": "bsb_souer",
+        "note": "voice only"
+      },
+      {
+        "narrator": "bsb_david",
+        "note": "voice only"
+      },
+      {
+        "narrator": "winfred_henson",
+        "note": "voice only"
+      },
+      {
+        "narrator": "web_british",
+        "note": "voice only"
+      }
+    ]
+  }
+}

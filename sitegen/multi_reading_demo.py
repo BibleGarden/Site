@@ -1,4 +1,4 @@
-"""Validated, server-rendered John 1 article audio demos.
+"""Validated, server-rendered passage-based article audio demos.
 
 A demo marker `<!-- demo: <id> -->` loads
 `content/bible-garden/demos/<id>.json`. Demos share the player markup, CSS and
@@ -22,7 +22,6 @@ ROOT = Path(__file__).resolve().parent.parent
 DEMOS_DIR = ROOT / "content/bible-garden/demos"
 MARKER_RE = re.compile(r"^<!-- demo: ([a-z0-9]+(?:-[a-z0-9]+)*) -->$")
 INTENT_RE = re.compile(r"<!--\s*(?:demo|dmeo|demmo)\b", re.IGNORECASE)
-PASSAGE = "John 1:1–5"
 LANGS = {"en", "ru", "uk"}
 # Language of each translation's text, for the verse line's `lang` attribute.
 # Fixed per translation regardless of which demo(s) use it.
@@ -74,15 +73,36 @@ def validate_demo(data: object, demo_id: str, path: Path, static_root: Path = RO
     def fail(message: str) -> None:
         raise BuildError(f"{path}: {message}")
 
-    if not isinstance(data, dict) or data.get("kind") not in {"multi-reading", "voices"} or data.get("passages") != PASSAGE:
-        fail("expected John 1:1–5 demo data")
+    if not isinstance(data, dict) or data.get("kind") not in {"multi-reading", "voices"}:
+        fail("expected audio demo data")
     kind = data["kind"]
     expected_fields = {"kind", "title", "passages", "clips", "texts", "pairs" if kind == "multi-reading" else "rows"}
     if set(data) != expected_fields:
         fail("invalid demo fields")
 
+    passage = data["passages"]
+    if not isinstance(passage, dict) or set(passage) != {"book", "chapters", "verses", "audio_dir"}:
+        fail("invalid passage fields")
+    if type(passage["book"]) is not int or not 1 <= passage["book"] <= 66:
+        fail("invalid passage book")
+    chapters = passage["chapters"]
+    if not isinstance(chapters, dict) or not chapters or any(
+        key not in TEXT_LANG or type(value) is not int or not 1 <= value <= 150
+        for key, value in chapters.items()
+    ):
+        fail("invalid passage chapters")
+    numbers = passage["verses"]
+    if (not isinstance(numbers, list) or not numbers or any(type(number) is not int or number < 1 for number in numbers)
+            or numbers != list(range(numbers[0], numbers[-1] + 1))):
+        fail("invalid passage verses")
+    count = len(numbers)
+    audio_dir = passage["audio_dir"]
+    if not isinstance(audio_dir, str) or (audio_dir and not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", audio_dir)):
+        fail("invalid passage audio directory")
+    audio_prefix = "/audio/demo" + ("/" + audio_dir if audio_dir else "")
+
     title = data["title"]
-    if not isinstance(title, dict) or set(title) != LANGS or any(
+    if not isinstance(title, dict) or not title or not set(title) <= LANGS or any(
         not isinstance(value, str) or not value.strip() for value in title.values()
     ):
         fail("invalid localized title")
@@ -93,7 +113,7 @@ def validate_demo(data: object, demo_id: str, path: Path, static_root: Path = RO
 
     if kind == "multi-reading":
         pairs = data["pairs"]
-        if not isinstance(pairs, dict) or set(pairs) != LANGS:
+        if not isinstance(pairs, dict) or set(pairs) != set(title):
             fail("invalid language pairs")
         for lang, pair in pairs.items():
             if not isinstance(pair, list) or len(pair) != 2 or pair[0] == pair[1] or any(
@@ -103,7 +123,7 @@ def validate_demo(data: object, demo_id: str, path: Path, static_root: Path = RO
         used = {narrator for pair in pairs.values() for narrator in pair}
     else:
         rows = data["rows"]
-        if not isinstance(rows, dict) or set(rows) != LANGS:
+        if not isinstance(rows, dict) or set(rows) != set(title):
             fail("invalid language rows")
         used = set()
         for lang, entries in rows.items():
@@ -146,12 +166,12 @@ def validate_demo(data: object, demo_id: str, path: Path, static_root: Path = RO
             if narrator_name is not None and (not isinstance(narrator_name, str) or not narrator_name.strip()):
                 fail(f"{narrator}: invalid localized translation or narrator names")
         verses = clip["verses"]
-        if not isinstance(verses, list) or len(verses) != 5:
-            fail(f"{narrator}: expected five verse clips")
-        for index, verse in enumerate(verses, 1):
+        if not isinstance(verses, list) or len(verses) != count:
+            fail(f"{narrator}: expected {count} verse clips")
+        for index, verse in zip(numbers, verses):
             if not isinstance(verse, dict) or set(verse) != {"path", "sha256", "duration"}:
                 fail(f"{narrator}: verse {index} has invalid clip fields")
-            expected_path = f"/audio/demo/{narrator}/{index}.mp3"
+            expected_path = f"{audio_prefix}/{narrator}/{index}.mp3"
             if verse["path"] != expected_path:
                 fail(f"{narrator}: verse {index} has invalid clip path")
             clip_file = static_root / expected_path.lstrip("/")
@@ -168,7 +188,7 @@ def validate_demo(data: object, demo_id: str, path: Path, static_root: Path = RO
             continuous = clip["continuous"]
             if not isinstance(continuous, dict) or set(continuous) != {"path", "sha256", "duration", "intervals"}:
                 fail(f"{narrator}: invalid continuous clip fields")
-            expected_path = f"/audio/demo/{narrator}/1-5.mp3"
+            expected_path = f"{audio_prefix}/{narrator}/{numbers[0]}-{numbers[-1]}.mp3"
             if continuous["path"] != expected_path:
                 fail(f"{narrator}: invalid continuous clip path")
             clip_file = static_root / expected_path.lstrip("/")
@@ -182,8 +202,8 @@ def validate_demo(data: object, demo_id: str, path: Path, static_root: Path = RO
             if type(duration) not in (int, float) or not math.isfinite(duration) or duration <= 0:
                 fail(f"{narrator}: invalid continuous clip duration")
             intervals = continuous["intervals"]
-            if not isinstance(intervals, list) or len(intervals) != 5:
-                fail(f"{narrator}: expected five verse intervals")
+            if not isinstance(intervals, list) or len(intervals) != count:
+                fail(f"{narrator}: expected {count} verse intervals")
             previous_end = 0
             for interval in intervals:
                 if not isinstance(interval, dict) or set(interval) != {"start", "end"}:
@@ -195,11 +215,11 @@ def validate_demo(data: object, demo_id: str, path: Path, static_root: Path = RO
                     fail(f"{narrator}: invalid verse interval")
                 previous_end = end
 
-    if set(texts) != translations:
+    if set(texts) != translations or set(chapters) != translations:
         fail("invalid translation set")
     for translation, verses in texts.items():
-        if not isinstance(verses, list) or len(verses) != 5 or any(not isinstance(text, str) or not text.strip() for text in verses):
-            fail(f"{translation}: expected five nonempty verse texts")
+        if not isinstance(verses, list) or len(verses) != count or any(not isinstance(text, str) or not text.strip() for text in verses):
+            fail(f"{translation}: expected {count} nonempty verse texts")
     return data
 
 
@@ -224,13 +244,15 @@ def render_demo(data: dict, lang: str, strings: object) -> str:
         not isinstance(value, str) or not value.strip() for value in strings.values()
     ):
         raise BuildError(f"Multi Reading demo: missing or invalid translation for {lang}")
+    if lang not in data["title"]:
+        raise BuildError(f"Audio demo: no rows for language {lang}")
     if data["kind"] == "voices":
         return _render_voices(data, lang, strings)
     first, second = (data["clips"][narrator] for narrator in data["pairs"][lang])
     first_lang = TEXT_LANG[first["translation"]]
     second_lang = TEXT_LANG[second["translation"]]
     esc = html.escape
-    clip_paths = [clip["verses"][index]["path"] for index in range(5) for clip in (first, second)]
+    clip_paths = [clip["verses"][index]["path"] for index in range(len(data["passages"]["verses"])) for clip in (first, second)]
     clip_data = esc(json.dumps(clip_paths, separators=(",", ":")), quote=True)
     out = [f'<section class="multi-reading-demo" data-multi-reading-demo data-kind="multi-reading" data-play="{esc(strings["play"], quote=True)}"'
            f' data-pause="{esc(strings["pause"], quote=True)}" data-play-again="{esc(strings["play_again"], quote=True)}"'
@@ -248,8 +270,8 @@ def render_demo(data: dict, lang: str, strings: object) -> str:
                '<p class="multi-reading-error" role="alert" hidden></p></div>')
     out.append(STATUS)
     out.append('<ol class="multi-reading-verses">')
-    for index in range(5):
-        out.append(f'<li data-verse="{index + 1}"><span class="multi-reading-number">{index + 1}</span>'
+    for index, number in enumerate(data["passages"]["verses"]):
+        out.append(f'<li data-verse="{number}"><span class="multi-reading-number">{number}</span>'
                    f'<div class="multi-reading-lines"><p class="multi-reading-line" data-step="a" lang="{first_lang}">{esc(data["texts"][first["translation"]][index])}</p>'
                    f'<p class="multi-reading-line multi-reading-secondary" data-step="b" lang="{second_lang}">{esc(data["texts"][second["translation"]][index])}</p></div></li>')
     first_path = esc(first["verses"][0]["path"], quote=True)
@@ -280,7 +302,7 @@ def _render_voices(data: dict, lang: str, strings: dict) -> str:
                    f'<button type="button" class="multi-reading-toggle" aria-label="{button_label}">{esc(strings["play"])}</button>'
                    '<p class="multi-reading-error" role="alert" hidden></p></div></div>'
                    f'<p class="voices-passage" data-voice-passage lang="{TEXT_LANG[clip["translation"]]}">')
-        for index, verse in enumerate(data["texts"][clip["translation"]], 1):
+        for index, verse in zip(data["passages"]["verses"], data["texts"][clip["translation"]]):
             out.append(f'<span data-verse="{index}"><sup>{index}</sup> {esc(verse)}</span>')
         out.append('</p></div>')
     out.append('</div>')

@@ -63,6 +63,8 @@ player.play = function () {
     return Promise.resolve();
 };
 
+lines.forEach((line, index) => { line.closest = () => ({ dataset: { verse: String(Math.floor(index / 2) + 1) } }); });
+
 const demo = {
     dataset: { kind: 'multi-reading', play: 'Play', pause: 'Pause', playAgain: 'Play again', error: 'Audio error', verseLabel: 'Verse', clips: JSON.stringify(paths) },
     querySelector(selector) {
@@ -131,16 +133,17 @@ const poll = setInterval(() => {
     console.log('A1, B1, A2, B2, A3, B3, A4, B4, A5, B5: OK');
 }, 1);
 
-function testVoices() {
-    const voicePaths = ['bondarenko', 'prudovsky'].map((name) => `/audio/demo/${name}/1-5.mp3`);
-    const intervals = Array.from({ length: 5 }, (_, index) => ({ start: index * 2 + 0.05, end: index * 2 + 1 }));
+function testVoices(count = 5) {
+    const voicePaths = ['bondarenko', 'prudovsky'].map((name) => `/audio/demo/${count === 6 ? "psalm23/" : ""}${name}/1-${count}.mp3`);
+    const intervals = Array.from({ length: count }, (_, index) => ({ start: index * 2 + 0.05, end: index * 2 + 1 }));
     const rows = voicePaths.map((path, index) => {
         const controls = element();
         const button = element();
         const error = element();
         const passage = element();
-        const lines = Array.from({ length: 5 }, (_, verse) => {
+        const lines = Array.from({ length: count }, (_, verse) => {
             const line = element();
+            line.dataset = { verse: String(verse + 1) };
             line.textContent = `Verse ${verse + 1}`;
             return line;
         });
@@ -217,14 +220,14 @@ function testVoices() {
     assert.equal(rows[0].button.attributes['aria-label'], 'Play: Voice 0');
     assert.equal(rows[0].passage.hidden, true);
     assert.equal(rows[1].passage.hidden, false);
-    for (let verse = 0; verse < 5; verse += 1) {
+    for (let verse = 0; verse < count; verse += 1) {
         voicePlayer.currentTime = verse * 2 + 0.5;
         voicePlayer.emit('timeupdate');
         assert.equal(rows[1].lines[verse].attributes['aria-current'], 'true');
         assert.equal(voiceStatus.textContent, `Verse ${verse + 1}`);
         assert.equal(rows[1].passage.hidden, false);
     }
-    assert.equal(rows[1].lines.map((line) => line.textContent).join(','), 'Verse 1,Verse 2,Verse 3,Verse 4,Verse 5');
+    assert.equal(rows[1].lines.map((line) => line.textContent).join(','), Array.from({ length: count }, (_, verse) => `Verse ${verse + 1}`).join(','));
     voicePlayer.ended = true;
     voicePlayer.emit('ended');
     assert.equal(rows[1].button.textContent, 'Play again');
@@ -233,3 +236,4 @@ function testVoices() {
     console.log('Persistent passage, verse highlight and switching: OK');
 }
 testVoices();
+testVoices(6);
