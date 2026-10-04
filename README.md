@@ -177,23 +177,25 @@ JavaScript the first desktop screenshot remains visible and mobile images open
 as ordinary links. Sections without a marker keep the previous screen; a very
 short final section may not reach the activation line on a tall screen.
 
-The accepted screenshot archive is the latest `bible-garden-screens-v4.zip`
-attachment of ClickUp task `123pfqn05hq` (SHA-256
-`70a13a2da5727fe0671eb6a712a7448485f7ec9e3ede220ecc384fa547a2e9fb`).
+The pinned screenshot archive is `bible-garden-screens-v5.zip`, prepared for
+ClickUp tasks `123pfqn0mhr` and `123pfqn1u6b` on 2026-10-04 (SHA-256
+`b7c2c78016dd328f01aa694bf0628794da9132225dc5da30ff8e08b4d442f50f`).
+It preserves the 48 accepted v4 PNGs from task `123pfqn05hq` and adds 21 article frames with en/ru/uk interfaces.
 Import it with the development machine's `cwebp 1.3.2`:
 
 ```bash
-.venv/bin/python tools/import_article_screens.py --site-config content/bible-garden/site.yaml /path/to/bible-garden-screens-v4.zip
+.venv/bin/python tools/import_article_screens.py --site-config content/bible-garden/site.yaml /path/to/bible-garden-screens-v5.zip
 .venv/bin/python -m sitegen build
 .venv/bin/python -m sitegen check
 ```
 
-The importer verifies the archive, its 48 named PNGs and source dimensions,
+The importer verifies the archive, its 69 named PNGs and source dimensions,
 then writes WebP to `static/bible-garden/img/article-screens/{mobile,phone,zoom}/` at widths
 360, 480 and 960 px with `cwebp -q 88`, plus their SHA-256 list in
 `content/bible-garden/screens.sha256`. Source PNGs stay outside the repo.
-The current 144 WebP occupy 6.87 MiB (measured on 2026-09-24 by summing file
-sizes after import). CI checks committed variants without needing the archive
+The 207 WebP occupy 9.40 MiB (measured on 2026-10-04 by counting files
+and summing sizes in `static/bible-garden/img/article-screens/` after import).
+CI checks committed variants without needing the archive
 or `cwebp`. The draft `template-check` article exercises two markers in all
 three languages; its HTML exists only after `python -m sitegen preview`.
 Preview `/ru/articles/template-check/` with the local server described below.
@@ -205,6 +207,21 @@ accept a new archive version, update `ARCHIVE_SHA256` in the same script
 (and `SOURCE_PREFIX` if the archive directory changed), review its files and
 captions in `screens.yaml`, then import and commit the WebP and checksums in
 the same change.
+
+New article IDs are `translation-picker-english`, `reader-picker-english`,
+`classic-reading-english`, `multi-step-speed`, `multi-step-translation-english`,
+`multi-setup-russian-english`, and `select-psalm`. Each has all three interface
+languages. New markers are integrated into articles 6.3, 6.11, 6.13 and 6.15
+in en/ru/uk (checked against their source and generated pages on 2026-10-04).
+The Ukrainian bilingual article retains its Ukrainian + English setup image;
+the new Russian + English setup image is used in the Russian and English versions.
+Use the existing `progress` screen for shared Classic / Multi Reading progress.
+The full inventory, intended article sections and capture details are in the
+archive's `manifest.md`; the three byte-identical alias pairs are intentional.
+
+`select-chapter` remains the v4 capture. Recapture it after the Malachi filter
+fix in [ClickUp 123pfqn1u64](https://app.clickup.com/t/123pfqn1u64); v5 does not
+claim that fix or an updated chapter-selection screen.
 
 ### Callout
 

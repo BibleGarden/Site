@@ -7,7 +7,7 @@ date: 2026-10-04
 A Russian English Bible gives you the same passage in both languages, verse by verse. In the free [Bible Garden app](/) for iPhone and iPad, you can read it and also hear it: each verse plays in English, then after a short pause in Russian, all the way through the chapter. The English text is the Berean Standard Bible (BSB) or the World English Bible (WEB) in its US or British edition; the Russian text is the Synodal translation or the Kulakov translation. Every one of them has an audio recording. Below are four ready-made pairings, which language to play first, how long it takes, and where a pairing falls out of step. For what parallel and bilingual Bibles are, and to hear Multi Reading, see "[Bilingual Bible App](/articles/bible-in-two-languages/)."
 
 ## Four translation pairings
-<!-- screen: translation-picker -->
+<!-- screen: multi-step-translation-english -->
 
 The two Russian translations differ more than the English ones. The **Synodal translation**, completed in 1876, is the Russian Bible read by Orthodox, Catholic, Baptist, and other Protestant churches alike ([background](https://en.wikipedia.org/wiki/Russian_Synodal_Bible)); its 19th-century Russian sounds formal, much as the King James Version does in English. The **Kulakov translation**, completed in 2015 by the Bible Translation Institute in Zaoksky, is in modern literary Russian. So start from the Russian your family is used to.
 
@@ -27,7 +27,7 @@ A few differences to know before you choose:
 If your family speaks Ukrainian rather than Russian, the same approach works with the Ukrainian Khomenko translation, read by Ihor Kozlov, which has audio for all 66 books.
 
 ## Which language plays first
-<!-- screen: multi-setup-bilingual -->
+<!-- screen: multi-setup-russian-english -->
 
 Put first the language the listener understands better. The first reading gives the meaning, so the verse in the second language is easy to follow. Children who think in English usually do best with English → Russian; parents whose first language is Russian may prefer Russian → English. Multi Reading steps can be reordered by dragging, so the same pairing flips in seconds.
 
