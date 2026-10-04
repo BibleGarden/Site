@@ -1,8 +1,7 @@
 ---
 title: "Chronological Bible Reading Plan: 365-Day Schedule and Order of Events"
-description: "A printable 365-day chronological Bible reading plan with a start date picker, plus a table of biblical eras and books, and where the order of events is debated."
+description: "A printable 365-day chronological Bible reading plan with a start date picker, a table of biblical eras and books, and explanations of disputed placements."
 date: 2026-10-04
-draft: true
 ---
 
 A chronological Bible reading plan puts the chapters in the order of the events they describe: Job follows Genesis, David's psalms sit beside his story, and the prophets appear next to the kings they spoke to. There is no single agreed chronology, so this order is approximate. We compared three well-known plans and explain our choice wherever they disagree.
@@ -45,7 +44,7 @@ Pick a start date to fill in the dates. The Print button prepares the calendar f
 Printed Bibles group the books by type: law, history, poetry, prophets. That's why Psalms sits in the middle of the Old Testament and the prophets come after all the historical books, even though they spoke during the reigns described in 1–2 Kings. A chronological plan braids these threads together:
 
 - **A psalm next to its story.** Psalm 51 shares a day with 2 Samuel 11–12, the story of David and Bathsheba. Its heading mentions the prophet Nathan's visit.
-- **A prophet next to his king.** Isaiah 7 opens "in the days of Ahaz," so the plan places it after Ahaz's story in 2 Kings 16.
+- **A prophet next to his king.** Isaiah 7 opens during the reign of Ahaz, so the plan places it after Ahaz's story in 2 Kings 16.
 - **Two accounts of the same events.** Chronicles alternates with the parallel chapters of Samuel and Kings, and the four Gospels alternate with each other.
 - **A letter next to its city.** 1–2 Thessalonians follow Acts 15–18, where Paul plants the church in Thessalonica.
 

@@ -28,7 +28,7 @@ The three common approaches change the order, not the amount: each takes you thr
 |---|---|---|---|---|
 | **Straight through** | Genesis to Revelation in book order | Readers who want to follow the Bible as printed | Leviticus begins on day 30; you reach Matthew on day 276 | **Straight through** above |
 | **Old and New Testaments in parallel** | Old Testament and New Testament through day 260; Old Testament and Psalms from day 261 | Most readers, including beginners trying the whole Bible | You follow two threads at once | **Parallel** above |
-| **Chronological** | Passages arranged by the events they describe, such as Job near Genesis and David's psalms near his story | Readers who already know the books and want to connect their history | The sequence requires frequent jumps and varies between editors | Not in this calendar |
+| **Chronological** | Passages arranged by the events they describe, such as Job near Genesis and David's psalms near his story | Readers who already know the books and want to connect their history | The sequence requires frequent jumps and varies between editors | [Chronological 365-day plan](/articles/chronological-bible-reading-plan/) |
 
 We suggest **Parallel** for a first full read-through. Gospels and letters sit alongside the harder Old Testament passages, giving you another way into the day's reading. Robert Murray M'Cheyne's well-known plan also combines different parts of Scripture, though it reads the New Testament and Psalms twice in a year.
 
