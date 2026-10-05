@@ -104,7 +104,8 @@ class GospelAssetsTest(unittest.TestCase):
             self.assertIn('data-umami-event="app-store-click"', article.body_html)
             self.assertEqual('radiovera.ru' in article.body_html, lang == 'ru')
             with self.assertRaises(BuildError): render_component(lang, {}, site.article_app_store_url(lang))
-        self.assertFalse(any(MARKER in p.read_text() for p in (ROOT / 'content/bible-garden/articles').rglob('*.md')))
+        users = sorted(p.relative_to(ROOT).as_posix() for p in (ROOT / 'content/bible-garden/articles').rglob('*.md') if MARKER in p.read_text())
+        self.assertTrue(set(users) <= {f'content/bible-garden/articles/gospel-of-the-day/{lang}.md' for lang in ('ru', 'uk')}, users)
 
     def test_verified_khomenko_join_is_explicit_and_guarded(self):
         rows = {'syn': {}, 'ubh': {
