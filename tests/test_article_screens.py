@@ -140,6 +140,26 @@ class ArticleScreensTest(unittest.TestCase):
                             self.assertIn(f'aria-label="{label}"', button)
                         self.assertEqual(body.count('class="article-screen-inline"'), 4)
 
+    def test_pager_counter_starts_only_above_twelve_unique_screens(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            builder = SiteBuilder(ROOT / "content/bible-garden", Path(directory) / "bible-garden", preview=True)
+            for count in (12, 13):
+                ids = list(self.screens)[:count]
+                marked, _, refs = annotate_screens(
+                    "\n".join(f"## Section {n}\n<!-- screen: {screen_id} -->\n" for n, screen_id in enumerate(ids)),
+                    SOURCE, "ru", self.screens,
+                )
+                body = render_markdown(marked, refs, builder.t("ru")["articles"]["screen_open"])
+                article = builder.articles["template-check"]["ru"]
+                builder.articles["template-check"]["ru"] = replace(article, screens=refs, body_html=body)
+                builder.build_article("template-check", "ru")
+                html = builder.output_path("ru", "articles/template-check/index.html").read_text(encoding="utf-8")
+                self.assertEqual(html.count('class="article-screen-dot"'), 12 if count == 12 else 0)
+                self.assertEqual(html.count('class="article-screen-counter"'), int(count == 13))
+                if count == 13:
+                    self.assertIn('aria-label="Экран 1 из 13">1 / 13</span>', html)
+                    self.assertIn('data-label="Экран {n} из {total}"', html)
+
     def test_desktop_label_switches_only_with_decoded_screen(self) -> None:
         subprocess.run(["node", str(ROOT / "tests/article_screens.js")], check=True, capture_output=True, text=True)
 

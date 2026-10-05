@@ -6,6 +6,7 @@
     const images = [...layout.querySelectorAll('.article-screen-phone-image')];
     const appLabel = layout.querySelector('.article-screen-app-slot .article-screen-app-label');
     const pager = layout.querySelector('.article-screen-pager');
+    const counter = layout.querySelector('.article-screen-counter');
     const dots = [...layout.querySelectorAll('.article-screen-dot')];
     const screenIndices = new Map(images.map((image, index) => [image.dataset.screen, index]));
     const desktop = window.matchMedia('(min-width: 1024px)');
@@ -45,6 +46,11 @@
             active = index;
             requested = -1;
             if (pager) {
+                if (counter) {
+                    counter.textContent = `${index + 1} / ${images.length}`;
+                    counter.setAttribute('aria-label', counter.dataset.label
+                        .replace('{n}', index + 1).replace('{total}', images.length));
+                }
                 dots.forEach((dot, dotIndex) => {
                     if (dotIndex === index) dot.setAttribute('aria-current', 'true');
                     else dot.removeAttribute('aria-current');

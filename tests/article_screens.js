@@ -41,7 +41,7 @@ const path = require('node:path');
     });
     const desktop = { matches: true, addEventListener(name, callback) { this.change = callback; } };
     const layout = {
-        querySelector(selector) { return selector === '.article-screen-pager' ? pager : label; },
+        querySelector(selector) { return selector === '.article-screen-pager' ? pager : selector === '.article-screen-counter' ? null : label; },
         querySelectorAll(selector) {
             if (selector === 'h2[data-screen]') return positions.map((_, index) => ({ dataset: { screen: headingScreens[index] }, getBoundingClientRect: () => ({ top: positions[index] }) }));
             if (selector === '.article-screen-phone-image') return images;
@@ -158,7 +158,7 @@ const path = require('node:path');
     assert.equal(images[2].classList.contains('is-active'), true);
 
     // Single-screen articles have no controls and still run the same scroll handler.
-    layout.querySelector = selector => selector === '.article-screen-pager' ? null : label;
+    layout.querySelector = selector => selector === '.article-screen-pager' || selector === '.article-screen-counter' ? null : label;
     const queryAll = layout.querySelectorAll;
     layout.querySelectorAll = selector => {
         if (selector === '.article-screen-phone-image') return [images[0]];
@@ -174,4 +174,34 @@ const path = require('node:path');
     });
     await finish(0);
     assert.equal(images[0].attributes['aria-hidden'], 'false');
+    // Counter mode keeps its visible count and localized accessible name in sync.
+    const counter = { ...control(), dataset: { label: 'Екран {n} із {total}' } };
+    const manyImages = Array.from({ length: 13 }, (_, index) => ({
+        ...images[0],
+        dataset: { app: 'bible-garden', screen: 'screen-' + index, src: '/screen-' + index + '.webp' },
+        decode: () => Promise.resolve(),
+    }));
+    layout.querySelector = selector => selector === '.article-screen-pager' ? pager
+        : selector === '.article-screen-counter' ? counter : label;
+    layout.querySelectorAll = selector => {
+        if (selector === '.article-screen-phone-image') return manyImages;
+        if (selector === 'h2[data-screen]') return [queryAll(selector)[0]];
+        return [];
+    };
+    vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../static/bible-garden/js/article-screens.js'), 'utf8'), {
+        document: { querySelector: selector => selector === '.article-screen-layout' ? layout : dialog },
+        window: { innerHeight: 800, matchMedia: () => desktop, addEventListener() {} },
+        requestAnimationFrame: callback => callback(),
+        console,
+    });
+    await Promise.resolve();
+    assert.equal(counter.textContent, '1 / 13');
+    for (let index = 1; index < 13; index++) {
+        next.click();
+        await Promise.resolve();
+        assert.equal(counter.textContent, (index + 1) + ' / 13');
+        assert.equal(counter.attributes['aria-label'], 'Екран ' + (index + 1) + ' із 13');
+    }
+    assert.equal(next.disabled, true);
+
 })().catch(error => { console.error(error); process.exitCode = 1; });

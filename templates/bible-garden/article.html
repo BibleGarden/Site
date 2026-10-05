@@ -68,13 +68,17 @@
                     </div>
 {% if phone_screens | length > 1 %}
                     <div class="article-screen-pager" hidden>
-                        <button type="button" class="article-screen-previous" aria-label="{{ t.articles.screen_previous }}"><span aria-hidden="true">←</span></button>
+                        <button type="button" class="article-screen-previous" aria-label="{{ t.articles.screen_previous }}"><span aria-hidden="true">‹</span></button>
+{% if phone_screens | length <= 12 %}
                         <div class="article-screen-dots">
 {% for screen in phone_screens %}
                             <button type="button" class="article-screen-dot" aria-label="{{ t.articles.screen_position.format(n=loop.index, total=phone_screens | length) }}"></button>
 {% endfor %}
                         </div>
-                        <button type="button" class="article-screen-next" aria-label="{{ t.articles.screen_next }}"><span aria-hidden="true">→</span></button>
+{% else %}
+                        <span class="article-screen-counter" role="status" aria-live="off" data-label="{{ t.articles.screen_position }}" aria-label="{{ t.articles.screen_position.format(n=1, total=phone_screens | length) }}">1 / {{ phone_screens | length }}</span>
+{% endif %}
+                        <button type="button" class="article-screen-next" aria-label="{{ t.articles.screen_next }}"><span aria-hidden="true">›</span></button>
                     </div>
 {% endif %}
                 </div>
