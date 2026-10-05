@@ -177,25 +177,35 @@ JavaScript the first desktop screenshot remains visible and mobile images open
 as ordinary links. Sections without a marker keep the previous screen; a very
 short final section may not reach the activation line on a tall screen.
 
-The pinned screenshot archive is `bible-garden-screens-v7.zip`, prepared for
-[ClickUp task 123pfqn1vcr](https://app.clickup.com/t/123pfqn1vcr) on 2026-10-05
-(SHA-256 `2dfe7668b8925126b87d1c62738f312d9136d81f8f1d58b3ff76e17c3943e6a0`).
-It preserves the 81 v6 PNGs and adds 15 study and large-text frames with
-en/ru/uk interfaces; source app main is `4b26638`, version 1.7.
+The pinned screenshot archive is `bible-garden-screens-v8.zip`, prepared on
+2026-10-05 (SHA-256 `eabbb4eb5b3bd65fb1c0bba9adc5a9cfab894f39cf3ca8e353b098cf2a322154`).
+It preserves all 96 accepted v7 PNGs byte for byte and adds six Lampada frames:
+`lampada-journal` (08-history) and `lampada-question` (03-question), each in en/ru/uk.
+Sources are `store/screenshots/iphone-6.9-{en,ru,uk}-{08-history,03-question}.png`
+in [Lampada-Mobile](https://github.com/BibleGarden/Lampada-Mobile/tree/2dc8d1e5c6d193bdb585f902506d409e73ccaccb/store/screenshots),
+commit `2dc8d1e5c6d193bdb585f902506d409e73ccaccb`; their Git blob SHA-1 matches the GitHub Contents API
+inventory verified on 2026-10-05. Lampada is not yet in the App Store as of that
+date; captions describe its interface without claiming availability. Article
+integration is a separate change. Accepted v7 study and large-text frames came
+from [ClickUp task 123pfqn1vcr](https://app.clickup.com/t/123pfqn1vcr),
+iOS-App main `4b26638`, version 1.7.
 Import it with the development machine's `cwebp 1.3.2`:
 
 ```bash
-.venv/bin/python tools/import_article_screens.py --site-config content/bible-garden/site.yaml /path/to/bible-garden-screens-v7.zip
+.venv/bin/python tools/import_article_screens.py --site-config content/bible-garden/site.yaml /path/to/bible-garden-screens-v8.zip
 .venv/bin/python -m sitegen build
 .venv/bin/python -m sitegen check
 ```
 
-The importer verifies the archive, its 96 named PNGs and source dimensions,
+The importer verifies the archive, its 102 named PNGs and source dimensions,
 then writes WebP to `static/bible-garden/img/article-screens/{mobile,phone,zoom}/` at widths
 360, 480 and 960 px with `cwebp -q 88`, plus their SHA-256 list in
 `content/bible-garden/screens.sha256`. Source PNGs stay outside the repo.
-The 288 WebP occupy 13.84 MiB (measured on 2026-10-05 by counting
-files and summing sizes in `static/bible-garden/img/article-screens/` after import).
+The 306 WebP occupy 14.39 MiB (15,090,286 bytes). The ZIP is
+64,164,280 bytes and contains 102 PNGs totalling 69,161,405 bytes. Measured on
+2026-10-05 with Python `Path.stat().st_size` and `ZipFile` entry sizes; WebP
+files were counted and summed in `static/bible-garden/img/article-screens/`
+after import. The expected PNG list is derived from `screens.yaml`.
 CI checks committed variants without needing the archive
 or `cwebp`. The draft `template-check` article exercises two markers in all
 three languages; its HTML exists only after `python -m sitegen preview`.
@@ -258,7 +268,7 @@ absent when checked on 2026-10-05; use the table above when they are available.
 This change does not claim article integration or the task's full acceptance.
 
 `select-chapter` remains the v4 capture. Recapture it after the Malachi filter
-fix in [ClickUp 123pfqn1u64](https://app.clickup.com/t/123pfqn1u64); v7 does not
+fix in [ClickUp 123pfqn1u64](https://app.clickup.com/t/123pfqn1u64); v8 does not
 claim that fix or an updated chapter-selection screen.
 
 ### Callout

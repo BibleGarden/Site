@@ -200,3 +200,17 @@ multi-reading-synodal:
     en: John 1 in Russian Synodal and Kulakov translations in Multi Reading
     ru: 'Иоанна 1 в Мультичтении: Синодальный перевод и перевод Кулаковых'
     uk: 'Йоана 1 у Мультичитанні: російський Синодальний переклад і переклад Кулакових'
+
+# V8 Lampada store screenshots: Lampada-Mobile 2dc8d1e (2026-10-05).
+lampada-journal:
+  kind: app
+  captions:
+    en: 'Lampada journal: prayer reflection, an answer and an audio recording'
+    ru: 'Дневник Lampada: итог молитвы, ответ на вопрос и аудиозапись'
+    uk: 'Щоденник Lampada: підсумок молитви, відповідь на запитання й аудіозапис'
+lampada-question:
+  kind: app
+  captions:
+    en: A guided question during prayer in Lampada
+    ru: Направляющий вопрос во время молитвы в Lampada
+    uk: Спрямувальне запитання під час молитви в Lampada
