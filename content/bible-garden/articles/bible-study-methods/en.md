@@ -15,7 +15,7 @@ To study the Bible, read a passage, ask questions, and write down what you find.
 New to the Bible? [How to Start Reading the Bible](/articles/how-to-start-reading-the-bible/) helps you choose where to begin. These methods give you a way to slow down once you have a passage in front of you.
 
 ## First, read and listen to the chapter
-<!-- screen: psalm-one -->
+<!-- screen: select-psalm -->
 
 Every method starts with the text. Here is Psalm 1 in the Berean Standard Bible (BSB):
 
@@ -40,7 +40,7 @@ Here is a SOAP entry for Psalm 1:
 - **A:** I read in the morning but forget the passage by lunch. Today I'll keep one verse with me and return to it at lunch and before bed.
 - **P:** “Lord, help me find delight in your word, rather than treating it as another task.”
 
-Audio with pauses can help. In Classic Reading settings, under Pause, choose a full stop until you press Play after each verse. You can write without the next verse starting. The previous/next verse arrows take you precisely to the start of a verse when you want to hear it again.
+Audio with pauses can help. In Classic Reading settings, under Pause, choose to pause until you press Play after each verse. You can write without the next verse starting. The previous/next verse arrows take you precisely to the start of a verse when you want to hear it again.
 
 SOAP also fits a reading plan: read the day's chapters, then make one entry about a verse that stood out. See [How to Read the Bible in a Year](/articles/bible-in-a-year/) for a ready-made plan.
 
@@ -58,8 +58,8 @@ The method grew out of American seminaries: William Rainey Harper and his studen
 
 **2. Interpretation: what does it mean?** Consider the context, related passages, and other translations:
 
-- **Cross-references.** Joshua 1:8 also speaks of meditating on the law “day and night.” Jeremiah 17:7–8 describes a person who trusts in the Lord as a tree planted by water; Psalm 92:12 in BSB compares the righteous to a flourishing palm tree. These passages help you explore the imagery. The BSB Psalm 1 screen shows references to Matthew 5:3–12 and Luke 6:20–23 below “The Two Paths”; it has no expandable footnote for this psalm. Open the other passages separately.
-- **Another translation.** BSB says the Lord “guards” the path of the righteous in verse 6; WEB says Yahweh “knows” their way. Comparing them raises a question: is this knowing simply awareness, or does it suggest care? Both translations use “chaff” in verse 4: the light husks separated from grain during threshing, easily carried away by wind.
+- **Cross-references.** Joshua 1:8 also speaks of meditating on the law “day and night.” Jeremiah 17:7–8 describes a person who trusts in the Lord as a tree planted by water; Psalm 92:12 in BSB compares the righteous to a flourishing palm tree. These passages help you explore the imagery. In Bible Garden, BSB lists Matthew 5:3–12 and Luke 6:20–23 under the heading “The Two Paths”; this psalm has no footnote to tap. Open the other passages separately.
+- **Another translation.** BSB says the Lord “guards” the path of the righteous in verse 6; WEB says Yahweh “knows” their way. Comparing them raises a question: is this knowing simply awareness, or does it suggest care? Both translations use “chaff” in verse 4: the light husks separated from grain during winnowing, easily carried away by wind.
 - **Names and notes.** WEB uses “Yahweh” in verse 2 where BSB uses “the Lord.” WEB has a footnote about the divine name. Footnotes open on tap in Classic Reading, where available; they are not shown in Multi Reading.
 
 **3. Application: how will I respond?** Make it specific. For example: “Whose advice shapes my decisions? Before an important decision this week, I'll reread Psalm 1 and consider which path I'm following.”

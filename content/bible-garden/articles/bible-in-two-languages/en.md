@@ -17,6 +17,8 @@ A Bible in two languages can help you follow a passage with someone who speaks a
 
 These formats answer different questions. Parallel and bilingual readings let you compare the sense of a verse; an interlinear text helps you examine individual words in the original language.
 
+Comparing translations can also help with interpretation during [inductive Bible study](/articles/bible-study-methods/), as the worked example on Psalm 1 shows.
+
 ## Multi Reading: hear each verse in another language
 <!-- screen: multi-reading -->
 
