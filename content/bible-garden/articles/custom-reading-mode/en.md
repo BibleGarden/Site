@@ -2,7 +2,6 @@
 title: "Customize Your Bible Reading: Pauses, Speed, and Multiple Translations"
 description: "Build your own audio Bible sequence in Bible Garden: multiple translations verse by verse, pauses, and separate speed and text size settings. Five setups to try."
 date: 2026-10-05
-draft: true
 ---
 
 In the free [Bible Garden app](/) for iPhone and iPad, you can build a Bible reading sequence from two kinds of steps: a **reading**, with its own translation, narrator, speed, and text size, and a **pause** lasting a few seconds. For example:
@@ -27,7 +26,7 @@ The recordings play one after another. Choose how much text each narrator reads 
 
 Paragraph and section boundaries come from the first translation in your sequence. BSB has more paragraph breaks than Russian Synodal, so BSB is a useful first step for paragraph-by-paragraph bilingual reading.
 
-Try John 1:1–5 below: each verse plays in English BSB, read by Bob Souer, then in Russian Synodal, read by Ilya Prudovsky, with two-second pauses. The screen shows this English–Russian pairing too.
+Try John 1:1–5 below: each verse plays in English BSB, read by Bob Souer, then in Russian Synodal, read by Ilya Prudovsky, with two-second pauses.
 
 <!-- demo: multi-reading -->
 

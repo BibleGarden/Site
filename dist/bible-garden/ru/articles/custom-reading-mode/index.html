@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="sitegen">
+    <title>Свой режим чтения Библии: паузы, темп и несколько переводов подряд — Bible Garden</title>
+    <meta name="description" content="Как в Bible Garden собрать своё чтение Библии: стих в двух-трёх переводах подряд, паузы, своя скорость и размер текста для каждого перевода. Пять готовых настроек и время на главу.">
+    <link rel="canonical" href="https://bible.garden/ru/articles/custom-reading-mode/">
+    <link rel="alternate" hreflang="en" href="https://bible.garden/articles/custom-reading-mode/">
+    <link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/custom-reading-mode/">
+    <link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/custom-reading-mode/">
+    <link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/custom-reading-mode/">
+    <meta property="og:site_name" content="Bible Garden">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bible.garden/ru/articles/custom-reading-mode/">
+    <meta property="og:title" content="Свой режим чтения Библии: паузы, темп и несколько переводов подряд — Bible Garden">
+    <meta property="og:description" content="Как в Bible Garden собрать своё чтение Библии: стих в двух-трёх переводах подряд, паузы, своя скорость и размер текста для каждого перевода. Пять готовых настроек и время на главу.">
+    <meta property="og:image" content="https://bible.garden/img/logo.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="uk_UA">
+    <script>
+        // Language handling without a server:
+        //  1. landing pages only: legacy ?lang=en|ru|uk links (ua = uk) go to the language URL
+        //     and record the choice;
+        //  2. English landing page only: a language chosen explicitly before wins; otherwise
+        //     a browser that prefers ru or uk is sent to that version;
+        //  3. clicking the language switcher records the explicit choice.
+        (function () {
+            var storageKey = "bg-lang";
+
+            function remember(language) {
+                try { window.localStorage.setItem(storageKey, language); } catch (error) { /* storage unavailable */ }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var links = document.querySelectorAll('a[data-lang]');
+                for (var index = 0; index < links.length; index += 1) {
+                    links[index].addEventListener('click', function (event) {
+                        remember(event.currentTarget.getAttribute('data-lang'));
+                    });
+                }
+            });
+        })();
+    </script>
+    <link rel="icon" type="image/png" href="/img/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        garden: {
+                            50: '#f0f7f2',
+                            100: '#d8ede0',
+                            200: '#b3dbc3',
+                            300: '#82c29f',
+                            400: '#52a379',
+                            500: '#35875c',
+                            600: '#266c49',
+                            700: '#1f563c',
+                            800: '#182e1e',
+                            900: '#121f17',
+                            950: '#0a1510',
+                        },
+                        gold: {
+                            300: '#f0cc6b',
+                            400: '#e8b84b',
+                            500: '#d4a843',
+                            600: '#b8923a',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Lora', 'Georgia', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/article.css">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bible.garden/ru/articles/custom-reading-mode/"
+  },
+  "headline": "Свой режим чтения Библии: паузы, темп и несколько переводов подряд",
+  "description": "Как в Bible Garden собрать своё чтение Библии: стих в двух-трёх переводах подряд, паузы, своя скорость и размер текста для каждого перевода. Пять готовых настроек и время на главу.",
+  "image": [
+    "https://bible.garden/img/logo.png"
+  ],
+  "inLanguage": "ru",
+  "datePublished": "2026-10-05",
+  "dateModified": "2026-10-05",
+  "author": {
+    "@type": "Organization",
+    "name": "Команда Bible Garden",
+    "url": "https://bible.garden/ru/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bible Garden",
+    "url": "https://bible.garden/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bible.garden/img/logo.png"
+    }
+  }
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://bible.garden/ru/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Статьи",
+      "item": "https://bible.garden/ru/articles/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Свой режим чтения Библии: паузы, темп и несколько переводов подряд",
+      "item": "https://bible.garden/ru/articles/custom-reading-mode/"
+    }
+  ]
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Сколько переводов можно поставить в одну настройку?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Сколько угодно, на одном языке или на разных: русский, английский и украинский в любых сочетаниях. Проверьте только, есть ли запись нужной книги: у Александра Бондаренко не озвучены четыре книги, а у украинского НПУ — весь Ветхий Завет, кроме Псалтири. Нужен хотя бы один шаг чтения — из одних пауз настройку не собрать. Учтите, что каждый новый перевод удлиняет чтение: три перевода звучат примерно втрое дольше одного.<\/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли в Мультичтении ждать, пока я не нажму Play?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Нет. В Мультичтении паузы только по времени, от 1 до 60 секунд. Остановка до нажатия Play есть в обычном чтении: после каждого стиха, абзаца или раздела.<\/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему в паре русского и английского переводов не совпадают псалмы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Русские переводы нумеруют псалмы по Септуагинте, а английские — по еврейскому тексту, и у большинства псалмов русский номер на единицу меньше. Мультичтение ставит рядом главы с одинаковым номером, поэтому звучат разные псалмы. Слушайте Псалтирь парой Синодального перевода и перевода Кулаковых или по отдельности в обычном чтении.<\/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сохранится ли моя настройка?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Да, если сохранить её как шаблон: он останется на этом устройстве, и его можно переименовать, обновить или удалить. На другой iPhone или iPad шаблоны не переносятся — синхронизации в приложении нет.<\/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли слушать без интернета?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Пока нет: аудио загружается из сети, скачать его заранее нельзя.<\/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Есть ли Bible Garden на Android или на компьютере?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Пока только iPhone и iPad. Веб-версия, чтобы слушать прямо на сайте, и Android — в наших планах.<\/p>"
+      }
+    }
+  ]
+}</script>
+    <script defer src="/js/article-screens.js"></script>
+    <script defer src="/js/multi-reading-demo.js"></script>
+    <script defer src="https://stats.bible.garden/script.js" data-website-id="492eb2a8-fa4c-4d86-90c8-568f53fbccd4" data-domains="bible.garden" data-exclude-search="true" data-exclude-hash="true"></script>
+</head>
+
+<body class="bg-garden-950 text-gray-200 font-sans antialiased has-multi-reading-demo">
+
+    <nav class="nav-solid fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/ru/" class="flex items-center gap-2.5 group">
+                    <img src="/img/logo.png" alt="Bible Garden" class="w-8 h-8 rounded-lg">
+                    <span class="site-brand-name font-serif font-semibold text-lg text-white whitespace-nowrap">Bible Garden</span>
+                </a>
+
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <a href="/ru/articles/" class="text-sm text-gray-400 hover:text-white transition-colors">Статьи</a>
+
+                    <div class="flex items-center gap-1 text-sm text-gray-500">
+                        <a href="/articles/custom-reading-mode/" hreflang="en" data-lang="en" class="lang-btn px-1.5 py-0.5 cursor-pointer">EN</a>
+                        <span class="text-garden-700">|</span>
+                        <a href="/ru/articles/custom-reading-mode/" hreflang="ru" data-lang="ru" class="lang-btn active px-1.5 py-0.5 cursor-pointer" aria-current="page">RU</a>
+                        <span class="text-garden-700">|</span>
+                        <a href="/uk/articles/custom-reading-mode/" hreflang="uk" data-lang="uk" class="lang-btn px-1.5 py-0.5 cursor-pointer">UK</a>
+                    </div>
+
+                    <a href="https://github.com/BibleGarden/" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition-colors cursor-pointer" aria-label="GitHub">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
+            <ol class="flex flex-wrap items-center gap-2">
+                <li><a href="/ru/" class="hover:text-gray-300 transition-colors">Главная</a></li>
+                <li aria-hidden="true">›</li>
+                <li><a href="/ru/articles/" class="hover:text-gray-300 transition-colors">Статьи</a></li>
+                <li aria-hidden="true">›</li>
+                <li class="text-gray-400" aria-current="page">Свой режим чтения Библии: паузы, темп и несколько переводов подряд</li>
+            </ol>
+        </nav>
+
+        <header class="mb-10 max-w-3xl">
+            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">Свой режим чтения Библии: паузы, темп и несколько переводов подряд</h1>
+            <p class="text-lg text-gray-400 leading-relaxed mb-4">Как в Bible Garden собрать своё чтение Библии: стих в двух-трёх переводах подряд, паузы, своя скорость и размер текста для каждого перевода. Пять готовых настроек и время на главу.</p>
+            <p class="text-xs text-gray-500">
+                Автор <a href="/ru/about/" class="underline decoration-gray-600 underline-offset-2 hover:text-gray-300 transition-colors">Команда Bible Garden</a> · Опубликовано <time datetime="2026-10-05">2026-10-05</time>
+            </p>
+        </header>
+
+        <div class="article-screen-layout">
+        <div class="article-body">
+<p>В бесплатном приложении <a href="/ru/">Bible Garden</a> для iPhone и iPad чтение можно собрать под себя, как из кубиков. Есть два вида шагов: <strong>чтение</strong> — перевод, диктор, скорость и размер текста — и <strong>пауза</strong> на несколько секунд. Например:</p>
+<p><strong>Синодальный (Илья Прудовский) → пауза 2 с → перевод Кулаковых (Никита Семёнов-Прозоровский) → пауза 2 с</strong></p>
+<p>Вся эта последовательность звучит для каждого стиха, абзаца, раздела или главы — как выберете. На экране под каждым стихом видны все выбранные переводы. Ниже — как это устроено, как настроить паузы и темп и пять готовых настроек для разных целей.</p>
+<h2 data-screen="multi-reading" id="мультичтение-чтение-из-шагов">Мультичтение: чтение из шагов</h2>
+<figure class="article-screen-inline"><a aria-label="Открыть скриншот крупнее: Режим «Мультичтение» воспроизводит стих в двух переводах" class="article-screen-link" data-zoom-height="2086" data-zoom-width="960" href="/img/article-screens/zoom/multi-reading.ru.webp"><img alt="Режим «Мультичтение» воспроизводит стих в двух переводах" decoding="async" height="783" loading="lazy" sizes="180px" src="/img/article-screens/mobile/multi-reading.ru.webp" srcset="/img/article-screens/mobile/multi-reading.ru.webp 360w, /img/article-screens/phone/multi-reading.ru.webp 480w" width="360" /></a></figure><div class="article-callout">
+<p><strong>Главная особенность Bible Garden — режим «Мультичтение».</strong> Вы сами решаете, сколько переводов звучит подряд, в каком порядке, с какими паузами и на каких языках. Шагов может быть сколько угодно: стих прозвучит в двух, трёх и более переводах, а на экране под ним будет тот же стих во всех переводах последовательности. Звучащий стих подсвечивается, текст прокручивается сам.</p>
+</div>
+<p>Переводы звучат по очереди, а не одновременно. Единицу, для которой повторяется последовательность, вы выбираете сами:</p>
+<ul>
+<li><strong>по стиху</strong> — стих в первом переводе, затем тот же стих во втором; удобнее всего для сравнения переводов;</li>
+<li><strong>по абзацу</strong> — связный кусок текста целиком, потом его же в другом переводе;</li>
+<li><strong>по разделу</strong> — от заголовка до заголовка, например вся притча о блудном сыне;</li>
+<li><strong>по главе</strong> — глава целиком в одном переводе, затем в другом.</li>
+</ul>
+<p>Границы абзацев и разделов приложение берёт из первого перевода последовательности. В Синодальном переводе абзацев мало, поэтому для чтения по абзацам первым удобнее ставить перевод Кулаковых или английский BSB.</p>
+<p>Так звучит начало Евангелия от Иоанна по стиху: перевод Кулаковых читает Никита Семёнов-Прозоровский, английский Berean Standard Bible — Bob Souer.</p>
+<section class="multi-reading-demo" data-multi-reading-demo data-kind="multi-reading" data-play="Слушать" data-pause="Пауза" data-play-again="Слушать снова" data-error="Не удалось воспроизвести аудио." data-verse-label="Стих" data-clips="[&quot;/audio/demo/prozorovsky/1.mp3&quot;,&quot;/audio/demo/bsb_souer/1.mp3&quot;,&quot;/audio/demo/prozorovsky/2.mp3&quot;,&quot;/audio/demo/bsb_souer/2.mp3&quot;,&quot;/audio/demo/prozorovsky/3.mp3&quot;,&quot;/audio/demo/bsb_souer/3.mp3&quot;,&quot;/audio/demo/prozorovsky/4.mp3&quot;,&quot;/audio/demo/bsb_souer/4.mp3&quot;,&quot;/audio/demo/prozorovsky/5.mp3&quot;,&quot;/audio/demo/bsb_souer/5.mp3&quot;]" aria-labelledby="multi-reading-demo-title">
+<h3 id="multi-reading-demo-title">Послушайте Ин 1:1–5 на двух языках</h3>
+<div class="multi-reading-legend">
+<p><span class="multi-reading-key multi-reading-key-A">A</span> Перевод Кулаковых · Никита Семёнов-Прозоровский</p>
+<p><span class="multi-reading-key multi-reading-key-B">B</span> Berean Standard Bible (BSB) · Bob Souer</p>
+</div><div class="multi-reading-controls" hidden><button type="button" class="multi-reading-toggle">Слушать</button><p class="multi-reading-error" role="alert" hidden></p></div>
+<p class="sr-only" data-demo-status aria-live="polite"></p>
+<ol class="multi-reading-verses">
+<li data-verse="1"><span class="multi-reading-number">1</span><div class="multi-reading-lines"><p class="multi-reading-line" data-step="a" lang="ru">В начале всего было Слово, и Слово было с Богом, и Само Оно было Бог.</p><p class="multi-reading-line multi-reading-secondary" data-step="b" lang="en">In the beginning was the Word, and the Word was with God, and the Word was God.</p></div></li>
+<li data-verse="2"><span class="multi-reading-number">2</span><div class="multi-reading-lines"><p class="multi-reading-line" data-step="a" lang="ru">Слово от начала уже было с Богом.</p><p class="multi-reading-line multi-reading-secondary" data-step="b" lang="en">He was with God in the beginning.</p></div></li>
+<li data-verse="3"><span class="multi-reading-number">3</span><div class="multi-reading-lines"><p class="multi-reading-line" data-step="a" lang="ru">Через Него всё обрело свое бытие, и без Него ничто из существующего не появилось.</p><p class="multi-reading-line multi-reading-secondary" data-step="b" lang="en">Through Him all things were made, and without Him nothing was made that has been made.</p></div></li>
+<li data-verse="4"><span class="multi-reading-number">4</span><div class="multi-reading-lines"><p class="multi-reading-line" data-step="a" lang="ru">В Слове была жизнь, и жизнь эта — Свет людям.</p><p class="multi-reading-line multi-reading-secondary" data-step="b" lang="en">In Him was life, and that life was the light of men.</p></div></li>
+<li data-verse="5"><span class="multi-reading-number">5</span><div class="multi-reading-lines"><p class="multi-reading-line" data-step="a" lang="ru">Этот Свет и во тьме светит: не одолела она Его.</p><p class="multi-reading-line multi-reading-secondary" data-step="b" lang="en">The Light shines in the darkness, and the darkness has not overcome it.</p></div></li>
+</ol><audio data-demo-player preload="none" src="/audio/demo/prozorovsky/1.mp3"></audio></section>
+
+<h2 data-screen="multi-setup-translations" id="как-собрать-свою-последовательность">Как собрать свою последовательность</h2>
+<figure class="article-screen-inline"><a aria-label="Открыть скриншот крупнее: Выбор двух переводов для Мультичтения" class="article-screen-link" data-zoom-height="2086" data-zoom-width="960" href="/img/article-screens/zoom/multi-setup-translations.ru.webp"><img alt="Выбор двух переводов для Мультичтения" decoding="async" height="783" loading="lazy" sizes="180px" src="/img/article-screens/mobile/multi-setup-translations.ru.webp" srcset="/img/article-screens/mobile/multi-setup-translations.ru.webp 360w, /img/article-screens/phone/multi-setup-translations.ru.webp 480w" width="360" /></a></figure><ol>
+<li>На главном экране откройте «Мультичтение» и создайте новую настройку.</li>
+<li>Нажмите «+ Чтение» и выберите язык, перевод и диктора. Здесь же задаются скорость и размер текста этого шага.</li>
+<li>Нажмите «+ Пауза» и укажите длительность — от 1 до 60 секунд, по умолчанию 2.</li>
+<li>Добавьте остальные чтения и паузы. Порядок шагов меняется перетаскиванием.</li>
+<li>В строке «Читать по» выберите стих, абзац, раздел или главу.</li>
+<li>Нажмите «Сохранить и читать» и дайте настройке имя — или читайте без сохранения.</li>
+<li>На экране чтения нажмите на название книги и главы вверху, выберите нужную главу и нажмите Play.</li>
+</ol>
+<p>Сохранённые настройки лежат в «Библиотеке шаблонов»: их можно включить одним нажатием, переименовать, обновить или удалить. Удобно держать несколько: «Утро: два перевода», «Английский», «Семья». Шаблоны хранятся на устройстве — аккаунтов и синхронизации между iPhone и iPad в приложении нет.</p>
+<p>Один перевод можно поставить и дважды. Например, Синодальный → пауза 5 с → снова Синодальный: каждый стих прозвучит два раза, и между повторами будет время произнести его вслух. Так учат стихи наизусть — подробнее в статье «<a href="/ru/articles/memorize-bible-verses/">Как выучить стихи из Библии</a>».</p>
+<h2 data-screen="multi-step-speed" id="темп-своя-скорость-и-свой-размер-текста">Темп: своя скорость и свой размер текста</h2>
+<figure class="article-screen-inline"><a aria-label="Открыть скриншот крупнее: Настройка скорости английского шага BSB в Мультичтении" class="article-screen-link" data-zoom-height="2086" data-zoom-width="960" href="/img/article-screens/zoom/multi-step-speed.ru.webp"><img alt="Настройка скорости английского шага BSB в Мультичтении" decoding="async" height="783" loading="lazy" sizes="180px" src="/img/article-screens/mobile/multi-step-speed.ru.webp" srcset="/img/article-screens/mobile/multi-step-speed.ru.webp 360w, /img/article-screens/phone/multi-step-speed.ru.webp 480w" width="360" /></a></figure><p>У каждого чтения в Мультичтении своя скорость — от 0,5× до 2,5× с шагом 0,1. Общей кнопки скорости здесь нет, и это удобно: знакомый Синодальный можно ускорить до 1,2×, а английский, который понимаете хуже, замедлить до 0,8×.</p>
+<p>Размер текста тоже задаётся для каждого перевода. Если английский нужен только на слух, а читать вы будете русский, сделайте английский текст мельче — на экране поместится больше стихов.</p>
+<p>В обычном чтении, с одним переводом, скорость меняется прямо в плеере: от 0,6× до 2× с шагом 0,2. Приложение её запоминает.</p>
+<h2 data-screen="settings-pause" id="паузы-время-подумать">Паузы: время подумать</h2>
+<figure class="article-screen-inline"><a aria-label="Открыть скриншот крупнее: Настройка пауз между стихами при прослушивании" class="article-screen-link" data-zoom-height="2086" data-zoom-width="960" href="/img/article-screens/zoom/settings-pause.ru.webp"><img alt="Настройка пауз между стихами при прослушивании" decoding="async" height="783" loading="lazy" sizes="180px" src="/img/article-screens/mobile/settings-pause.ru.webp" srcset="/img/article-screens/mobile/settings-pause.ru.webp 360w, /img/article-screens/phone/settings-pause.ru.webp 480w" width="360" /></a></figure><p>Пауза нужна, чтобы услышанное успело дойти. Паузы есть в обоих режимах, но устроены по-разному.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Мультичтение</th>
+<th>Обычное чтение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Где ставится</td>
+<td>Отдельным шагом в любом месте последовательности</td>
+<td>После каждого стиха, абзаца или раздела и между главами</td>
+</tr>
+<tr>
+<td>Длительность</td>
+<td>1–60 секунд</td>
+<td>0–60 секунд, можно дробные</td>
+</tr>
+<tr>
+<td>Остановка до нажатия Play</td>
+<td>Нет</td>
+<td>Есть: «Останавливать полностью»</td>
+</tr>
+</tbody>
+</table>
+<p>Если хотите читать медленно, с остановкой после каждой мысли, возьмите обычное чтение и поставьте полную остановку после абзаца: диктор дочитает абзац и будет ждать, пока вы не нажмёте Play. А в Мультичтении пауза идёт сама, без касаний — так можно слушать в дороге. Если пауза кажется длинной, нажмите Play: она пропустится, и начнётся следующий шаг.</p>
+<h2 data-screen="multi-setup-russian-english" id="пять-готовых-настроек">Пять готовых настроек</h2>
+<figure class="article-screen-inline"><a aria-label="Открыть скриншот крупнее: Мультичтение: русский BTI, пауза 2 секунды и английский BSB" class="article-screen-link" data-zoom-height="2086" data-zoom-width="960" href="/img/article-screens/zoom/multi-setup-russian-english.ru.webp"><img alt="Мультичтение: русский BTI, пауза 2 секунды и английский BSB" decoding="async" height="783" loading="lazy" sizes="180px" src="/img/article-screens/mobile/multi-setup-russian-english.ru.webp" srcset="/img/article-screens/mobile/multi-setup-russian-english.ru.webp 360w, /img/article-screens/phone/multi-setup-russian-english.ru.webp 480w" width="360" /></a></figure><p>Дикторы во всех настройках одни и те же: Синодальный читает Илья Прудовский, перевод Кулаковых — Никита Семёнов-Прозоровский, BSB — Bob Souer. Время — в среднем на одну главу Евангелия от Марка на скорости 1×, кроме отмеченной. Это расчёт по длине аудиозаписей приложения, измеренной 4 октября 2026 года: сложены звучащие стихи и паузы. Для сравнения: одна глава Марка в чтении Прудовского без пауз звучит около 7–8 минут.</p>
+<table>
+<thead>
+<tr>
+<th>Настройка</th>
+<th>Шаги</th>
+<th>Читать по</th>
+<th>Кому подойдёт</th>
+<th>Глава Марка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Два русских перевода</strong></td>
+<td>Синодальный (Прудовский) → 2 с → Кулаковых (Семёнов-Прозоровский) → 2 с</td>
+<td>стиху</td>
+<td>Тем, кому Синодальный текст местами непонятен: современный перевод сразу поясняет стих</td>
+<td>≈ 17 мин</td>
+</tr>
+<tr>
+<td><strong>Русский и английский</strong></td>
+<td>Синодальный (Прудовский) → 2 с → BSB (Bob Souer) → 2 с</td>
+<td>стиху</td>
+<td>Семьям, где дети лучше понимают английский, и всем, кто читает на двух языках</td>
+<td>≈ 14 мин</td>
+</tr>
+<tr>
+<td><strong>Учу английский</strong></td>
+<td>Кулаковых 1,2× → 2 с → BSB 0,8× → 6 с</td>
+<td>стиху</td>
+<td>Тем, кто учит язык: смысл понятен заранее, а в паузе можно повторить английский стих вслух</td>
+<td>≈ 18 мин</td>
+</tr>
+<tr>
+<td><strong>Три перевода для изучения</strong></td>
+<td>Синодальный → 2 с → Кулаковых → 2 с → BSB → 2 с</td>
+<td>стиху</td>
+<td>Для трудных мест, например Послания к Галатам: три перевода показывают, где переводчикам пришлось выбирать</td>
+<td>≈ 23 мин</td>
+</tr>
+<tr>
+<td><strong>История целиком дважды</strong></td>
+<td>Кулаковых → 10 с → Синодальный → 10 с</td>
+<td>разделу</td>
+<td>Тем, кто хочет сначала услышать весь эпизод современным языком, а потом — в привычных словах</td>
+<td>≈ 17 мин</td>
+</tr>
+</tbody>
+</table>
+<p>Чем параллельная Библия отличается от билингвы, рассказано в статье «<a href="/ru/articles/bible-in-two-languages/">Библия на английском и русском</a>». О выборе английской пары и порядке языков подробно рассказано в статье «<a href="/ru/articles/russian-english-bible/">Русско-английская Библия</a>», о методе для изучающих язык — в статье «<a href="/ru/articles/learn-english-with-the-bible/">Учить английский по Библии</a>», о различиях русских переводов — в статье «<a href="/ru/articles/which-bible-translation/">Какой перевод Библии лучше</a>». Посчитать время для своей настройки и всей Библии можно в калькуляторе в статье «<a href="/ru/articles/how-long-to-read-the-bible/">Сколько времени читать Библию</a>».</p>
+<p><strong>Псалтирь — парой переводов с одной нумерацией.</strong> Мультичтение ставит рядом главы с одинаковым номером и стихи по порядку. Синодальный перевод и перевод Кулаковых нумеруют псалмы по Септуагинте, а английские переводы и украинский перевод Хоменко — по еврейскому тексту. Поэтому в паре «русский + английский» в Псалтири звучат разные псалмы. Для русского чтения Псалтири берите Синодальный с переводом Кулаковых: число стихов у них расходится лишь в трёх псалмах из 150 — 67, 104 и 114-м. Подробнее о номерах — в статье «<a href="/ru/articles/listen-to-psalms/">Псалтирь на русском</a>».</p>
+<p>В остальных книгах деление на стихи почти везде одинаковое, но не всюду: например, окончание Послания к Римлянам (в английских Библиях Рим 16:25–27) в Синодальном переводе стоит в конце 14-й главы. В таких главах второй перевод с места расхождения идёт со сдвигом. Где это случается, рассказано в статье «<a href="/ru/articles/russian-english-bible/">Русско-английская Библия</a>».</p>
+<h2 data-screen="progress" id="навигация-дикторы-и-прогресс">Навигация, дикторы и прогресс</h2>
+<figure class="article-screen-inline"><a aria-label="Открыть скриншот крупнее: Прогресс чтения Библии по книгам и в целом" class="article-screen-link" data-zoom-height="2086" data-zoom-width="960" href="/img/article-screens/zoom/progress.ru.webp"><img alt="Прогресс чтения Библии по книгам и в целом" decoding="async" height="783" loading="lazy" sizes="180px" src="/img/article-screens/mobile/progress.ru.webp" srcset="/img/article-screens/mobile/progress.ru.webp 360w, /img/article-screens/phone/progress.ru.webp 480w" width="360" /></a></figure><p>Под текстом в Мультичтении — кнопки, которые переходят точно к началу нужного места: к предыдущему или следующему стиху (абзацу, разделу), к предыдущему или следующему переводу внутри стиха и к соседней главе. Не расслышали английский стих — нажмите «предыдущий перевод» в паузе после него, и он прозвучит снова. В конце главы Мультичтение останавливается: следующую главу включаете вы. В обычном чтении следующая глава может начаться сама.</p>
+<p>Диктор выбирается у каждого шага. У Синодального перевода два голоса — Илья Прудовский (без музыки) и Александр Бондаренко (с музыкой; в его записи нет 1-й и 2-й книг Паралипоменон, Песни песней и книги Исаии), у английского BSB — Bob Souer и David. Голос можно послушать перед выбором; подробнее — в статье «<a href="/ru/articles/audio-bible-narrators/">Кто читает аудио-Библию</a>».</p>
+<p>Прочитанные главы приложение отмечает само и в Мультичтении, а отметить главу можно и вручную. На экране прогресса видно, сколько процентов Библии пройдено и какие книги прочитаны.</p>
+<p>Для прослушивания нужен интернет: скачать аудио заранее пока нельзя. Приложение бесплатное, без рекламы и покупок, с открытым кодом. Веб-версия и Android — в наших планах.</p>
+<h2 id="faq">Частые вопросы</h2>
+<h3 id="сколько-переводов-можно-поставить-в-одну-настройку">Сколько переводов можно поставить в одну настройку?</h3>
+<p>Сколько угодно, на одном языке или на разных: русский, английский и украинский в любых сочетаниях. Проверьте только, есть ли запись нужной книги: у Александра Бондаренко не озвучены четыре книги, а у украинского НПУ — весь Ветхий Завет, кроме Псалтири. Нужен хотя бы один шаг чтения — из одних пауз настройку не собрать. Учтите, что каждый новый перевод удлиняет чтение: три перевода звучат примерно втрое дольше одного.</p>
+<h3 id="можно-ли-в-мультичтении-ждать-пока-я-не-нажму-play">Можно ли в Мультичтении ждать, пока я не нажму Play?</h3>
+<p>Нет. В Мультичтении паузы только по времени, от 1 до 60 секунд. Остановка до нажатия Play есть в обычном чтении: после каждого стиха, абзаца или раздела.</p>
+<h3 id="почему-в-паре-русского-и-английского-переводов-не-совпадают-псалмы">Почему в паре русского и английского переводов не совпадают псалмы?</h3>
+<p>Русские переводы нумеруют псалмы по Септуагинте, а английские — по еврейскому тексту, и у большинства псалмов русский номер на единицу меньше. Мультичтение ставит рядом главы с одинаковым номером, поэтому звучат разные псалмы. Слушайте Псалтирь парой Синодального перевода и перевода Кулаковых или по отдельности в обычном чтении.</p>
+<h3 id="сохранится-ли-моя-настройка">Сохранится ли моя настройка?</h3>
+<p>Да, если сохранить её как шаблон: он останется на этом устройстве, и его можно переименовать, обновить или удалить. На другой iPhone или iPad шаблоны не переносятся — синхронизации в приложении нет.</p>
+<h3 id="можно-ли-слушать-без-интернета">Можно ли слушать без интернета?</h3>
+<p>Пока нет: аудио загружается из сети, скачать его заранее нельзя.</p>
+<h3 id="есть-ли-bible-garden-на-android-или-на-компьютере">Есть ли Bible Garden на Android или на компьютере?</h3>
+<p>Пока только iPhone и iPad. Веб-версия, чтобы слушать прямо на сайте, и Android — в наших планах.</p>
+        </div>
+            <aside class="article-screen-aside" aria-label="Скриншот приложения">
+                <div class="article-screen-phone">
+                    <img data-src="/img/article-screens/phone/multi-reading.ru.webp" alt="Режим «Мультичтение» воспроизводит стих в двух переводах" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                    <img data-src="/img/article-screens/phone/multi-setup-translations.ru.webp" alt="Выбор двух переводов для Мультичтения" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                    <img data-src="/img/article-screens/phone/multi-step-speed.ru.webp" alt="Настройка скорости английского шага BSB в Мультичтении" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                    <img data-src="/img/article-screens/phone/settings-pause.ru.webp" alt="Настройка пауз между стихами при прослушивании" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                    <img data-src="/img/article-screens/phone/multi-setup-russian-english.ru.webp" alt="Мультичтение: русский BTI, пауза 2 секунды и английский BSB" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                    <img data-src="/img/article-screens/phone/progress.ru.webp" alt="Прогресс чтения Библии по книгам и в целом" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                    <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/multi-reading.ru.webp" alt="Режим «Мультичтение» воспроизводит стих в двух переводах" width="480" height="1043"></noscript>
+                </div>
+            </aside>
+        </div>
+        <dialog class="article-screen-dialog" aria-label="Скриншот приложения">
+            <button type="button" class="article-screen-close" aria-label="Закрыть скриншот">×</button>
+            <img alt="" width="960" height="2086">
+        </dialog>
+
+        <aside class="feature-card rounded-2xl p-6 sm:p-8 mt-14 text-center max-w-3xl">
+            <h2 class="font-serif text-2xl font-semibold text-white mb-3">Читайте и слушайте с Bible Garden</h2>
+            <p class="text-gray-400 mb-6">Бесплатное приложение с открытым кодом для чтения и прослушивания Библии на нескольких языках с профессиональной озвучкой и настраиваемыми паузами.</p>
+            <a href="https://apps.apple.com/app/apple-store/id6758955373?pt=119043617&amp;ct=seo-ru&amp;mt=8" data-umami-event="app-store-click" target="_blank" rel="noopener" class="btn-gold px-6 py-3.5 rounded-xl text-sm inline-flex items-center justify-center gap-2.5 cursor-pointer">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <span>Скачать в App Store</span>
+            </a>
+        </aside>
+
+        <nav class="grid sm:grid-cols-2 gap-4 mt-10 text-sm max-w-3xl" aria-label="Статьи">
+            <div>
+                <a href="/ru/articles/russian-english-bible/" class="block feature-card rounded-xl px-5 py-4 hover:border-gray-400/30 transition-colors">
+                    <span class="block text-xs text-gray-500 mb-1">← Предыдущая статья</span>
+                    <span class="text-gray-200">Русско-английская Библия: какую пару переводов выбрать и как слушать</span>
+                </a>
+            </div>
+            <div class="sm:text-right">
+            </div>
+        </nav>
+    </article>
+    </main>
+
+    <footer class="py-10 border-t border-garden-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2.5">
+                    <img src="/img/logo.png" alt="Bible Garden" class="w-6 h-6 rounded-md">
+                    <span class="font-serif text-sm text-gray-400">Bible Garden</span>
+                </div>
+
+                <p class="text-xs text-gray-600">Проект с открытым кодом под лицензией GPL-3.0. Все права принадлежат Богу.</p>
+
+                <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+                    <a href="/ru/about/" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">Как мы пишем</a>
+                    <a href="/ru/about/#rights-holders" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">Правообладателям</a>
+                    <a href="/ru/articles/" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">Статьи</a>
+                    <a href="/privacy.html?lang=ru" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">Политика конфиденциальности</a>
+                    <a href="https://apps.apple.com/app/apple-store/id6758955373?pt=119043617&amp;ct=seo-ru&amp;mt=8" data-umami-event="app-store-click" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-300 transition-colors cursor-pointer" aria-label="App Store">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

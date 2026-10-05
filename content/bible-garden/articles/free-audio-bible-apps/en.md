@@ -2,6 +2,7 @@
 title: "Free audio Bible apps: what to use for listening, reading, and study"
 description: "Compare free Bible apps with audio, from YouVersion and Bible.is to Bible Garden. Find a fit for offline listening, daily reading, or two languages."
 date: 2026-09-28
+updated: 2026-10-05
 ---
 
 Looking for a free audio Bible app? The right choice depends on how you listen. These apps and services each do something different:
@@ -78,7 +79,7 @@ Bible Gateway has a large library of translations and audio Bibles you can play 
 
 Bible Garden also offers:
 
-- **A separate speed for each Multi Reading step** (0.5×–2.5×) and a separate text size. Save a sequence as a template to use again.
+- **A separate speed for each Multi Reading step** (0.5×–2.5×) and a separate text size. Save a sequence as a template to use again. See [five setups for comparing translations, memorizing, and slower listening](/articles/custom-reading-mode/).
 - **Pauses in regular reading** after each verse, paragraph, or section, either for a set time or until you tap Play. You can make room to reflect without reaching for the pause button every time.
 - **Exact verse-by-verse navigation.** Previous and next land at the start of a verse because the text and recording are aligned. In Multi Reading, you can also move between translations of the same verse.
 - **A choice of narrators for some translations**, with a voice preview. The Berean Standard Bible includes Bob Souer and David; the World English Bible (US edition) is read by Winfred Henson. English audio covers all 66 books in these recordings.
