@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from sitegen.errors import BuildError
 from sitegen.lectionary import Lectionary
-from sitegen.lectionary_data import (SOURCE, BUNDLE_DIR, CALENDARS, TRANSLATIONS, load_json, encoded,
+from sitegen.lectionary_data import (SOURCE, BUNDLE_DIR, CALENDARS, load_json, encoded,
     digest, require, walk_references, passage_id, reference_key, validate_passages, validate_schedule)
 from tools.build_reading_time import canonical_book, local_query
 
@@ -42,28 +42,37 @@ def normalize_known_joins(verses):
 
 def export_local():
     # The public database already contains applied editorial fixes.
-    rows = local_query("SELECT JSON_ARRAY(t.alias,v.book_number,v.chapter_number,v.verse_number,v.verse_number_join,v.text) FROM translation_verses v JOIN translations t ON t.code=v.translation WHERE t.active=1 AND t.alias IN ('syn','ubh') ORDER BY t.alias,v.book_number,v.chapter_number,v.verse_number")
-    needed = {translation: set() for translation in TRANSLATIONS.values()}
+    from sitegen.gospel_audio import EDITIONS
+    rows = local_query("SELECT JSON_ARRAY(t.alias,v.book_number,v.chapter_number,v.verse_number,v.verse_number_join,v.text) FROM translation_verses v JOIN translations t ON t.code=v.translation WHERE t.active=1 ORDER BY t.alias,v.book_number,v.chapter_number,v.verse_number")
+    needed = {translation: set() for translation in EDITIONS}
     for ref in walk_references(load_json(SOURCE / 'tables.json')):
         for translation in needed:
             for c1, _, c2, _ in display_ranges(ref, translation):
                 needed[translation].update((ref['book'], chapter) for chapter in range(c1, c2 + 1))
-    verses = {translation: {} for translation in TRANSLATIONS.values()}
+    verses = {translation: {} for translation in EDITIONS}
+    numbering = {translation: set() for translation in EDITIONS}
     for translation, b, c, first, join, text in rows:
+        if translation not in needed:
+            continue
         book = canonical_book(b)
         if (book, c) not in needed[translation]:
             continue
         require(isinstance(text, str), f'invalid local text: {translation}:{book}:{c}:{first}')
         if not text.strip():
+            if translation in ('webus','webbe') and (book,c,first,join,text) in {(42,17,36,0,''),(44,8,37,0,''),(44,15,34,0,''),(44,24,7,0,''),(45,16,25,0,'')}:
+                continue  # Audited empty textual-variant records; passage remains unavailable.
             require((translation, book, c, first, join, text) == ('ubh', 40, 23, 15, 0, ''), f'empty local text: {translation}:{book}:{c}:{first}')
-        require(type(join) is int and (join == 0 or join >= first), 'invalid joined verse')
+        require(type(join) is int, 'invalid joined verse')
+        if join != 0 and join < first:
+            numbering[translation].add(f'{book}:{c}')
+            continue
         key = f'{book}:{c}:{first}'
         require(key not in verses[translation], f'duplicate local verse: {key}')
         verses[translation][key] = {'last': join if join else first, 'text': text}
     require(all(verses.values()), 'missing local translation')
     normalizations = normalize_known_joins(verses)
-    snapshot = {'schema_version': 1, 'exported_on': dt.datetime.now(dt.timezone.utc).date().isoformat(),
-                'source': 'read-only local cep_public in cep-mysql', 'normalizations': normalizations, 'verses': verses}
+    snapshot = {'schema_version': 2, 'exported_on': dt.datetime.now(dt.timezone.utc).date().isoformat(),
+                'source': 'read-only local cep_public in cep-mysql', 'normalizations': normalizations, 'numbering': {t: sorted(v) for t,v in numbering.items()}, 'verses': verses}
     (SOURCE / 'verses.json').write_bytes(encoded(snapshot))
 
 
@@ -170,44 +179,53 @@ def compact_day(day, lang, references):
     return out
 
 
-def generate(start_year=2026, end_year=2030):
+def generate(start_year=2026, end_year=2027):
+    from sitegen.gospel_audio import EDITIONS, attach_audio
     require(type(start_year) is int and type(end_year) is int and 1901 <= start_year <= end_year <= 2098, 'invalid generation range')
     L = Lectionary(SOURCE / 'tables.json')
     snapshot = load_json(SOURCE / 'verses.json')
-    require(set(snapshot) == {'schema_version', 'exported_on', 'source', 'normalizations', 'verses'} and type(snapshot['schema_version']) is int and snapshot['schema_version'] == 1, 'invalid verse snapshot')
+    require(set(snapshot) == {'schema_version', 'exported_on', 'source', 'normalizations', 'numbering', 'verses'} and snapshot['schema_version'] == 2, 'invalid verse snapshot')
     require(snapshot['normalizations'] in ([], ['ubh-matthew23-14-15']), 'unknown snapshot normalization')
-    require(set(snapshot['verses']) == set(TRANSLATIONS.values()), 'missing translation snapshot')
-    from sitegen.gospel_audio import attach_audio
+    require(set(snapshot['verses']) == set(EDITIONS), 'missing translation snapshot')
     audio = load_json(SOURCE / 'timecodes.json')
     refs = load_json(SOURCE / 'references.json')
     evidence = {source: {d['date']: {reference_key(r) for r in d['liturgy_refs']} for d in refs[source]} for source in ('ocu', 'ugcc')}
-    files = {}
-    audio_errors = []
+    books = load_json(SOURCE / 'book-names.json')
+    files, references = {}, {}
     for lang, calendar in CALENDARS.items():
-        passages, schedules = {}, {}
         for year in range(start_year, end_year + 1):
             days = {}
-            x, end = dt.date(year, 1, 1), dt.date(year + 1, 1, 1)
-            while x < end:
-                day = L.day(x, calendar)
+            date = dt.date(year, 1, 1)
+            while date.year == year:
+                day = L.day(date, calendar)
                 for ref in walk_references(day['items']):
-                    pid = passage_id(ref)
-                    if pid not in passages:
-                        passages[pid] = extract_passage(ref, TRANSLATIONS[lang], snapshot['verses'][TRANSLATIONS[lang]], L.t['books'], lang)
-                days[x.isoformat()] = compact_day(day, lang, evidence)
-                x += dt.timedelta(days=1)
-            schedules[year] = {'schema_version': 1, 'calendar': calendar, 'year': year, 'days': days}
-        attach_audio(passages, lang, audio, errors=audio_errors)
-        texts = {'schema_version': 1, 'translation': TRANSLATIONS[lang], 'passages': passages}
-        validate_passages(texts, lang, audio_errors=audio_errors)
-        files[f'{lang}/texts.json'] = encoded(texts)
-        for year, schedule in schedules.items():
-            validate_schedule(schedule, lang, year, passages)
+                    references[passage_id(ref)] = ref
+                days[date.isoformat()] = compact_day(day, lang, evidence)
+                date += dt.timedelta(days=1)
+            schedule = {'schema_version': 1, 'calendar': calendar, 'year': year, 'days': days}
+            validate_schedule(schedule, lang, year, references)
             files[f'{lang}/{year}.json'] = encoded(schedule)
-    require(not audio_errors, 'Gospel audio errors:\n' + '\n'.join(sorted(set(audio_errors))))
-    manifest = {'schema_version': 1, 'start_year': start_year, 'end_year': end_year,
+    for translation, edition in EDITIONS.items():
+        passages = {}
+        # Labels remain in the text's language; English names come from the local export.
+        for pid, ref in references.items():
+            if ref['book'] == 19 or (translation == 'ubh' and ref['book'] in (29, 39)) or any(f"{ref['book']}:{c}" in snapshot['numbering'][translation] for c1, _, c2, _ in ref['ranges'] for c in range(c1,c2+1)):
+                passages[pid] = {'book': ref['book'], 'ranges': ref['ranges'], 'label': label(ref['book'], ref['ranges'], books, edition['language']), 'book_name': books[str(ref['book'])][edition['language']], 'unavailable': 'numbering'}
+                continue
+            try:
+                passages[pid] = extract_passage(ref, translation, snapshot['verses'][translation], books, edition['language'])
+            except BuildError as error:
+                # A missing source passage is a product state, malformed data still fails.
+                if not any(token in str(error) for token in ('missing chapter:', 'missing verses:')):
+                    raise
+                passages[pid] = {'book': ref['book'], 'ranges': ref['ranges'], 'label': label(ref['book'], ref['ranges'], books, edition['language']), 'book_name': books[str(ref['book'])][edition['language']], 'unavailable': 'missing_text'}
+        attach_audio(passages, translation, audio)
+        texts = {'schema_version': 2, 'translation': translation, 'passages': passages}
+        validate_passages(texts, edition['language'])
+        files[f'{translation}/texts.json'] = encoded(texts)
+    manifest = {'schema_version': 2, 'start_year': start_year, 'end_year': end_year,
                 'files': {name: digest(payload) for name, payload in files.items()},
-                'inputs': {name: digest((SOURCE / name).read_bytes()) for name in ('tables.json', 'references.json', 'verses.json', 'timecodes.json')}}
+                'inputs': {name: digest((SOURCE / name).read_bytes()) for name in ('tables.json', 'references.json', 'verses.json', 'timecodes.json', 'book-names.json')}}
     files['manifest.json'] = encoded(manifest)
     return files
 
@@ -215,13 +233,13 @@ def generate(start_year=2026, end_year=2030):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--start-year', type=int, default=2026)
-    parser.add_argument('--end-year', type=int, default=2030)
+    parser.add_argument('--end-year', type=int, default=2027)
     parser.add_argument('--export-local', action='store_true')
     args = parser.parse_args()
     if args.export_local:
         export_local()
         from tools.export_gospel_timecodes import export_timecodes
-        export_timecodes(start_year=args.start_year, end_year=args.end_year)
+        export_timecodes()
     files = generate(args.start_year, args.end_year)
     if BUNDLE_DIR.exists():
         shutil.rmtree(BUNDLE_DIR)

@@ -14,7 +14,7 @@ from unittest.mock import patch
 from sitegen.content import load_site, parse_article
 from sitegen.errors import BuildError
 from sitegen.gospel_today import MARKER, PLACEHOLDER, annotate_marker, render_component
-from sitegen.lectionary_data import (ROOT, SOURCE, BUNDLE_DIR, load_bundle, validate_passages, validate_schedule, daily_files, validate_daily, referenced_passages)
+from sitegen.lectionary_data import (ROOT, SOURCE, BUNDLE_DIR, load_bundle, validate_passages, validate_schedule, daily_files, validate_daily, referenced_passages, unpack_passages)
 from tools.build_gospel_today import generate, extract_passage, display_ranges, export_local, normalize_known_joins, UBH_MATTHEW_23_14
 
 
@@ -25,52 +25,54 @@ class GospelAssetsTest(unittest.TestCase):
         self.assertEqual(set(generated), {str(p.relative_to(BUNDLE_DIR)) for p in BUNDLE_DIR.rglob('*.json')})
         for name, value in generated.items(): self.assertEqual((BUNDLE_DIR / name).read_bytes(), value)
         manifest, assets = load_bundle()
-        self.assertEqual((manifest['start_year'], manifest['end_year']), (2026, 2030))
+        self.assertEqual((manifest['start_year'], manifest['end_year']), (2026, 2027))
         self.assertTrue(assets['uk/2027.json']['days']['2027-01-12']['uncertain'])
 
     def test_daily_files_are_complete_minimal_and_match_source(self):
+        from sitegen.gospel_audio import EDITIONS
         manifest, assets = load_bundle()
         files = daily_files(manifest, assets)
-        self.assertEqual(len(files), 3652)
-        expected = {f'{lang}/{year}/{date[5:]}.json' for lang in ('ru', 'uk') for year in range(2026, 2031) for date in assets[f'{lang}/{year}.json']['days']}
-        self.assertEqual(set(files), expected)
+        self.assertEqual(len(files), 730 * len(EDITIONS))
         for filename, payload in files.items():
-            lang, year, name = filename.split('/')
-            date = year + '-' + name.removesuffix('.json')
+            year, name, edition = filename.split('/')
+            date = year + '-' + name
             data = json.loads(payload)
-            validate_daily(data, lang, date)
-            self.assertEqual(set(data['passages']), referenced_passages({date: data['day']}))
-            self.assertEqual(data['day'], assets[f'{lang}/{year}.json']['days'][date])
-            for pid, passage in data['passages'].items():
-                self.assertEqual(passage, assets[f'{lang}/texts.json']['passages'][pid])
+            validate_daily(data, date)
+            self.assertEqual(set(data['passages']), referenced_passages(data['days']))
+            for lang in ('ru','uk'):
+                self.assertEqual(data['days'][lang], assets[f'{lang}/{year}.json']['days'][date])
+            translation = edition.removesuffix('.json')
+            for pid, passage in unpack_passages(data['passages']).items():
+                self.assertEqual(passage, assets[f'{translation}/texts.json']['passages'][pid])
             self.assertEqual((ROOT / 'dist/bible-garden/data/gospel-today' / filename).read_bytes(), payload)
-        january = json.loads(files['ru/2027/01-01.json'])
-        for mutation in ('missing_day', 'missing_text', 'extra_text', 'wrong_date', 'invalid_date'):
+        january = json.loads(files['2027/01-01/syn.json'])
+        for mutation in ('missing_day', 'missing_text', 'extra_text', 'wrong_date', 'invalid_date', 'wrong_edition', 'bad_verse'):
             changed = copy.deepcopy(january)
-            if mutation == 'missing_day': del changed['day']
+            if mutation == 'missing_day': del changed['days']['uk']
             if mutation == 'missing_text': changed['passages'].pop(next(iter(changed['passages'])))
             if mutation == 'extra_text':
-                pid = next(p for p in assets['ru/texts.json']['passages'] if p not in changed['passages'])
-                changed['passages'][pid] = assets['ru/texts.json']['passages'][pid]
+                pid = next(p for p in assets['syn/texts.json']['passages'] if p not in changed['passages'])
+                changed['passages'][pid] = assets['syn/texts.json']['passages'][pid]
             if mutation == 'wrong_date': changed['date'] = '2026-01-01'
             if mutation == 'invalid_date': changed['date'] = '2027-02-29'
+            if mutation == 'wrong_edition': changed['translation'] = 'unknown'
+            if mutation == 'bad_verse': next(p for p in changed['passages'].values() if 'verses' in p)['verses'][0][3] = ''
             date = changed['date'] if mutation == 'invalid_date' else '2027-01-01'
-            with self.subTest(mutation=mutation), self.assertRaises(BuildError): validate_daily(changed, 'ru', date)
-        self.assertIn('ru/2028/02-29.json', files)
-        self.assertNotIn('ru/2027/02-29.json', files)
+            with self.subTest(mutation=mutation), self.assertRaises(BuildError): validate_daily(changed, date)
+        self.assertNotIn('2027/02-29/syn.json', files)
 
     def test_passage_missing_text_and_schedule_missing_day_fail(self):
         _, assets = load_bundle()
-        texts = copy.deepcopy(assets['ru/texts.json'])
-        passage = next(iter(texts['passages'].values()))
+        texts = copy.deepcopy(assets['syn/texts.json'])
+        passage = next(p for p in texts['passages'].values() if 'verses' in p)
         passage['verses'][0]['text'] = ''
         with self.assertRaises(BuildError): validate_passages(texts, 'ru')
         schedule = copy.deepcopy(assets['uk/2026.json']); del schedule['days']['2026-01-01']
-        with self.assertRaises(BuildError): validate_schedule(schedule, 'uk', 2026, assets['uk/texts.json']['passages'])
+        with self.assertRaises(BuildError): validate_schedule(schedule, 'uk', 2026, assets['ubh/texts.json']['passages'])
         schedule = copy.deepcopy(assets['uk/2026.json'])
         schedule['days']['2026-01-01']['uncertain'] = False
         schedule['days']['2026-01-01']['confirmed_by'] = []
-        with self.assertRaises(BuildError): validate_schedule(schedule, 'uk', 2026, assets['uk/texts.json']['passages'])
+        with self.assertRaises(BuildError): validate_schedule(schedule, 'uk', 2026, assets['ubh/texts.json']['passages'])
 
     def test_explicit_versification_joined_verses_and_missing_data(self):
         ref = {'book': 45, 'ranges': [[14, 19, 14, 26]]}

@@ -13,7 +13,6 @@ ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / 'tools/data/lectionary'
 BUNDLE_DIR = ROOT / 'content/bible-garden/lectionary'
 CALENDARS = {'ru': 'julian', 'uk': 'newjulian'}
-TRANSLATIONS = {'ru': 'syn', 'uk': 'ubh'}
 
 
 def unique_keys(pairs):
@@ -111,14 +110,18 @@ def validate_tables(tables):
         require(all(isinstance(entry['name'][lang], str) and entry['name'][lang].strip() for lang in CALENDARS), 'missing feast label')
 
 
-def validate_passages(data, lang, *, audio_errors=None):
-    owned_errors = audio_errors is None
-    if owned_errors:
-        audio_errors = []
-    from .gospel_audio import validate_audio
-    require(set(data) == {'schema_version', 'translation', 'passages'} and type(data['schema_version']) is int and data['schema_version'] == 1 and data['translation'] == TRANSLATIONS[lang], 'invalid passage schema')
+def validate_passages(data, lang):
+    from .gospel_audio import EDITIONS, UNAVAILABLE, validate_audio
+    require(set(data) == {'schema_version', 'translation', 'passages'} and type(data['schema_version']) is int and data['schema_version'] == 2
+            and data['translation'] in EDITIONS and EDITIONS[data['translation']]['language'] == lang, 'invalid passage schema')
     require(isinstance(data['passages'], dict) and bool(data['passages']), 'empty passages')
     for pid, passage in data['passages'].items():
+        if 'unavailable' in passage:
+            require(set(passage) == {'book', 'ranges', 'label', 'book_name', 'unavailable'} and passage['unavailable'] in UNAVAILABLE, 'invalid unavailable passage')
+            require(all(isinstance(passage[k],str) and passage[k].strip() for k in ('label','book_name')), 'invalid unavailable reference')
+            validate_reference(passage)
+            require(pid == passage_id(passage), 'invalid unavailable passage id')
+            continue
         require(set(passage) == {'book', 'ranges', 'display_ranges', 'label', 'book_name', 'verses', 'audio'}, 'invalid passage fields')
         validate_reference(passage)
         require(pid == passage_id(passage), 'invalid passage id')
@@ -133,10 +136,7 @@ def validate_passages(data, lang, *, audio_errors=None):
             coordinate = (verse['chapter'], verse['first'], verse['last'])
             require(coordinate not in seen, 'duplicate passage verse')
             seen.add(coordinate)
-        try:
-            validate_audio(passage, lang, errors=audio_errors)
-        except BuildError as error:
-            audio_errors.append(f"{lang} {passage['label']}: {error}")
+        validate_audio(passage, data['translation'])
         validate_reference({'book': passage['book'], 'ranges': passage['display_ranges']})
         for c1, v1, c2, v2 in passage['display_ranges']:
             for chapter in range(c1, c2 + 1):
@@ -146,9 +146,6 @@ def validate_passages(data, lang, *, audio_errors=None):
                 require(set(range(first, last + 1)) <= available, 'missing interior verse')
             require(any(v['chapter'] == c1 and v['first'] <= v1 <= v['last'] for v in passage['verses']), 'missing first verse')
             require(any(v['chapter'] == c2 and v['first'] <= v2 <= v['last'] for v in passage['verses']), 'missing last verse')
-
-    if owned_errors:
-        require(not audio_errors, 'Gospel audio errors:\n' + '\n'.join(sorted(set(audio_errors))))
 
 def validate_schedule(data, lang, year, passages):
     require(set(data) == {'schema_version', 'calendar', 'year', 'days'} and type(data['schema_version']) is int and data['schema_version'] == 1 and data['calendar'] == CALENDARS[lang] and data['year'] == year, 'invalid schedule schema')
@@ -192,29 +189,27 @@ def validate_days(days, lang, passages):
 
 
 def load_bundle(directory=BUNDLE_DIR):
+    from .gospel_audio import EDITIONS
     directory = Path(directory)
     manifest = load_json(directory / 'manifest.json')
     require(set(manifest) == {'schema_version', 'start_year', 'end_year', 'files', 'inputs'}, 'invalid manifest')
-    require(type(manifest['schema_version']) is int and manifest['schema_version'] == 1 and type(manifest['start_year']) is int and type(manifest['end_year']) is int and 1901 <= manifest['start_year'] <= manifest['end_year'] <= 2098, 'invalid year range')
-    expected = {f'{lang}/texts.json' for lang in CALENDARS} | {f'{lang}/{year}.json' for lang in CALENDARS for year in range(manifest['start_year'], manifest['end_year'] + 1)}
+    require(type(manifest['schema_version']) is int and manifest['schema_version'] == 2 and type(manifest['start_year']) is int and type(manifest['end_year']) is int and 1901 <= manifest['start_year'] <= manifest['end_year'] <= 2098, 'invalid year range')
+    expected = {f'{t}/texts.json' for t in EDITIONS} | {f'{lang}/{year}.json' for lang in CALENDARS for year in range(manifest['start_year'], manifest['end_year'] + 1)}
     require(set(manifest['files']) == expected, 'invalid manifest files')
     require({str(p.relative_to(directory)) for p in directory.rglob('*') if p.is_file()} == expected | {'manifest.json'}, 'missing or extra source bundle files')
+    require(set(manifest['inputs']) == {'tables.json', 'references.json', 'verses.json', 'timecodes.json', 'book-names.json'}, 'invalid source fingerprints')
     for name, checksum in manifest['inputs'].items():
-        require(name in {'tables.json', 'references.json', 'verses.json', 'timecodes.json'}, 'unknown source input')
         require(digest((SOURCE / name).read_bytes()) == checksum, f'changed source input: {name}; regenerate')
-    require(set(manifest['inputs']) == {'tables.json', 'references.json', 'verses.json', 'timecodes.json'}, 'missing source fingerprints')
     data = {}
     for name in sorted(expected):
         require(digest((directory / name).read_bytes()) == manifest['files'][name], f'checksum mismatch: {name}')
         data[name] = load_json(directory / name)
-    audio_errors = []
+    for translation, edition in EDITIONS.items():
+        validate_passages(data[f'{translation}/texts.json'], edition['language'])
     for lang in CALENDARS:
-        validate_passages(data[f'{lang}/texts.json'], lang, audio_errors=audio_errors)
         for year in range(manifest['start_year'], manifest['end_year'] + 1):
-            validate_schedule(data[f'{lang}/{year}.json'], lang, year, data[f'{lang}/texts.json']['passages'])
-    require(not audio_errors, 'Gospel audio errors:\n' + '\n'.join(sorted(set(audio_errors))))
+            validate_schedule(data[f'{lang}/{year}.json'], lang, year, data['syn/texts.json']['passages'])
     return manifest, data
-
 
 
 def referenced_passages(days):
@@ -232,30 +227,49 @@ def referenced_passages(days):
     return refs
 
 
-def validate_daily(data, lang, date):
-    require(isinstance(data, dict) and set(data) == {'schema_version', 'calendar', 'translation', 'date', 'day', 'passages'}, 'invalid daily schema')
-    require(type(data['schema_version']) is int and data['schema_version'] == 1 and data['calendar'] == CALENDARS[lang] and data['translation'] == TRANSLATIONS[lang] and data['date'] == date, 'invalid daily metadata')
+def unpack_passages(passages):
+    result = {}
+    for pid, p in passages.items():
+        if 'unavailable' in p:
+            result[pid] = p
+            continue
+        require(set(p) == {'book', 'ranges', 'display_ranges', 'label', 'book_name', 'verses', 'audio'}, 'invalid packed passage')
+        require(isinstance(p['verses'], list) and all(isinstance(v,list) and len(v)==4 for v in p['verses']), 'invalid packed verses')
+        result[pid] = {**p, 'verses': [dict(zip(('chapter','first','last','text'), v)) for v in p['verses']]}
+    return result
+
+
+def validate_daily(data, date):
+    from .gospel_audio import EDITIONS
+    require(isinstance(data, dict) and set(data) == {'schema_version', 'translation', 'date', 'days', 'passages'}, 'invalid daily schema')
+    require(type(data['schema_version']) is int and data['schema_version'] == 2 and data['translation'] in EDITIONS and data['date'] == date, 'invalid daily metadata')
     try:
         require(dt.date.fromisoformat(date).isoformat() == date, 'invalid date')
     except (TypeError, ValueError) as error:
         raise BuildError('invalid date') from error
-    validate_passages({'schema_version': 1, 'translation': data['translation'], 'passages': data['passages']}, lang)
-    days = {date: data['day']}
-    validate_days(days, lang, data['passages'])
-    require(set(data['passages']) == referenced_passages(days), 'missing or unused daily passages')
+    passages = unpack_passages(data['passages'])
+    validate_passages({'schema_version': 2, 'translation': data['translation'], 'passages': passages}, EDITIONS[data['translation']]['language'])
+    require(isinstance(data['days'], dict) and set(data['days']) == set(CALENDARS), 'invalid daily calendars')
+    for lang in CALENDARS:
+        validate_days({date: data['days'][lang]}, lang, passages)
+    require(set(passages) == referenced_passages(data['days']), 'missing or unused daily passages')
 
 
 def daily_files(manifest, assets):
-    """Derive public day files from the one committed, validated content bundle."""
+    """Share translated passages between both calendars, loading only one edition."""
+    from .gospel_audio import EDITIONS
     files = {}
-    for lang in CALENDARS:
-        passages = assets[f'{lang}/texts.json']['passages']
-        for year in range(manifest['start_year'], manifest['end_year'] + 1):
-            for date, day in assets[f'{lang}/{year}.json']['days'].items():
-                ids = referenced_passages({date: day})
-                require(ids <= passages.keys(), f'missing source passages: {date}')
-                data = {'schema_version': 1, 'calendar': CALENDARS[lang], 'translation': TRANSLATIONS[lang],
-                        'date': date, 'day': day, 'passages': {pid: passages[pid] for pid in sorted(ids)}}
-                validate_daily(data, lang, date)
-                files[f'{lang}/{year}/{date[5:]}.json'] = encoded(data)
+    for year in range(manifest['start_year'], manifest['end_year'] + 1):
+        for date in assets[f'ru/{year}.json']['days']:
+            days = {lang: assets[f'{lang}/{year}.json']['days'][date] for lang in CALENDARS}
+            ids = referenced_passages(days)
+            for translation in EDITIONS:
+                source = assets[f'{translation}/texts.json']['passages']
+                passages = {}
+                for pid in sorted(ids):
+                    p = source[pid]
+                    passages[pid] = p if 'unavailable' in p else {**p, 'verses': [[v['chapter'],v['first'],v['last'],v['text']] for v in p['verses']]}
+                data = {'schema_version': 2, 'translation': translation, 'date': date, 'days': days, 'passages': passages}
+                validate_daily(data, date)
+                files[f'{year}/{date[5:]}/{translation}.json'] = encoded(data)
     return files

@@ -3,12 +3,13 @@ from __future__ import annotations
 
 import math
 import os
+import re
 from ipaddress import IPv4Address, ip_address, ip_network
 from urllib.parse import urlsplit
 
-from .lectionary_data import TRANSLATIONS, require
+from .lectionary_data import require
+from .reading_plan import SOURCE_NT
 
-VOICES = {'ru': 'prudovsky', 'uk': 'kozlov_uk'}
 PRIVATE_IPV4 = tuple(ip_network(network) for network in ('10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16'))
 
 
@@ -59,51 +60,60 @@ def valid_timing(begin, end):
             and 0 <= begin < end)
 
 
-def attach_audio(passages, lang, snapshot, *, errors=None):
-    owned = errors is None
-    if owned:
-        errors = []
-    require(set(snapshot) == {'schema_version', 'exported_on', 'source', 'voices', 'timecodes'}
-            and type(snapshot['schema_version']) is int and snapshot['schema_version'] == 1
-            and snapshot['voices'] == {l: [TRANSLATIONS[l], v] for l, v in VOICES.items()}
-            and set(snapshot['timecodes']) == set(VOICES), 'invalid Gospel timecode snapshot')
-    for passage in passages.values():
-        passage['audio'] = None
-        if passage['book'] not in (40, 41, 42, 43):
-            continue
-        segments = []
-        for verse in passage['verses']:
-            key = f"{passage['book']}:{verse['chapter']}:{verse['first']}"
-            timing = snapshot['timecodes'][lang].get(key)
-            if not isinstance(timing, list) or len(timing) != 2 or not valid_timing(*timing):
-                errors.append(f'{lang} {passage["label"]}: missing or invalid timecode {key}')
-                segments.append(None)
+# Active local cep_public registry, audited 2026-10-05. Bondarenko includes music.
+EDITIONS = {
+    'syn': {'language': 'ru', 'name': 'Синодальный', 'voices': {'prudovsky': 'Илья Прудовский', 'bondarenko': 'Александр Бондаренко · с музыкой'}},
+    'bti': {'language': 'ru', 'name': 'Кулаковы', 'voices': {'prozorovsky': 'Никита Семёнов-Прозоровский'}},
+    'ubh': {'language': 'uk', 'name': 'Хоменко', 'voices': {'kozlov_uk': 'Ігор Козлов'}},
+    'npu': {'language': 'uk', 'name': 'НПУ', 'voices': {'npu_uk': 'Бібліка®'}},
+    'bsb': {'language': 'en', 'name': 'Berean Standard Bible', 'voices': {'bsb_souer': 'Bob Souer', 'bsb_david': 'David'}},
+    'webus': {'language': 'en', 'name': 'World English Bible', 'voices': {'winfred_henson': 'Winfred Henson'}},
+    'webbe': {'language': 'en', 'name': 'WEB British Edition', 'voices': {'web_british': 'WEB British Edition'}},
+}
+API_BOOKS = [next((i + 45 for i, (_, canonical) in enumerate(SOURCE_NT) if canonical == book), book) for book in range(1,67)]
+DEFAULTS = {'ru': ['syn', 'prudovsky'], 'uk': ['ubh', 'kozlov_uk'], 'en': ['bsb', 'bsb_souer']}
+UNAVAILABLE = {'missing_text', 'numbering'}
+
+
+def attach_audio(passages, translation, snapshot):
+    require(set(snapshot) == {'schema_version', 'exported_on', 'source', 'voices', 'timecodes', 'invalid'}
+            and type(snapshot['schema_version']) is int and snapshot['schema_version'] == 2
+            and snapshot['voices'] == {v: t for t, e in EDITIONS.items() for v in e['voices']}
+            and set(snapshot['timecodes']) == set(snapshot['voices'])
+            and set(snapshot['invalid']) == set(snapshot['voices']), 'invalid reading timecode snapshot')
+    for voice, rows in snapshot['timecodes'].items():
+        require(isinstance(rows, dict) and isinstance(snapshot['invalid'][voice], dict), 'invalid alignment dictionary')
+        invalid = snapshot['invalid'][voice]
+        require(set(invalid) == {k for k,v in rows.items() if v is None}, 'unexplained unavailable timecode')
+        for key, value in rows.items():
+            require(isinstance(key,str) and re.fullmatch(r'[1-9][0-9]?:[1-9][0-9]*:[1-9][0-9]*',key)
+                    and int(key.split(':')[0]) <= 66, 'invalid timecode coordinate')
+            if value is None:
+                raw = invalid[key]
+                require(isinstance(raw,list) and len(raw)==2 and all(type(v) in (int,float) and math.isfinite(v) for v in raw)
+                        and not valid_timing(*raw), 'invalid unavailable timecode evidence')
             else:
-                segments.append({'chapter': verse['chapter'], 'begin': timing[0], 'end': timing[1]})
-        passage['audio'] = {'translation': TRANSLATIONS[lang], 'voice': VOICES[lang],
-                            'chapters': list(dict.fromkeys(v['chapter'] for v in passage['verses'])),
-                            'segments': segments}
-    if owned:
-        require(not errors, 'Gospel timecode errors:\n' + '\n'.join(sorted(set(errors))))
+                require(isinstance(value,list) and len(value)==2 and valid_timing(*value), 'invalid source timecode')
+    for passage in passages.values():
+        if passage.get('unavailable'):
+            continue
+        passage['audio'] = {}
+        for voice in EDITIONS[translation]['voices']:
+            segments = [snapshot['timecodes'][voice].get(f"{passage['book']}:{v['chapter']}:{v['first']}") for v in passage['verses']]
+            # Coverage exclusions verified against the local recordings / app registry.
+            excluded = ((voice == 'bondarenko' and passage['book'] in (13, 14, 22, 23))
+                        or (voice == 'npu_uk' and passage['book'] not in (19, *range(40, 67)))
+                        or (voice == 'kozlov_uk' and any((passage['book'], v['chapter']) in
+                            ((17, 11), (17, 12), (27, 13), (27, 14)) for v in passage['verses'])))
+            passage['audio'][voice] = None if excluded or any(s is None for s in segments) else segments
 
 
-def validate_audio(passage, lang, *, errors=None):
-    owned = errors is None
-    if owned:
-        errors = []
-    if passage['book'] not in (40, 41, 42, 43):
-        require(passage['audio'] is None, 'unexpected audio for non-Gospel passage')
-        return
+def validate_audio(passage, translation):
     audio = passage['audio']
-    require(isinstance(audio, dict) and set(audio) == {'translation', 'voice', 'chapters', 'segments'}
-            and audio['translation'] == TRANSLATIONS[lang] and audio['voice'] == VOICES[lang]
-            and audio['chapters'] == list(dict.fromkeys(v['chapter'] for v in passage['verses']))
-            and isinstance(audio['segments'], list) and len(audio['segments']) == len(passage['verses']),
-            'missing or invalid Gospel audio')
-    for verse, segment in zip(passage['verses'], audio['segments']):
-        if not (isinstance(segment, dict) and set(segment) == {'chapter', 'begin', 'end'}
-                and type(segment['chapter']) is int and segment['chapter'] == verse['chapter']
-                and valid_timing(segment['begin'], segment['end'])):
-            errors.append(f'{lang} {passage["book"]}:{verse["chapter"]}:{verse["first"]}: invalid timecode')
-    if owned:
-        require(not errors, 'Gospel timecode errors:\n' + '\n'.join(sorted(set(errors))))
+    require(isinstance(audio, dict) and set(audio) == set(EDITIONS[translation]['voices']), 'invalid reading voices')
+    for segments in audio.values():
+        if segments is None:
+            continue  # Explicitly unavailable recording, never a replacement voice.
+        require(isinstance(segments, list) and len(segments) == len(passage['verses']), 'invalid alignment length')
+        for segment in segments:
+            require(isinstance(segment, list) and len(segment) == 2 and valid_timing(*segment), 'invalid reading timecode')

@@ -175,7 +175,6 @@ articles:
   gospel_today:
     title: Gospel and Apostle for today
     calendar: Orthodox calendar
-    translation: Bible translation
     no_js: Enable JavaScript to select readings for your local date.
     loading: Loading readings…
     error: Reading data is missing or invalid. Reload the page.
@@ -207,9 +206,16 @@ articles:
     audio_pause: Pause
     audio_again: Listen again
     audio_error: Audio could not be played. Reload the page.
-    audio_narrator: Gospel narrator
     audio_progress: Gospel playback progress
     audio_verse: Now playing {verse}
+    language: 'Text language'
+    edition: 'Translation'
+    narrator: 'Narrator'
+    reading_play: 'Play {reading}'
+    missing_text: 'This passage is missing from the selected translation.'
+    missing_audio: 'This narrator has no aligned audio for this passage.'
+    numbering: 'Verse numbering has not been mapped: text and audio are unavailable.'
+    nothing_playable: 'No audio is available for these readings in the selected edition.'
 
 not_found:
   title: Page not found

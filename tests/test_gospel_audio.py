@@ -11,7 +11,8 @@ from unittest.mock import patch
 from sitegen.errors import BuildError
 from sitegen.lectionary_data import ROOT, BUNDLE_DIR, load_bundle, SOURCE, load_json, encoded, digest
 from sitegen.gospel_audio import attach_audio, validate_audio, validate_config, preview_config
-from tools.export_gospel_timecodes import requirements, audit, gospel_ids
+from sitegen.gospel_audio import EDITIONS
+from tools.export_gospel_timecodes import export_timecodes
 
 
 class GospelAudioTest(unittest.TestCase):
@@ -19,105 +20,63 @@ class GospelAudioTest(unittest.TestCase):
     def setUpClass(cls):
         cls.manifest, cls.assets = load_bundle()
 
-    def test_every_required_gospel_verse_has_timecodes_without_audio_binaries(self):
-        needed = requirements(self.assets, 2026, 2030)
-        snapshot = load_json(SOURCE / 'timecodes.json')
-        self.assertEqual([len(needed[l]) for l in ('ru', 'uk')], [3453, 3452])
-        for lang in ('ru', 'uk'):
-            self.assertEqual(set(snapshot['timecodes'][lang]), set(needed[lang]))
-            for passage in self.assets[f'{lang}/texts.json']['passages'].values():
-                validate_audio(passage, lang)
+    def test_every_edition_and_voice_is_explicit_and_apostle_is_aligned(self):
+        self.assertEqual(len(EDITIONS), 7)
+        self.assertEqual(sum(len(e['voices']) for e in EDITIONS.values()), 9)
+        for translation, edition in EDITIONS.items():
+            passages = self.assets[f'{translation}/texts.json']['passages']
+            for p in passages.values():
+                if 'unavailable' not in p: validate_audio(p, translation)
+            self.assertTrue(any(p['book'] >= 45 and p.get('audio',{}).get(next(iter(edition['voices']))) for p in passages.values()))
         for base in ('static', 'dist', '.preview'):
             self.assertFalse(list((ROOT / base / 'bible-garden/audio/demo/gospel-today').rglob('*.mp3')))
 
-    def test_merged_verse_and_composite_chapter_order(self):
-        passages = self.assets['uk/texts.json']['passages']
+    def test_joined_verse_coverage_and_no_voice_substitution(self):
+        passages = self.assets['ubh/texts.json']['passages']
         merged = next(p for p in passages.values() if p['book'] == 40 and p['ranges'] == [[23, 13, 23, 22]])
-        pairs = [(v['first'], v['last'], s) for v, s in zip(merged['verses'], merged['audio']['segments'])]
-        timing = load_json(SOURCE / 'timecodes.json')['timecodes']['uk']['40:23:14']
-        self.assertIn((14, 15, {'chapter': 23, 'begin': timing[0], 'end': timing[1]}), pairs)
-        self.assertFalse(any(first == 15 for first, last, segment in pairs))
-        ids = gospel_ids(self.assets['ru/2026.json']['days']['2026-04-09']['items'])
-        sequence = [(self.assets['ru/texts.json']['passages'][pid]['book'],
-                     self.assets['ru/texts.json']['passages'][pid]['audio']['chapters'][0]) for pid in ids]
-        self.assertEqual(sequence, [(40, 26), (43, 13), (40, 26), (42, 22), (40, 26)])
-        cross = next(p for p in passages.values() if p['audio'] and len(p['audio']['chapters']) > 1)
-        self.assertEqual(cross['audio']['chapters'], list(dict.fromkeys(v['chapter'] for v in cross['verses'])))
+        self.assertIn((14,15), [(v['first'],v['last']) for v in merged['verses']])
+        index = next(i for i,v in enumerate(merged['verses']) if v['first'] == 14)
+        self.assertEqual(merged['audio']['kozlov_uk'][index], load_json(SOURCE / 'timecodes.json')['timecodes']['kozlov_uk']['40:23:14'])
+        self.assertFalse(any(v['first'] == 15 for v in merged['verses']))
+        npu = self.assets['npu/texts.json']['passages']
+        self.assertTrue(all(p.get('unavailable') == 'missing_text' for p in npu.values() if p['book'] < 40 and p['book'] != 19))
+        syn = self.assets['syn/texts.json']['passages']
+        isaiah = next(p for p in syn.values() if p['book'] == 23)
+        self.assertIsNone(isaiah['audio']['bondarenko'])
+        self.assertIsNotNone(isaiah['audio']['prudovsky'])
+        bti = self.assets['bti/texts.json']['passages']
+        self.assertTrue(any(p.get('unavailable') == 'numbering' for p in bti.values()))
 
-    def test_missing_timecodes_are_reported_together(self):
+    def test_missing_timecode_marks_only_affected_voice_unavailable(self):
         snapshot = load_json(SOURCE / 'timecodes.json')
-        passages = copy.deepcopy(self.assets['ru/texts.json']['passages'])
-        keys = list(snapshot['timecodes']['ru'])[:2]
-        for key in keys:
-            del snapshot['timecodes']['ru'][key]
-        with self.assertRaises(BuildError) as raised:
-            attach_audio(passages, 'ru', snapshot)
-        for key in keys:
-            self.assertIn(key, str(raised.exception))
+        source = next(p for p in self.assets['syn/texts.json']['passages'].values() if p['book'] == 40)
+        passage = copy.deepcopy(source)
+        verse = passage['verses'][0]
+        key = f"{passage['book']}:{verse['chapter']}:{verse['first']}"
+        del snapshot['timecodes']['prudovsky'][key]
+        attach_audio({'p': passage}, 'syn', snapshot)
+        self.assertIsNone(passage['audio']['prudovsky'])
+        self.assertEqual(passage['audio']['bondarenko'], source['audio']['bondarenko'])
 
-    def test_generator_reports_gaps_for_both_languages(self):
-        from tools.build_gospel_today import generate
-        snapshot = copy.deepcopy(load_json(SOURCE / 'timecodes.json'))
-        removed = {lang: next(iter(snapshot['timecodes'][lang])) for lang in ('ru', 'uk')}
-        for lang, key in removed.items():
-            del snapshot['timecodes'][lang][key]
-        def data(path):
-            return snapshot if Path(path).name == 'timecodes.json' else load_json(path)
-        with patch('tools.build_gospel_today.load_json', side_effect=data), self.assertRaises(BuildError) as raised:
-            generate()
-        for lang, key in removed.items():
-            self.assertIn(lang, str(raised.exception))
-            self.assertIn(key, str(raised.exception))
+    def test_export_rejects_registry_changes_duplicates_and_corrupt_timings(self):
+        registry = [[v,t] for t,e in EDITIONS.items() for v in e['voices']]
+        for rows, message in [([['prudovsky',40,1,1,0,float('nan')]], 'invalid alignment'),
+                              ([['prudovsky',40,1,1,0,1]]*2, 'duplicate alignment')]:
+            with patch('tools.export_gospel_timecodes.local_query', side_effect=[registry,rows]), self.assertRaisesRegex(BuildError, message):
+                export_timecodes()
+        with patch('tools.export_gospel_timecodes.local_query', return_value=[]), self.assertRaisesRegex(BuildError, 'registry changed'):
+            export_timecodes()
 
-    def test_build_bundle_reports_all_missing_timecodes(self):
-        with tempfile.TemporaryDirectory() as directory:
-            bundle = Path(directory) / 'lectionary'
-            shutil.copytree(BUNDLE_DIR, bundle)
-            manifest = load_json(bundle / 'manifest.json')
-            coordinates = []
-            for lang in ('ru', 'uk'):
-                name = f'{lang}/texts.json'
-                data = load_json(bundle / name)
-                passage = next(p for p in data['passages'].values() if p['audio'])
-                verse = passage['verses'][0]
-                coordinates.append(f"{lang} {passage['book']}:{verse['chapter']}:{verse['first']}")
-                passage['audio']['segments'][0] = None
-                payload = encoded(data)
-                (bundle / name).write_bytes(payload)
-                manifest['files'][name] = digest(payload)
-            (bundle / 'manifest.json').write_bytes(encoded(manifest))
-            with self.assertRaises(BuildError) as raised:
-                load_bundle(bundle)
-            for coordinate in coordinates:
-                self.assertIn(coordinate, str(raised.exception))
-
-    def test_export_audit_reports_every_affected_day(self):
-        needed = {'ru': {'40:1:1': {'2026-01-01', '2030-12-31'}, '40:1:2': {'2026-01-02'}},
-                  'uk': {'40:1:1': {'2027-01-01'}}}
-        with self.assertRaises(BuildError) as raised:
-            audit(needed, [])
-        text = str(raised.exception)
-        self.assertEqual(text.count('missing timecode'), 3)
-        for date in ('2026-01-01', '2026-01-02', '2027-01-01', '2030-12-31'):
-            self.assertIn(date, text)
-        for bounds in ((0, 0), (-1, 1), (0, float('nan')), (False, 1)):
-            with self.subTest(bounds=bounds), self.assertRaises(BuildError):
-                audit({'ru': {'40:1:1': {'2026-01-01'}}}, [('prudovsky', 40, 1, 1, *bounds)])
-        with self.assertRaisesRegex(BuildError, 'duplicate timing'):
-            audit({}, [('prudovsky', 40, 1, 1, 0, 1)] * 2)
-
-    def test_wrong_voice_chapter_and_invalid_times_fail(self):
-        source = next(p for p in self.assets['ru/texts.json']['passages'].values() if p['book'] == 40)
-        for mutation in ('voice', 'translation', 'time', 'chapter', 'missing', 'nan'):
+    def test_wrong_voice_and_invalid_times_fail(self):
+        source = next(p for p in self.assets['syn/texts.json']['passages'].values() if p['book'] == 40)
+        for mutation in ('voice','time','missing','nan','bool'):
             p = copy.deepcopy(source)
-            if mutation == 'voice': p['audio']['voice'] = 'kozlov_uk'
-            if mutation == 'translation': p['audio']['translation'] = 'ubh'
-            if mutation == 'time': p['audio']['segments'][0]['end'] = p['audio']['segments'][0]['begin']
-            if mutation == 'chapter': p['audio']['segments'][0]['chapter'] = 99
-            if mutation == 'missing': p['audio']['segments'].pop()
-            if mutation == 'nan': p['audio']['segments'][0]['begin'] = float('nan')
-            with self.subTest(mutation=mutation), self.assertRaises(BuildError):
-                validate_audio(p, 'ru')
+            if mutation == 'voice': p['audio']['unknown'] = p['audio'].pop('prudovsky')
+            if mutation == 'time': p['audio']['prudovsky'][0][1] = p['audio']['prudovsky'][0][0]
+            if mutation == 'missing': p['audio']['prudovsky'].pop()
+            if mutation == 'nan': p['audio']['prudovsky'][0][0] = float('nan')
+            if mutation == 'bool': p['audio']['prudovsky'][0][0] = False
+            with self.subTest(mutation=mutation), self.assertRaises(BuildError): validate_audio(p,'syn')
 
     def test_config_is_required_strict_and_overrides_are_explicit(self):
         good = {'base_url': 'https://api.bible.garden', 'site_key': 'public-test-key'}

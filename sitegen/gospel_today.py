@@ -11,10 +11,10 @@ from .lectionary_data import CALENDARS, load_bundle, require
 PLACEHOLDER = '<div data-gospel-today-placeholder="gospel-today"></div>'
 MARKER = '<!-- gospel-today -->'
 INTENT = re.compile(r'<!--\s*(?:gospel[-_ ]?today|gospel-tody)\b', re.I)
-STRING_KEYS = {'title', 'calendar', 'translation', 'no_js', 'loading', 'error', 'out_of_range',
+STRING_KEYS = {'title', 'calendar', 'no_js', 'loading', 'error', 'out_of_range',
                'uncertain', 'ordinary_may_be_omitted', 'saints', 'gospel', 'apostle', 'ot',
                'no_liturgy', 'royal_hours', 'hour', 'ordinary', 'feast', 'special', 'triodion',
-               'pentecostarion', 'no_liturgy_gospel', 'no_liturgy_vespers_gospel', 'presanctified', 'app', 'app_hint', 'radio_gospel', 'radio_apostle', 'calendar_link', 'audio_play', 'audio_pause', 'audio_again', 'audio_error', 'audio_narrator', 'audio_progress', 'audio_verse'}
+               'pentecostarion', 'no_liturgy_gospel', 'no_liturgy_vespers_gospel', 'presanctified', 'app', 'app_hint', 'radio_gospel', 'radio_apostle', 'calendar_link', 'audio_play', 'audio_pause', 'audio_again', 'audio_error', 'audio_progress', 'audio_verse', 'language', 'narrator', 'edition', 'reading_play', 'missing_text', 'missing_audio', 'numbering', 'nothing_playable'}
 
 
 def annotate_marker(body, source, site, lang, body_start_line=1):
@@ -37,6 +37,7 @@ def validate_strings(strings):
     require(isinstance(strings, dict) and set(strings) == STRING_KEYS, 'missing or unknown gospel-today translations')
     require(all(isinstance(v, str) and bool(v.strip()) for v in strings.values()), 'empty gospel-today translation')
     require('{verse}' in strings['audio_verse'], 'invalid audio verse label')
+    require('{reading}' in strings['reading_play'], 'invalid reading play label')
     require('{chapter}' in strings['app_hint'] and '{verse}' in strings['app_hint'] and '{book}' in strings['app_hint'], 'invalid app hint')
 
 
@@ -48,21 +49,25 @@ def render_component(lang, strings, app_store_url, audio_config=None, *, preview
     escape = html.escape
     from .gospel_audio import validate_config
     audio_config = validate_config(audio_config, preview=preview)
-    config = {'audio': audio_config, 'lang': lang, 'start_year': manifest['start_year'], 'end_year': manifest['end_year'], 'strings': strings}
+    from .gospel_audio import EDITIONS, DEFAULTS, API_BOOKS
+    config = {'editions': EDITIONS, 'defaults': DEFAULTS, 'audio': {**audio_config, 'books': API_BOOKS}, 'lang': lang, 'start_year': manifest['start_year'], 'end_year': manifest['end_year'], 'strings': strings}
     config_json = json.dumps(config, ensure_ascii=False).replace('<', '\\u003c').replace('>', '\\u003e').replace('&', '\\u0026')
     if lang == 'ru':
         links = f'<a href="https://radiovera.ru/gospel.html">{escape(strings["radio_gospel"])}</a> · <a href="https://radiovera.ru/apostol.html">{escape(strings["radio_apostle"])}</a>'
     else:
         links = f'<a href="https://www.pomisna.info/uk/tserkva/kalendar/">{escape(strings["calendar_link"])}</a>'
     return f'''<section class="gospel-today" aria-labelledby="gospel-today-title" data-gospel-today>
-<h2 id="gospel-today-title">{escape(strings['title'])}</h2>
-<p>{escape(strings['calendar'])} · {escape(strings['translation'])}</p>
+<header class="gospel-today-header"><h2 id="gospel-today-title">{escape(strings['title'])}</h2>
+<time data-gospel-date></time><p class="gospel-calendar">{escape(strings['calendar'])}</p></header>
+<div data-gospel-selectors class="gospel-selectors" hidden></div>
 <div class="gospel-today-window">
 <p data-gospel-status role="status" aria-live="polite">{escape(strings['no_js'])}</p>
 <div data-gospel-readings></div>
 </div>
-<p>{escape(strings['saints'])}</p>
-<p>{links}</p>
-<p><a class="btn-gold" href="{escape(app_store_url)}" data-umami-event="app-store-click" target="_blank" rel="noopener">{escape(strings['app'])}</a></p>
 <script type="application/json" data-gospel-config>{config_json}</script>
-</section>'''
+</section>
+<div class="gospel-today-links" data-gospel-links>
+<p>{links} · <a href="{escape(app_store_url)}" data-umami-event="app-store-click" target="_blank" rel="noopener">{escape(strings['app'])}</a></p>
+<p data-gospel-app-hint></p>
+<p>{escape(strings['saints'])}</p>
+</div>'''

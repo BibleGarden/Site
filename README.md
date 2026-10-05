@@ -822,103 +822,127 @@ GPL v3 — see [LICENSE](LICENSE).
 
 ### Gospel and Apostle for today
 
-A future bible.garden article can place `<!-- gospel-today -->` on its own line,
-once, in its Russian or Ukrainian version. The marker is not supported in English
-or on Lampada. No published or draft article currently uses it; draft-only fixtures
-are under `tests/fixtures/gospel-today/` and are rendered by the integration tests.
-The script is included only on pages using the marker.
+A bible.garden ru/uk article may place `<!-- gospel-today -->` on its own line,
+once. The component owns its external links and app guidance; the article must
+not repeat them. Draft fixtures are in `tests/fixtures/gospel-today/`; English
+articles and Lampada do not accept the marker. The script loads only on pages
+using it. No public/draft article in this worktree currently uses the marker.
 
-The browser chooses the visitor's **local civil date**, including after midnight
-and when returning to the tab. Russian uses ROC Julian fixed feasts, Julian Pascha
-and the Lukan jump; Ukrainian uses OCU New Julian fixed feasts and Julian Pascha,
-without the Lukan jump. Both show Gospel and Apostle text, additional readings,
-Royal Hours, composite Gospels and Old Testament readings on non-Liturgy days.
-Saints' readings, their transfers and Matins readings are not calculated.
-Ukrainian dates without same-day confirmation of **all displayed passages** in the
-captured OCU/UGCC liturgical evidence show `uncertain` and the church-check note.
-An annual rule's general confirmation does not confirm future calendar dates.
+The visitor's local civil date chooses the day, including after midnight and
+returning to the tab. The **page calendar stays fixed**: ru uses ROC Julian fixed
+feasts, Julian Pascha and the Lukan jump; uk uses OCU New Julian fixed feasts and
+Julian Pascha, without the jump. Changing text language, translation or narrator
+never changes the date or calendar. Saints' readings/transfers and Matins are not
+computed. Ukrainian dates need same-day confirmation of all displayed passages
+in captured OCU/UGCC liturgical evidence; otherwise the church-check note remains.
+Annual source matches do not confirm unobserved future dates. Source comparisons,
+known feast coincidences and evidence are in `tools/data/lectionary/README.md`.
 
-The Russian links open Radio VERA's current Gospel and Apostle programmes.
-Both languages link to the language campaign in the App Store and explain how to
-open the book, chapter and verse manually. There are no chapter deep links.
-Without JavaScript the page explains why it cannot determine today's local date
-and retains the external calendar/listening and App Store links. No static date
-is presented as today. A minimum-height loading placeholder reserves space before
-loading; complete texts expand once in normal article flow, without clipping or
-inner scrolling. Printing removes the minimum placeholder height. Missing assets or dates show an explicit error, with no
-substitute date, calendar or translation.
+The compact header shows title, human date and calendar. Language, translation
+and narrator selectors precede one round Play/Pause button, a seekable whole-day
+progress track, elapsed/total time and current-reading label. Cards show full
+texts/references in ordinary page flow. Each available reading has a play/jump
+button; its card and current verse highlight during playback. There is no inner
+scroll area. Light/dark tokens and the 390 px layout are supported. Radio VERA
+(ru), OCU calendar (uk), App Store, the manual book/chapter/verse hint and the
+saints' limitation are a compact separate paragraph **after the block box**.
+Without JS, the local-date explanation and external links remain usable.
 
-`sitegen/lectionary.py` computes the calendar offline from the sourced tables in
-`tools/data/lectionary/tables.json`. `references.json` records dated normalized
-comparison inputs and explicitly liturgical Ukrainian evidence (Matins excluded).
-`verses.json` is a read-only local export; it retains Scripture coordinates and
-joined-verse bounds. `content/bible-garden/lectionary/` is the single site-data
-source: schedules by language/year, one text dictionary per translation and a
-fingerprint manifest. Each passage is stored once per translation and referenced
-by its stable ID from every day. The build validates schemas, complete dates,
-references, text coverage and SHA-256 fingerprints, then derives daily public
-JSON under `dist/bible-garden/data/gospel-today/<lang>/<YYYY>/<MM>-<DD>.json`.
-Each file contains one dated schedule entry and exactly the passages it uses,
-including OT, Royal Hours and composite Gospels; unused passages, mismatched dates
-and missing data fail. Annual/monthly files, full dictionaries and the source
-manifest are not published. The browser makes one data request for today's local
-date, reuses it on that date, and loads the new day after midnight or when returning
-to a tab on another date. Month/year boundaries use the same date-based path.
-There is no background prefetch.
+#### Text and voice selection
 
-Regenerate 2026–2030 deterministically from committed sources, without DB/network:
+Both page languages offer the same audited local catalog:
+
+| Text language | Translation | Narrators |
+|---|---|---|
+| ru | Синодальный (`syn`) | Илья Прудовский; Александр Бондаренко (with music) |
+| ru | Кулаковы (`bti`) | Никита Семёнов-Прозоровский |
+| uk | Хоменко (`ubh`) | Ігор Козлов |
+| uk | НПУ (`npu`) | Бібліка® |
+| en | BSB (`bsb`) | Bob Souer; David |
+| en | WEB (`webus`) | Winfred Henson |
+| en | WEB British (`webbe`) | WEB British Edition (no credited individual) |
+
+Defaults are ru `syn/prudovsky`, uk `ubh/kozlov_uk`; choosing English selects
+`bsb/bsb_souer`. Choosing a translation explicitly selects its first listed
+narrator. The choice is stored under `bible-garden-readings-edition` in
+localStorage; reads, writes and access to storage are wrapped in try/catch.
+Browser privacy restrictions do not prevent playback. Invalid saved choices
+produce an explicit error rather than silently choosing another edition.
+
+Every playable card uses **that translation's text and that narrator's alignment**.
+Missing text, missing/invalid alignment or unverified numbering is clearly shown
+on that card. Other cards remain playable; no translation or voice is substituted.
+An unavailable complete passage is excluded from audio, not played partially.
+NPU has Psalms/NT only; Bondarenko lacks 1–2 Chronicles, Song of Songs and Isaiah.
+Kozlov excludes Esther 11–12 and Daniel 13–14. The export records invalid source
+intervals explicitly; malformed/duplicate source rows fail. Unknown empty texts
+fail; audited WEB empty textual-variant verses make their passages unavailable.
+UBH Matthew 23:14–15 is the documented joined verse; Romans 14:24–26 maps to
+16:25–27. Unmapped Psalms (Greek/Hebrew numbering and numbered headings), UBH
+Joel/Malachi chapter differences and source verse reorderings are unavailable.
+The present calendar tables contain no Psalm readings; no numbering is guessed.
+
+#### Offline data and horizon
+
+The explicit horizon is **2026–2027**: it includes Lent 2026 for regression/review
+and runs through the end of next year, without multiplying seven translations
+across five years. Extend it annually before expiry. No clock-dependent build,
+automatic refresh or substitute date is used. Missing/out-of-range daily files
+show a clear error. Daily arithmetic accepts 1901–2098; Paschalion 1900–2099.
+
+`tools/data/lectionary/` contains sourced tables, dated comparison evidence,
+read-only local verse/timecode snapshots and native book names. The generated
+`content/bible-garden/lectionary/` bundle contains annual ru/uk schedules, one
+passage dictionary per translation, and SHA-256 fingerprints. Each passage occurs
+once per translation there. Build validates dates, reference coverage, joins,
+coordinates, voices, finite positive intervals and input/file fingerprints.
+
+Public schema 2 is `/data/gospel-today/<YYYY>/<MM>-<DD>/<translation>.json`.
+A file contains both calendar schedules and their union of passages; this shares
+identical translated text between calendars. Verse rows are compact
+`[chapter, first, last, text]`; each narrator has parallel `[begin, end]` arrays
+or explicit `null` for unavailable audio. Missing text/numbering has an explicit
+reason and reference. Only the selected translation's day file is requested;
+changing narrator reuses it, changing translation loads just that edition.
+The cache holds the active date only. Nothing is prefetched. Annual files,
+dictionaries, source snapshots and the manifest are not published.
+
+Measured 2026-10-05 using UTF-8 byte lengths from `daily_files` after build:
+**5,110 files, 30,651,574 bytes total**, median **5,361**, maximum **23,398** bytes.
+This is all public `data/` in this worktree. Per-translation totals, source sizes
+and coverage are in the input README. No new audio binaries are committed.
 
 ```bash
-.venv/bin/python tools/build_gospel_today.py --start-year 2026 --end-year 2030
+# Deterministic regeneration: no DB/network.
+.venv/bin/python tools/build_gospel_today.py --start-year 2026 --end-year 2027
+# Optional refresh: local cep_public in cep-mysql, read-only transaction only.
+.venv/bin/python tools/build_gospel_today.py --export-local --start-year 2026 --end-year 2027
 .venv/bin/python -m sitegen build
 .venv/bin/python -m sitegen check
 .venv/bin/python -m sitegen preview
 .venv/bin/python -m unittest discover -s tests
+node tests/gospel_today.js
+node tests/gospel_audio.js
 ```
 
-To replace the Scripture snapshot, add `--export-local` to the generator command.
-It queries only local `cep_public` in `cep-mysql` in a read-only SQL transaction,
-using credentials from `/root/cep/Bible-API/.env` without printing them. DB book IDs
-for the Epistles are explicitly converted to the canonical order. Texts are
-Synodal (`syn`) and Khomenko (`ubh`); the owner authorized open UBH JSON publication
-on 2026-10-05. No text is downloaded or substituted. UBH Romans 14:24–26 is
-explicitly mapped to 16:25–27 and displayed with the target coordinates. The verified Khomenko Matthew 23:14–15 source range is explicitly normalized
-from the local 14/text + 15/empty representation to one joined verse; unknown
-empty records still fail (evidence and tests in the input README). Combined
-verses and cross-chapter passages preserve their actual translation boundaries.
+Commit snapshots, bundle, implementation and regenerated `dist` together.
+`tools/export_gospel_timecodes.py` can independently refresh alignments from the
+committed verse snapshot. It audits the active local registry and writes original
+DB times plus explicit invalid-bound evidence. Neither export accesses audio or
+writes to the database. Offline generation/build need no DB, network or ffmpeg.
 
-Extend the explicit range annually, exporting again if new passages require data;
-commit sources, regenerated JSON and `dist/` together. There is no clock-dependent
-build or automatic network refresh. Paschalion accepts 1900–2099; daily calculation
-requires 1901–2098 because it uses adjacent Paschal years. The initial output ends
-on 2030-12-31. Measured on 2026-10-05 after `python -m sitegen build` using file
-byte lengths and Python `statistics.median`: 3,652 daily JSON files total
-22,586,478 bytes. Largest files: ru 27,494 bytes, uk 27,695 bytes; medians:
-ru 5,412 bytes, uk 5,400 bytes (combined median 5,405 bytes). No Gospel MP3
-copies are included; chapter audio streams from Bible-API.
-Detailed measurements and coverage are in the input README. Rare Annunciation/Holy Week coincidences follow the documented
-feast-first model and need church verification; future Ukrainian winter repeats
-are projected and marked unconfirmed until dated evidence is added.
+#### Chapter streaming and local preview
 
-The source comparison measures the first Gospel (first composite/Hours component,
-or first Old Testament reading when no Gospel exists), not every Apostle or
-secondary passage. Empty-source days remain counted separately; adjacent-day
-matches describe saints' transfers and never change displayed dates. Tests pin
-both the denominators and thresholds: Azbyka ROC ≥95% exact and ≥99% with adjacent
-matches, pravoslavie ROC ≥93%, OCU ≥91%, UGCC ≥92% exact. Further details and dated
-measurements are in `tools/data/lectionary/README.md`.
+One player queues **all available day's readings in rule order**: Apostle before
+Gospel within each item/Hour; composite components and OT passages retain their
+ordered lists. It streams full chapter MP3s and seeks through displayed verses,
+including cross-chapter passages and returns to earlier chapters. Consecutive
+segments of a chapter reuse its source. Epistle book numbers are explicitly
+converted from the calendar's canonical order to the API's own order; both text
+and alignment exports use the inverse conversion. UBH's joined 14–15 text/audio
+is requested/highlighted once, using verse 14's timing.
 
-#### Gospel audio in the today block
-
-The player streams full chapter MP3s from Bible-API and seeks through only the
-Gospel verses shown for the selected date, in item/range/verse order. Composite
-readings, cross-chapter passages and Royal Hours switch chapters in order;
-repeated chapters reuse the same media source when consecutive. Russian uses
-Synodal / Ilya Prudovsky (`syn/prudovsky`), Ukrainian uses Khomenko / Ihor Kozlov
-(`ubh/kozlov_uk`), both without music. UBH Matthew 23:14–15 highlights the joined
-text once and uses coordinate 14's timecodes.
-
-Required configuration in `content/bible-garden/site.yaml`:
+Required `content/bible-garden/site.yaml` configuration:
 
 ```yaml
 gospel_audio:
@@ -926,66 +950,38 @@ gospel_audio:
   site_key: <dedicated public site audio key>
 ```
 
-The key is intentionally public in page configuration. It must match Bible-API's
-`BIBLE_GARDEN_SITE_API_KEY` (123pfqn1yjg), accepted only by audio routes. The
-public value was generated for this site on 2026-10-05; configure that exact
-site.yaml value in the API environment during deployment. It is not an existing
-client credential. Never use
-another application's private API key. Missing/empty keys, unknown config fields
-or invalid origins fail builds; there are no credentials or origins hidden in JS.
-The player builds URLs as
-`<base_url>/api/audio/<translation>/<voice>/<book:02>/<chapter:02>.mp3?api_key=<URL-encoded site_key>`.
-No chapter URL or key is repeated in daily JSON: audio metadata contains only
-translation/voice aliases, a chapter list and ordered verse `begin/end` timecodes.
+The key is intentionally public and must match Bible-API's
+`BIBLE_GARDEN_SITE_API_KEY` (deployment task 123pfqn1yjg), accepted only by audio
+routes. Never use another application's private key. Missing/invalid fields,
+keys or origins fail. URLs are built as
+`<base_url>/api/audio/<translation>/<voice>/<API-book:02>/<chapter:02>.mp3?api_key=<encoded-site-key>`;
+origins, URLs and keys are not repeated in daily JSON. No audio files belong to
+this component's source or output. Existing unrelated demo MP3s remain unchanged.
 
-For an explicitly local preview, override configuration using environment
-variables; they apply **only** to `preview`, never production `build` or `check`:
+For **preview only**, use the site/test key accepted by the local API:
 
 ```bash
-GOSPEL_AUDIO_BASE_URL=http://127.0.0.1:8000 \
-GOSPEL_AUDIO_SITE_KEY=site-test-key-12345678901234567890123 \
+GOSPEL_AUDIO_BASE_URL=http://192.168.127.133:9084 \
+GOSPEL_AUDIO_SITE_KEY=<explicit-site-or-test-key> \
 .venv/bin/python -m sitegen preview
 ```
 
-The local API must accept the chosen test key and serve the actual chapter files.
-Preview permits HTTP only for loopback (`localhost`, `127/8`, `::1`) and RFC 1918
-IPv4 addresses (`10/8`, `172.16/12`, `192.168/16`). Public HTTP addresses, other
-special-use ranges and private IPv6 addresses are rejected. Production
-`build`/`check` require HTTPS even for loopback and ignore both overrides.
+Preview HTTP permits loopback and RFC 1918 IPv4 only. Public HTTP, other special
+ranges and private IPv6 are rejected. Production build/check require HTTPS and
+ignore overrides. The local article preview can be served on
+`http://192.168.127.133:8097`; the separate article worktree is not changed here.
 
-For review from another machine on the private development network, use
-`GOSPEL_AUDIO_BASE_URL=http://192.168.127.133:9084` when building the preview,
-then open the article preview at `http://192.168.127.133:8097`. Set the explicit
-site/test key to the value accepted by that local API.
+There is no autoplay or media prefetch (`preload="none"`). Date/edition/voice
+changes pause and dispose playback. `timeupdate` plus a short boundary timer
+with 25 ms tolerance advances through selected intervals, stops at the final end
+and skips verses outside the references. Playback/network failures show a
+localized alert. Manual jumps and the seek track use the same queue/player.
 
-Play/Pause, replay, current verse announcement and whole-passage progress are
-localized and accessible. There is no autoplay or media prefetch (`preload="none"`):
-audio is created only after Play. Changing dates pauses and disposes playback.
-The player uses `timeupdate` plus a short boundary timer with a 25 ms tolerance,
-pausing at the last verse end and skipping verses outside the selected references.
-Full Gospel and Apostle texts remain in normal page flow, without an inner
-scroll area. A 28rem minimum loading placeholder reserves space; long readings
-grow once when daily data arrives, then remain stable during playback. Dates
-include the localized weekday, day, month and year. Controls and progress use
-theme tokens and support both themes.
-Without JavaScript, the existing guidance and external links remain usable.
-Playback/network errors show a localized alert and disable playback explicitly.
-
-Refresh texts and timecodes using read-only local database export:
-
-```bash
-.venv/bin/python tools/build_gospel_today.py --export-local --start-year 2026 --end-year 2030
-.venv/bin/python -m sitegen build
-```
-
-The independent timecode exporter is `tools/export_gospel_timecodes.py`. It
-reads local `cep_public.voice_alignments`, validates active voices/translations
-and reports all missing/invalid timecodes with every affected date before writing
-`tools/data/lectionary/timecodes.json`. It neither reads nor writes audio files.
-The normal offline generator/build uses committed snapshots and hashes, requiring
-no DB, network, ffmpeg or MP3 copies. Commit snapshots, content and generated
-`dist` together. No Gospel-today audio binaries belong in the repository.
-
-Apostle readings remain text with app guidance and the Radio VERA link (ru).
-Dates without a Gospel reading explain the liturgical exception and have no
-player; OT readings are not substituted as Gospel audio.
+`tools/check_gospel_today_browser.py` runs headless Chromium against a separately
+served **temporary fixture preview**, without modifying article content. It needs
+Playwright in the invoking Python. Pass `--base-url` and `--output /tmp/...`.
+The fixture preview must use the real local API override above. It checks ru/uk,
+2026-10-05 and 2026-04-09, 1440/390, both themes, actual Apostle→Gospel playback,
+per-reading jumps, highlighting, progress, stable layout and contrast, plus
+persistence, fixed calendar and partial/missing audio on a Lent weekday.
+Screenshots/report are generated outside git.
