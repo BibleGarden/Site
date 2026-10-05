@@ -182,7 +182,13 @@
     border-radius: 16px;
 }
 
-/* Screens are shared article assets; the phone stays inside the text's grid row. */
+/* The phone shares a grid row with the header and body, from the start. */
+@media (min-width: 1024px) {
+    article.article-with-screens {
+        padding-top: 2rem;
+    }
+}
+
 .article-screen-layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 15rem;
@@ -190,6 +196,7 @@
     align-items: stretch;
 }
 
+.article-screen-content,
 .article-screen-aside {
     min-width: 0;
 }
@@ -611,6 +618,8 @@
     .has-reading-plan > footer,
     .has-reading-plan article > nav,
     .has-reading-plan article > header,
+    .has-reading-plan .article-screen-content > nav,
+    .has-reading-plan .article-screen-content > header,
     .has-reading-plan article > aside,
     .has-reading-plan .article-screen-aside,
     .has-reading-plan .article-screen-dialog,
@@ -773,6 +782,8 @@
     body.has-bible-checklist { background: #fff !important; color: #000 !important; }
     .has-bible-checklist > :not(main),
     .has-bible-checklist article > :not(.article-body):not(.article-screen-layout),
+    .has-bible-checklist .article-screen-content > nav,
+    .has-bible-checklist .article-screen-content > header,
     .has-bible-checklist .article-screen-aside,
     .has-bible-checklist .article-screen-dialog,
     .has-bible-checklist .article-body > :not(.bible-checklist),

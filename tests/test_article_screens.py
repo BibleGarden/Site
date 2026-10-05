@@ -125,6 +125,10 @@ class ArticleScreensTest(unittest.TestCase):
                             self.assertNotIn('class="article-screen-pager"', html)
                             continue
                         self.assertIn('class="article-screen-pager" hidden', html)
+                        self.assertLess(html.index('class="article-screen-layout"'), html.index('aria-label="Breadcrumb"'))
+                        self.assertLess(html.index('class="article-screen-content"'), html.index('<header class="mb-10'))
+                        self.assertLess(html.index('<header class="mb-10'), html.index('class="article-body"'))
+                        self.assertLess(html.index('class="article-body"'), html.index('class="article-screen-aside"'))
                         images = re.findall(r'<img[^>]*class="article-screen-phone-image"[^>]*>', html)
                         self.assertEqual(
                             [re.search(r'data-screen="([^"]+)"', image).group(1) for image in images],

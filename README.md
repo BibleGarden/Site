@@ -193,7 +193,9 @@ from `static/lampada/assets/lampada-icon-64.png` to
 
 The build stops for an unknown id, malformed or
 misplaced marker, missing caption, missing WebP variant, or checksum mismatch. On wide screens a
-phone stays beside the article and changes at marked headings. With at least two
+phone starts beside the breadcrumbs and header, already at its sticky top
+position. The header wraps within the text column; the phone changes at marked
+headings. With at least two
 distinct screens, arrows and one dot per screen appear under the phone, in order
 of first use in the article. The compact row never wraps: up to 12 screens use
 small filled dots; longer articles show an “N / M” counter instead. These

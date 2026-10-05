@@ -22,7 +22,11 @@
 {% endif %}
 {% endblock %}
 {% block main %}
-    <article class="{% if article.screens %}max-w-6xl{% else %}max-w-3xl{% endif %} mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="{% if article.screens %}article-with-screens max-w-6xl{% else %}max-w-3xl{% endif %} mx-auto px-4 sm:px-6 lg:px-8 py-16">
+{% if article.screens %}
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
+{% endif %}
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/{{ site.language_prefix(lang) }}" class="hover:text-gray-300 transition-colors">{{ t.articles.breadcrumb_home }}</a></li>
@@ -44,13 +48,11 @@
             </p>
         </header>
 
-{% if article.screens %}
-        <div class="article-screen-layout">
-{% endif %}
         <div class="article-body">
 {{ article.body_html | safe }}
         </div>
 {% if article.screens %}
+            </div>
 {% set phone_screens = article.screens | unique(attribute="screen.id") | list %}
             <aside class="article-screen-aside" aria-label="{{ t.articles.screen_viewer }}">
                 <div class="article-screen-sticky">
