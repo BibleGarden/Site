@@ -8,7 +8,7 @@ date: 2026-10-05
 
 - **Berean Standard Bible (BSB), read by Bob Souer** — all 66 books, without music. The recording is dedicated to the public domain under CC0: [chapter MP3s on OpenBible](https://openbible.com/audio/souer/) and [the publisher’s audio page](https://bereanbible.com/audio/).
 - **World English Bible (WEB), read by Winfred Henson** — all 66 books, without music. The narrator placed the recording in the public domain: [MP3 ZIP files on Public Domain Audio Bibles](https://publicdomainaudiobibles.com/WEBW.html).
-- **King James Version (KJV)** — [Public Domain Audio Bibles](https://publicdomainaudiobibles.com/KJV.html) offers a public-domain text-to-speech recording. For human readers, try [LibriVox](https://librivox.org/), which has KJV recordings by book and declares its recordings public domain in the USA.
+- **King James Version (KJV), read by Michael Armenta** — a complete single-narrator LibriVox recording, about 100 hours 45 minutes, available to download with a Public Domain Mark on [Internet Archive](https://archive.org/details/bible\_kjv\_complete\_2001\_librivox). LibriVox also offers recordings of individual books by other readers and declares its recordings public domain in the USA. [Public Domain Audio Bibles](https://publicdomainaudiobibles.com/KJV.html) has a public-domain text-to-speech alternative.
 
 Souer’s BSB and Henson’s WEB are also the recordings you hear in [Bible Garden](/). The app streams them rather than downloading files. KJV is not in the app. Below are the download options, the difference between text and recording rights, and when a file is more useful than streaming.
 
@@ -43,8 +43,8 @@ If you searched for “KJV audio Bible free download MP3,” distinguish the rec
 | KJV recording | Music | Coverage | Download terms |
 |---|---|---|---|
 | **Public Domain Audio Bibles, synthesized male voice** | Not specified by the source | Entire Bible | The site says the recording was placed in the public domain in 2018: [download page](https://publicdomainaudiobibles.com/KJV.html) |
-| **LibriVox volunteers** | Not specified by the source | Individual books, with different readers and versions | Public domain in the USA: [catalog](https://librivox.org/) and [terms](https://librivox.org/pages/public-domain/) |
-| **AudioTreasure** | Versions with and without music | KJV downloads; check the selected collection | Offered with permission for personal and noncommercial ministry use only, rather than a public-domain release: [site](https://audiotreasure.com/) and [FAQ](https://audiotreasure.com/faq.htm) |
+| **LibriVox — Michael Armenta** | No | Entire Bible, 100:45:26 | Free download with a Public Domain Mark: [Internet Archive](https://archive.org/details/bible\_kjv\_complete\_2001\_librivox). LibriVox also has individual-book recordings by other readers: [catalog](https://librivox.org/) and [public-domain terms](https://librivox.org/pages/public-domain/) |
+| **AudioTreasure — Rev. Dan Wagner**, for TalkingBibles.org | No; voice only, not dramatized | Entire Bible; New Testament 270 MB, Old Testament 900 MB | Offered with permission for personal and noncommercial ministry use only, rather than a public-domain release: [MP3 downloads](https://www.audiotreasure.com/AT\_KJVA.htm) and [FAQ](https://audiotreasure.com/faq.htm) |
 | **Alexander Scourby** | Voice-only and dramatized editions | Entire Bible | Paid MP3 editions; the publisher prohibits duplication: [official download page](https://www.scourby.com/download-now/) |
 
 A free upload of Scourby’s reading is not evidence that the publisher authorized it. Use the official source rather than treating an unverified copy as a legal free download. The KJV text itself also has a territorial exception: the [Trinitarian Bible Society](https://www.tbsbibles.org/page/TheAVAndCopyright) explains the Crown rights retained in the UK. Do not assume that a source’s public-domain statement applies everywhere.
@@ -69,7 +69,7 @@ Downloading makes sense when:
 - **you want to give someone a recording on a drive or disc**;
 - **your mobile connection is slow or expensive**.
 
-Allow enough storage. In Bible Garden, Souer’s BSB runs about 69 hours and Henson’s WEB about 84 hours, measured from the app’s audio files on October 4, 2026. Archive size depends on duration and MP3 quality: Henson’s [WEB download](https://publicdomainaudiobibles.com/WEBW.html) lists 995 MB for the Old Testament and 320 MB for the New Testament — roughly 1.3 GB together. Both recordings have clear public-domain permissions for copying and sharing.
+Allow enough storage. In Bible Garden, Souer’s BSB runs about 69 hours and Henson’s WEB about 84 hours, measured from the app’s audio files on October 4, 2026. Archive size depends on duration and MP3 quality: Henson’s [WEB download](https://publicdomainaudiobibles.com/WEBW.html) lists 995 MB for the Old Testament and 320 MB for the New Testament — roughly 1.3 GB together. Both recordings have clear public-domain permissions for copying and sharing. For KJV, AudioTreasure’s [voice-only reading by Rev. Dan Wagner](https://www.audiotreasure.com/AT\_KJVA.htm) lists 270 MB for the New Testament and 900 MB for the Old Testament — roughly 1.2 GB together, under the site’s personal and noncommercial ministry terms. Download sizes are as listed by the sources checked on October 5, 2026.
 
 ## Why Bible Garden streams instead of downloading
 <!-- screen: classic-reading-english -->
@@ -89,9 +89,9 @@ If you need an app with offline audio downloads, see our comparison of [free aud
 **Multi Reading is Bible Garden’s key feature.** A verse plays in one translation, then after a pause in another — for example, BSB followed by WEB. All selected translations appear under each verse, with the one playing highlighted. A chapter MP3 is a continuous recording of one reading; it does not switch translations verse by verse.
 </div>
 
-You can also combine languages. The screen and example below show John 1:1–5 in English BSB, read by Bob Souer, followed by Ukrainian Khomenko, read by Ihor Kozlov. This passage works for verse-by-verse listening. Do not assume every passage will: Khomenko often counts a psalm heading as verse 1, shifting the verses that follow even though it uses the same psalm numbering as BSB.
+Listen to John 1:1–5 in BSB, read by Bob Souer, followed by WEB, read by Winfred Henson. You can mix languages too, as the screen shows with English BSB and Ukrainian Khomenko.
 
-<!-- demo: ukrainian-bible -->
+<!-- demo: translation-compare -->
 
 The app also lets you:
 
@@ -109,7 +109,7 @@ For a complete human reading without music, start with Bob Souer’s BSB on Open
 
 ### Can I download the KJV audio Bible for free as MP3s?
 
-Yes. Public Domain Audio Bibles offers a synthesized KJV recording it declares public domain. LibriVox has human readings by book, public domain in the USA. AudioTreasure also offers KJV downloads under personal and noncommercial ministry terms. KJV is not in Bible Garden.
+Yes. LibriVox’s complete KJV read by Michael Armenta is available on [Internet Archive](https://archive.org/details/bible\_kjv\_complete\_2001\_librivox) with a Public Domain Mark; it runs 100:45:26. LibriVox also has individual-book readings, public domain in the USA. Public Domain Audio Bibles offers a synthesized KJV recording it declares public domain. AudioTreasure offers Rev. Dan Wagner’s voice-only KJV under personal and noncommercial ministry terms. KJV is not in Bible Garden.
 
 ### Can I listen to Bible Garden without internet?
 
