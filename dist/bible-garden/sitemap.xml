@@ -256,6 +256,30 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/chronological-bible-reading-plan/"/>
   </url>
   <url>
+    <loc>https://bible.garden/articles/classic-bible-translation-audio/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/classic-bible-translation-audio/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/classic-bible-translation-audio/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/classic-bible-translation-audio/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/classic-bible-translation-audio/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/ru/articles/classic-bible-translation-audio/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/classic-bible-translation-audio/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/classic-bible-translation-audio/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/classic-bible-translation-audio/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/classic-bible-translation-audio/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/uk/articles/classic-bible-translation-audio/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/classic-bible-translation-audio/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/classic-bible-translation-audio/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/classic-bible-translation-audio/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/classic-bible-translation-audio/"/>
+  </url>
+  <url>
     <loc>https://bible.garden/articles/custom-reading-mode/</loc>
     <lastmod>2026-10-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/custom-reading-mode/"/>

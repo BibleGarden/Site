@@ -2,10 +2,9 @@
 title: "KJV audio Bible: where to listen and download for free"
 description: "Listen to the King James Bible free with Max McLean, or download KJV MP3s for offline listening. Compare its older wording with WEB and BSB audio in Bible Garden."
 date: 2026-10-05
-draft: true
 ---
 
-You can **listen to the KJV audio Bible for free** on [YouVersion](https://www.bible.com/audio-bible-app-versions/1-kjv-king-james-version), read by Max McLean, or on [Bible Gateway](https://www.biblegateway.com/audio/), which offers several recordings. For a **free KJV audio Bible download** you can play offline, try [LibriVox’s complete recording](https://archive.org/details/bible_kjv_complete_2001_librivox) or [AudioTreasure’s MP3s](https://www.audiotreasure.com/AT_KJVA.htm).
+You can **listen to the KJV audio Bible for free** on [YouVersion](https://www.bible.com/audio-bible-app-versions/1-kjv-king-james-version), read by Max McLean, or on [Bible Gateway](https://www.biblegateway.com/audio/), which offers several recordings. For a **free KJV audio Bible download** you can play offline, try [LibriVox’s complete recording](https://archive.org/details/bible\_kjv\_complete\_2001\_librivox) or [AudioTreasure’s MP3s](https://www.audiotreasure.com/AT\_KJVA.htm).
 
 The King James Version is **not in Bible Garden**. Below are the free KJV sources, followed by a look at words that can be confusing today and two modern-English alternatives you can hear with synchronized text in the app: the World English Bible (WEB) and Berean Standard Bible (BSB).
 
@@ -17,8 +16,8 @@ These sources were checked on October 5, 2026. A free recording is not necessari
 |---|---|---|
 | [YouVersion / Bible App](https://www.bible.com/audio-bible-app-versions/1-kjv-king-james-version) | Max McLean, *The Listener’s Audio Bible*; expressive solo reading | All 66 books; free listening in the app; recording © Fellowship for the Performing Arts |
 | [Bible Gateway](https://www.biblegateway.com/audio/) | Max McLean, Paul Mims, or a dramatized edition | KJV audio in the browser; choose a recording in the player; download terms were not verified |
-| [LibriVox / Internet Archive](https://archive.org/details/bible_kjv_complete_2001_librivox) | Michael Armenta, a single volunteer reader | Complete KJV, 1769 Oxford text; about 100 hours 45 minutes; public-domain recording, free download |
-| [AudioTreasure](https://www.audiotreasure.com/AT_KJVA.htm) | Rev. Dan Wagner for TalkingBibles.org; voice only, not dramatized | Old and New Testaments; free MP3 downloads for offline listening; see the site’s terms for reuse |
+| [LibriVox / Internet Archive](https://archive.org/details/bible\_kjv\_complete\_2001\_librivox) | Michael Armenta, a single volunteer reader | Complete KJV, 1769 Oxford text; about 100 hours 45 minutes; public-domain recording, free download |
+| [AudioTreasure](https://www.audiotreasure.com/AT\_KJVA.htm) | Rev. Dan Wagner for TalkingBibles.org; voice only, not dramatized | Old and New Testaments; free MP3 downloads for offline listening; see the site’s terms for reuse |
 | [Public Domain Audio Bibles](https://publicdomainaudiobibles.com/KJV.html) | Text-to-speech rather than a human narrator | Old and New Testaments as downloadable ZIP files; recording placed in the public domain |
 
 For a familiar performed reading, start with McLean. If you want voice only and files you can keep on your device, AudioTreasure is a practical option; LibriVox offers another complete downloadable recording. For a broader comparison of phone apps, see [free audio Bible apps and websites](/articles/free-audio-bible-apps/).
@@ -41,7 +40,7 @@ Here are short excerpts from the [KJV text on eBible.org](https://ebible.org/eng
 ## WEB and BSB: modern-English audio in Bible Garden
 <!-- screen: translation-picker-english -->
 
-The free [Bible Garden](/) app for iPhone and iPad offers WEB and BSB, with no ads or in-app purchases. WEB is a modern-English revision in the KJV’s line of descent: KJV → Revised Version → American Standard Version of 1901 → WEB. It is not simply the KJV with old words replaced. BSB is a separate modern translation. Both texts are in the public domain; the KJV’s legal status differs in the UK, where Crown rights apply. Sources: [WEB’s publisher](https://worldenglish.bible/), [ASV history](https://en.wikipedia.org/wiki/American_Standard_Version), [BSB terms](https://berean.bible/terms.htm), and [KJV history and rights](https://en.wikipedia.org/wiki/King_James_Version).
+The free [Bible Garden](/) app for iPhone and iPad offers WEB and BSB, with no ads or in-app purchases. WEB is a modern-English revision in the KJV’s line of descent: KJV → Revised Version → American Standard Version of 1901 → WEB. It is not simply the KJV with old words replaced. BSB is a separate modern translation. Both texts are in the public domain; the KJV’s legal status differs in the UK, where Crown rights apply. Sources: [WEB’s publisher](https://worldenglish.bible/), [ASV history](https://en.wikipedia.org/wiki/American\_Standard\_Version), [BSB terms](https://berean.bible/terms.htm), and [KJV history and rights](https://en.wikipedia.org/wiki/King\_James\_Version).
 
 | Translation | Narrator | Music | Books in the app | Full recording at 1× |
 |---|---|---|---|---|
