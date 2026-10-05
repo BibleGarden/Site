@@ -168,3 +168,35 @@ multi-reading-english-ukrainian:
     en: John 1 in English BSB and Ukrainian Khomenko translations in Multi Reading
     ru: 'Иоанна 1 в Мультичтении: английский BSB и украинский перевод Хоменко'
     uk: 'Йоана 1 у Мультичитанні: англійський BSB і український переклад Хоменка'
+
+# Study and large-text frames: ClickUp 123pfqn1vcr (2026-10-05).
+psalm-one:
+  kind: app
+  captions:
+    en: Psalm 1 in Classic Reading, Berean Standard Bible (BSB)
+    ru: Псалом 1 в Синодальном переводе с открытой сноской Пс 91:13 и Иер 17:8
+    uk: Псалом 1 у Звичайному читанні, переклад Хоменка
+classic-reading-large-text:
+  kind: app
+  captions:
+    en: Classic Reading with Bible text size set to 300%
+    ru: Обычное чтение с размером текста Библии 300 %
+    uk: Звичайне читання з розміром тексту Біблії 300 %
+multi-step-speed-russian:
+  kind: app
+  captions:
+    en: Audio speed for a Russian Synodal Multi Reading step, read by Ilya Prudovsky
+    ru: 'Настройка скорости русского шага Мультичтения: Синодальный перевод, Илья Прудовский'
+    uk: 'Налаштування швидкості російського кроку Мультичитання: Синодальний переклад, Ілля Прудовський'
+classic-reading-synodal:
+  kind: app
+  captions:
+    en: John 1 in the Russian Synodal translation, read by Ilya Prudovsky
+    ru: Иоанна 1 в Синодальном переводе, читает Илья Прудовский
+    uk: Йоана 1 у російському Синодальному перекладі, читає Ілля Прудовський
+multi-reading-synodal:
+  kind: app
+  captions:
+    en: John 1 in Russian Synodal and Kulakov translations in Multi Reading
+    ru: 'Иоанна 1 в Мультичтении: Синодальный перевод и перевод Кулаковых'
+    uk: 'Йоана 1 у Мультичитанні: російський Синодальний переклад і переклад Кулакових'

@@ -177,24 +177,24 @@ JavaScript the first desktop screenshot remains visible and mobile images open
 as ordinary links. Sections without a marker keep the previous screen; a very
 short final section may not reach the activation line on a tall screen.
 
-The pinned screenshot archive is `bible-garden-screens-v6.zip`, prepared for
-[ClickUp task 123pfqn1u7z](https://app.clickup.com/t/123pfqn1u7z) on 2026-10-05
-(SHA-256 `67c57c181599e8ebb18d615e9f7a4abd97d5f1ba4c7b84542b7e1ffa51c9ebe9`).
-It preserves the 69 v5 PNGs and adds 12 Ukrainian-text frames with en/ru/uk
-interfaces; source app main is `4b26638`, version 1.7.
+The pinned screenshot archive is `bible-garden-screens-v7.zip`, prepared for
+[ClickUp task 123pfqn1vcr](https://app.clickup.com/t/123pfqn1vcr) on 2026-10-05
+(SHA-256 `2dfe7668b8925126b87d1c62738f312d9136d81f8f1d58b3ff76e17c3943e6a0`).
+It preserves the 81 v6 PNGs and adds 15 study and large-text frames with
+en/ru/uk interfaces; source app main is `4b26638`, version 1.7.
 Import it with the development machine's `cwebp 1.3.2`:
 
 ```bash
-.venv/bin/python tools/import_article_screens.py --site-config content/bible-garden/site.yaml /path/to/bible-garden-screens-v6.zip
+.venv/bin/python tools/import_article_screens.py --site-config content/bible-garden/site.yaml /path/to/bible-garden-screens-v7.zip
 .venv/bin/python -m sitegen build
 .venv/bin/python -m sitegen check
 ```
 
-The importer verifies the archive, its 81 named PNGs and source dimensions,
+The importer verifies the archive, its 96 named PNGs and source dimensions,
 then writes WebP to `static/bible-garden/img/article-screens/{mobile,phone,zoom}/` at widths
 360, 480 and 960 px with `cwebp -q 88`, plus their SHA-256 list in
 `content/bible-garden/screens.sha256`. Source PNGs stay outside the repo.
-The 243 WebP occupy 11.40 MiB (measured on 2026-10-05 by counting
+The 288 WebP occupy 13.84 MiB (measured on 2026-10-05 by counting
 files and summing sizes in `static/bible-garden/img/article-screens/` after import).
 CI checks committed variants without needing the archive
 or `cwebp`. The draft `template-check` article exercises two markers in all
@@ -230,8 +230,32 @@ Old markers showing other translations in NPU sections were removed; no NPU
 capture is claimed. Checked on 2026-10-05 against the article source and
 its generated HTML.
 
+Study and large-text IDs (article drafts 6.26–6.28):
+
+| Article | Screen ID | Placement |
+| --- | --- | --- |
+| 6.27, study methods | `psalm-one` | Psalm 1 example and parallel passages |
+| 6.28, reading difficulties | `classic-reading-large-text` | Large Bible text (app size setting 300%) |
+| 6.28, reading difficulties | `multi-step-speed-russian` | Russian Synodal / Prudovsky step, speed 0.8× |
+| 6.26, Russian Synodal audio | `classic-reading-synodal` | Listening to the Synodal translation |
+| 6.26, Russian Synodal audio | `multi-reading-synodal` | Synodal + Kulakov in Multi Reading |
+
+`psalm-one.ru` has the native Synodal footnote open (Psalm 91:13; Jeremiah
+17:8). Psalm 1 has no note entries in BSB or Khomenko in the production API;
+the en/uk variants keep those requested translations without inventing notes.
+The English BSB image also shows the native title references below its heading.
+This departure from the requested open-note state needs acceptance. Captions
+only describe visible content; API evidence is in the archive's `validation.json`.
+
+No VoiceOver image or compatibility claim is included. It depends on the
+separate [audit](https://app.clickup.com/t/123pfqn1vbu), which had no report on
+2026-10-05. Article drafts 6.26–6.28 were absent from Site main and public
+feature branches when checked on that date. Their authors must replace markers
+using the table above after the screenshot catalog change is merged; this
+change does not claim article integration or the task's full acceptance.
+
 `select-chapter` remains the v4 capture. Recapture it after the Malachi filter
-fix in [ClickUp 123pfqn1u64](https://app.clickup.com/t/123pfqn1u64); v6 does not
+fix in [ClickUp 123pfqn1u64](https://app.clickup.com/t/123pfqn1u64); v7 does not
 claim that fix or an updated chapter-selection screen.
 
 ### Callout

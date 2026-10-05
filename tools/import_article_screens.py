@@ -18,7 +18,7 @@ sys.path.insert(0, str(REPO_ROOT))
 from sitegen.content import load_site  # noqa: E402
 from sitegen.screens import ASSET_DIR, SOURCE_SIZES, VARIANTS, load_catalog, webp_dimensions  # noqa: E402
 
-ARCHIVE_SHA256 = "67c57c181599e8ebb18d615e9f7a4abd97d5f1ba4c7b84542b7e1ffa51c9ebe9"
+ARCHIVE_SHA256 = "2dfe7668b8925126b87d1c62738f312d9136d81f8f1d58b3ff76e17c3943e6a0"
 CWEBP_VERSION = "1.3.2"
 SOURCE_PREFIX = "bible-garden-screens/"
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
