@@ -65,7 +65,7 @@ as stored, without inserting the blessing absent from UBH.
 No saints' readings or related transfers, Matins readings or full Typikon of rare
 Annunciation/Holy Week coincidences are computed. Ukrainian future winter repeats
 are projected, visibly unconfirmed. ROC R=1 is partly verified and marked uncertain.
-Build range is explicit: 2026–2027. Daily arithmetic accepts 1901–2098;
+Build range is explicit: 2026–2030. Daily arithmetic accepts 1901–2098;
 Paschalion accepts 1900–2099. Extend the committed output yearly, refreshing dated
 Ukrainian evidence when official calendars become available.
 
@@ -105,53 +105,59 @@ no required empty/missing coordinates. Other corpus gaps outside these pericopes
 were not changed or included in this claim.
 
 
-## Source bundle and daily public sizes
+## Source bundle and chapter public sizes
 
-Current generation: 2026–2027, 730 dates, 766 unique references across the union
-of both calendars. Sources are one annual schedule per page language/year,
-one passage dictionary per text translation and a fingerprint manifest.
-Public schema 2 shares the two calendars in each dated translation file:
-`dist/bible-garden/data/gospel-today/<YYYY>/<MM>-<DD>/<translation>.json`.
-Only the selected translation is fetched; narrator changes reuse its timings.
-No dictionaries, annual files, snapshot or manifest are public. No audio files
-are added. README documents the queue, API numbering and preview configuration.
+Generation: 2026–2030, 1,826 dates per calendar, 768 distinct references in their
+union. The fingerprinted source has ten annual schedules, seven passage
+dictionaries and a manifest. Public schema 3 publishes no daily passage files:
+120 monthly reference schedules and 314 required chapters per translation.
 
-Measured 2026-10-05 by `daily_files(load_bundle())`: byte lengths of compact UTF-8
-payloads; `statistics.median`/`max`, excluding allocation and other static assets.
-These 5,110 JSON files are the entire public `data/` tree in this worktree.
+Measured 2026-10-05 after build using file byte lengths in
+`dist/bible-garden/data/gospel-today/`, excluding filesystem allocation and
+unrelated static assets:
 
-| Translation | Files | Total bytes | Median bytes | Largest bytes |
+| Type | Files | Total UTF-8 bytes | Largest file |
+|---|---:|---:|---:|
+| Monthly schedules | 120 | 1,113,403 | 11,616 |
+| Translated chapters with all offered voices | 2,198 | 12,006,025 | 15,764 |
+| **All public data** | **2,318** | **13,119,428** | **15,764** |
+
+Paths: `schedule/<ru|uk>/<YYYY>/<MM>.json`,
+`text/<translation>/<canonical-book:02>/<chapter:02>.json`.
+Each chapter's text and timecodes occur once across days/calendars; monthly
+schedules contain only day metadata and Scripture coordinates. See README for
+strict validation, range assembly, API numbering and cache behavior.
+
+Cold-page JSON bytes, including one monthly schedule, excluding MP3 streams and
+other page assets. Measured by deriving each day's unique mapped chapter keys
+and summing those files plus its schedule; Chromium asserts the matching request
+set (3 requests on October 5; 6 on the composite Holy Thursday reading).
+
+| Translation | ru Oct 5 | uk Oct 5 | ru Apr 9 | uk Apr 9 |
 |---|---:|---:|---:|---:|
-| syn | 730 | 5,183,399 | 6227.5 | 23,398 |
-| bti | 730 | 5,170,529 | 6220.5 | 23,357 |
-| ubh | 730 | 4,829,697 | 5822.5 | 21,893 |
-| npu | 730 | 4,405,064 | 5516 | 22,340 |
-| bsb | 730 | 3,824,331 | 4586.5 | 17,652 |
-| webus | 730 | 3,621,823 | 4331.5 | 16,163 |
-| webbe | 730 | 3,616,731 | 4328 | 16,141 |
-| **All public data** | **5,110** | **30,651,574** | **5,361** | **23,398** |
-
-Content bundle: 13,244,802 bytes (11 data files + manifest).
-JSON source inputs: 14,775,627 bytes (tables, comparisons, verses,
-timecodes and book names). These sources remain offline, not published.
-Unconfirmed computed dates: ru 0, uk 610 of 730 each. Regeneration
-never removes uncertainty by extrapolating evidence.
+| syn | 23,070 | 24,780 | 66,863 | 66,646 |
+| bti | 23,258 | 25,473 | 67,532 | 67,315 |
+| ubh | 22,781 | 23,986 | 63,243 | 63,026 |
+| npu | 22,726 | 23,991 | 64,313 | 64,096 |
+| bsb | 20,069 | 20,607 | 52,215 | 51,998 |
+| webus | 19,199 | 19,730 | 48,411 | 48,194 |
+| webbe | 19,201 | 19,729 | 48,415 | 48,198 |
 
 ## Translation and aligned-audio coverage
 
 Measured 2026-10-05 from the local read-only cep_public exports and validated
-766-reference union for this horizon. Counts are complete **distinct passages**,
+768-reference union for this horizon. Counts are complete **distinct passages**,
 not dates, individual verses or claims about whole Bible coverage.
 
 | Translation | Complete text passages | Narrator: complete aligned passages |
 |---|---:|---|
-| syn | 766 / 766 | bondarenko: 736; prudovsky: 766 |
-| bti | 752 / 766 | prozorovsky: 746 |
-| ubh | 764 / 766 | kozlov_uk: 764 |
-| npu | 671 / 766 | npu_uk: 671 |
-| bsb | 749 / 766 | bsb_david: 749; bsb_souer: 749 |
-| webus | 762 / 766 | winfred_henson: 762 |
-| webbe | 762 / 766 | web_british: 761 |
+| syn | 768 / 768 | prudovsky: 768; bondarenko: 738 |
+| bti | 754 / 768 | prozorovsky: 748 |
+| ubh | 766 / 768 | kozlov_uk: 766 |
+| npu | 673 / 768 | npu_uk: 673 |
+| bsb | 751 / 768 | bsb_souer: 751; bsb_david: 751 |
+| webus | 764 / 768 | winfred_henson: 764 |
+| webbe | 764 / 768 | web_british: 763 |
 
 The active registry is 7 translations / 9 voices. NPU covers Psalms and NT only.
 Bondarenko lacks 1–2 Chronicles, Song of Songs and Isaiah and includes music.

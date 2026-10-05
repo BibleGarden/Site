@@ -51,13 +51,98 @@
     }
     return result;
   }
+  function mappedRanges(ref, translation) {
+    const ranges = [];
+    for (const [c1,v1,c2,v2] of ref.ranges) {
+      if (translation === 'ubh' && ref.book === 45 && c2 === 14 && v2 > 23) {
+        if (c1 !== 14 || v2 > 26) throw new Error('Unmapped Romans reference');
+        if (v1 <= 23) ranges.push([14,v1,14,23]);
+        ranges.push([16,Math.max(v1,24)+1,16,v2+1]);
+      } else ranges.push([c1,v1,c2,v2]);
+    }
+    return ranges;
+  }
+  function selectSchedule(schedule, date, config) {
+    const year = Number(date.slice(0,4)), month = Number(date.slice(5,7));
+    if (!schedule || schedule.schema_version !== 3 || schedule.calendar !== (config.lang === 'ru' ? 'julian' : 'newjulian') ||
+        schedule.year !== year || schedule.month !== month || !schedule.days || !schedule.references) throw new Error('Invalid monthly schedule');
+    const count = new Date(year,month,0).getDate();
+    const dates = Array.from({length:count},(_,i)=>`${date.slice(0,7)}-${String(i+1).padStart(2,'0')}`);
+    if (Object.keys(schedule.days).sort().join() !== dates.join()) throw new Error('Missing monthly dates');
+    for (const ref of Object.values(schedule.references)) {
+      if (!ref || !Number.isInteger(ref.book) || ref.book < 1 || ref.book > 66 || !Array.isArray(ref.ranges) || !ref.ranges.length ||
+          ref.ranges.some(r=>!Array.isArray(r) || r.length!==4 || !r.every(v=>Number.isInteger(v) && v>0) || r[0]>r[2] || (r[0]===r[2] && r[1]>r[3]))) throw new Error('Invalid schedule reference');
+    }
+    const day = schedule.days[date];
+    if (!day || !Array.isArray(day.items)) throw new Error('Missing schedule day');
+    return day;
+  }
+  function chapterKeys(day, references, translation, strings) {
+    const keys = new Set();
+    for (const {id} of orderedReadings(day,strings)) {
+      const ref = references[id];
+      if (!ref) throw new Error('Missing reading reference');
+      for (const [c1,,c2] of mappedRanges(ref,translation)) for (let c=c1;c<=c2;c++) keys.add(`${ref.book}/${c}`);
+    }
+    return [...keys];
+  }
+  function validateChapter(data, translation, book, chapter, config) {
+    if (!data || Object.keys(data).sort().join() !== ['schema_version','translation','book','chapter','book_name','abbr','unavailable','verses','audio'].sort().join() || data.schema_version!==3 || data.translation!==translation || data.book!==book || data.chapter!==chapter ||
+        typeof data.book_name !== 'string' || !data.book_name.trim() || typeof data.abbr !== 'string' || !data.abbr.trim() || !Array.isArray(data.verses) || !data.audio ||
+        Object.keys(data.audio).sort().join()!==Object.keys(config.editions[translation].voices).sort().join() ||
+        ![null,'missing_text','numbering'].includes(data.unavailable) || Boolean(data.verses.length)!==(data.unavailable===null)) throw new Error('Invalid chapter asset');
+    let previous=0;
+    for (const v of data.verses) {
+      if (!Array.isArray(v) || v.length!==3 || !Number.isInteger(v[0]) || !Number.isInteger(v[1]) ||
+          v[0]<=previous || v[1]<v[0] || typeof v[2]!=='string' || !v[2].trim()) throw new Error('Invalid chapter verse');
+      previous=v[0];
+    }
+    for (const segments of Object.values(data.audio)) {
+      if (!Array.isArray(segments) || segments.length!==data.verses.length || segments.some(v=>v!==null &&
+          (!Array.isArray(v) || v.length!==2 || !v.every(Number.isFinite) || v[0]<0 || v[0]>=v[1]))) throw new Error('Invalid chapter alignment');
+    }
+    return data;
+  }
+  function assembleDay(schedule, chapters, date, config, choice) {
+    const day=selectSchedule(schedule,date,config), passages={};
+    for (const {id} of orderedReadings(day,config.strings)) {
+      if (Object.hasOwn(passages,id)) continue;
+      const ref=schedule.references[id], ranges=mappedRanges(ref,choice[0]);
+      const first=chapters[`${ref.book}/${ranges[0][0]}`];
+      if (!first) throw new Error('Missing chapter asset');
+      const label=first.abbr+' '+ranges.map(([c1,v1,c2,v2])=>`${c1}:${v1}`+((c1===c2 && v1===v2)?'':`–${c1===c2?v2:c2+':'+v2}`)).join('; ');
+      const p={book:ref.book,ranges:ref.ranges,display_ranges:ranges,label,book_name:first.book_name,verses:[],audio:Object.fromEntries(Object.keys(first.audio).map(v=>[v,[]]))};
+      const seen=new Set(); let reason=null;
+      for (const [c1,v1,c2,v2] of ranges) for (let c=c1;c<=c2;c++) {
+        const data=chapters[`${ref.book}/${c}`];
+        if (!data) throw new Error('Missing chapter asset');
+        if (data.unavailable) {reason=data.unavailable==='numbering'?'numbering':reason || data.unavailable;continue;}
+        const low=c===c1?v1:1, high=c===c2?v2:Math.max(...data.verses.map(v=>v[1]));
+        const covered=new Set();
+        data.verses.forEach(([first,last,text],i)=>{
+          if (first>high || last<low) return;
+          for (let n=Math.max(low,first);n<=Math.min(high,last);n++) covered.add(n);
+          if (seen.has(`${c}/${first}`)) return;
+          seen.add(`${c}/${first}`);p.verses.push([c,first,last,text]);
+          for (const voice of Object.keys(p.audio)) p.audio[voice].push(data.audio[voice][i]);
+        });
+        if (high<low || covered.size!==high-low+1) reason=reason || 'missing_text';
+      }
+      if (reason) passages[id]={book:ref.book,ranges:ref.ranges,label,book_name:first.book_name,unavailable:reason};
+      else {
+        for (const voice of Object.keys(p.audio)) if (p.audio[voice].includes(null)) p.audio[voice]=null;
+        passages[id]=p;
+      }
+    }
+    return {schema_version:3,calendar:schedule.calendar,date,translation:choice[0],day,passages};
+  }
   function selectDay(daily, date, config, choice) {
     humanDate(date, config.lang);
     const year = Number(date.slice(0, 4));
     if (year < config.start_year || year > config.end_year) throw new RangeError(config.strings.out_of_range);
-    if (!validChoice(choice, config) || daily.schema_version !== 2 || daily.date !== date || daily.translation !== choice[0] ||
-        !daily.days || Object.keys(daily.days).sort().join() !== 'ru,uk' || !daily.passages) throw new Error('Invalid daily assets');
-    const day = daily.days[config.lang];
+    if (!validChoice(choice, config) || daily.schema_version !== 3 || daily.date !== date || daily.translation !== choice[0] ||
+        daily.calendar !== (config.lang === 'ru' ? 'julian' : 'newjulian') || !daily.day || !daily.passages) throw new Error('Invalid daily assets');
+    const day = daily.day;
     if (!day || !Array.isArray(day.items) || !day.items.length || typeof day.uncertain !== 'boolean' ||
         !Array.isArray(day.confirmed_by) || (config.lang === 'uk' && !day.uncertain && !day.confirmed_by.length)) throw new Error('Invalid calendar day');
     const allowed = ['kind','id','name','note','apostle','gospel','ot','gospel_composite','hours'];
@@ -167,7 +252,6 @@
     const selectors = root.querySelector('[data-gospel-selectors]');
     const links = root.nextElementSibling;
     let choice, activeKey = null, token = 0, timer = null, playback = null, disposed = false;
-    let cachedDate = null;
     const cache = new Map();
     const selects = {};
     function showError(error) {
@@ -200,15 +284,28 @@
       try {
         const year = clock.getFullYear();
         if (year < config.start_year || year > config.end_year) throw new RangeError(config.strings.out_of_range);
-        if (cachedDate !== date) { cache.clear(); cachedDate = date; }
-        const path = `/data/gospel-today/${date.slice(0,4)}/${date.slice(5)}/${choice[0]}.json`;
-        if (!cache.has(path)) cache.set(path, (async () => {
-          const response = await fetcher(path);
-          if (!response.ok) throw new Error(`Reading asset HTTP ${response.status}`);
-          return response.json();
-        })());
         const selected = [...choice];
-        const daily = await cache.get(path);
+        async function asset(path) {
+          if (!cache.has(path)) {
+            // Bounded cache shares chapters across dates and narrator changes.
+            if (cache.size >= 32) cache.delete(cache.keys().next().value);
+            cache.set(path, (async () => {
+              const response=await fetcher(path);
+              if (!response.ok) throw new Error(`Reading asset HTTP ${response.status}: ${path}`);
+              return response.json();
+            })());
+          }
+          return cache.get(path);
+        }
+        const schedule=await asset(`/data/gospel-today/schedule/${config.lang}/${year}/${date.slice(5,7)}.json`);
+        if (request !== token || disposed) return;
+        const scheduled=selectSchedule(schedule,date,config);
+        const entries=await Promise.all(chapterKeys(scheduled,schedule.references,selected[0],config.strings).map(async key=>{
+          const [book,chapter]=key.split('/').map(Number);
+          const value=await asset(`/data/gospel-today/text/${selected[0]}/${String(book).padStart(2,'0')}/${String(chapter).padStart(2,'0')}.json`);
+          return [key,validateChapter(value,selected[0],book,chapter,config)];
+        }));
+        const daily=assembleDay(schedule,Object.fromEntries(entries),date,config,selected);
         if (request !== token || disposed) return;
         const day = selectDay(daily, date, config, selected);
         const rendered = renderReadings(document, day, daily, config.strings, config.audio, selected);
@@ -245,7 +342,7 @@
     refresh();
     return {refresh, dispose() { disposed = true; token++; clearTimeout(timer); document.removeEventListener('visibilitychange', visibility); if (playback) playback.dispose(); }};
   }
-  const api = {humanDate, localDate, midnightDelay, validChoice, savedChoice, orderedReadings, selectDay, renderReadings, mount, STORAGE_KEY};
+  const api = {humanDate, localDate, midnightDelay, validChoice, savedChoice, orderedReadings, selectDay, renderReadings, mount, STORAGE_KEY, mappedRanges, selectSchedule, chapterKeys, validateChapter, assembleDay};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   if (typeof document !== 'undefined') document.querySelectorAll('[data-gospel-today]').forEach(root => mount(root, document, window.fetch.bind(window)));
 }());

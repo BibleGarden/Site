@@ -227,49 +227,98 @@ def referenced_passages(days):
     return refs
 
 
-def unpack_passages(passages):
-    result = {}
-    for pid, p in passages.items():
-        if 'unavailable' in p:
-            result[pid] = p
-            continue
-        require(set(p) == {'book', 'ranges', 'display_ranges', 'label', 'book_name', 'verses', 'audio'}, 'invalid packed passage')
-        require(isinstance(p['verses'], list) and all(isinstance(v,list) and len(v)==4 for v in p['verses']), 'invalid packed verses')
-        result[pid] = {**p, 'verses': [dict(zip(('chapter','first','last','text'), v)) for v in p['verses']]}
+def display_ranges(ref, translation):
+    # Explicit versification difference, not a substitute for absent data.
+    result = []
+    for c1, v1, c2, v2 in ref['ranges']:
+        if translation == 'ubh' and ref['book'] == 45 and c2 == 14 and v2 > 23:
+            require(c1 == 14 and v2 <= 26, 'unhandled Romans doxology range')
+            if v1 <= 23:
+                result.append([14, v1, 14, 23])
+            result.append([16, max(v1, 24) + 1, 16, v2 + 1])
+        else:
+            result.append([c1, v1, c2, v2])
     return result
 
 
-def validate_daily(data, date):
+
+def validate_month(data, lang, year, month):
+    require(isinstance(data,dict) and set(data) == {'schema_version','calendar','year','month','days','references'}, 'invalid monthly schedule')
+    require(type(data['schema_version']) is int and data['schema_version']==3 and data['calendar']==CALENDARS[lang]
+            and type(data['year']) is int and data['year']==year and type(data['month']) is int and data['month']==month
+            and isinstance(data['days'],dict), 'invalid monthly metadata')
+    first = dt.date(year,month,1)
+    end = dt.date(year+1,1,1) if month==12 else dt.date(year,month+1,1)
+    require(set(data['days']) == {(first+dt.timedelta(days=i)).isoformat() for i in range((end-first).days)}, 'missing or extra monthly days')
+    require(isinstance(data['references'],dict) and set(data['references'])==referenced_passages(data['days']), 'missing or unused monthly references')
+    for pid, ref in data['references'].items():
+        require(set(ref)=={'book','ranges'} and pid==passage_id(ref), 'invalid monthly reference')
+        validate_reference(ref)
+    validate_days(data['days'],lang,data['references'])
+
+
+def validate_chapter(data, translation, book, chapter):
+    from .gospel_audio import EDITIONS, UNAVAILABLE, valid_timing
+    require(isinstance(data,dict) and set(data)=={'schema_version','translation','book','chapter','book_name','abbr','unavailable','verses','audio'}, 'invalid chapter schema')
+    require(type(data['schema_version']) is int and data['schema_version']==3 and data['translation']==translation
+            and translation in EDITIONS and type(data['book']) is int and data['book']==book and 1<=book<=66
+            and type(data['chapter']) is int and data['chapter']==chapter and chapter>0, 'invalid chapter identity')
+    require(all(isinstance(data[k],str) and data[k].strip() for k in ('book_name','abbr')), 'invalid chapter labels')
+    require(data['unavailable'] is None or data['unavailable'] in UNAVAILABLE, 'invalid unavailable chapter')
+    require(isinstance(data['verses'],list) and isinstance(data['audio'],dict)
+            and set(data['audio'])==set(EDITIONS[translation]['voices']), 'invalid chapter voices')
+    require(bool(data['verses']) == (data['unavailable'] is None), 'invalid chapter availability')
+    previous = 0
+    for verse in data['verses']:
+        require(isinstance(verse,list) and len(verse)==3 and all(type(v) is int and v>0 for v in verse[:2])
+                and previous<verse[0]<=verse[1] and isinstance(verse[2],str) and verse[2].strip(), 'invalid chapter verse')
+        previous=verse[0]
+    for segments in data['audio'].values():
+        require(isinstance(segments,list) and len(segments)==len(data['verses']), 'invalid chapter alignment count')
+        for segment in segments:
+            require(segment is None or (isinstance(segment,list) and len(segment)==2 and valid_timing(*segment)), 'invalid chapter timing')
+
+
+def public_files(manifest, assets):
+    """Monthly references plus each required translated chapter exactly once."""
     from .gospel_audio import EDITIONS
-    require(isinstance(data, dict) and set(data) == {'schema_version', 'translation', 'date', 'days', 'passages'}, 'invalid daily schema')
-    require(type(data['schema_version']) is int and data['schema_version'] == 2 and data['translation'] in EDITIONS and data['date'] == date, 'invalid daily metadata')
-    try:
-        require(dt.date.fromisoformat(date).isoformat() == date, 'invalid date')
-    except (TypeError, ValueError) as error:
-        raise BuildError('invalid date') from error
-    passages = unpack_passages(data['passages'])
-    validate_passages({'schema_version': 2, 'translation': data['translation'], 'passages': passages}, EDITIONS[data['translation']]['language'])
-    require(isinstance(data['days'], dict) and set(data['days']) == set(CALENDARS), 'invalid daily calendars')
+    verse_snapshot=load_json(SOURCE/'verses.json')
+    timings=load_json(SOURCE/'timecodes.json')['timecodes']
+    books=load_json(SOURCE/'book-names.json')
+    files, references = {}, {}
+    source=assets['syn/texts.json']['passages']
     for lang in CALENDARS:
-        validate_days({date: data['days'][lang]}, lang, passages)
-    require(set(passages) == referenced_passages(data['days']), 'missing or unused daily passages')
-
-
-def daily_files(manifest, assets):
-    """Share translated passages between both calendars, loading only one edition."""
-    from .gospel_audio import EDITIONS
-    files = {}
-    for year in range(manifest['start_year'], manifest['end_year'] + 1):
-        for date in assets[f'ru/{year}.json']['days']:
-            days = {lang: assets[f'{lang}/{year}.json']['days'][date] for lang in CALENDARS}
-            ids = referenced_passages(days)
-            for translation in EDITIONS:
-                source = assets[f'{translation}/texts.json']['passages']
-                passages = {}
-                for pid in sorted(ids):
-                    p = source[pid]
-                    passages[pid] = p if 'unavailable' in p else {**p, 'verses': [[v['chapter'],v['first'],v['last'],v['text']] for v in p['verses']]}
-                data = {'schema_version': 2, 'translation': translation, 'date': date, 'days': days, 'passages': passages}
-                validate_daily(data, date)
-                files[f'{year}/{date[5:]}/{translation}.json'] = encoded(data)
+        for year in range(manifest['start_year'],manifest['end_year']+1):
+            annual=assets[f'{lang}/{year}.json']['days']
+            for month in range(1,13):
+                days={date:day for date,day in annual.items() if int(date[5:7])==month}
+                refs={pid:{'book':source[pid]['book'],'ranges':source[pid]['ranges']} for pid in sorted(referenced_passages(days))}
+                references.update(refs)
+                data={'schema_version':3,'calendar':CALENDARS[lang],'year':year,'month':month,'days':days,'references':refs}
+                validate_month(data,lang,year,month)
+                files[f'schedule/{lang}/{year}/{month:02}.json']=encoded(data)
+    for translation,edition in EDITIONS.items():
+        needed={(ref['book'],c) for ref in references.values() for c1,_,c2,_ in display_ranges(ref,translation) for c in range(c1,c2+1)}
+        chapters={}
+        for key,verse in verse_snapshot['verses'][translation].items():
+            book,chapter,number=map(int,key.split(':'))
+            if (book,chapter) in needed:
+                chapters.setdefault((book,chapter),[]).append([number,verse['last'],verse['text']])
+        for book,chapter in sorted(needed):
+            unavailable = ('numbering' if book==19 or (translation=='ubh' and book in (29,39))
+                           or f'{book}:{chapter}' in verse_snapshot['numbering'][translation]
+                           else 'missing_text' if (book,chapter) not in chapters else None)
+            verses=[] if unavailable else sorted(chapters[(book,chapter)])
+            audio={}
+            for voice in edition['voices']:
+                excluded=((voice=='bondarenko' and book in (13,14,22,23))
+                          or (voice=='npu_uk' and book not in (19,*range(40,67)))
+                          or (voice=='kozlov_uk' and (book,chapter) in ((17,11),(17,12),(27,13),(27,14))))
+                audio[voice]=[None if excluded else timings[voice].get(f'{book}:{chapter}:{v[0]}') for v in verses]
+            language=edition['language']
+            data={'schema_version':3,'translation':translation,'book':book,'chapter':chapter,
+                  'book_name':books[str(book)][language],'abbr':books[str(book)][language+'_abbr'],
+                  'unavailable':unavailable,'verses':verses,'audio':audio}
+            validate_chapter(data,translation,book,chapter)
+            files[f'text/{translation}/{book:02}/{chapter:02}.json']=encoded(data)
     return files

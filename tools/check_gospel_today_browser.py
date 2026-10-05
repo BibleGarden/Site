@@ -22,8 +22,9 @@ def run(base_url, output):
                     for theme in ('light', 'dark'):
                         context = browser.new_context(viewport={'width': width, 'height': 1000}, color_scheme=theme)
                         page = context.new_page()
-                        errors, media_requests = [], []
+                        errors, media_requests, data_requests = [], [], []
                         page.on('pageerror', lambda e: errors.append(str(e)))
+                        page.on('request', lambda r: data_requests.append(urlsplit(r.url).path) if '/data/gospel-today/' in r.url else None)
                         page.on('request', lambda r: media_requests.append(urlsplit(r.url).path) if '/api/audio/' in r.url else None)
                         page.add_init_script(f"""const NativeDate=Date;
 window.Date=class extends NativeDate {{constructor(...args){{super(...(args.length?args:['{date}T12:00:00']));}} static now(){{return new NativeDate('{date}T12:00:00').getTime();}}}};
@@ -41,6 +42,9 @@ document.addEventListener('DOMContentLoaded',()=>document.documentElement.datase
                         page.wait_for_load_state('networkidle')
                         page.evaluate('document.fonts.ready')
                         assert not media_requests and page.evaluate('__media.length') == 0
+                        assert len(data_requests) == (3 if date == '2026-10-05' else 6), data_requests
+                        assert data_requests[0].startswith('/data/gospel-today/schedule/')
+                        assert all(path.startswith('/data/gospel-today/text/') for path in data_requests[1:])
                         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
                         assert page.locator('.gospel-today-links').evaluate('(e)=>!e.closest(".gospel-today")')
                         assert page.locator('.gospel-today-window').evaluate('(e)=>getComputedStyle(e).overflowY === "visible" && e.scrollHeight <= e.clientHeight+1')
@@ -85,7 +89,7 @@ document.addEventListener('DOMContentLoaded',()=>document.documentElement.datase
                         results.append({'lang': lang, 'date': date, 'width': width, 'theme': theme,
                                         'first': first_reading, 'second': second_reading,
                                         'audio_paths': [first_path, second_path], 'screenshot': screenshot,
-                                        'layout_shift': 0, 'text_contrast': round(contrast,2)})
+                                        'data_paths': data_requests, 'layout_shift': 0, 'text_contrast': round(contrast,2)})
                         print(f'{lang} {date} {width} {theme}: Apostle → Gospel; actual audio, jump, highlight, progress, layout OK', flush=True)
                         context.close()
         # Text choices preserve the page's date/calendar, reuse the day on voice change,

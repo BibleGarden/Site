@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT))
 from sitegen.errors import BuildError
 from sitegen.lectionary import Lectionary
 from sitegen.lectionary_data import (SOURCE, BUNDLE_DIR, CALENDARS, load_json, encoded,
-    digest, require, walk_references, passage_id, reference_key, validate_passages, validate_schedule)
+    digest, require, walk_references, passage_id, reference_key, validate_passages, validate_schedule, display_ranges)
 from tools.build_reading_time import canonical_book, local_query
 
 
@@ -75,19 +75,6 @@ def export_local():
                 'source': 'read-only local cep_public in cep-mysql', 'normalizations': normalizations, 'numbering': {t: sorted(v) for t,v in numbering.items()}, 'verses': verses}
     (SOURCE / 'verses.json').write_bytes(encoded(snapshot))
 
-
-def display_ranges(ref, translation):
-    # Explicit versification difference, not a substitute for absent data.
-    result = []
-    for c1, v1, c2, v2 in ref['ranges']:
-        if translation == 'ubh' and ref['book'] == 45 and c2 == 14 and v2 > 23:
-            require(c1 == 14 and v2 <= 26, 'unhandled Romans doxology range')
-            if v1 <= 23:
-                result.append([14, v1, 14, 23])
-            result.append([16, max(v1, 24) + 1, 16, v2 + 1])
-        else:
-            result.append([c1, v1, c2, v2])
-    return result
 
 
 def label(book, ranges, books, lang):
@@ -179,7 +166,7 @@ def compact_day(day, lang, references):
     return out
 
 
-def generate(start_year=2026, end_year=2027):
+def generate(start_year=2026, end_year=2030):
     from sitegen.gospel_audio import EDITIONS, attach_audio
     require(type(start_year) is int and type(end_year) is int and 1901 <= start_year <= end_year <= 2098, 'invalid generation range')
     L = Lectionary(SOURCE / 'tables.json')
@@ -233,7 +220,7 @@ def generate(start_year=2026, end_year=2027):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--start-year', type=int, default=2026)
-    parser.add_argument('--end-year', type=int, default=2027)
+    parser.add_argument('--end-year', type=int, default=2030)
     parser.add_argument('--export-local', action='store_true')
     args = parser.parse_args()
     if args.export_local:

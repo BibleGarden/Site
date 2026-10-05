@@ -884,39 +884,67 @@ The present calendar tables contain no Psalm readings; no numbering is guessed.
 
 #### Offline data and horizon
 
-The explicit horizon is **2026–2027**: it includes Lent 2026 for regression/review
-and runs through the end of next year, without multiplying seven translations
-across five years. Extend it annually before expiry. No clock-dependent build,
-automatic refresh or substitute date is used. Missing/out-of-range daily files
-show a clear error. Daily arithmetic accepts 1901–2098; Paschalion 1900–2099.
+The explicit horizon is **2026–2030**. Schedules contain only references and flags;
+Scripture and aligned audio metadata are shared by chapter across every date and
+both calendars. Extend the horizon before expiry. There is no clock-dependent
+build, automatic refresh or substitute date. Missing/out-of-range assets show an
+explicit error. Daily arithmetic accepts 1901–2098; Paschalion 1900–2099.
 
-`tools/data/lectionary/` contains sourced tables, dated comparison evidence,
-read-only local verse/timecode snapshots and native book names. The generated
-`content/bible-garden/lectionary/` bundle contains annual ru/uk schedules, one
-passage dictionary per translation, and SHA-256 fingerprints. Each passage occurs
-once per translation there. Build validates dates, reference coverage, joins,
-coordinates, voices, finite positive intervals and input/file fingerprints.
+`tools/data/lectionary/` contains sourced tables, comparison evidence, read-only
+local verse/timecode snapshots and native book names. The fingerprinted source
+bundle in `content/bible-garden/lectionary/` retains annual schedules and reviewed
+passages. Build validates complete dates, reference coverage, joins, coordinates,
+voices, finite positive intervals and fingerprints before deriving public files.
 
-Public schema 2 is `/data/gospel-today/<YYYY>/<MM>-<DD>/<translation>.json`.
-A file contains both calendar schedules and their union of passages; this shares
-identical translated text between calendars. Verse rows are compact
-`[chapter, first, last, text]`; each narrator has parallel `[begin, end]` arrays
-or explicit `null` for unavailable audio. Missing text/numbering has an explicit
-reason and reference. Only the selected translation's day file is requested;
-changing narrator reuses it, changing translation loads just that edition.
-The cache holds the active date only. Nothing is prefetched. Annual files,
-dictionaries, source snapshots and the manifest are not published.
+Public schema 3 has two asset types:
 
-Measured 2026-10-05 using UTF-8 byte lengths from `daily_files` after build:
-**5,110 files, 30,651,574 bytes total**, median **5,361**, maximum **23,398** bytes.
-This is all public `data/` in this worktree. Per-translation totals, source sizes
-and coverage are in the input README. No new audio binaries are committed.
+- `/data/gospel-today/schedule/<ru|uk>/<YYYY>/<MM>.json`: one small monthly
+  schedule with day references/flags and a dictionary of the exact used
+  `{book, ranges}` references. No Scripture text or audio timing is included.
+- `/data/gospel-today/text/<translation>/<book:02>/<chapter:02>.json`: each
+  chapter needed anywhere in the horizon occurs once per translation. Verse rows
+  are `[first, last, text]`; per-voice parallel arrays contain `[begin, end]` or
+  `null`. Explicit missing-text/numbering chapter records contain no verse rows.
+  Numbers in paths use the calendar's canonical book order, not API book IDs.
+
+The page fetches its current **month and page calendar**, then only the unique
+chapters needed by today's references in the selected translation. These requests
+run in parallel. It maps ranges and joins, selects the verse rows, checks complete
+coverage, and reconstructs the same cards/queue as before. A missing required
+verse or alignment makes that reading unavailable without changing translation.
+Annual/monthly source dictionaries, timecode snapshots and the manifest are not
+published. No new audio binaries are committed.
+
+A bounded 32-asset memory cache reuses chapters across dates, selections and
+narrators; it also reuses the current schedule across translation changes.
+There is no prefetch. Local midnight/returning to the tab refresh the date;
+month/year changes request their own schedule. Stale responses cannot replace a
+newer selection. Changing narrator never loads another chapter file.
+
+Measured 2026-10-05 with `Path.stat().st_size` after build, uncompressed UTF-8:
+**2,318 files / 13,119,428 bytes** for all seven translations over 2026–2030:
+120 monthly schedules (1,113,403 bytes) + 2,198 chapters (12,006,025 bytes).
+Largest schedule: 11,616 bytes; largest chapter: 15,764 bytes.
+These files are the entire public `data/` tree in this worktree.
+
+Cold-page **JSON data** loads (schedule + requested chapter files, excluding
+HTML/CSS/JS/fonts and streamed MP3s; memory/HTTP cache can reduce repeat loads):
+
+| Page/default | Ordinary day, 2026-10-05 | Long Lent day, 2026-04-09 |
+|---|---:|---:|
+| ru / Synodal–Prudovsky | 23,070 bytes / 3 files | 66,863 bytes / 6 files |
+| uk / Khomenko–Kozlov | 23,986 bytes / 3 files | 63,026 bytes / 6 files |
+
+Ordinary days need two chapters here; the composite Gospel on Holy Thursday needs
+five unique chapters alongside its schedule. Per-translation measurements are in
+`tools/data/lectionary/README.md`. The number of Scripture files is bounded by
+required chapters, not the number of dates.
 
 ```bash
 # Deterministic regeneration: no DB/network.
-.venv/bin/python tools/build_gospel_today.py --start-year 2026 --end-year 2027
+.venv/bin/python tools/build_gospel_today.py --start-year 2026 --end-year 2030
 # Optional refresh: local cep_public in cep-mysql, read-only transaction only.
-.venv/bin/python tools/build_gospel_today.py --export-local --start-year 2026 --end-year 2027
+.venv/bin/python tools/build_gospel_today.py --export-local --start-year 2026 --end-year 2030
 .venv/bin/python -m sitegen build
 .venv/bin/python -m sitegen check
 .venv/bin/python -m sitegen preview

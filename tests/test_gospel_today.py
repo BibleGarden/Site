@@ -14,7 +14,7 @@ from unittest.mock import patch
 from sitegen.content import load_site, parse_article
 from sitegen.errors import BuildError
 from sitegen.gospel_today import MARKER, PLACEHOLDER, annotate_marker, render_component
-from sitegen.lectionary_data import (ROOT, SOURCE, BUNDLE_DIR, load_bundle, validate_passages, validate_schedule, daily_files, validate_daily, referenced_passages, unpack_passages)
+from sitegen.lectionary_data import (ROOT, SOURCE, BUNDLE_DIR, load_bundle, validate_passages, validate_schedule, public_files, validate_month, validate_chapter, referenced_passages)
 from tools.build_gospel_today import generate, extract_passage, display_ranges, export_local, normalize_known_joins, UBH_MATTHEW_23_14
 
 
@@ -25,41 +25,45 @@ class GospelAssetsTest(unittest.TestCase):
         self.assertEqual(set(generated), {str(p.relative_to(BUNDLE_DIR)) for p in BUNDLE_DIR.rglob('*.json')})
         for name, value in generated.items(): self.assertEqual((BUNDLE_DIR / name).read_bytes(), value)
         manifest, assets = load_bundle()
-        self.assertEqual((manifest['start_year'], manifest['end_year']), (2026, 2027))
+        self.assertEqual((manifest['start_year'], manifest['end_year']), (2026, 2030))
         self.assertTrue(assets['uk/2027.json']['days']['2027-01-12']['uncertain'])
 
-    def test_daily_files_are_complete_minimal_and_match_source(self):
+    def test_public_files_are_chapter_bounded_and_strict(self):
         from sitegen.gospel_audio import EDITIONS
         manifest, assets = load_bundle()
-        files = daily_files(manifest, assets)
-        self.assertEqual(len(files), 730 * len(EDITIONS))
-        for filename, payload in files.items():
-            year, name, edition = filename.split('/')
-            date = year + '-' + name
-            data = json.loads(payload)
-            validate_daily(data, date)
-            self.assertEqual(set(data['passages']), referenced_passages(data['days']))
-            for lang in ('ru','uk'):
-                self.assertEqual(data['days'][lang], assets[f'{lang}/{year}.json']['days'][date])
-            translation = edition.removesuffix('.json')
-            for pid, passage in unpack_passages(data['passages']).items():
-                self.assertEqual(passage, assets[f'{translation}/texts.json']['passages'][pid])
-            self.assertEqual((ROOT / 'dist/bible-garden/data/gospel-today' / filename).read_bytes(), payload)
-        january = json.loads(files['2027/01-01/syn.json'])
-        for mutation in ('missing_day', 'missing_text', 'extra_text', 'wrong_date', 'invalid_date', 'wrong_edition', 'bad_verse'):
-            changed = copy.deepcopy(january)
-            if mutation == 'missing_day': del changed['days']['uk']
-            if mutation == 'missing_text': changed['passages'].pop(next(iter(changed['passages'])))
-            if mutation == 'extra_text':
-                pid = next(p for p in assets['syn/texts.json']['passages'] if p not in changed['passages'])
-                changed['passages'][pid] = assets['syn/texts.json']['passages'][pid]
-            if mutation == 'wrong_date': changed['date'] = '2026-01-01'
-            if mutation == 'invalid_date': changed['date'] = '2027-02-29'
-            if mutation == 'wrong_edition': changed['translation'] = 'unknown'
-            if mutation == 'bad_verse': next(p for p in changed['passages'].values() if 'verses' in p)['verses'][0][3] = ''
-            date = changed['date'] if mutation == 'invalid_date' else '2027-01-01'
-            with self.subTest(mutation=mutation), self.assertRaises(BuildError): validate_daily(changed, date)
-        self.assertNotIn('2027/02-29/syn.json', files)
+        files=public_files(manifest,assets)
+        self.assertEqual(sum(name.startswith('schedule/') for name in files),120)
+        self.assertEqual(sum(name.startswith('text/') for name in files),2198)
+        for name,payload in files.items():
+            data=json.loads(payload)
+            if name.startswith('schedule/'):
+                _,lang,year,month=name.split('/')
+                validate_month(data,lang,int(year),int(month[:-5]))
+                self.assertEqual(data['days'],{date:day for date,day in assets[f'{lang}/{year}.json']['days'].items() if date[5:7]==month[:-5]})
+                self.assertNotIn('text',payload.decode())
+            else:
+                _,translation,book,chapter=name.split('/')
+                validate_chapter(data,translation,int(book),int(chapter[:-5]))
+            self.assertEqual((ROOT/'dist/bible-garden/data/gospel-today'/name).read_bytes(),payload)
+        schedule=json.loads(files['schedule/ru/2028/02.json'])
+        self.assertIn('2028-02-29',schedule['days'])
+        for mutate in ('missing_day','unused_ref','wrong_calendar','wrong_month'):
+            value=copy.deepcopy(schedule)
+            if mutate=='missing_day':del value['days']['2028-02-29']
+            if mutate=='unused_ref':value['references']['unused']={'book':1,'ranges':[[1,1,1,1]]}
+            if mutate=='wrong_calendar':value['calendar']='newjulian'
+            if mutate=='wrong_month':value['month']=3
+            with self.subTest(mutate=mutate),self.assertRaises(BuildError):validate_month(value,'ru',2028,2)
+        chapter=json.loads(files['text/syn/40/01.json'])
+        for mutate in ('wrong_translation','bad_text','bad_timing','missing_voice','duplicate_verse','bad_availability'):
+            value=copy.deepcopy(chapter)
+            if mutate=='wrong_translation':value['translation']='ubh'
+            if mutate=='bad_text':value['verses'][0][2]=''
+            if mutate=='bad_timing':value['audio']['prudovsky'][0]=[1,1]
+            if mutate=='missing_voice':del value['audio']['bondarenko']
+            if mutate=='duplicate_verse':value['verses'][1]=value['verses'][0]
+            if mutate=='bad_availability':value['unavailable']='missing_text'
+            with self.subTest(mutate=mutate),self.assertRaises(BuildError):validate_chapter(value,'syn',40,1)
 
     def test_passage_missing_text_and_schedule_missing_day_fail(self):
         _, assets = load_bundle()
