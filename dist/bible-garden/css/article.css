@@ -820,21 +820,42 @@
     .checklist-chapters input:checked::after { content: '✓'; display: block; font-size: 8pt; line-height: 2mm; text-align: center; }
 }
 
-/* Fixed viewport keeps asynchronous daily passages from moving the article. */
-.gospel-today { border: 1px solid #4b5563; border-radius: 1rem; padding: 1rem; margin: 1.5rem 0; }
-.gospel-today-window { height: 28rem; overflow: auto; scrollbar-gutter: stable; overflow-wrap: anywhere; }
-.gospel-today-window:focus-visible { outline: 2px solid #d4af37; outline-offset: 4px; }
+/* Reserve a loading placeholder; complete readings grow once on load in normal flow. */
+.gospel-today {
+    --gospel-surface: #f1f5f9;
+    --gospel-text: #17241f;
+    --gospel-track: #cbd5e1;
+    --gospel-accent: #947233;
+    --gospel-border: #94a3b8;
+    border: 1px solid var(--gospel-border); border-radius: 1rem; padding: 1rem; margin: 1.5rem 0;
+}
+.gospel-today-window { min-height: 28rem; display: flow-root; overflow-wrap: anywhere; }
 .gospel-today-window h3, .gospel-today-window h4 { margin-top: 1rem; }
 .gospel-today-window p { margin-bottom: .75rem; }
 .article-body .gospel-today .btn-gold { color: #0a1510; text-decoration: none; display: inline-block; padding: .75rem 1rem; border-radius: .75rem; }
-@media print { .gospel-today-window { height: auto; overflow: visible; } }
-
-.gospel-audio-controls { position: sticky; top: 0; z-index: 2; color-scheme: light; background: #f1f5f9; color: #17241f; border-radius: .75rem; padding: .75rem; margin: 1rem 0; }
-.gospel-audio-controls button { box-sizing: border-box; width: 100%; height: 3.5rem; line-height: 1.25; font-size: 1rem; background: #b8923a; color: #0a1510; padding: .35rem .6rem; border-radius: .5rem; white-space: normal; }
-.gospel-audio-controls button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
-.gospel-audio-controls progress { display: block; width: 100%; accent-color: #b8923a; margin: .5rem 0; }
-.gospel-audio-line.is-playing { background: #d4a84340; outline: 1px solid #b8923a; border-radius: .15rem; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .gospel-audio-controls { color-scheme: dark; background: #17241f; color: #edf5ee; } }
-:root[data-theme="dark"] .gospel-audio-controls { color-scheme: dark; background: #17241f; color: #edf5ee; }
-
+.gospel-audio-controls { background: var(--gospel-surface); color: var(--gospel-text); border-radius: .75rem; padding: .75rem; margin: 1rem 0; }
+.gospel-audio-controls button { box-sizing: border-box; width: 100%; height: 3.5rem; line-height: 1.25; font-size: 1rem; background: var(--gospel-accent); color: #fff; padding: .35rem .6rem; border-radius: .5rem; white-space: normal; }
+.gospel-audio-controls button:focus-visible { outline: 2px solid var(--gospel-accent); outline-offset: 3px; }
+.gospel-audio-controls progress {
+    appearance: none; -webkit-appearance: none; display: block; width: 100%; height: .625rem;
+    border: 0; border-radius: 1rem; overflow: hidden; margin: .75rem 0;
+    background: var(--gospel-track); color: var(--gospel-accent); accent-color: var(--gospel-accent);
+}
+.gospel-audio-controls progress::-webkit-progress-bar { background: var(--gospel-track); border-radius: 1rem; }
+.gospel-audio-controls progress::-webkit-progress-value { background: var(--gospel-accent); border-radius: 1rem; }
+.gospel-audio-controls progress::-moz-progress-bar { background: var(--gospel-accent); border-radius: 1rem; }
+.gospel-audio-line.is-playing { background: #d4a84340; outline: 1px solid var(--gospel-accent); border-radius: .15rem; }
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .gospel-today {
+        --gospel-surface: #17241f; --gospel-text: #edf5ee; --gospel-track: #344b40;
+        --gospel-accent: #d4a843; --gospel-border: #4b5563;
+    }
+    :root:not([data-theme="light"]) .gospel-audio-controls button { color: #0a1510; }
+}
+:root[data-theme="dark"] .gospel-today {
+    --gospel-surface: #17241f; --gospel-text: #edf5ee; --gospel-track: #344b40;
+    --gospel-accent: #d4a843; --gospel-border: #4b5563;
+}
+:root[data-theme="dark"] .gospel-audio-controls button { color: #0a1510; }
 .gospel-audio-controls .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+@media print { .gospel-today-window { min-height: 0; } }

@@ -1,6 +1,10 @@
 'use strict';
 const assert = require('node:assert/strict');
-const {localDate, midnightDelay, selectDay, renderReadings, mount} = require('../static/bible-garden/js/gospel-today.js');
+const {humanDate, localDate, midnightDelay, selectDay, renderReadings, mount} = require('../static/bible-garden/js/gospel-today.js');
+assert.equal(humanDate('2026-10-05', 'ru'), 'понедельник, 5 октября 2026');
+assert.equal(humanDate('2026-10-05', 'uk'), 'понеділок, 5 жовтня 2026');
+assert.throws(() => humanDate('2026-02-30', 'ru'));
+assert.throws(() => humanDate('2026-10-05', 'en'));
 const date = new Date(2026, 9, 5, 23, 59, 59);
 assert.equal(localDate(date), '2026-10-05');
 assert.equal(midnightDelay(date), 1050);
@@ -46,7 +50,7 @@ const document = {
   createTextNode: text => new Node('text', text),
   addEventListener: (name, fn) => { listeners[name] = fn; }
 };
-const rendered = renderReadings(document, day, texts, '2026-10-05', strings, audioConfig);
+const rendered = renderReadings(document, day, texts, '2026-10-05', strings, audioConfig, 'ru');
 assert.ok(rendered.allText().includes('<script>alert(1)</script>'));
 assert.ok(rendered.allText().includes('open Лк 3:19'));
 assert.equal(rendered.gospelAudio.playlist[0].url, 'https://api.bible.garden/api/audio/syn/prudovsky/42/03.mp3?api_key=public%2Bkey%26test');
@@ -119,7 +123,7 @@ const settle = () => new Promise(resolve => setImmediate(resolve));
         const daily = JSON.parse(fs.readFileSync(path.join(base, year, filename), 'utf8'));
         assert.equal(daily.date, year + '-' + filename.slice(0, -5));
         const selected = selectDay(daily, daily.date, {...config, lang});
-        assert.ok(renderReadings(document, selected, daily, daily.date, strings, audioConfig).allText());
+        assert.ok(renderReadings(document, selected, daily, daily.date, strings, audioConfig, lang).allText());
         assert.equal(selected, daily.day);
         count++;
       }

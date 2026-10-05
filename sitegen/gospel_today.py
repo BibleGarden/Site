@@ -57,7 +57,7 @@ def render_component(lang, strings, app_store_url, audio_config=None):
     return f'''<section class="gospel-today" aria-labelledby="gospel-today-title" data-gospel-today>
 <h2 id="gospel-today-title">{escape(strings['title'])}</h2>
 <p>{escape(strings['calendar'])} · {escape(strings['translation'])}</p>
-<div class="gospel-today-window" tabindex="0" aria-label="{escape(strings['title'])}">
+<div class="gospel-today-window">
 <p data-gospel-status role="status" aria-live="polite">{escape(strings['no_js'])}</p>
 <div data-gospel-readings></div>
 </div>

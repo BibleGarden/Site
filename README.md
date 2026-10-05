@@ -843,9 +843,9 @@ Both languages link to the language campaign in the App Store and explain how to
 open the book, chapter and verse manually. There are no chapter deep links.
 Without JavaScript the page explains why it cannot determine today's local date
 and retains the external calendar/listening and App Store links. No static date
-is presented as today. A fixed-height, keyboard-focusable reading viewport reserves
-space before loading, including errors; full texts scroll inside it. Printing
-removes that height limit. Missing assets or dates show an explicit error, with no
+is presented as today. A minimum-height loading placeholder reserves space before
+loading; complete texts expand once in normal article flow, without clipping or
+inner scrolling. Printing removes the minimum placeholder height. Missing assets or dates show an explicit error, with no
 substitute date, calendar or translation.
 
 `sitegen/lectionary.py` computes the calendar offline from the sourced tables in
@@ -954,7 +954,11 @@ localized and accessible. There is no autoplay or media prefetch (`preload="none
 audio is created only after Play. Changing dates pauses and disposes playback.
 The player uses `timeupdate` plus a short boundary timer with a 25 ms tolerance,
 pausing at the last verse end and skipping verses outside the selected references.
-Controls stay pinned inside the reserved viewport and support both themes.
+Full Gospel and Apostle texts remain in normal page flow, without an inner
+scroll area. A 28rem minimum loading placeholder reserves space; long readings
+grow once when daily data arrives, then remain stable during playback. Dates
+include the localized weekday, day, month and year. Controls and progress use
+theme tokens and support both themes.
 Without JavaScript, the existing guidance and external links remain usable.
 Playback/network errors show a localized alert and disable playback explicitly.
 

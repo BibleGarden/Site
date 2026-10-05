@@ -5,6 +5,15 @@
     if (!(now instanceof Date) || !Number.isFinite(now.getTime())) throw new Error('Invalid local date');
     return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
   }
+  function humanDate(date, lang) {
+    const locales = {ru: 'ru-RU', uk: 'uk-UA'};
+    if (!locales[lang]) throw new Error('Unsupported date language');
+    const value = new Date(date + 'T12:00:00Z');
+    if (!Number.isFinite(value.getTime()) || value.toISOString().slice(0, 10) !== date) throw new Error('Invalid reading date');
+    return new Intl.DateTimeFormat(locales[lang], {
+      weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'
+    }).format(value).replace(/ [гр]\.$/, '');
+  }
   function midnightDelay(now) {
     return new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1).getTime() - now.getTime() + 50;
   }
@@ -44,13 +53,13 @@
     });
     return day;
   }
-  function renderReadings(document, day, texts, date, strings, audioConfig) {
+  function renderReadings(document, day, texts, date, strings, audioConfig, lang) {
     const playlist = [], lines = [];
     const fragment = document.createDocumentFragment();
     const add = (tag, text, parent = fragment) => {
       const node = document.createElement(tag); node.textContent = text; parent.appendChild(node); return node;
     };
-    const stamp = add('time', date); stamp.dateTime = date;
+    const stamp = add('time', humanDate(date, lang)); stamp.dateTime = date;
     if (day.uncertain) add('p', strings.uncertain);
     if (day.note) {
       if (!(day.note in strings)) throw new Error('Unknown daily note');
@@ -142,21 +151,14 @@
         if (year < config.start_year || year > config.end_year) throw new RangeError(config.strings.out_of_range);
         const daily = await asset(date.slice(0, 4) + '/' + date.slice(5));
         const day = selectDay(daily, date, config);
-        const rendered = renderReadings(document, day, daily, date, config.strings, config.audio);
+        const rendered = renderReadings(document, day, daily, date, config.strings, config.audio, config.lang);
         if (request !== token) return;
         readings.replaceChildren(rendered);
         if (rendered.gospelAudio) {
           const api = typeof module !== 'undefined' && module.exports ? require('./gospel-audio.js') : window.GospelAudio;
           if (!api) throw new Error('Gospel audio module missing');
           const {controls, playlist, lines} = rendered.gospelAudio;
-          playback = api.mountAudio(controls, playlist, lines, config.strings, undefined, line => {
-            const view = root.querySelector('.gospel-today-window');
-            const bounds = view.getBoundingClientRect(), verse = line.getBoundingClientRect();
-            const top = bounds.top + controls.wrapper.getBoundingClientRect().height + 8;
-            const bottom = bounds.bottom - 8;
-            if (verse.height > bottom - top || verse.top < top) view.scrollTop += verse.top - top;
-            else if (verse.bottom > bottom) view.scrollTop += verse.bottom - bottom;
-          });
+          playback = api.mountAudio(controls, playlist, lines, config.strings);
         }
         status.textContent = date; status.hidden = true;
       } catch (error) {
@@ -170,7 +172,7 @@
     refresh();
     return {refresh, dispose: () => { clearTimeout(timer); if (playback) playback.dispose(); }};
   }
-  const api = {localDate, midnightDelay, selectDay, renderReadings, mount};
+  const api = {humanDate, localDate, midnightDelay, selectDay, renderReadings, mount};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   if (typeof document !== 'undefined') document.querySelectorAll('[data-gospel-today]').forEach(root => mount(root, document, window.fetch.bind(window)));
 }());
