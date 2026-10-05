@@ -15,7 +15,7 @@ These sources were checked on October 5, 2026. A free recording is not necessari
 | Source | Narrator or style | Coverage and listening options |
 |---|---|---|
 | [YouVersion / Bible App](https://www.bible.com/audio-bible-app-versions/1-kjv-king-james-version) | Max McLean, *The Listener’s Audio Bible*; expressive solo reading | All 66 books; free listening in the app; recording © Fellowship for the Performing Arts |
-| [Bible Gateway](https://www.biblegateway.com/audio/) | Max McLean, Paul Mims, or a dramatized edition | KJV audio in the browser; choose a recording in the player; download terms were not verified |
+| [Bible Gateway](https://www.biblegateway.com/audio/) | Max McLean, Paul Mims, or a dramatized edition | Browser streaming; choose a KJV recording in the player |
 | [LibriVox / Internet Archive](https://archive.org/details/bible\_kjv\_complete\_2001\_librivox) | Michael Armenta, a single volunteer reader | Complete KJV, 1769 Oxford text; about 100 hours 45 minutes; public-domain recording, free download |
 | [AudioTreasure](https://www.audiotreasure.com/AT\_KJVA.htm) | Rev. Dan Wagner for TalkingBibles.org; voice only, not dramatized | Old and New Testaments; free MP3 downloads for offline listening; see the site’s terms for reuse |
 | [Public Domain Audio Bibles](https://publicdomainaudiobibles.com/KJV.html) | Text-to-speech rather than a human narrator | Old and New Testaments as downloadable ZIP files; recording placed in the public domain |
@@ -54,7 +54,7 @@ Durations come from the app’s decoded MP3 files, measured on October 4, 2026, 
 ## Hear the voices before you choose
 <!-- screen: reader-picker-english -->
 
-Here is John 1:1–5 in BSB and WEB, the two translations in the app — not KJV.
+Here is John 1:1–5 in BSB and WEB, two of the translations in the app — not KJV.
 
 <!-- demo: translation-compare -->
 
