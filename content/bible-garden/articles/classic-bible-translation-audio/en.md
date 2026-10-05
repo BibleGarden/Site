@@ -85,7 +85,7 @@ Open Multi Reading, add a WEB reading, a two-second pause, and a BSB reading. Yo
 ## When another source is the better fit
 
 - **You specifically want KJV:** use the KJV sources at the top of this page. Bible Garden offers WEB and BSB instead.
-- **You want downloads or offline audio:** use the downloadable KJV recordings from LibriVox, AudioTreasure, or Public Domain Audio Bibles. Bible Garden streams audio and has no audio downloads.
+- **You want downloads or offline audio:** use the downloadable KJV recordings from LibriVox, AudioTreasure, or Public Domain Audio Bibles. Bible Garden streams audio and has no audio downloads. For download links and the permissions attached to each recording, see our guide to [free audio Bible MP3 downloads](/articles/download-audio-bible/).
 - **You want dramatization or music:** choose a suitable KJV recording elsewhere; all English recordings in Bible Garden are voice only.
 - **You use Android or want a browser player:** Bible Garden currently runs on iPhone and iPad. An Android version and listening on our website are in our plans.
 - **You want books beyond the 66-book canon:** the app does not include deuterocanonical books.

@@ -49,6 +49,8 @@ If you searched for “KJV audio Bible free download MP3,” distinguish the rec
 
 A free upload of Scourby’s reading is not evidence that the publisher authorized it. Use the official source rather than treating an unverified copy as a legal free download. The KJV text itself also has a territorial exception: the [Trinitarian Bible Society](https://www.tbsbibles.org/page/TheAVAndCopyright) explains the Crown rights retained in the UK. Do not assume that a source’s public-domain statement applies everywhere.
 
+For more voices and browser listening options, see [where to listen to the KJV audio Bible free](/articles/classic-bible-translation-audio/).
+
 ## How to spot a questionable download
 
 Be cautious when:
