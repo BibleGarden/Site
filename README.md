@@ -193,7 +193,17 @@ from `static/lampada/assets/lampada-icon-64.png` to
 
 The build stops for an unknown id, malformed or
 misplaced marker, missing caption, missing WebP variant, or checksum mismatch. On wide screens a
-phone stays beside the article and changes at marked headings; below 1024 px,
+phone starts beside the breadcrumbs and header, already at its sticky top
+position. The header wraps within the text column; the phone changes at marked
+headings. With at least two
+distinct screens, arrows and one dot per screen appear under the phone, in order
+of first use in the article. The compact row never wraps: up to 12 screens use
+small filled dots; longer articles show an “N / M” counter instead. These
+keyboard-accessible buttons switch only the image (including its alt text and Lampada label), without scrolling the article.
+The selected dot has `aria-current`; previous/next buttons stop at the ends.
+A manual choice holds until another marked section crosses the reading line,
+then automatic switching resumes. The pager supports light/dark themes, reserves
+its space to avoid layout shifts, and stays hidden without JavaScript. Below 1024 px,
 each screenshot appears below its heading and opens a larger image. Without
 JavaScript the first desktop screenshot remains visible and mobile images open
 as ordinary links. Sections without a marker keep the previous screen; a very

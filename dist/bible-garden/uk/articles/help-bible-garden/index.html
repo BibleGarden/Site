@@ -236,7 +236,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/uk/" class="hover:text-gray-300 transition-colors">Головна</a></li>
@@ -255,7 +257,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p><a href="/uk/">Bible Garden</a> — безкоштовний застосунок для читання і слухання Біблії на iPhone та iPad, без реклами й покупок. Найбільше проєкту потрібні люди, які допоможуть додати нову мову. Це служіння, а не оплачувана робота. Марія Новікова, яка створила і веде проєкт, опікується кожною мовою і допомагає на кожному кроці, але сама з цим не впорається. Вільно володіти мовою для такої допомоги не обов'язково: навіть базових знань може вистачити, а для частини роботи знання мови взагалі не потрібне — наприклад, перевіряти розмітку (прослухати окремі вірші, у яких система не впевнена, і звірити їх із текстом) або шукати записи та з'ясовувати права на них.</p>
 <p>Далі — з чого складається ця робота і скільки її, що можна зробити, якщо часу зовсім мало, і як нам написати.</p>
@@ -318,6 +319,7 @@
 <h3 id="чи-є-bible-garden-для-android-або-в-браузері">Чи є Bible Garden для Android або в браузері?</h3>
 <p>Поки ні: застосунок працює лише на iPhone та iPad. Вебверсія та Android — у наших планах.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="Знімок екрана застосунку">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -327,11 +329,21 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/translation-picker.uk.webp" alt="Вибір перекладу Біблії для читання" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/reader-picker.uk.webp" alt="Вибір диктора для аудіозаписів Біблії" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading.uk.webp" alt="Розділ 1 Євангелія від Йоана в режимі «Звичайне читання» з аудіоплеєром" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/home.uk.webp" alt="Головний екран Bible Garden: режими читання та загальний прогрес" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="translation-picker" data-app="bible-garden" data-src="/img/article-screens/phone/translation-picker.uk.webp" alt="Вибір перекладу Біблії для читання" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="reader-picker" data-app="bible-garden" data-src="/img/article-screens/phone/reader-picker.uk.webp" alt="Вибір диктора для аудіозаписів Біблії" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="classic-reading" data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading.uk.webp" alt="Розділ 1 Євангелія від Йоана в режимі «Звичайне читання» з аудіоплеєром" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="home" data-app="bible-garden" data-src="/img/article-screens/phone/home.uk.webp" alt="Головний екран Bible Garden: режими читання та загальний прогрес" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/translation-picker.uk.webp" alt="Вибір перекладу Біблії для читання" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Попередній екран"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Екран 1 із 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 2 із 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 3 із 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 4 із 4"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Наступний екран"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>

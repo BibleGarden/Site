@@ -22,7 +22,11 @@
 {% endif %}
 {% endblock %}
 {% block main %}
-    <article class="{% if article.screens %}max-w-6xl{% else %}max-w-3xl{% endif %} mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="{% if article.screens %}article-with-screens max-w-6xl{% else %}max-w-3xl{% endif %} mx-auto px-4 sm:px-6 lg:px-8 py-16">
+{% if article.screens %}
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
+{% endif %}
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/{{ site.language_prefix(lang) }}" class="hover:text-gray-300 transition-colors">{{ t.articles.breadcrumb_home }}</a></li>
@@ -44,13 +48,12 @@
             </p>
         </header>
 
-{% if article.screens %}
-        <div class="article-screen-layout">
-{% endif %}
         <div class="article-body">
 {{ article.body_html | safe }}
         </div>
 {% if article.screens %}
+            </div>
+{% set phone_screens = article.screens | unique(attribute="screen.id") | list %}
             <aside class="article-screen-aside" aria-label="{{ t.articles.screen_viewer }}">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -60,11 +63,26 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-{% for screen in article.screens %}
-                        <img data-app="{{ screen.screen.app }}" data-src="{{ screen.url('phone') }}" alt="{{ screen.caption }}" width="{{ screen.dimensions('phone')[0] }}" height="{{ screen.dimensions('phone')[1] }}" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+{% for screen in phone_screens %}
+                        <img data-screen="{{ screen.screen.id }}" data-app="{{ screen.screen.app }}" data-src="{{ screen.url('phone') }}" alt="{{ screen.caption }}" width="{{ screen.dimensions('phone')[0] }}" height="{{ screen.dimensions('phone')[1] }}" decoding="async" class="article-screen-phone-image" aria-hidden="true">
 {% endfor %}
                         <noscript><img class="article-screen-noscript" src="{{ article.screens[0].url('phone') }}" alt="{{ article.screens[0].caption }}" width="{{ article.screens[0].dimensions('phone')[0] }}" height="{{ article.screens[0].dimensions('phone')[1] }}"></noscript>
                     </div>
+{% if phone_screens | length > 1 %}
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="{{ t.articles.screen_previous }}"><span aria-hidden="true">‹</span></button>
+{% if phone_screens | length <= 12 %}
+                        <div class="article-screen-dots">
+{% for screen in phone_screens %}
+                            <button type="button" class="article-screen-dot" aria-label="{{ t.articles.screen_position.format(n=loop.index, total=phone_screens | length) }}"></button>
+{% endfor %}
+                        </div>
+{% else %}
+                        <span class="article-screen-counter" role="status" aria-live="off" data-label="{{ t.articles.screen_position }}" aria-label="{{ t.articles.screen_position.format(n=1, total=phone_screens | length) }}">1 / {{ phone_screens | length }}</span>
+{% endif %}
+                        <button type="button" class="article-screen-next" aria-label="{{ t.articles.screen_next }}"><span aria-hidden="true">›</span></button>
+                    </div>
+{% endif %}
                 </div>
             </aside>
         </div>

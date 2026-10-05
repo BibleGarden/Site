@@ -221,7 +221,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/" class="hover:text-gray-300 transition-colors">Home</a></li>
@@ -240,7 +242,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p>A Russian English Bible gives you the same passage in both languages, verse by verse. In the free <a href="/">Bible Garden app</a> for iPhone and iPad, you can read it and also hear it: each verse plays in English, then after a short pause in Russian, all the way through the chapter. The English text is the Berean Standard Bible (BSB) or the World English Bible (WEB) in its US or British edition; the Russian text is the Synodal translation or the Kulakov translation. Every one of them has an audio recording. Below are four ready-made pairings, which language to play first, how long it takes, and where a pairing falls out of step. For what parallel and bilingual Bibles are, and to hear Multi Reading, see "<a href="/articles/bible-in-two-languages/">Bilingual Bible App</a>."</p>
 <h2 data-screen="multi-step-translation-english" id="four-translation-pairings">Four translation pairings</h2>
@@ -384,6 +385,7 @@
 <h3 id="can-i-listen-on-android-or-on-a-computer">Can I listen on Android or on a computer?</h3>
 <p>Not yet: Bible Garden runs on iPhone and iPad. A web version for listening on the site and an Android app are in our plans.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="App screenshot">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -393,12 +395,23 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-step-translation-english.en.webp" alt="Choosing an English translation for a Multi Reading step" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-setup-russian-english.en.webp" alt="Multi Reading with Russian BTI, a two-second pause and English BSB" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.en.webp" alt="Multi Reading plays a verse in two translations" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/progress.en.webp" alt="Bible reading progress by book and overall" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading-psalm.en.webp" alt="A psalm in Classic Reading with audio controls" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-step-translation-english" data-app="bible-garden" data-src="/img/article-screens/phone/multi-step-translation-english.en.webp" alt="Choosing an English translation for a Multi Reading step" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-setup-russian-english" data-app="bible-garden" data-src="/img/article-screens/phone/multi-setup-russian-english.en.webp" alt="Multi Reading with Russian BTI, a two-second pause and English BSB" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-reading" data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.en.webp" alt="Multi Reading plays a verse in two translations" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="progress" data-app="bible-garden" data-src="/img/article-screens/phone/progress.en.webp" alt="Bible reading progress by book and overall" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="classic-reading-psalm" data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading-psalm.en.webp" alt="A psalm in Classic Reading with audio controls" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/multi-step-translation-english.en.webp" alt="Choosing an English translation for a Multi Reading step" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Previous screen"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Screen 1 of 5"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 2 of 5"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 3 of 5"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 4 of 5"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 5 of 5"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Next screen"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>

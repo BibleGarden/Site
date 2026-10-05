@@ -236,7 +236,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/" class="hover:text-gray-300 transition-colors">Home</a></li>
@@ -255,7 +257,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p><a href="/">Bible Garden</a> is a free app for reading and listening to the Bible on iPhone and iPad, with no ads and no purchases. What the project needs most is people who can help add a new language. This is a ministry, not paid work. Maria Novikova, who created and runs the project, oversees every language and helps at each step, but she can't do it all on her own. You don't need to be fluent to help: a little familiarity with the language is enough, and some tasks don't need the language at all. Checking the alignment means listening only to the verses the system flags as uncertain and comparing them with the text, and finding recordings or researching their rights works in any language.</p>
 <p>Below: what the work involves and how much of it there is, what you can do with only a few minutes, and how to reach us.</p>
@@ -318,6 +319,7 @@
 <h3 id="is-bible-garden-available-on-android-or-in-a-browser">Is Bible Garden available on Android or in a browser?</h3>
 <p>Not yet: the app runs only on iPhone and iPad. A web version and Android are in our plans.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="App screenshot">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -327,11 +329,21 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/translation-picker-english.en.webp" alt="Choosing an English Bible translation: BSB, WEBUS and WEBBE" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/reader-picker-english.en.webp" alt="Choosing an English BSB narrator: David or Bob Souer" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading-english.en.webp" alt="John 1 in English (BSB) with audio playback" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/home.en.webp" alt="Bible Garden home screen with reading modes and overall progress" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="translation-picker-english" data-app="bible-garden" data-src="/img/article-screens/phone/translation-picker-english.en.webp" alt="Choosing an English Bible translation: BSB, WEBUS and WEBBE" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="reader-picker-english" data-app="bible-garden" data-src="/img/article-screens/phone/reader-picker-english.en.webp" alt="Choosing an English BSB narrator: David or Bob Souer" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="classic-reading-english" data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading-english.en.webp" alt="John 1 in English (BSB) with audio playback" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="home" data-app="bible-garden" data-src="/img/article-screens/phone/home.en.webp" alt="Bible Garden home screen with reading modes and overall progress" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/translation-picker-english.en.webp" alt="Choosing an English Bible translation: BSB, WEBUS and WEBBE" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Previous screen"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Screen 1 of 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 2 of 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 3 of 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 4 of 4"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Next screen"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>

@@ -205,7 +205,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/" class="hover:text-gray-300 transition-colors">Home</a></li>
@@ -224,7 +226,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p>People listen to the audio Bible for hours at a time, so the narrator’s voice matters almost as much as the translation. Pace, tone, and phrasing make one reading easy to settle into and another harder to follow. In the free <a href="/">Bible Garden</a> app for iPhone and iPad, English Scripture is read by three named narrators and one unnamed voice, and you can hear each before you choose. Here is who they are, which translation each one reads, and what to pick if you want an audio Bible without music.</p>
 <h2 data-screen="reader-picker" id="listen-to-each-narrator">Listen to each narrator</h2>
@@ -340,6 +341,7 @@
 <h3 id="where-can-i-listen-to-an-audio-bible-without-music">Where can I listen to an audio Bible without music?</h3>
 <p>In Bible Garden for iPhone and iPad, every English recording is voice only: Bob Souer and David reading the Berean Standard Bible, Winfred Henson reading the World English Bible, and the World English Bible British Edition. All four cover all 66 books.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="App screenshot">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -349,11 +351,21 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/reader-picker.en.webp" alt="Choosing a narrator for Bible audio" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading.en.webp" alt="John 1 in Classic Reading with audio controls" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/lock-screen-player.en.webp" alt="Bible Garden audio player on the iPhone lock screen" width="480" height="1039" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.en.webp" alt="Multi Reading plays a verse in two translations" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="reader-picker" data-app="bible-garden" data-src="/img/article-screens/phone/reader-picker.en.webp" alt="Choosing a narrator for Bible audio" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="classic-reading" data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading.en.webp" alt="John 1 in Classic Reading with audio controls" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="lock-screen-player" data-app="bible-garden" data-src="/img/article-screens/phone/lock-screen-player.en.webp" alt="Bible Garden audio player on the iPhone lock screen" width="480" height="1039" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-reading" data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.en.webp" alt="Multi Reading plays a verse in two translations" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/reader-picker.en.webp" alt="Choosing a narrator for Bible audio" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Previous screen"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Screen 1 of 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 2 of 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 3 of 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 4 of 4"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Next screen"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>

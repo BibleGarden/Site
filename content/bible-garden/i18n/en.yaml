@@ -86,6 +86,9 @@ articles:
   screen_open: "Open larger screenshot: {caption}"
   screen_viewer: App screenshot
   screen_close: Close screenshot
+  screen_previous: "Previous screen"
+  screen_next: "Next screen"
+  screen_position: "Screen {n} of {total}"
   multi_reading_demo:
     play: Play
     pause: Pause

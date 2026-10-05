@@ -221,7 +221,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/ru/" class="hover:text-gray-300 transition-colors">Главная</a></li>
@@ -240,7 +242,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p>Бесплатно и законно скачать аудио-Библию на русском можно, но выбор меньше, чем кажется по поисковой выдаче. Вот что мы нашли на 5 октября 2026 года:</p>
 <ul>
@@ -387,6 +388,7 @@
 <h3 id="можно-ли-выложить-скачанную-запись-на-свой-youtube-канал">Можно ли выложить скачанную запись на свой YouTube-канал?</h3>
 <p>Можно, если правообладатель это разрешил: выпустил запись в свободный доступ, как «Благовестник» чтение Козлова, или дал вам разрешение лично. Соблюдайте условия, например указывайте, чья это запись. Без такого разрешения выкладывать нельзя, даже если сам библейский текст свободен.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="Скриншот приложения">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -396,10 +398,19 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/reader-picker.ru.webp" alt="Выбор диктора для аудиозаписей Библии" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading.ru.webp" alt="Глава 1 Евангелия от Иоанна в режиме «Обычное чтение» с аудиоплеером" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.ru.webp" alt="Режим «Мультичтение» воспроизводит стих в двух переводах" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="reader-picker" data-app="bible-garden" data-src="/img/article-screens/phone/reader-picker.ru.webp" alt="Выбор диктора для аудиозаписей Библии" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="classic-reading" data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading.ru.webp" alt="Глава 1 Евангелия от Иоанна в режиме «Обычное чтение» с аудиоплеером" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-reading" data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.ru.webp" alt="Режим «Мультичтение» воспроизводит стих в двух переводах" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/reader-picker.ru.webp" alt="Выбор диктора для аудиозаписей Библии" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Предыдущий экран"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Экран 1 из 3"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Экран 2 из 3"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Экран 3 из 3"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Следующий экран"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>

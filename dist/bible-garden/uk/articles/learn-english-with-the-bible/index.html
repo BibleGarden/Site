@@ -229,7 +229,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/uk/" class="hover:text-gray-300 transition-colors">Головна</a></li>
@@ -248,7 +250,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p>Біблія зручна для вивчення англійської, бо її історії багатьом уже знайомі: зміст зрозумілий, лишається почути, як це сказано англійською. Метод простий — три кроки на один розділ:</p>
 <ol>
@@ -540,6 +541,7 @@
 <h3 id="чи-працює-bible-garden-на-android-або-компютері">Чи працює Bible Garden на Android або комп'ютері?</h3>
 <p>Поки ні: Bible Garden працює на iPhone та iPad. Вебверсія для прослуховування на сайті й застосунок для Android — у наших планах.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="Знімок екрана застосунку">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -549,15 +551,27 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading-english.uk.webp" alt="Йоана 1 англійською (BSB) з відтворенням аудіо" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-step-translation-english.uk.webp" alt="Вибір англійського перекладу для кроку Мультичитання" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/settings-pause.uk.webp" alt="Налаштування пауз між віршами під час прослуховування" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-step-speed.uk.webp" alt="Налаштування швидкості англійського кроку BSB у Мультичитанні" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/reader-picker-english.uk.webp" alt="Вибір англійського диктора BSB: David або Bob Souer" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/translation-picker-english.uk.webp" alt="Вибір англійського перекладу Біблії: BSB, WEBUS і WEBBE" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading-english.uk.webp" alt="Йоана 1 англійською (BSB) з відтворенням аудіо" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/progress.uk.webp" alt="Прогрес читання Біблії за книгами та загалом" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="classic-reading-english" data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading-english.uk.webp" alt="Йоана 1 англійською (BSB) з відтворенням аудіо" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-step-translation-english" data-app="bible-garden" data-src="/img/article-screens/phone/multi-step-translation-english.uk.webp" alt="Вибір англійського перекладу для кроку Мультичитання" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="settings-pause" data-app="bible-garden" data-src="/img/article-screens/phone/settings-pause.uk.webp" alt="Налаштування пауз між віршами під час прослуховування" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-step-speed" data-app="bible-garden" data-src="/img/article-screens/phone/multi-step-speed.uk.webp" alt="Налаштування швидкості англійського кроку BSB у Мультичитанні" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="reader-picker-english" data-app="bible-garden" data-src="/img/article-screens/phone/reader-picker-english.uk.webp" alt="Вибір англійського диктора BSB: David або Bob Souer" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="translation-picker-english" data-app="bible-garden" data-src="/img/article-screens/phone/translation-picker-english.uk.webp" alt="Вибір англійського перекладу Біблії: BSB, WEBUS і WEBBE" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="progress" data-app="bible-garden" data-src="/img/article-screens/phone/progress.uk.webp" alt="Прогрес читання Біблії за книгами та загалом" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/classic-reading-english.uk.webp" alt="Йоана 1 англійською (BSB) з відтворенням аудіо" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Попередній екран"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Екран 1 із 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 2 із 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 3 із 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 4 із 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 5 із 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 6 із 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 7 із 7"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Наступний екран"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>

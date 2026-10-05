@@ -221,7 +221,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/" class="hover:text-gray-300 transition-colors">Home</a></li>
@@ -240,7 +242,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p>Reading silently, most adults can get through the whole Bible in about 51 hours. Listening takes longer: the complete English recordings in Bible Garden run 66 to 84 hours, depending on the narrator. To finish in a year, three or four chapters a day is enough — about 8–9 minutes of reading or 11–14 minutes of audio. Below you'll find a calculator for your own pace, the length of each recording, and ways to slow down or speed up in the free <a href="/">Bible Garden</a> app for iPhone and iPad.</p>
 <h2 id="the-short-answer">The short answer</h2>
@@ -333,6 +334,7 @@
 <h3 id="can-i-listen-to-the-bible-faster">Can I listen to the Bible faster?</h3>
 <p>Yes. In Bible Garden, normal playback supports 0.6–2× in 0.2 increments, and each Multi Reading step supports 0.5–2.5× in 0.1 increments. At 1.6×, Bob Souer's recording takes about 43 hours, and at 2× about 35 hours.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="App screenshot">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -342,9 +344,17 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/reader-picker.en.webp" alt="Choosing a narrator for Bible audio" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.en.webp" alt="Multi Reading plays a verse in two translations" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="reader-picker" data-app="bible-garden" data-src="/img/article-screens/phone/reader-picker.en.webp" alt="Choosing a narrator for Bible audio" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-reading" data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.en.webp" alt="Multi Reading plays a verse in two translations" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/reader-picker.en.webp" alt="Choosing a narrator for Bible audio" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Previous screen"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Screen 1 of 2"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 2 of 2"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Next screen"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>

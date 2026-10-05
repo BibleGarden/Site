@@ -94,6 +94,76 @@ class ArticleScreensTest(unittest.TestCase):
                 self.assertIn('<noscript><img class="article-screen-noscript" src="/img/article-screens/phone/lampada-journal.', html)
             self.assertEqual((builder.site.output_dir / "img/lampada-icon-64.png").read_bytes(), (ROOT / "static/lampada/assets/lampada-icon-64.png").read_bytes())
 
+    def test_pager_uses_unique_screens_in_article_order_and_localized_buttons(self) -> None:
+        labels = {
+            "en": ("Previous screen", "Next screen", "Screen {n} of 3"),
+            "ru": ("Предыдущий экран", "Следующий экран", "Экран {n} из 3"),
+            "uk": ("Попередній екран", "Наступний екран", "Екран {n} із 3"),
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            builder = SiteBuilder(ROOT / "content/bible-garden", Path(directory) / "bible-garden", preview=True)
+            for lang, (previous, following, position) in labels.items():
+                marked, _, refs = annotate_screens(
+                    "## Home\n<!-- screen: home -->\n\n## Journal\n<!-- screen: lampada-journal -->\n"
+                    "\n## Home again\n<!-- screen: home -->\n\n## Question\n<!-- screen: lampada-question -->\n",
+                    SOURCE, lang, self.screens,
+                )
+                body = render_markdown(
+                    marked, refs, builder.t(lang)["articles"]["screen_open"],
+                    builder.t(lang)["articles"]["screen_app_lampada"],
+                )
+                article = builder.articles["template-check"][lang]
+                for selected_refs, count in ((refs, 3), (refs[:1] * 2, 0), ((), 0)):
+                    with self.subTest(lang=lang, screens=len(selected_refs)):
+                        builder.articles["template-check"][lang] = replace(
+                            article, screens=selected_refs, body_html=body,
+                        )
+                        builder.build_article("template-check", lang)
+                        html = builder.output_path(lang, "articles/template-check/index.html").read_text(encoding="utf-8")
+                        self.assertEqual(html.count('class="article-screen-dot"'), count)
+                        if not count:
+                            self.assertNotIn('class="article-screen-pager"', html)
+                            continue
+                        self.assertIn('class="article-screen-pager" hidden', html)
+                        self.assertLess(html.index('class="article-screen-layout"'), html.index('aria-label="Breadcrumb"'))
+                        self.assertLess(html.index('class="article-screen-content"'), html.index('<header class="mb-10'))
+                        self.assertLess(html.index('<header class="mb-10'), html.index('class="article-body"'))
+                        self.assertLess(html.index('class="article-body"'), html.index('class="article-screen-aside"'))
+                        images = re.findall(r'<img[^>]*class="article-screen-phone-image"[^>]*>', html)
+                        self.assertEqual(
+                            [re.search(r'data-screen="([^"]+)"', image).group(1) for image in images],
+                            ["home", "lampada-journal", "lampada-question"],
+                        )
+                        for image, ref in zip(images, (refs[0], refs[1], refs[3])):
+                            self.assertIn(f'alt="{ref.caption}"', image)
+                            self.assertIn(f'data-app="{ref.screen.app}"', image)
+                        buttons = re.findall(r'<button[^>]*class="article-screen-(?:previous|next|dot)"[^>]*>', html)
+                        self.assertEqual(len(buttons), 5)
+                        for button, label in zip(buttons, (previous, *(position.format(n=n) for n in range(1, 4)), following)):
+                            self.assertIn('type="button"', button)
+                            self.assertIn(f'aria-label="{label}"', button)
+                        self.assertEqual(body.count('class="article-screen-inline"'), 4)
+
+    def test_pager_counter_starts_only_above_twelve_unique_screens(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            builder = SiteBuilder(ROOT / "content/bible-garden", Path(directory) / "bible-garden", preview=True)
+            for count in (12, 13):
+                ids = list(self.screens)[:count]
+                marked, _, refs = annotate_screens(
+                    "\n".join(f"## Section {n}\n<!-- screen: {screen_id} -->\n" for n, screen_id in enumerate(ids)),
+                    SOURCE, "ru", self.screens,
+                )
+                body = render_markdown(marked, refs, builder.t("ru")["articles"]["screen_open"])
+                article = builder.articles["template-check"]["ru"]
+                builder.articles["template-check"]["ru"] = replace(article, screens=refs, body_html=body)
+                builder.build_article("template-check", "ru")
+                html = builder.output_path("ru", "articles/template-check/index.html").read_text(encoding="utf-8")
+                self.assertEqual(html.count('class="article-screen-dot"'), 12 if count == 12 else 0)
+                self.assertEqual(html.count('class="article-screen-counter"'), int(count == 13))
+                if count == 13:
+                    self.assertIn('aria-label="Экран 1 из 13">1 / 13</span>', html)
+                    self.assertIn('data-label="Экран {n} из {total}"', html)
+
     def test_desktop_label_switches_only_with_decoded_screen(self) -> None:
         subprocess.run(["node", str(ROOT / "tests/article_screens.js")], check=True, capture_output=True, text=True)
 

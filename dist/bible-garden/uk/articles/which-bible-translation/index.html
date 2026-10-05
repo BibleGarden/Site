@@ -213,7 +213,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/uk/" class="hover:text-gray-300 transition-colors">Головна</a></li>
@@ -232,7 +234,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p>Одного найкращого перекладу Біблії немає. Її книги написані давньоєврейською, арамейською та грецькою мовами, а слова оригіналу не завжди мають точний відповідник українською. Перекладачам доводиться вибирати, яке значення передати, тому кожен переклад відображає їхнє розуміння тексту. Обирайте за метою: для першого знайомства, вивчення чи читання в традиції своєї церкви. І просто за смаком — якщо вам подобається, як звучить переклад, це вагома причина його читати. Нижче — порівняння українських перекладів і спосіб почути відмінності в безкоштовному застосунку <a href="/uk/">Bible Garden</a> для iPhone та iPad.</p>
 <h2 data-screen="classic-reading" id="дослівний-чи-смисловий-переклад">Дослівний чи смисловий переклад</h2>
@@ -341,6 +342,7 @@
 <h3 id="чим-відрізняються-переклади-біблії-огієнка-й-хоменка">Чим відрізняються переклади Біблії Огієнка й Хоменка?</h3>
 <p>Це окремі українські переклади: повна Біблія Огієнка вийшла 1962 року, Хоменка — 1963-го. Переклад Огієнка став найпоширенішим, а переклад Хоменка є офіційним текстом УГКЦ і в друкованих виданнях містить второканонічні книги. У Bible Garden є Хоменко без цих книг, з аудіо всіх 66 книг; Огієнка в застосунку немає.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="Знімок екрана застосунку">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -350,13 +352,25 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading.uk.webp" alt="Розділ 1 Євангелія від Йоана в режимі «Звичайне читання» з аудіоплеєром" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/translation-picker.uk.webp" alt="Вибір перекладу Біблії для читання" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.uk.webp" alt="Режим «Мультичитання» відтворює вірш у двох перекладах" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-setup-translations.uk.webp" alt="Вибір двох перекладів для Мультичитання" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/reader-picker.uk.webp" alt="Вибір диктора для аудіозаписів Біблії" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading-psalm.uk.webp" alt="Псалом у режимі «Звичайне читання» з аудіоплеєром" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="classic-reading" data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading.uk.webp" alt="Розділ 1 Євангелія від Йоана в режимі «Звичайне читання» з аудіоплеєром" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="translation-picker" data-app="bible-garden" data-src="/img/article-screens/phone/translation-picker.uk.webp" alt="Вибір перекладу Біблії для читання" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-reading" data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.uk.webp" alt="Режим «Мультичитання» відтворює вірш у двох перекладах" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-setup-translations" data-app="bible-garden" data-src="/img/article-screens/phone/multi-setup-translations.uk.webp" alt="Вибір двох перекладів для Мультичитання" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="reader-picker" data-app="bible-garden" data-src="/img/article-screens/phone/reader-picker.uk.webp" alt="Вибір диктора для аудіозаписів Біблії" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="classic-reading-psalm" data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading-psalm.uk.webp" alt="Псалом у режимі «Звичайне читання» з аудіоплеєром" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/classic-reading.uk.webp" alt="Розділ 1 Євангелія від Йоана в режимі «Звичайне читання» з аудіоплеєром" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Попередній екран"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Екран 1 із 6"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 2 із 6"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 3 із 6"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 4 із 6"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 5 із 6"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 6 із 6"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Наступний екран"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>

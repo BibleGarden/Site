@@ -221,7 +221,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/" class="hover:text-gray-300 transition-colors">Home</a></li>
@@ -240,7 +242,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p><strong>You can download an entire audio Bible for free from sources that explicitly allow it.</strong> Here are the clearest options we found as of October 5, 2026:</p>
 <ul>
@@ -412,6 +413,7 @@
 <h3 id="can-i-upload-a-downloaded-recording-to-my-youtube-channel">Can I upload a downloaded recording to my YouTube channel?</h3>
 <p>Only when its permissions allow redistribution. Souer’s CC0 BSB and Henson’s public-domain WEB are clear examples. A personal-use download does not give you permission to re-upload it. Follow any attribution or other license conditions, even when the underlying Bible text is free.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="App screenshot">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -421,10 +423,19 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/reader-picker-english.en.webp" alt="Choosing an English BSB narrator: David or Bob Souer" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading-english.en.webp" alt="John 1 in English (BSB) with audio playback" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading-english-ukrainian.en.webp" alt="John 1 in English BSB and Ukrainian Khomenko translations in Multi Reading" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="reader-picker-english" data-app="bible-garden" data-src="/img/article-screens/phone/reader-picker-english.en.webp" alt="Choosing an English BSB narrator: David or Bob Souer" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="classic-reading-english" data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading-english.en.webp" alt="John 1 in English (BSB) with audio playback" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-reading-english-ukrainian" data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading-english-ukrainian.en.webp" alt="John 1 in English BSB and Ukrainian Khomenko translations in Multi Reading" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/reader-picker-english.en.webp" alt="Choosing an English BSB narrator: David or Bob Souer" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Previous screen"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Screen 1 of 3"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 2 of 3"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 3 of 3"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Next screen"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>

@@ -221,7 +221,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/" class="hover:text-gray-300 transition-colors">Home</a></li>
@@ -241,7 +243,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p>Looking for a free audio Bible app? The right choice depends on how you listen. These apps and services each do something different:</p>
 <ul>
@@ -395,6 +396,7 @@
 <h3 id="is-there-a-bible-app-without-ads">Is there a Bible app without ads?</h3>
 <p>Yes. YouVersion, Bible.is, and Bible Garden are free and do not show ads. Dwell's full access requires a subscription. Bible Gateway's free service has ads, while Bible Gateway Plus removes them.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="App screenshot">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -404,9 +406,17 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.en.webp" alt="Multi Reading plays a verse in two translations" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-setup-bilingual.en.webp" alt="Setting up Multi Reading in two languages" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-reading" data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.en.webp" alt="Multi Reading plays a verse in two translations" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-setup-bilingual" data-app="bible-garden" data-src="/img/article-screens/phone/multi-setup-bilingual.en.webp" alt="Setting up Multi Reading in two languages" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/multi-reading.en.webp" alt="Multi Reading plays a verse in two translations" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Previous screen"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Screen 1 of 2"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 2 of 2"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Next screen"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>

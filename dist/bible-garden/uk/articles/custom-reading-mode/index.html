@@ -229,7 +229,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/uk/" class="hover:text-gray-300 transition-colors">Головна</a></li>
@@ -248,7 +250,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p>У безкоштовному застосунку <a href="/uk/">Bible Garden</a> для iPhone та iPad можна скласти читання Біблії під себе. Є два види кроків: <strong>читання</strong> — переклад, диктор, швидкість і розмір тексту — та <strong>пауза</strong> на кілька секунд. Наприклад:</p>
 <p><strong>Переклад Хоменка (Ігор Козлов) → пауза 2 с → World English Bible (Winfred Henson) → пауза 2 с</strong></p>
@@ -398,6 +399,7 @@
 <h3 id="чи-є-bible-garden-на-android-або-компютері">Чи є Bible Garden на Android або комп’ютері?</h3>
 <p>Поки лише на iPhone та iPad. Вебверсія для прослуховування у браузері та Android — у наших планах.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="Знімок екрана застосунку">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -407,13 +409,25 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading-english-ukrainian.uk.webp" alt="Йоана 1 у Мультичитанні: англійський BSB і український переклад Хоменка" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-setup-translations.uk.webp" alt="Вибір двох перекладів для Мультичитання" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-step-speed.uk.webp" alt="Налаштування швидкості англійського кроку BSB у Мультичитанні" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/settings-pause.uk.webp" alt="Налаштування пауз між віршами під час прослуховування" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-setup-bilingual.uk.webp" alt="Налаштування Мультичитання для двох мов" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/progress.uk.webp" alt="Прогрес читання Біблії за книгами та загалом" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-reading-english-ukrainian" data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading-english-ukrainian.uk.webp" alt="Йоана 1 у Мультичитанні: англійський BSB і український переклад Хоменка" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-setup-translations" data-app="bible-garden" data-src="/img/article-screens/phone/multi-setup-translations.uk.webp" alt="Вибір двох перекладів для Мультичитання" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-step-speed" data-app="bible-garden" data-src="/img/article-screens/phone/multi-step-speed.uk.webp" alt="Налаштування швидкості англійського кроку BSB у Мультичитанні" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="settings-pause" data-app="bible-garden" data-src="/img/article-screens/phone/settings-pause.uk.webp" alt="Налаштування пауз між віршами під час прослуховування" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-setup-bilingual" data-app="bible-garden" data-src="/img/article-screens/phone/multi-setup-bilingual.uk.webp" alt="Налаштування Мультичитання для двох мов" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="progress" data-app="bible-garden" data-src="/img/article-screens/phone/progress.uk.webp" alt="Прогрес читання Біблії за книгами та загалом" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/multi-reading-english-ukrainian.uk.webp" alt="Йоана 1 у Мультичитанні: англійський BSB і український переклад Хоменка" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Попередній екран"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Екран 1 із 6"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 2 із 6"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 3 із 6"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 4 із 6"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 5 із 6"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 6 із 6"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Наступний екран"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>

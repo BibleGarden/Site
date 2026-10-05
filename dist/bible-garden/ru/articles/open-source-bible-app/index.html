@@ -228,7 +228,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/ru/" class="hover:text-gray-300 transition-colors">Главная</a></li>
@@ -247,7 +249,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p><a href="/ru/">Bible Garden</a> — бесплатное приложение для чтения и прослушивания Библии на iPhone и iPad, без рекламы и покупок. Код приложения, сервера, админки и этого сайта опубликован на <a href="https://github.com/BibleGarden/">GitHub</a>: его можно прочитать, проверить и предложить правку. Ниже — что именно открыто и на каких условиях, зачем это нужно, как обстоят дела с правами на тексты и записи и чем можно помочь. Сразу честно: проект создала Мария Новикова и ведёт его одна, поэтому любая помощь заметна.</p>
 <h2 data-screen="home" id="что-открыто-и-под-какой-лицензией">Что открыто и под какой лицензией</h2>
@@ -338,6 +339,7 @@
 <h3 id="как-помочь-добавить-в-bible-garden-новый-язык">Как помочь добавить в Bible Garden новый язык?</h3>
 <p>Напишите в <a href="https://t.me/Mandarinka4">Телеграм</a>, какой язык нужен и чем вы готовы помочь: найти переводы и записи, разобраться с правами или проверить выравнивание текста и аудио. Мария курирует эту работу и помогает.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="Скриншот приложения">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -347,11 +349,21 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/home.ru.webp" alt="Главный экран Bible Garden: режимы чтения и общий прогресс" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.ru.webp" alt="Режим «Мультичтение» воспроизводит стих в двух переводах" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/translation-picker.ru.webp" alt="Выбор перевода Библии для чтения" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading.ru.webp" alt="Глава 1 Евангелия от Иоанна в режиме «Обычное чтение» с аудиоплеером" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="home" data-app="bible-garden" data-src="/img/article-screens/phone/home.ru.webp" alt="Главный экран Bible Garden: режимы чтения и общий прогресс" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-reading" data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.ru.webp" alt="Режим «Мультичтение» воспроизводит стих в двух переводах" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="translation-picker" data-app="bible-garden" data-src="/img/article-screens/phone/translation-picker.ru.webp" alt="Выбор перевода Библии для чтения" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="classic-reading" data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading.ru.webp" alt="Глава 1 Евангелия от Иоанна в режиме «Обычное чтение» с аудиоплеером" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/home.ru.webp" alt="Главный экран Bible Garden: режимы чтения и общий прогресс" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Предыдущий экран"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Экран 1 из 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Экран 2 из 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Экран 3 из 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Экран 4 из 4"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Следующий экран"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>

@@ -229,7 +229,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/ru/" class="hover:text-gray-300 transition-colors">Главная</a></li>
@@ -248,7 +250,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p>В бесплатном приложении <a href="/ru/">Bible Garden</a> для iPhone и iPad чтение можно собрать под себя, как из кубиков. Есть два вида шагов: <strong>чтение</strong> — перевод, диктор, скорость и размер текста — и <strong>пауза</strong> на несколько секунд. Например:</p>
 <p><strong>Синодальный (Илья Прудовский) → пауза 2 с → перевод Кулаковых (Никита Семёнов-Прозоровский) → пауза 2 с</strong></p>
@@ -398,6 +399,7 @@
 <h3 id="есть-ли-bible-garden-на-android-или-на-компьютере">Есть ли Bible Garden на Android или на компьютере?</h3>
 <p>Пока только iPhone и iPad. Веб-версия, чтобы слушать прямо на сайте, и Android — в наших планах.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="Скриншот приложения">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -407,13 +409,25 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.ru.webp" alt="Режим «Мультичтение» воспроизводит стих в двух переводах" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-setup-translations.ru.webp" alt="Выбор двух переводов для Мультичтения" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-step-speed.ru.webp" alt="Настройка скорости английского шага BSB в Мультичтении" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/settings-pause.ru.webp" alt="Настройка пауз между стихами при прослушивании" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-setup-russian-english.ru.webp" alt="Мультичтение: русский BTI, пауза 2 секунды и английский BSB" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/progress.ru.webp" alt="Прогресс чтения Библии по книгам и в целом" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-reading" data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.ru.webp" alt="Режим «Мультичтение» воспроизводит стих в двух переводах" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-setup-translations" data-app="bible-garden" data-src="/img/article-screens/phone/multi-setup-translations.ru.webp" alt="Выбор двух переводов для Мультичтения" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-step-speed" data-app="bible-garden" data-src="/img/article-screens/phone/multi-step-speed.ru.webp" alt="Настройка скорости английского шага BSB в Мультичтении" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="settings-pause" data-app="bible-garden" data-src="/img/article-screens/phone/settings-pause.ru.webp" alt="Настройка пауз между стихами при прослушивании" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-setup-russian-english" data-app="bible-garden" data-src="/img/article-screens/phone/multi-setup-russian-english.ru.webp" alt="Мультичтение: русский BTI, пауза 2 секунды и английский BSB" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="progress" data-app="bible-garden" data-src="/img/article-screens/phone/progress.ru.webp" alt="Прогресс чтения Библии по книгам и в целом" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/multi-reading.ru.webp" alt="Режим «Мультичтение» воспроизводит стих в двух переводах" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Предыдущий экран"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Экран 1 из 6"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Экран 2 из 6"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Экран 3 из 6"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Экран 4 из 6"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Экран 5 из 6"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Экран 6 из 6"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Следующий экран"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>

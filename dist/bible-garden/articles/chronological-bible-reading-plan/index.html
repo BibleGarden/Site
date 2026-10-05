@@ -229,7 +229,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/" class="hover:text-gray-300 transition-colors">Home</a></li>
@@ -248,7 +250,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p>A chronological Bible reading plan puts the chapters in the order of the events they describe: Job follows Genesis, David's psalms sit beside his story, and the prophets appear next to the kings they spoke to. There is no single agreed chronology, so this order is approximate. We compared three well-known plans and explain our choice wherever they disagree.</p>
 <p><strong>Jump to:</strong> <a href="#365-day-chronological-bible-reading-plan">the 365-day plan</a> · <a href="#books-of-the-bible-in-chronological-order-a-table-of-eras">the table of eras</a> · <a href="#365-day-chronological-bible-reading-plan">print the calendar</a>. You can start on any date.</p>
@@ -839,6 +840,7 @@
 <h3 id="why-doesnt-the-plan-include-the-catholic-and-orthodox-books">Why doesn't the plan include the Catholic and Orthodox books?</h3>
 <p>The plan covers the 66 books shared by all Christian traditions, the same ones recorded in the app. The deuterocanonical books and the Greek additions to Esther and Daniel are not included.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="App screenshot">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -848,11 +850,21 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading.en.webp" alt="John 1 in Classic Reading with audio controls" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading-psalm.en.webp" alt="A psalm in Classic Reading with audio controls" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/progress.en.webp" alt="Bible reading progress by book and overall" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.en.webp" alt="Multi Reading plays a verse in two translations" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="classic-reading" data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading.en.webp" alt="John 1 in Classic Reading with audio controls" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="classic-reading-psalm" data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading-psalm.en.webp" alt="A psalm in Classic Reading with audio controls" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="progress" data-app="bible-garden" data-src="/img/article-screens/phone/progress.en.webp" alt="Bible reading progress by book and overall" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-reading" data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.en.webp" alt="Multi Reading plays a verse in two translations" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/classic-reading.en.webp" alt="John 1 in Classic Reading with audio controls" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Previous screen"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Screen 1 of 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 2 of 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 3 of 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 4 of 4"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Next screen"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>

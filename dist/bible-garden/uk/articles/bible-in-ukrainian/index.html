@@ -229,7 +229,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/uk/" class="hover:text-gray-300 transition-colors">Головна</a></li>
@@ -248,7 +250,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p>Біблію українською можна читати й слухати в безкоштовному застосунку <a href="/uk/">Bible Garden</a> для iPhone та iPad. У ньому два українські переклади, і обидва мають аудіо. Переклад Івана Хоменка — це вся Біблія в читанні Ігоря Козлова, близько 109 годин. Новий Переклад Українською (НПУ) звучить сучасною мовою й охоплює Новий Завіт і Псалми. Текст на екрані синхронізовано з аудіо, а вірш, що звучить, підсвічується. Перекладу Огієнка в застосунку немає — нижче розповідаємо, де його знайти.</p>
 <h2 data-screen="translation-picker-ukrainian" id="які-українські-переклади-є-в-bible-garden">Які українські переклади є в Bible Garden</h2>
@@ -350,6 +351,7 @@
 <h3 id="чи-є-bible-garden-для-android-або-на-сайті">Чи є Bible Garden для Android або на сайті?</h3>
 <p>Поки ні: застосунок працює на iPhone та iPad. Версія для Android і прослуховування на сайті — у наших планах.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="Знімок екрана застосунку">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -359,12 +361,23 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/translation-picker-ukrainian.uk.webp" alt="Вибір українського перекладу Біблії: Хоменко (UBH) або НПУ" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-setup-translations.uk.webp" alt="Вибір двох перекладів для Мультичитання" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading-ukrainian.uk.webp" alt="Йоана 1 українською: переклад Хоменка (UBH), читає Ігор Козлов" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading.uk.webp" alt="Розділ 1 Євангелія від Йоана в режимі «Звичайне читання» з аудіоплеєром" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading-russian-ukrainian.uk.webp" alt="Йоана 1 у Мультичитанні: російський Синодальний переклад і український переклад Хоменка" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="translation-picker-ukrainian" data-app="bible-garden" data-src="/img/article-screens/phone/translation-picker-ukrainian.uk.webp" alt="Вибір українського перекладу Біблії: Хоменко (UBH) або НПУ" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-setup-translations" data-app="bible-garden" data-src="/img/article-screens/phone/multi-setup-translations.uk.webp" alt="Вибір двох перекладів для Мультичитання" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="classic-reading-ukrainian" data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading-ukrainian.uk.webp" alt="Йоана 1 українською: переклад Хоменка (UBH), читає Ігор Козлов" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="classic-reading" data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading.uk.webp" alt="Розділ 1 Євангелія від Йоана в режимі «Звичайне читання» з аудіоплеєром" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-reading-russian-ukrainian" data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading-russian-ukrainian.uk.webp" alt="Йоана 1 у Мультичитанні: російський Синодальний переклад і український переклад Хоменка" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/translation-picker-ukrainian.uk.webp" alt="Вибір українського перекладу Біблії: Хоменко (UBH) або НПУ" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Попередній екран"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Екран 1 із 5"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 2 із 5"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 3 із 5"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 4 із 5"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 5 із 5"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Наступний екран"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>

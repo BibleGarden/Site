@@ -229,7 +229,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/" class="hover:text-gray-300 transition-colors">Home</a></li>
@@ -248,7 +250,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p>The 66 books of the Bible shared by every Christian tradition contain 1,189 chapters: 929 in the Old Testament and 260 in the New. A Bible reading tracker shows which ones you've covered, so you don't have to keep it all in your head. There are three ways to track: check boxes on a printed chart (a free one is below), keep a spreadsheet in Google Sheets or Excel, or let an app do it. Paper suits people who read a print Bible. A spreadsheet is for those who like their own stats. An app makes sense if you read or listen on your phone: in <a href="/">Bible Garden</a>, a free app for iPhone and iPad, a chapter is marked as read automatically once you've listened to it or read it to the end.</p>
 <h2 data-screen="home" id="three-ways-to-track-which-one-fits-you">Three ways to track: which one fits you</h2>
@@ -360,6 +361,7 @@
 <h3 id="does-bible-garden-have-streaks-or-reminders">Does Bible Garden have streaks or reminders?</h3>
 <p>No. The app counts chapters, not days, so a gap doesn't reset anything, and it doesn't send notifications.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="App screenshot">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -369,11 +371,21 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/home.en.webp" alt="Bible Garden home screen with reading modes and overall progress" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading-english.en.webp" alt="John 1 in English (BSB) with audio playback" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/progress.en.webp" alt="Bible reading progress by book and overall" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/progress-settings.en.webp" alt="Settings for tracking Bible reading progress" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="home" data-app="bible-garden" data-src="/img/article-screens/phone/home.en.webp" alt="Bible Garden home screen with reading modes and overall progress" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="classic-reading-english" data-app="bible-garden" data-src="/img/article-screens/phone/classic-reading-english.en.webp" alt="John 1 in English (BSB) with audio playback" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="progress" data-app="bible-garden" data-src="/img/article-screens/phone/progress.en.webp" alt="Bible reading progress by book and overall" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="progress-settings" data-app="bible-garden" data-src="/img/article-screens/phone/progress-settings.en.webp" alt="Settings for tracking Bible reading progress" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/home.en.webp" alt="Bible Garden home screen with reading modes and overall progress" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Previous screen"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Screen 1 of 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 2 of 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 3 of 4"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 4 of 4"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Next screen"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>
