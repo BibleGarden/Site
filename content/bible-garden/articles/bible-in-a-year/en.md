@@ -2,6 +2,7 @@
 title: "How to Read the Bible in a Year: A 365-Day Plan"
 description: "A printable 365-day Bible reading plan for beginners: pick a start date, choose one of two reading orders, listen along, and take time to slow down."
 date: 2026-09-27
+updated: 2026-10-05
 ---
 
 To read the Bible in a year, aim for about three or four chapters a day: the 66 books in this plan contain 1,189 chapters. Listening takes about 11–14 minutes a day with the English recordings in Bible Garden, before any pauses. The calendar below gives you a daily reading from the Old Testament and either the New Testament or Psalms, or you can read straight through. Choose a pace that leaves time to pay attention.
@@ -77,7 +78,7 @@ The reading plan itself is on this page: Bible Garden does not have built-in rea
 **Multi Reading is Bible Garden's key feature.** Build a sequence of steps—reading (translation and narrator), pause, then another reading—and the app plays it verse by verse (or by paragraph, section, or chapter). You can also group the steps by paragraph or chapter. A setup can have two, three, or more translations, in one language or several. Learn more in [Bilingual Bible: Read and Listen in English and Russian](/articles/bible-in-two-languages/).
 </div>
 
-For an English comparison, try BSB with Bob Souer, a short pause, then WEBUS with Winfred Henson. Hearing the same verse in different words can make you notice a detail you missed the first time. Without pauses, the two English recordings add up to about 25 minutes per day on this plan; add as much time as you need to think.
+For an English comparison, try BSB with Bob Souer, a short pause, then WEBUS with Winfred Henson. Hearing the same verse in different words can make you notice a detail you missed the first time. Without pauses, the two English recordings add up to about 25 minutes per day on this plan; add as much time as you need to think. Try the [ready-made sequences with chapter-time estimates](/articles/custom-reading-mode/) to find a pace that fits your day.
 
 ## Read the Bible in two languages
 <!-- screen: multi-reading -->
