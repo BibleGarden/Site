@@ -11,7 +11,7 @@ from .reading_plan import CHAPTER_COUNTS
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / 'tools/data/lectionary'
-PUBLIC = ROOT / 'content/bible-garden/lectionary'
+BUNDLE_DIR = ROOT / 'content/bible-garden/lectionary'
 CALENDARS = {'ru': 'julian', 'uk': 'newjulian'}
 TRANSLATIONS = {'ru': 'syn', 'uk': 'ubh'}
 
@@ -144,9 +144,13 @@ def validate_schedule(data, lang, year, passages):
     require(set(data) == {'schema_version', 'calendar', 'year', 'days'} and type(data['schema_version']) is int and data['schema_version'] == 1 and data['calendar'] == CALENDARS[lang] and data['year'] == year, 'invalid schedule schema')
     first, end = dt.date(year, 1, 1), dt.date(year + 1, 1, 1)
     require(set(data['days']) == {(first + dt.timedelta(days=i)).isoformat() for i in range((end - first).days)}, 'missing or extra days')
+    validate_days(data['days'], lang, passages)
+
+
+def validate_days(days, lang, passages):
     def ref(pid):
         require(isinstance(pid, str) and pid in passages, f'missing passage: {pid}')
-    for day in data['days'].values():
+    for day in days.values():
         require(set(day) <= {'period', 'items', 'uncertain', 'confirmed_by', 'note'} and {'period', 'items', 'uncertain', 'confirmed_by'} <= day.keys(), 'invalid day fields')
         require(day['period'] in {'ordinary', 'triodion', 'pentecostarion', 'royal_hours'}, 'invalid period')
         if 'note' in day:
@@ -177,14 +181,14 @@ def validate_schedule(data, lang, year, passages):
             for pid in refs: ref(pid)
 
 
-def load_bundle(directory=PUBLIC):
+def load_bundle(directory=BUNDLE_DIR):
     directory = Path(directory)
     manifest = load_json(directory / 'manifest.json')
     require(set(manifest) == {'schema_version', 'start_year', 'end_year', 'files', 'inputs'}, 'invalid manifest')
     require(type(manifest['schema_version']) is int and manifest['schema_version'] == 1 and type(manifest['start_year']) is int and type(manifest['end_year']) is int and 1901 <= manifest['start_year'] <= manifest['end_year'] <= 2098, 'invalid year range')
     expected = {f'{lang}/texts.json' for lang in CALENDARS} | {f'{lang}/{year}.json' for lang in CALENDARS for year in range(manifest['start_year'], manifest['end_year'] + 1)}
     require(set(manifest['files']) == expected, 'invalid manifest files')
-    require({str(p.relative_to(directory)) for p in directory.rglob('*') if p.is_file()} == expected | {'manifest.json'}, 'missing or extra public files')
+    require({str(p.relative_to(directory)) for p in directory.rglob('*') if p.is_file()} == expected | {'manifest.json'}, 'missing or extra source bundle files')
     for name, checksum in manifest['inputs'].items():
         require(name in {'tables.json', 'references.json', 'verses.json'}, 'unknown source input')
         require(digest((SOURCE / name).read_bytes()) == checksum, f'changed source input: {name}; regenerate')
@@ -198,3 +202,52 @@ def load_bundle(directory=PUBLIC):
         for year in range(manifest['start_year'], manifest['end_year'] + 1):
             validate_schedule(data[f'{lang}/{year}.json'], lang, year, data[f'{lang}/texts.json']['passages'])
     return manifest, data
+
+
+
+def referenced_passages(days):
+    """All passages needed by daily, OT, composite and Hours readings."""
+    refs = set()
+    for day in days.values():
+        for item in day['items']:
+            refs.update(item[k] for k in ('apostle', 'gospel') if item.get(k) is not None)
+            for key in ('ot', 'gospel_composite'):
+                if key in item:
+                    refs.update(item[key])
+            if 'hours' in item:
+                for hour in item['hours']:
+                    refs.update((hour['apostle'], hour['gospel']))
+    return refs
+
+
+def validate_month(data, lang, month):
+    require(isinstance(data, dict) and set(data) == {'schema_version', 'calendar', 'translation', 'month', 'days', 'passages'}, 'invalid monthly schema')
+    require(type(data['schema_version']) is int and data['schema_version'] == 1 and data['calendar'] == CALENDARS[lang] and data['translation'] == TRANSLATIONS[lang] and data['month'] == month, 'invalid monthly metadata')
+    try:
+        first = dt.date.fromisoformat(month + '-01')
+    except (TypeError, ValueError) as error:
+        raise BuildError('invalid month') from error
+    end = dt.date(first.year + 1, 1, 1) if first.month == 12 else dt.date(first.year, first.month + 1, 1)
+    require(isinstance(data['days'], dict) and set(data['days']) == {(first + dt.timedelta(days=i)).isoformat() for i in range((end - first).days)}, 'missing or extra monthly days')
+    validate_passages({'schema_version': 1, 'translation': data['translation'], 'passages': data['passages']}, lang)
+    validate_days(data['days'], lang, data['passages'])
+    require(set(data['passages']) == referenced_passages(data['days']), 'missing or unused monthly passages')
+
+
+def monthly_files(manifest, assets):
+    """Derive public month files from the one committed, validated content bundle."""
+    files = {}
+    for lang in CALENDARS:
+        passages = assets[f'{lang}/texts.json']['passages']
+        for year in range(manifest['start_year'], manifest['end_year'] + 1):
+            schedule = assets[f'{lang}/{year}.json']['days']
+            for number in range(1, 13):
+                month = f'{year}-{number:02}'
+                days = {date: day for date, day in schedule.items() if date.startswith(month + '-')}
+                ids = referenced_passages(days)
+                require(ids <= passages.keys(), f'missing source passages: {month}')
+                data = {'schema_version': 1, 'calendar': CALENDARS[lang], 'translation': TRANSLATIONS[lang],
+                        'month': month, 'days': days, 'passages': {pid: passages[pid] for pid in sorted(ids)}}
+                validate_month(data, lang, month)
+                files[f'{lang}/{month}.json'] = encoded(data)
+    return files

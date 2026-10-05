@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from sitegen.errors import BuildError
 from sitegen.lectionary import Lectionary
-from sitegen.lectionary_data import (SOURCE, PUBLIC, CALENDARS, TRANSLATIONS, load_json, encoded,
+from sitegen.lectionary_data import (SOURCE, BUNDLE_DIR, CALENDARS, TRANSLATIONS, load_json, encoded,
     digest, require, walk_references, passage_id, reference_key, validate_passages, validate_schedule)
 from tools.build_reading_time import canonical_book, local_query
 
@@ -216,10 +216,10 @@ def main():
     if args.export_local:
         export_local()
     files = generate(args.start_year, args.end_year)
-    if PUBLIC.exists():
-        shutil.rmtree(PUBLIC)
+    if BUNDLE_DIR.exists():
+        shutil.rmtree(BUNDLE_DIR)
     for name, payload in files.items():
-        path = PUBLIC / name
+        path = BUNDLE_DIR / name
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(payload)
     print(f'Generated {len(files)} files, {sum(map(len, files.values()))} bytes')

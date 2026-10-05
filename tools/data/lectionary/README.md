@@ -103,24 +103,39 @@ no required empty/missing coordinates. Other corpus gaps outside these pericopes
 were not changed or included in this claim.
 
 
-## Committed asset sizes
+## Source bundle and monthly public sizes
 
-Measured on 2026-10-05 by summing file byte lengths after
-`python tools/build_gospel_today.py --export-local --start-year 2026 --end-year 2030`:
+`content/bible-garden/lectionary/` remains the single site-data source, with annual
+schedules, one passage dictionary per translation and a checksum manifest.
+`sitegen build` validates it and derives exactly 120 monthly JSON files under
+`dist/bible-garden/data/gospel-today/<lang>/<YYYY>-<MM>.json`. Each contains the
+complete month and exactly the passage texts its days reference. No annual file,
+full dictionary or source manifest is copied to the public tree. The browser
+loads one current-month file and switches files across local month/year boundaries.
+The source generator command and explicit 2026–2030 range are unchanged.
+
+Measured on 2026-10-05 after `python -m sitegen build` by summing file byte lengths
+and finding the maximum for each language:
 
 | Data | UTF-8 bytes |
 |---|---:|
-| Both calendars' ten annual schedules | 655,303 |
-| Both translations' text dictionaries | 3,843,139 |
-| Manifest | 1,309 |
-| Total public JSON | 4,499,751 |
-| Committed source JSON (tables, references, verse snapshot) | 4,783,966 |
+| Largest ru month, `ru/2027-04.json` | 280,683 |
+| Largest uk month, `uk/2027-04.json` | 270,812 |
+| Total public JSON, 120 months | 20,195,242 |
+| Content source bundle (ten schedules, two dictionaries, manifest) | 4,499,751 |
+| Source inputs (tables, references, verse snapshot) | 4,783,966 |
 
-There are 1,826 dates and 768 unique passages per language. The browser downloads
-one annual schedule and its language's text dictionary; each passage is stored
-once per translation, including across years. Independently gzip-compressing the
-six ru files yields 530,173 bytes and the six uk files 549,275 bytes (Python
-`gzip.compress`, `mtime=0`; these are measurements, not additional committed files).
-Of the 1,826 Ukrainian dates, 1,706 remain unconfirmed by the captured same-day
-liturgical evidence. Six ROC dates carry the prototype's R=1 uncertainty. Annual
-regeneration alone does not remove these flags; add dated official evidence.
+Using Python `gzip.compress(payload, mtime=0)` on those same largest files gives
+69,918 bytes (ru) and 70,999 bytes (uk). These are gzip estimates, not additional
+committed files or verification of the production HTTP compression settings.
+Complete April 2027 Lenten readings require over a thousand verses and exceed the
+initial 100 KB uncompressed target. Monthly files remain ordinary JSON and
+preserve every text; the client has no custom compression or decompression API.
+Public data repeats passages between months/years so that each request is self
+contained; each passage appears only once within its month. The reviewed content
+source still stores each passage once per translation across the entire range.
+
+There are 1,826 dates and 768 distinct source passages per language. Of the 1,826
+Ukrainian dates, 1,706 remain unconfirmed by captured same-day liturgical evidence.
+Six ROC dates carry the R=1 uncertainty. Regeneration alone does not remove these
+flags; add dated official evidence.
