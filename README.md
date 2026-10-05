@@ -249,10 +249,13 @@ only describe visible content; API evidence is in the archive's `validation.json
 
 No VoiceOver image or compatibility claim is included. It depends on the
 separate [audit](https://app.clickup.com/t/123pfqn1vbu), which had no report on
-2026-10-05. Article drafts 6.26–6.28 were absent from Site main and public
-feature branches when checked on that date. Their authors must replace markers
-using the table above after the screenshot catalog change is merged; this
-change does not claim article integration or the task's full acceptance.
+2026-10-05. Article drafts 6.26–6.28 are not yet in Site main. The Russian 6.26 draft
+is available in [PR #56](https://github.com/BibleGarden/Site/pull/56); its two
+new reading markers are prepared in the task attachment
+`article-6-26-screen-markers.patch` for that branch. Apply them after this
+screenshot catalog change is merged. Public branches for 6.27–6.28 were still
+absent when checked on 2026-10-05; use the table above when they are available.
+This change does not claim article integration or the task's full acceptance.
 
 `select-chapter` remains the v4 capture. Recapture it after the Malachi filter
 fix in [ClickUp 123pfqn1u64](https://app.clickup.com/t/123pfqn1u64); v7 does not
