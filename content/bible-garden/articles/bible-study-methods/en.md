@@ -2,7 +2,6 @@
 title: "How to Study the Bible: SOAP, Inductive Study, and Journaling with Psalm 1"
 description: "Three Bible study methods worked through on Psalm 1: SOAP, inductive Bible study, and a written journal. Use translation comparisons, audio, and pauses to go deeper."
 date: 2026-10-05
-draft: true
 ---
 
 To study the Bible, read a passage, ask questions, and write down what you find. **SOAP** focuses on one verse and four short entries. **Inductive Bible study** works through a whole passage: observe, interpret, apply. **Journaling** is a way to record your reading that works with either method. Below, all three use Psalm 1: six verses and less than a minute of English audio.
@@ -99,7 +98,7 @@ Bible Garden has no notes or bookmarks, so keep your journal on paper or in a no
 ## Guiding questions in Lampada
 <!-- screen: lampada-question -->
 
-**We're building a second app for journaling and prayer: [Lampada](https://lampada.app/en/), coming soon to the App Store.** You choose a theme and a prayer duration; guiding questions help you focus and turn a general reflection into a specific response.
+**We're building a second app for journaling and prayer: [Lampada](https://lampada.app/), coming soon to the App Store.** You choose a theme and a prayer duration; guiding questions help you focus and turn a general reflection into a specific response.
 
 For SOAP, this will support the prayer step: you can choose a theme based on the verse you wrote down, such as Psalm 1:2. Lampada also selects Scripture passages by meaning, which can complement cross-references during inductive study. Observation and interpretation still begin with the text itself.
 

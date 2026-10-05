@@ -94,6 +94,8 @@ You will hit confusing passages, and that is normal. The Bible itself records a 
 
 Write down the passage and your question in a notebook or your phone. A study Bible or commentary can supply context, and a reading group, friend, or pastor can help you talk it through. Bible Garden has text and audio, but no built-in notes or commentaries.
 
+For a practical way to ask questions and record what you find, try [SOAP, inductive Bible study, or journaling with Psalm 1](/articles/bible-study-methods/).
+
 ## Frequently asked questions {#faq}
 
 ### What is the best order to read the Bible for the first time?

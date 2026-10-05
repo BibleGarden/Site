@@ -53,6 +53,8 @@ Daily listening can easily become background noise: the chapter played, but you 
 
 Two translations take about twice as long, so for a daily rule Multi Reading works best on a short passage rather than several chapters.
 
+To turn those pauses into a closer look at the passage, try [SOAP, inductive study, or journaling](/articles/bible-study-methods/), with worked examples on Psalm 1.
+
 ## Progress tracks itself
 <!-- screen: progress -->
 
