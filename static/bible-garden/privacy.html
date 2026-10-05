@@ -111,8 +111,9 @@
     <footer class="py-10 border-t border-garden-800/50">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-xs text-gray-600" data-i18n="footer">Open source project under the GPL-3.0 license. All rights belong to God.</p>
-            <div class="flex justify-center gap-4 mt-3">
+            <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 mt-3">
                 <a id="about-link" href="/about/" class="text-xs text-gray-600 hover:text-gray-400 transition-colors" data-i18n="about">How we write</a>
+                <a id="rights-holders-link" href="/about/#rights-holders" class="text-xs text-gray-600 hover:text-gray-400 transition-colors" data-i18n="rights_holders">For rights holders</a>
                 <a id="articles-link" href="/articles/" class="text-xs text-gray-600 hover:text-gray-400 transition-colors" data-i18n="articles">Articles</a>
             </div>
         </div>
@@ -149,6 +150,7 @@
             's7.text': 'If you have any questions about this privacy policy, feel free to reach out via <a href="https://t.me/biblegarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">Telegram</a> or <a href="https://github.com/BibleGarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>.',
             'footer': 'Open source project under the GPL-3.0 license. All rights belong to God.',
             'about': 'How we write',
+            'rights_holders': 'For rights holders',
             'articles': 'Articles',
         },
         ru: {
@@ -180,6 +182,7 @@
             's7.text': 'Если у вас есть вопросы по данной политике конфиденциальности, свяжитесь с нами через <a href="https://t.me/biblegarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">Telegram</a> или <a href="https://github.com/BibleGarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>.',
             'footer': 'Проект с открытым кодом под лицензией GPL-3.0. Все права принадлежат Богу.',
             'about': 'Как мы пишем',
+            'rights_holders': 'Правообладателям',
             'articles': 'Статьи',
         },
         ua: {
@@ -211,6 +214,7 @@
             's7.text': 'Якщо у вас є питання щодо цієї політики конфіденційності, зв\'яжіться з нами через <a href="https://t.me/biblegarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">Telegram</a> або <a href="https://github.com/BibleGarden" target="_blank" rel="noopener" class="text-garden-400 hover:text-garden-300 underline">GitHub</a>.',
             'footer': 'Проєкт з відкритим кодом під ліцензією GPL-3.0. Усі права належать Богу.',
             'about': 'Як ми пишемо',
+            'rights_holders': 'Правовласникам',
             'articles': 'Статті',
         }
     };
@@ -233,6 +237,7 @@
         });
 
         document.getElementById('about-link').href = { en: '/about/', ru: '/ru/about/', ua: '/uk/about/' }[lang];
+        document.getElementById('rights-holders-link').href = document.getElementById('about-link').href + '#rights-holders';
         document.getElementById('articles-link').href = { en: '/articles/', ru: '/ru/articles/', ua: '/uk/articles/' }[lang];
 
         document.querySelectorAll('.lang-btn').forEach(btn => {

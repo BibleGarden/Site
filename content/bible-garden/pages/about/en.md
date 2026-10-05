@@ -21,3 +21,7 @@ The English, Russian and Ukrainian versions of an article are not translations o
 ## Found a mistake?
 
 Tell us in [GitHub Issues](https://github.com/BibleGarden/Site/issues) or on [Telegram](https://t.me/Mandarinka4). We will correct the article and show the date of the update.
+
+## For rights holders {#rights-holders}
+
+If you hold rights to a text or recording used in Bible Garden and believe your rights are being infringed, please [write to us on Telegram](https://t.me/Mandarinka4). We’ll look into it promptly. If you’d like to give us official permission to use your work, we’d love to hear from you too. We welcome the chance to work together.
