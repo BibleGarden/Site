@@ -169,7 +169,29 @@ screen-like comment elsewhere in article text also stops the build.
 
 The id must exist in `content/bible-garden/screens.yaml`; the article language
 selects its caption and image (`translation-picker.ru.webp` for `ru.md`). The
-caption is the image alt text. The build stops for an unknown id, malformed or
+caption is the image alt text. Each catalog entry requires `kind` and localized
+`captions`, and accepts an optional `app`: `bible-garden` (the default, no label)
+or `lampada`. Unknown app values stop the build. For example:
+
+```yaml
+lampada-journal:
+  kind: app
+  app: lampada
+  captions:
+    en: Lampada journal
+    ru: Дневник Lampada
+    uk: Щоденник Lampada
+```
+
+Lampada screens show its icon and localized “Lampada — our second app” text
+above the phone, both beside the article and below mobile section headings.
+The desktop label switches with the decoded image; reserved space prevents
+layout shifts. The label supports light/dark themes and remains readable text,
+including without JavaScript for the first desktop screen. Its icon is copied
+from `static/lampada/assets/lampada-icon-64.png` to
+`static/bible-garden/img/lampada-icon-64.png` for the separate site build.
+
+The build stops for an unknown id, malformed or
 misplaced marker, missing caption, missing WebP variant, or checksum mismatch. On wide screens a
 phone stays beside the article and changes at marked headings; below 1024 px,
 each screenshot appears below its heading and opens a larger image. Without

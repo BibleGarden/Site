@@ -194,11 +194,61 @@
     min-width: 0;
 }
 
-/* Draw the frame outside the image box so the screen keeps its own aspect ratio. */
-.article-screen-phone {
+.article-screen-sticky {
     position: sticky;
     top: 6rem;
+}
+
+/* Reserve label space so switching apps never moves the phone. */
+.article-screen-app-slot {
+    height: 5rem;
+}
+
+.article-screen-app-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid #d4a843;
+    border-radius: 0.75rem;
+    background: #182e1e;
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.article-screen-app-label[hidden] { display: none; }
+
+.article-screen-app-label img {
+    flex: none;
+    width: 2rem;
+    height: 2rem;
+    margin: 0;
+    border-radius: 0.5rem;
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) .article-screen-app-label {
+        background: #f4f8f2;
+        color: #243e2d;
+        border-color: #80601a;
+    }
+}
+
+:root[data-theme="light"] .article-screen-app-label {
+    background: #f4f8f2;
+    color: #243e2d;
+    border-color: #80601a;
+}
+
+/* Draw the frame outside the image box so the screen keeps its own aspect ratio. */
+.article-screen-phone {
+    position: relative;
     width: min(15rem, 27vh);
+    margin-inline: auto;
     aspect-ratio: 1320 / 2868;
     overflow: hidden;
     border-radius: 2rem;

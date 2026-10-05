@@ -26,6 +26,7 @@ class Screen:
     id: str
     kind: str
     captions: dict[str, str]
+    app: str = "bible-garden"
 
     def dimensions(self, variant: str) -> tuple[int, int]:
         width = VARIANTS[variant]
@@ -80,8 +81,11 @@ def load_catalog(path: Path, languages: tuple[str, ...]) -> dict[str, Screen]:
     for screen_id, item in data.items():
         if not isinstance(screen_id, str) or not SCREEN_ID_RE.fullmatch(screen_id):
             raise BuildError(f"{path}: invalid screen id {screen_id!r}")
-        if not isinstance(item, dict) or set(item) != {"kind", "captions"}:
-            raise BuildError(f"{path}: {screen_id} needs exactly kind and captions")
+        if not isinstance(item, dict) or set(item) not in ({"kind", "captions"}, {"kind", "captions", "app"}):
+            raise BuildError(f"{path}: {screen_id} needs kind and captions, with optional app")
+        app = item.get("app", "bible-garden")
+        if not isinstance(app, str) or app not in ("bible-garden", "lampada"):
+            raise BuildError(f"{path}: {screen_id} has unknown app {app!r}")
         if item["kind"] not in SOURCE_SIZES:
             raise BuildError(f"{path}: {screen_id} has unknown kind {item['kind']!r}")
         captions = item["captions"]
@@ -89,7 +93,7 @@ def load_catalog(path: Path, languages: tuple[str, ...]) -> dict[str, Screen]:
             raise BuildError(f"{path}: {screen_id} needs captions for {', '.join(languages)}")
         if any(not isinstance(value, str) or not value.strip() for value in captions.values()):
             raise BuildError(f"{path}: {screen_id} has an empty caption")
-        screens[screen_id] = Screen(screen_id, item["kind"], captions)
+        screens[screen_id] = Screen(screen_id, item["kind"], captions, app)
     return screens
 
 
@@ -145,10 +149,11 @@ def check_asset(screen: Screen, lang: str, variant: str, output_dir: Path, check
 class ScreenFigures(Treeprocessor):
     """Add the mobile link below each annotated h2; keep its id for TOC links."""
 
-    def __init__(self, md, refs: tuple[ScreenRef, ...], open_label: str):
+    def __init__(self, md, refs: tuple[ScreenRef, ...], open_label: str, app_label: str):
         super().__init__(md)
         self.refs = refs
         self.open_label = open_label
+        self.app_label = app_label
 
     def run(self, root: ET.Element) -> ET.Element:
         annotated = [node for node in root if node.tag == "h2" and "data-screen" in node.attrib]
@@ -159,6 +164,12 @@ class ScreenFigures(Treeprocessor):
             if heading.get("data-screen") != ref.screen.id:
                 raise BuildError(f"{ref.source}:{ref.line}: screen marker order changed while rendering Markdown")
             figure = ET.Element("figure", {"class": "article-screen-inline"})
+            if ref.screen.app == "lampada":
+                if not isinstance(self.app_label, str) or not self.app_label.strip():
+                    raise BuildError(f"{ref.source}: missing articles.screen_app_lampada translation")
+                label = ET.SubElement(figure, "figcaption", {"class": "article-screen-app-label"})
+                ET.SubElement(label, "img", {"src": "/img/lampada-icon-64.png", "alt": "", "width": "32", "height": "32"})
+                ET.SubElement(label, "span").text = self.app_label
             link = ET.SubElement(
                 figure,
                 "a",
@@ -190,10 +201,11 @@ class ScreenFigures(Treeprocessor):
 
 
 class ScreenFigureExtension(Extension):
-    def __init__(self, refs: tuple[ScreenRef, ...], open_label: str):
+    def __init__(self, refs: tuple[ScreenRef, ...], open_label: str, app_label: str):
         super().__init__()
         self.refs = refs
         self.open_label = open_label
+        self.app_label = app_label
 
     def extendMarkdown(self, md) -> None:
-        md.treeprocessors.register(ScreenFigures(md, self.refs, self.open_label), "screen_figures", 0)
+        md.treeprocessors.register(ScreenFigures(md, self.refs, self.open_label, self.app_label), "screen_figures", 0)

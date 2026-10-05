@@ -4,6 +4,7 @@
 
     const headings = [...layout.querySelectorAll('h2[data-screen]')];
     const images = [...layout.querySelectorAll('.article-screen-phone-image')];
+    const appLabel = layout.querySelector('.article-screen-app-slot .article-screen-app-label');
     const desktop = window.matchMedia('(min-width: 1024px)');
     let active = -1;
     let requested = -1;
@@ -36,6 +37,7 @@
             }
             images[index].classList.add('is-active');
             images[index].setAttribute('aria-hidden', 'false');
+            appLabel.hidden = images[index].dataset.app !== 'lampada';
             active = index;
             requested = -1;
             preload(index + 1);

@@ -82,6 +82,7 @@ articles:
   by: By
   previous: Previous article
   next: Next article
+  screen_app_lampada: "Lampada — our second app"
   screen_open: "Open larger screenshot: {caption}"
   screen_viewer: App screenshot
   screen_close: Close screenshot
