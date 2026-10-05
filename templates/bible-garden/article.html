@@ -52,11 +52,19 @@
         </div>
 {% if article.screens %}
             <aside class="article-screen-aside" aria-label="{{ t.articles.screen_viewer }}">
-                <div class="article-screen-phone">
+                <div class="article-screen-sticky">
+                    <div class="article-screen-app-slot">
+                        <div class="article-screen-app-label"{% if article.screens[0].screen.app != "lampada" %} hidden{% endif %}>
+                            <img src="/img/lampada-icon-64.png" alt="" width="32" height="32">
+                            <span>{{ t.articles.screen_app_lampada }}</span>
+                        </div>
+                    </div>
+                    <div class="article-screen-phone">
 {% for screen in article.screens %}
-                    <img data-src="{{ screen.url('phone') }}" alt="{{ screen.caption }}" width="{{ screen.dimensions('phone')[0] }}" height="{{ screen.dimensions('phone')[1] }}" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-app="{{ screen.screen.app }}" data-src="{{ screen.url('phone') }}" alt="{{ screen.caption }}" width="{{ screen.dimensions('phone')[0] }}" height="{{ screen.dimensions('phone')[1] }}" decoding="async" class="article-screen-phone-image" aria-hidden="true">
 {% endfor %}
-                    <noscript><img class="article-screen-noscript" src="{{ article.screens[0].url('phone') }}" alt="{{ article.screens[0].caption }}" width="{{ article.screens[0].dimensions('phone')[0] }}" height="{{ article.screens[0].dimensions('phone')[1] }}"></noscript>
+                        <noscript><img class="article-screen-noscript" src="{{ article.screens[0].url('phone') }}" alt="{{ article.screens[0].caption }}" width="{{ article.screens[0].dimensions('phone')[0] }}" height="{{ article.screens[0].dimensions('phone')[1] }}"></noscript>
+                    </div>
                 </div>
             </aside>
         </div>

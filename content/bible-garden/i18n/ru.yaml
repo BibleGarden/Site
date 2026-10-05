@@ -82,6 +82,7 @@ articles:
   by: Автор
   previous: Предыдущая статья
   next: Следующая статья
+  screen_app_lampada: "Lampada — наше второе приложение"
   screen_open: "Открыть скриншот крупнее: {caption}"
   screen_viewer: Скриншот приложения
   screen_close: Закрыть скриншот

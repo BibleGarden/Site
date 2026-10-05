@@ -358,7 +358,7 @@ def parse_article(
     if refs:
         if "screen_open" not in strings or not isinstance(strings["screen_open"], str) or not strings["screen_open"].strip():
             raise BuildError(f"{source}: missing articles.screen_open translation")
-        body_html = render_markdown(marked_body, refs, strings["screen_open"])
+        body_html = render_markdown(marked_body, refs, strings["screen_open"], strings.get("screen_app_lampada", ""))
     else:
         body_html = render_markdown(marked_body)
     if has_plan:
@@ -468,10 +468,10 @@ def _require_bool(meta: dict, key: str, source: Path) -> bool:
     return value
 
 
-def render_markdown(text: str, screens: tuple[ScreenRef, ...] = (), screen_open: str = "") -> str:
+def render_markdown(text: str, screens: tuple[ScreenRef, ...] = (), screen_open: str = "", screen_app_lampada: str = "") -> str:
     extensions = [*MARKDOWN_EXTENSIONS]
     if screens:
-        extensions.append(ScreenFigureExtension(screens, screen_open))
+        extensions.append(ScreenFigureExtension(screens, screen_open, screen_app_lampada))
     return markdown.markdown(text, extensions=extensions, extension_configs=MARKDOWN_EXTENSION_CONFIGS)
 
 

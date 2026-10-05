@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 import re
+import subprocess
+from dataclasses import replace
+from xml.etree import ElementTree as ET
 import tempfile
 import unittest
 from pathlib import Path
 
-from sitegen.build import build_all
+from sitegen.build import SiteBuilder, build_all
 from sitegen.content import annotate_screens, extract_faq, parse_article, render_markdown
 from sitegen.errors import BuildError
 from sitegen.screens import Screen, check_asset, load_catalog, load_checksums
@@ -33,8 +36,66 @@ class ArticleScreensTest(unittest.TestCase):
         self.assertIn('sizes="180px"', html)
         self.assertIn('alt="Выбор перевода Библии для чтения"', html)
         self.assertIn('/img/article-screens/zoom/translation-picker.ru.webp', html)
+        self.assertNotIn("article-screen-app-label", html)
         self.assertNotIn("screen:", html)
         self.assertEqual(clean, "## Выбор перевода {#translation}\n\nТекст.\n")
+
+    def test_catalog_app_default_and_strict_validation(self) -> None:
+        self.assertEqual(self.screens["home"].app, "bible-garden")
+        for screen_id in ("lampada-journal", "lampada-question"):
+            self.assertEqual(self.screens[screen_id].app, "lampada")
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "screens.yaml"
+            for value in ("bible-garden", "lampada"):
+                path.write_text(f"home:\n  kind: app\n  app: {value}\n  captions: {{ru: Home}}\n", encoding="utf-8")
+                self.assertEqual(load_catalog(path, ("ru",))["home"].app, value)
+            for value in ("unknown", "null", "false", "1", "[]", "{}", "''"):
+                path.write_text(f"home:\n  kind: app\n  app: {value}\n  captions: {{ru: Home}}\n", encoding="utf-8")
+                with self.subTest(value=value), self.assertRaisesRegex(BuildError, "unknown app"):
+                    load_catalog(path, ("ru",))
+            path.write_text("home:\n  kind: app\n  captions: {ru: Home}\n  extra: true\n", encoding="utf-8")
+            with self.assertRaisesRegex(BuildError, "optional app"):
+                load_catalog(path, ("ru",))
+
+    def test_lampada_mobile_label_requires_translation(self) -> None:
+        marked, _, refs = annotate_screens("## Journal\n<!-- screen: lampada-journal -->\n", SOURCE, "ru", self.screens)
+        for label in ("", " ", None):
+            with self.subTest(label=label), self.assertRaisesRegex(BuildError, "missing articles.screen_app_lampada"):
+                render_markdown(marked, refs, "Open: {caption}", label)
+
+    def test_lampada_labels_render_in_all_languages_and_first_screen_without_js(self) -> None:
+        labels = {
+            "ru": "Lampada — наше второе приложение",
+            "en": "Lampada — our second app",
+            "uk": "Lampada — наш другий застосунок",
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            builder = SiteBuilder(ROOT / "content/bible-garden", Path(directory) / "bible-garden", preview=True)
+            for lang, label in labels.items():
+                marked, _, refs = annotate_screens(
+                    "## Journal\n<!-- screen: lampada-journal -->\n\n## Home\n<!-- screen: home -->\n\n## Question\n<!-- screen: lampada-question -->\n",
+                    SOURCE, lang, self.screens,
+                )
+                body = render_markdown(marked, refs, builder.t(lang)["articles"]["screen_open"], builder.t(lang)["articles"]["screen_app_lampada"])
+                figures = ET.fromstring(f"<div>{body}</div>").findall("figure")
+                self.assertEqual([len(figure.findall("figcaption")) for figure in figures], [1, 0, 1])
+                for figure in (figures[0], figures[2]):
+                    self.assertEqual(figure.find("figcaption/span").text, label)
+                    self.assertEqual(figure.find("figcaption/img").get("alt"), "")
+                    self.assertEqual(figure.find("figcaption/img").get("src"), "/img/lampada-icon-64.png")
+                article = builder.articles["template-check"][lang]
+                builder.articles["template-check"][lang] = replace(article, screens=refs, body_html=body)
+                builder.build_article("template-check", lang)
+                html = builder.output_path(lang, "articles/template-check/index.html").read_text(encoding="utf-8")
+                self.assertEqual(html.count(label), 3)
+                self.assertIn('class="article-screen-app-label">', html)
+                self.assertNotIn('class="article-screen-app-label" hidden', html)
+                self.assertIn('data-app="lampada" data-src="/img/article-screens/phone/lampada-journal.', html)
+                self.assertIn('<noscript><img class="article-screen-noscript" src="/img/article-screens/phone/lampada-journal.', html)
+            self.assertEqual((builder.site.output_dir / "img/lampada-icon-64.png").read_bytes(), (ROOT / "static/lampada/assets/lampada-icon-64.png").read_bytes())
+
+    def test_desktop_label_switches_only_with_decoded_screen(self) -> None:
+        subprocess.run(["node", str(ROOT / "tests/article_screens.js")], check=True, capture_output=True, text=True)
 
     def test_unknown_or_misplaced_marker_fails_with_source(self) -> None:
         cases = (
@@ -157,6 +218,7 @@ class ArticleScreensTest(unittest.TestCase):
             self.assertIn('data-src="/img/article-screens/phone/', image)
             self.assertNotIn(' src="', image)
         self.assertIn("<noscript><img", html)
+        self.assertIn('class="article-screen-app-label" hidden', html)
 
 if __name__ == "__main__":
     unittest.main()

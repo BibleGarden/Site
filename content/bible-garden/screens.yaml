@@ -204,12 +204,14 @@ multi-reading-synodal:
 # V8 Lampada store screenshots: Lampada-Mobile 2dc8d1e (2026-10-05).
 lampada-journal:
   kind: app
+  app: lampada
   captions:
     en: 'Lampada journal: prayer reflection, an answer and an audio recording'
     ru: 'Дневник Lampada: итог молитвы, ответ на вопрос и аудиозапись'
     uk: 'Щоденник Lampada: підсумок молитви, відповідь на запитання й аудіозапис'
 lampada-question:
   kind: app
+  app: lampada
   captions:
     en: A guided question during prayer in Lampada
     ru: Направляющий вопрос во время молитвы в Lampada
