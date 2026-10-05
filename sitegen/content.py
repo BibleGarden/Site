@@ -93,6 +93,7 @@ class Site:
     i18n: dict[str, dict]
     analytics: Analytics | None
     author: Author
+    preview: bool = False
 
     def language_prefix(self, lang: str) -> str:
         """URL path prefix for a language: '' for the default language, 'ru/' otherwise."""
@@ -203,6 +204,7 @@ def load_site(content_dir: Path, repo_root: Path, *, preview: bool = False) -> S
         languages=languages,
         default_language=config["default_language"],
         config=config,
+        preview=preview,
         i18n=i18n,
         analytics=_analytics(config["analytics"], config["base_url"], config_path),
         author=_author(config["author"], languages, config_path),
@@ -286,7 +288,7 @@ def load_articles(site: Site, content_dir: Path) -> dict[str, dict[str, Article]
             versions[lang] = parse_article(
                 source, slug_dir.name, lang, screens, checksums, site.i18n[lang]["articles"], site.output_dir,
                 site_key=site.key, app_store_url=site.article_app_store_url(lang) if site.key == "bible-garden" else None,
-                gospel_audio=site.config.get("gospel_audio"),
+                gospel_audio=site.config.get("gospel_audio"), preview=site.preview,
             )
         if not versions:
             raise BuildError(f"{slug_dir}: article directory has no language versions")
@@ -354,6 +356,7 @@ def parse_article(
     site_key: str = "bible-garden",
     app_store_url: str | None = None,
     gospel_audio: dict | None = None,
+    preview: bool = False,
 ) -> Article:
     meta, body, body_start_line = _frontmatter(source, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS)
     gospel_body, has_gospel_today = annotate_gospel_marker(body, source, site_key, lang, body_start_line)
@@ -374,7 +377,7 @@ def parse_article(
     if has_gospel_today:
         if body_html.count(GOSPEL_PLACEHOLDER) != 1:
             raise BuildError(f"{source}: gospel-today marker did not render exactly once")
-        body_html = body_html.replace(GOSPEL_PLACEHOLDER, render_gospel_today(lang, strings.get("gospel_today"), app_store_url, gospel_audio))
+        body_html = body_html.replace(GOSPEL_PLACEHOLDER, render_gospel_today(lang, strings.get("gospel_today"), app_store_url, gospel_audio, preview=preview))
     if has_plan:
         if CHRONOLOGICAL_PLACEHOLDER in body_html:
             days, chapters = load_chronological_plan()

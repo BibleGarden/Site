@@ -40,14 +40,14 @@ def validate_strings(strings):
     require('{chapter}' in strings['app_hint'] and '{verse}' in strings['app_hint'] and '{book}' in strings['app_hint'], 'invalid app hint')
 
 
-def render_component(lang, strings, app_store_url, audio_config=None):
+def render_component(lang, strings, app_store_url, audio_config=None, *, preview=False):
     require(lang in CALENDARS, 'unsupported gospel-today language')
     validate_strings(strings)
     manifest, _ = load_bundle()
     require(isinstance(app_store_url, str) and app_store_url.startswith('https://apps.apple.com/'), 'missing App Store URL')
     escape = html.escape
     from .gospel_audio import validate_config
-    audio_config = validate_config(audio_config)
+    audio_config = validate_config(audio_config, preview=preview)
     config = {'audio': audio_config, 'lang': lang, 'start_year': manifest['start_year'], 'end_year': manifest['end_year'], 'strings': strings}
     config_json = json.dumps(config, ensure_ascii=False).replace('<', '\\u003c').replace('>', '\\u003e').replace('&', '\\u0026')
     if lang == 'ru':

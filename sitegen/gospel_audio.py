@@ -3,14 +3,27 @@ from __future__ import annotations
 
 import math
 import os
+from ipaddress import IPv4Address, ip_address, ip_network
 from urllib.parse import urlsplit
 
 from .lectionary_data import TRANSLATIONS, require
 
 VOICES = {'ru': 'prudovsky', 'uk': 'kozlov_uk'}
+PRIVATE_IPV4 = tuple(ip_network(network) for network in ('10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16'))
 
 
-def validate_config(value):
+def preview_http_host(host):
+    if host == 'localhost':
+        return True
+    try:
+        address = ip_address(host)
+    except ValueError:
+        return False
+    return address.is_loopback or (isinstance(address, IPv4Address)
+                                   and any(address in network for network in PRIVATE_IPV4))
+
+
+def validate_config(value, *, preview=False):
     require(isinstance(value, dict) and set(value) == {'base_url', 'site_key'},
             'gospel_audio requires exactly base_url and site_key')
     base, key = value['base_url'], value['site_key']
@@ -24,8 +37,8 @@ def validate_config(value):
     require(url.scheme in ('https', 'http') and bool(url.hostname) and url.username is None
             and url.password is None and not url.query and not url.fragment and url.path in ('', '/')
             and (port is None or port > 0), 'Gospel audio base_url must be an HTTP(S) origin')
-    require(url.scheme == 'https' or url.hostname in ('localhost', '127.0.0.1', '::1'),
-            'HTTP Gospel audio is only allowed on loopback')
+    require(url.scheme == 'https' or (preview and preview_http_host(url.hostname)),
+            'Gospel audio requires HTTPS; preview HTTP requires loopback or RFC 1918 IPv4')
     require(isinstance(key, str) and bool(key) and key == key.strip()
             and not any(c.isspace() for c in key), 'missing or invalid Gospel audio site_key')
     return {'base_url': base.rstrip('/'), 'site_key': key}
@@ -38,7 +51,7 @@ def preview_config(value):
     for field, variable in (('base_url', 'GOSPEL_AUDIO_BASE_URL'), ('site_key', 'GOSPEL_AUDIO_SITE_KEY')):
         if variable in os.environ:
             result[field] = os.environ[variable]
-    return validate_config(result)
+    return validate_config(result, preview=True)
 
 
 def valid_timing(begin, end):

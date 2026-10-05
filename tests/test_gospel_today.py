@@ -135,12 +135,14 @@ class GospelAssetsTest(unittest.TestCase):
             preview = Path(directory) / 'preview'
             SiteBuilder(content, public, preview=False).build()
             self.assertFalse((public / 'ru/articles/gospel-today-fixture/index.html').exists())
-            SiteBuilder(content, preview, preview=True).build()
+            with patch.dict(os.environ, {'GOSPEL_AUDIO_BASE_URL': 'http://192.168.127.133:9084'}):
+                SiteBuilder(content, preview, preview=True).build()
             for lang in ('ru', 'uk'):
                 html = (preview / f'{lang}/articles/gospel-today-fixture/index.html').read_text()
                 self.assertIn('src="/js/gospel-today.js"', html)
                 self.assertIn('name="robots" content="noindex"', html)
                 self.assertIn('data-gospel-today', html)
+                self.assertIn('http://192.168.127.133:9084', html)
             existing = next((public / 'articles').glob('*/index.html')).read_text()
             self.assertNotIn('src="/js/gospel-today.js"', existing)
 

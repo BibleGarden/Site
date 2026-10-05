@@ -135,16 +135,36 @@ class GospelAudioTest(unittest.TestCase):
         with patch.dict(os.environ, {'GOSPEL_AUDIO_SITE_KEY': ''}), self.assertRaises(BuildError):
             preview_config(good)
 
+    def test_http_is_preview_only_and_private_ipv4_is_exactly_rfc1918(self):
+        config = {'base_url': 'https://api.bible.garden', 'site_key': 'explicit-test-key'}
+        allowed = ('localhost', '127.0.0.1', '127.255.255.254', '[::1]',
+                   '10.0.0.0', '10.255.255.255', '172.16.0.0', '172.31.255.255',
+                   '192.168.0.0', '192.168.255.255', '192.168.127.133')
+        rejected = ('9.255.255.255', '11.0.0.0', '172.15.255.255', '172.32.0.0',
+                    '192.167.255.255', '192.169.0.0', '8.8.8.8', '100.64.0.1',
+                    '169.254.1.1', '192.0.0.1', '0.0.0.0', '[fc00::1]', '[fe80::1]',
+                    'dev.example.com', '192.168.1.1.example.com')
+        for host in allowed + rejected:
+            http = {**config, 'base_url': f'http://{host}:9084'}
+            with self.subTest(host=host), self.assertRaises(BuildError):
+                validate_config(http)
+            with self.subTest(host=host, preview=True):
+                if host in allowed:
+                    self.assertEqual(validate_config(http, preview=True), http)
+                else:
+                    with self.assertRaises(BuildError):
+                        validate_config(http, preview=True)
+
     def test_preview_overrides_never_change_production_config(self):
         from sitegen.content import load_site
-        with patch.dict(os.environ, {'GOSPEL_AUDIO_BASE_URL': 'http://127.0.0.1:8000',
+        with patch.dict(os.environ, {'GOSPEL_AUDIO_BASE_URL': 'http://192.168.127.133:9084',
                                     'GOSPEL_AUDIO_SITE_KEY': 'explicit-preview-test-key'}):
             public = load_site(ROOT / 'content/bible-garden', ROOT)
             preview = load_site(ROOT / 'content/bible-garden', ROOT, preview=True)
         self.assertEqual(public.config['gospel_audio']['base_url'], 'https://api.bible.garden')
         self.assertNotEqual(public.config['gospel_audio']['site_key'], 'explicit-preview-test-key')
         self.assertEqual(preview.config['gospel_audio'],
-                         {'base_url': 'http://127.0.0.1:8000', 'site_key': 'explicit-preview-test-key'})
+                         {'base_url': 'http://192.168.127.133:9084', 'site_key': 'explicit-preview-test-key'})
 
     def test_player_harness(self):
         result = subprocess.run(['node', str(ROOT / 'tests/gospel_audio.js')], capture_output=True, text=True)

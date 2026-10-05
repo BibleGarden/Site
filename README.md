@@ -948,7 +948,16 @@ GOSPEL_AUDIO_SITE_KEY=site-test-key-12345678901234567890123 \
 ```
 
 The local API must accept the chosen test key and serve the actual chapter files.
-HTTP is allowed only for loopback origins; deployment origins require HTTPS.
+Preview permits HTTP only for loopback (`localhost`, `127/8`, `::1`) and RFC 1918
+IPv4 addresses (`10/8`, `172.16/12`, `192.168/16`). Public HTTP addresses, other
+special-use ranges and private IPv6 addresses are rejected. Production
+`build`/`check` require HTTPS even for loopback and ignore both overrides.
+
+For review from another machine on the private development network, use
+`GOSPEL_AUDIO_BASE_URL=http://192.168.127.133:9084` when building the preview,
+then open the article preview at `http://192.168.127.133:8097`. Set the explicit
+site/test key to the value accepted by that local API.
+
 Play/Pause, replay, current verse announcement and whole-passage progress are
 localized and accessible. There is no autoplay or media prefetch (`preload="none"`):
 audio is created only after Play. Changing dates pauses and disposes playback.
