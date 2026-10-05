@@ -2,7 +2,6 @@
 title: "Audio Bible downloads: where to get free, legal MP3 files"
 description: "Download free BSB, WEB, and KJV audio Bible MP3s from sources that explain their permissions. Compare recordings, file sizes, and online listening in Bible Garden."
 date: 2026-10-05
-draft: true
 ---
 
 **You can download an entire audio Bible for free from sources that explicitly allow it.** Here are the clearest options we found as of October 5, 2026:

@@ -304,6 +304,30 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/daily-bible-reading/"/>
   </url>
   <url>
+    <loc>https://bible.garden/articles/download-audio-bible/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/download-audio-bible/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/download-audio-bible/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/download-audio-bible/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/download-audio-bible/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/ru/articles/download-audio-bible/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/download-audio-bible/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/download-audio-bible/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/download-audio-bible/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/download-audio-bible/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/uk/articles/download-audio-bible/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/download-audio-bible/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/download-audio-bible/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/download-audio-bible/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/download-audio-bible/"/>
+  </url>
+  <url>
     <loc>https://bible.garden/articles/free-audio-bible-apps/</loc>
     <lastmod>2026-10-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/free-audio-bible-apps/"/>

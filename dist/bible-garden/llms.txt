@@ -13,6 +13,7 @@
 
 ## Articles (English)
 
+- [Audio Bible downloads: where to get free, legal MP3 files](https://bible.garden/articles/download-audio-bible/): Download free BSB, WEB, and KJV audio Bible MP3s from sources that explain their permissions. Compare recordings, file sizes, and online listening in Bible Garden.
 - [Customize Your Bible Reading: Pauses, Speed, and Multiple Translations](https://bible.garden/articles/custom-reading-mode/): Build your own audio Bible sequence in Bible Garden: multiple translations verse by verse, pauses, and separate speed and text size settings. Five setups to try.
 - [Russian English Bible: Translation Pairs, Listening Order, and Time](https://bible.garden/articles/russian-english-bible/): Four Russian and English Bible pairings with narrators: who each one suits, which language to play first, how long the whole Bible takes, and why the Psalms don't line up.
 - [Red Letter Bible: Why the Words of Jesus Are in Red](https://bible.garden/articles/red-letter-bible/): Where red-letter Bibles came from, why publishers print the words of Jesus in red, where editions disagree, and a free red-letter Bible app with BSB and WEB.
@@ -39,6 +40,7 @@
 
 ## Статьи (Русский)
 
+- [Скачать аудио-Библию: где это можно сделать легально](https://bible.garden/ru/articles/download-audio-bible/): Где бесплатно и законно скачать аудио-Библию в mp3: записи, которые правообладатели разрешают копировать, где послушать чтения Бондаренко и Прудовского и почему Bible Garden проигрывает Библию онлайн.
 - [Свой режим чтения Библии: паузы, темп и несколько переводов подряд](https://bible.garden/ru/articles/custom-reading-mode/): Как в Bible Garden собрать своё чтение Библии: стих в двух-трёх переводах подряд, паузы, своя скорость и размер текста для каждого перевода. Пять готовых настроек и время на главу.
 - [Русско-английская Библия: какую пару переводов выбрать и как слушать](https://bible.garden/ru/articles/russian-english-bible/): Четыре пары русских и английских переводов с дикторами: кому какая подойдёт, в каком порядке слушать, сколько займёт вся Библия на двух языках и почему в Псалтири не совпадают номера.
 - [Красные буквы в Библии: почему слова Иисуса выделяют цветом](https://bible.garden/ru/articles/red-letter-bible/): Откуда взялись Библии с красными буквами, зачем выделяют слова Иисуса, почему издания расходятся в границах и где эти слова выделены в Синодальном переводе и переводе Кулаковых.
@@ -65,6 +67,7 @@
 
 ## Статті (Українська)
 
+- [Скачати аудіо-Біблію українською: де це можна зробити легально](https://bible.garden/uk/articles/download-audio-bible/): Де безкоштовно скачати аудіо-Біблію українською в MP3: Хоменко в читанні Ігоря Козлова, НПУ та Огієнко. Умови поширення записів і прослуховування в Bible Garden.
 - [Свій режим читання Біблії: паузи, темп і кілька перекладів поспіль](https://bible.garden/uk/articles/custom-reading-mode/): Як налаштувати читання Біблії в Bible Garden: вірш у кількох перекладах поспіль, паузи, своя швидкість і розмір тексту. П’ять готових налаштувань із часом на розділ.
 - [Українсько-англійська Біблія: які переклади поєднати і як слухати](https://bible.garden/uk/articles/russian-english-bible/): Пари українських та англійських перекладів Біблії з дикторами: кому яка підійде, якою мовою слухати спершу, скільки триває вся Біблія двома мовами і чому не збігаються псалми.
 - [Червоні літери в Біблії: чому слова Ісуса виділяють кольором](https://bible.garden/uk/articles/red-letter-bible/): Звідки взялися Біблії з червоними літерами, навіщо виділяють слова Ісуса, чому видання розходяться в межах і де ці слова виділено в перекладах Хоменка та НПУ.
