@@ -92,7 +92,7 @@ class GospelAssetsTest(unittest.TestCase):
         self.assertFalse(annotate_marker('```\n'+MARKER+'\n```', Path('x.md'), 'bible-garden', 'ru')[1])
         site = load_site(ROOT / 'content/bible-garden', ROOT)
         for lang in ('ru', 'uk'):
-            article = parse_article(ROOT / f'tests/fixtures/gospel-today/{lang}.md', 'gospel-today-fixture', lang, {}, {}, site.i18n[lang]['articles'], ROOT / '.preview/bible-garden', app_store_url=site.article_app_store_url(lang))
+            article = parse_article(ROOT / f'tests/fixtures/gospel-today/{lang}.md', 'gospel-today-fixture', lang, {}, {}, site.i18n[lang]['articles'], ROOT / '.preview/bible-garden', app_store_url=site.article_app_store_url(lang), gospel_audio=site.config["gospel_audio"])
             self.assertTrue(article.draft); self.assertTrue(article.has_gospel_today)
             self.assertIn('data-gospel-today', article.body_html)
             self.assertIn('data-umami-event="app-store-click"', article.body_html)

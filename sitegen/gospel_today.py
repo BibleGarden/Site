@@ -14,7 +14,7 @@ INTENT = re.compile(r'<!--\s*(?:gospel[-_ ]?today|gospel-tody)\b', re.I)
 STRING_KEYS = {'title', 'calendar', 'translation', 'no_js', 'loading', 'error', 'out_of_range',
                'uncertain', 'ordinary_may_be_omitted', 'saints', 'gospel', 'apostle', 'ot',
                'no_liturgy', 'royal_hours', 'hour', 'ordinary', 'feast', 'special', 'triodion',
-               'pentecostarion', 'no_liturgy_gospel', 'no_liturgy_vespers_gospel', 'presanctified', 'app', 'app_hint', 'radio_gospel', 'radio_apostle', 'calendar_link'}
+               'pentecostarion', 'no_liturgy_gospel', 'no_liturgy_vespers_gospel', 'presanctified', 'app', 'app_hint', 'radio_gospel', 'radio_apostle', 'calendar_link', 'audio_play', 'audio_pause', 'audio_again', 'audio_error', 'audio_narrator', 'audio_progress', 'audio_verse'}
 
 
 def annotate_marker(body, source, site, lang, body_start_line=1):
@@ -36,16 +36,19 @@ def annotate_marker(body, source, site, lang, body_start_line=1):
 def validate_strings(strings):
     require(isinstance(strings, dict) and set(strings) == STRING_KEYS, 'missing or unknown gospel-today translations')
     require(all(isinstance(v, str) and bool(v.strip()) for v in strings.values()), 'empty gospel-today translation')
+    require('{verse}' in strings['audio_verse'], 'invalid audio verse label')
     require('{chapter}' in strings['app_hint'] and '{verse}' in strings['app_hint'] and '{book}' in strings['app_hint'], 'invalid app hint')
 
 
-def render_component(lang, strings, app_store_url):
+def render_component(lang, strings, app_store_url, audio_config=None):
     require(lang in CALENDARS, 'unsupported gospel-today language')
     validate_strings(strings)
     manifest, _ = load_bundle()
     require(isinstance(app_store_url, str) and app_store_url.startswith('https://apps.apple.com/'), 'missing App Store URL')
     escape = html.escape
-    config = {'lang': lang, 'start_year': manifest['start_year'], 'end_year': manifest['end_year'], 'strings': strings}
+    from .gospel_audio import validate_config
+    audio_config = validate_config(audio_config)
+    config = {'audio': audio_config, 'lang': lang, 'start_year': manifest['start_year'], 'end_year': manifest['end_year'], 'strings': strings}
     config_json = json.dumps(config, ensure_ascii=False).replace('<', '\\u003c').replace('>', '\\u003e').replace('&', '\\u0026')
     if lang == 'ru':
         links = f'<a href="https://radiovera.ru/gospel.html">{escape(strings["radio_gospel"])}</a> · <a href="https://radiovera.ru/apostol.html">{escape(strings["radio_apostle"])}</a>'

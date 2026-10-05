@@ -125,24 +125,52 @@ site assets.
 
 | Data | UTF-8 bytes |
 |---|---:|
-| Largest ru day, `ru/2026/04-09.json` | 23,061 |
-| Median ru day | 4,900 |
-| Largest uk day, `uk/2026/04-09.json` | 23,259 |
-| Median uk day | 4,931 |
-| Total ru daily JSON | 10,357,893 |
-| Total uk daily JSON | 10,295,168 |
-| Total public JSON, 3,652 days | 20,653,061 |
-| Content source bundle (ten schedules, two dictionaries, manifest) | 4,499,751 |
-| Source inputs (tables, references, verse snapshot) | 4,783,966 |
+| Largest ru day, `ru/2026/04-09.json` | 27,494 |
+| Median ru day | 5,412 |
+| Largest uk day, `uk/2026/04-09.json` | 27,695 |
+| Median uk day | 5,400 |
+| Total ru daily JSON | 11,321,408 |
+| Total uk daily JSON | 11,265,070 |
+| Total public JSON, 3,652 days | 22,586,478 |
+| Content source bundle (ten schedules, two dictionaries, manifest) | 4,876,230 |
+| Source inputs (tables, references, verse snapshot, audio timings) | 4,961,857 |
 
-Compared with the measured monthly variant (20,195,242 bytes), daily publication
-adds 457,819 bytes, or 2.27%. Public data repeats passages between days so each
-request is self contained, with each passage stored only once within its day.
-The reviewed content source still stores each passage once per translation across
-the entire range. Every daily payload is below 24 KB without compression; plain
-JSON preserves all texts without a browser compression/decompression dependency.
+Daily audio metadata contains translation/voice aliases, chapter numbers and verse
+`begin/end` timecodes. Chapter files stream from Bible-API; no Gospel MP3 copies
+or clip checksums/URLs are stored. Each request remains self contained, with each
+passage stored only once within its day. The reviewed source stores each passage
+once per translation across the entire range.
 
 There are 1,826 dates and 768 distinct source passages per language. Of the 1,826
 Ukrainian dates, 1,706 remain unconfirmed by captured same-day liturgical evidence.
 Six ROC dates carry the R=1 uncertainty. Regeneration alone does not remove these
 flags; add dated official evidence.
+
+
+## Gospel audio coverage and export
+
+Checked on 2026-10-05 with `tools/export_gospel_timecodes.py` against read-only
+local `cep_public.voice_alignments`. Required Gospel coordinates are covered:
+ru / Prudovsky 3,453 verses in 88 chapters, used on 1,668 dates; uk / Kozlov 3,452
+verses in 88 chapters, used on 1,669 dates. Other dates have no Gospel reading.
+No narrator substitutions are made. Audio aliases are `syn/prudovsky` and
+`ubh/kozlov_uk`; Bible-API routes use two-digit book/chapter coordinates.
+
+`timecodes.json` stores only the original DB `begin/end` times and aliases.
+`export_gospel_timecodes.py` reports all missing/invalid bounds, duplicate timings
+and affected dates before writing. It does not access audio recordings or use
+ffmpeg. The offline generator attaches segments in displayed verse order;
+build validates aliases, chapter list, segment count, coordinates and finite
+positive timings. CI does not contact the DB/network. Cross-chapter and composite
+playback follows ordered references, including repeats and returns to a chapter.
+Normalized UBH 14–15 maps once to coordinate 14; empty 15 is not requested.
+
+Chapter URLs and the dedicated public site key are built from required
+`gospel_audio.base_url` and `gospel_audio.site_key` in site.yaml, not duplicated in
+daily files. See README for explicit local preview environment overrides and the
+Bible-API audio-only key contract. Existing article demo audio is independent.
+
+Tests cover all-day coverage, aggregate errors across languages/dates, merged
+verses, cross-chapter/composite ordering, no autoplay, pause/resume, progress,
+verse announcements/highlight, replay, metadata loading, early end/network errors,
+25 ms passage-end tolerance and disposal of pending playback.

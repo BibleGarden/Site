@@ -168,7 +168,7 @@ def load_yaml(path: Path) -> dict:
     return data
 
 
-def load_site(content_dir: Path, repo_root: Path) -> Site:
+def load_site(content_dir: Path, repo_root: Path, *, preview: bool = False) -> Site:
     config_path = content_dir / "site.yaml"
     config = load_yaml(config_path)
     missing = [key for key in REQUIRED_SITE_KEYS if key not in config]
@@ -176,6 +176,10 @@ def load_site(content_dir: Path, repo_root: Path) -> Site:
         raise BuildError(f"{config_path}: missing required keys: {', '.join(missing)}")
     if "output_dir" in config:
         raise BuildError(f"{config_path}: output_dir is derived from the site directory name")
+    if content_dir.name == "bible-garden":
+        from .gospel_audio import validate_config, preview_config
+        value = config.get("gospel_audio")
+        config["gospel_audio"] = preview_config(value) if preview else validate_config(value)
     languages = tuple(config["languages"])
     if config["default_language"] not in languages:
         raise BuildError(f"{config_path}: default_language is not listed in languages")
@@ -282,6 +286,7 @@ def load_articles(site: Site, content_dir: Path) -> dict[str, dict[str, Article]
             versions[lang] = parse_article(
                 source, slug_dir.name, lang, screens, checksums, site.i18n[lang]["articles"], site.output_dir,
                 site_key=site.key, app_store_url=site.article_app_store_url(lang) if site.key == "bible-garden" else None,
+                gospel_audio=site.config.get("gospel_audio"),
             )
         if not versions:
             raise BuildError(f"{slug_dir}: article directory has no language versions")
@@ -348,6 +353,7 @@ def parse_article(
     *,
     site_key: str = "bible-garden",
     app_store_url: str | None = None,
+    gospel_audio: dict | None = None,
 ) -> Article:
     meta, body, body_start_line = _frontmatter(source, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS)
     gospel_body, has_gospel_today = annotate_gospel_marker(body, source, site_key, lang, body_start_line)
@@ -368,7 +374,7 @@ def parse_article(
     if has_gospel_today:
         if body_html.count(GOSPEL_PLACEHOLDER) != 1:
             raise BuildError(f"{source}: gospel-today marker did not render exactly once")
-        body_html = body_html.replace(GOSPEL_PLACEHOLDER, render_gospel_today(lang, strings.get("gospel_today"), app_store_url))
+        body_html = body_html.replace(GOSPEL_PLACEHOLDER, render_gospel_today(lang, strings.get("gospel_today"), app_store_url, gospel_audio))
     if has_plan:
         if CHRONOLOGICAL_PLACEHOLDER in body_html:
             days, chapters = load_chronological_plan()

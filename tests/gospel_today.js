@@ -13,24 +13,29 @@ const strings = {
   pentecostarion: 'pentecostarion', feast: 'feast', special: 'special', royal_hours: 'hours',
   no_liturgy: 'no liturgy', no_liturgy_gospel: 'no liturgy', no_liturgy_vespers_gospel: 'vespers',
   presanctified: 'presanctified', ordinary_may_be_omitted: 'omitted', ot: 'OT', hour: 'hour {hour}',
-  app_hint: 'open {book} {chapter}:{verse}'
+  app_hint: 'open {book} {chapter}:{verse}', audio_play: 'Play', audio_pause: 'Pause', audio_again: 'Again', audio_error: 'Audio error', audio_narrator: 'Narrator', audio_progress: 'Progress', audio_verse: 'Verse {verse}'
 };
-const config = {lang: 'ru', start_year: 2026, end_year: 2030, strings};
+const audioConfig = {base_url: 'https://api.bible.garden', site_key: 'public+key&test'};
+const config = {audio: audioConfig, lang: 'ru', start_year: 2026, end_year: 2030, strings};
 const texts = {schema_version: 1, translation: 'syn', passages: {p: {
-  label: 'Лк 3:19–22', book_name: 'Лк', verses: [{chapter: 3, first: 19, last: 19, text: '<script>alert(1)</script>'}]
+  book: 42, label: 'Лк 3:19–22', book_name: 'Лк', audio: {translation: 'syn', voice: 'prudovsky', chapters: [3], segments: [{chapter: 3, begin: 1, end: 2}]}, verses: [{chapter: 3, first: 19, last: 19, text: '<script>alert(1)</script>'}]
 }}};
 const day = {items: [{kind: 'ordinary', gospel: 'p', apostle: null}], uncertain: false, confirmed_by: []};
 const daily = {schema_version: 1, calendar: 'julian', translation: 'syn', date: '2026-10-05', day, passages: texts.passages};
 assert.equal(selectDay(daily, '2026-10-05', config), day);
 assert.throws(() => selectDay(daily, '2031-01-01', config), RangeError);
 assert.throws(() => selectDay(daily, '2026-10-07', config));
+assert.throws(() => selectDay({...daily, passages: {...texts.passages, p: {...texts.passages.p, audio: null}}}, '2026-10-05', config));
 assert.throws(() => selectDay({...daily, passages: {}}, '2026-10-05', config));
 assert.throws(() => selectDay({...daily, calendar: 'newjulian'}, '2026-10-05', config));
 class Node {
-  constructor(tag, text = '') { this.tag = tag; this.textContent = text; this.children = []; this.attrs = {}; }
+  constructor(tag, text = '') { this.tag = tag; this.textContent = text; this.children = []; this.attrs = {}; this.listeners = {}; this.classes = new Set(); this.classList = {toggle: (name, active) => active ? this.classes.add(name) : this.classes.delete(name)}; }
   appendChild(child) { this.children.push(child); return child; }
   replaceChildren(...children) { this.children = children; }
   setAttribute(key, value) { this.attrs[key] = value; }
+  removeAttribute(key) { delete this.attrs[key]; }
+  getAttribute(key) { return this.attrs[key]; }
+  addEventListener(name, handler) { this.listeners[name] = handler; }
   allText() { return this.textContent + this.children.map(child => child.allText()).join(''); }
 }
 const listeners = {};
@@ -41,9 +46,10 @@ const document = {
   createTextNode: text => new Node('text', text),
   addEventListener: (name, fn) => { listeners[name] = fn; }
 };
-const rendered = renderReadings(document, day, texts, '2026-10-05', strings);
+const rendered = renderReadings(document, day, texts, '2026-10-05', strings, audioConfig);
 assert.ok(rendered.allText().includes('<script>alert(1)</script>'));
 assert.ok(rendered.allText().includes('open Лк 3:19'));
+assert.equal(rendered.gospelAudio.playlist[0].url, 'https://api.bible.garden/api/audio/syn/prudovsky/42/03.mp3?api_key=public%2Bkey%26test');
 assert.equal(rendered.children.filter(n => n.tag === 'script').length, 0);
 function rootFor(configuration) {
   const nodes = {
@@ -113,7 +119,7 @@ const settle = () => new Promise(resolve => setImmediate(resolve));
         const daily = JSON.parse(fs.readFileSync(path.join(base, year, filename), 'utf8'));
         assert.equal(daily.date, year + '-' + filename.slice(0, -5));
         const selected = selectDay(daily, daily.date, {...config, lang});
-        assert.ok(renderReadings(document, selected, daily, daily.date, strings).allText());
+        assert.ok(renderReadings(document, selected, daily, daily.date, strings, audioConfig).allText());
         assert.equal(selected, daily.day);
         count++;
       }

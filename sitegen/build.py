@@ -108,7 +108,7 @@ def build_all(*, preview: bool = False, output_root: Path | None = None) -> list
 
 class SiteBuilder:
     def __init__(self, content_dir: Path, output_dir: Path, *, preview: bool) -> None:
-        self.site = replace(load_site(content_dir, REPO_ROOT), output_dir=output_dir)
+        self.site = replace(load_site(content_dir, REPO_ROOT, preview=preview), output_dir=output_dir)
         self.preview = preview
         output_dir.mkdir(parents=True)
         for name in STATIC_FILES[self.site.key]:

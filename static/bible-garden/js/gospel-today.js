@@ -25,6 +25,16 @@
       const p = daily.passages[id];
       if (!p || !p.label || !p.book_name || !Array.isArray(p.verses) || !p.verses.length ||
           p.verses.some(v => typeof v.text !== 'string' || !v.text.trim())) throw new Error('Missing passage text');
+      if (p.book >= 40 && p.book <= 43) {
+        const voice = config.lang === 'ru' ? 'prudovsky' : 'kozlov_uk';
+        if (!p.audio || p.audio.translation !== translation || p.audio.voice !== voice ||
+            !Array.isArray(p.audio.chapters) || JSON.stringify(p.audio.chapters) !== JSON.stringify([...new Set(p.verses.map(v => v.chapter))]) ||
+            !Array.isArray(p.audio.segments) || p.audio.segments.length !== p.verses.length ||
+            p.audio.segments.some((segment, index) => !segment || segment.chapter !== p.verses[index].chapter ||
+              !Number.isFinite(segment.begin) || !Number.isFinite(segment.end) || segment.begin < 0 || segment.end <= segment.begin)) {
+          throw new Error('Missing Gospel chapter or timecodes');
+        }
+      }
       return p;
     }
     day.items.forEach(item => {
@@ -34,7 +44,8 @@
     });
     return day;
   }
-  function renderReadings(document, day, texts, date, strings) {
+  function renderReadings(document, day, texts, date, strings, audioConfig) {
+    const playlist = [], lines = [];
     const fragment = document.createDocumentFragment();
     const add = (tag, text, parent = fragment) => {
       const node = document.createElement(tag); node.textContent = text; parent.appendChild(node); return node;
@@ -46,14 +57,37 @@
       add('p', strings[day.note]);
     }
     let firstPassage = null;
-    function show(id, title) {
+    let controls = null;
+    const hasGospel = day.items.some(item => item.gospel || item.gospel_composite || item.hours);
+    if (hasGospel) {
+      if (!audioConfig || typeof audioConfig.base_url !== 'string' || typeof audioConfig.site_key !== 'string' ||
+          !audioConfig.site_key || /\s/.test(audioConfig.site_key)) throw new Error('Missing Gospel audio configuration');
+      const wrapper = add('div', ''); wrapper.className = 'gospel-audio-controls';
+      add('p', strings.audio_narrator, wrapper);
+      const button = add('button', strings.audio_play, wrapper); button.type = 'button';
+      const progress = add('progress', '', wrapper); progress.setAttribute('aria-label', strings.audio_progress);
+      const time = add('output', '', wrapper);
+      const error = add('p', '', wrapper); error.hidden = true; error.setAttribute('role', 'alert');
+      const status = add('span', '', wrapper); status.className = 'sr-only'; status.setAttribute('aria-live', 'polite');
+      controls = {button, progress, time, error, status, wrapper};
+    }
+    function show(id, title, gospel = false) {
       const p = texts.passages[id];
       add('h4', `${title}: ${p.label}`);
       const paragraph = add('p', '');
-      p.verses.forEach(v => {
-        const verse = add('span', `${v.chapter}:${v.first}${v.last === v.first ? '' : `–${v.last}`} `, paragraph);
-        verse.className = 'text-gray-400';
-        paragraph.appendChild(document.createTextNode(v.text + ' '));
+      p.verses.forEach((v, index) => {
+        const line = add('span', '', paragraph);
+        const label = `${v.chapter}:${v.first}${v.last === v.first ? '' : `–${v.last}`}`;
+        const verse = add('span', label + ' ', line); verse.className = 'text-gray-400';
+        line.appendChild(document.createTextNode(v.text + ' '));
+        if (gospel) {
+          line.className = 'gospel-audio-line';
+          line.setAttribute('data-audio-label', `${p.book_name} ${label}`);
+          const segment = p.audio.segments[index];
+          const path = `${audioConfig.base_url}/api/audio/${p.audio.translation}/${p.audio.voice}/${String(p.book).padStart(2, '0')}/${String(segment.chapter).padStart(2, '0')}.mp3`;
+          const url = new URL(path); url.searchParams.set('api_key', audioConfig.site_key);
+          playlist.push({...segment, url: url.href}); lines.push(line);
+        }
       });
       if (!firstPassage) firstPassage = p;
     }
@@ -64,26 +98,27 @@
         if (!(item.note in strings)) throw new Error('Unknown reading note');
         add('p', strings[item.note]);
       }
-      if (item.gospel) show(item.gospel, strings.gospel);
-      if (item.gospel_composite) item.gospel_composite.forEach(id => show(id, strings.gospel));
+      if (item.gospel) show(item.gospel, strings.gospel, true);
+      if (item.gospel_composite) item.gospel_composite.forEach(id => show(id, strings.gospel, true));
       if (item.apostle) show(item.apostle, strings.apostle);
       if (item.ot) item.ot.forEach(id => show(id, strings.ot));
       if (item.hours) item.hours.forEach(hour => {
         add('h4', strings.hour.replace('{hour}', String(hour.hour)));
-        show(hour.gospel, strings.gospel); show(hour.apostle, strings.apostle);
+        show(hour.gospel, strings.gospel, true); show(hour.apostle, strings.apostle);
       });
     });
     if (firstPassage) {
       const v = firstPassage.verses[0];
       add('p', strings.app_hint.replace('{book}', firstPassage.book_name).replace('{chapter}', String(v.chapter)).replace('{verse}', String(v.first)));
     }
+    fragment.gospelAudio = controls ? {controls, playlist, lines} : null;
     return fragment;
   }
   function mount(root, document, fetcher, now = () => new Date()) {
     const config = JSON.parse(root.querySelector('[data-gospel-config]').textContent);
     const status = root.querySelector('[data-gospel-status]');
     const readings = root.querySelector('[data-gospel-readings]');
-    let activeDate = null, token = 0, timer = null;
+    let activeDate = null, token = 0, timer = null, playback = null;
     const cache = new Map();
     function asset(name) {
       if (!cache.has(name)) cache.set(name, (async () => {
@@ -100,15 +135,30 @@
       if (date === activeDate) return;
       activeDate = date;
       const request = ++token;
+      if (playback) { playback.dispose(); playback = null; }
       readings.replaceChildren(); status.hidden = false; status.setAttribute('role', 'status'); status.textContent = config.strings.loading;
       try {
         const year = clock.getFullYear();
         if (year < config.start_year || year > config.end_year) throw new RangeError(config.strings.out_of_range);
         const daily = await asset(date.slice(0, 4) + '/' + date.slice(5));
         const day = selectDay(daily, date, config);
-        const rendered = renderReadings(document, day, daily, date, config.strings);
+        const rendered = renderReadings(document, day, daily, date, config.strings, config.audio);
         if (request !== token) return;
-        readings.replaceChildren(rendered); status.textContent = date; status.hidden = true;
+        readings.replaceChildren(rendered);
+        if (rendered.gospelAudio) {
+          const api = typeof module !== 'undefined' && module.exports ? require('./gospel-audio.js') : window.GospelAudio;
+          if (!api) throw new Error('Gospel audio module missing');
+          const {controls, playlist, lines} = rendered.gospelAudio;
+          playback = api.mountAudio(controls, playlist, lines, config.strings, undefined, line => {
+            const view = root.querySelector('.gospel-today-window');
+            const bounds = view.getBoundingClientRect(), verse = line.getBoundingClientRect();
+            const top = bounds.top + controls.wrapper.getBoundingClientRect().height + 8;
+            const bottom = bounds.bottom - 8;
+            if (verse.height > bottom - top || verse.top < top) view.scrollTop += verse.top - top;
+            else if (verse.bottom > bottom) view.scrollTop += verse.bottom - bottom;
+          });
+        }
+        status.textContent = date; status.hidden = true;
       } catch (error) {
         if (request !== token) return;
         status.textContent = error instanceof RangeError ? error.message : config.strings.error;
@@ -118,7 +168,7 @@
     }
     document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
     refresh();
-    return {refresh, dispose: () => clearTimeout(timer)};
+    return {refresh, dispose: () => { clearTimeout(timer); if (playback) playback.dispose(); }};
   }
   const api = {localDate, midnightDelay, selectDay, renderReadings, mount};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;

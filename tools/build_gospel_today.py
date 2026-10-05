@@ -177,9 +177,12 @@ def generate(start_year=2026, end_year=2030):
     require(set(snapshot) == {'schema_version', 'exported_on', 'source', 'normalizations', 'verses'} and type(snapshot['schema_version']) is int and snapshot['schema_version'] == 1, 'invalid verse snapshot')
     require(snapshot['normalizations'] in ([], ['ubh-matthew23-14-15']), 'unknown snapshot normalization')
     require(set(snapshot['verses']) == set(TRANSLATIONS.values()), 'missing translation snapshot')
+    from sitegen.gospel_audio import attach_audio
+    audio = load_json(SOURCE / 'timecodes.json')
     refs = load_json(SOURCE / 'references.json')
     evidence = {source: {d['date']: {reference_key(r) for r in d['liturgy_refs']} for d in refs[source]} for source in ('ocu', 'ugcc')}
     files = {}
+    audio_errors = []
     for lang, calendar in CALENDARS.items():
         passages, schedules = {}, {}
         for year in range(start_year, end_year + 1):
@@ -194,15 +197,17 @@ def generate(start_year=2026, end_year=2030):
                 days[x.isoformat()] = compact_day(day, lang, evidence)
                 x += dt.timedelta(days=1)
             schedules[year] = {'schema_version': 1, 'calendar': calendar, 'year': year, 'days': days}
+        attach_audio(passages, lang, audio, errors=audio_errors)
         texts = {'schema_version': 1, 'translation': TRANSLATIONS[lang], 'passages': passages}
-        validate_passages(texts, lang)
+        validate_passages(texts, lang, audio_errors=audio_errors)
         files[f'{lang}/texts.json'] = encoded(texts)
         for year, schedule in schedules.items():
             validate_schedule(schedule, lang, year, passages)
             files[f'{lang}/{year}.json'] = encoded(schedule)
+    require(not audio_errors, 'Gospel audio errors:\n' + '\n'.join(sorted(set(audio_errors))))
     manifest = {'schema_version': 1, 'start_year': start_year, 'end_year': end_year,
                 'files': {name: digest(payload) for name, payload in files.items()},
-                'inputs': {name: digest((SOURCE / name).read_bytes()) for name in ('tables.json', 'references.json', 'verses.json')}}
+                'inputs': {name: digest((SOURCE / name).read_bytes()) for name in ('tables.json', 'references.json', 'verses.json', 'timecodes.json')}}
     files['manifest.json'] = encoded(manifest)
     return files
 
@@ -215,6 +220,8 @@ def main():
     args = parser.parse_args()
     if args.export_local:
         export_local()
+        from tools.export_gospel_timecodes import export_timecodes
+        export_timecodes(start_year=args.start_year, end_year=args.end_year)
     files = generate(args.start_year, args.end_year)
     if BUNDLE_DIR.exists():
         shutil.rmtree(BUNDLE_DIR)

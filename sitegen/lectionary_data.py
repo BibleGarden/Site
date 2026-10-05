@@ -111,11 +111,15 @@ def validate_tables(tables):
         require(all(isinstance(entry['name'][lang], str) and entry['name'][lang].strip() for lang in CALENDARS), 'missing feast label')
 
 
-def validate_passages(data, lang):
+def validate_passages(data, lang, *, audio_errors=None):
+    owned_errors = audio_errors is None
+    if owned_errors:
+        audio_errors = []
+    from .gospel_audio import validate_audio
     require(set(data) == {'schema_version', 'translation', 'passages'} and type(data['schema_version']) is int and data['schema_version'] == 1 and data['translation'] == TRANSLATIONS[lang], 'invalid passage schema')
     require(isinstance(data['passages'], dict) and bool(data['passages']), 'empty passages')
     for pid, passage in data['passages'].items():
-        require(set(passage) == {'book', 'ranges', 'display_ranges', 'label', 'book_name', 'verses'}, 'invalid passage fields')
+        require(set(passage) == {'book', 'ranges', 'display_ranges', 'label', 'book_name', 'verses', 'audio'}, 'invalid passage fields')
         validate_reference(passage)
         require(pid == passage_id(passage), 'invalid passage id')
         require(isinstance(passage['book_name'], str) and bool(passage['book_name'].strip()), 'empty book name')
@@ -129,6 +133,10 @@ def validate_passages(data, lang):
             coordinate = (verse['chapter'], verse['first'], verse['last'])
             require(coordinate not in seen, 'duplicate passage verse')
             seen.add(coordinate)
+        try:
+            validate_audio(passage, lang, errors=audio_errors)
+        except BuildError as error:
+            audio_errors.append(f"{lang} {passage['label']}: {error}")
         validate_reference({'book': passage['book'], 'ranges': passage['display_ranges']})
         for c1, v1, c2, v2 in passage['display_ranges']:
             for chapter in range(c1, c2 + 1):
@@ -139,6 +147,8 @@ def validate_passages(data, lang):
             require(any(v['chapter'] == c1 and v['first'] <= v1 <= v['last'] for v in passage['verses']), 'missing first verse')
             require(any(v['chapter'] == c2 and v['first'] <= v2 <= v['last'] for v in passage['verses']), 'missing last verse')
 
+    if owned_errors:
+        require(not audio_errors, 'Gospel audio errors:\n' + '\n'.join(sorted(set(audio_errors))))
 
 def validate_schedule(data, lang, year, passages):
     require(set(data) == {'schema_version', 'calendar', 'year', 'days'} and type(data['schema_version']) is int and data['schema_version'] == 1 and data['calendar'] == CALENDARS[lang] and data['year'] == year, 'invalid schedule schema')
@@ -190,17 +200,19 @@ def load_bundle(directory=BUNDLE_DIR):
     require(set(manifest['files']) == expected, 'invalid manifest files')
     require({str(p.relative_to(directory)) for p in directory.rglob('*') if p.is_file()} == expected | {'manifest.json'}, 'missing or extra source bundle files')
     for name, checksum in manifest['inputs'].items():
-        require(name in {'tables.json', 'references.json', 'verses.json'}, 'unknown source input')
+        require(name in {'tables.json', 'references.json', 'verses.json', 'timecodes.json'}, 'unknown source input')
         require(digest((SOURCE / name).read_bytes()) == checksum, f'changed source input: {name}; regenerate')
-    require(set(manifest['inputs']) == {'tables.json', 'references.json', 'verses.json'}, 'missing source fingerprints')
+    require(set(manifest['inputs']) == {'tables.json', 'references.json', 'verses.json', 'timecodes.json'}, 'missing source fingerprints')
     data = {}
     for name in sorted(expected):
         require(digest((directory / name).read_bytes()) == manifest['files'][name], f'checksum mismatch: {name}')
         data[name] = load_json(directory / name)
+    audio_errors = []
     for lang in CALENDARS:
-        validate_passages(data[f'{lang}/texts.json'], lang)
+        validate_passages(data[f'{lang}/texts.json'], lang, audio_errors=audio_errors)
         for year in range(manifest['start_year'], manifest['end_year'] + 1):
             validate_schedule(data[f'{lang}/{year}.json'], lang, year, data[f'{lang}/texts.json']['passages'])
+    require(not audio_errors, 'Gospel audio errors:\n' + '\n'.join(sorted(set(audio_errors))))
     return manifest, data
 
 

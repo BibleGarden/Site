@@ -203,6 +203,14 @@ articles:
     radio_apostle: Апостол з поясненням
     calendar_link: Церковний календар ПЦУ
 
+    audio_play: Слухати Євангеліє дня
+    audio_pause: Пауза
+    audio_again: Слухати ще раз
+    audio_error: Не вдалося відтворити запис. Оновіть сторінку.
+    audio_narrator: Переклад Хоменка · Ігор Козлов · без музики
+    audio_progress: Поступ прослуховування Євангелія
+    audio_verse: Зараз звучить {verse}
+
 not_found:
   title: Сторінку не знайдено
   text: "Такої сторінки немає або її перемістили."

@@ -3,6 +3,7 @@
 {% block body_class %}{% if article.has_checklist %} has-bible-checklist{% endif %}{% if article.has_plan %} has-reading-plan{% endif %}{% if article.has_chronological_plan %} has-chronological-plan{% endif %}{% if article.has_demo %} has-multi-reading-demo{% endif %}{% if article.has_calculator %} has-reading-time{% endif %}{% endblock %}
 {% block head %}
 {% if article.has_gospel_today %}
+    <script defer src="/js/gospel-audio.js"></script>
     <script defer src="/js/gospel-today.js"></script>
 {% endif %}
 {% if article.has_checklist %}

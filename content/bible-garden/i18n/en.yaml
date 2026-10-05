@@ -203,6 +203,14 @@ articles:
     radio_apostle: Apostle commentary — Radio VERA
     calendar_link: Church calendar
 
+    audio_play: Listen to the Gospel
+    audio_pause: Pause
+    audio_again: Listen again
+    audio_error: Audio could not be played. Reload the page.
+    audio_narrator: Gospel narrator
+    audio_progress: Gospel playback progress
+    audio_verse: Now playing {verse}
+
 not_found:
   title: Page not found
   text: "The page you are looking for does not exist or has moved."
