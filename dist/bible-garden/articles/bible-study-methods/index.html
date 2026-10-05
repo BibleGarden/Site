@@ -228,7 +228,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/" class="hover:text-gray-300 transition-colors">Home</a></li>
@@ -247,7 +249,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p>To study the Bible, read a passage, ask questions, and write down what you find. <strong>SOAP</strong> focuses on one verse and four short entries. <strong>Inductive Bible study</strong> works through a whole passage: observe, interpret, apply. <strong>Journaling</strong> is a way to record your reading that works with either method. Below, all three use Psalm 1: six verses and less than a minute of English audio.</p>
 <table>
@@ -361,6 +362,7 @@
 <h3 id="does-bible-garden-have-notes-bookmarks-or-an-android-version">Does Bible Garden have notes, bookmarks, or an Android version?</h3>
 <p>It has no notes or bookmarks; use paper or your phone's notes app. Bible Garden runs on iPhone and iPad. A web version and Android are in our plans.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="App screenshot">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -370,14 +372,27 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/select-psalm.en.webp" alt="Choosing a psalm from the list of psalms" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/settings-pause.en.webp" alt="Adjusting pauses between verses during playback" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/psalm-one.en.webp" alt="Psalm 1 in Classic Reading, Berean Standard Bible (BSB)" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-step-translation-english.en.webp" alt="Choosing an English translation for a Multi Reading step" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="lampada" data-src="/img/article-screens/phone/lampada-question.en.webp" alt="A guided question during prayer in Lampada" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="lampada" data-src="/img/article-screens/phone/lampada-journal.en.webp" alt="Lampada journal: prayer reflection, an answer and an audio recording" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/progress.en.webp" alt="Bible reading progress by book and overall" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="select-psalm" data-app="bible-garden" data-src="/img/article-screens/phone/select-psalm.en.webp" alt="Choosing a psalm from the list of psalms" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="settings-pause" data-app="bible-garden" data-src="/img/article-screens/phone/settings-pause.en.webp" alt="Adjusting pauses between verses during playback" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="psalm-one" data-app="bible-garden" data-src="/img/article-screens/phone/psalm-one.en.webp" alt="Psalm 1 in Classic Reading, Berean Standard Bible (BSB)" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-step-translation-english" data-app="bible-garden" data-src="/img/article-screens/phone/multi-step-translation-english.en.webp" alt="Choosing an English translation for a Multi Reading step" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="lampada-question" data-app="lampada" data-src="/img/article-screens/phone/lampada-question.en.webp" alt="A guided question during prayer in Lampada" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="lampada-journal" data-app="lampada" data-src="/img/article-screens/phone/lampada-journal.en.webp" alt="Lampada journal: prayer reflection, an answer and an audio recording" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="progress" data-app="bible-garden" data-src="/img/article-screens/phone/progress.en.webp" alt="Bible reading progress by book and overall" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/select-psalm.en.webp" alt="Choosing a psalm from the list of psalms" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Previous screen"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Screen 1 of 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 2 of 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 3 of 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 4 of 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 5 of 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 6 of 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Screen 7 of 7"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Next screen"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>

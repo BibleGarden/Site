@@ -228,7 +228,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/uk/" class="hover:text-gray-300 transition-colors">Головна</a></li>
@@ -247,7 +249,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p>Вивчати Біблію — означає читати уважно, ставити запитання до тексту й записувати відповіді. <strong>SOAP</strong> зосереджується на одному вірші та чотирьох коротких записах. <strong>Індуктивний метод</strong> охоплює весь уривок у три кроки: спостереження, тлумачення, застосування. <strong>Щоденник</strong> допомагає зберігати думки й підходить до обох методів. Нижче всі три показано на Псалмі 1: у ньому шість віршів, а українською він звучить приблизно півтори хвилини.</p>
 <table>
@@ -363,6 +364,7 @@
 <h3 id="чи-є-в-bible-garden-нотатки-закладки-та-версія-для-android">Чи є в Bible Garden нотатки, закладки та версія для Android?</h3>
 <p>Нотаток і закладок немає — записуйте на папері або в нотатках телефона. Bible Garden працює на iPhone та iPad; вебверсія й Android — у наших планах.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="Знімок екрана застосунку">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -372,14 +374,27 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/select-psalm.uk.webp" alt="Вибір псалма зі списку псалмів" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/settings-pause.uk.webp" alt="Налаштування пауз між віршами під час прослуховування" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/psalm-one.uk.webp" alt="Псалом 1 у Звичайному читанні, переклад Хоменка" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/translation-picker-ukrainian.uk.webp" alt="Вибір українського перекладу Біблії: Хоменко (UBH) або НПУ" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="lampada" data-src="/img/article-screens/phone/lampada-question.uk.webp" alt="Спрямувальне запитання під час молитви в Lampada" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="lampada" data-src="/img/article-screens/phone/lampada-journal.uk.webp" alt="Щоденник Lampada: підсумок молитви, відповідь на запитання й аудіозапис" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/progress.uk.webp" alt="Прогрес читання Біблії за книгами та загалом" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="select-psalm" data-app="bible-garden" data-src="/img/article-screens/phone/select-psalm.uk.webp" alt="Вибір псалма зі списку псалмів" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="settings-pause" data-app="bible-garden" data-src="/img/article-screens/phone/settings-pause.uk.webp" alt="Налаштування пауз між віршами під час прослуховування" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="psalm-one" data-app="bible-garden" data-src="/img/article-screens/phone/psalm-one.uk.webp" alt="Псалом 1 у Звичайному читанні, переклад Хоменка" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="translation-picker-ukrainian" data-app="bible-garden" data-src="/img/article-screens/phone/translation-picker-ukrainian.uk.webp" alt="Вибір українського перекладу Біблії: Хоменко (UBH) або НПУ" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="lampada-question" data-app="lampada" data-src="/img/article-screens/phone/lampada-question.uk.webp" alt="Спрямувальне запитання під час молитви в Lampada" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="lampada-journal" data-app="lampada" data-src="/img/article-screens/phone/lampada-journal.uk.webp" alt="Щоденник Lampada: підсумок молитви, відповідь на запитання й аудіозапис" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="progress" data-app="bible-garden" data-src="/img/article-screens/phone/progress.uk.webp" alt="Прогрес читання Біблії за книгами та загалом" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/select-psalm.uk.webp" alt="Вибір псалма зі списку псалмів" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Попередній екран"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Екран 1 із 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 2 із 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 3 із 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 4 із 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 5 із 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 6 із 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Екран 7 із 7"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Наступний екран"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>

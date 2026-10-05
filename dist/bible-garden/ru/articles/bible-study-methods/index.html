@@ -228,7 +228,9 @@
     </nav>
 
     <main class="pt-16">
-    <article class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article class="article-with-screens max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="article-screen-layout">
+            <div class="article-screen-content">
         <nav class="text-xs text-gray-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex flex-wrap items-center gap-2">
                 <li><a href="/ru/" class="hover:text-gray-300 transition-colors">Главная</a></li>
@@ -247,7 +249,6 @@
             </p>
         </header>
 
-        <div class="article-screen-layout">
         <div class="article-body">
 <p>Изучать Библию — значит не просто прочитать главу, а задать ей вопросы и записать ответы. Чаще всего советуют два метода и дневник. <strong>SOAP</strong> — один стих и четыре коротких записи. <strong>Индуктивный метод</strong> — весь отрывок в три шага: наблюдать, толковать, применять. <strong>Дневник</strong> — привычка записывать прочитанное, которая подходит к обоим. Ниже все три показаны на одном и том же тексте — Псалме 1: в нём шесть стихов, а в аудио он звучит около минуты.</p>
 <table>
@@ -361,6 +362,7 @@
 <h3 id="есть-ли-в-bible-garden-заметки-закладки-и-версия-для-android">Есть ли в Bible Garden заметки, закладки и версия для Android?</h3>
 <p>Заметок и закладок нет — записи ведите на бумаге или в заметках телефона. Bible Garden работает на iPhone и iPad; веб-версия и Android — в наших планах.</p>
         </div>
+            </div>
             <aside class="article-screen-aside" aria-label="Скриншот приложения">
                 <div class="article-screen-sticky">
                     <div class="article-screen-app-slot">
@@ -370,14 +372,27 @@
                         </div>
                     </div>
                     <div class="article-screen-phone">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/select-psalm.ru.webp" alt="Выбор псалма из списка псалмов" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/settings-pause.ru.webp" alt="Настройка пауз между стихами при прослушивании" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/psalm-one.ru.webp" alt="Псалом 1 в Синодальном переводе с открытой сноской Пс 91:13 и Иер 17:8" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.ru.webp" alt="Режим «Мультичтение» воспроизводит стих в двух переводах" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="lampada" data-src="/img/article-screens/phone/lampada-question.ru.webp" alt="Направляющий вопрос во время молитвы в Lampada" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="lampada" data-src="/img/article-screens/phone/lampada-journal.ru.webp" alt="Дневник Lampada: итог молитвы, ответ на вопрос и аудиозапись" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
-                        <img data-app="bible-garden" data-src="/img/article-screens/phone/progress.ru.webp" alt="Прогресс чтения Библии по книгам и в целом" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="select-psalm" data-app="bible-garden" data-src="/img/article-screens/phone/select-psalm.ru.webp" alt="Выбор псалма из списка псалмов" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="settings-pause" data-app="bible-garden" data-src="/img/article-screens/phone/settings-pause.ru.webp" alt="Настройка пауз между стихами при прослушивании" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="psalm-one" data-app="bible-garden" data-src="/img/article-screens/phone/psalm-one.ru.webp" alt="Псалом 1 в Синодальном переводе с открытой сноской Пс 91:13 и Иер 17:8" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="multi-reading" data-app="bible-garden" data-src="/img/article-screens/phone/multi-reading.ru.webp" alt="Режим «Мультичтение» воспроизводит стих в двух переводах" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="lampada-question" data-app="lampada" data-src="/img/article-screens/phone/lampada-question.ru.webp" alt="Направляющий вопрос во время молитвы в Lampada" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="lampada-journal" data-app="lampada" data-src="/img/article-screens/phone/lampada-journal.ru.webp" alt="Дневник Lampada: итог молитвы, ответ на вопрос и аудиозапись" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
+                        <img data-screen="progress" data-app="bible-garden" data-src="/img/article-screens/phone/progress.ru.webp" alt="Прогресс чтения Библии по книгам и в целом" width="480" height="1043" decoding="async" class="article-screen-phone-image" aria-hidden="true">
                         <noscript><img class="article-screen-noscript" src="/img/article-screens/phone/select-psalm.ru.webp" alt="Выбор псалма из списка псалмов" width="480" height="1043"></noscript>
+                    </div>
+                    <div class="article-screen-pager" hidden>
+                        <button type="button" class="article-screen-previous" aria-label="Предыдущий экран"><span aria-hidden="true">‹</span></button>
+                        <div class="article-screen-dots">
+                            <button type="button" class="article-screen-dot" aria-label="Экран 1 из 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Экран 2 из 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Экран 3 из 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Экран 4 из 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Экран 5 из 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Экран 6 из 7"></button>
+                            <button type="button" class="article-screen-dot" aria-label="Экран 7 из 7"></button>
+                        </div>
+                        <button type="button" class="article-screen-next" aria-label="Следующий экран"><span aria-hidden="true">›</span></button>
                     </div>
                 </div>
             </aside>
