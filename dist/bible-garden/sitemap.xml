@@ -208,6 +208,30 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/bible-reading-tracker/"/>
   </url>
   <url>
+    <loc>https://bible.garden/articles/bible-study-methods/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/bible-study-methods/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/bible-study-methods/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/bible-study-methods/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/bible-study-methods/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/ru/articles/bible-study-methods/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/bible-study-methods/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/bible-study-methods/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/bible-study-methods/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/bible-study-methods/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/uk/articles/bible-study-methods/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/bible-study-methods/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/bible-study-methods/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/bible-study-methods/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/bible-study-methods/"/>
+  </url>
+  <url>
     <loc>https://bible.garden/articles/books-of-the-bible/</loc>
     <lastmod>2026-09-28</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/books-of-the-bible/"/>

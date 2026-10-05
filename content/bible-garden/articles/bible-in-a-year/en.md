@@ -54,6 +54,8 @@ Winfred Henson's WEBUS recording is in the public domain. The calendar days were
 
 A one-year goal can turn reading into a race to check off chapters. If a verse holds your attention, read it again. Taking an extra week is better than rushing through passages you want to understand.
 
+To explore one verse from the day’s reading more deeply, try the [SOAP Bible study method](/articles/bible-study-methods/): write the verse, an observation, an application, and a prayer.
+
 Ways to make room for that attention:
 
 - **Pause the audio.** In [Bible Garden](/), you can add a pause after each verse, paragraph, or section, for a few seconds or until you resume playback.
