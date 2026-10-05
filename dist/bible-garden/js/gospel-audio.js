@@ -28,8 +28,15 @@
       const within = audio && !pending ? Math.max(0, Math.min(audio.currentTime - segment.begin, segment.end - segment.begin)) : 0;
       const elapsed = finished ? total : offsets[index] + within;
       controls.progress.value = elapsed;
+      if (controls.progress.style) controls.progress.style.setProperty('--gospel-progress', `${elapsed / total * 100}%`);
+      controls.progress.setAttribute('aria-valuetext', `${clock(elapsed)} / ${clock(total)}`);
       controls.time.textContent = `${clock(elapsed)} / ${clock(total)}`;
-      controls.button.textContent = finished ? strings.audio_again : playing ? strings.audio_pause : strings.audio_play;
+      const label = finished ? strings.audio_again : playing ? strings.audio_pause : strings.audio_play;
+      controls.button.textContent = controls.icon ? (playing ? 'Ⅱ' : '▶') : label;
+      controls.button.setAttribute('aria-label', label);
+      controls.button.setAttribute('aria-pressed', String(playing));
+      if (controls.current) { controls.current.textContent = segment.reading; controls.current.setAttribute('title', segment.reading); }
+      if (controls.cards) [...new Set(controls.cards)].forEach(card => card.classList.toggle('is-current', active && card === controls.cards[index]));
       if (active && announced !== index) {
         announced = index;
         controls.status.textContent = strings.audio_verse.replace('{verse}', lines[index].getAttribute('data-audio-label'));
@@ -49,7 +56,7 @@
       if (Number.isFinite(audio.duration) && segment.end > audio.duration + TOLERANCE) {
         fail(new Error('Gospel timecode exceeds chapter duration')); return;
       }
-      try { audio.currentTime = segment.begin; pending = false; }
+      try { audio.currentTime = segment.begin + seekOffset; seekOffset = 0; pending = false; }
       catch (error) { fail(error); }
     }
     async function start() {
@@ -110,9 +117,32 @@
       if (finished) { finished = false; index = 0; announced = -1; select(); }
       if (!controls.button.disabled) await start();
     }
+    async function jump(target, within = 0, play = true) {
+      if (disposed || controls.button.disabled || !Number.isInteger(target) || target < 0 || target >= playlist.length) return;
+      generation++; clearBoundary();
+      if (!audio) prepare();
+      else audio.pause();
+      index = target; finished = false; announced = -1; playing = false;
+      // Seeking to a reading starts it; moving the range preserves pause/play.
+      select();
+      seekOffset = within;
+      if (!pending) { audio.currentTime = playlist[index].begin + within; seekOffset = 0; }
+      update();
+      if (play && !controls.button.disabled) await start();
+    }
+    let seekOffset = 0;
+    const seekProgress = () => {
+      const value = Number(controls.progress.value);
+      if (!Number.isFinite(value) || value < 0 || value > total) { fail(new Error('Invalid playlist seek')); return; }
+      const target = offsets.findIndex((offset, n) => value < offset + playlist[n].end - playlist[n].begin);
+      const n = target < 0 ? playlist.length - 1 : target;
+      jump(n, Math.min(value - offsets[n], playlist[n].end - playlist[n].begin - TOLERANCE), playing);
+    };
     controls.button.addEventListener('click', toggle);
+    if (controls.jumps) controls.jumps.forEach(entry => entry.button.addEventListener('click', () => jump(entry.index)));
+    controls.progress.addEventListener('change', seekProgress);
     update();
-    return {toggle, dispose() {
+    return {toggle, jump, dispose() {
       disposed = true; generation++; playing = false; clearBoundary();
       if (audio) { audio.pause(); audio.removeAttribute('src'); audio.load(); }
       update();
