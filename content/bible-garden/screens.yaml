@@ -140,3 +140,31 @@ select-psalm:
     en: Choosing a psalm from the list of psalms
     ru: Выбор псалма из списка псалмов
     uk: Вибір псалма зі списку псалмів
+
+# Ukrainian-text frames: ClickUp 123pfqn1u7z (2026-10-05).
+translation-picker-ukrainian:
+  kind: app
+  captions:
+    en: 'Choosing a Ukrainian Bible translation: Khomenko (UBH) or NPU'
+    ru: 'Выбор украинского перевода Библии: Хоменко (UBH) или НПУ'
+    uk: 'Вибір українського перекладу Біблії: Хоменко (UBH) або НПУ'
+classic-reading-ukrainian:
+  kind: app
+  captions:
+    en: John 1 in Ukrainian, Khomenko (UBH), read by Ihor Kozlov
+    ru: 'Иоанна 1 на украинском: перевод Хоменко (UBH), читает Ігор Козлов'
+    uk: 'Йоана 1 українською: переклад Хоменка (UBH), читає Ігор Козлов'
+multi-reading-russian-ukrainian:
+  kind: app
+  captions:
+    en: John 1 in Russian Synodal and Ukrainian Khomenko translations in Multi Reading
+    ru: 'Иоанна 1 в Мультичтении: русский Синодальный перевод и украинский перевод
+      Хоменко'
+    uk: 'Йоана 1 у Мультичитанні: російський Синодальний переклад і український переклад
+      Хоменка'
+multi-reading-english-ukrainian:
+  kind: app
+  captions:
+    en: John 1 in English BSB and Ukrainian Khomenko translations in Multi Reading
+    ru: 'Иоанна 1 в Мультичтении: английский BSB и украинский перевод Хоменко'
+    uk: 'Йоана 1 у Мультичитанні: англійський BSB і український переклад Хоменка'

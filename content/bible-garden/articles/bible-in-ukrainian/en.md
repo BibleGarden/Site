@@ -7,7 +7,7 @@ date: 2026-10-04
 You can read and listen to the Bible in Ukrainian in [Bible Garden](/), a free app for iPhone and iPad. It has two Ukrainian translations, both with audio. The Khomenko translation covers the whole Bible, read by Igor Kozlov, about 109 hours in all. The New Ukrainian Translation (NPU) is in modern Ukrainian and covers the New Testament and the Psalms. The text stays on screen while the audio plays, and the current verse is highlighted. The Ohienko translation isn't in the app; see below for where to find it. If English is your stronger language, each verse can play in English first and then in Ukrainian.
 
 ## Ukrainian translations in Bible Garden
-<!-- screen: translation-picker -->
+<!-- screen: translation-picker-ukrainian -->
 
 In the reading settings, set the Bible language to Ukrainian, then choose a translation and a narrator. You can play a voice sample before choosing.
 
@@ -20,6 +20,7 @@ In the reading settings, set the Bible language to Ukrainian, then choose a tran
 Lengths come from the app's audio files, measured on October 4, 2026. The NPU has no other Old Testament books: only the New Testament and the Psalms have been published. Neither recording has background music, and both are free: the publisher of Kozlov's recording [distributes it without restrictions](http://www.blagovestnik.org/ukraine/), and Biblica also offers the NPU audio on [YouVersion](https://www.bible.com/audio-bible-app-versions/3269-novii-pierieklad-ukrayinskoiu).
 
 ## Hear English and Ukrainian verse by verse
+<!-- screen: multi-reading-english-ukrainian -->
 
 <div class="article-callout" markdown="1">
 **Multi Reading is Bible Garden's key feature.** A verse plays in English, then, after a short pause, the same verse plays in Ukrainian, all the way through the chapter. The screen shows both translations of each verse and highlights the one being read. The translations play one after the other, not at the same time.
@@ -39,7 +40,7 @@ A pairing stays in step only where both translations divide chapters into verses
 Checked against the texts in the app on October 4, 2026. Pairs, listening order, and time for the whole Bible in two languages are covered in the [guide to Ukrainian–English Bible pairs](/uk/articles/russian-english-bible/) (in Ukrainian); setting up Multi Reading step by step is in "[Bilingual Bible App](/articles/bible-in-two-languages/)."
 
 ## The Khomenko translation, read by Igor Kozlov
-<!-- screen: classic-reading -->
+<!-- screen: classic-reading-ukrainian -->
 
 Father Ivan Khomenko (1892–1981) was a Ukrainian Greek Catholic priest. He translated the Bible from Hebrew, Aramaic, and Greek between 1945 and 1957, mostly in Italy, and the first edition came out in Rome in 1963. It is used by Greek Catholic, Orthodox, and Protestant readers ([UGCC](https://ugcc.ua/data/otets-ivan-homenko-perekladach-svyatogo-pysma-ukraynskoyu-movoyu-4249/)).
 
@@ -48,7 +49,6 @@ Igor Kozlov recorded the whole translation in a studio in 2005–2006 for the Bl
 In the app, the text and audio are synced: the previous and next verse buttons jump to the exact start of a verse. You can add a pause after each verse, paragraph, or section, for a set time or until you tap Play.
 
 ## NPU: the New Testament and Psalms in modern Ukrainian
-<!-- screen: classic-reading-psalm -->
 
 Biblica published the New Ukrainian Translation (Новий Переклад Українською) in 2022; Biblica and Davar Partners International produced the audio edition. The text is under an open CC BY-SA license ([eBible.org](https://ebible.org/find/details.php?id=ukronpu)), and the narrator is not credited. Don't confuse it with the Modern Translation of the Ukrainian Bible Society, a different translation that isn't in the app.
 
