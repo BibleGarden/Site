@@ -220,34 +220,30 @@ def referenced_passages(days):
     return refs
 
 
-def validate_month(data, lang, month):
-    require(isinstance(data, dict) and set(data) == {'schema_version', 'calendar', 'translation', 'month', 'days', 'passages'}, 'invalid monthly schema')
-    require(type(data['schema_version']) is int and data['schema_version'] == 1 and data['calendar'] == CALENDARS[lang] and data['translation'] == TRANSLATIONS[lang] and data['month'] == month, 'invalid monthly metadata')
+def validate_daily(data, lang, date):
+    require(isinstance(data, dict) and set(data) == {'schema_version', 'calendar', 'translation', 'date', 'day', 'passages'}, 'invalid daily schema')
+    require(type(data['schema_version']) is int and data['schema_version'] == 1 and data['calendar'] == CALENDARS[lang] and data['translation'] == TRANSLATIONS[lang] and data['date'] == date, 'invalid daily metadata')
     try:
-        first = dt.date.fromisoformat(month + '-01')
+        require(dt.date.fromisoformat(date).isoformat() == date, 'invalid date')
     except (TypeError, ValueError) as error:
-        raise BuildError('invalid month') from error
-    end = dt.date(first.year + 1, 1, 1) if first.month == 12 else dt.date(first.year, first.month + 1, 1)
-    require(isinstance(data['days'], dict) and set(data['days']) == {(first + dt.timedelta(days=i)).isoformat() for i in range((end - first).days)}, 'missing or extra monthly days')
+        raise BuildError('invalid date') from error
     validate_passages({'schema_version': 1, 'translation': data['translation'], 'passages': data['passages']}, lang)
-    validate_days(data['days'], lang, data['passages'])
-    require(set(data['passages']) == referenced_passages(data['days']), 'missing or unused monthly passages')
+    days = {date: data['day']}
+    validate_days(days, lang, data['passages'])
+    require(set(data['passages']) == referenced_passages(days), 'missing or unused daily passages')
 
 
-def monthly_files(manifest, assets):
-    """Derive public month files from the one committed, validated content bundle."""
+def daily_files(manifest, assets):
+    """Derive public day files from the one committed, validated content bundle."""
     files = {}
     for lang in CALENDARS:
         passages = assets[f'{lang}/texts.json']['passages']
         for year in range(manifest['start_year'], manifest['end_year'] + 1):
-            schedule = assets[f'{lang}/{year}.json']['days']
-            for number in range(1, 13):
-                month = f'{year}-{number:02}'
-                days = {date: day for date, day in schedule.items() if date.startswith(month + '-')}
-                ids = referenced_passages(days)
-                require(ids <= passages.keys(), f'missing source passages: {month}')
+            for date, day in assets[f'{lang}/{year}.json']['days'].items():
+                ids = referenced_passages({date: day})
+                require(ids <= passages.keys(), f'missing source passages: {date}')
                 data = {'schema_version': 1, 'calendar': CALENDARS[lang], 'translation': TRANSLATIONS[lang],
-                        'month': month, 'days': days, 'passages': {pid: passages[pid] for pid in sorted(ids)}}
-                validate_month(data, lang, month)
-                files[f'{lang}/{month}.json'] = encoded(data)
+                        'date': date, 'day': day, 'passages': {pid: passages[pid] for pid in sorted(ids)}}
+                validate_daily(data, lang, date)
+                files[f'{lang}/{year}/{date[5:]}.json'] = encoded(data)
     return files

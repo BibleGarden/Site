@@ -20,12 +20,12 @@ const texts = {schema_version: 1, translation: 'syn', passages: {p: {
   label: 'Лк 3:19–22', book_name: 'Лк', verses: [{chapter: 3, first: 19, last: 19, text: '<script>alert(1)</script>'}]
 }}};
 const day = {items: [{kind: 'ordinary', gospel: 'p', apostle: null}], uncertain: false, confirmed_by: []};
-const month = {schema_version: 1, calendar: 'julian', translation: 'syn', month: '2026-10', days: {'2026-10-05': day, '2026-10-06': day, '2026-10-31': day}, passages: texts.passages};
-assert.equal(selectDay(month, '2026-10-05', config), day);
-assert.throws(() => selectDay(month, '2031-01-01', config), RangeError);
-assert.throws(() => selectDay(month, '2026-10-07', config));
-assert.throws(() => selectDay({...month, passages: {}}, '2026-10-05', config));
-assert.throws(() => selectDay({...month, calendar: 'newjulian'}, '2026-10-05', config));
+const daily = {schema_version: 1, calendar: 'julian', translation: 'syn', date: '2026-10-05', day, passages: texts.passages};
+assert.equal(selectDay(daily, '2026-10-05', config), day);
+assert.throws(() => selectDay(daily, '2031-01-01', config), RangeError);
+assert.throws(() => selectDay(daily, '2026-10-07', config));
+assert.throws(() => selectDay({...daily, passages: {}}, '2026-10-05', config));
+assert.throws(() => selectDay({...daily, calendar: 'newjulian'}, '2026-10-05', config));
 class Node {
   constructor(tag, text = '') { this.tag = tag; this.textContent = text; this.children = []; this.attrs = {}; }
   appendChild(child) { this.children.push(child); return child; }
@@ -60,8 +60,8 @@ const settle = () => new Promise(resolve => setImmediate(resolve));
   const root = rootFor(config);
   const client = mount(root, document, async url => {
     calls.push(url);
-    const key = url.split('/').pop().slice(0, -5);
-    return {ok: true, json: async () => ({...month, month: key, days: key === '2026-10' ? month.days : {[key + '-01']: day}})};
+    const key = url.match(/\/(\d{4})\/(\d{2}-\d{2})\.json$/);
+    return {ok: true, json: async () => ({...daily, date: key[1] + '-' + key[2]})};
   }, () => clock);
   await settle();
   assert.equal(root.nodes['[data-gospel-status]'].textContent, '2026-10-05');
@@ -69,21 +69,22 @@ const settle = () => new Promise(resolve => setImmediate(resolve));
   assert.equal(calls.length, 1);
   await client.refresh(); assert.equal(calls.length, 1);
   clock = new Date(2026, 9, 6, 0);
-  await client.refresh(); assert.equal(calls.length, 1);
+  await client.refresh(); assert.equal(calls.length, 2);
+  assert.equal(calls[1], '/data/gospel-today/ru/2026/10-06.json');
   assert.equal(root.nodes['[data-gospel-status]'].textContent, '2026-10-06');
   clock = new Date(2026, 10, 1, 0);
   listeners.visibilitychange(); await settle();
-  assert.equal(calls.length, 2);
-  assert.equal(calls[1], '/data/gospel-today/ru/2026-11.json');
+  assert.equal(calls.length, 3);
+  assert.equal(calls[2], '/data/gospel-today/ru/2026/11-01.json');
   assert.equal(root.nodes['[data-gospel-status]'].textContent, '2026-11-01');
   clock = new Date(2027, 0, 1, 0);
   listeners.visibilitychange(); await settle();
-  assert.equal(calls.length, 3);
-  assert.equal(calls[2], '/data/gospel-today/ru/2027-01.json');
+  assert.equal(calls.length, 4);
+  assert.equal(calls[3], '/data/gospel-today/ru/2027/01-01.json');
   assert.equal(root.nodes['[data-gospel-status]'].textContent, '2027-01-01');
   client.dispose();
   const bad = rootFor(config);
-  const badClient = mount(bad, document, async () => ({ok: true, json: async () => month}), () => new Date(2026, 10, 1));
+  const badClient = mount(bad, document, async () => ({ok: true, json: async () => daily}), () => new Date(2026, 10, 1));
   const originalError = console.error; let errors = [];
   console.error = (...values) => errors.push(values);
   await settle();
@@ -101,18 +102,22 @@ const settle = () => new Promise(resolve => setImmediate(resolve));
   await settle(); assert.equal(failed.nodes['[data-gospel-status]'].textContent, 'failed'); failure.dispose();
   console.error = originalError;
   global.setTimeout = originalTimeout; global.clearTimeout = originalClear;
-  // Exercise every public month and every kind with the real build output.
+  // Exercise every public day and every kind with the real build output.
   for (const lang of ['ru', 'uk']) {
     const base = path.join(__dirname, '../dist/bible-garden/data/gospel-today', lang);
-    assert.equal(fs.readdirSync(base).length, 60);
-    for (const filename of fs.readdirSync(base)) {
-      assert.match(filename, /^20[0-9]{2}-[0-9]{2}\.json$/);
-      const monthly = JSON.parse(fs.readFileSync(path.join(base, filename), 'utf8'));
-      for (const [date, reading] of Object.entries(monthly.days)) {
-        const selected = selectDay(monthly, date, {...config, lang});
-        assert.ok(renderReadings(document, selected, monthly, date, strings).allText());
-        assert.equal(selected, reading);
+    assert.deepEqual(fs.readdirSync(base), ['2026', '2027', '2028', '2029', '2030']);
+    let count = 0;
+    for (const year of fs.readdirSync(base)) {
+      for (const filename of fs.readdirSync(path.join(base, year))) {
+        assert.match(filename, /^[0-9]{2}-[0-9]{2}\.json$/);
+        const daily = JSON.parse(fs.readFileSync(path.join(base, year, filename), 'utf8'));
+        assert.equal(daily.date, year + '-' + filename.slice(0, -5));
+        const selected = selectDay(daily, daily.date, {...config, lang});
+        assert.ok(renderReadings(document, selected, daily, daily.date, strings).allText());
+        assert.equal(selected, daily.day);
+        count++;
       }
     }
+    assert.equal(count, 1826);
   }
 })().catch(error => { console.error(error); process.exitCode = 1; });

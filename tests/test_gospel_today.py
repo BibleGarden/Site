@@ -14,7 +14,7 @@ from unittest.mock import patch
 from sitegen.content import load_site, parse_article
 from sitegen.errors import BuildError
 from sitegen.gospel_today import MARKER, PLACEHOLDER, annotate_marker, render_component
-from sitegen.lectionary_data import (ROOT, SOURCE, BUNDLE_DIR, load_bundle, validate_passages, validate_schedule, monthly_files, validate_month, referenced_passages)
+from sitegen.lectionary_data import (ROOT, SOURCE, BUNDLE_DIR, load_bundle, validate_passages, validate_schedule, daily_files, validate_daily, referenced_passages)
 from tools.build_gospel_today import generate, extract_passage, display_ranges, export_local, normalize_known_joins, UBH_MATTHEW_23_14
 
 
@@ -28,33 +28,36 @@ class GospelAssetsTest(unittest.TestCase):
         self.assertEqual((manifest['start_year'], manifest['end_year']), (2026, 2030))
         self.assertTrue(assets['uk/2027.json']['days']['2027-01-12']['uncertain'])
 
-    def test_monthly_files_are_complete_minimal_and_match_source(self):
+    def test_daily_files_are_complete_minimal_and_match_source(self):
         manifest, assets = load_bundle()
-        files = monthly_files(manifest, assets)
-        self.assertEqual(len(files), 120)
+        files = daily_files(manifest, assets)
+        self.assertEqual(len(files), 3652)
+        expected = {f'{lang}/{year}/{date[5:]}.json' for lang in ('ru', 'uk') for year in range(2026, 2031) for date in assets[f'{lang}/{year}.json']['days']}
+        self.assertEqual(set(files), expected)
         for filename, payload in files.items():
-            lang, name = filename.split('/')
-            month = name.removesuffix('.json')
+            lang, year, name = filename.split('/')
+            date = year + '-' + name.removesuffix('.json')
             data = json.loads(payload)
-            validate_month(data, lang, month)
-            self.assertEqual(set(data['passages']), referenced_passages(data['days']))
-            for date, day in data['days'].items():
-                self.assertEqual(day, assets[f'{lang}/{date[:4]}.json']['days'][date])
+            validate_daily(data, lang, date)
+            self.assertEqual(set(data['passages']), referenced_passages({date: data['day']}))
+            self.assertEqual(data['day'], assets[f'{lang}/{year}.json']['days'][date])
             for pid, passage in data['passages'].items():
                 self.assertEqual(passage, assets[f'{lang}/texts.json']['passages'][pid])
             self.assertEqual((ROOT / 'dist/bible-garden/data/gospel-today' / filename).read_bytes(), payload)
-        january = json.loads(files['ru/2027-01.json'])
-        for mutation in ('missing_day', 'extra_day', 'missing_text', 'extra_text', 'wrong_month'):
+        january = json.loads(files['ru/2027/01-01.json'])
+        for mutation in ('missing_day', 'missing_text', 'extra_text', 'wrong_date', 'invalid_date'):
             changed = copy.deepcopy(january)
-            if mutation == 'missing_day': del changed['days']['2027-01-01']
-            if mutation == 'extra_day': changed['days']['2027-02-01'] = changed['days']['2027-01-01']
+            if mutation == 'missing_day': del changed['day']
             if mutation == 'missing_text': changed['passages'].pop(next(iter(changed['passages'])))
             if mutation == 'extra_text':
                 pid = next(p for p in assets['ru/texts.json']['passages'] if p not in changed['passages'])
                 changed['passages'][pid] = assets['ru/texts.json']['passages'][pid]
-            if mutation == 'wrong_month': changed['month'] = '2026-01'
-            with self.subTest(mutation=mutation), self.assertRaises(BuildError): validate_month(changed, 'ru', '2027-01')
-        self.assertEqual(len(json.loads(files['ru/2028-02.json'])['days']), 29)
+            if mutation == 'wrong_date': changed['date'] = '2026-01-01'
+            if mutation == 'invalid_date': changed['date'] = '2027-02-29'
+            date = changed['date'] if mutation == 'invalid_date' else '2027-01-01'
+            with self.subTest(mutation=mutation), self.assertRaises(BuildError): validate_daily(changed, 'ru', date)
+        self.assertIn('ru/2028/02-29.json', files)
+        self.assertNotIn('ru/2027/02-29.json', files)
 
     def test_passage_missing_text_and_schedule_missing_day_fail(self):
         _, assets = load_bundle()

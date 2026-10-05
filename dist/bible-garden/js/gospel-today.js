@@ -8,21 +8,21 @@
   function midnightDelay(now) {
     return new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1).getTime() - now.getTime() + 50;
   }
-  function selectDay(month, date, config) {
+  function selectDay(daily, date, config) {
     if (!['ru', 'uk'].includes(config.lang)) throw new Error('Unsupported language');
     const year = Number(date.slice(0, 4));
     if (year < config.start_year || year > config.end_year) throw new RangeError(config.strings.out_of_range);
     const calendar = config.lang === 'ru' ? 'julian' : 'newjulian';
     const translation = config.lang === 'ru' ? 'syn' : 'ubh';
-    if (month.schema_version !== 1 || month.calendar !== calendar || month.month !== date.slice(0, 7) ||
-        month.translation !== translation) throw new Error('Invalid reading assets');
-    const day = month.days[date];
+    if (daily.schema_version !== 1 || daily.calendar !== calendar || daily.date !== date ||
+        daily.translation !== translation) throw new Error('Invalid reading assets');
+    const day = daily.day;
     if (!day || !Array.isArray(day.items) || day.items.length === 0 || typeof day.uncertain !== 'boolean' ||
         !Array.isArray(day.confirmed_by) || (config.lang === 'uk' && !day.uncertain && !day.confirmed_by.length)) {
       throw new Error('Missing or invalid daily readings');
     }
     function passage(id) {
-      const p = month.passages[id];
+      const p = daily.passages[id];
       if (!p || !p.label || !p.book_name || !Array.isArray(p.verses) || !p.verses.length ||
           p.verses.some(v => typeof v.text !== 'string' || !v.text.trim())) throw new Error('Missing passage text');
       return p;
@@ -104,9 +104,9 @@
       try {
         const year = clock.getFullYear();
         if (year < config.start_year || year > config.end_year) throw new RangeError(config.strings.out_of_range);
-        const month = await asset(date.slice(0, 7));
-        const day = selectDay(month, date, config);
-        const rendered = renderReadings(document, day, month, date, config.strings);
+        const daily = await asset(date.slice(0, 4) + '/' + date.slice(5));
+        const day = selectDay(daily, date, config);
+        const rendered = renderReadings(document, day, daily, date, config.strings);
         if (request !== token) return;
         readings.replaceChildren(rendered); status.textContent = date; status.hidden = true;
       } catch (error) {

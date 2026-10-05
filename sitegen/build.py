@@ -121,12 +121,12 @@ class SiteBuilder:
             else:
                 raise BuildError(f"missing static source: {source}")
         if self.site.key == "bible-garden":
-            from .lectionary_data import load_bundle, monthly_files
+            from .lectionary_data import load_bundle, daily_files
             manifest, assets = load_bundle()
             from .gospel_today import validate_strings
             for language in ("ru", "uk"):
                 validate_strings(self.site.i18n[language]["articles"].get("gospel_today"))
-            for name, payload in monthly_files(manifest, assets).items():
+            for name, payload in daily_files(manifest, assets).items():
                 path = output_dir / "data/gospel-today" / name
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_bytes(payload)

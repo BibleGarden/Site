@@ -856,14 +856,15 @@ joined-verse bounds. `content/bible-garden/lectionary/` is the single site-data
 source: schedules by language/year, one text dictionary per translation and a
 fingerprint manifest. Each passage is stored once per translation and referenced
 by its stable ID from every day. The build validates schemas, complete dates,
-references, text coverage and SHA-256 fingerprints, then derives monthly public
-JSON under `dist/bible-garden/data/gospel-today/<lang>/<YYYY>-<MM>.json`.
-Each month contains its schedule and exactly the passages it uses, including OT,
-Royal Hours and composite Gospels; unused passages and incomplete months fail.
-Annual schedules, the full text dictionaries and the manifest are not published.
-The browser makes one data request for the visitor's current month, reuses it for
-other dates in that month and fetches the next month after midnight or when a tab
-returns on a date in another month/year. There is no background month prefetch.
+references, text coverage and SHA-256 fingerprints, then derives daily public
+JSON under `dist/bible-garden/data/gospel-today/<lang>/<YYYY>/<MM>-<DD>.json`.
+Each file contains one dated schedule entry and exactly the passages it uses,
+including OT, Royal Hours and composite Gospels; unused passages, mismatched dates
+and missing data fail. Annual/monthly files, full dictionaries and the source
+manifest are not published. The browser makes one data request for today's local
+date, reuses it on that date, and loads the new day after midnight or when returning
+to a tab on another date. Month/year boundaries use the same date-based path.
+There is no background prefetch.
 
 Regenerate 2026–2030 deterministically from committed sources, without DB/network:
 
@@ -890,15 +891,13 @@ Extend the explicit range annually, exporting again if new passages require data
 commit sources, regenerated JSON and `dist/` together. There is no clock-dependent
 build or automatic network refresh. Paschalion accepts 1900–2099; daily calculation
 requires 1901–2098 because it uses adjacent Paschal years. The initial output ends
-on 2030-12-31. Measured on 2026-10-05 after `python -m sitegen build` by summing
-UTF-8 file byte lengths: 120 monthly JSON files total 20,195,242 bytes. The largest
-month is April 2027: ru 280,683 bytes and uk 270,812 bytes. Those same files measure
-69,918 / 70,999 bytes with Python `gzip.compress(..., mtime=0)`; this estimates
-HTTP gzip size, without asserting that production compression is configured.
-The complete Lenten readings exceed the initial 100 KB uncompressed target;
-plain JSON preserves all passage texts without a browser decompression dependency.
-There are 768 distinct passages per translation in the content source; detailed
-source sizes and measurement method are in the input README. Rare Annunciation/Holy Week coincidences follow the documented
+on 2030-12-31. Measured on 2026-10-05 after `python -m sitegen build` using file
+byte lengths and Python `statistics.median`: 3,652 daily JSON files total
+20,653,061 bytes, 457,819 bytes (+2.27%) above the previous monthly variant.
+The largest day is 2026-04-09: ru 23,061 bytes and uk 23,259 bytes; median sizes
+are ru 4,900 bytes and uk 4,931 bytes, without compression. Full passage texts
+remain ordinary JSON. There are 768 distinct passages per translation in the
+content source; detailed source sizes and measurement method are in the input README. Rare Annunciation/Holy Week coincidences follow the documented
 feast-first model and need church verification; future Ukrainian winter repeats
 are projected and marked unconfirmed until dated evidence is added.
 
