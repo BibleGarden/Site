@@ -2,7 +2,6 @@
 title: "Bible for dyslexia and low vision: audio, read-along, and larger text"
 description: "Find ways to read the Bible when reading is hard: audio with highlighted verses, larger text, slower playback, dyslexia-friendly print editions, and US Braille and talking-book services."
 date: 2026-10-05
-draft: true
 ---
 
 If reading is hard because of dyslexia, low vision, age, or eye strain, you can listen to the Bible. The free [Bible Garden](/) app for iPhone and iPad has recordings of all 66 books in English without background music. The chapter stays on screen, and the verse being read is highlighted. You can enlarge the Bible text, slow the audio, and add a pause after each verse.
