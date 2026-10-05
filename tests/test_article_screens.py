@@ -94,6 +94,52 @@ class ArticleScreensTest(unittest.TestCase):
                 self.assertIn('<noscript><img class="article-screen-noscript" src="/img/article-screens/phone/lampada-journal.', html)
             self.assertEqual((builder.site.output_dir / "img/lampada-icon-64.png").read_bytes(), (ROOT / "static/lampada/assets/lampada-icon-64.png").read_bytes())
 
+    def test_pager_uses_unique_screens_in_article_order_and_localized_buttons(self) -> None:
+        labels = {
+            "en": ("Previous screen", "Next screen", "Screen {n} of 3"),
+            "ru": ("Предыдущий экран", "Следующий экран", "Экран {n} из 3"),
+            "uk": ("Попередній екран", "Наступний екран", "Екран {n} із 3"),
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            builder = SiteBuilder(ROOT / "content/bible-garden", Path(directory) / "bible-garden", preview=True)
+            for lang, (previous, following, position) in labels.items():
+                marked, _, refs = annotate_screens(
+                    "## Home\n<!-- screen: home -->\n\n## Journal\n<!-- screen: lampada-journal -->\n"
+                    "\n## Home again\n<!-- screen: home -->\n\n## Question\n<!-- screen: lampada-question -->\n",
+                    SOURCE, lang, self.screens,
+                )
+                body = render_markdown(
+                    marked, refs, builder.t(lang)["articles"]["screen_open"],
+                    builder.t(lang)["articles"]["screen_app_lampada"],
+                )
+                article = builder.articles["template-check"][lang]
+                for selected_refs, count in ((refs, 3), (refs[:1] * 2, 0), ((), 0)):
+                    with self.subTest(lang=lang, screens=len(selected_refs)):
+                        builder.articles["template-check"][lang] = replace(
+                            article, screens=selected_refs, body_html=body,
+                        )
+                        builder.build_article("template-check", lang)
+                        html = builder.output_path(lang, "articles/template-check/index.html").read_text(encoding="utf-8")
+                        self.assertEqual(html.count('class="article-screen-dot"'), count)
+                        if not count:
+                            self.assertNotIn('class="article-screen-pager"', html)
+                            continue
+                        self.assertIn('class="article-screen-pager" hidden', html)
+                        images = re.findall(r'<img[^>]*class="article-screen-phone-image"[^>]*>', html)
+                        self.assertEqual(
+                            [re.search(r'data-screen="([^"]+)"', image).group(1) for image in images],
+                            ["home", "lampada-journal", "lampada-question"],
+                        )
+                        for image, ref in zip(images, (refs[0], refs[1], refs[3])):
+                            self.assertIn(f'alt="{ref.caption}"', image)
+                            self.assertIn(f'data-app="{ref.screen.app}"', image)
+                        buttons = re.findall(r'<button[^>]*class="article-screen-(?:previous|next|dot)"[^>]*>', html)
+                        self.assertEqual(len(buttons), 5)
+                        for button, label in zip(buttons, (previous, *(position.format(n=n) for n in range(1, 4)), following)):
+                            self.assertIn('type="button"', button)
+                            self.assertIn(f'aria-label="{label}"', button)
+                        self.assertEqual(body.count('class="article-screen-inline"'), 4)
+
     def test_desktop_label_switches_only_with_decoded_screen(self) -> None:
         subprocess.run(["node", str(ROOT / "tests/article_screens.js")], check=True, capture_output=True, text=True)
 

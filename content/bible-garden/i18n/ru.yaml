@@ -86,6 +86,9 @@ articles:
   screen_open: "Открыть скриншот крупнее: {caption}"
   screen_viewer: Скриншот приложения
   screen_close: Закрыть скриншот
+  screen_previous: "Предыдущий экран"
+  screen_next: "Следующий экран"
+  screen_position: "Экран {n} из {total}"
   multi_reading_demo:
     play: Слушать
     pause: Пауза

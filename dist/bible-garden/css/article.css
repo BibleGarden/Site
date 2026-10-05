@@ -271,6 +271,72 @@
     opacity: 1;
 }
 
+/* Keep the pager's space reserved before JavaScript reveals the controls. */
+.article-screen-pager {
+    --pager-color: #d4a843;
+    --pager-hover: #2a4030;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-top: 1.25rem;
+    color: var(--pager-color);
+}
+
+.article-screen-pager[hidden] { visibility: hidden; }
+
+.article-screen-dots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.article-screen-pager button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 2rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0.5rem;
+    background: transparent;
+    color: inherit;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.article-screen-pager button:enabled:hover { background: var(--pager-hover); }
+.article-screen-pager button:disabled { opacity: 0.35; cursor: default; }
+
+.article-screen-pager button:focus-visible {
+    outline: 3px solid var(--pager-color);
+    outline-offset: 2px;
+}
+
+.article-screen-dot::before {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+}
+
+.article-screen-dot[aria-current="true"]::before { background: currentColor; }
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) .article-screen-pager {
+        --pager-color: #80601a;
+        --pager-hover: #e8efe4;
+    }
+}
+
+:root[data-theme="light"] .article-screen-pager {
+    --pager-color: #80601a;
+    --pager-hover: #e8efe4;
+}
+
 .article-screen-noscript {
     display: block;
     width: 100%;

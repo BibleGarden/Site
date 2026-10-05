@@ -86,6 +86,9 @@ articles:
   screen_open: "Відкрити знімок екрана крупніше: {caption}"
   screen_viewer: Знімок екрана застосунку
   screen_close: Закрити знімок екрана
+  screen_previous: "Попередній екран"
+  screen_next: "Наступний екран"
+  screen_position: "Екран {n} із {total}"
   multi_reading_demo:
     play: Слухати
     pause: Пауза
