@@ -212,7 +212,9 @@
       card.lang = choice[0] === 'syn' || choice[0] === 'bti' ? 'ru' : choice[0] === 'ubh' || choice[0] === 'npu' ? 'uk' : 'en';
       const head = add('div', '', card, 'gospel-reading-heading');
       const reference = p.label || `${p.book} · ${p.ranges.map(r => `${r[0]}:${r[1]}–${r[2]}:${r[3]}`).join('; ')}`;
-      add('h4', `${reading.title} · ${reference}`, head);
+      const heading = add('div', '', head, 'gospel-reading-meta');
+      add('span', reading.title, heading, 'gospel-reading-kind');
+      add('h4', reference, heading);
       const available = !p.unavailable && p.audio[choice[1]] !== null;
       if (available) {
         const jump = add('button', '▶', head, 'gospel-reading-play'); jump.type = 'button';

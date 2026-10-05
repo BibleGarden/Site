@@ -840,13 +840,17 @@ known feast coincidences and evidence are in `tools/data/lectionary/README.md`.
 
 The compact header shows title, human date and calendar. Language, translation
 and narrator selectors precede one round Play/Pause button, a seekable whole-day
-progress track, elapsed/total time and current-reading label. Cards show full
-texts/references in ordinary page flow. Each available reading has a play/jump
-button; its card and current verse highlight during playback. There is no inner
-scroll area. Light/dark tokens and the 390 px layout are supported. Radio VERA
-(ru), OCU calendar (uk), App Store, the manual book/chapter/verse hint and the
-saints' limitation are a compact separate paragraph **after the block box**.
-Without JS, the local-date explanation and external links remain usable.
+progress track, elapsed/total time and current-reading label. Cards show a
+prominent reference, a smaller reading label and Lora Scripture text with muted
+superscript verse numbers, in ordinary page flow. Native selectors retain
+keyboard navigation and use the active theme for their option menus. Each
+available reading has a play/jump button; its card and current verse highlight
+during playback. There is no inner scroll area. Light/dark tokens and the 390 px
+layout are supported. Radio VERA Gospel (`https://radiovera.ru/gospel.html`) and
+Apostle (`https://radiovera.ru/category/podcast/apostol`) links (ru), OCU calendar
+(uk), App Store, the manual book/chapter/verse hint and the saints' limitation
+are a compact separate paragraph **after the block box**. Without JS, the
+local-date explanation and external links remain usable.
 
 #### Text and voice selection
 

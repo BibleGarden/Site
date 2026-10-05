@@ -53,7 +53,7 @@ def render_component(lang, strings, app_store_url, audio_config=None, *, preview
     config = {'editions': EDITIONS, 'defaults': DEFAULTS, 'audio': {**audio_config, 'books': API_BOOKS}, 'lang': lang, 'start_year': manifest['start_year'], 'end_year': manifest['end_year'], 'strings': strings}
     config_json = json.dumps(config, ensure_ascii=False).replace('<', '\\u003c').replace('>', '\\u003e').replace('&', '\\u0026')
     if lang == 'ru':
-        links = f'<a href="https://radiovera.ru/gospel.html">{escape(strings["radio_gospel"])}</a> · <a href="https://radiovera.ru/apostol.html">{escape(strings["radio_apostle"])}</a>'
+        links = f'<a href="https://radiovera.ru/gospel.html">{escape(strings["radio_gospel"])}</a> · <a href="https://radiovera.ru/category/podcast/apostol">{escape(strings["radio_apostle"])}</a>'
     else:
         links = f'<a href="https://www.pomisna.info/uk/tserkva/kalendar/">{escape(strings["calendar_link"])}</a>'
     return f'''<section class="gospel-today" aria-labelledby="gospel-today-title" data-gospel-today>
