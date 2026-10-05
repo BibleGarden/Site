@@ -6,12 +6,12 @@ date: 2026-10-05
 
 If reading is hard because of dyslexia, low vision, age, or eye strain, you can listen to the Bible. The free [Bible Garden](/) app for iPhone and iPad has recordings of all 66 books in English without background music. The chapter stays on screen, and the verse being read is highlighted. You can enlarge the Bible text, slow the audio, and add a pause after each verse.
 
-Below are ways to set it up for yourself or someone you care about, along with dyslexia-friendly print Bibles, Braille Bibles, and US talking-book services. With VoiceOver and the largest iOS system text size, the app does not yet work fully; we are working on this. For resources designed for blind readers, see the Braille and talking-book section below.
+Below are ways to set it up for yourself or someone you care about, along with dyslexia-friendly print Bibles, Braille Bibles, and US talking-book services. With VoiceOver and the largest iOS system text size, the app does not yet work fully; we are working on this.
 
 ## Listening is a way to know Scripture
 <!-- screen: reader-picker-english -->
 
-For centuries, Christians have heard Scripture in worship, at home, and from preachers. Listening gives you access to the same text when reading it is difficult; it does not make your engagement with the Bible less worthwhile.
+For centuries, Christians have heard Scripture in worship, at home, and from preachers. Listening gives you access to the same text when reading it is difficult. It is not a lesser way to engage with the Bible.
 
 Bible Garden has four English recordings, all without background music:
 
@@ -57,7 +57,7 @@ An uninterrupted stream of words can be tiring. In the pause settings, you can c
 
 Pauses can come after each verse, paragraph, or section. For example, three to five seconds after a verse gives you time to think or finish reading it. A full stop after a paragraph can help when you listen together: hear it, talk about it, then continue.
 
-The speed button in the player ranges from 0.6× to 2.0×. If the narrator feels too fast, try 0.8×.
+The speed button in the player goes from 0.6× to 2.0×. If the narrator feels too fast, try 0.8×.
 
 ## Hear one verse twice, in different words
 <!-- screen: multi-step-speed -->
@@ -87,7 +87,7 @@ You need an internet connection to listen; audio downloads are not available yet
 
 An app is one option. If you need a printed Bible or a service for blind readers, consider these alternatives:
 
-- **Dyslexia-friendly print Bibles.** Publishers offer the [ESV Dyslexia-Friendly Edition](https://www.crossway.org/bibles/esv-holy-bible-hcj/), [CSB Grace Bible](https://csbible.com/bible-search-tool/bibles/9798384524809/), and [NASB 1995 Dyslexia Friendly Bible](https://shop.lockman.org/products/nasb-dyslexia-friendly-bible-1995-text). Their typography and spacing differ from ordinary editions. Look at a sample to decide what is comfortable for you. These are print options, not translations available in Bible Garden.
+- **Dyslexia-friendly print Bibles.** Publishers offer the [ESV Dyslexia-Friendly Edition](https://www.crossway.org/bibles/esv-holy-bible-hcj/), [CSB Grace Bible, Dyslexia Friendly Edition](https://csbible.com/bible-search-tool/bibles/9798384524809/), and [NASB 1995 Dyslexia Friendly Bible](https://shop.lockman.org/products/nasb-dyslexia-friendly-bible-1995-text). Their typography and spacing differ from ordinary editions. Look at a sample to decide what is comfortable for you. These are print options, not translations available in Bible Garden.
 - **Braille and large-print Bibles.** [Braille Bibles International](https://www.braillebibles.org/) provides Braille, large-print, and audio Bibles. [Xavier Society for the Blind](https://xaviersocietyfortheblind.org/accessible-bibles) provides accessible Catholic Bible resources in Braille, large print, and audio. Ask the organization about translations, eligibility, and current availability.
 - **US talking-book libraries.** The National Library Service for the Blind and Print Disabled (NLS) serves eligible US residents and US citizens abroad. Its [guide to Bibles and other sacred writings](https://www.loc.gov/nls/services-and-resources/informational-publications/bibles-sacred-writings-special-media/) lists resources in accessible formats. Ask your local NLS network library about enrollment and the recording you want.
 - **Audio Bibles for talking-book players.** [Audio Bibles for the Blind](https://audiobiblesfortheblind.com/) offers KJV and NKJV recordings on NLS cartridges. Check its eligibility requirements and whether the format works with your player.
@@ -96,7 +96,7 @@ An app is one option. If you need a printed Bible or a service for blind readers
 
 ## Frequently asked questions {#faq}
 
-### What Bible options are there for blind readers?
+### Is there an audio Bible for the blind?
 
 Braille Bibles International and Xavier Society for the Blind offer accessible Bible resources. In the US, eligible readers can also use NLS talking-book services; Audio Bibles for the Blind supplies recordings on NLS cartridges. Ask about translations and eligibility. Bible Garden has English audio for all 66 books, but VoiceOver does not yet work fully in the app, so we cannot promise that it is usable without sight.
 
@@ -106,11 +106,11 @@ Try audio while following the highlighted verse, with larger Bible text and a pa
 
 ### Can I make the Bible text larger in the app?
 
-Yes. In reading settings, “Text size” ranges from 10% to 500% in steps of 10%. In Multi Reading, each translation’s step has its own text size.
+Yes. In reading settings, “Text size” ranges from 10% to 500% in steps of 10%. In Multi Reading, each reading step has its own text size.
 
 ### Can I slow the audio down?
 
-Yes. Classic Reading ranges from 0.6× to 2.0×; Multi Reading steps range from 0.5× to 2.5×. You can also pause after each verse, paragraph, or section.
+Yes. In Classic Reading, speed ranges from 0.6× to 2.0×; in Multi Reading, each step ranges from 0.5× to 2.5×. You can also pause after each verse, paragraph, or section.
 
 ### Does Bible Garden work with VoiceOver?
 
