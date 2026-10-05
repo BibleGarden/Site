@@ -819,3 +819,80 @@ for attribution and license.
 ## License
 
 GPL v3 — see [LICENSE](LICENSE).
+
+### Gospel and Apostle for today
+
+A future bible.garden article can place `<!-- gospel-today -->` on its own line,
+once, in its Russian or Ukrainian version. The marker is not supported in English
+or on Lampada. No published or draft article currently uses it; draft-only fixtures
+are under `tests/fixtures/gospel-today/` and are rendered by the integration tests.
+The script is included only on pages using the marker.
+
+The browser chooses the visitor's **local civil date**, including after midnight
+and when returning to the tab. Russian uses ROC Julian fixed feasts, Julian Pascha
+and the Lukan jump; Ukrainian uses OCU New Julian fixed feasts and Julian Pascha,
+without the Lukan jump. Both show Gospel and Apostle text, additional readings,
+Royal Hours, composite Gospels and Old Testament readings on non-Liturgy days.
+Saints' readings, their transfers and Matins readings are not calculated.
+Ukrainian dates without same-day confirmation of **all displayed passages** in the
+captured OCU/UGCC liturgical evidence show `uncertain` and the church-check note.
+An annual rule's general confirmation does not confirm future calendar dates.
+
+The Russian links open Radio VERA's current Gospel and Apostle programmes.
+Both languages link to the language campaign in the App Store and explain how to
+open the book, chapter and verse manually. There are no chapter deep links.
+Without JavaScript the page explains why it cannot determine today's local date
+and retains the external calendar/listening and App Store links. No static date
+is presented as today. A fixed-height, keyboard-focusable reading viewport reserves
+space before loading, including errors; full texts scroll inside it. Printing
+removes that height limit. Missing assets or dates show an explicit error, with no
+substitute date, calendar or translation.
+
+`sitegen/lectionary.py` computes the calendar offline from the sourced tables in
+`tools/data/lectionary/tables.json`. `references.json` records dated normalized
+comparison inputs and explicitly liturgical Ukrainian evidence (Matins excluded).
+`verses.json` is a read-only local export; it retains Scripture coordinates and
+joined-verse bounds. The public `content/bible-garden/lectionary/` has schedules
+by language/year and one text dictionary per translation. The same passage is
+stored once per translation and referenced by its stable ID from every day.
+The build checks schemas, dates, references, text coverage and SHA-256 fingerprints,
+then copies these assets to `dist/bible-garden/data/gospel-today/`.
+
+Regenerate 2026–2030 deterministically from committed sources, without DB/network:
+
+```bash
+.venv/bin/python tools/build_gospel_today.py --start-year 2026 --end-year 2030
+.venv/bin/python -m sitegen build
+.venv/bin/python -m sitegen check
+.venv/bin/python -m sitegen preview
+.venv/bin/python -m unittest discover -s tests
+```
+
+To replace the Scripture snapshot, add `--export-local` to the generator command.
+It queries only local `cep_public` in `cep-mysql` in a read-only SQL transaction,
+using credentials from `/root/cep/Bible-API/.env` without printing them. DB book IDs
+for the Epistles are explicitly converted to the canonical order. Texts are
+Synodal (`syn`) and Khomenko (`ubh`); the owner authorized open UBH JSON publication
+on 2026-10-05. No text is downloaded or substituted. UBH Romans 14:24–26 is
+explicitly mapped to 16:25–27 and displayed with the target coordinates. The verified Khomenko Matthew 23:14–15 source range is explicitly normalized
+from the local 14/text + 15/empty representation to one joined verse; unknown
+empty records still fail (evidence and tests in the input README). Combined
+verses and cross-chapter passages preserve their actual translation boundaries.
+
+Extend the explicit range annually, exporting again if new passages require data;
+commit sources, regenerated JSON and `dist/` together. There is no clock-dependent
+build or automatic network refresh. Paschalion accepts 1900–2099; daily calculation
+requires 1901–2098 because it uses adjacent Paschal years. The initial output ends
+on 2030-12-31. Measured on 2026-10-05 after regeneration: 4,499,751 bytes of
+public JSON, with 768 unique passages per translation; detailed counts and gzip
+measurements are in the input README. Rare Annunciation/Holy Week coincidences follow the documented
+feast-first model and need church verification; future Ukrainian winter repeats
+are projected and marked unconfirmed until dated evidence is added.
+
+The source comparison measures the first Gospel (first composite/Hours component,
+or first Old Testament reading when no Gospel exists), not every Apostle or
+secondary passage. Empty-source days remain counted separately; adjacent-day
+matches describe saints' transfers and never change displayed dates. Tests pin
+both the denominators and thresholds: Azbyka ROC ≥95% exact and ≥99% with adjacent
+matches, pravoslavie ROC ≥93%, OCU ≥91%, UGCC ≥92% exact. Further details and dated
+measurements are in `tools/data/lectionary/README.md`.

@@ -120,6 +120,13 @@ class SiteBuilder:
                 shutil.copy2(source, target)
             else:
                 raise BuildError(f"missing static source: {source}")
+        if self.site.key == "bible-garden":
+            from .lectionary_data import PUBLIC, load_bundle
+            load_bundle()
+            from .gospel_today import validate_strings
+            for language in ("ru", "uk"):
+                validate_strings(self.site.i18n[language]["articles"].get("gospel_today"))
+            shutil.copytree(PUBLIC, output_dir / "data/gospel-today")
         self.articles = load_articles(self.site, content_dir)
         self.pages = load_pages(self.site, content_dir)
         self.env = make_environment(content_dir.name)

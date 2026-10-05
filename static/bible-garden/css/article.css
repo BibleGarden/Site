@@ -819,3 +819,12 @@
     }
     .checklist-chapters input:checked::after { content: '✓'; display: block; font-size: 8pt; line-height: 2mm; text-align: center; }
 }
+
+/* Fixed viewport keeps asynchronous daily passages from moving the article. */
+.gospel-today { border: 1px solid #4b5563; border-radius: 1rem; padding: 1rem; margin: 1.5rem 0; }
+.gospel-today-window { height: 28rem; overflow: auto; scrollbar-gutter: stable; overflow-wrap: anywhere; }
+.gospel-today-window:focus-visible { outline: 2px solid #d4af37; outline-offset: 4px; }
+.gospel-today-window h3, .gospel-today-window h4 { margin-top: 1rem; }
+.gospel-today-window p { margin-bottom: .75rem; }
+.article-body .gospel-today .btn-gold { color: #0a1510; text-decoration: none; display: inline-block; padding: .75rem 1rem; border-radius: .75rem; }
+@media print { .gospel-today-window { height: auto; overflow: visible; } }

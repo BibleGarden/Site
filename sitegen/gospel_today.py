@@ -1,0 +1,65 @@
+"""Strict article marker and an honest no-JavaScript daily-reading shell."""
+from __future__ import annotations
+
+import html
+import json
+import re
+
+from .errors import BuildError
+from .lectionary_data import CALENDARS, load_bundle, require
+
+PLACEHOLDER = '<div data-gospel-today-placeholder="gospel-today"></div>'
+MARKER = '<!-- gospel-today -->'
+INTENT = re.compile(r'<!--\s*(?:gospel[-_ ]?today|gospel-tody)\b', re.I)
+STRING_KEYS = {'title', 'calendar', 'translation', 'no_js', 'loading', 'error', 'out_of_range',
+               'uncertain', 'ordinary_may_be_omitted', 'saints', 'gospel', 'apostle', 'ot',
+               'no_liturgy', 'royal_hours', 'hour', 'ordinary', 'feast', 'special', 'triodion',
+               'pentecostarion', 'no_liturgy_gospel', 'no_liturgy_vespers_gospel', 'presanctified', 'app', 'app_hint', 'radio_gospel', 'radio_apostle', 'calendar_link'}
+
+
+def annotate_marker(body, source, site, lang, body_start_line=1):
+    from .content import _fenced_flags
+    lines = body.splitlines()
+    fenced = _fenced_flags(lines)
+    found = False
+    for index, line in enumerate(lines):
+        if fenced[index] or not INTENT.search(line):
+            continue
+        if line != MARKER:
+            raise BuildError(f'{source}:{body_start_line + index}: expected {MARKER}')
+        require(site == 'bible-garden' and lang in CALENDARS, 'gospel-today only supports bible-garden ru/uk')
+        require(not found, 'duplicate gospel-today marker')
+        lines[index], found = PLACEHOLDER, True
+    return '\n'.join(lines) + ('\n' if body.endswith('\n') else ''), found
+
+
+def validate_strings(strings):
+    require(isinstance(strings, dict) and set(strings) == STRING_KEYS, 'missing or unknown gospel-today translations')
+    require(all(isinstance(v, str) and bool(v.strip()) for v in strings.values()), 'empty gospel-today translation')
+    require('{chapter}' in strings['app_hint'] and '{verse}' in strings['app_hint'] and '{book}' in strings['app_hint'], 'invalid app hint')
+
+
+def render_component(lang, strings, app_store_url):
+    require(lang in CALENDARS, 'unsupported gospel-today language')
+    validate_strings(strings)
+    manifest, _ = load_bundle()
+    require(isinstance(app_store_url, str) and app_store_url.startswith('https://apps.apple.com/'), 'missing App Store URL')
+    escape = html.escape
+    config = {'lang': lang, 'start_year': manifest['start_year'], 'end_year': manifest['end_year'], 'strings': strings}
+    config_json = json.dumps(config, ensure_ascii=False).replace('<', '\\u003c').replace('>', '\\u003e').replace('&', '\\u0026')
+    if lang == 'ru':
+        links = f'<a href="https://radiovera.ru/gospel.html">{escape(strings["radio_gospel"])}</a> · <a href="https://radiovera.ru/apostol.html">{escape(strings["radio_apostle"])}</a>'
+    else:
+        links = f'<a href="https://www.pomisna.info/uk/tserkva/kalendar/">{escape(strings["calendar_link"])}</a>'
+    return f'''<section class="gospel-today" aria-labelledby="gospel-today-title" data-gospel-today>
+<h2 id="gospel-today-title">{escape(strings['title'])}</h2>
+<p>{escape(strings['calendar'])} · {escape(strings['translation'])}</p>
+<div class="gospel-today-window" tabindex="0" aria-label="{escape(strings['title'])}">
+<p data-gospel-status role="status" aria-live="polite">{escape(strings['no_js'])}</p>
+<div data-gospel-readings></div>
+</div>
+<p>{escape(strings['saints'])}</p>
+<p>{links}</p>
+<p><a class="btn-gold" href="{escape(app_store_url)}" data-umami-event="app-store-click" target="_blank" rel="noopener">{escape(strings['app'])}</a></p>
+<script type="application/json" data-gospel-config>{config_json}</script>
+</section>'''

@@ -172,6 +172,37 @@ articles:
       few: minutes
       many: minutes
       other: minutes
+  gospel_today:
+    title: Gospel and Apostle for today
+    calendar: Orthodox calendar
+    translation: Bible translation
+    no_js: Enable JavaScript to select readings for your local date.
+    loading: Loading readings…
+    error: Reading data is missing or invalid. Reload the page.
+    out_of_range: Readings for this date have not been published.
+    uncertain: Readings are unconfirmed; check with your church.
+    ordinary_may_be_omitted: Ordinary readings may be omitted in church.
+    saints: Saints’ readings and related transfers are not calculated.
+    gospel: Gospel
+    apostle: Apostle
+    ot: Old Testament reading
+    no_liturgy: No Liturgy today; readings of the Hours and Vespers are shown.
+    no_liturgy_gospel: No Liturgy today.
+    no_liturgy_vespers_gospel: On Good Friday there is no Liturgy; the composite Gospel of Vespers is shown.
+    presanctified: Reading of the Liturgy of the Presanctified Gifts.
+    royal_hours: Royal Hours without Liturgy
+    hour: Hour {hour}
+    ordinary: Ordinary reading
+    feast: Feast
+    special: Special reading
+    triodion: Triodion readings
+    pentecostarion: Readings from Pascha to Pentecost
+    app: Listen in the app — App Store
+    app_hint: In Bible Garden select {book}, chapter {chapter}, navigate to verse {verse} with the arrows and press Play. The link does not open the chapter automatically.
+    radio_gospel: Gospel commentary — Radio VERA
+    radio_apostle: Apostle commentary — Radio VERA
+    calendar_link: Church calendar
+
 not_found:
   title: Page not found
   text: "The page you are looking for does not exist or has moved."
