@@ -27,14 +27,69 @@ The comparison uses the prototype's first Gospel, first composite/Hours componen
 or first OT passage. Raw comparison references can include Matins; this limitation
 is preserved to reproduce the research baseline, not treated as full daily proof.
 Separate `liturgy_refs` for Ukrainian verification select explicitly liturgical
-sections and exclude Matins and Vespers. A displayed date is confirmed only when
+sections and exclude Matins, Vespers, Hours, water blessing and foot washing.
+A standalone ordinary Apostle–Gospel pair without a service heading is also
+liturgical evidence: OCU prints it on one bare reference line; UGCC prints bare
+`Ап.` and `Єв.` lines. This rule requires exactly that pair in the entire day's
+parsed readings and no other service heading. Multiple pairs, labelled saints'
+readings and incomplete references do not qualify implicitly.
+A displayed date is confirmed only when
 all computed references occur on that same date in one captured OCU/UGCC source.
 Matching a neighbouring day does not confirm a date or alter its readings.
 No annual match is extrapolated to an unobserved date. Incomplete parsing is
 conservative: it leaves the date `uncertain`.
 
-Measured on 2026-10-05 by `tools.build_gospel_today.accuracy`, using the committed
-reference data and the ported calculator:
+### Reproducible Ukrainian service extraction
+
+The research `6.24-work/build_reference.py` used `ukrefs.py` to normalize source
+references in `6.24-reference-readings.json`. The original implementation then
+selected source lines only after a literal `Літ.` heading. That discarded ordinary
+weekday pairs such as 2026-10-05: Phil 1:1–7 and Luke 4:37–44 in both calendars.
+It also failed to end the Liturgy section at some later service headings.
+
+On 2026-10-06, the offline research snapshots were available under
+`/tmp/claude-0/-root-cep/09d308e0-0be1-414a-9259-7a79bb66ca94/scratchpad/`:
+`6.24-research.md`, `6.24-lectionary-spec.md`, `6.24-reference-readings.json`,
+and `6.24-work/{ocu-2026,ugcc-2025,ugcc-2026}-raw.json`.
+`source-readings.json` now retains their Ukrainian source lines and per-line
+normalized ranges, with the capture date, source URLs and research snapshot hash.
+Numerical parsing limitations are preserved, including unparsed OT/composite
+components and four UGCC ranges lacking a chapter. They cannot implicitly confirm
+a pair. The snapshot is research evidence, not a newly fetched calendar.
+
+`tools/build_lectionary_references.py` classifies those lines without a network,
+database, calculator or substitution of the day's broad `refs`. Date order and
+the flattened comparison references must match `references.json`; a change fails
+explicitly. Service headings control the section; standalone pair recognition
+applies only when there is no service heading. Tests reproduce all committed
+evidence and exclude other services even if they contain an Apostle–Gospel pair.
+
+```bash
+.venv/bin/python tools/build_lectionary_references.py
+.venv/bin/python tools/build_gospel_today.py --start-year 2026 --end-year 2030
+.venv/bin/python -m sitegen build
+```
+
+Measured 2026-10-06 by counting `days[*].uncertain` in the annual uk schedules,
+before/after this extraction fix:
+
+| Year | Before | After | Dates |
+|---|---:|---:|---:|
+| 2026 | 245 | 73 | 365 |
+| 2027 | 365 | 365 | 365 |
+| 2028 | 366 | 366 | 366 |
+| 2029 | 365 | 365 | 365 |
+| 2030 | 365 | 365 | 365 |
+
+2026-10-05 is confirmed by both `ocu` and `ugcc`. The remaining 73 dates require
+more complete source parsing or liturgical evidence; the standalone-pair rule
+does not prove them. No Ukrainian 2027–2030 source dates are captured, so all those
+dates remain uncertain. Empty `liturgy_refs`: OCU 242 → 141 of 365; UGCC
+527 → 121 of 730. Broad comparison `refs` are unchanged.
+
+Rechecked on 2026-10-06 by `tools.build_gospel_today.accuracy`, using the committed
+reference data and the ported calculator. Every count below is identical before
+and after the extraction fix (OCU 91.24%, UGCC 92.23% exact):
 
 | Source/calendar | Exact | Adjacent | Mismatch | Empty source | Threshold |
 |---|---:|---:|---:|---:|---|
@@ -112,15 +167,15 @@ union. The fingerprinted source has ten annual schedules, seven passage
 dictionaries and a manifest. Public schema 3 publishes no daily passage files:
 120 monthly reference schedules and 314 required chapters per translation.
 
-Measured 2026-10-05 after build using file byte lengths in
+Measured 2026-10-06 after build using file byte lengths in
 `dist/bible-garden/data/gospel-today/`, excluding filesystem allocation and
 unrelated static assets:
 
 | Type | Files | Total UTF-8 bytes | Largest file |
 |---|---:|---:|---:|
-| Monthly schedules | 120 | 1,113,403 | 11,616 |
+| Monthly schedules | 120 | 1,115,333 | 11,616 |
 | Translated chapters with all offered voices | 2,198 | 12,006,025 | 15,764 |
-| **All public data** | **2,318** | **13,119,428** | **15,764** |
+| **All public data** | **2,318** | **13,121,358** | **15,764** |
 
 Paths: `schedule/<ru|uk>/<YYYY>/<MM>.json`,
 `text/<translation>/<canonical-book:02>/<chapter:02>.json`.
@@ -135,13 +190,13 @@ set (3 requests on October 5; 6 on the composite Holy Thursday reading).
 
 | Translation | ru Oct 5 | uk Oct 5 | ru Apr 9 | uk Apr 9 |
 |---|---:|---:|---:|---:|
-| syn | 23,070 | 24,780 | 66,863 | 66,646 |
-| bti | 23,258 | 25,473 | 67,532 | 67,315 |
-| ubh | 22,781 | 23,986 | 63,243 | 63,026 |
-| npu | 22,726 | 23,991 | 64,313 | 64,096 |
-| bsb | 20,069 | 20,607 | 52,215 | 51,998 |
-| webus | 19,199 | 19,730 | 48,411 | 48,194 |
-| webbe | 19,201 | 19,729 | 48,415 | 48,198 |
+| syn | 23,070 | 24,988 | 66,863 | 66,832 |
+| bti | 23,258 | 25,681 | 67,532 | 67,501 |
+| ubh | 22,781 | 24,194 | 63,243 | 63,212 |
+| npu | 22,726 | 24,199 | 64,313 | 64,282 |
+| bsb | 20,069 | 20,815 | 52,215 | 52,184 |
+| webus | 19,199 | 19,938 | 48,411 | 48,380 |
+| webbe | 19,201 | 19,937 | 48,415 | 48,384 |
 
 ## Translation and aligned-audio coverage
 

@@ -925,9 +925,9 @@ There is no prefetch. Local midnight/returning to the tab refresh the date;
 month/year changes request their own schedule. Stale responses cannot replace a
 newer selection. Changing narrator never loads another chapter file.
 
-Measured 2026-10-05 with `Path.stat().st_size` after build, uncompressed UTF-8:
-**2,318 files / 13,119,428 bytes** for all seven translations over 2026–2030:
-120 monthly schedules (1,113,403 bytes) + 2,198 chapters (12,006,025 bytes).
+Measured 2026-10-06 with `Path.stat().st_size` after build, uncompressed UTF-8:
+**2,318 files / 13,121,358 bytes** for all seven translations over 2026–2030:
+120 monthly schedules (1,115,333 bytes) + 2,198 chapters (12,006,025 bytes).
 Largest schedule: 11,616 bytes; largest chapter: 15,764 bytes.
 These files are the entire public `data/` tree in this worktree.
 
@@ -937,7 +937,7 @@ HTML/CSS/JS/fonts and streamed MP3s; memory/HTTP cache can reduce repeat loads):
 | Page/default | Ordinary day, 2026-10-05 | Long Lent day, 2026-04-09 |
 |---|---:|---:|
 | ru / Synodal–Prudovsky | 23,070 bytes / 3 files | 66,863 bytes / 6 files |
-| uk / Khomenko–Kozlov | 23,986 bytes / 3 files | 63,026 bytes / 6 files |
+| uk / Khomenko–Kozlov | 24,194 bytes / 3 files | 63,212 bytes / 6 files |
 
 Ordinary days need two chapters here; the composite Gospel on Holy Thursday needs
 five unique chapters alongside its schedule. Per-translation measurements are in
@@ -945,6 +945,8 @@ five unique chapters alongside its schedule. Per-translation measurements are in
 required chapters, not the number of dates.
 
 ```bash
+# After updating captured Ukrainian source evidence, reclassify its services first:
+.venv/bin/python tools/build_lectionary_references.py
 # Deterministic regeneration: no DB/network.
 .venv/bin/python tools/build_gospel_today.py --start-year 2026 --end-year 2030
 # Optional refresh: local cep_public in cep-mysql, read-only transaction only.
