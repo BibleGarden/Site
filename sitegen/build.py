@@ -11,6 +11,7 @@ from xml.sax.saxutils import escape
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markupsafe import Markup, escape as html_escape
 
+from .assets import version_html
 from .content import PUBLIC_ROOT_NAME, Article, Site, StaticPage, load_articles, load_pages, load_site
 from .errors import BuildError
 
@@ -134,6 +135,8 @@ class SiteBuilder:
         self.pages = load_pages(self.site, content_dir)
         self.env = make_environment(content_dir.name)
         self.written: list[Path] = []
+        for path in sorted(output_dir.rglob("*.html")):
+            self.write(path, path.read_text(encoding="utf-8"))
         self.check_author_page(content_dir)
         self.check_page_dirs()
 
@@ -175,6 +178,8 @@ class SiteBuilder:
         return self.site.output_dir / self.site.language_prefix(lang) / path
 
     def write(self, path: Path, text: str) -> None:
+        if path.suffix == ".html":
+            text = version_html(text, path, self.site.output_dir, self.site.base_url)
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8")
         self.written.append(path)
