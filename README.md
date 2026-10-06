@@ -67,6 +67,23 @@ regenerated files together with the content change.
 Missing translation keys, unknown languages, missing frontmatter fields or a
 malformed FAQ section stop the build with an error naming the file.
 
+### CSS/JS cache versions
+
+Both public and preview builds append `?v=<12-character SHA-256>` to every
+first-party CSS/JS URL in generated and copied HTML, including literal URLs in
+inline JavaScript/config. The hash comes from the built asset's file bytes:
+changing the file changes its URL; unchanged files keep the same URL. This covers
+Bible Garden's `/css/*.css` and `/js/*.js` (including gospel-today), Lampada's
+`/assets/styles.css` and `/assets/site.js`, and the hand-written privacy/support
+pages. External scripts keep their original URLs. Missing local CSS/JS stops
+the build with the page and asset URL in the error.
+
+Paths and filenames stay unchanged, so old URLs still resolve. Manual version
+strings are unnecessary. Cloudflare must include the query string in its cache
+key for these versions to bypass old cached files. nginx may later give versioned
+assets a long cache lifetime; that is a separate Deploy change requiring approval.
+This change leaves nginx and Deploy configuration untouched.
+
 ## URLs and languages
 
 Languages are `en` (default, no prefix), `ru` and `uk`:

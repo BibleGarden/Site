@@ -157,12 +157,12 @@ class GospelAssetsTest(unittest.TestCase):
                 SiteBuilder(content, preview, preview=True).build()
             for lang in ('ru', 'uk'):
                 html = (preview / f'{lang}/articles/gospel-today-fixture/index.html').read_text()
-                self.assertIn('src="/js/gospel-today.js"', html)
+                self.assertRegex(html, r'src="/js/gospel-today\.js\?v=[0-9a-f]{12}"')
                 self.assertIn('name="robots" content="noindex"', html)
                 self.assertIn('data-gospel-today', html)
                 self.assertIn('http://192.168.127.133:9084', html)
             existing = next((public / 'articles').glob('*/index.html')).read_text()
-            self.assertNotIn('src="/js/gospel-today.js"', existing)
+            self.assertNotIn('/js/gospel-today.js', existing)
 
     def test_local_export_rejects_blank_source_without_writing_snapshot(self):
         with tempfile.TemporaryDirectory() as directory:
