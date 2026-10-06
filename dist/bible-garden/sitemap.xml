@@ -424,6 +424,30 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/free-audio-bible-apps/"/>
   </url>
   <url>
+    <loc>https://bible.garden/articles/gospel-of-the-day/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/gospel-of-the-day/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/gospel-of-the-day/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/gospel-of-the-day/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/gospel-of-the-day/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/ru/articles/gospel-of-the-day/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/gospel-of-the-day/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/gospel-of-the-day/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/gospel-of-the-day/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/gospel-of-the-day/"/>
+  </url>
+  <url>
+    <loc>https://bible.garden/uk/articles/gospel-of-the-day/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/gospel-of-the-day/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bible.garden/ru/articles/gospel-of-the-day/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://bible.garden/uk/articles/gospel-of-the-day/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bible.garden/articles/gospel-of-the-day/"/>
+  </url>
+  <url>
     <loc>https://bible.garden/articles/help-bible-garden/</loc>
     <lastmod>2026-10-04</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://bible.garden/articles/help-bible-garden/"/>
