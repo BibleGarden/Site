@@ -108,7 +108,7 @@ def build_all(*, preview: bool = False, output_root: Path | None = None) -> list
 
 class SiteBuilder:
     def __init__(self, content_dir: Path, output_dir: Path, *, preview: bool) -> None:
-        self.site = replace(load_site(content_dir, REPO_ROOT), output_dir=output_dir)
+        self.site = replace(load_site(content_dir, REPO_ROOT, preview=preview), output_dir=output_dir)
         self.preview = preview
         output_dir.mkdir(parents=True)
         for name in STATIC_FILES[self.site.key]:
@@ -120,6 +120,16 @@ class SiteBuilder:
                 shutil.copy2(source, target)
             else:
                 raise BuildError(f"missing static source: {source}")
+        if self.site.key == "bible-garden":
+            from .lectionary_data import load_bundle, public_files
+            manifest, assets = load_bundle()
+            from .gospel_today import validate_strings
+            for language in ("ru", "uk"):
+                validate_strings(self.site.i18n[language]["articles"].get("gospel_today"))
+            for name, payload in public_files(manifest, assets).items():
+                path = output_dir / "data/gospel-today" / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(payload)
         self.articles = load_articles(self.site, content_dir)
         self.pages = load_pages(self.site, content_dir)
         self.env = make_environment(content_dir.name)

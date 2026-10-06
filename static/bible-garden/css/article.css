@@ -819,3 +819,79 @@
     }
     .checklist-chapters input:checked::after { content: '✓'; display: block; font-size: 8pt; line-height: 2mm; text-align: center; }
 }
+
+/* Reserve a loading placeholder; complete readings grow once on load in normal flow. */
+/* Daily readings reuse the site's forest, cream and muted-gold palette. */
+.gospel-today {
+    --gospel-background: #fbfcf8; --gospel-surface: #f4f8f2; --gospel-text: #243e2d; --gospel-track: #d5ded2;
+    --gospel-accent: #826224; --gospel-border: #d5ded2; --gospel-muted: #56675b; --gospel-scheme: light;
+    border: 1px solid var(--gospel-border); border-radius: .85rem;
+    padding: clamp(1rem, 3vw, 2rem); margin: 1.75rem 0 .75rem; color: var(--gospel-text); background: var(--gospel-background);
+}
+.article-body .gospel-today-header h2 { margin: 0 0 .4rem; font-size: clamp(1.35rem, 3vw, 1.7rem); color: inherit; }
+.gospel-today-header time { display: block; margin-top: .65rem; font-size: .95rem; font-weight: 500; }
+.article-body .gospel-calendar { margin: .25rem 0 0; color: var(--gospel-muted); font-size: .75rem; }
+.gospel-today-window { min-height: 24rem; display: flow-root; overflow-wrap: anywhere; }
+.gospel-selectors { display: grid; grid-template-columns: .75fr 1fr 1.5fr; gap: .75rem; margin: 1.5rem 0 1.25rem; }
+.gospel-selectors[hidden] { display: none; }
+.gospel-selectors label { position: relative; min-width: 0; font-size: .75rem; color: var(--gospel-muted); }
+.gospel-selectors label::after {
+    content: ""; position: absolute; right: 1rem; bottom: 1.3rem; width: .4rem; height: .4rem; pointer-events: none;
+    border: solid var(--gospel-text); border-width: 0 1.5px 1.5px 0; transform: rotate(45deg);
+}
+.gospel-selectors select {
+    display: block; box-sizing: border-box; width: 100%; margin-top: .35rem; padding: .5rem 2.5rem .5rem .65rem; min-height: 2.75rem; color-scheme: var(--gospel-scheme);
+    appearance: none;
+    color: var(--gospel-text); background: transparent; border: 1px solid var(--gospel-border);
+    border-radius: .5rem; font: inherit; font-size: .8125rem;
+}
+.gospel-audio-controls { background: var(--gospel-surface); border: 1px solid var(--gospel-border); border-radius: .75rem; padding: 1rem; margin: 1.25rem 0 1.75rem; }
+.gospel-player-row { display: flex; align-items: center; gap: .8rem; }
+.gospel-today button { cursor: pointer; font: inherit; }
+.gospel-today button:focus-visible, .gospel-today input:focus-visible, .gospel-today select:focus-visible { outline: 2px solid var(--gospel-accent); outline-offset: 3px; }
+.gospel-player-toggle {
+    flex: 0 0 2.75rem; height: 2.75rem; border-radius: 50%; border: 0;
+    background: var(--gospel-accent); color: var(--gospel-surface); line-height: 1;
+}
+.gospel-player-row input { flex: 1; min-width: 0; width: 100%; accent-color: var(--gospel-accent); cursor: pointer; appearance: none; height: .25rem; border-radius: 1rem; background: linear-gradient(to right, var(--gospel-accent) var(--gospel-progress, 0%), var(--gospel-track) var(--gospel-progress, 0%)); }
+.gospel-player-row input::-webkit-slider-thumb { appearance: none; width: .8rem; height: .8rem; border-radius: 50%; border: 0; background: var(--gospel-accent); }
+.gospel-player-row input::-moz-range-thumb { width: .8rem; height: .8rem; border-radius: 50%; border: 0; background: var(--gospel-accent); }
+.gospel-player-time { font-size: .75rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.article-body .gospel-player-current { margin: .45rem 0 0 3.55rem; color: var(--gospel-muted); font-size: .8rem; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.article-body .gospel-reading-group { margin: 1.75rem 0 .75rem; font-family: 'Inter', system-ui, sans-serif; font-size: .75rem; font-weight: 500; letter-spacing: .04em; color: var(--gospel-muted); }
+.gospel-reading { border: 1px solid var(--gospel-border); border-radius: .75rem; padding: clamp(1rem, 3vw, 1.5rem); margin: .85rem 0; }
+.gospel-reading.is-current { border-color: var(--gospel-accent); box-shadow: inset 3px 0 var(--gospel-accent); }
+.gospel-reading-heading { display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.gospel-reading-meta { min-width: 0; }
+.gospel-reading-kind { display: block; margin-bottom: .3rem; color: var(--gospel-muted); font-size: .75rem; line-height: 1.4; }
+.article-body .gospel-reading-heading h4 { margin: 0; color: inherit; font-size: clamp(1.125rem, 2.5vw, 1.3rem); }
+.gospel-reading-play { flex: 0 0 2.75rem; height: 2.75rem; border-radius: 50%; color: var(--gospel-accent); background: var(--gospel-surface); border: 1px solid var(--gospel-border); }
+.article-body .gospel-reading-text { max-width: 60ch; margin: 1.1rem 0 0; font-family: 'Lora', Georgia, serif; font-size: 1.0625rem; line-height: 1.9; }
+.gospel-audio-line sup { font-family: 'Inter', system-ui, sans-serif; font-size: .6em; font-weight: 400; color: var(--gospel-muted); vertical-align: super; line-height: 0; }
+.gospel-audio-line.is-playing { background: #d4a84330; border-radius: .15rem; box-shadow: 0 0 0 2px #d4a84330; }
+.article-body .gospel-notice, .article-body .gospel-unavailable { font-size: .85rem; color: var(--gospel-muted); margin: .65rem 0; line-height: 1.6; }
+.article-body .gospel-today-links { margin: .65rem 0 1.75rem; font-size: .8rem; line-height: 1.6; }
+.article-body .gospel-today-links p { margin: .35rem 0; }
+.gospel-today-links [data-gospel-app-hint]:empty { display: none; }
+.gospel-audio-controls .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .gospel-today {
+        --gospel-background: #0d1a12; --gospel-surface: #182e1e; --gospel-text: #cbd5d0; --gospel-track: #344b40;
+        --gospel-accent: #d4a843; --gospel-border: #344b40; --gospel-muted: #a3b8aa; --gospel-scheme: dark;
+    }
+}
+:root[data-theme="dark"] .gospel-today {
+    --gospel-background: #0d1a12; --gospel-surface: #182e1e; --gospel-text: #cbd5d0; --gospel-track: #344b40;
+    --gospel-accent: #d4a843; --gospel-border: #344b40; --gospel-muted: #a3b8aa; --gospel-scheme: dark;
+}
+@media (max-width: 540px) {
+    .gospel-selectors { grid-template-columns: 1fr 1fr; }
+    .gospel-selectors label:last-child { grid-column: 1 / -1; }
+    .gospel-reading { padding: 1rem; }
+    .gospel-audio-controls { padding: .75rem; }
+    .article-body .gospel-reading-text { font-size: 1rem; line-height: 1.85; }
+    .gospel-player-row { gap: .5rem; }
+    .gospel-player-toggle { flex-basis: 2.5rem; height: 2.5rem; }
+    .article-body .gospel-player-current { margin-left: 3rem; }
+}
+@media print { .gospel-today-window { min-height: 0; } .gospel-selectors, .gospel-audio-controls, .gospel-reading-play { display: none; } }

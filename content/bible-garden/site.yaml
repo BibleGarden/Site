@@ -19,3 +19,8 @@ telegram_url: https://t.me/Mandarinka4
 analytics:
   script_url: https://stats.bible.garden/script.js
   website_id: 492eb2a8-fa4c-4d86-90c8-568f53fbccd4
+
+# Dedicated public key accepted only by Bible-API audio routes (123pfqn1yjg).
+gospel_audio:
+  base_url: https://api.bible.garden
+  site_key: bg-site-audio-sRBqFUWVETwYeZsjvYtUHN91wEyzGxzk

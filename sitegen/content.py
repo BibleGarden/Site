@@ -14,6 +14,7 @@ from markdown.extensions.toc import slugify_unicode
 from markupsafe import Markup, escape
 
 from .errors import BuildError
+from .gospel_today import PLACEHOLDER as GOSPEL_PLACEHOLDER, annotate_marker as annotate_gospel_marker, render_component as render_gospel_today
 from .multi_reading_demo import annotate_demo_marker, load_demo, placeholder_for, render_demo
 from .reading_time import PLACEHOLDER as CALCULATOR_PLACEHOLDER, annotate_calculator_marker, load_data as load_reading_time, render_calculator
 from .reading_plan import PLACEHOLDER, annotate_plan_marker, load_plans, render_plan
@@ -92,6 +93,7 @@ class Site:
     i18n: dict[str, dict]
     analytics: Analytics | None
     author: Author
+    preview: bool = False
 
     def language_prefix(self, lang: str) -> str:
         """URL path prefix for a language: '' for the default language, 'ru/' otherwise."""
@@ -137,6 +139,7 @@ class Article:
     has_demo: bool = False
     has_calculator: bool = False
     has_checklist: bool = False
+    has_gospel_today: bool = False
 
     @property
     def path(self) -> str:
@@ -166,7 +169,7 @@ def load_yaml(path: Path) -> dict:
     return data
 
 
-def load_site(content_dir: Path, repo_root: Path) -> Site:
+def load_site(content_dir: Path, repo_root: Path, *, preview: bool = False) -> Site:
     config_path = content_dir / "site.yaml"
     config = load_yaml(config_path)
     missing = [key for key in REQUIRED_SITE_KEYS if key not in config]
@@ -174,6 +177,10 @@ def load_site(content_dir: Path, repo_root: Path) -> Site:
         raise BuildError(f"{config_path}: missing required keys: {', '.join(missing)}")
     if "output_dir" in config:
         raise BuildError(f"{config_path}: output_dir is derived from the site directory name")
+    if content_dir.name == "bible-garden":
+        from .gospel_audio import validate_config, preview_config
+        value = config.get("gospel_audio")
+        config["gospel_audio"] = preview_config(value) if preview else validate_config(value)
     languages = tuple(config["languages"])
     if config["default_language"] not in languages:
         raise BuildError(f"{config_path}: default_language is not listed in languages")
@@ -197,6 +204,7 @@ def load_site(content_dir: Path, repo_root: Path) -> Site:
         languages=languages,
         default_language=config["default_language"],
         config=config,
+        preview=preview,
         i18n=i18n,
         analytics=_analytics(config["analytics"], config["base_url"], config_path),
         author=_author(config["author"], languages, config_path),
@@ -279,7 +287,8 @@ def load_articles(site: Site, content_dir: Path) -> dict[str, dict[str, Article]
                 raise BuildError(f"{source}: unknown language '{lang}', expected one of {', '.join(site.languages)}")
             versions[lang] = parse_article(
                 source, slug_dir.name, lang, screens, checksums, site.i18n[lang]["articles"], site.output_dir,
-                site_key=site.key,
+                site_key=site.key, app_store_url=site.article_app_store_url(lang) if site.key == "bible-garden" else None,
+                gospel_audio=site.config.get("gospel_audio"), preview=site.preview,
             )
         if not versions:
             raise BuildError(f"{slug_dir}: article directory has no language versions")
@@ -345,9 +354,13 @@ def parse_article(
     output_dir: Path,
     *,
     site_key: str = "bible-garden",
+    app_store_url: str | None = None,
+    gospel_audio: dict | None = None,
+    preview: bool = False,
 ) -> Article:
     meta, body, body_start_line = _frontmatter(source, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS)
-    plan_body, has_plan = annotate_plan_marker(body, source, site_key, body_start_line)
+    gospel_body, has_gospel_today = annotate_gospel_marker(body, source, site_key, lang, body_start_line)
+    plan_body, has_plan = annotate_plan_marker(gospel_body, source, site_key, body_start_line)
     demo_body, demo_id = annotate_demo_marker(plan_body, source, site_key, body_start_line)
     calculator_body, has_calculator = annotate_calculator_marker(demo_body, source, site_key, body_start_line)
     checklist_body, has_checklist = annotate_checklist_marker(calculator_body, source, site_key, body_start_line)
@@ -361,6 +374,10 @@ def parse_article(
         body_html = render_markdown(marked_body, refs, strings["screen_open"], strings.get("screen_app_lampada", ""))
     else:
         body_html = render_markdown(marked_body)
+    if has_gospel_today:
+        if body_html.count(GOSPEL_PLACEHOLDER) != 1:
+            raise BuildError(f"{source}: gospel-today marker did not render exactly once")
+        body_html = body_html.replace(GOSPEL_PLACEHOLDER, render_gospel_today(lang, strings.get("gospel_today"), app_store_url, gospel_audio, preview=preview))
     if has_plan:
         if CHRONOLOGICAL_PLACEHOLDER in body_html:
             days, chapters = load_chronological_plan()
@@ -382,7 +399,7 @@ def parse_article(
             raise BuildError(f"{source}: checklist marker did not render exactly once")
         require_top_level(body_html, source)
         body_html = body_html.replace(CHECKLIST_PLACEHOLDER, render_checklist(lang))
-    clean_body_no_demo = clean_body.replace(CALCULATOR_PLACEHOLDER, "").replace(CHRONOLOGICAL_PLACEHOLDER, "").replace(CHECKLIST_PLACEHOLDER, "")
+    clean_body_no_demo = clean_body.replace(GOSPEL_PLACEHOLDER, "").replace(CALCULATOR_PLACEHOLDER, "").replace(CHRONOLOGICAL_PLACEHOLDER, "").replace(CHECKLIST_PLACEHOLDER, "")
     if demo_id:
         demo_placeholder = placeholder_for(demo_id)
         data = load_demo(demo_id)
@@ -407,6 +424,7 @@ def parse_article(
         has_demo=bool(demo_id),
         has_calculator=has_calculator,
         has_checklist=has_checklist,
+        has_gospel_today=has_gospel_today,
     )
 
 
