@@ -25,7 +25,7 @@ A lectionary brings Scripture into the rhythm of the church year. It is differen
 
 Sources: the Catholic [Lectionary for Mass](https://en.wikipedia.org/wiki/Ordo\_Lectionum\_Missae), [Vanderbilt’s RCL FAQ](https://lectionary.library.vanderbilt.edu/faq/), and the Orthodox [annual reading guide](https://azbyka.ru/days/p-ukazatel-evangelskih-i-apostolskih-chtenij-na-kazhdyj-den-goda) (in Russian).
 
-Many Orthodox churches adjust the start of Luke’s readings to the Monday after the Sunday following the feast of the Exaltation of the Cross. This is called the **Lukan jump**. The calendar and this adjustment both matter. On October 5, 2026, Orthocal lists [Luke 6:24–30 on the new calendar](https://orthocal.info/api/gregorian/2026/10/5/) and [Luke 3:19–22 on the old calendar](https://orthocal.info/api/julian/2026/10/5/).
+Many Orthodox churches adjust the start of Luke’s readings to the Monday after the Sunday following the feast of the Exaltation of the Cross. This is called the **Lukan jump**. The calendar and this adjustment both matter. On October 5, 2026, Orthocal lists Luke 6:24–30 on the new calendar and Luke 3:19–22 on the old calendar. Ukrainian churches on the new calendar don’t use the jump and read Luke 4:37–44 that day.
 
 On ordinary Orthodox Lenten weekdays, there is usually no full Divine Liturgy, and the Liturgy of the Presanctified Gifts has no ordinary Epistle or Gospel reading. Isaiah, Genesis, and Proverbs are read instead. Feasts and the first three days of Holy Week have exceptions. Revelation is not read at the Divine Liturgy.
 
@@ -76,7 +76,7 @@ It depends on your church’s lectionary and calendar. Use the USCCB for US Cath
 
 ### Do Catholic weekday readings repeat every year?
 
-The weekday Gospel cycle repeats annually. In Ordinary Time, the first reading follows a two-year cycle, Year I and Year II. In Advent, Lent, and the Easter season, weekday readings follow an annual cycle. Sundays use the separate three-year A/B/C cycle. Feast days can have their own readings.
+The weekday Gospel cycle repeats annually. In Ordinary Time, the first reading follows a two-year cycle, Year I and Year II. In Advent, Christmas, Lent, and the Easter season, weekday readings follow an annual cycle. Sundays use the separate three-year A/B/C cycle. Feast days can have their own readings.
 
 ### Is the Revised Common Lectionary only for Sundays?
 
