@@ -31,6 +31,7 @@
             }
         }
     </script>
+    <link rel="stylesheet" href="/css/site.css">
     <style>
         .lang-btn.active { color: #82c29f; }
     </style>
@@ -108,14 +109,20 @@
         </div>
     </div>
 
-    <footer class="py-10 border-t border-garden-800/50">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-xs text-gray-600" data-i18n="footer">Open source project under the GPL-3.0 license. All rights belong to God.</p>
-            <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 mt-3">
-                <a id="about-link" href="/about/" class="text-xs text-gray-600 hover:text-gray-400 transition-colors" data-i18n="about">How we write</a>
-                <a id="rights-holders-link" href="/about/#rights-holders" class="text-xs text-gray-600 hover:text-gray-400 transition-colors" data-i18n="rights_holders">For rights holders</a>
-                <a id="articles-link" href="/articles/" class="text-xs text-gray-600 hover:text-gray-400 transition-colors" data-i18n="articles">Articles</a>
+    <footer class="site-footer border-t border-garden-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="footer-top">
+                <a id="footer-home-link" href="/" class="footer-brand text-gray-400">
+                    <img src="/img/logo.png" alt="" class="w-6 h-6 rounded-md">
+                    <span class="font-serif text-sm">Bible Garden</span>
+                </a>
+                <nav class="footer-links text-gray-400">
+                    <a id="about-link" href="/about/" data-i18n="about">How we write</a>
+                    <a id="rights-holders-link" href="/about/#rights-holders" data-i18n="rights_holders">For rights holders</a>
+                    <a id="articles-link" href="/articles/" data-i18n="articles">Articles</a>
+                </nav>
             </div>
+            <p class="footer-license text-xs text-gray-500 border-t border-garden-800/50" data-i18n="footer">Open source project under the GPL-3.0 license. All rights belong to God.</p>
         </div>
     </footer>
 
@@ -236,6 +243,7 @@
             if (val) el.innerHTML = val;
         });
 
+        document.getElementById('footer-home-link').href = { en: '/', ru: '/ru/', ua: '/uk/' }[lang];
         document.getElementById('about-link').href = { en: '/about/', ru: '/ru/about/', ua: '/uk/about/' }[lang];
         document.getElementById('rights-holders-link').href = document.getElementById('about-link').href + '#rights-holders';
         document.getElementById('articles-link').href = { en: '/articles/', ru: '/ru/articles/', ua: '/uk/articles/' }[lang];

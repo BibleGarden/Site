@@ -272,3 +272,81 @@ body::before {
     .reveal { opacity: 1; transform: none; transition: none; }
     html { scroll-behavior: auto; }
 }
+
+/* Footer: navigation flows independently of the license. */
+.site-footer {
+    padding-block: 32px 24px;
+}
+
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px 32px;
+}
+
+.footer-brand {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+.footer-links,
+.footer-link-group {
+    display: flex;
+    align-items: center;
+    gap: 12px 20px;
+}
+
+.footer-links {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 100%;
+    margin-left: auto;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.footer-links > a,
+.footer-link-group {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.footer-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    min-height: 32px;
+}
+
+.site-footer a {
+    transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+    color: #d4a843;
+}
+
+.site-footer a:focus-visible {
+    outline: 2px solid #d4a843;
+    outline-offset: 4px;
+    border-radius: 3px;
+}
+
+.footer-license {
+    margin-top: 24px;
+    padding-top: 16px;
+    line-height: 1.7;
+}
+
+@media (max-width: 1023px) {
+    .footer-links {
+        justify-content: flex-start;
+        margin-left: 0;
+    }
+}

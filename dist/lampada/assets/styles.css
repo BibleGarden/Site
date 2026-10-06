@@ -585,10 +585,13 @@ h1 {
 
 .footer-links {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
 }
 
 .footer-links a {
+    white-space: nowrap;
     text-decoration: none;
 }
 
