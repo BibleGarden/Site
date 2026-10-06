@@ -19,13 +19,13 @@ A lectionary brings Scripture into the rhythm of the church year. It is differen
 
 | Tradition | Main cycle | Where the Gospels fit |
 |---|---|---|
-| Roman Catholic | Sundays: three years, A, B, and C. Weekday first readings: two years, I and II. | Sunday readings emphasize Matthew in A, Mark in B, and Luke in C. John appears during Easter and at other points, including John 6 in Year B. The weekday Gospel cycle repeats annually. |
+| Roman Catholic | Sundays: three years, A, B, and C. Weekday first readings in Ordinary Time: two years, I and II. | Sunday readings emphasize Matthew in A, Mark in B, and Luke in C. John appears during the Easter season and at other points, including John 6 in Year B. The weekday Gospel cycle repeats annually. |
 | Revised Common Lectionary | Three-year Sunday cycle, A, B, and C, used by many mainline Protestant churches. | Typically an Old Testament reading, a psalm, an Epistle, and a Gospel. Daily readings accompany the Sunday cycle. |
 | Byzantine Orthodox | Annual cycle beginning at Pascha, or Easter. | John and Acts after Pascha; Matthew after Pentecost, with Mark on later weekdays; Luke in the fall; Mark again on winter weekdays and much of Lent’s weekends. |
 
 Sources: the Catholic [Lectionary for Mass](https://en.wikipedia.org/wiki/Ordo\_Lectionum\_Missae), [Vanderbilt’s RCL FAQ](https://lectionary.library.vanderbilt.edu/faq/), and the Orthodox [annual reading guide](https://azbyka.ru/days/p-ukazatel-evangelskih-i-apostolskih-chtenij-na-kazhdyj-den-goda) (in Russian).
 
-Many Orthodox churches adjust the start of Luke’s readings to the Monday after the Sunday following the feast of the Exaltation of the Cross. This is called the **Lukan jump**. The calendar and this adjustment both matter: “new calendar” alone does not identify a reading schedule.
+Many Orthodox churches adjust the start of Luke’s readings to the Monday after the Sunday following the feast of the Exaltation of the Cross. This is called the **Lukan jump**. The calendar and this adjustment both matter. On October 5, 2026, Orthocal lists [Luke 6:24–30 on the new calendar](https://orthocal.info/api/gregorian/2026/10/5/) and [Luke 3:19–22 on the old calendar](https://orthocal.info/api/julian/2026/10/5/).
 
 On ordinary Orthodox Lenten weekdays, there is usually no full Divine Liturgy, and the Liturgy of the Presanctified Gifts has no ordinary Epistle or Gospel reading. Isaiah, Genesis, and Proverbs are read instead. Feasts and the first three days of Holy Week have exceptions. Revelation is not read at the Divine Liturgy.
 
@@ -49,7 +49,7 @@ Matthew has 28 chapters, Mark 16, Luke 24, and John 21: **89 chapters altogether
 
 You can also begin with Matthew and use the usual Bible order. If Scripture is new to you, try our [first week with John](/articles/how-to-start-reading-the-bible/). For the rest of the New Testament, see [our New Testament reading guide](/articles/new-testament/); for keeping the habit, see [daily Bible reading](/articles/daily-bible-reading/).
 
-In Bible Garden, the four Gospels take **7.7 hours in the Berean Standard Bible (BSB), read by Bob Souer**—an average of 5.2 minutes per chapter. BSB with David takes 8.5 hours, averaging 5.7 minutes; the World English Bible (WEB) with Winfred Henson takes 8.3 hours, averaging 5.6 minutes. These are recording lengths without added pauses, calculated from our local audio-duration data on October 4, 2026; individual chapters vary.
+In Bible Garden, the four Gospels take **7.7 hours in the Berean Standard Bible (BSB), read by Bob Souer**—an average of 5.2 minutes per chapter. BSB with David takes 8.5 hours, averaging 5.7 minutes; the World English Bible (WEB) with Winfred Henson takes 8.3 hours, averaging 5.6 minutes. These are recording lengths without added pauses, measured from the app’s recordings on October 4, 2026; individual chapters vary.
 
 Bible Garden has no built-in reading plans, so keep the table handy. By default, a chapter counts as read after you listen to 90% of its audio or scroll to the end of its text. The progress screen shows books in progress and books completed; see [how the reading tracker works](/articles/bible-reading-tracker/).
 
@@ -72,11 +72,11 @@ For another approach, pair English BSB with Russian Synodal in a Gospel such as 
 
 ### What is today’s Gospel reading?
 
-It depends on your church’s lectionary and calendar. Use the USCCB for US Catholic Mass readings, Vanderbilt for the Revised Common Lectionary, or your Orthodox parish’s calendar and the resources above. This English article does not calculate a daily reading.
+It depends on your church’s lectionary and calendar. Use the USCCB for US Catholic Mass readings, Vanderbilt for the Revised Common Lectionary, or your Orthodox parish’s calendar and the resources above. This page doesn’t show a daily reading.
 
 ### Do Catholic weekday readings repeat every year?
 
-The weekday Gospel cycle repeats annually. The first reading follows a two-year cycle, Year I and Year II; Sundays use the separate three-year A/B/C cycle. Feast days can have their own readings.
+The weekday Gospel cycle repeats annually. In Ordinary Time, the first reading follows a two-year cycle, Year I and Year II. In Advent, Lent, and the Easter season, weekday readings follow an annual cycle. Sundays use the separate three-year A/B/C cycle. Feast days can have their own readings.
 
 ### Is the Revised Common Lectionary only for Sundays?
 
