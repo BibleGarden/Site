@@ -65,6 +65,17 @@ class GospelAssetsTest(unittest.TestCase):
             if mutate=='bad_availability':value['unavailable']='missing_text'
             with self.subTest(mutate=mutate),self.assertRaises(BuildError):validate_chapter(value,'syn',40,1)
 
+    def test_uk_ordinary_day_is_confirmed_without_confirming_future_years(self):
+        _, assets = load_bundle()
+        day = assets['uk/2026.json']['days']['2026-10-05']
+        self.assertEqual(day['confirmed_by'], ['ocu', 'ugcc'])
+        self.assertFalse(day['uncertain'])
+        for year in range(2027, 2031):
+            for date, day in assets[f'uk/{year}.json']['days'].items():
+                with self.subTest(date=date):
+                    self.assertEqual(day['confirmed_by'], [])
+                    self.assertTrue(day['uncertain'])
+
     def test_passage_missing_text_and_schedule_missing_day_fail(self):
         _, assets = load_bundle()
         texts = copy.deepcopy(assets['syn/texts.json'])
