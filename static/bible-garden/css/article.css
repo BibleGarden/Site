@@ -834,9 +834,14 @@
 .gospel-today-window { min-height: 24rem; display: flow-root; overflow-wrap: anywhere; }
 .gospel-selectors { display: grid; grid-template-columns: .75fr 1fr 1.5fr; gap: .75rem; margin: 1.5rem 0 1.25rem; }
 .gospel-selectors[hidden] { display: none; }
-.gospel-selectors label { min-width: 0; font-size: .75rem; color: var(--gospel-muted); }
+.gospel-selectors label { position: relative; min-width: 0; font-size: .75rem; color: var(--gospel-muted); }
+.gospel-selectors label::after {
+    content: ""; position: absolute; right: 1rem; bottom: 1.3rem; width: .4rem; height: .4rem; pointer-events: none;
+    border: solid var(--gospel-text); border-width: 0 1.5px 1.5px 0; transform: rotate(45deg);
+}
 .gospel-selectors select {
-    display: block; box-sizing: border-box; width: 100%; margin-top: .35rem; padding: .5rem .65rem; min-height: 2.75rem; color-scheme: var(--gospel-scheme);
+    display: block; box-sizing: border-box; width: 100%; margin-top: .35rem; padding: .5rem 2.5rem .5rem .65rem; min-height: 2.75rem; color-scheme: var(--gospel-scheme);
+    appearance: none;
     color: var(--gospel-text); background: transparent; border: 1px solid var(--gospel-border);
     border-radius: .5rem; font: inherit; font-size: .8125rem;
 }
