@@ -1,0 +1,26 @@
+{% from "icons.html" import appstore_icon, github_icon %}
+<footer class="site-footer border-t border-garden-800/50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="footer-top">
+            <a href="/{{ site.language_prefix(lang) }}" class="footer-brand text-gray-400">
+                <img src="/img/logo.png" alt="" class="w-6 h-6 rounded-md">
+                <span class="font-serif text-sm">Bible Garden</span>
+            </a>
+            <nav class="footer-links text-gray-400">
+                <a href="{{ site.href(lang, site.author.page) }}">{{ t.landing.footer.about }}</a>
+                <a href="{{ site.href(lang, site.author.page) }}#rights-holders">{{ t.landing.footer.rights_holders }}</a>
+                <a href="{{ site.href(lang, 'articles/') }}">{{ t.articles.section_title }}</a>
+                <span class="footer-link-group">
+                    <a href="/privacy.html{% if lang != site.default_language %}?lang={{ lang }}{% endif %}">{{ t.landing.footer.privacy }}</a>
+                    <a href="{{ site.config.app_store_url if landing is defined and landing else site.article_app_store_url(lang) }}" data-umami-event="app-store-click" target="_blank" rel="noopener" class="footer-icon" aria-label="App Store">
+                        {{ appstore_icon("w-5 h-5") }}
+                    </a>
+                    <a href="{{ site.config.github_url }}" target="_blank" rel="noopener" class="footer-icon" aria-label="GitHub">
+                        {{ github_icon("w-5 h-5") }}
+                    </a>
+                </span>
+            </nav>
+        </div>
+        <p class="footer-license text-xs text-gray-500 border-t border-garden-800/50">{{ t.landing.footer.copyright }}</p>
+    </div>
+</footer>

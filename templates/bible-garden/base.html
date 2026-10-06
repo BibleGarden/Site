@@ -1,5 +1,5 @@
 {% from "head_meta.html" import head_meta %}
-{% from "icons.html" import appstore_icon, github_icon %}
+{% from "icons.html" import github_icon %}
 <!DOCTYPE html>
 <html lang="{{ lang }}" dir="ltr">
 <head>
@@ -62,28 +62,7 @@
 {% block main %}{% endblock %}
     </main>
 
-    <footer class="py-10 border-t border-garden-800/50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div class="flex items-center gap-2.5">
-                    <img src="/img/logo.png" alt="Bible Garden" class="w-6 h-6 rounded-md">
-                    <span class="font-serif text-sm text-gray-400">Bible Garden</span>
-                </div>
-
-                <p class="text-xs text-gray-600">{{ t.landing.footer.copyright }}</p>
-
-                <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-                    <a href="{{ site.href(lang, site.author.page) }}" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">{{ t.landing.footer.about }}</a>
-                    <a href="{{ site.href(lang, site.author.page) }}#rights-holders" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">{{ t.landing.footer.rights_holders }}</a>
-                    <a href="{{ site.href(lang, 'articles/') }}" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">{{ t.articles.section_title }}</a>
-                    <a href="/privacy.html{% if lang != site.default_language %}?lang={{ lang }}{% endif %}" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">{{ t.landing.footer.privacy }}</a>
-                    <a href="{{ site.article_app_store_url(lang) }}" data-umami-event="app-store-click" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-300 transition-colors cursor-pointer" aria-label="App Store">
-                        {{ appstore_icon("w-5 h-5") }}
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    {% filter indent(4) %}{% include "footer.html" %}{% endfilter %}
 
 </body>
 </html>

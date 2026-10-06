@@ -144,6 +144,14 @@ link; the block and menu link are absent when that language has no published
 articles. The footer link is unconditional on every bible.garden page, including
 the hand-written privacy page and languages with no published articles.
 
+Generated Bible Garden pages share `templates/bible-garden/footer.html` and the
+footer rules in `static/bible-garden/css/site.css`. The brand stays on one line;
+links flow above a separate license line, with the privacy link and app/source
+icons kept together. The hand-written privacy page uses the same layout rules.
+Lampada has separate footer templates and CSS; its links wrap at narrow widths.
+Both sites retain their existing garden/amber palette under either system color
+scheme.
+
 Links between pages of the same site are root-relative (`/ru/articles/slug/`)
 so a local preview never jumps to production; absolute URLs appear only in
 `canonical`, `hreflang`, Open Graph, the sitemap, `llms.txt`, JSON-LD and
