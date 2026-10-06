@@ -13,6 +13,7 @@
 
 ## Articles (English)
 
+- [Gospel of the Day: Daily Readings and a Plan for All Four Gospels](https://bible.garden/articles/gospel-of-the-day/): Find your church’s daily Gospel reading, understand Catholic, Protestant, and Orthodox reading cycles, and read all four Gospels in 89 days.
 - [Audio Bible downloads: where to get free, legal MP3 files](https://bible.garden/articles/download-audio-bible/): Download free BSB, WEB, and KJV audio Bible MP3s from sources that explain their permissions. Compare recordings, file sizes, and online listening in Bible Garden.
 - [Customize Your Bible Reading: Pauses, Speed, and Multiple Translations](https://bible.garden/articles/custom-reading-mode/): Build your own audio Bible sequence in Bible Garden: multiple translations verse by verse, pauses, and separate speed and text size settings. Five setups to try.
 - [KJV audio Bible: where to listen and download for free](https://bible.garden/articles/classic-bible-translation-audio/): Listen to the King James Bible free with Max McLean, or download KJV MP3s for offline listening. Compare its older wording with WEB and BSB audio in Bible Garden.
@@ -43,6 +44,7 @@
 
 ## Статьи (Русский)
 
+- [Евангелие дня: чтение на сегодня, где слушать и как устроен круг чтений](https://bible.garden/ru/articles/gospel-of-the-day/): Какие Апостол и Евангелие читаются сегодня в православном храме, где слушать Евангелие дня с толкованием, откуда берётся отрывок и как прочитать все четыре Евангелия целиком за три месяца.
 - [Скачать аудио-Библию: где это можно сделать легально](https://bible.garden/ru/articles/download-audio-bible/): Где бесплатно и законно скачать аудио-Библию в mp3: записи, которые правообладатели разрешают копировать, где послушать чтения Бондаренко и Прудовского и почему Bible Garden проигрывает Библию онлайн.
 - [Свой режим чтения Библии: паузы, темп и несколько переводов подряд](https://bible.garden/ru/articles/custom-reading-mode/): Как в Bible Garden собрать своё чтение Библии: стих в двух-трёх переводах подряд, паузы, своя скорость и размер текста для каждого перевода. Пять готовых настроек и время на главу.
 - [Синодальный перевод слушать бесплатно: где и в чьём чтении](https://bible.garden/ru/articles/classic-bible-translation-audio/): Где бесплатно слушать Библию в Синодальном переводе: Прудовский без музыки и Бондаренко с музыкой в Bible Garden, а также bible.by, predanie.ru, «Азбука веры» и YouVersion — кто читает и что озвучено.
@@ -73,6 +75,7 @@
 
 ## Статті (Українська)
 
+- [Євангеліє дня: читання на сьогодні й усі чотири Євангелія за 89 днів](https://bible.garden/uk/articles/gospel-of-the-day/): Євангеліє та Апостол на сьогодні за новоюліанським календарем ПЦУ, текст Хоменка, пояснення кола читань і план читання чотирьох Євангелій за 89 днів.
 - [Скачати аудіо-Біблію українською: де це можна зробити легально](https://bible.garden/uk/articles/download-audio-bible/): Де безкоштовно скачати аудіо-Біблію українською в MP3: Хоменко в читанні Ігоря Козлова, НПУ та Огієнко. Умови поширення записів і прослуховування в Bible Garden.
 - [Свій режим читання Біблії: паузи, темп і кілька перекладів поспіль](https://bible.garden/uk/articles/custom-reading-mode/): Як налаштувати читання Біблії в Bible Garden: вірш у кількох перекладах поспіль, паузи, своя швидкість і розмір тексту. П’ять готових налаштувань із часом на розділ.
 - [Біблія Огієнка: де слухати українською безкоштовно](https://bible.garden/uk/articles/classic-bible-translation-audio/): Де безкоштовно слухати Новий Завіт у перекладі Огієнка: Bible.is, застосунок Faith Comes By Hearing і YouVersion. А в Bible Garden — Хоменко та НПУ з текстом.

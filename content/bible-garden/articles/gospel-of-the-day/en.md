@@ -2,7 +2,6 @@
 title: "Gospel of the Day: Daily Readings and a Plan for All Four Gospels"
 description: "Find your church’s daily Gospel reading, understand Catholic, Protestant, and Orthodox reading cycles, and read all four Gospels in 89 days."
 date: 2026-10-05
-draft: true
 ---
 
 The Gospel of the day is the passage selected for a church service on a particular date. There is no single reading shared by all churches: Catholic, Protestant, and Orthodox communities follow different lectionaries, or schedules of Scripture readings. For today’s passage, use your church’s calendar; below are places to look, an explanation of the cycles, and a chapter-a-day plan for reading all four Gospels in 89 days.
