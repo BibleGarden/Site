@@ -13,6 +13,8 @@
     <meta name="theme-color" content="#090604">
     <link rel="icon" type="image/png" href="/assets/lampada-icon-64.png">
     <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="stylesheet" href="/assets/prayer-session-demo.css">
+    <script defer src="/assets/prayer-session-demo.js"></script>
 {% include "analytics.html" %}
 </head>
 <body>
@@ -60,22 +62,7 @@
 
             <div class="hero-art" aria-label="{{ t.landing.hero.art_label }}">
                 <div class="orbit" aria-hidden="true"></div>
-                <div class="phone" aria-hidden="true">
-                    <div class="phone-top">
-                        <span>{{ t.landing.hero.phone_top }}</span>
-                        <div class="phone-icons"><span class="phone-icon">◫</span><span class="phone-icon">⚙</span></div>
-                    </div>
-                    <div class="flame-wrap">
-                        <div class="flame-glow"></div>
-                        <div class="flame"></div>
-                        <div class="lamp-bowl"></div>
-                    </div>
-                    <div class="phone-copy">
-                        <strong>{{ t.landing.hero.phone_copy }}</strong>
-                        <div class="week-dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                    </div>
-                    <div class="phone-button">{{ t.landing.hero.phone_button }}</div>
-                </div>
+                {{ prayer_demo_html }}
             </div>
         </section>
 

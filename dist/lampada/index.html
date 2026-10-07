@@ -72,7 +72,9 @@
     </script>
     <meta name="theme-color" content="#090604">
     <link rel="icon" type="image/png" href="/assets/lampada-icon-64.png">
-    <link rel="stylesheet" href="/assets/styles.css?v=32402581ce7d">
+    <link rel="stylesheet" href="/assets/styles.css?v=dd31600de7f9">
+    <link rel="stylesheet" href="/assets/prayer-session-demo.css?v=47b872796f0a">
+    <script defer src="/assets/prayer-session-demo.js?v=591710b6cf55"></script>
     <script defer src="https://stats.bible.garden/script.js" data-website-id="a75ebc6a-36c3-45ef-8637-684b2542f098" data-domains="lampada.app" data-exclude-search="true" data-exclude-hash="true"></script>
 </head>
 <body>
@@ -117,22 +119,127 @@
 
             <div class="hero-art" aria-label="Lampada app preview">
                 <div class="orbit" aria-hidden="true"></div>
-                <div class="phone" aria-hidden="true">
-                    <div class="phone-top">
-                        <span>A quiet moment</span>
-                        <div class="phone-icons"><span class="phone-icon">◫</span><span class="phone-icon">⚙</span></div>
-                    </div>
-                    <div class="flame-wrap">
-                        <div class="flame-glow"></div>
-                        <div class="flame"></div>
-                        <div class="lamp-bowl"></div>
-                    </div>
-                    <div class="phone-copy">
-                        <strong>Keep the light alive</strong>
-                        <div class="week-dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                    </div>
-                    <div class="phone-button">Begin prayer</div>
-                </div>
+                <section class="prayer-session-demo" data-prayer-demo lang="en" aria-labelledby="pd-prayer-session-en-heading"
+ data-answer-label="Answer" data-edit-label="Edit" data-listen-label="Listen" data-pause-label="Pause" data-resume-label="Resume"
+ data-save-quote-label="Save" data-saved-quote-label="Saved" data-confirm-cancel="Close without saving?" data-cancel-label="Cancel"
+ data-audio-error="The audio could not be played. Please try Listen again." data-saved-label="Saved in this demo only." data-finish-label="Finish" data-save-finish-label="Save and finish">
+ <h2 class="pd-heading" id="pd-prayer-session-en-heading">Try a prayer session</h2>
+ <p class="pd-intro">Interactive demo · intention and time are already chosen. The timer is a fixed example.</p>
+ <div class="pd-phone">
+  <div class="pd-screen pd-home" data-screen="home">
+   <div class="pd-top"><span class="pd-greeting">Good morning</span><div class="pd-icons">
+<button type="button" class="pd-icon" data-action="available" disabled aria-label="Prayer history"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M2 6h4"/><path d="M2 10h4"/><path d="M2 14h4"/><path d="M2 18h4"/><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9.5 8h5"/><path d="M9.5 12H16"/><path d="M9.5 16H14"/>
+</svg></button><button type="button" class="pd-icon" data-action="available" disabled aria-label="Saved passages"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/>
+</svg></button><button type="button" class="pd-icon" data-action="available" disabled aria-label="Settings"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M14 17H5"/><path d="M19 7h-9"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/>
+</svg></button>   </div></div>
+   <div class="pd-home-center">
+    <svg class="pd-lamp" viewBox="0 0 456 497" aria-hidden="true" focusable="false">
+     <defs>
+      <radialGradient id="pd-prayer-session-en-halo"><stop stop-color="#e68c28" stop-opacity=".3"/><stop offset="1" stop-color="#e68c28" stop-opacity="0"/></radialGradient>
+      <radialGradient id="pd-prayer-session-en-flame"><stop stop-color="#ffe9b8"/><stop offset=".4" stop-color="#ffb24a"/><stop offset="1" stop-color="#d6601a"/></radialGradient>
+      <linearGradient id="pd-prayer-session-en-bowl" x2="0" y2="1"><stop stop-color="#5b432a"/><stop offset="1" stop-color="#2e2014"/></linearGradient>
+      <filter id="pd-prayer-session-en-blur"><feGaussianBlur stdDeviation="9"/></filter>
+     </defs>
+     <circle class="pd-glow" cx="228" cy="287" r="120" fill="url(#pd-prayer-session-en-halo)" opacity=".64"/>
+     <path d="M228 260C241 264 244 274 244 284C244 303 237 314 228 314C219 314 212 303 212 284C212 274 215 264 228 260Z" fill="#ffb24a" opacity=".55" filter="url(#pd-prayer-session-en-blur)"/>
+     <path class="pd-flame" d="M228 260C241 264 244 274 244 284C244 303 237 314 228 314C219 314 212 303 212 284C212 274 215 264 228 260Z" fill="url(#pd-prayer-session-en-flame)"/>
+     <ellipse cx="228" cy="300" rx="7" ry="13.5" fill="#fff6dd" opacity=".8"/>
+     <path d="M159.6 310.2H296.4C296.4 336 265.8 357 228 357C190.2 357 159.6 336 159.6 310.2Z" fill="url(#pd-prayer-session-en-bowl)"/>
+     <rect x="159.6" y="310.2" width="136.8" height="4" rx="2" fill="#ffc878" opacity=".35"/>
+    </svg>
+    <p class="pd-home-title">The flame is glowing</p>
+    <div class="pd-week" aria-hidden="true"><span class="pd-filled"></span><span></span><span class="pd-filled"></span><span></span><span></span><span></span><span class="pd-filled"></span></div>
+    <p class="pd-week-label">3 days of prayer this week</p>
+   </div>
+   <p class="pd-saved-home" data-home-notice hidden>Prayer saved</p>
+   <button type="button" class="pd-gold" data-action="start" disabled>Begin prayer</button>
+  </div>
+  <div class="pd-screen pd-session" data-screen="session" hidden>
+   <div class="pd-top"><button type="button" class="pd-icon pd-round" data-action="finish" disabled aria-label="Finish prayer"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M15 6l-6 6 6 6"/>
+</svg></button><h3 class="pd-kicker" tabindex="-1" data-focus="session">Prayer</h3><button type="button" class="pd-icon pd-round" data-action="available" disabled aria-label="Turn quiet music on"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/>
+</svg></button></div>
+   <div class="pd-timer"><svg viewBox="0 0 150 150" aria-hidden="true"><circle cx="75" cy="75" r="70" class="pd-ring-track"/><circle cx="75" cy="75" r="70" class="pd-ring" stroke-dasharray="440" stroke-dashoffset="41.066666666666684"/></svg><div><span class="pd-time">04:32</span><span class="pd-kicker">remaining</span></div></div>
+   <div class="pd-goal"><span class="pd-kicker">intention</span><p>Gratitude for the day</p></div>
+   <div class="pd-card">
+    <div class="pd-card-header"><div role="tablist" aria-label="Prayer" class="pd-tabs">
+<button type="button" role="tab" id="pd-prayer-session-en-tab-question" aria-controls="pd-prayer-session-en-panel-question" aria-selected="true" tabindex="0" data-tab="question" disabled><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>
+</svg><span>Question</span></button><button type="button" role="tab" id="pd-prayer-session-en-tab-quote" aria-controls="pd-prayer-session-en-panel-quote" aria-selected="false" tabindex="-1" data-tab="quote" disabled><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/>
+</svg><span>Passage</span></button>    </div><button type="button" class="pd-icon pd-report" data-action="available" disabled aria-label="About this demo"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/>
+</svg></button></div>
+    <div role="tabpanel" id="pd-prayer-session-en-panel-question" aria-labelledby="pd-prayer-session-en-tab-question" data-panel="question">
+     <div class="pd-card-text" tabindex="0" data-question-text>What moment from today do you want to hold on to?</div>
+     <div class="pd-actions"><button type="button" class="pd-square" data-action="previous" disabled aria-label="Previous question"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M15 6l-6 6 6 6"/>
+</svg></button><button type="button" class="pd-answer" data-action="answer" disabled><span data-answer-icon><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M13 21h8m-6-16 4 4M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/>
+</svg></span><span data-answer-text>Answer</span></button><button type="button" class="pd-square" data-action="next" disabled aria-label="Next question"><span data-next-icon><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/>
+</svg></span></button></div>
+     <div class="pd-position" data-position aria-label="Question">●</div>
+    </div>
+    <div role="tabpanel" id="pd-prayer-session-en-panel-quote" aria-labelledby="pd-prayer-session-en-tab-quote" data-panel="quote" hidden>
+     <div class="pd-card-text" tabindex="0"><p class="pd-reference">Psalms 118:24</p><p>This is the day that the Lord has made; we will rejoice and be glad in it.</p></div>
+<button type="button" class="pd-listen" data-action="listen" disabled><span data-audio-icon><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M8 5v14l11-7z"/>
+</svg></span><span data-audio-label>Listen</span></button><audio data-player preload="none" src="/assets/audio/prayer-session/en-psalm118-24.mp3"></audio><p class="pd-audio-error" role="alert" data-audio-error-text hidden></p>
+     <div class="pd-actions"><button type="button" class="pd-square" disabled aria-label="Previous passage"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M15 6l-6 6 6 6"/>
+</svg></button><button type="button" class="pd-answer" data-action="favorite" disabled aria-pressed="false"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/>
+</svg><span data-favorite-text>Save</span></button><button type="button" class="pd-square" disabled aria-label="Next passage"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M9 6l6 6-6 6"/>
+</svg></button></div>
+     <div class="pd-position" aria-hidden="true">●</div>
+    </div>
+   </div>
+  </div>
+  <div class="pd-screen pd-reflect" data-screen="reflect" hidden>
+   <p class="pd-kicker" data-focus="reflect" tabindex="-1">before you finish</p><p class="pd-reflect-question">How can you keep this joy in tomorrow&#39;s rush?</p>
+   <label class="pd-sr" for="pd-prayer-session-en-takeaway">A line or two…</label><textarea id="pd-prayer-session-en-takeaway" data-takeaway placeholder="A line or two…" rows="3" maxlength="2000" disabled></textarea>
+   <button type="button" class="pd-gold" data-action="complete" disabled data-complete-text>Finish</button><button type="button" class="pd-return" data-action="return" disabled>Return to prayer</button>
+  </div>
+ </div>
+ <dialog class="pd-dialog" data-answer-dialog aria-labelledby="pd-prayer-session-en-answer-title">
+  <div class="pd-handle" aria-hidden="true"></div><h3 class="pd-kicker" id="pd-prayer-session-en-answer-title" tabindex="-1">YOUR COMPANION ASKED</h3><p class="pd-dialog-question" data-sheet-question>What moment from today do you want to hold on to?</p>
+  <label class="pd-sr" for="pd-prayer-session-en-answer">Write what resonates…</label><textarea id="pd-prayer-session-en-answer" data-answer-input placeholder="Write what resonates…" rows="5" maxlength="2000" disabled></textarea><p class="pd-voice-hint">or answer with your voice</p>
+  <button type="button" class="pd-mic" data-action="mic" disabled aria-label="Record audio"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>
+</svg></button>
+  <button type="button" class="pd-example" data-action="sample" disabled>Use the example answer</button>
+  <p class="pd-dialog-note" data-dialog-note hidden>Available in the app. This demo does not record audio or open other app screens.</p>
+  <div class="pd-actions"><button type="button" class="pd-cancel" data-action="cancel" disabled>Cancel</button><button type="button" class="pd-gold" data-action="save" disabled>Save</button></div>
+ </dialog>
+ <dialog class="pd-dialog pd-notice" data-notice-dialog aria-labelledby="pd-prayer-session-en-notice-title"><h3 id="pd-prayer-session-en-notice-title">About this demo</h3><p>Available in the app. This demo does not record audio or open other app screens.</p><button type="button" class="pd-gold" data-action="close-notice" disabled>Close</button></dialog>
+ <div class="pd-static"><p>Without JavaScript: here is a question and a Scripture passage from the session.</p><h3>Question</h3><p>What moment from today do you want to hold on to?</p><h3>Psalms 118:24</h3><p>This is the day that the Lord has made; we will rejoice and be glad in it.</p></div>
+ <p class="pd-credit">Translation and recording: Berean Standard Bible (BSB) · Bob Souer · <a href="https://bereanbible.com/audio/">CC0 1.0</a></p>
+ <p class="pd-privacy">Your demo answers stay in this page’s memory and disappear when you reload.</p><button type="button" class="pd-restart" data-action="restart" disabled>Restart demo</button>
+ <p class="pd-sr" role="status" aria-live="polite" data-status></p>
+ <script type="application/json" data-prayer-config>{"questions": ["What moment from today do you want to hold on to?", "What can you give thanks for even now?", "What do you think this evening meant to your son?"], "sampleAnswer": "My son and I laughing over dinner"}</script>
+ <template data-icon-play><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M8 5v14l11-7z"/>
+</svg></template><template data-icon-pause><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>
+</svg></template>
+ <template data-icon-plus><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M12 5v14M5 12h14"/>
+</svg></template><template data-icon-refresh><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/>
+</svg></template><template data-icon-next><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M9 6l6 6-6 6"/>
+</svg></template><template data-icon-check><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M5 12l5 5L19 7"/>
+</svg></template><template data-icon-pen><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M13 21h8m-6-16 4 4M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/>
+</svg></template>
+</section>
             </div>
         </section>
 

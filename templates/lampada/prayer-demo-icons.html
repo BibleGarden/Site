@@ -1,0 +1,22 @@
+{# Lucide ISC/MIT and Lampada MIT; notices in assets/licenses/. #}
+{% macro icon(name) -%}
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+{% if name == "journal" %}<path d="M2 6h4"/><path d="M2 10h4"/><path d="M2 14h4"/><path d="M2 18h4"/><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9.5 8h5"/><path d="M9.5 12H16"/><path d="M9.5 16H14"/>
+{% elif name == "favorites" %}<path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/>
+{% elif name == "settings" %}<path d="M14 17H5"/><path d="M19 7h-9"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/>
+{% elif name == "question" %}<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>
+{% elif name == "quote" %}<path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/>
+{% elif name == "flag" %}<path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/>
+{% elif name == "back" %}<path d="M15 6l-6 6 6 6"/>
+{% elif name == "next" %}<path d="M9 6l6 6-6 6"/>
+{% elif name == "plus" %}<path d="M12 5v14M5 12h14"/>
+{% elif name == "refresh" %}<path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/>
+{% elif name == "mic" %}<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>
+{% elif name == "music" %}<path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/>
+{% elif name == "play" %}<path d="M8 5v14l11-7z"/>
+{% elif name == "pause" %}<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>
+{% elif name == "pen" %}<path d="M13 21h8m-6-16 4 4M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/>
+{% elif name == "check" %}<path d="M5 12l5 5L19 7"/>
+{% elif name == "close" %}<path d="M6 6l12 12M18 6L6 18"/>
+{% endif %}</svg>
+{%- endmacro %}

@@ -23,7 +23,9 @@ Domains:
 | `templates/_shared/` | head metadata (canonical, hreflang, Open Graph) and the `?lang=` redirect |
 | `sitegen/` | the generator (`python -m sitegen`) |
 | `static/bible-garden/css/`, `js/`, `img/` | bible.garden static sources |
-| `static/lampada/assets/` | lampada.app static sources |
+| `static/lampada/assets/` | lampada.app CSS/JS, demo fonts, audio and license notices |
+| `content/lampada/demos/` | validated multilingual prayer-session scenarios |
+| `templates/lampada/prayer-session-demo.html` | shared landing/article prayer-session markup |
 | `static/bible-garden/privacy.html`, `static/lampada/privacy/`, `support/` | hand-written page sources |
 | `dist/<site>/` | committed public HTML and copied static files; nginx roots |
 | `.preview/<site>/` | ignored local preview, including draft articles |
@@ -74,7 +76,7 @@ first-party CSS/JS URL in generated and copied HTML, including literal URLs in
 inline JavaScript/config. The hash comes from the built asset's file bytes:
 changing the file changes its URL; unchanged files keep the same URL. This covers
 Bible Garden's `/css/*.css` and `/js/*.js` (including gospel-today), Lampada's
-`/assets/styles.css` and `/assets/site.js`, and the hand-written privacy/support
+`/assets/styles.css`, `/assets/site.js` and `/assets/prayer-session-demo.{css,js}`, and the hand-written privacy/support
 pages. External scripts keep their original URLs. Missing local CSS/JS stops
 the build with the page and asset URL in the error.
 
@@ -474,6 +476,101 @@ two calendars:
 Running `tools/build_reading_plan.py` without arguments regenerates all three
 calendars. The build validates all plan files, including exact chronological
 coverage/order, durations, non-empty days and indivisible chapter pairs.
+
+### Lampada prayer demo
+
+The Lampada landing uses the same server-rendered component as articles. Add
+`<!-- demo: prayer-session -->` on its own line in a Lampada article. Shared
+`sitegen/demo_markers.py` parsing ignores fenced examples and rejects malformed,
+unknown and duplicate markers with source file/line errors. One demo is allowed
+per article; Bible Garden keeps its existing audio demo data and renderer.
+
+`sitegen/prayer_session_demo.py` validates `content/lampada/demos/prayer-session.json`
+and renders `templates/lampada/prayer-session-demo.html`. All three languages
+are required. Interface labels are `articles.prayer_demo` in each Lampada i18n
+YAML. Missing labels, unknown fields, invalid values, duplicate JSON keys,
+missing fonts/notices and missing or changed clips fail the build. CSS/JS load
+on the landing and articles containing the marker, with the normal content-hash
+URLs; other pages do not load the component code.
+
+UI source: **Lampada-Mobile commit 710a972**, inspected 2026-10-07 from code,
+not the September store screenshots. Colors/fonts/geometry come from
+`lib/theme.ts`, `components/Flame.tsx`, `components/ui.tsx`, `app/index.tsx`,
+`app/session.tsx`, `components/CompanionDock.tsx`, `components/AnswerSheet.tsx`
+and `app/reflect.tsx`; exact labels come from `lib/locales/`. Scenario copy is
+`store/video/demo-content.json`: gratitude for the day, a remembered dinner with
+a son, Psalm 118:24 (Synodal 117:24), and a closing reflection.
+
+The visitor can start, switch Question/Passage tabs, refresh an unanswered
+question, save/edit a text answer, move to the next prepared question, mark the
+verse as a demo favorite, finish, return from reflection and restart.
+Setup/Threshold are skipped with an explicit introduction. The 04:32 timer is
+fixed, not a real countdown. History, settings, music and reporting show an
+"available in the app" explanation. Mic explains the app feature without
+requesting microphone access. There is one Scripture card, so its previous/next
+buttons are disabled. Answers and reflection stay only in instance memory:
+no backend, AI call, storage or analytics event receives their contents.
+Restart/reload clears them. The App Store CTA remains "Coming soon".
+
+Without JavaScript, the complete Home screen and an accompanying static
+question/Scripture example render; interaction controls are disabled.
+Native dialogs provide keyboard focus containment/restoration and Escape;
+changed answers require explicit discard confirmation. Tabs support arrows,
+Home and End. Reduced motion disables flame/glow animation. CSS is scoped,
+with 44 px controls and layouts for 320/375 px viewport widths; the answer dialog
+scrolls vertically. Native dialog support is required for interaction; an
+unsupported browser retains the static presentation and reports an explicit
+initialization error. Browser verification is separate from the Python/Node tests.
+
+Audio rights and provenance (checked 2026-10-07 against the already researched
+`download-audio-bible` articles and ClickUp 123pfqn058r, parent 86cbj99hx):
+
+| Language | Text and narrator | Recording distribution terms |
+|---|---|---|
+| en | Berean Standard Bible, Bob Souer, Psalm 118:24 | CC0 1.0; [publisher](https://bereanbible.com/audio/), [chapter files](https://openbible.com/audio/souer/) |
+| uk | Khomenko, Ihor Kozlov (Ігор Козлов), Psalm 118:24 | Publisher permits unrestricted redistribution; [Благовістник](http://www.blagovestnik.org/ukraine/ukraine.htm) |
+| ru | Synodal text, Psalm 117:24; no audio | No confirmed distribution permission for the Russian recordings in the app; an explicit notice replaces Listen |
+
+The unrestricted Russian Kozlov recording is **not** an app recording, so it is
+not substituted. Recording permission is separate from translation rights;
+the Ukrainian text here is a short attributed quotation, not a claim that the
+whole Khomenko translation is openly licensed. BSB text is public domain
+([text licensing](https://berean.bible/licensing.htm)).
+
+Clip text was compared exactly with local `bible-parser/text/{bsb,ubh,syn}.json`.
+Verse begin/end times come from the corresponding narrator's `timecodes.json`.
+EN/UK cuts use the app's `audio/<translation>/<voice>/mp3/19/118.mp3`, stripped
+metadata, mono 56 kbps/24 kHz; measured duration, source/clip SHA-256, source paths,
+research references and modification notices are committed in the scenario.
+Public attribution appears beneath the component in every language.
+To reproduce the approved clips (ffmpeg/ffprobe required):
+
+```bash
+python tools/build_prayer_demo_audio.py --parser-root /path/to/bible-parser
+```
+
+The tool verifies chapter hashes and exact Scripture text before cutting; a
+changed source requires a deliberate review of text/alignment and manifest.
+There is no runtime chapter download or API key in this component. Playback
+starts only on a click, uses `preload="none"`, supports Pause/Resume, stops on
+leaving the card/session or page, and exposes errors without another recording.
+
+Self-hosted original TTFs preserve all app font weights and Latin/Cyrillic:
+Spectral 300/400/600 + 300 italic, Hanken Grotesk 400/500/600, JetBrains Mono 400/500.
+Fonts retain SIL OFL 1.1; copies of `LICENSE_FONT` are under
+`static/lampada/assets/licenses/`. The SVG paths use Lucide ISC/MIT notices and
+Lampada MIT notices. `prayer-audio.txt` records separate audio terms and changes.
+No font CDN, icon package or React runtime is loaded by the site.
+
+To resync, inspect a named current Lampada commit and compare the source files
+above; update scenario, exact locale labels, SVGs and scoped CSS together. Check
+font binaries/licenses from the app's installed `@expo-google-fonts` packages.
+For Scripture/audio changes, recheck distribution terms, text and verse timing
+before updating the source hashes and rebuilding clips. Record the new source
+commit/date here and in the manifest. Run `python -m unittest discover -s tests`,
+`python -m sitegen build`, `python -m sitegen check`, then browser checks at
+320/375 px in en/ru/uk (flow, audio, keyboard, zoom, no-JS and reduced motion).
+Commit sources and regenerated `dist/` together.
 
 ### Multi Reading demos in articles
 

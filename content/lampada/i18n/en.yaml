@@ -18,9 +18,6 @@ landing:
     availability: Coming soon to the App Store
     discover: Discover Lampada
     art_label: Lampada app preview
-    phone_top: A quiet moment
-    phone_copy: Keep the light alive
-    phone_button: Begin prayer
   purpose:
     title: "A gentle rhythm, not another task"
     text: "Lampada accompanies personal Christian prayer from the first intention to a closing reflection. It supports your attention without replacing your own words."
@@ -54,6 +51,59 @@ articles:
   download_title: Lampada is coming soon to the App Store
   download_text: "The app is not published yet. Write to us if you would like to hear when it launches."
   download_cta: Contact support
+  prayer_demo:
+    greeting: Good morning
+    journal: Prayer history
+    favorites: Saved passages
+    settings: Settings
+    lit: The flame is glowing
+    start: Begin prayer
+    title: Prayer
+    remaining: remaining
+    goal: intention
+    finish_prayer: Finish prayer
+    music: Turn quiet music on
+    question: Question
+    quote: Passage
+    answer: Answer
+    edit: Edit
+    listen: Listen
+    pause: Pause
+    resume: Resume
+    previous_question: Previous question
+    next_question: Next question
+    save_quote: Save
+    saved_quote: Saved
+    previous_quote: Previous passage
+    next_quote: Next passage
+    sheet_question: YOUR COMPANION ASKED
+    placeholder: Write what resonates…
+    voice_hint: or answer with your voice
+    mic: Record audio
+    cancel: Cancel
+    confirm_cancel: Close without saving?
+    save: Save
+    reflect_before: before you finish
+    reflect_placeholder: A line or two…
+    reflect_save: Save and finish
+    reflect_finish: Finish
+    reflect_return: Return to prayer
+    prayer_saved: Prayer saved
+    demo_title: Try a prayer session
+    intro: Interactive demo · intention and time are already chosen. The timer is a fixed example.
+    privacy: Your demo answers stay in this page’s memory and disappear when you reload.
+    available: Available in the app. This demo does not record audio or open other app screens.
+    sample: Use the example answer
+    restart: Restart demo
+    close: Close
+    no_js: 'Without JavaScript: here is a question and a Scripture passage from the session.'
+    audio_error: The audio could not be played. Please try Listen again.
+    audio_unavailable: 'Audio is not included: redistribution permission for the Russian recordings has not been confirmed.'
+    saved_demo: Saved in this demo only.
+    audio_credit: Translation and recording
+    notice_title: About this demo
+    week: 3 days of prayer this week
+    license_label: CC0 1.0
 not_found:
   title: Page not found
   text: "The page you are looking for does not exist or has moved."

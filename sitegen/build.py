@@ -258,12 +258,17 @@ class SiteBuilder:
             alternates={other: self.site.url(other) for other in self.site.languages},
             image=self.absolute(self.site.config["logo"]),
         )
+        demo_context = {}
+        if self.site.key == "lampada":
+            from .prayer_session_demo import load_demo, render_demo
+            demo_context["prayer_demo_html"] = Markup(render_demo(load_demo("prayer-session"), lang, self.t(lang)["articles"]["prayer_demo"]))
         self.render(
             "landing.html",
             self.output_path(lang, "index.html"),
             lang,
             page=page,
             recent_articles=list(reversed(self.published(lang)[-3:])),
+            **demo_context,
         )
 
     def build_articles_index(self, lang: str) -> None:

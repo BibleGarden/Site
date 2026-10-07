@@ -62,6 +62,11 @@ class AssetVersioningTest(unittest.TestCase):
                             assets.add(resolved.path)
                 expected_assets = {"/css/site.css", "/css/article.css", "/js/landing.js"} if site == "bible-garden" else {"/assets/styles.css", "/assets/site.js"}
                 self.assertTrue(expected_assets <= assets)
+                if site == "lampada":
+                    self.assertIn("/assets/prayer-session-demo.css", assets)
+                    self.assertIn("/assets/prayer-session-demo.js", assets)
+                    index = (site_root / "articles/index.html").read_text()
+                    self.assertNotIn("prayer-session-demo.js", index)
                 if preview and site == "bible-garden":
                     self.assertIn("/js/gospel-today.js", assets)
 

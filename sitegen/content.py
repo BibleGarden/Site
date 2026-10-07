@@ -15,7 +15,9 @@ from markupsafe import Markup, escape
 
 from .errors import BuildError
 from .gospel_today import PLACEHOLDER as GOSPEL_PLACEHOLDER, annotate_marker as annotate_gospel_marker, render_component as render_gospel_today
-from .multi_reading_demo import annotate_demo_marker, load_demo, placeholder_for, render_demo
+from .demo_markers import annotate_demo_marker, placeholder_for
+from .multi_reading_demo import load_demo, render_demo
+from .prayer_session_demo import load_demo as load_prayer_demo, render_demo as render_prayer_demo
 from .reading_time import PLACEHOLDER as CALCULATOR_PLACEHOLDER, annotate_calculator_marker, load_data as load_reading_time, render_calculator
 from .reading_plan import PLACEHOLDER, annotate_plan_marker, load_plans, render_plan
 from .bible_checklist import PLACEHOLDER as CHECKLIST_PLACEHOLDER, annotate_checklist_marker, render_checklist, require_top_level
@@ -137,6 +139,7 @@ class Article:
     has_plan: bool = False
     has_chronological_plan: bool = False
     has_demo: bool = False
+    has_prayer_demo: bool = False
     has_calculator: bool = False
     has_checklist: bool = False
     has_gospel_today: bool = False
@@ -402,10 +405,12 @@ def parse_article(
     clean_body_no_demo = clean_body.replace(GOSPEL_PLACEHOLDER, "").replace(CALCULATOR_PLACEHOLDER, "").replace(CHRONOLOGICAL_PLACEHOLDER, "").replace(CHECKLIST_PLACEHOLDER, "")
     if demo_id:
         demo_placeholder = placeholder_for(demo_id)
-        data = load_demo(demo_id)
+        data = load_prayer_demo(demo_id) if site_key == "lampada" else load_demo(demo_id)
         if body_html.count(demo_placeholder) != 1:
             raise BuildError(f"{source}: {demo_id} demo marker did not render exactly once")
-        body_html = body_html.replace(demo_placeholder, render_demo(data, lang, strings.get("multi_reading_demo")))
+        rendered_demo = (render_prayer_demo(data, lang, strings.get("prayer_demo")) if site_key == "lampada"
+                         else render_demo(data, lang, strings.get("multi_reading_demo")))
+        body_html = body_html.replace(demo_placeholder, rendered_demo)
         clean_body_no_demo = clean_body_no_demo.replace(demo_placeholder, "")
     return Article(
         slug=slug,
@@ -421,7 +426,8 @@ def parse_article(
         screens=refs,
         has_plan=has_plan,
         has_chronological_plan=has_plan and placeholder == CHRONOLOGICAL_PLACEHOLDER,
-        has_demo=bool(demo_id),
+        has_demo=bool(demo_id) and site_key == "bible-garden",
+        has_prayer_demo=bool(demo_id) and site_key == "lampada",
         has_calculator=has_calculator,
         has_checklist=has_checklist,
         has_gospel_today=has_gospel_today,
