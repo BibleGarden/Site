@@ -177,8 +177,13 @@ def render_demo(data: dict, lang: str, strings: object) -> str:
     if credit_key not in strings:
         raise BuildError(f'Prayer demo: missing {lang}.{credit_key}')
     remaining = data['timer']['remaining']
+    ring_size, ring_stroke = 132, 3
+    ring_radius = (ring_size - ring_stroke) / 2
+    ring_length = 2 * math.pi * ring_radius
     return make_environment('lampada').get_template('prayer-session-demo.html').render(
         d=locale, t=strings, lang=lang, prefix=f'pd-prayer-session-{lang}', week=data['week'],
         week_label=week_label(lang, strings, sum(data['week'])),
-        timer=f'{remaining // 60:02}:{remaining % 60:02}', ring_offset=440 * (1 - remaining / data['timer']['total']),
+        timer=f'{remaining // 60:02}:{remaining % 60:02}',
+        ring_size=ring_size, ring_stroke=ring_stroke, ring_radius=ring_radius, ring_length=ring_length,
+        ring_offset=ring_length * (1 - remaining / data['timer']['total']),
     )

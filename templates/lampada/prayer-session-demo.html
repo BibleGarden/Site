@@ -38,7 +38,7 @@
   </div>
   <div class="pd-screen pd-session" data-screen="session" hidden>
    <div class="pd-top"><button type="button" class="pd-icon pd-round" data-action="finish" disabled aria-label="{{ t.finish_prayer }}">{{ icon('close') }}</button><h3 class="pd-kicker" tabindex="-1" data-focus="session">{{ t.title }}</h3><button type="button" class="pd-icon pd-round" data-action="available" disabled aria-label="{{ t.music }}">{{ icon('music') }}</button></div>
-   <div class="pd-timer"><svg viewBox="0 0 150 150" aria-hidden="true"><circle cx="75" cy="75" r="70" class="pd-ring-track"/><circle cx="75" cy="75" r="70" class="pd-ring" stroke-dasharray="440" stroke-dashoffset="{{ ring_offset }}"/></svg><div><span class="pd-time">{{ timer }}</span><span class="pd-kicker">{{ t.remaining }}</span></div></div>
+   <div class="pd-timer"><svg viewBox="0 0 {{ ring_size }} {{ ring_size }}" width="{{ ring_size }}" height="{{ ring_size }}" stroke-width="{{ ring_stroke }}" aria-hidden="true"><circle cx="{{ ring_size / 2 }}" cy="{{ ring_size / 2 }}" r="{{ ring_radius }}" class="pd-ring-track"/><circle cx="{{ ring_size / 2 }}" cy="{{ ring_size / 2 }}" r="{{ ring_radius }}" class="pd-ring" stroke-dasharray="{{ ring_length }}" stroke-dashoffset="{{ ring_offset }}"/></svg><div><span class="pd-time">{{ timer }}</span><span class="pd-kicker">{{ t.remaining }}</span></div></div>
    <div class="pd-goal"><span class="pd-kicker">{{ t.goal }}</span><p>{{ d.goal }}</p></div>
    <div class="pd-card">
     <div class="pd-card-header"><div role="tablist" aria-label="{{ t.title }}" class="pd-tabs">

@@ -1104,3 +1104,26 @@ h1 {
         grid-template-columns: 1fr 1fr;
     }
 }
+
+.demo-licenses {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 48px 24px;
+}
+.demo-licenses h1 {
+    margin-block: 24px 16px;
+    font: 400 clamp(28px, 6vw, 42px)/1.2 Lora, Georgia, serif;
+}
+.demo-licenses a {
+    color: var(--amber-bright);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.demo-licenses a:focus-visible {
+    outline: 2px solid var(--amber-bright);
+    outline-offset: 4px;
+}
+.demo-licenses ul {
+    padding-left: 22px;
+    line-height: 2.2;
+}

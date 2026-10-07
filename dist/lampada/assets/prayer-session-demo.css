@@ -154,7 +154,6 @@ fonts: SIL OFL 1.1. */
 .prayer-session-demo .pd-static h3 { font:400 16px/1.4 'PD Spectral',serif; margin:12px 0 4px; }
 .prayer-session-demo .pd-static p { font:400 14px/1.5 'PD Hanken',sans-serif; margin:6px 0; }
 .prayer-session-demo.pd-ready .pd-static,.prayer-session-demo.pd-ready .pd-static-caption { display:none; }
-.prayer-session-demo:not(.pd-ready) .pd-home button { pointer-events:none; opacity:1; }
 .prayer-session-demo:not(.pd-ready) .pd-home .pd-icons { visibility:hidden; }
 .prayer-session-demo .pd-credit a { color:var(--pd-gold); }
 .prayer-session-demo .pd-sr { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }

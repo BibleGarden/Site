@@ -506,7 +506,9 @@ The visitor can start, switch Question/Passage tabs, refresh an unanswered
 question, save/edit a text answer, move to the next prepared question, mark the
 verse as a demo favorite, finish, return from reflection and restart.
 Setup/Threshold are skipped with an explicit introduction. The 04:32 timer is
-fixed, not a real countdown. History, settings, music and reporting show an
+fixed, not a real countdown. The ring uses the app’s radius formula
+`(size - strokeWidth) / 2`, 3 px stroke, and `rgba(230,162,60,.85)`; its SVG
+viewBox matches its rendered size so the stroke is not scaled. History, settings, music and reporting show an
 "available in the app" explanation. Mic explains the app feature without
 requesting microphone access. There is one Scripture card, so its previous/next
 buttons are disabled. Answers and reflection stay only in instance memory:
@@ -517,7 +519,7 @@ flame/week state. The landing has separate "Coming soon" App Store and Google
 Play badges; neither is a store link.
 
 Without JavaScript, the complete Home screen and an accompanying static
-question/Scripture example render; interaction controls are disabled.
+question/Scripture example render; interaction controls are disabled and visibly dimmed; a static caption remains.
 Native dialogs provide keyboard focus containment/restoration. Cancel/Escape
 requests discard confirmation for changed answers; Chromium can forcibly close
 a dialog on repeated Escape, so the native close event also clears the draft and
@@ -581,7 +583,7 @@ without subsetting or changing family names.
 Fonts retain SIL OFL 1.1; copies of `LICENSE_FONT` are under
 `static/lampada/assets/licenses/`. The SVG paths use Lucide ISC/MIT notices and
 Lampada MIT notices. `prayer-audio.txt` records separate audio terms and changes; the visible Licenses
-link opens `/assets/licenses/`, whose index lists every notice. Public notices
+link opens `/assets/licenses/`, whose English index uses the site styles, lists every notice and links back to the landing. Public notices
 contain publisher attribution, not internal tasks, paths or rights investigation.
 No font CDN, icon package or React runtime is loaded by the site.
 
