@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 {% block head %}
+{% if article.has_prayer_demo %}
+    <link rel="stylesheet" href="/assets/prayer-session-demo.css">
+    <script defer src="/assets/prayer-session-demo.js"></script>
+{% endif %}
 {% for block in json_ld %}
     <script type="application/ld+json">{{ block | jsonld }}</script>
 {% endfor %}

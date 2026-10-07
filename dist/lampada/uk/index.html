@@ -66,7 +66,9 @@
     </script>
     <meta name="theme-color" content="#090604">
     <link rel="icon" type="image/png" href="/assets/lampada-icon-64.png">
-    <link rel="stylesheet" href="/assets/styles.css?v=32402581ce7d">
+    <link rel="stylesheet" href="/assets/styles.css?v=114b0d4d4bee">
+    <link rel="stylesheet" href="/assets/prayer-session-demo.css?v=9f4660408681">
+    <script defer src="/assets/prayer-session-demo.js?v=756ac05bb414"></script>
     <script defer src="https://stats.bible.garden/script.js" data-website-id="a75ebc6a-36c3-45ef-8637-684b2542f098" data-domains="lampada.app" data-exclude-search="true" data-exclude-hash="true"></script>
 </head>
 <body>
@@ -102,6 +104,10 @@
                         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.7 4.1c-.9 1.1-2.3 2-3.7 1.9-.2-1.4.5-2.9 1.3-3.8.9-1.1 2.4-1.8 3.6-1.9.2 1.4-.4 2.8-1.2 3.8ZM18.9 12.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.7-2.4-4.5-2.5-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.5 1.6 12.6 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1s2.5 1 4.2 1c1.7 0 2.8-1.5 3.8-3.1 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.6-1.4-3.6-5.1Z" fill="currentColor"/></svg>
                         <span>Незабаром в App Store</span>
                     </span>
+                    <span class="availability">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3.5a1 1 0 0 1 1.5-.86l15 8.5a1 1 0 0 1 0 1.72l-15 8.5A1 1 0 0 1 5 20.5z"/></svg>
+                        <span>Незабаром у Google Play</span>
+                    </span>
                     <a class="text-link" href="#purpose">
                         <span>Дізнатися про Lampada</span>
                         <span aria-hidden="true">↓</span>
@@ -109,24 +115,141 @@
                 </div>
             </div>
 
-            <div class="hero-art" aria-label="Попередній перегляд застосунку Lampada">
+            <div class="hero-art">
                 <div class="orbit" aria-hidden="true"></div>
-                <div class="phone" aria-hidden="true">
-                    <div class="phone-top">
-                        <span>Тиха мить</span>
-                        <div class="phone-icons"><span class="phone-icon">◫</span><span class="phone-icon">⚙</span></div>
-                    </div>
-                    <div class="flame-wrap">
-                        <div class="flame-glow"></div>
-                        <div class="flame"></div>
-                        <div class="lamp-bowl"></div>
-                    </div>
-                    <div class="phone-copy">
-                        <strong>Підтримай вогник</strong>
-                        <div class="week-dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                    </div>
-                    <div class="phone-button">Почати молитву</div>
-                </div>
+                <section class="prayer-session-demo" data-prayer-demo lang="uk" aria-labelledby="pd-prayer-session-uk-heading"
+ data-question-label="Запитання" data-report-question="Поскаржитися на це запитання" data-report-scripture="Поскаржитися на цей уривок"
+ data-answer-label="Відповісти" data-edit-label="Змінити" data-listen-label="Слухати" data-pause-label="Пауза" data-resume-label="Продовжити"
+ data-save-quote-label="До обраного" data-saved-quote-label="В обраному" data-confirm-cancel="Точно закрити?" data-cancel-label="Скасувати"
+ data-audio-error="Не вдалося відтворити аудіо. Спробуй знову натиснути «Слухати»." data-saved-label="Збережено лише в цьому демо." data-finish-label="Завершити" data-save-finish-label="Зберегти й завершити">
+ <h2 class="pd-heading" id="pd-prayer-session-uk-heading">Спробуй молитовний сеанс</h2>
+ <p class="pd-intro">Інтерактивне демо · мету й час уже обрано. Таймер показує фіксований приклад.</p>
+ <div class="pd-phone">
+  <div class="pd-screen pd-home" data-screen="home">
+   <div class="pd-top"><span class="pd-greeting" data-greeting>Доброго ранку</span><div class="pd-icons">
+<button type="button" class="pd-icon" data-action="available" disabled aria-label="Історія молитов"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M2 6h4"/><path d="M2 10h4"/><path d="M2 14h4"/><path d="M2 18h4"/><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9.5 8h5"/><path d="M9.5 12H16"/><path d="M9.5 16H14"/>
+</svg></button><button type="button" class="pd-icon" data-action="available" disabled aria-label="Збережені цитати"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/>
+</svg></button><button type="button" class="pd-icon" data-action="available" disabled aria-label="Налаштування"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M14 17H5"/><path d="M19 7h-9"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/>
+</svg></button>   </div></div>
+   <div class="pd-home-center">
+    <svg class="pd-lamp" viewBox="96 180 264 216" aria-hidden="true" focusable="false">
+     <defs>
+      <radialGradient id="pd-prayer-session-uk-halo"><stop stop-color="#e68c28" stop-opacity=".3"/><stop offset="1" stop-color="#e68c28" stop-opacity="0"/></radialGradient>
+      <radialGradient id="pd-prayer-session-uk-flame"><stop stop-color="#ffe9b8"/><stop offset=".4" stop-color="#ffb24a"/><stop offset="1" stop-color="#d6601a"/></radialGradient>
+      <linearGradient id="pd-prayer-session-uk-bowl" x2="0" y2="1"><stop stop-color="#5b432a"/><stop offset="1" stop-color="#2e2014"/></linearGradient>
+      <filter id="pd-prayer-session-uk-blur" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="9"/></filter>
+     </defs>
+     <circle class="pd-glow" cx="228" cy="287" r="120" fill="url(#pd-prayer-session-uk-halo)" opacity=".64"/>
+     <g class="pd-flame-group">
+     <path d="M228 260C241 264 244 274 244 284C244 303 237 314 228 314C219 314 212 303 212 284C212 274 215 264 228 260Z" fill="#ffb24a" opacity=".55" filter="url(#pd-prayer-session-uk-blur)"/>
+     <path class="pd-flame" d="M228 260C241 264 244 274 244 284C244 303 237 314 228 314C219 314 212 303 212 284C212 274 215 264 228 260Z" fill="url(#pd-prayer-session-uk-flame)"/>
+     <ellipse cx="228" cy="300" rx="7" ry="13.5" fill="#fff6dd" opacity=".8"/>
+     </g>
+     <path d="M159.6 310.2H296.4C296.4 336 265.8 357 228 357C190.2 357 159.6 336 159.6 310.2Z" fill="url(#pd-prayer-session-uk-bowl)"/>
+     <rect x="159.6" y="310.2" width="136.8" height="4" rx="2" fill="#ffc878" opacity=".35"/>
+    </svg>
+    <p class="pd-home-title" data-home-title>Підтримай вогник</p>
+    <div class="pd-week" aria-hidden="true"><span class="pd-filled"></span><span class=""></span><span class="pd-filled"></span><span class=""></span><span class=""></span><span class=""></span><span class="pd-today"></span></div>
+    <p class="pd-week-label" data-week-label>2 дні з молитвою цього тижня</p>
+   </div>
+   <p class="pd-saved-home" data-home-notice hidden>Молитву збережено</p>
+   <button type="button" class="pd-gold" data-action="start" disabled>Почати молитву</button>
+  </div>
+  <div class="pd-screen pd-session" data-screen="session" hidden>
+   <div class="pd-top"><button type="button" class="pd-icon pd-round" data-action="finish" disabled aria-label="Завершити молитву"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M6 6l12 12M18 6L6 18"/>
+</svg></button><h3 class="pd-kicker" tabindex="-1" data-focus="session">Молитва</h3><button type="button" class="pd-icon pd-round" data-action="available" disabled aria-label="Увімкнути тиху музику"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/>
+</svg></button></div>
+   <div class="pd-timer"><svg viewBox="0 0 132 132" width="132" height="132" stroke-width="3" aria-hidden="true"><circle cx="66.0" cy="66.0" r="64.5" class="pd-ring-track"/><circle cx="66.0" cy="66.0" r="64.5" class="pd-ring" stroke-dasharray="405.2654523130833" stroke-dashoffset="37.82477554922113"/></svg><div><span class="pd-time">04:32</span><span class="pd-kicker">залишилось</span></div></div>
+   <div class="pd-goal"><span class="pd-kicker">мета</span><p>Вдячність за день</p></div>
+   <div class="pd-card">
+    <div class="pd-card-header"><div role="tablist" aria-label="Молитва" class="pd-tabs">
+<button type="button" role="tab" id="pd-prayer-session-uk-tab-question" aria-controls="pd-prayer-session-uk-panel-question" aria-selected="true" tabindex="0" data-tab="question" disabled><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>
+</svg><span>Запитання</span></button><button type="button" role="tab" id="pd-prayer-session-uk-tab-quote" aria-controls="pd-prayer-session-uk-panel-quote" aria-selected="false" tabindex="-1" data-tab="quote" disabled><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/>
+</svg><span>Цитата</span></button>    </div><button type="button" class="pd-icon pd-report" data-report data-action="available" disabled aria-label="Поскаржитися на це запитання"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/>
+</svg></button></div>
+    <div role="tabpanel" id="pd-prayer-session-uk-panel-question" aria-labelledby="pd-prayer-session-uk-tab-question" data-panel="question">
+     <div class="pd-card-text" tabindex="0" data-question-text>Яку мить сьогодні хочеться зберегти в пам&#39;яті?</div>
+     <div class="pd-actions"><button type="button" class="pd-square" data-action="previous" disabled aria-label="Попереднє питання"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M15 6l-6 6 6 6"/>
+</svg></button><button type="button" class="pd-answer" data-action="answer" disabled><span data-answer-icon><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M13 21h8m-6-16 4 4M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/>
+</svg></span><span data-answer-text>Відповісти</span></button><button type="button" class="pd-square" data-action="next" disabled aria-label="Наступне питання"><span data-next-icon><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/>
+</svg></span></button></div>
+     <div class="pd-position" data-position aria-label="Запитання">●</div>
+    </div>
+    <div role="tabpanel" id="pd-prayer-session-uk-panel-quote" aria-labelledby="pd-prayer-session-uk-tab-quote" data-panel="quote" hidden>
+     <div class="pd-card-text" data-scripture-text><p>Цей день учинив Господь, радіймо й веселімся в ньому!</p></div>
+     <div class="pd-scripture-meta">
+<button type="button" class="pd-listen" data-action="listen" disabled><span data-audio-icon><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M8 5v14l11-7z"/>
+</svg></span><span data-audio-label>Слухати</span></button><audio data-player preload="none" src="/assets/audio/prayer-session/uk-psalm118-24.mp3"></audio><p class="pd-audio-error" role="alert" data-audio-error-text hidden></p>
+     <span class="pd-reference">Псалми 118:24</span></div>
+     <div class="pd-actions"><button type="button" class="pd-square" disabled aria-label="Попередній уривок"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M15 6l-6 6 6 6"/>
+</svg></button><button type="button" class="pd-answer" data-action="favorite" disabled aria-pressed="false"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/>
+</svg><span data-favorite-text>До обраного</span></button><button type="button" class="pd-square" disabled aria-label="Наступний уривок"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M9 6l6 6-6 6"/>
+</svg></button></div>
+     <div class="pd-position" aria-hidden="true">●</div>
+    </div>
+   </div>
+  </div>
+  <div class="pd-screen pd-reflect" data-screen="reflect" hidden>
+   <svg class="pd-ember" viewBox="0 0 104 104" aria-hidden="true"><defs><radialGradient id="pd-prayer-session-uk-ember"><stop stop-color="#ffb24a" stop-opacity=".5"/><stop offset="1" stop-color="#e68c28" stop-opacity="0"/></radialGradient></defs><circle cx="52" cy="58" r="49" fill="url(#pd-prayer-session-uk-ember)"/><path d="M52 36C67 48 64 68 52 68C40 68 37 48 52 36" fill="#ffb24a"/><ellipse cx="52" cy="63" rx="5" ry="7" fill="#ffe9b8"/></svg>
+   <p class="pd-kicker" data-focus="reflect" tabindex="-1">перш ніж завершити</p><p class="pd-reflect-question">Як не втратити цю радість у метушні завтрашнього дня?</p>
+   <label class="pd-sr" for="pd-prayer-session-uk-takeaway">Один-два рядки…</label><textarea id="pd-prayer-session-uk-takeaway" data-takeaway placeholder="Один-два рядки…" rows="3" maxlength="2000" disabled></textarea>
+   <button type="button" class="pd-gold" data-action="complete" disabled data-complete-text>Завершити</button><button type="button" class="pd-return" data-action="return" disabled><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/>
+</svg>Повернутися до молитви</button>
+  </div>
+ </div>
+ <dialog class="pd-dialog" data-answer-dialog aria-labelledby="pd-prayer-session-uk-answer-title">
+  <div class="pd-answer-body">
+  <div class="pd-handle" aria-hidden="true"></div><h3 class="pd-kicker pd-orb-label" id="pd-prayer-session-uk-answer-title" tabindex="-1"><span class="pd-orb" aria-hidden="true"></span>СУПУТНИК ЗАПИТАВ</h3><p class="pd-dialog-question" data-sheet-question>Яку мить сьогодні хочеться зберегти в пам&#39;яті?</p>
+  <label class="pd-sr" for="pd-prayer-session-uk-answer">Запиши, що відгукується…</label><textarea id="pd-prayer-session-uk-answer" data-answer-input placeholder="Запиши, що відгукується…" rows="5" maxlength="2000" disabled></textarea><p class="pd-voice-hint" data-voice-hint>або відповідай голосом</p>
+  <button type="button" class="pd-example" data-action="sample" disabled>Підставити приклад відповіді</button>
+  <p class="pd-dialog-note" data-dialog-note hidden>Доступно в застосунку. Це демо не записує голос і не відкриває інші екрани застосунку.</p>
+  <p class="pd-sr" role="status" aria-live="polite" data-answer-status></p>
+  </div>
+  <div class="pd-actions pd-sheet-actions"><button type="button" class="pd-mic" data-action="mic" disabled aria-label="Записати аудіо"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>
+</svg></button><button type="button" class="pd-cancel" data-action="cancel" disabled>Скасувати</button><button type="button" class="pd-gold" data-action="save" disabled>Зберегти</button></div>
+ </dialog>
+ <dialog class="pd-dialog pd-notice" data-notice-dialog aria-labelledby="pd-prayer-session-uk-notice-title"><h3 id="pd-prayer-session-uk-notice-title">Про це демо</h3><p>Доступно в застосунку. Це демо не записує голос і не відкриває інші екрани застосунку.</p><button type="button" class="pd-gold" data-action="close-notice" disabled>Закрити</button></dialog>
+ <div class="pd-static"><p>Без JavaScript: приклад запитання й уривка з Писання з цього сеансу.</p><h3>Запитання</h3><p>Яку мить сьогодні хочеться зберегти в пам&#39;яті?</p><h3>Псалми 118:24</h3><p>Цей день учинив Господь, радіймо й веселімся в ньому!</p></div>
+ <p class="pd-credit">Переклад і запис: Переклад Хоменка · Ігор Козлов · <a href="http://www.blagovestnik.org/ukraine/ukraine.htm">Вільне поширення за дозволом видавця</a> · <a href="/assets/licenses/">Ліцензії</a></p>
+ <p class="pd-static-caption">Статичний приклад екрана · увімкни JavaScript, щоб спробувати сеанс</p>
+ <p class="pd-privacy">Відповіді в демо залишаються в пам’яті цієї сторінки й зникають після перезавантаження.</p><button type="button" class="pd-restart" data-action="restart" disabled>Почати демо знову</button>
+ <p class="pd-sr" role="status" aria-live="polite" data-status></p>
+ <script type="application/json" data-prayer-config>{"greetings": {"afternoon": "\u0414\u043e\u0431\u0440\u0438\u0439 \u0434\u0435\u043d\u044c", "evening": "\u0414\u043e\u0431\u0440\u0438\u0439 \u0432\u0435\u0447\u0456\u0440", "morning": "\u0414\u043e\u0431\u0440\u043e\u0433\u043e \u0440\u0430\u043d\u043a\u0443", "night": "\u0422\u0438\u0445\u043e\u0457 \u043d\u043e\u0447\u0456"}, "keepFlame": "\u041f\u0456\u0434\u0442\u0440\u0438\u043c\u0430\u0439 \u0432\u043e\u0433\u043d\u0438\u043a", "language": "uk", "lit": "\u0412\u043e\u0433\u043d\u0438\u043a \u0433\u043e\u0440\u0438\u0442\u044c", "questions": ["\u042f\u043a\u0443 \u043c\u0438\u0442\u044c \u0441\u044c\u043e\u0433\u043e\u0434\u043d\u0456 \u0445\u043e\u0447\u0435\u0442\u044c\u0441\u044f \u0437\u0431\u0435\u0440\u0435\u0433\u0442\u0438 \u0432 \u043f\u0430\u043c\u0027\u044f\u0442\u0456?", "\u0417\u0430 \u0449\u043e \u0442\u0438 \u043c\u043e\u0436\u0435\u0448 \u043f\u043e\u0434\u044f\u043a\u0443\u0432\u0430\u0442\u0438 \u043d\u0430\u0432\u0456\u0442\u044c \u0437\u0430\u0440\u0430\u0437?", "\u042f\u043a \u0434\u0443\u043c\u0430\u0454\u0448, \u0449\u043e \u0446\u0435\u0439 \u0432\u0435\u0447\u0456\u0440 \u043e\u0437\u043d\u0430\u0447\u0430\u0432 \u0434\u043b\u044f \u0442\u0432\u043e\u0433\u043e \u0441\u0438\u043d\u0430?"], "sampleAnswer": "\u042f\u043a \u043c\u0438 \u0437 \u0441\u0438\u043d\u043e\u043c \u0441\u043c\u0456\u044f\u043b\u0438\u0441\u044f \u0437\u0430 \u0432\u0435\u0447\u0435\u0440\u0435\u044e", "week": [true, false, true, false, false, false, false], "weekLabels": {"few": "{count} \u0434\u043d\u0456 \u0437 \u043c\u043e\u043b\u0438\u0442\u0432\u043e\u044e \u0446\u044c\u043e\u0433\u043e \u0442\u0438\u0436\u043d\u044f", "many": "{count} \u0434\u043d\u0456\u0432 \u0456\u0437 \u043c\u043e\u043b\u0438\u0442\u0432\u043e\u044e \u0446\u044c\u043e\u0433\u043e \u0442\u0438\u0436\u043d\u044f", "one": "{count} \u0434\u0435\u043d\u044c \u0456\u0437 \u043c\u043e\u043b\u0438\u0442\u0432\u043e\u044e \u0446\u044c\u043e\u0433\u043e \u0442\u0438\u0436\u043d\u044f", "other": "{count} \u0434\u043d\u0456\u0432 \u0456\u0437 \u043c\u043e\u043b\u0438\u0442\u0432\u043e\u044e \u0446\u044c\u043e\u0433\u043e \u0442\u0438\u0436\u043d\u044f"}}</script>
+ <template data-icon-play><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M8 5v14l11-7z"/>
+</svg></template><template data-icon-pause><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>
+</svg></template>
+ <template data-icon-plus><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M12 5v14M5 12h14"/>
+</svg></template><template data-icon-refresh><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/>
+</svg></template><template data-icon-next><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M9 6l6 6-6 6"/>
+</svg></template><template data-icon-check><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M5 12l5 5L19 7"/>
+</svg></template><template data-icon-pen><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<path d="M13 21h8m-6-16 4 4M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/>
+</svg></template>
+</section>
+
             </div>
         </section>
 

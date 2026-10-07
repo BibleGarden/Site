@@ -1,0 +1,18 @@
+Lampada prayer-session demo audio
+
+English: Berean Standard Bible, Bob Souer. Text: public domain
+(https://berean.bible/licensing.htm). Recording: CC0 1.0,
+https://bereanbible.com/audio/ and https://openbible.com/audio/souer/.
+CC0: https://creativecommons.org/publicdomain/zero/1.0/.
+
+Ukrainian: Khomenko translation, Ihor Kozlov (Ігор Козлов).
+Publisher: Благовістник, http://www.blagovestnik.org/ukraine/ukraine.htm.
+The publisher permits unrestricted copying and redistribution of this recording.
+This is publisher permission, not a claim that the recording is public domain.
+The displayed text is a short attributed Scripture quotation.
+
+Both recordings are excerpts of Psalm 118:24, re-encoded as mono
+56 kbps MP3, 24 kHz, with metadata removed.
+
+Russian: this demo has no audio. The displayed text is a short quotation
+from the Synodal translation, Psalm 117:24.

@@ -7,6 +7,7 @@ import re
 from html.parser import HTMLParser
 from pathlib import Path
 
+from .demo_markers import fenced_flags
 from .errors import BuildError
 from .reading_plan import CHAPTER_COUNTS, SOURCE_NT, display_chapter, load_chapters
 
@@ -21,10 +22,9 @@ STRINGS = {
 
 
 def annotate_checklist_marker(body: str, source: Path, site: str, body_start_line: int = 1) -> tuple[str, bool]:
-    from .content import _fenced_flags
 
     lines = body.splitlines()
-    fenced = _fenced_flags(lines)
+    fenced = fenced_flags(lines)
     found = False
     for index, line in enumerate(lines):
         if fenced[index] or not INTENT_RE.search(line):

@@ -17,56 +17,14 @@ import re
 from pathlib import Path
 
 from .errors import BuildError
+from .demo_markers import unique_keys, reject_constant
 
 ROOT = Path(__file__).resolve().parent.parent
 DEMOS_DIR = ROOT / "content/bible-garden/demos"
-MARKER_RE = re.compile(r"^<!-- demo: ([a-z0-9]+(?:-[a-z0-9]+)*) -->$")
-INTENT_RE = re.compile(r"<!--\s*(?:demo|dmeo|demmo)\b", re.IGNORECASE)
 LANGS = {"en", "ru", "uk"}
 # Language of each translation's text, for the verse line's `lang` attribute.
 # Fixed per translation regardless of which demo(s) use it.
 TEXT_LANG = {"bsb": "en", "bti": "ru", "syn": "ru", "ubh": "uk", "webus": "en", "webbe": "en", "npu": "uk"}
-
-
-def placeholder_for(demo_id: str) -> str:
-    return f'<div data-demo-placeholder="{demo_id}"></div>'
-
-
-def annotate_demo_marker(
-    body: str, source: Path, site: str, body_start_line: int = 1, demos_dir: Path = DEMOS_DIR
-) -> tuple[str, str | None]:
-    from .content import _fenced_flags
-
-    lines = body.splitlines()
-    fenced = _fenced_flags(lines)
-    found_id: str | None = None
-    for index, line in enumerate(lines):
-        if fenced[index] or not INTENT_RE.search(line):
-            continue
-        match = MARKER_RE.fullmatch(line)
-        if not match:
-            raise BuildError(f"{source}:{body_start_line + index}: expected <!-- demo: <id> -->")
-        demo_id = match.group(1)
-        if site != "bible-garden" or not (demos_dir / f"{demo_id}.json").is_file():
-            raise BuildError(f"{source}:{body_start_line + index}: unknown demo {demo_id!r} for {site}")
-        if found_id is not None:
-            raise BuildError(f"{source}:{body_start_line + index}: duplicate demo marker")
-        lines[index] = placeholder_for(demo_id)
-        found_id = demo_id
-    return "\n".join(lines) + ("\n" if body.endswith("\n") else ""), found_id
-
-
-def _unique_keys(pairs: list[tuple[str, object]]) -> dict:
-    result = {}
-    for key, value in pairs:
-        if key in result:
-            raise ValueError(f"duplicate JSON key {key!r}")
-        result[key] = value
-    return result
-
-
-def _reject_constant(value: str) -> None:
-    raise ValueError(f"invalid JSON constant {value}")
 
 
 def validate_demo(data: object, demo_id: str, path: Path, static_root: Path = ROOT / "static/bible-garden") -> dict:
@@ -228,7 +186,7 @@ def load_demo(demo_id: str, demos_dir: Path = DEMOS_DIR, static_root: Path = ROO
     if not path.is_file():
         raise BuildError(f"{path}: missing demo data; run tools/build_demo_audio.py")
     try:
-        data = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=_unique_keys, parse_constant=_reject_constant)
+        data = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=unique_keys, parse_constant=reject_constant)
     except (OSError, ValueError) as error:
         raise BuildError(f"{path}: invalid demo JSON: {error}") from error
     return validate_demo(data, demo_id, path, static_root)

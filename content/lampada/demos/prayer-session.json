@@ -1,0 +1,116 @@
+{
+  "kind": "prayer-session",
+  "source_commit": "710a972",
+  "timer": {
+    "total": 300,
+    "remaining": 272
+  },
+  "week": [
+    true,
+    false,
+    true,
+    false,
+    false,
+    false,
+    false
+  ],
+  "locales": {
+    "en": {
+      "goal": "Gratitude for the day",
+      "questions": [
+        "What moment from today do you want to hold on to?",
+        "What can you give thanks for even now?",
+        "What do you think this evening meant to your son?"
+      ],
+      "sample_answer": "My son and I laughing over dinner",
+      "reflection": "How can you keep this joy in tomorrow's rush?",
+      "scripture": {
+        "text": "This is the day that the Lord has made; we will rejoice and be glad in it.",
+        "reference": "Psalms 118:24",
+        "translation": "bsb",
+        "translation_name": "Berean Standard Bible (BSB)",
+        "book": 19,
+        "chapter": 118,
+        "verse": 24,
+        "source": "text/bsb.json",
+        "verified_on": "2026-10-07"
+      },
+      "audio": {
+        "status": "available",
+        "path": "/assets/audio/prayer-session/en-psalm118-24.mp3",
+        "sha256": "4240a114c0175588f21bb5a1223ca3b009850d1033e1c903a568ce2bf5e91959",
+        "duration": 4.32,
+        "source_file": "audio/bsb/bsb_souer/mp3/19/118.mp3",
+        "source_sha256": "0a2ec327edb6293d597e464477bdf6d079405cabd12bb53ac7eee45489a0fa13",
+        "begin": 122.66000213623047,
+        "end": 126.91999816894531,
+        "narrator": "Bob Souer",
+        "license": "CC0 1.0",
+        "license_url": "https://bereanbible.com/audio/",
+        "research": "content/bible-garden/articles/download-audio-bible/en.md; ClickUp 123pfqn058r (parent 86cbj99hx)",
+        "changes": "Verse excerpt; re-encoded mono MP3 at 56 kbps, 24 kHz."
+      }
+    },
+    "ru": {
+      "goal": "Благодарность за день",
+      "questions": [
+        "Какой момент сегодня хочется удержать в памяти?",
+        "За что ты можешь поблагодарить даже сейчас?",
+        "Как ты думаешь, что этот вечер значил для твоего сына?"
+      ],
+      "sample_answer": "Как мы с сыном смеялись за ужином",
+      "reflection": "Как не потерять эту радость в суете завтрашнего дня?",
+      "scripture": {
+        "text": "Сей день сотворил Господь: возрадуемся и возвеселимся в оный!",
+        "reference": "Пс 117:24",
+        "translation": "syn",
+        "translation_name": "Синодальный перевод",
+        "book": 19,
+        "chapter": 117,
+        "verse": 24,
+        "source": "text/syn.json",
+        "verified_on": "2026-10-07"
+      },
+      "audio": {
+        "status": "unavailable",
+        "reason": "Russian app recordings have no confirmed redistribution permission; see ClickUp 123pfqn058r and the Russian download-audio-bible article."
+      }
+    },
+    "uk": {
+      "goal": "Вдячність за день",
+      "questions": [
+        "Яку мить сьогодні хочеться зберегти в пам'яті?",
+        "За що ти можеш подякувати навіть зараз?",
+        "Як думаєш, що цей вечір означав для твого сина?"
+      ],
+      "sample_answer": "Як ми з сином сміялися за вечерею",
+      "reflection": "Як не втратити цю радість у метушні завтрашнього дня?",
+      "scripture": {
+        "text": "Цей день учинив Господь, радіймо й веселімся в ньому!",
+        "reference": "Псалми 118:24",
+        "translation": "ubh",
+        "translation_name": "Переклад Хоменка",
+        "book": 19,
+        "chapter": 118,
+        "verse": 24,
+        "source": "text/ubh.json",
+        "verified_on": "2026-10-07"
+      },
+      "audio": {
+        "status": "available",
+        "path": "/assets/audio/prayer-session/uk-psalm118-24.mp3",
+        "sha256": "71bdff8623272f4d82c2a1ac02adf84dc99427b064afd518f3472865f4c5d145",
+        "duration": 5.376,
+        "source_file": "audio/ubh/kozlov_uk/mp3/19/118.mp3",
+        "source_sha256": "22fbc5bad19f0c5f0009a77c115b3623ac1946b2d0f00c289d02b24576eacb48",
+        "begin": 172.2300018310547,
+        "end": 177.54000244140624,
+        "narrator": "Ігор Козлов",
+        "license": "Publisher permission: unrestricted redistribution",
+        "license_url": "http://www.blagovestnik.org/ukraine/ukraine.htm",
+        "research": "content/bible-garden/articles/download-audio-bible/uk.md; ClickUp 123pfqn058r (parent 86cbj99hx)",
+        "changes": "Verse excerpt; re-encoded mono MP3 at 56 kbps, 24 kHz."
+      }
+    }
+  }
+}

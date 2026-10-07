@@ -1,8 +1,9 @@
 meta:
   language_name: English
-  title: "Lampada — A space for personal prayer"
-  description: "Lampada is a mobile app that helps you pray with intent, keep your focus, and return to meaningful thoughts later."
-  og_description: "Prayer. Light. AI."
+  title: Lampada — A space for personal prayer
+  description: Lampada is a mobile app that helps you pray with intent, keep your focus, and return to meaningful thoughts
+    later.
+  og_description: Prayer. Light. AI.
 landing:
   brand_home: Lampada home
   nav_label: Primary navigation
@@ -12,39 +13,37 @@ landing:
     support: Support
   language_label: Language
   hero:
-    eyebrow: "Prayer · Light · AI"
+    eyebrow: Prayer · Light · AI
     title: Make room for prayer
-    lead: "You choose the topic. Lampada helps you pray with intent, stay focused, and notice what matters."
+    lead: You choose the topic. Lampada helps you pray with intent, stay focused, and notice what matters.
     availability: Coming soon to the App Store
     discover: Discover Lampada
-    art_label: Lampada app preview
-    phone_top: A quiet moment
-    phone_copy: Keep the light alive
-    phone_button: Begin prayer
+    google_play: Coming soon to Google Play
   purpose:
-    title: "A gentle rhythm, not another task"
-    text: "Lampada accompanies personal Christian prayer from the first intention to a closing reflection. It supports your attention without replacing your own words."
+    title: A gentle rhythm, not another task
+    text: Lampada accompanies personal Christian prayer from the first intention to a closing reflection. It supports your
+      attention without replacing your own words.
     f1:
       title: Pray with focus
-      text: "Set a topic and a comfortable duration. Guiding questions help you stay present and move deeper."
+      text: Set a topic and a comfortable duration. Guiding questions help you stay present and move deeper.
     f2:
       title: Meet Scripture in context
-      text: "Lampada selects Scripture passages by meaning, so the reading can speak to the prayer you are living today."
+      text: Lampada selects Scripture passages by meaning, so the reading can speak to the prayer you are living today.
     f3:
       title: Return to what mattered
-      text: "Keep text or voice reflections, a final takeaway, and saved verses in a private journal on your device."
+      text: Keep text or voice reflections, a final takeaway, and saved verses in a private journal on your device.
   quiet:
-    text: "A warm, distraction-free space with optional quiet music, a prayer timer, and gentle reminders to return."
+    text: A warm, distraction-free space with optional quiet music, a prayer timer, and gentle reminders to return.
     label: Designed for stillness
   footer:
     bible_garden: Bible Garden
 articles:
   section_title: Articles
-  index_title: "Articles — Lampada"
-  index_description: "Notes on personal prayer: how to pray, keep a prayer journal, and return to what mattered."
-  empty: "Articles are on their way."
-  only_in: "This article is available only in: {languages}"
-  index_only_in: "Articles are available only in: {languages}"
+  index_title: Articles — Lampada
+  index_description: 'Notes on personal prayer: how to pray, keep a prayer journal, and return to what mattered.'
+  empty: Articles are on their way.
+  only_in: 'This article is available only in: {languages}'
+  index_only_in: 'Articles are available only in: {languages}'
   breadcrumb_home: Home
   published: Published
   updated: Updated
@@ -52,8 +51,74 @@ articles:
   previous: Previous article
   next: Next article
   download_title: Lampada is coming soon to the App Store
-  download_text: "The app is not published yet. Write to us if you would like to hear when it launches."
+  download_text: The app is not published yet. Write to us if you would like to hear when it launches.
   download_cta: Contact support
 not_found:
   title: Page not found
-  text: "The page you are looking for does not exist or has moved."
+  text: The page you are looking for does not exist or has moved.
+prayer_demo:
+  journal: Prayer history
+  favorites: Saved passages
+  settings: Settings
+  lit: The flame is glowing
+  start: Begin prayer
+  title: Prayer
+  remaining: remaining
+  goal: intention
+  finish_prayer: Finish prayer
+  music: Turn quiet music on
+  question: Question
+  quote: Passage
+  answer: Answer
+  edit: Edit
+  listen: Listen
+  pause: Pause
+  resume: Resume
+  previous_question: Previous question
+  next_question: Next question
+  save_quote: Save
+  saved_quote: Saved
+  previous_quote: Previous passage
+  next_quote: Next passage
+  sheet_question: YOUR COMPANION ASKED
+  placeholder: Write what resonates…
+  voice_hint: or answer with your voice
+  mic: Record audio
+  cancel: Cancel
+  confirm_cancel: Close without saving?
+  save: Save
+  reflect_before: before you finish
+  reflect_placeholder: A line or two…
+  reflect_save: Save and finish
+  reflect_finish: Finish
+  reflect_return: Return to prayer
+  prayer_saved: Prayer saved
+  demo_title: Try a prayer session
+  intro: Interactive demo · intention and time are already chosen. The timer is a fixed example.
+  privacy: Your demo answers stay in this page’s memory and disappear when you reload.
+  available: Available in the app. This demo does not record audio or open other app screens.
+  sample: Use the example answer
+  restart: Restart demo
+  close: Close
+  no_js: 'Without JavaScript: here is a question and a Scripture passage from the session.'
+  audio_error: The audio could not be played. Please try Listen again.
+  saved_demo: Saved in this demo only.
+  audio_credit: Translation and recording
+  notice_title: About this demo
+  week:
+    one: '{count} day of prayer this week'
+    few: '{count} days of prayer this week'
+    many: '{count} days of prayer this week'
+    other: '{count} days of prayer this week'
+  license_label: CC0 1.0
+  keep_flame: Keep the flame glowing
+  greetings:
+    night: A peaceful night
+    morning: Good morning
+    afternoon: Good afternoon
+    evening: Good evening
+  report_question: Report this question
+  report_scripture: Report this passage
+  licenses: Licenses
+  static_caption: Static app preview · enable JavaScript to try the session
+  translation_credit: Translation

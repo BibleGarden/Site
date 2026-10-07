@@ -13,6 +13,8 @@
     <meta name="theme-color" content="#090604">
     <link rel="icon" type="image/png" href="/assets/lampada-icon-64.png">
     <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="stylesheet" href="/assets/prayer-session-demo.css">
+    <script defer src="/assets/prayer-session-demo.js"></script>
 {% include "analytics.html" %}
 </head>
 <body>
@@ -51,6 +53,10 @@
                         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.7 4.1c-.9 1.1-2.3 2-3.7 1.9-.2-1.4.5-2.9 1.3-3.8.9-1.1 2.4-1.8 3.6-1.9.2 1.4-.4 2.8-1.2 3.8ZM18.9 12.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.7-2.4-4.5-2.5-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.5 1.6 12.6 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1s2.5 1 4.2 1c1.7 0 2.8-1.5 3.8-3.1 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.6-1.4-3.6-5.1Z" fill="currentColor"/></svg>
                         <span>{{ t.landing.hero.availability }}</span>
                     </span>
+                    <span class="availability">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3.5a1 1 0 0 1 1.5-.86l15 8.5a1 1 0 0 1 0 1.72l-15 8.5A1 1 0 0 1 5 20.5z"/></svg>
+                        <span>{{ t.landing.hero.google_play }}</span>
+                    </span>
                     <a class="text-link" href="#purpose">
                         <span>{{ t.landing.hero.discover }}</span>
                         <span aria-hidden="true">↓</span>
@@ -58,24 +64,9 @@
                 </div>
             </div>
 
-            <div class="hero-art" aria-label="{{ t.landing.hero.art_label }}">
+            <div class="hero-art">
                 <div class="orbit" aria-hidden="true"></div>
-                <div class="phone" aria-hidden="true">
-                    <div class="phone-top">
-                        <span>{{ t.landing.hero.phone_top }}</span>
-                        <div class="phone-icons"><span class="phone-icon">◫</span><span class="phone-icon">⚙</span></div>
-                    </div>
-                    <div class="flame-wrap">
-                        <div class="flame-glow"></div>
-                        <div class="flame"></div>
-                        <div class="lamp-bowl"></div>
-                    </div>
-                    <div class="phone-copy">
-                        <strong>{{ t.landing.hero.phone_copy }}</strong>
-                        <div class="week-dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                    </div>
-                    <div class="phone-button">{{ t.landing.hero.phone_button }}</div>
-                </div>
+                {{ prayer_demo_html }}
             </div>
         </section>
 
