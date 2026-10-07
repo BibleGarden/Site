@@ -5,6 +5,7 @@ import html
 import json
 import re
 
+from .demo_markers import fenced_flags
 from .errors import BuildError
 from .lectionary_data import CALENDARS, load_bundle, require
 
@@ -18,9 +19,8 @@ STRING_KEYS = {'title', 'calendar', 'no_js', 'loading', 'error', 'out_of_range',
 
 
 def annotate_marker(body, source, site, lang, body_start_line=1):
-    from .content import _fenced_flags
     lines = body.splitlines()
-    fenced = _fenced_flags(lines)
+    fenced = fenced_flags(lines)
     found = False
     for index, line in enumerate(lines):
         if fenced[index] or not INTENT.search(line):

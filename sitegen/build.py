@@ -8,24 +8,22 @@ from dataclasses import dataclass, replace
 from pathlib import Path
 from xml.sax.saxutils import escape
 
-from jinja2 import Environment, FileSystemLoader, StrictUndefined
-from markupsafe import Markup, escape as html_escape
+from markupsafe import Markup
 
+from .templates import make_environment
+from .prayer_session_demo import load_demo as load_prayer_demo, render_demo as render_prayer_demo
 from .assets import version_html
 from .content import PUBLIC_ROOT_NAME, Article, Site, StaticPage, load_articles, load_pages, load_site
 from .errors import BuildError
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 CONTENT_DIR = REPO_ROOT / "content"
-TEMPLATES_DIR = REPO_ROOT / "templates"
 PUBLIC_DIR = REPO_ROOT / PUBLIC_ROOT_NAME
 PREVIEW_DIR = REPO_ROOT / ".preview"
 STATIC_FILES = {
     "bible-garden": ("css", "js", "img", "audio", "privacy.html"),
     "lampada": ("assets", "privacy", "support"),
 }
-# Every generated page carries this tag.
-GENERATOR_META = '<meta name="generator" content="sitegen">'
 
 
 @dataclass(frozen=True)
@@ -60,30 +58,6 @@ def x_default(alternates: dict[str, str], default_language: str) -> str | None:
     if default_language in alternates:
         return alternates[default_language]
     return next(iter(alternates.values()), None)
-
-
-def nl2br(value: str) -> Markup:
-    return Markup("<br>".join(html_escape(line) for line in value.split("\n")))
-
-
-def jsonld(value: object) -> Markup:
-    text = json.dumps(value, ensure_ascii=False, indent=2, sort_keys=False)
-    return Markup(text.replace("</", "<\\/"))
-
-
-def make_environment(site_key: str) -> Environment:
-    env = Environment(
-        loader=FileSystemLoader([TEMPLATES_DIR / site_key, TEMPLATES_DIR / "_shared"]),
-        autoescape=True,
-        undefined=StrictUndefined,
-        trim_blocks=True,
-        lstrip_blocks=True,
-        keep_trailing_newline=True,
-    )
-    env.filters["nl2br"] = nl2br
-    env.filters["jsonld"] = jsonld
-    env.globals["generator_meta"] = Markup(GENERATOR_META)
-    return env
 
 
 def discover_sites() -> list[Path]:
@@ -260,8 +234,7 @@ class SiteBuilder:
         )
         demo_context = {}
         if self.site.key == "lampada":
-            from .prayer_session_demo import load_demo, render_demo
-            demo_context["prayer_demo_html"] = Markup(render_demo(load_demo("prayer-session"), lang, self.t(lang)["articles"]["prayer_demo"]))
+            demo_context["prayer_demo_html"] = Markup(render_prayer_demo(load_prayer_demo("prayer-session"), lang, self.t(lang).get("prayer_demo")))
         self.render(
             "landing.html",
             self.output_path(lang, "index.html"),

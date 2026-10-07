@@ -15,9 +15,9 @@ from markupsafe import Markup, escape
 
 from .errors import BuildError
 from .gospel_today import PLACEHOLDER as GOSPEL_PLACEHOLDER, annotate_marker as annotate_gospel_marker, render_component as render_gospel_today
-from .demo_markers import annotate_demo_marker, placeholder_for
+from .demo_markers import annotate_demo_marker, placeholder_for, fenced_flags as _fenced_flags
 from .multi_reading_demo import load_demo, render_demo
-from .prayer_session_demo import load_demo as load_prayer_demo, render_demo as render_prayer_demo
+from .prayer_session_demo import load_demo as load_prayer_demo, render_demo as render_prayer_demo, validate_strings as validate_prayer_strings
 from .reading_time import PLACEHOLDER as CALCULATOR_PLACEHOLDER, annotate_calculator_marker, load_data as load_reading_time, render_calculator
 from .reading_plan import PLACEHOLDER, annotate_plan_marker, load_plans, render_plan
 from .bible_checklist import PLACEHOLDER as CHECKLIST_PLACEHOLDER, annotate_checklist_marker, render_checklist, require_top_level
@@ -196,9 +196,14 @@ def load_site(content_dir: Path, repo_root: Path, *, preview: bool = False) -> S
         _article_app_store_url(config["article_app_store_url"], config_path)
     output_dir = repo_root / PUBLIC_ROOT_NAME / content_dir.name
     i18n = {lang: load_yaml(content_dir / "i18n" / f"{lang}.yaml") for lang in languages}
-    reference = i18n[config["default_language"]]
+    if content_dir.name == "lampada":
+        for lang in languages:
+            validate_prayer_strings(lang, i18n[lang].get("prayer_demo"))
+    comparable_i18n = ({lang: {key: value for key, value in strings.items() if key != "prayer_demo"}
+                        for lang, strings in i18n.items()} if content_dir.name == "lampada" else i18n)
+    reference = comparable_i18n[config["default_language"]]
     for lang in languages:
-        _check_same_keys(reference, i18n[lang], f"{content_dir / 'i18n' / lang}.yaml", "")
+        _check_same_keys(reference, comparable_i18n[lang], f"{content_dir / 'i18n' / lang}.yaml", "")
     return Site(
         key=content_dir.name,
         name=config["name"],
@@ -292,6 +297,7 @@ def load_articles(site: Site, content_dir: Path) -> dict[str, dict[str, Article]
                 source, slug_dir.name, lang, screens, checksums, site.i18n[lang]["articles"], site.output_dir,
                 site_key=site.key, app_store_url=site.article_app_store_url(lang) if site.key == "bible-garden" else None,
                 gospel_audio=site.config.get("gospel_audio"), preview=site.preview,
+                prayer_strings=site.i18n[lang].get("prayer_demo"),
             )
         if not versions:
             raise BuildError(f"{slug_dir}: article directory has no language versions")
@@ -360,6 +366,7 @@ def parse_article(
     app_store_url: str | None = None,
     gospel_audio: dict | None = None,
     preview: bool = False,
+    prayer_strings: object = None,
 ) -> Article:
     meta, body, body_start_line = _frontmatter(source, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS)
     gospel_body, has_gospel_today = annotate_gospel_marker(body, source, site_key, lang, body_start_line)
@@ -408,7 +415,7 @@ def parse_article(
         data = load_prayer_demo(demo_id) if site_key == "lampada" else load_demo(demo_id)
         if body_html.count(demo_placeholder) != 1:
             raise BuildError(f"{source}: {demo_id} demo marker did not render exactly once")
-        rendered_demo = (render_prayer_demo(data, lang, strings.get("prayer_demo")) if site_key == "lampada"
+        rendered_demo = (render_prayer_demo(data, lang, prayer_strings) if site_key == "lampada"
                          else render_demo(data, lang, strings.get("multi_reading_demo")))
         body_html = body_html.replace(demo_placeholder, rendered_demo)
         clean_body_no_demo = clean_body_no_demo.replace(demo_placeholder, "")
@@ -538,31 +545,3 @@ def extract_faq(body: str, source: Path) -> tuple[FaqItem, ...]:
     if not items:
         raise BuildError(f"{source}: FAQ section has no '### question' entries")
     return tuple(items)
-
-
-FENCE_RE = re.compile(r"^ {0,3}(`{3,}|~{3,})(.*)$")
-
-
-def _fenced_flags(lines: list[str]) -> list[bool]:
-    """Whether each line sits inside a fenced code block, fence lines included (CommonMark rules).
-
-    An opening fence is 3+ backticks or tildes indented by at most 3 spaces (a backtick fence
-    has no backtick in its info string); it closes with the same character, at least as long,
-    followed only by spaces.
-    """
-    flags: list[bool] = []
-    fence: str | None = None
-    for line in lines:
-        match = FENCE_RE.match(line)
-        if fence is None:
-            if match and not (match.group(1)[0] == "`" and "`" in match.group(2)):
-                fence = match.group(1)
-                flags.append(True)
-            else:
-                flags.append(False)
-        else:
-            flags.append(True)
-            marker = match.group(1) if match else ""
-            if match and marker[0] == fence[0] and len(marker) >= len(fence) and not match.group(2).strip():
-                fence = None
-    return flags

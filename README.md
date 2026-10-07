@@ -487,8 +487,9 @@ per article; Bible Garden keeps its existing audio demo data and renderer.
 
 `sitegen/prayer_session_demo.py` validates `content/lampada/demos/prayer-session.json`
 and renders `templates/lampada/prayer-session-demo.html`. All three languages
-are required. Interface labels are `articles.prayer_demo` in each Lampada i18n
-YAML. Missing labels, unknown fields, invalid values, duplicate JSON keys,
+are required. Interface labels are the top-level `prayer_demo` namespace in each Lampada
+i18n YAML; missing or malformed labels raise BuildError. Pages and components
+reuse the cached site Jinja environment from `sitegen/templates.py`. Missing labels, unknown fields, invalid values, duplicate JSON keys,
 missing fonts/notices and missing or changed clips fail the build. CSS/JS load
 on the landing and articles containing the marker, with the normal content-hash
 URLs; other pages do not load the component code.
@@ -510,15 +511,25 @@ fixed, not a real countdown. History, settings, music and reporting show an
 requesting microphone access. There is one Scripture card, so its previous/next
 buttons are disabled. Answers and reflection stay only in instance memory:
 no backend, AI call, storage or analytics event receives their contents.
-Restart/reload clears them. The App Store CTA remains "Coming soon".
+Restart/reload clears them. Beginning another prayer clears session answers,
+favorites, reflection and the saved notice, while keeping today’s completed
+flame/week state. The landing has separate "Coming soon" App Store and Google
+Play badges; neither is a store link.
 
 Without JavaScript, the complete Home screen and an accompanying static
 question/Scripture example render; interaction controls are disabled.
-Native dialogs provide keyboard focus containment/restoration and Escape;
-changed answers require explicit discard confirmation. Tabs support arrows,
+Native dialogs provide keyboard focus containment/restoration. Cancel/Escape
+requests discard confirmation for changed answers; Chromium can forcibly close
+a dialog on repeated Escape, so the native close event also clears the draft and
+synchronizes the form. The answer dialog has its own live announcer. Its CSS
+anchors it to the viewport bottom, bounds its height and keeps Cancel/Save in a
+fixed footer while the body scrolls, without content-height measurements. Tabs support arrows,
 Home and End. Reduced motion disables flame/glow animation. CSS is scoped,
-with 44 px controls and layouts for 320/375 px viewport widths; the answer dialog
-scrolls vertically. Native dialog support is required for interaction; an
+with 44 px controls and layouts for 320–1280 px viewport widths; Scripture
+cards grow to show the whole verse. Greetings follow the visitor’s local hour
+(the server deterministically renders morning). Week labels derive from the
+seven data flags with app-compatible en/ru/uk plurals. The initial home invites
+prayer with today’s dot empty and a smaller dimmer flame; finishing lights the flame and fills that dot. Native dialog support is required for interaction; an
 unsupported browser retains the static presentation and reports an explicit
 initialization error. Browser verification is separate from the Python/Node tests.
 
@@ -529,7 +540,12 @@ Audio rights and provenance (checked 2026-10-07 against the already researched
 |---|---|---|
 | en | Berean Standard Bible, Bob Souer, Psalm 118:24 | CC0 1.0; [publisher](https://bereanbible.com/audio/), [chapter files](https://openbible.com/audio/souer/) |
 | uk | Khomenko, Ihor Kozlov (Ігор Козлов), Psalm 118:24 | Publisher permits unrestricted redistribution; [Благовістник](http://www.blagovestnik.org/ukraine/ukraine.htm) |
-| ru | Synodal text, Psalm 117:24; no audio | No confirmed distribution permission for the Russian recordings in the app; an explicit notice replaces Listen |
+| ru | Synodal text, Psalm 117:24; no audio | Owner decision: audio disabled; the public notice is neutral ("В этом демо аудио нет") |
+
+The RU-disabled check is a deliberate owner-decision barrier, not a scenario
+validator default: other translations/narrators/license URLs are structurally
+validated rather than pinned to the current selection. RU must not be enabled
+until the owner revisits the decision.
 
 The unrestricted Russian Kozlov recording is **not** an app recording, so it is
 not substituted. Recording permission is separate from translation rights;
@@ -549,17 +565,24 @@ To reproduce the approved clips (ffmpeg/ffprobe required):
 python tools/build_prayer_demo_audio.py --parser-root /path/to/bible-parser
 ```
 
-The tool verifies chapter hashes and exact Scripture text before cutting; a
+The tool verifies chapter hashes, exact Scripture text and begin/end against
+the narrator’s timecodes before cutting; a
 changed source requires a deliberate review of text/alignment and manifest.
-There is no runtime chapter download or API key in this component. Playback
+The MP3 writer disables ID3 and encoder metadata with bitexact flags; the tool
+rejects format tags or TSSE in the result. There is no runtime chapter download or API key in this component. Playback
 starts only on a click, uses `preload="none"`, supports Pause/Resume, stops on
 leaving the card/session or page, and exposes errors without another recording.
 
-Self-hosted original TTFs preserve all app font weights and Latin/Cyrillic:
-Spectral 300/400/600 + 300 italic, Hanken Grotesk 400/500/600, JetBrains Mono 400/500.
+Self-hosted WOFF2 files preserve the seven used faces and Latin/Cyrillic:
+Spectral 300/400 + 300 italic, Hanken Grotesk 400/500/600, JetBrains Mono 400.
+Unused Spectral 600 and JetBrains Mono 500 are not shipped. WOFF2 conversion
+uses FontTools (`TTFont(path)`, `font.flavor = "woff2"`, `font.save(target)`)
+without subsetting or changing family names.
 Fonts retain SIL OFL 1.1; copies of `LICENSE_FONT` are under
 `static/lampada/assets/licenses/`. The SVG paths use Lucide ISC/MIT notices and
-Lampada MIT notices. `prayer-audio.txt` records separate audio terms and changes.
+Lampada MIT notices. `prayer-audio.txt` records separate audio terms and changes; the visible Licenses
+link opens `/assets/licenses/`, whose index lists every notice. Public notices
+contain publisher attribution, not internal tasks, paths or rights investigation.
 No font CDN, icon package or React runtime is loaded by the site.
 
 To resync, inspect a named current Lampada commit and compare the source files
@@ -569,7 +592,7 @@ For Scripture/audio changes, recheck distribution terms, text and verse timing
 before updating the source hashes and rebuilding clips. Record the new source
 commit/date here and in the manifest. Run `python -m unittest discover -s tests`,
 `python -m sitegen build`, `python -m sitegen check`, then browser checks at
-320/375 px in en/ru/uk (flow, audio, keyboard, zoom, no-JS and reduced motion).
+320/375/1280/1440 px in en/ru/uk (flow, audio, keyboard, zoom, no-JS and reduced motion).
 Commit sources and regenerated `dist/` together.
 
 ### Multi Reading demos in articles

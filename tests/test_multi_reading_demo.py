@@ -13,7 +13,8 @@ from pathlib import Path
 
 from sitegen.content import load_site, parse_article
 from sitegen.errors import BuildError
-from sitegen.multi_reading_demo import DEMOS_DIR, annotate_demo_marker, load_demo, validate_demo
+from sitegen.demo_markers import annotate_demo_marker
+from sitegen.multi_reading_demo import DEMOS_DIR, load_demo, validate_demo
 
 ROOT = Path(__file__).resolve().parent.parent
 DEMO_IDS = ("multi-reading", "translation-compare", "ukrainian-bible", "narrators")

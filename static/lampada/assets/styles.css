@@ -166,12 +166,13 @@ a {
     display: grid;
     grid-template-columns: minmax(0, 1.03fr) minmax(360px, 0.97fr);
     gap: 84px;
-    align-items: center;
+    align-items: start;
     min-height: calc(100vh - 84px);
-    padding-block: 70px 96px;
+    padding-block: 24px 64px;
 }
 
 .hero-copy {
+    align-self: center;
     position: relative;
     z-index: 2;
 }
@@ -220,6 +221,7 @@ h1 {
 }
 
 .hero-actions {
+    flex-wrap: wrap;
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
@@ -265,7 +267,8 @@ h1 {
 .hero-art {
     position: relative;
     display: grid;
-    min-height: 650px;
+    min-height: 0;
+    align-self: start;
     place-items: center;
 }
 

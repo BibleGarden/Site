@@ -1,80 +1,89 @@
 {% from 'prayer-demo-icons.html' import icon %}
 <section class="prayer-session-demo" data-prayer-demo lang="{{ lang }}" aria-labelledby="{{ prefix }}-heading"
+ data-question-label="{{ t.question }}" data-report-question="{{ t.report_question }}" data-report-scripture="{{ t.report_scripture }}"
  data-answer-label="{{ t.answer }}" data-edit-label="{{ t.edit }}" data-listen-label="{{ t.listen }}" data-pause-label="{{ t.pause }}" data-resume-label="{{ t.resume }}"
  data-save-quote-label="{{ t.save_quote }}" data-saved-quote-label="{{ t.saved_quote }}" data-confirm-cancel="{{ t.confirm_cancel }}" data-cancel-label="{{ t.cancel }}"
  data-audio-error="{{ t.audio_error }}" data-saved-label="{{ t.saved_demo }}" data-finish-label="{{ t.reflect_finish }}" data-save-finish-label="{{ t.reflect_save }}">
  <h2 class="pd-heading" id="{{ prefix }}-heading">{{ t.demo_title }}</h2>
  <p class="pd-intro">{{ t.intro }}</p>
  <div class="pd-phone">
-  <div class="pd-screen pd-home" data-screen="home">
-   <div class="pd-top"><span class="pd-greeting">{{ t.greeting }}</span><div class="pd-icons">
+  <div class="pd-screen pd-home{{ ' is-lit' if week[-1] else '' }}" data-screen="home">
+   <div class="pd-top"><span class="pd-greeting" data-greeting>{{ t.greetings.morning }}</span><div class="pd-icons">
     {% for name in ['journal', 'favorites', 'settings'] %}<button type="button" class="pd-icon" data-action="available" disabled aria-label="{{ t[name] }}">{{ icon(name) }}</button>{% endfor %}
    </div></div>
    <div class="pd-home-center">
     {# SVG adaptation of Flame.tsx (MIT): W=240, H=W*1.17, bowl/flame proportions. #}
-    <svg class="pd-lamp" viewBox="0 0 456 497" aria-hidden="true" focusable="false">
+    <svg class="pd-lamp" viewBox="96 180 264 216" aria-hidden="true" focusable="false">
      <defs>
       <radialGradient id="{{ prefix }}-halo"><stop stop-color="#e68c28" stop-opacity=".3"/><stop offset="1" stop-color="#e68c28" stop-opacity="0"/></radialGradient>
       <radialGradient id="{{ prefix }}-flame"><stop stop-color="#ffe9b8"/><stop offset=".4" stop-color="#ffb24a"/><stop offset="1" stop-color="#d6601a"/></radialGradient>
       <linearGradient id="{{ prefix }}-bowl" x2="0" y2="1"><stop stop-color="#5b432a"/><stop offset="1" stop-color="#2e2014"/></linearGradient>
-      <filter id="{{ prefix }}-blur"><feGaussianBlur stdDeviation="9"/></filter>
+      <filter id="{{ prefix }}-blur" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="9"/></filter>
      </defs>
      <circle class="pd-glow" cx="228" cy="287" r="120" fill="url(#{{ prefix }}-halo)" opacity=".64"/>
+     <g class="pd-flame-group">
      <path d="M228 260C241 264 244 274 244 284C244 303 237 314 228 314C219 314 212 303 212 284C212 274 215 264 228 260Z" fill="#ffb24a" opacity=".55" filter="url(#{{ prefix }}-blur)"/>
      <path class="pd-flame" d="M228 260C241 264 244 274 244 284C244 303 237 314 228 314C219 314 212 303 212 284C212 274 215 264 228 260Z" fill="url(#{{ prefix }}-flame)"/>
      <ellipse cx="228" cy="300" rx="7" ry="13.5" fill="#fff6dd" opacity=".8"/>
+     </g>
      <path d="M159.6 310.2H296.4C296.4 336 265.8 357 228 357C190.2 357 159.6 336 159.6 310.2Z" fill="url(#{{ prefix }}-bowl)"/>
      <rect x="159.6" y="310.2" width="136.8" height="4" rx="2" fill="#ffc878" opacity=".35"/>
     </svg>
-    <p class="pd-home-title">{{ t.lit }}</p>
-    <div class="pd-week" aria-hidden="true">{% for filled in week %}<span{% if filled %} class="pd-filled"{% endif %}></span>{% endfor %}</div>
-    <p class="pd-week-label">{{ t.week }}</p>
+    <p class="pd-home-title" data-home-title>{{ t.lit if week[-1] else t.keep_flame }}</p>
+    <div class="pd-week" aria-hidden="true">{% for filled in week %}<span class="{{ 'pd-filled' if filled else 'pd-today' if loop.last else '' }}"></span>{% endfor %}</div>
+    <p class="pd-week-label" data-week-label{% if not week_label %} hidden{% endif %}>{{ week_label }}</p>
    </div>
    <p class="pd-saved-home" data-home-notice hidden>{{ t.prayer_saved }}</p>
    <button type="button" class="pd-gold" data-action="start" disabled>{{ t.start }}</button>
   </div>
   <div class="pd-screen pd-session" data-screen="session" hidden>
-   <div class="pd-top"><button type="button" class="pd-icon pd-round" data-action="finish" disabled aria-label="{{ t.finish_prayer }}">{{ icon('back') }}</button><h3 class="pd-kicker" tabindex="-1" data-focus="session">{{ t.title }}</h3><button type="button" class="pd-icon pd-round" data-action="available" disabled aria-label="{{ t.music }}">{{ icon('music') }}</button></div>
+   <div class="pd-top"><button type="button" class="pd-icon pd-round" data-action="finish" disabled aria-label="{{ t.finish_prayer }}">{{ icon('close') }}</button><h3 class="pd-kicker" tabindex="-1" data-focus="session">{{ t.title }}</h3><button type="button" class="pd-icon pd-round" data-action="available" disabled aria-label="{{ t.music }}">{{ icon('music') }}</button></div>
    <div class="pd-timer"><svg viewBox="0 0 150 150" aria-hidden="true"><circle cx="75" cy="75" r="70" class="pd-ring-track"/><circle cx="75" cy="75" r="70" class="pd-ring" stroke-dasharray="440" stroke-dashoffset="{{ ring_offset }}"/></svg><div><span class="pd-time">{{ timer }}</span><span class="pd-kicker">{{ t.remaining }}</span></div></div>
    <div class="pd-goal"><span class="pd-kicker">{{ t.goal }}</span><p>{{ d.goal }}</p></div>
    <div class="pd-card">
     <div class="pd-card-header"><div role="tablist" aria-label="{{ t.title }}" class="pd-tabs">
      {% for name in ['question','quote'] %}<button type="button" role="tab" id="{{ prefix }}-tab-{{ name }}" aria-controls="{{ prefix }}-panel-{{ name }}" aria-selected="{{ 'true' if name == 'question' else 'false' }}" tabindex="{{ '0' if name == 'question' else '-1' }}" data-tab="{{ name }}" disabled>{{ icon(name) }}<span>{{ t[name] }}</span></button>{% endfor %}
-    </div><button type="button" class="pd-icon pd-report" data-action="available" disabled aria-label="{{ t.notice_title }}">{{ icon('flag') }}</button></div>
+    </div><button type="button" class="pd-icon pd-report" data-report data-action="available" disabled aria-label="{{ t.report_question }}">{{ icon('flag') }}</button></div>
     <div role="tabpanel" id="{{ prefix }}-panel-question" aria-labelledby="{{ prefix }}-tab-question" data-panel="question">
      <div class="pd-card-text" tabindex="0" data-question-text>{{ d.questions[0] }}</div>
      <div class="pd-actions"><button type="button" class="pd-square" data-action="previous" disabled aria-label="{{ t.previous_question }}">{{ icon('back') }}</button><button type="button" class="pd-answer" data-action="answer" disabled><span data-answer-icon>{{ icon('pen') }}</span><span data-answer-text>{{ t.answer }}</span></button><button type="button" class="pd-square" data-action="next" disabled aria-label="{{ t.next_question }}"><span data-next-icon>{{ icon('refresh') }}</span></button></div>
      <div class="pd-position" data-position aria-label="{{ t.question }}">●</div>
     </div>
     <div role="tabpanel" id="{{ prefix }}-panel-quote" aria-labelledby="{{ prefix }}-tab-quote" data-panel="quote" hidden>
-     <div class="pd-card-text" tabindex="0"><p class="pd-reference">{{ d.scripture.reference }}</p><p>{{ d.scripture.text }}</p></div>
+     <div class="pd-card-text" data-scripture-text><p>{{ d.scripture.text }}</p></div>
+     <div class="pd-scripture-meta">
      {% if d.audio.status == 'available' %}<button type="button" class="pd-listen" data-action="listen" disabled><span data-audio-icon>{{ icon('play') }}</span><span data-audio-label>{{ t.listen }}</span></button><audio data-player preload="none" src="{{ d.audio.path }}"></audio><p class="pd-audio-error" role="alert" data-audio-error-text hidden></p>
      {% else %}<p class="pd-unavailable">{{ t.audio_unavailable }}</p>{% endif %}
+     <span class="pd-reference">{{ d.scripture.reference }}</span></div>
      <div class="pd-actions"><button type="button" class="pd-square" disabled aria-label="{{ t.previous_quote }}">{{ icon('back') }}</button><button type="button" class="pd-answer" data-action="favorite" disabled aria-pressed="false">{{ icon('favorites') }}<span data-favorite-text>{{ t.save_quote }}</span></button><button type="button" class="pd-square" disabled aria-label="{{ t.next_quote }}">{{ icon('next') }}</button></div>
      <div class="pd-position" aria-hidden="true">●</div>
     </div>
    </div>
   </div>
   <div class="pd-screen pd-reflect" data-screen="reflect" hidden>
+   <svg class="pd-ember" viewBox="0 0 104 104" aria-hidden="true"><defs><radialGradient id="{{ prefix }}-ember"><stop stop-color="#ffb24a" stop-opacity=".5"/><stop offset="1" stop-color="#e68c28" stop-opacity="0"/></radialGradient></defs><circle cx="52" cy="58" r="49" fill="url(#{{ prefix }}-ember)"/><path d="M52 36C67 48 64 68 52 68C40 68 37 48 52 36" fill="#ffb24a"/><ellipse cx="52" cy="63" rx="5" ry="7" fill="#ffe9b8"/></svg>
    <p class="pd-kicker" data-focus="reflect" tabindex="-1">{{ t.reflect_before }}</p><p class="pd-reflect-question">{{ d.reflection }}</p>
    <label class="pd-sr" for="{{ prefix }}-takeaway">{{ t.reflect_placeholder }}</label><textarea id="{{ prefix }}-takeaway" data-takeaway placeholder="{{ t.reflect_placeholder }}" rows="3" maxlength="2000" disabled></textarea>
-   <button type="button" class="pd-gold" data-action="complete" disabled data-complete-text>{{ t.reflect_finish }}</button><button type="button" class="pd-return" data-action="return" disabled>{{ t.reflect_return }}</button>
+   <button type="button" class="pd-gold" data-action="complete" disabled data-complete-text>{{ t.reflect_finish }}</button><button type="button" class="pd-return" data-action="return" disabled>{{ icon('refresh') }}{{ t.reflect_return }}</button>
   </div>
  </div>
  <dialog class="pd-dialog" data-answer-dialog aria-labelledby="{{ prefix }}-answer-title">
-  <div class="pd-handle" aria-hidden="true"></div><h3 class="pd-kicker" id="{{ prefix }}-answer-title" tabindex="-1">{{ t.sheet_question }}</h3><p class="pd-dialog-question" data-sheet-question>{{ d.questions[0] }}</p>
-  <label class="pd-sr" for="{{ prefix }}-answer">{{ t.placeholder }}</label><textarea id="{{ prefix }}-answer" data-answer-input placeholder="{{ t.placeholder }}" rows="5" maxlength="2000" disabled></textarea><p class="pd-voice-hint">{{ t.voice_hint }}</p>
-  <button type="button" class="pd-mic" data-action="mic" disabled aria-label="{{ t.mic }}">{{ icon('mic') }}</button>
+  <div class="pd-answer-body">
+  <div class="pd-handle" aria-hidden="true"></div><h3 class="pd-kicker pd-orb-label" id="{{ prefix }}-answer-title" tabindex="-1"><span class="pd-orb" aria-hidden="true"></span>{{ t.sheet_question }}</h3><p class="pd-dialog-question" data-sheet-question>{{ d.questions[0] }}</p>
+  <label class="pd-sr" for="{{ prefix }}-answer">{{ t.placeholder }}</label><textarea id="{{ prefix }}-answer" data-answer-input placeholder="{{ t.placeholder }}" rows="5" maxlength="2000" disabled></textarea><p class="pd-voice-hint" data-voice-hint>{{ t.voice_hint }}</p>
   <button type="button" class="pd-example" data-action="sample" disabled>{{ t.sample }}</button>
   <p class="pd-dialog-note" data-dialog-note hidden>{{ t.available }}</p>
-  <div class="pd-actions"><button type="button" class="pd-cancel" data-action="cancel" disabled>{{ t.cancel }}</button><button type="button" class="pd-gold" data-action="save" disabled>{{ t.save }}</button></div>
+  <p class="pd-sr" role="status" aria-live="polite" data-answer-status></p>
+  </div>
+  <div class="pd-actions pd-sheet-actions"><button type="button" class="pd-mic" data-action="mic" disabled aria-label="{{ t.mic }}">{{ icon('mic') }}</button><button type="button" class="pd-cancel" data-action="cancel" disabled>{{ t.cancel }}</button><button type="button" class="pd-gold" data-action="save" disabled>{{ t.save }}</button></div>
  </dialog>
  <dialog class="pd-dialog pd-notice" data-notice-dialog aria-labelledby="{{ prefix }}-notice-title"><h3 id="{{ prefix }}-notice-title">{{ t.notice_title }}</h3><p>{{ t.available }}</p><button type="button" class="pd-gold" data-action="close-notice" disabled>{{ t.close }}</button></dialog>
  <div class="pd-static"><p>{{ t.no_js }}</p><h3>{{ t.question }}</h3><p>{{ d.questions[0] }}</p><h3>{{ d.scripture.reference }}</h3><p>{{ d.scripture.text }}</p></div>
- <p class="pd-credit">{{ t.audio_credit }}: {{ d.scripture.translation_name }}{% if d.audio.status == 'available' %} · {{ d.audio.narrator }} · <a href="{{ d.audio.license_url }}">{{ t.license_label }}</a>{% endif %}</p>
+ <p class="pd-credit">{{ t.audio_credit if d.audio.status == 'available' else t.translation_credit }}: {{ d.scripture.translation_name }}{% if d.audio.status == 'available' %} · {{ d.audio.narrator }} · <a href="{{ d.audio.license_url }}">{{ t.license_label }}</a>{% endif %} · <a href="/assets/licenses/">{{ t.licenses }}</a></p>
+ <p class="pd-static-caption">{{ t.static_caption }}</p>
  <p class="pd-privacy">{{ t.privacy }}</p><button type="button" class="pd-restart" data-action="restart" disabled>{{ t.restart }}</button>
  <p class="pd-sr" role="status" aria-live="polite" data-status></p>
- <script type="application/json" data-prayer-config>{{ {'questions': d.questions, 'sampleAnswer': d.sample_answer} | tojson }}</script>
+ <script type="application/json" data-prayer-config>{{ {'questions': d.questions, 'sampleAnswer': d.sample_answer, 'week': week, 'greetings': t.greetings, 'weekLabels': t.week, 'lit': t.lit, 'keepFlame': t.keep_flame, 'language': lang} | tojson }}</script>
  <template data-icon-play>{{ icon('play') }}</template><template data-icon-pause>{{ icon('pause') }}</template>
  <template data-icon-plus>{{ icon('plus') }}</template><template data-icon-refresh>{{ icon('refresh') }}</template><template data-icon-next>{{ icon('next') }}</template><template data-icon-check>{{ icon('check') }}</template><template data-icon-pen>{{ icon('pen') }}</template>
 </section>

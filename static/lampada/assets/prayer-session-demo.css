@@ -2,14 +2,14 @@
 fonts: SIL OFL 1.1. */
 @font-face {
     font-family:PD Spectral;
-    src:url('/assets/fonts/Spectral_300Light.ttf') format('truetype');
+    src:url('/assets/fonts/Spectral_300Light.woff2') format('woff2');
     font-weight:300;
     font-display:swap
 }
 
 @font-face {
     font-family:PD Spectral;
-    src:url('/assets/fonts/Spectral_300Light_Italic.ttf') format('truetype');
+    src:url('/assets/fonts/Spectral_300Light_Italic.woff2') format('woff2');
     font-weight:300;
     font-style:italic;
     font-display:swap
@@ -17,654 +17,150 @@ fonts: SIL OFL 1.1. */
 
 @font-face {
     font-family:PD Spectral;
-    src:url('/assets/fonts/Spectral_400Regular.ttf') format('truetype');
-    font-weight:400;
-    font-display:swap
-}
-
-@font-face {
-    font-family:PD Spectral;
-    src:url('/assets/fonts/Spectral_600SemiBold.ttf') format('truetype');
-    font-weight:600;
-    font-display:swap
-}
-
-@font-face {
-    font-family:PD Hanken;
-    src:url('/assets/fonts/HankenGrotesk_400Regular.ttf') format('truetype');
+    src:url('/assets/fonts/Spectral_400Regular.woff2') format('woff2');
     font-weight:400;
     font-display:swap
 }
 
 @font-face {
     font-family:PD Hanken;
-    src:url('/assets/fonts/HankenGrotesk_500Medium.ttf') format('truetype');
+    src:url('/assets/fonts/HankenGrotesk_400Regular.woff2') format('woff2');
+    font-weight:400;
+    font-display:swap
+}
+
+@font-face {
+    font-family:PD Hanken;
+    src:url('/assets/fonts/HankenGrotesk_500Medium.woff2') format('woff2');
     font-weight:500;
     font-display:swap
 }
 
 @font-face {
     font-family:PD Hanken;
-    src:url('/assets/fonts/HankenGrotesk_600SemiBold.ttf') format('truetype');
+    src:url('/assets/fonts/HankenGrotesk_600SemiBold.woff2') format('woff2');
     font-weight:600;
     font-display:swap
 }
 
 @font-face {
     font-family:PD Mono;
-    src:url('/assets/fonts/JetBrainsMono_400Regular.ttf') format('truetype');
+    src:url('/assets/fonts/JetBrainsMono_400Regular.woff2') format('woff2');
     font-weight:400;
     font-display:swap
 }
 
-@font-face {
-    font-family:PD Mono;
-    src:url('/assets/fonts/JetBrainsMono_500Medium.ttf') format('truetype');
-    font-weight:500;
-    font-display:swap
-}
-
-.prayer-session-demo {
-    --pd-cream:#f3e6c8;
-    --pd-gold:#e7cf95;
-    --pd-label:rgba(214,182,120,.72);
-    --pd-card:rgba(214,182,120,.08);
-    --pd-border:rgba(214,182,120,.42);
-    position:relative;
-    z-index:2;
-    width:min(100%,360px);
-    min-width:0;
-    margin:24px auto;
-    color:var(--pd-cream);
-    font:400 14px/1.5 'PD Hanken',sans-serif;
-    overflow-wrap:anywhere;
-    text-align:left
-}
-
-.prayer-session-demo * {
-    box-sizing:border-box;
-    min-width:0
-}
-
-.prayer-session-demo [hidden] {
-    display:none!important
-}
-
-.prayer-session-demo .pd-heading {
-    margin:0 0 8px;
-    font:300 24px/1.25 'PD Spectral',serif;
-    text-align:center;
-    letter-spacing:0
-}
-
-.prayer-session-demo .pd-intro,.prayer-session-demo .pd-privacy,.prayer-session-demo .pd-credit {
-    margin:10px 0;
-    color:rgba(240,225,195,.65);
-    font:400 12px/1.5 'PD Hanken',sans-serif;
-    text-align:center
-}
-
-.prayer-session-demo .pd-phone {
-    width:100%;
-    height:620px;
-    position:relative;
-    border:1px solid rgba(238,197,133,.24);
-    border-radius:34px;
-    overflow:hidden;
-    background:#080604;
-    box-shadow:0 24px 60px rgba(0,0,0,.5)
-}
-
-.prayer-session-demo .pd-screen {
-    height:100%;
-    padding:28px 18px 24px;
-    display:flex;
-    flex-direction:column;
-    gap:22px;
-    background:radial-gradient(circle at 50% 12%,#1a1510,#100c08 55%,#0a0806)
-}
-
-.prayer-session-demo .pd-home {
-    background:radial-gradient(circle at 50% 52%,#2a1c0e,#120b06 55%,#080604);
-    gap:16px
-}
-
-.prayer-session-demo .pd-top {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:8px;
-    flex-shrink:0
-}
-
-.prayer-session-demo .pd-greeting {
-    font:400 15px/1.3 'PD Spectral',serif
-}
-
-.prayer-session-demo .pd-icons {
-    display:flex;
-    gap:0
-}
-
-.prayer-session-demo button {
-    appearance:none;
-    cursor:pointer;
-    color:var(--pd-gold);
-    font:500 12px/1.3 'PD Hanken',sans-serif;
-    border:1px solid transparent;
-    background:transparent;
-    padding:0;
-    letter-spacing:normal;
-    text-transform:none
-}
-
-.prayer-session-demo button:disabled {
-    cursor:default;
-    opacity:.45
-}
-
-.prayer-session-demo button:focus-visible,.prayer-session-demo [tabindex]:focus-visible,.prayer-session-demo textarea:focus-visible {
-    outline:2px solid #f0c074;
-    outline-offset:3px
-}
-
-.prayer-session-demo button:hover:enabled {
-    filter:brightness(1.15)
-}
-
-.prayer-session-demo .pd-icon {
-    display:inline-flex;
-    width:44px;
-    height:44px;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-    color:var(--pd-label)
-}
-
-.prayer-session-demo .pd-round {
-    background:rgba(255,255,255,.05);
-    border-radius:50%
-}
-
-.prayer-session-demo .pd-home-center {
-    flex:1;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:0
-}
-
-.prayer-session-demo .pd-lamp {
-    display:block;
-    width:calc(100% + 90px);
-    height:310px;
-    max-width:none;
-    margin:-40px -45px -10px;
-    flex-shrink:0
-}
-
-.prayer-session-demo .pd-glow {
-    animation:pd-breathe 6s ease-in-out infinite
-}
-
-.prayer-session-demo .pd-flame {
-    animation:pd-flicker 3s ease-in-out infinite;
-    transform-origin:228px 314px
-}
-
-.prayer-session-demo .pd-home-title {
-    margin:0;
-    font:300 26px/1.25 'PD Spectral',serif;
-    text-align:center
-}
-
-.prayer-session-demo .pd-week {
-    display:flex;
-    gap:9px;
-    margin-top:22px
-}
-
-.prayer-session-demo .pd-week span {
-    display:block;
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:rgba(255,255,255,.1)
-}
-
-.prayer-session-demo .pd-week .pd-filled {
-    background:#d9a94e
-}
-
-.prayer-session-demo .pd-week-label {
-    font:400 10px/1.5 'PD Mono',monospace;
-    color:var(--pd-label);
-    margin:14px 0 0;
-    text-align:center
-}
-
-.prayer-session-demo .pd-gold {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    min-height:46px;
-    padding:13px 10px;
-    border-radius:8px;
-    background:linear-gradient(#e6a23c,#c97f1f);
-    color:#2a1a06;
-    font:600 14px/1.3 'PD Hanken',sans-serif;
-    box-shadow:0 8px 12px rgba(220,150,50,.15)
-}
-
-.prayer-session-demo .pd-kicker {
-    display:block;
-    margin:0;
-    font:400 10px/1.5 'PD Mono',monospace;
-    letter-spacing:1.6px;
-    text-transform:uppercase;
-    color:var(--pd-label)
-}
-
-.prayer-session-demo .pd-top h3 {
-    text-align:center;
-    flex:1
-}
-
-.prayer-session-demo .pd-timer {
-    position:relative;
-    width:156px;
-    height:156px;
-    align-self:center;
-    flex-shrink:0
-}
-
-.prayer-session-demo .pd-timer>svg {
-    width:100%;
-    height:100%;
-    transform:rotate(-90deg);
-    fill:none;
-    stroke-width:3
-}
-
-.prayer-session-demo .pd-ring-track {
-    stroke:rgba(255,255,255,.07)
-}
-
-.prayer-session-demo .pd-ring {
-    stroke:rgba(230,162,60,.85);
-    stroke-linecap:round
-}
-
-.prayer-session-demo .pd-timer>div {
-    position:absolute;
-    inset:0;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center
-}
-
-.prayer-session-demo .pd-time {
-    font:300 40px/1.2 'PD Spectral',serif;
-    color:#f6ecd4
-}
-
-.prayer-session-demo .pd-goal {
-    text-align:center;
-    flex-shrink:0
-}
-
-.prayer-session-demo .pd-goal p {
-    margin:5px 0 0;
-    font:italic 300 14px/1.5 'PD Spectral',serif
-}
-
-.prayer-session-demo .pd-card {
-    display:flex;
-    flex-direction:column;
-    flex:1;
-    padding:12px;
-    border:1px solid var(--pd-border);
-    border-radius:8px;
-    background:var(--pd-card);
-    min-height:0
-}
-
-.prayer-session-demo .pd-card-header {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:2px;
-    flex-shrink:0
-}
-
-.prayer-session-demo .pd-tabs {
-    display:flex;
-    padding:3px;
-    border-radius:999px;
-    background:rgba(255,255,255,.05)
-}
-
-.prayer-session-demo .pd-tabs button {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:5px;
-    min-height:44px;
-    padding:4px 8px;
-    border-radius:999px;
-    font-size:11px
-}
-
-.prayer-session-demo .pd-tabs button[aria-selected=true] {
-    background:rgba(214,182,120,.16);
-    color:#f0e6c8
-}
-
-.prayer-session-demo .pd-tabs svg {
-    width:17px;
-    height:17px
-}
-
-.prayer-session-demo .pd-report {
-    width:44px;
-    color:rgba(214,182,120,.65)
-}
-
-.prayer-session-demo [role=tabpanel] {
-    display:flex;
-    flex:1;
-    flex-direction:column;
-    min-height:0
-}
-
-.prayer-session-demo .pd-card-text {
-    flex:1;
-    overflow-y:auto;
-    margin:12px 0;
-    padding:0 4px;
-    font:300 16px/1.55 'PD Spectral',serif;
-    color:var(--pd-cream)
-}
-
-.prayer-session-demo .pd-card-text p {
-    margin:0 0 8px;
-    font:inherit;
-    color:inherit
-}
-
-.prayer-session-demo .pd-card-text .pd-reference {
-    font:400 9px/1.5 'PD Mono',monospace;
-    color:var(--pd-label)
-}
-
-.prayer-session-demo .pd-actions {
-    display:flex;
-    gap:8px;
-    align-items:stretch;
-    flex-shrink:0
-}
-
-.prayer-session-demo .pd-square,.prayer-session-demo .pd-answer,.prayer-session-demo .pd-cancel {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:6px;
-    min-height:44px;
-    border:1px solid rgba(214,182,120,.34);
-    border-radius:8px;
-    background:rgba(214,182,120,.16)
-}
-
-.prayer-session-demo .pd-square {
-    width:44px;
-    flex-shrink:0
-}
-
-.prayer-session-demo .pd-answer {
-    flex:1;
-    padding:5px
-}
-
-.prayer-session-demo .pd-answer.is-answered {
-    color:#a9d3bd;
-    border-color:rgba(127,208,160,.4)
-}
-
-.prayer-session-demo .pd-answer svg,.prayer-session-demo .pd-square svg {
-    width:16px;
-    height:16px;
-    display:block
-}
-
-.prayer-session-demo .pd-position {
-    text-align:center;
-    margin:9px 0 0;
-    font-size:8px;
-    color:var(--pd-label);
-    letter-spacing:5px
-}
-
-.prayer-session-demo .pd-listen {
-    align-self:flex-start;
-    display:flex;
-    gap:5px;
-    align-items:center;
-    min-height:44px;
-    margin-top:-8px
-}
-
-.prayer-session-demo .pd-listen svg {
-    width:12px;
-    fill:currentColor;
-    stroke:none
-}
-
-.prayer-session-demo .pd-unavailable,.prayer-session-demo .pd-audio-error {
-    font:400 11px/1.35 'PD Hanken',sans-serif;
-    margin:0 0 8px;
-    color:#f0c074
-}
-
-.prayer-session-demo .pd-reflect {
-    justify-content:center;
-    gap:24px
-}
-
-.prayer-session-demo .pd-reflect-question {
-    font:300 25px/1.4 'PD Spectral',serif;
-    margin:0
-}
-
-.prayer-session-demo textarea {
-    display:block;
-    width:100%;
-    resize:vertical;
-    max-height:240px;
-    padding:12px;
-    background:rgba(255,255,255,.05);
-    border:1px solid var(--pd-border);
-    border-radius:8px;
-    font:400 16px/1.5 'PD Spectral',serif;
-    color:#f2e9d6
-}
-
-.prayer-session-demo textarea::placeholder {
-    color:rgba(240,230,210,.55)
-}
-
-.prayer-session-demo .pd-return,.prayer-session-demo .pd-restart,.prayer-session-demo .pd-example {
-    min-height:44px;
-    padding:8px;
-    text-decoration:underline;
-    text-underline-offset:3px
-}
-
-.prayer-session-demo .pd-restart {
-    display:none;
-    margin:0 auto
-}
-
-.prayer-session-demo.pd-ready .pd-restart {
-    display:block
-}
-
-.prayer-session-demo .pd-saved-home {
-    margin:0;
-    text-align:center;
-    font:400 13px/1.4 'PD Hanken',sans-serif;
-    color:#a9d3bd
-}
-
-.prayer-session-demo .pd-dialog {
-    position:fixed;
-    inset:0;
-    margin:auto;
-    width:min(calc(100% - 24px),360px);
-    max-height:calc(100dvh - 32px);
-    overflow-y:auto;
-    padding:20px 16px 16px;
-    border:1px solid var(--pd-border);
-    border-radius:14px;
-    background:linear-gradient(#1d1710,#15100a);
-    color:var(--pd-cream);
-    font:400 14px/1.5 'PD Hanken',sans-serif;
-    box-shadow:0 24px 80px #000
-}
-
-.prayer-session-demo .pd-dialog::backdrop {
-    background:rgba(0,0,0,.65)
-}
-
-.prayer-session-demo .pd-handle {
-    width:32px;
-    height:4px;
-    background:rgba(255,255,255,.3);
-    border-radius:2px;
-    margin:0 auto 20px
-}
-
-.prayer-session-demo .pd-dialog-question {
-    font:300 20px/1.5 'PD Spectral',serif;
-    margin:12px 0 18px
-}
-
-.prayer-session-demo .pd-voice-hint {
-    text-align:center;
-    color:rgba(240,200,140,.7);
-    font:italic 300 12px/1.5 'PD Spectral',serif;
-    margin:10px 0
-}
-
-.prayer-session-demo .pd-mic {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:48px;
-    height:48px;
-    border:1px solid var(--pd-border);
-    border-radius:50%;
-    margin:10px auto;
-    background:rgba(214,182,120,.1)
-}
-
-.prayer-session-demo .pd-example {
-    display:block;
-    margin:0 auto 12px
-}
-
-.prayer-session-demo .pd-dialog-note {
-    color:#f0c074;
-    font-size:12px
-}
-
-.prayer-session-demo .pd-dialog .pd-actions>* {
-    flex:1
-}
-
-.prayer-session-demo .pd-notice h3 {
-    margin:0;
-    font:300 24px/1.3 'PD Spectral',serif
-}
-
-.prayer-session-demo .pd-static {
-    padding:12px;
-    border:1px solid var(--pd-border);
-    border-radius:8px;
-    margin-top:16px
-}
-
-.prayer-session-demo .pd-static h3 {
-    font:400 16px/1.4 'PD Spectral',serif;
-    margin:12px 0 4px
-}
-
-.prayer-session-demo .pd-static p {
-    font:400 14px/1.5 'PD Hanken',sans-serif;
-    margin:6px 0
-}
-
-.prayer-session-demo.pd-ready .pd-static {
-    display:none
-}
-
-.prayer-session-demo .pd-credit a {
-    color:var(--pd-gold)
-}
-
-.prayer-session-demo .pd-sr {
-    position:absolute;
-    width:1px;
-    height:1px;
-    padding:0;
-    margin:-1px;
-    overflow:hidden;
-    clip:rect(0,0,0,0);
-    white-space:nowrap;
-    border:0
-}
-
-@keyframes pd-breathe {
-    50% {
-        opacity:.45
-    }
-}
-
-@keyframes pd-flicker {
-    50% {
-        transform:scaleX(.92) scaleY(1.035)
-    }
-}
-
-@media(max-width:375px) {
-    .prayer-session-demo .pd-screen {
-        padding-inline:12px
-    }
-    .prayer-session-demo .pd-greeting {
-        font-size:14px
-    }
-    .prayer-session-demo .pd-home-title {
-        font-size:24px
-    }
-    .prayer-session-demo .pd-card {
-        padding:9px
-    }
-}
-
-@media(prefers-reduced-motion:reduce) {
-    .prayer-session-demo * {
-        animation:none!important;
-        transition:none!important
-    }
-}
-
-@media print {
-    .prayer-session-demo .pd-phone,.prayer-session-demo button,.prayer-session-demo dialog,.prayer-session-demo .pd-intro,.prayer-session-demo .pd-privacy {
-        display:none!important
-    }
-    .prayer-session-demo.pd-ready .pd-static {
-        display:block
-    }
-}
+ .prayer-session-demo {
+    --pd-cream:#f3e6c8; --pd-gold:#e7cf95; --pd-label:rgba(214,182,120,.72);
+    --pd-card:rgba(214,182,120,.08); --pd-border:rgba(214,182,120,.42);
+    position:relative; z-index:2; width:min(100%,360px); min-width:0; margin:0 auto;
+    color:var(--pd-cream); font:400 14px/1.5 'PD Hanken',sans-serif;
+    overflow-wrap:anywhere; text-align:left;
+}
+.prayer-session-demo * { box-sizing:border-box; min-width:0; }
+.prayer-session-demo [hidden] { display:none!important; }
+.prayer-session-demo .pd-heading { margin:0 0 6px; font:300 22px/1.25 'PD Spectral',serif; text-align:center; letter-spacing:0; }
+.prayer-session-demo .pd-intro,.prayer-session-demo .pd-privacy,.prayer-session-demo .pd-credit,.prayer-session-demo .pd-static-caption {
+    margin:8px 0; color:rgba(240,225,195,.65); font:400 12px/1.5 'PD Hanken',sans-serif; text-align:center;
+}
+.prayer-session-demo .pd-phone { width:100%; position:relative; border:1px solid rgba(238,197,133,.24); border-radius:34px; overflow:hidden; background:#080604; box-shadow:0 24px 60px rgba(0,0,0,.5); }
+.prayer-session-demo .pd-screen { min-height:520px; padding:20px 18px; display:flex; flex-direction:column; gap:16px; background:radial-gradient(circle at 50% 12%,#1a1510,#100c08 55%,#0a0806); }
+.prayer-session-demo .pd-home { height:520px; background:radial-gradient(circle at 50% 52%,#2a1c0e,#120b06 55%,#080604); }
+.prayer-session-demo .pd-top { display:flex; align-items:center; justify-content:space-between; gap:6px; flex-shrink:0; }
+.prayer-session-demo .pd-greeting { font:400 15px/1.3 'PD Spectral',serif; }
+.prayer-session-demo .pd-icons { display:flex; }
+.prayer-session-demo button { appearance:none; cursor:pointer; color:var(--pd-gold); font:500 12px/1.3 'PD Hanken',sans-serif; border:1px solid transparent; background:transparent; padding:0; letter-spacing:normal; text-transform:none; }
+.prayer-session-demo button:disabled { cursor:default; opacity:.45; }
+.prayer-session-demo button:focus-visible,.prayer-session-demo [tabindex]:focus-visible,.prayer-session-demo textarea:focus-visible { outline:2px solid #f0c074; outline-offset:3px; }
+.prayer-session-demo button:hover:enabled { filter:brightness(1.15); }
+.prayer-session-demo .pd-icon { display:inline-flex; width:44px; height:44px; align-items:center; justify-content:center; flex-shrink:0; color:var(--pd-label); }
+.prayer-session-demo .pd-round { background:rgba(255,255,255,.05); border-radius:50%; }
+.prayer-session-demo .pd-home-center { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.prayer-session-demo .pd-lamp { display:block; width:100%; height:auto; max-width:none; margin:-28px 0 -4px; flex-shrink:0; }
+.prayer-session-demo .pd-glow { animation:pd-breathe 6s ease-in-out infinite; }
+.prayer-session-demo .pd-flame-group { transform:scale(.636,.52); transform-origin:228px 314px; }
+.prayer-session-demo .pd-home.is-lit .pd-flame-group { transform:none; }
+.prayer-session-demo .pd-home:not(.is-lit) .pd-glow { opacity:.32; animation:pd-dim-breathe 6s ease-in-out infinite; }
+.prayer-session-demo .pd-flame { animation:pd-flicker 3s ease-in-out infinite; transform-origin:228px 314px; }
+.prayer-session-demo .pd-home-title { margin:0; font:300 26px/1.25 'PD Spectral',serif; text-align:center; }
+.prayer-session-demo .pd-week { display:flex; gap:9px; margin-top:20px; }
+.prayer-session-demo .pd-week span { display:block; width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.1); }
+.prayer-session-demo .pd-week .pd-filled { background:#d9a94e; }
+.prayer-session-demo .pd-week .pd-today { border:1px solid #d9a94e; background:transparent; }
+.prayer-session-demo .pd-week-label { font:400 10px/1.5 'PD Mono',monospace; color:var(--pd-label); margin:12px 0 0; text-align:center; }
+.prayer-session-demo .pd-gold { display:flex; align-items:center; justify-content:center; min-height:46px; padding:13px 10px; border-radius:8px; background:linear-gradient(#e6a23c,#c97f1f); color:#2a1a06; font:600 14px/1.3 'PD Hanken',sans-serif; box-shadow:0 8px 12px rgba(220,150,50,.15); }
+.prayer-session-demo .pd-kicker { display:block; margin:0; font:400 10px/1.5 'PD Mono',monospace; letter-spacing:1.6px; text-transform:uppercase; color:var(--pd-label); }
+.prayer-session-demo .pd-top h3 { text-align:center; flex:1; }
+.prayer-session-demo .pd-timer { position:relative; width:132px; height:132px; align-self:center; flex-shrink:0; }
+.prayer-session-demo .pd-timer>svg { width:100%; height:100%; transform:rotate(-90deg); fill:none; stroke-width:3; }
+.prayer-session-demo .pd-ring-track { stroke:rgba(255,255,255,.07); }
+.prayer-session-demo .pd-ring { stroke:rgba(230,162,60,.85); stroke-linecap:round; }
+.prayer-session-demo .pd-timer>div { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.prayer-session-demo .pd-time { font:300 36px/1.2 'PD Spectral',serif; color:#f6ecd4; }
+.prayer-session-demo .pd-goal { text-align:center; flex-shrink:0; }
+.prayer-session-demo .pd-goal p { margin:5px 0 0; font:italic 300 14px/1.5 'PD Spectral',serif; }
+.prayer-session-demo .pd-card { display:flex; flex-direction:column; flex:1; padding:12px; border:1px solid var(--pd-border); border-radius:8px; background:var(--pd-card); }
+.prayer-session-demo .pd-card-header { position:relative; display:flex; align-items:center; justify-content:center; padding:0 24px; }
+.prayer-session-demo .pd-tabs { display:flex; padding:3px; border-radius:999px; background:rgba(255,255,255,.05); }
+.prayer-session-demo .pd-tabs button { display:flex; align-items:center; justify-content:center; gap:5px; min-height:44px; padding:4px 8px; border-radius:999px; font-size:11px; }
+.prayer-session-demo .pd-tabs button[aria-selected=true] { background:rgba(214,182,120,.16); color:#f0e6c8; }
+.prayer-session-demo .pd-tabs svg { width:17px; height:17px; }
+.prayer-session-demo .pd-report { position:absolute; right:-9px; width:36px; color:rgba(214,182,120,.65); }
+.prayer-session-demo .pd-report svg { width:16px; height:16px; }
+.prayer-session-demo [role=tabpanel] { display:flex; flex:1; flex-direction:column; }
+.prayer-session-demo .pd-card-text { display:flex; align-items:center; justify-content:center; flex:1; min-height:110px; margin:12px 0; padding:0 4px; font:300 16px/1.55 'PD Spectral',serif; color:#eef0e6; text-align:center; }
+.prayer-session-demo .pd-card-text p { margin:0; font:inherit; color:inherit; }
+.prayer-session-demo .pd-scripture-meta { display:flex; align-items:center; justify-content:space-between; gap:8px; min-height:44px; }
+.prayer-session-demo .pd-reference { margin-left:auto; font:400 11px/1.5 'PD Hanken',sans-serif; color:rgba(240,225,195,.65); text-align:right; }
+.prayer-session-demo .pd-actions { display:flex; gap:8px; align-items:stretch; flex-shrink:0; }
+.prayer-session-demo .pd-square,.prayer-session-demo .pd-answer,.prayer-session-demo .pd-cancel { display:flex; align-items:center; justify-content:center; gap:6px; min-height:44px; border:1px solid rgba(214,182,120,.34); border-radius:8px; background:rgba(214,182,120,.16); }
+.prayer-session-demo .pd-square { width:44px; flex-shrink:0; }
+.prayer-session-demo .pd-answer { flex:1; padding:5px; }
+.prayer-session-demo .pd-answer.is-answered { color:#a9d3bd; border-color:rgba(127,208,160,.4); }
+.prayer-session-demo .pd-answer svg,.prayer-session-demo .pd-square svg { width:16px; height:16px; display:block; }
+.prayer-session-demo .pd-position { text-align:center; margin:9px 0 0; font-size:8px; color:var(--pd-label); letter-spacing:5px; }
+.prayer-session-demo .pd-listen { display:flex; gap:5px; align-items:center; min-height:44px; }
+.prayer-session-demo .pd-listen svg { width:12px; fill:currentColor; stroke:none; }
+.prayer-session-demo .pd-unavailable,.prayer-session-demo .pd-audio-error { font:400 11px/1.35 'PD Hanken',sans-serif; margin:0; color:#f0c074; }
+.prayer-session-demo .pd-reflect { justify-content:center; gap:18px; text-align:center; }
+.prayer-session-demo .pd-ember { display:block; width:104px; height:104px; margin:0 auto; }
+.prayer-session-demo .pd-reflect-question { font:300 27px/1.4 'PD Spectral',serif; margin:0; text-align:center; }
+.prayer-session-demo textarea { display:block; width:100%; resize:vertical; max-height:200px; padding:12px; background:rgba(255,255,255,.05); border:1px solid var(--pd-border); border-radius:8px; font:400 16px/1.5 'PD Spectral',serif; color:#f2e9d6; }
+.prayer-session-demo textarea::placeholder { color:rgba(240,230,210,.55); }
+.prayer-session-demo .pd-return { display:flex; gap:8px; align-items:center; justify-content:center; min-height:44px; padding:8px; border:1px solid var(--pd-border); border-radius:8px; }
+.prayer-session-demo .pd-restart,.prayer-session-demo .pd-example { min-height:44px; padding:8px; text-decoration:underline; text-underline-offset:3px; }
+.prayer-session-demo .pd-example { font-size:11px; color:rgba(240,225,195,.65); }
+.prayer-session-demo .pd-restart { display:none; margin:0 auto; }
+.prayer-session-demo.pd-ready .pd-restart { display:block; }
+.prayer-session-demo .pd-saved-home { margin:0; text-align:center; font:400 13px/1.4 'PD Hanken',sans-serif; color:#a9d3bd; }
+/* Bottom-anchored top-layer dialog: content can grow without moving its actions below the viewport. */
+.prayer-session-demo .pd-dialog { position:fixed; inset:auto 12px 16px; margin:0 auto; width:min(calc(100% - 24px),360px); max-height:calc(100dvh - 32px); padding:16px; border:1px solid var(--pd-border); border-radius:14px; background:linear-gradient(#1d1710,#15100a); color:var(--pd-cream); font:400 14px/1.5 'PD Hanken',sans-serif; box-shadow:0 24px 80px #000; }
+.prayer-session-demo .pd-dialog[open] { display:flex; flex-direction:column; }
+.prayer-session-demo .pd-dialog::backdrop { background:rgba(0,0,0,.65); }
+.prayer-session-demo .pd-answer-body { overflow-y:auto; min-height:0; }
+.prayer-session-demo .pd-handle { width:32px; height:4px; background:rgba(255,255,255,.3); border-radius:2px; margin:0 auto 16px; }
+.prayer-session-demo .pd-orb-label { display:flex; align-items:center; justify-content:center; gap:5px; text-align:center; color:rgba(170,210,190,.65); }
+.prayer-session-demo .pd-orb { width:9px; height:9px; border-radius:50%; background:#6fae93; }
+.prayer-session-demo .pd-dialog-question { font:300 20px/1.5 'PD Spectral',serif; margin:12px 0 18px; text-align:center; }
+.prayer-session-demo .pd-voice-hint { text-align:center; color:rgba(240,225,195,.65); font:italic 300 12px/1.5 'PD Spectral',serif; margin:8px 0; }
+.prayer-session-demo .pd-mic { display:flex; align-items:center; justify-content:center; width:44px; height:44px; border:1px solid rgba(127,174,154,.28); border-radius:8px; background:rgba(127,174,154,.12); flex-shrink:0; }
+.prayer-session-demo .pd-example { display:block; margin:4px auto; }
+.prayer-session-demo .pd-dialog-note { color:#f0c074; font-size:12px; }
+.prayer-session-demo .pd-sheet-actions { margin-top:12px; }
+.prayer-session-demo .pd-sheet-actions .pd-cancel,.prayer-session-demo .pd-sheet-actions .pd-gold { flex:1; min-height:44px; padding:6px; font-size:12px; }
+.prayer-session-demo .pd-notice { top:16px; bottom:16px; height:max-content; margin:auto; }
+.prayer-session-demo .pd-notice h3 { margin:0; font:300 24px/1.3 'PD Spectral',serif; }
+.prayer-session-demo .pd-static { padding:12px; border:1px solid var(--pd-border); border-radius:8px; margin-top:16px; }
+.prayer-session-demo .pd-static h3 { font:400 16px/1.4 'PD Spectral',serif; margin:12px 0 4px; }
+.prayer-session-demo .pd-static p { font:400 14px/1.5 'PD Hanken',sans-serif; margin:6px 0; }
+.prayer-session-demo.pd-ready .pd-static,.prayer-session-demo.pd-ready .pd-static-caption { display:none; }
+.prayer-session-demo:not(.pd-ready) .pd-home button { pointer-events:none; opacity:1; }
+.prayer-session-demo:not(.pd-ready) .pd-home .pd-icons { visibility:hidden; }
+.prayer-session-demo .pd-credit a { color:var(--pd-gold); }
+.prayer-session-demo .pd-sr { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+@keyframes pd-dim-breathe { 50% { opacity:.22; } }
+@keyframes pd-breathe { 50% { opacity:.45; } }
+@keyframes pd-flicker { 50% { transform:scaleX(.92) scaleY(1.035); } }
+@media(max-width:375px) { .prayer-session-demo .pd-screen { padding-inline:12px; } .prayer-session-demo .pd-greeting { font-size:14px; } .prayer-session-demo .pd-home-title { font-size:24px; } .prayer-session-demo .pd-card { padding:9px; } }
+@media(prefers-reduced-motion:reduce) { .prayer-session-demo * { animation:none!important; transition:none!important; } }
+@media print { .prayer-session-demo .pd-phone,.prayer-session-demo button,.prayer-session-demo dialog,.prayer-session-demo .pd-intro,.prayer-session-demo .pd-privacy { display:none!important; } .prayer-session-demo.pd-ready .pd-static { display:block; } }

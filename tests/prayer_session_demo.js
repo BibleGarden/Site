@@ -1,19 +1,22 @@
 const assert = require('node:assert/strict');
-const { Session, connectAudio, init } = require('../static/lampada/assets/prayer-session-demo.js');
-const config = { questions: ['first', 'alternate', 'next'], sampleAnswer: 'example' };
+const { Session, connectAudio, init, greetingPeriod } = require('../static/lampada/assets/prayer-session-demo.js');
+const config = { questions: ['first', 'alternate', 'next'], sampleAnswer: 'example', week:[true,false,true,false,false,false,false],
+    greetings:{night:'night',morning:'morning',afternoon:'afternoon',evening:'evening'},
+    weekLabels:{one:'{count} day',few:'{count} days',many:'{count} days',other:'{count} days'},
+    language:'en',lit:'Glowing',keepFlame:'Keep the flame glowing' };
 
 function element(dataset = {}) {
     const handlers = {};
     const el = {
         dataset, hidden: false, disabled: false, textContent: '', value: '', open: false,
         attributes: {}, classes: new Set(), focused: false, style: {}, offsetHeight: 400,
-        getBoundingClientRect() { return { width: 300, left: 20, bottom: 650 }; },
+
         addEventListener: (event, fn) => { (handlers[event] ||= []).push(fn); },
         emit: (event, data = {}) => { (handlers[event] || []).forEach(fn => fn(data)); },
         setAttribute(name, value) { this.attributes[name] = value; },
         replaceChildren() {}, focus() { this.focused = true; },
         click() { if (!this.disabled) this.emit('click'); },
-        showModal() { this.open = true; }, close() { this.open = false; },
+        showModal() { this.open = true; }, close() { this.open = false; this.emit('close'); },
         querySelector() { return element(); },
         content: { cloneNode() { return {}; } },
     };
@@ -22,7 +25,7 @@ function element(dataset = {}) {
 }
 function root() {
     const nodes = new Map();
-    const selectors = ['prayer-config', 'answer-input', 'takeaway', 'answer-dialog', 'notice-dialog', 'question-text', 'answer-text', 'answer-icon', 'next-icon', 'status', 'sheet-question', 'dialog-note', 'home-notice', 'complete-text', 'favorite-text', 'position'];
+    const selectors = ['prayer-config', 'answer-input', 'takeaway', 'answer-dialog', 'notice-dialog', 'question-text', 'answer-text', 'answer-icon', 'next-icon', 'status', 'sheet-question', 'dialog-note', 'home-notice', 'complete-text', 'favorite-text', 'position', 'answer-status','voice-hint','report','greeting','home-title','week-label'];
     nodes.set('.pd-phone', element());
     selectors.forEach(name => nodes.set(`[data-${name}]`, element()));
     nodes.get('[data-prayer-config]').textContent = JSON.stringify(config);
@@ -33,21 +36,23 @@ function root() {
     ['session','reflect'].forEach(name => nodes.set(`[data-focus="${name}"]`, element()));
     const tabs = ['question','quote'].map(name => element({ tab: name }));
     const panels = ['question','quote'].map(name => element({ panel: name }));
+    const dots = Array.from({length:7}, () => element());
     const el = element();
-    el.dataset = { answerLabel:'Answer',editLabel:'Edit',confirmCancel:'Confirm',cancelLabel:'Cancel',saveQuoteLabel:'Save',savedQuoteLabel:'Saved',savedLabel:'Demo saved',finishLabel:'Finish',saveFinishLabel:'Save and finish' };
+    el.dataset = { answerLabel:'Answer',editLabel:'Edit',confirmCancel:'Confirm',cancelLabel:'Cancel',saveQuoteLabel:'Save',savedQuoteLabel:'Saved',savedLabel:'Demo saved',questionLabel:'Question',reportQuestion:'Report question',reportScripture:'Report Scripture',finishLabel:'Finish',saveFinishLabel:'Save and finish' };
     el.querySelector = selector => nodes.get(selector) || null;
-    el.querySelectorAll = selector => ({ '[data-screen]':screens, '[data-tab]':tabs, '[data-panel]':panels, '[data-action]':actions, '[data-action], [data-tab], textarea':[...actions,...tabs,nodes.get('[data-answer-input]'),nodes.get('[data-takeaway]')] })[selector];
+    el.querySelectorAll = selector => ({ '.pd-week span':dots, '[data-screen]':screens, '[data-tab]':tabs, '[data-panel]':panels, '[data-action]':actions, '[data-action], [data-tab], textarea':[...actions,...tabs,nodes.get('[data-answer-input]'),nodes.get('[data-takeaway]')] })[selector];
     el.nodes = nodes; el.tabs = tabs;
     return el;
 }
 
 (async () => {
     assert.throws(() => new Session({}), /Invalid/);
+    assert.deepEqual([0,4,5,11,12,17,18,23].map(greetingPeriod), ['night','night','morning','morning','afternoon','afternoon','evening','evening']);
     const state = new Session(config);
     state.next(); assert.equal(state.question, 'alternate');
     state.next(); assert.equal(state.question, 'first');
     state.openAnswer(); state.draft = 'private';
-    assert.equal(state.cancel(), false); assert.equal(state.answerOpen, true);
+    assert.equal(state.cancel(), false); assert.equal(state.confirmCancel, true);
     assert.equal(state.cancel(), true); assert.equal(state.entry.answer, null);
     state.openAnswer(); assert.throws(() => state.save(), /empty/);
     state.draft = 'saved'; state.save(); state.next(); assert.equal(state.question, 'next');
@@ -64,8 +69,7 @@ function root() {
     a.tabs[1].click(); assert.equal(first.tab, 'quote');
     a.tabs[1].emit('keydown', { key: 'ArrowLeft', preventDefault() {} }); assert.equal(first.tab, 'question');
     click('answer'); assert.equal(a.nodes.get('[data-answer-dialog]').open, true);
-    assert.equal(a.nodes.get('[data-answer-dialog]').style.left, '20px');
-    assert.equal(a.nodes.get('[data-answer-dialog]').style.top, '250px');
+
     click('mic'); assert.equal(a.nodes.get('[data-dialog-note]').hidden, false);
     click('sample'); click('save'); assert.equal(first.entry.answer, 'example');
     assert.equal(a.nodes.get('[data-answer-text]').textContent, 'Edit');
@@ -74,13 +78,20 @@ function root() {
     click('answer'); const input = a.nodes.get('[data-answer-input]'); input.value = 'changed'; input.emit('input');
     a.nodes.get('[data-answer-dialog]').emit('cancel', { preventDefault() {} });
     assert.equal(first.confirmCancel, true); assert.equal(a.nodes.get('[data-answer-dialog]').open, true);
+    assert.equal(a.nodes.get('[data-answer-status]').textContent,'Confirm');
     click('cancel'); assert.equal(a.nodes.get('[data-answer-dialog]').open, false); assert.equal(first.entry.answer, 'example');
+    click('answer'); input.value='unsaved'; input.emit('input');
+    a.nodes.get('[data-answer-dialog]').close();
+    assert.equal(first.draft,'example'); assert.equal(first.confirmCancel,false);
+    assert.equal(a.nodes.get('[data-voice-hint]').hidden,true);
     click('favorite'); assert.equal(a.nodes.get('[data-action="favorite"]').attributes['aria-pressed'], 'true');
     click('available'); assert.equal(a.nodes.get('[data-notice-dialog]').open, true); click('close-notice');
     click('finish'); assert.equal(first.screen, 'reflect'); click('return'); assert.equal(first.screen, 'session');
     click('finish'); const takeaway = a.nodes.get('[data-takeaway]'); takeaway.value = 'private takeaway'; takeaway.emit('input');
     assert.equal(a.nodes.get('[data-complete-text]').textContent, 'Save and finish');
     click('complete'); assert.equal(first.screen, 'home'); assert.equal(first.completed, true);
+    click('start'); assert.equal(first.entry.answer,null); assert.equal(first.favorite,false);
+    assert.equal(first.homeLit,true); assert.equal(first.completed,false); assert.equal(takeaway.value,'');
     click('restart'); assert.equal(first.completed, false); assert.equal(input.value, ''); assert.equal(takeaway.value, ''); assert.equal(first.entry.answer, null);
     assert.equal(second.screen, 'home');
 

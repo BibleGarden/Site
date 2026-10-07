@@ -12,7 +12,7 @@
     false,
     false,
     false,
-    true
+    false
   ],
   "locales": {
     "en": {
@@ -38,7 +38,7 @@
       "audio": {
         "status": "available",
         "path": "/assets/audio/prayer-session/en-psalm118-24.mp3",
-        "sha256": "651a6037a5788deb077b4b3d25087cdf988bfdd5442fe7063a40c8c555523249",
+        "sha256": "4240a114c0175588f21bb5a1223ca3b009850d1033e1c903a568ce2bf5e91959",
         "duration": 4.32,
         "source_file": "audio/bsb/bsb_souer/mp3/19/118.mp3",
         "source_sha256": "0a2ec327edb6293d597e464477bdf6d079405cabd12bb53ac7eee45489a0fa13",
@@ -99,7 +99,7 @@
       "audio": {
         "status": "available",
         "path": "/assets/audio/prayer-session/uk-psalm118-24.mp3",
-        "sha256": "d09b1d027bf6fd3781a60afb6b8491af6e9c4a65b10f639b965959caaadebd42",
+        "sha256": "71bdff8623272f4d82c2a1ac02adf84dc99427b064afd518f3472865f4c5d145",
         "duration": 5.376,
         "source_file": "audio/ubh/kozlov_uk/mp3/19/118.mp3",
         "source_sha256": "22fbc5bad19f0c5f0009a77c115b3623ac1946b2d0f00c289d02b24576eacb48",

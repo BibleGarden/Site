@@ -17,7 +17,7 @@ import re
 from pathlib import Path
 
 from .errors import BuildError
-from .demo_markers import annotate_demo_marker, placeholder_for
+from .demo_markers import unique_keys, reject_constant
 
 ROOT = Path(__file__).resolve().parent.parent
 DEMOS_DIR = ROOT / "content/bible-garden/demos"
@@ -25,19 +25,6 @@ LANGS = {"en", "ru", "uk"}
 # Language of each translation's text, for the verse line's `lang` attribute.
 # Fixed per translation regardless of which demo(s) use it.
 TEXT_LANG = {"bsb": "en", "bti": "ru", "syn": "ru", "ubh": "uk", "webus": "en", "webbe": "en", "npu": "uk"}
-
-
-def _unique_keys(pairs: list[tuple[str, object]]) -> dict:
-    result = {}
-    for key, value in pairs:
-        if key in result:
-            raise ValueError(f"duplicate JSON key {key!r}")
-        result[key] = value
-    return result
-
-
-def _reject_constant(value: str) -> None:
-    raise ValueError(f"invalid JSON constant {value}")
 
 
 def validate_demo(data: object, demo_id: str, path: Path, static_root: Path = ROOT / "static/bible-garden") -> dict:
@@ -199,7 +186,7 @@ def load_demo(demo_id: str, demos_dir: Path = DEMOS_DIR, static_root: Path = ROO
     if not path.is_file():
         raise BuildError(f"{path}: missing demo data; run tools/build_demo_audio.py")
     try:
-        data = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=_unique_keys, parse_constant=_reject_constant)
+        data = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=unique_keys, parse_constant=reject_constant)
     except (OSError, ValueError) as error:
         raise BuildError(f"{path}: invalid demo JSON: {error}") from error
     return validate_demo(data, demo_id, path, static_root)

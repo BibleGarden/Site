@@ -1,23 +1,33 @@
 /* Lampada prayer session demo. Private input never leaves instance memory. */
 (() => {
     'use strict';
+    function greetingPeriod(hour) {
+        if (hour < 5) return 'night';
+        if (hour < 12) return 'morning';
+        if (hour < 18) return 'afternoon';
+        return 'evening';
+    }
     class Session {
         constructor(config) {
             if (!config || !Array.isArray(config.questions) || config.questions.length !== 3
                 || config.questions.some(q => typeof q !== 'string' || !q.trim())
-                || typeof config.sampleAnswer !== 'string' || !config.sampleAnswer.trim()) {
+                || typeof config.sampleAnswer !== 'string' || !config.sampleAnswer.trim()
+                || !Array.isArray(config.week) || config.week.length !== 7 || config.week.some(v => typeof v !== 'boolean')
+                || !config.greetings || ['night','morning','afternoon','evening'].some(k => typeof config.greetings[k] !== 'string')
+                || !config.weekLabels || ['one','few','many','other'].some(k => typeof config.weekLabels[k] !== 'string')
+                || typeof config.language !== 'string' || typeof config.lit !== 'string' || typeof config.keepFlame !== 'string') {
                 throw new Error('Invalid prayer demo configuration');
             }
             this.config = config;
             this.reset();
         }
-        reset() {
+        reset(preserveHome = false) {
+            this.homeLit = preserveHome ? this.homeLit : this.config.week[6];
             this.screen = 'home';
             this.tab = 'question';
             this.entries = [{ question: 0, answer: null }];
             this.index = 0;
             this.favorite = false;
-            this.answerOpen = false;
             this.draft = '';
             this.confirmCancel = false;
             this.takeaway = '';
@@ -39,12 +49,14 @@
         openAnswer() {
             this.draft = this.entry.answer === null ? '' : this.entry.answer;
             this.confirmCancel = false;
-            this.answerOpen = true;
         }
         save() {
             if (!this.draft.trim()) throw new Error('Cannot save an empty demo answer');
             this.entry.answer = this.draft;
-            this.answerOpen = false;
+            this.confirmCancel = false;
+        }
+        discardDraft() {
+            this.draft = this.entry.answer === null ? '' : this.entry.answer;
             this.confirmCancel = false;
         }
         cancel() {
@@ -53,9 +65,7 @@
                 this.confirmCancel = true;
                 return false;
             }
-            this.answerOpen = false;
-            this.draft = saved;
-            this.confirmCancel = false;
+            this.discardDraft();
             return true;
         }
     }
@@ -131,6 +141,8 @@
         const save = one('[data-action="save"]');
         const cancel = one('[data-action="cancel"]');
         const status = one('[data-status]');
+        const answerStatus = one('[data-answer-status]');
+        if (typeof root.dataset.questionLabel !== 'string' || !root.dataset.questionLabel.trim()) throw new Error('Missing question label');
         const player = root.querySelector('[data-player]');
         if (typeof answerDialog.showModal !== 'function' || typeof noticeDialog.showModal !== 'function') {
             throw new Error('Prayer demo requires native dialog support');
@@ -163,13 +175,29 @@
             one('[data-action="previous"]').disabled = session.index === 0;
             one('[data-action="next"]').disabled = frontier && session.index === 1 && session.entry.answer !== null;
             one('[data-position]').textContent = session.entries.map((entry, i) => i === session.index ? '●' : '○').join(' ');
-            one('[data-position]').setAttribute('aria-label', `${root.dataset.questionLabel || tabs[0].textContent.trim()}: ${session.index + 1} / ${session.entries.length}`);
+            one('[data-position]').setAttribute('aria-label', `${root.dataset.questionLabel}: ${session.index + 1} / ${session.entries.length}`);
             one('[data-action="favorite"]').setAttribute('aria-pressed', String(session.favorite));
             one('[data-favorite-text]').textContent = session.favorite ? root.dataset.savedQuoteLabel : root.dataset.saveQuoteLabel;
             one('[data-home-notice]').hidden = !session.completed;
             one('[data-complete-text]').textContent = session.takeaway.trim() ? root.dataset.saveFinishLabel : root.dataset.finishLabel;
             save.disabled = !session.draft.trim();
             cancel.textContent = session.confirmCancel ? root.dataset.confirmCancel : root.dataset.cancelLabel;
+            one('[data-voice-hint]').hidden = Boolean(session.draft);
+            one('[data-report]').setAttribute('aria-label', session.tab === 'question' ? root.dataset.reportQuestion : root.dataset.reportScripture);
+            one('[data-greeting]').textContent = session.config.greetings[greetingPeriod(new Date().getHours())];
+            screens.find(node => node.dataset.screen === 'home').classList.toggle('is-lit', session.homeLit);
+            one('[data-home-title]').textContent = session.homeLit ? session.config.lit : session.config.keepFlame;
+            const week = [...session.config.week];
+            week[6] = session.homeLit;
+            root.querySelectorAll('.pd-week span').forEach((dot, i) => {
+                dot.classList.toggle('pd-filled', week[i]);
+                dot.classList.toggle('pd-today', i === 6 && !week[i]);
+            });
+            const count = week.filter(Boolean).length;
+            const weekly = one('[data-week-label]');
+            weekly.hidden = count === 0;
+            weekly.textContent = session.config.weekLabels[new Intl.PluralRules(session.config.language).select(count)].replace('{count}', String(count));
+
         }
         function changeScreen(screen) {
             stopAudio();
@@ -178,44 +206,33 @@
             if (screen === 'home') one('[data-action="start"]').focus();
             else one(`[data-focus="${screen}"]`).focus();
         }
-        function placeAnswer() {
-            if (!answerDialog.open) return;
-            const phone = one('.pd-phone').getBoundingClientRect();
-            const width = Math.min(phone.width, window.innerWidth - 24);
-            answerDialog.style.width = `${width}px`;
-            answerDialog.style.margin = '0';
-            answerDialog.style.inset = 'auto';
-            const left = Math.max(12, Math.min(phone.left, window.innerWidth - width - 12));
-            const top = Math.max(16, Math.min(phone.bottom - answerDialog.offsetHeight,
-                window.innerHeight - answerDialog.offsetHeight - 16));
-            answerDialog.style.left = `${left}px`;
-            answerDialog.style.top = `${top}px`;
-        }
         function cancelAnswer() {
             if (session.cancel()) { answerDialog.close(); render(); }
-            else { render(); status.textContent = root.dataset.confirmCancel; }
+            else { render(); answerStatus.textContent = root.dataset.confirmCancel; }
         }
         const actions = {
-            start: () => changeScreen('session'),
+            start: () => {
+                session.reset(true); input.value = ''; takeaway.value = ''; status.textContent = ''; answerStatus.textContent = '';
+                changeScreen('session');
+            },
             finish: () => changeScreen('reflect'),
             return: () => changeScreen('session'),
-            complete: () => { session.completed = true; changeScreen('home'); status.textContent = one('[data-home-notice]').textContent; },
+            complete: () => { session.completed = true; session.homeLit = true; changeScreen('home'); status.textContent = one('[data-home-notice]').textContent; },
             previous: () => { session.previous(); render(); questionText.focus(); },
             next: () => { session.next(); render(); questionText.focus(); },
             answer: () => {
                 stopAudio();
-                status.textContent = '';
+                status.textContent = ''; answerStatus.textContent = '';
                 session.openAnswer();
                 input.value = session.draft;
                 one('[data-sheet-question]').textContent = session.question;
                 one('[data-dialog-note]').hidden = true;
                 render();
                 answerDialog.showModal();
-                placeAnswer();
                 answerDialog.querySelector('h3').focus();
             },
             sample: () => { session.draft = session.config.sampleAnswer; input.value = session.draft; session.confirmCancel = false; render(); input.focus(); },
-            mic: () => { one('[data-dialog-note]').hidden = false; },
+            mic: () => { one('[data-dialog-note]').hidden = false; answerStatus.textContent = one('[data-dialog-note]').textContent; },
             save: () => { session.save(); answerDialog.close(); render(); status.textContent = root.dataset.savedLabel; },
             cancel: cancelAnswer,
             favorite: () => { session.favorite = !session.favorite; render(); },
@@ -253,16 +270,17 @@
         input.addEventListener('input', () => { session.draft = input.value; session.confirmCancel = false; render(); });
         takeaway.addEventListener('input', () => { session.takeaway = takeaway.value; render(); });
         answerDialog.addEventListener('cancel', event => { event.preventDefault(); cancelAnswer(); });
+        answerDialog.addEventListener('close', () => {
+            session.discardDraft(); input.value = session.draft; answerStatus.textContent = ''; render();
+        });
         // Native dialog traps focus and restores the triggering button on close.
         root.querySelectorAll('[data-action], [data-tab], textarea').forEach(node => { node.disabled = false; });
         render();
         root.classList.add('pd-ready');
         window.addEventListener('pagehide', stopAudio);
-        window.addEventListener('resize', placeAnswer);
-        window.addEventListener('scroll', placeAnswer, { passive: true });
         document.addEventListener('visibilitychange', () => { if (document.hidden) stopAudio(); });
         return session;
     }
-    if (typeof module !== 'undefined' && module.exports) module.exports = { Session, connectAudio, init };
+    if (typeof module !== 'undefined' && module.exports) module.exports = { Session, connectAudio, init, greetingPeriod };
     if (typeof document !== 'undefined') document.querySelectorAll('[data-prayer-demo]').forEach(init);
 })();

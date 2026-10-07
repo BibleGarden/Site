@@ -12,6 +12,7 @@ from dataclasses import dataclass
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
+from .demo_markers import fenced_flags
 from .errors import BuildError
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -244,10 +245,9 @@ def load_plans() -> tuple[list[dict], list[dict], list[Chapter]]:
 
 
 def annotate_plan_marker(body: str, source: Path, site: str, body_start_line: int = 1) -> tuple[str, bool]:
-    from .content import _fenced_flags
 
     lines = body.splitlines()
-    fenced = _fenced_flags(lines)
+    fenced = fenced_flags(lines)
     found = False
     for index, line in enumerate(lines):
         if fenced[index] or not PLAN_INTENT_RE.search(line):
