@@ -72,7 +72,8 @@
     </script>
     <meta name="theme-color" content="#090604">
     <link rel="icon" type="image/png" href="/assets/lampada-icon-64.png">
-    <link rel="stylesheet" href="/assets/styles.css?v=32402581ce7d">
+    <link rel="stylesheet" href="/assets/styles.css?v=2c3b4a608a80">
+    <script src="/assets/landing.js?v=1b74b2aac344" defer></script>
     <script defer src="https://stats.bible.garden/script.js" data-website-id="a75ebc6a-36c3-45ef-8637-684b2542f098" data-domains="lampada.app" data-exclude-search="true" data-exclude-hash="true"></script>
 </head>
 <body>
@@ -101,12 +102,16 @@
         <section class="hero shell" aria-labelledby="hero-title">
             <div class="hero-copy">
                 <p class="eyebrow">Prayer · Light · AI</p>
-                <h1 id="hero-title">Make room for prayer</h1>
-                <p class="hero-lead">You choose the topic. Lampada helps you pray with intent, stay focused, and notice what matters.</p>
+                <h1 id="hero-title">An app to help you pray</h1>
+                <p class="hero-lead">You choose the topic and length of your prayer.<br>Lampada helps with questions, finds Scripture passages, and gently keeps your answers in a journal.</p>
                 <div class="hero-actions">
-                    <span class="availability">
+                    <a class="app-store-button" href="https://apps.apple.com/app/lampada/id6806024678?l=en" data-umami-event="app-store-click" target="_blank" rel="noopener">
                         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.7 4.1c-.9 1.1-2.3 2-3.7 1.9-.2-1.4.5-2.9 1.3-3.8.9-1.1 2.4-1.8 3.6-1.9.2 1.4-.4 2.8-1.2 3.8ZM18.9 12.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.7-2.4-4.5-2.5-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.5 1.6 12.6 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1s2.5 1 4.2 1c1.7 0 2.8-1.5 3.8-3.1 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.6-1.4-3.6-5.1Z" fill="currentColor"/></svg>
-                        <span>Coming soon to the App Store</span>
+                        <span>Download on the App Store</span>
+                    </a>
+                    <span class="store-soon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5 21.5 12 5 20.5ZM5 3.5l11.9 10.9M5 20.5l11.9-10.9"/></svg>
+                        <span>Coming soon to Google Play</span>
                     </span>
                     <a class="text-link" href="#purpose">
                         <span>Discover Lampada</span>
@@ -115,60 +120,162 @@
                 </div>
             </div>
 
-            <div class="hero-art" aria-label="Lampada app preview">
-                <div class="orbit" aria-hidden="true"></div>
-                <div class="phone" aria-hidden="true">
-                    <div class="phone-top">
-                        <span>A quiet moment</span>
-                        <div class="phone-icons"><span class="phone-icon">◫</span><span class="phone-icon">⚙</span></div>
+            <div class="hero-art">
+                <div class="coverflow" role="region" aria-roledescription="carousel" aria-label="Lampada app preview" data-coverflow>
+                    <div class="coverflow-track">
+                        <div class="coverflow-slide" role="group" aria-roledescription="slide" aria-label="Screen 1 of 8" data-pos="0">
+                            <img src="/assets/screens/home.en.webp" width="600" height="1304" alt="Lampada home screen: the lamp and the week&#39;s prayer dots" draggable="false" decoding="async" fetchpriority="high">
+                        </div>
+                        <div class="coverflow-slide" role="group" aria-roledescription="slide" aria-label="Screen 2 of 8" data-pos="1" aria-hidden="true">
+                            <img src="/assets/screens/topic.en.webp" width="600" height="1304" alt="Before prayer: topic and duration" draggable="false" decoding="async" loading="lazy">
+                        </div>
+                        <div class="coverflow-slide" role="group" aria-roledescription="slide" aria-label="Screen 3 of 8" data-pos="2" aria-hidden="true">
+                            <img src="/assets/screens/question.en.webp" width="600" height="1304" alt="Prayer timer with a guiding question" draggable="false" decoding="async" loading="lazy">
+                        </div>
+                        <div class="coverflow-slide" role="group" aria-roledescription="slide" aria-label="Screen 4 of 8" data-pos="hidden" aria-hidden="true">
+                            <img src="/assets/screens/answer.en.webp" width="600" height="1304" alt="Writing an answer to the question" draggable="false" decoding="async" loading="lazy">
+                        </div>
+                        <div class="coverflow-slide" role="group" aria-roledescription="slide" aria-label="Screen 5 of 8" data-pos="hidden" aria-hidden="true">
+                            <img src="/assets/screens/audio.en.webp" width="600" height="1304" alt="Recording a voice answer" draggable="false" decoding="async" loading="lazy">
+                        </div>
+                        <div class="coverflow-slide" role="group" aria-roledescription="slide" aria-label="Screen 6 of 8" data-pos="hidden" aria-hidden="true">
+                            <img src="/assets/screens/passage.en.webp" width="600" height="1304" alt="A Bible passage during prayer" draggable="false" decoding="async" loading="lazy">
+                        </div>
+                        <div class="coverflow-slide" role="group" aria-roledescription="slide" aria-label="Screen 7 of 8" data-pos="-2" aria-hidden="true">
+                            <img src="/assets/screens/reflection.en.webp" width="600" height="1304" alt="Closing question at the end of prayer" draggable="false" decoding="async" loading="lazy">
+                        </div>
+                        <div class="coverflow-slide" role="group" aria-roledescription="slide" aria-label="Screen 8 of 8" data-pos="-1" aria-hidden="true">
+                            <img src="/assets/screens/history.en.webp" width="600" height="1304" alt="Prayer journal with search" draggable="false" decoding="async" loading="lazy">
+                        </div>
                     </div>
-                    <div class="flame-wrap">
-                        <div class="flame-glow"></div>
-                        <div class="flame"></div>
-                        <div class="lamp-bowl"></div>
+                    <div class="coverflow-dots">
+                        <button type="button" class="coverflow-dot" aria-label="Screen 1 of 8" aria-current="true" hidden></button>
+                        <button type="button" class="coverflow-dot" aria-label="Screen 2 of 8" hidden></button>
+                        <button type="button" class="coverflow-dot" aria-label="Screen 3 of 8" hidden></button>
+                        <button type="button" class="coverflow-dot" aria-label="Screen 4 of 8" hidden></button>
+                        <button type="button" class="coverflow-dot" aria-label="Screen 5 of 8" hidden></button>
+                        <button type="button" class="coverflow-dot" aria-label="Screen 6 of 8" hidden></button>
+                        <button type="button" class="coverflow-dot" aria-label="Screen 7 of 8" hidden></button>
+                        <button type="button" class="coverflow-dot" aria-label="Screen 8 of 8" hidden></button>
                     </div>
-                    <div class="phone-copy">
-                        <strong>Keep the light alive</strong>
-                        <div class="week-dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                    </div>
-                    <div class="phone-button">Begin prayer</div>
                 </div>
             </div>
         </section>
 
         <section class="section" id="purpose" aria-labelledby="purpose-title">
             <div class="shell">
-                <div class="section-heading">
-                    <h2 id="purpose-title">A gentle rhythm, not another task</h2>
-                    <p>Lampada accompanies personal Christian prayer from the first intention to a closing reflection. It supports your attention without replacing your own words.</p>
-                </div>
+                <h2 id="purpose-title" class="section-title purpose-title"><span>The app gives no answers.</span> <em>It asks questions.</em></h2>
 
-                <div class="features">
-                    <article class="feature">
-                        <span class="feature-number">01</span>
-                        <h3 class="feature-title">Pray with focus</h3>
-                        <p>Set a topic and a comfortable duration. Guiding questions help you stay present and move deeper.</p>
-                    </article>
-                    <article class="feature">
-                        <span class="feature-number">02</span>
-                        <h3 class="feature-title">Meet Scripture in context</h3>
-                        <p>Lampada selects Scripture passages by meaning, so the reading can speak to the prayer you are living today.</p>
-                    </article>
-                    <article class="feature">
-                        <span class="feature-number">03</span>
-                        <h3 class="feature-title">Return to what mattered</h3>
-                        <p>Keep text or voice reflections, a final takeaway, and saved verses in a private journal on your device.</p>
-                    </article>
-                </div>
+                <ol class="steps">
+                    <li class="step">
+                        <div class="step-copy">
+                            <span class="step-number" aria-hidden="true">01</span>
+                            <h3 class="step-title">A flame for every day</h3>
+                            <p>The lamp on the home screen glows brighter on the days you pray. Seven dots show the last seven days — a quiet reminder, not a contest.</p>
+                        </div>
+                        <div class="step-screen">
+                            <img src="/assets/screens/home.en.webp" width="600" height="1304" alt="Lampada home screen: the lamp and the week&#39;s prayer dots" loading="lazy" decoding="async">
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-copy">
+                            <span class="step-number" aria-hidden="true">02</span>
+                            <h3 class="step-title">Choose a topic and a time</h3>
+                            <p>Write what you bring to God, or start an open prayer. Pick 5, 15 or 30 minutes, an hour, set your own time, or pray with no timer at all.</p>
+                        </div>
+                        <div class="step-screen">
+                            <img src="/assets/screens/topic.en.webp" width="600" height="1304" alt="Before prayer: topic and duration" loading="lazy" decoding="async">
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-copy">
+                            <span class="step-number" aria-hidden="true">03</span>
+                            <h3 class="step-title">Questions that lead deeper</h3>
+                            <p>During prayer, Lampada asks questions about your topic, written by AI. They are only prompts — you can skip any of them.</p>
+                        </div>
+                        <div class="step-screen">
+                            <img src="/assets/screens/question.en.webp" width="600" height="1304" alt="Prayer timer with a guiding question" loading="lazy" decoding="async">
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-copy">
+                            <span class="step-number" aria-hidden="true">04</span>
+                            <h3 class="step-title">Answer in your own words</h3>
+                            <p>Type your answer to the question; it is saved in your journal. If you allow it, your answers are sent to the server so the AI can shape the next question and the Scripture passages around them.</p>
+                        </div>
+                        <div class="step-screen">
+                            <img src="/assets/screens/answer.en.webp" width="600" height="1304" alt="Writing an answer to the question" loading="lazy" decoding="async">
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-copy">
+                            <span class="step-number" aria-hidden="true">05</span>
+                            <h3 class="step-title">Or say it aloud</h3>
+                            <p>If you would rather not type, record your answer with your voice. A recording can be turned into text with one tap.</p>
+                        </div>
+                        <div class="step-screen">
+                            <img src="/assets/screens/audio.en.webp" width="600" height="1304" alt="Recording a voice answer" loading="lazy" decoding="async">
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-copy">
+                            <span class="step-number" aria-hidden="true">06</span>
+                            <h3 class="step-title">Scripture that fits your prayer</h3>
+                            <p>Lampada picks Bible passages by the meaning of your topic and answers. Listen to them and save the ones you want to keep.</p>
+                        </div>
+                        <div class="step-screen">
+                            <img src="/assets/screens/passage.en.webp" width="600" height="1304" alt="A Bible passage during prayer" loading="lazy" decoding="async">
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-copy">
+                            <span class="step-number" aria-hidden="true">07</span>
+                            <h3 class="step-title">A closing thought</h3>
+                            <p>At the end, Lampada asks one last question. Write a line or two to take with you — it is saved with the prayer.</p>
+                        </div>
+                        <div class="step-screen">
+                            <img src="/assets/screens/reflection.en.webp" width="600" height="1304" alt="Closing question at the end of prayer" loading="lazy" decoding="async">
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-copy">
+                            <span class="step-number" aria-hidden="true">08</span>
+                            <h3 class="step-title">Your prayer journal</h3>
+                            <p>Your prayers are kept in a journal: topic, answers, recordings and saved passages. It stays on your device, and you can search it.</p>
+                        </div>
+                        <div class="step-screen">
+                            <img src="/assets/screens/history.en.webp" width="600" height="1304" alt="Prayer journal with search" loading="lazy" decoding="async">
+                        </div>
+                    </li>
+                </ol>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="extras" aria-labelledby="extras-title">
             <div class="shell">
-                <div class="quiet-note">
-                    <p>A warm, distraction-free space with optional quiet music, a prayer timer, and gentle reminders to return.</p>
-                    <span>Designed for stillness</span>
-                </div>
+                <h2 id="extras-title" class="section-title">More in Lampada</h2>
+                <ul class="extras">
+                    <li class="extra">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+                        <h3>Quiet music</h3>
+                        <p>Fifteen calm tracks for prayer. Turn them on with one tap; they play even offline.</p>
+                    </li>
+                    <li class="extra">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+                        <h3>Reminders</h3>
+                        <p>Choose when Lampada gently reminds you to pray.</p>
+                    </li>
+                    <li class="extra">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+                        <h3>PIN and Face ID</h3>
+                        <p>Lock the app with a PIN. The code is stored nowhere, so only you know it.</p>
+                    </li>
+                    <li class="extra">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v13"/><path d="m7 8 5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>
+                        <h3>Share a prayer</h3>
+                        <p>Send a prayer from your journal as text: its topic, your answers and saved passages.</p>
+                    </li>
+                </ul>
             </div>
         </section>
     </main>

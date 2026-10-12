@@ -12,8 +12,9 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markupsafe import Markup, escape as html_escape
 
 from .assets import version_html
-from .content import PUBLIC_ROOT_NAME, Article, Site, StaticPage, load_articles, load_pages, load_site
+from .content import PUBLIC_ROOT_NAME, Article, StaticPage, load_articles, load_pages, load_site
 from .errors import BuildError
+from .landing_screens import load_landing_screens
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 CONTENT_DIR = REPO_ROOT / "content"
@@ -131,6 +132,8 @@ class SiteBuilder:
                 path = output_dir / "data/gospel-today" / name
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_bytes(payload)
+        if self.site.key == "lampada":
+            self.landing_screens = load_landing_screens(REPO_ROOT / "static/lampada", content_dir / "landing-screens.sha256", self.site.languages)
         self.articles = load_articles(self.site, content_dir)
         self.pages = load_pages(self.site, content_dir)
         self.env = make_environment(content_dir.name)
@@ -264,6 +267,7 @@ class SiteBuilder:
             lang,
             page=page,
             recent_articles=list(reversed(self.published(lang)[-3:])),
+            **({"screens": self.landing_screens[lang]} if self.site.key == "lampada" else {}),
         )
 
     def build_articles_index(self, lang: str) -> None:

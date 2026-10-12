@@ -34,7 +34,7 @@
             <aside class="article-cta">
                 <h2>{{ t.articles.download_title }}</h2>
                 <p>{{ t.articles.download_text }}</p>
-                <a class="back-link" href="{{ support_url }}"><span>{{ t.articles.download_cta }}</span><span aria-hidden="true">→</span></a>
+                <a class="back-link" href="{{ site.article_app_store_url(lang) }}" data-umami-event="app-store-click" target="_blank" rel="noopener"><span>{{ t.articles.download_cta }}</span><span aria-hidden="true">→</span></a>
             </aside>
 
             {% if previous or following %}

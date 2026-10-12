@@ -4,6 +4,9 @@ languages: [en, ru, uk]
 default_language: en
 language_labels: {en: EN, ru: RU, uk: UK}
 logo: /assets/lampada-icon-512.png
+# The landing page links here with ?l=<lang>; articles use the campaign link below. See README, "App Store links".
+app_store_url: https://apps.apple.com/app/lampada/id6806024678
+article_app_store_url: https://apps.apple.com/app/apple-store/id6806024678?pt=119043617&ct=seo-{lang}&mt=8&l={lang}
 storage_key: lampada-site-language
 support_url: /support
 privacy_url: /privacy

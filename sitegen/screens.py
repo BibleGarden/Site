@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import re
 import struct
+import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 from xml.etree import ElementTree as ET
@@ -19,6 +20,8 @@ ASSET_DIR = Path("img/article-screens")
 VARIANTS = {"mobile": 360, "phone": 480, "zoom": 960}
 SOURCE_SIZES = {"app": (1320, 2868), "system": (1284, 2778)}
 SCREEN_ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+# Screenshot importers encode with this exact cwebp so committed WebP files stay reproducible.
+CWEBP_VERSION = "1.3.2"
 
 
 @dataclass(frozen=True)
@@ -114,6 +117,15 @@ def load_checksums(path: Path, screens: dict[str, Screen], languages: tuple[str,
     if set(checksums) != expected:
         raise BuildError(f"{path}: checksum paths differ: missing={sorted(expected - set(checksums))}, extra={sorted(set(checksums) - expected)}")
     return checksums
+
+
+def require_cwebp() -> None:
+    try:
+        version = subprocess.check_output(["cwebp", "-version"], text=True).splitlines()[0]
+    except FileNotFoundError as error:
+        raise RuntimeError(f"cwebp {CWEBP_VERSION} is required") from error
+    if version != CWEBP_VERSION:
+        raise RuntimeError(f"cwebp {CWEBP_VERSION} required, found {version}")
 
 
 def webp_dimensions(path: Path) -> tuple[int, int]:
