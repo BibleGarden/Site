@@ -225,12 +225,19 @@ h1 {
     line-height: 1.55;
 }
 
+.hero-free {
+    margin: 22px 0 0;
+    color: var(--amber-bright);
+    font-size: 15px;
+    font-weight: 600;
+}
+
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 28px;
 }
 
 .app-store-button {
@@ -920,6 +927,10 @@ h1 {
 
     .hero-lead {
         margin-inline: auto;
+    }
+
+    .hero-free span {
+        display: block;
     }
 
     .steps {
