@@ -22,7 +22,8 @@ landing:
     art_label: Lampada app preview
     screen_position: "Screen {n} of {total}"
   purpose:
-    title: "The app gives no answers. It asks questions"
+    title: "The app gives no answers."
+    title_accent: "It asks questions."
   screens:
     home: "Lampada home screen: the lamp and the week's prayer dots"
     topic: "Before prayer: topic and duration"

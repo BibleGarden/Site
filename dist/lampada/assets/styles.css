@@ -528,6 +528,29 @@ h1 {
         0 30px 70px rgba(0, 0, 0, 0.55),
         0 0 90px rgba(193, 104, 20, 0.14);
 }
+.purpose-title {
+    max-width: none;
+    margin-bottom: 96px;
+    text-align: center;
+}
+
+.purpose-title span,
+.purpose-title em {
+    display: block;
+}
+
+.purpose-title span {
+    color: var(--cream-dim);
+    font-size: 0.62em;
+    letter-spacing: -0.02em;
+}
+
+.purpose-title em {
+    margin-top: 0.12em;
+    color: var(--amber-bright);
+    font-style: italic;
+}
+
 .extras {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
