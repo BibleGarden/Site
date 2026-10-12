@@ -15,7 +15,7 @@ landing:
     eyebrow: "Prayer · Light · AI"
     title: Make room for prayer
     lead: "You choose the topic. Lampada helps you pray with intent, stay focused, and notice what matters."
-    availability: Coming soon to the App Store
+    app_store: Download on the App Store
     discover: Discover Lampada
     art_label: Lampada app preview
     phone_top: A quiet moment
@@ -51,9 +51,9 @@ articles:
   by: By
   previous: Previous article
   next: Next article
-  download_title: Lampada is coming soon to the App Store
-  download_text: "The app is not published yet. Write to us if you would like to hear when it launches."
-  download_cta: Contact support
+  download_title: Lampada on the App Store
+  download_text: "Free for iPhone. Choose a topic and begin your first prayer."
+  download_cta: Download on the App Store
 not_found:
   title: Page not found
   text: "The page you are looking for does not exist or has moved."

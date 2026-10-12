@@ -751,9 +751,11 @@ cannot overwrite a hand-written one.
 
 ## App Store links
 
-The landing pages keep `app_store_url`. Every other generated page of
-bible.garden (articles, the article index, pages, 404) links to the App Store
-campaign of its language:
+The landing pages keep `app_store_url`. Other generated pages link to the
+App Store campaign of their language: on bible.garden every such page
+(articles, the article index, pages, 404), on lampada.app the article call to
+action. Bible Garden (`id6758955373`) and Lampada (`id6806024678`) share one
+developer account:
 
 ```yaml
 article_app_store_url: https://apps.apple.com/app/apple-store/id6758955373?pt=119043617&ct=seo-{lang}&mt=8
@@ -761,7 +763,7 @@ article_app_store_url: https://apps.apple.com/app/apple-store/id6758955373?pt=11
 
 `{lang}` becomes `en`, `ru` or `uk`, so App Store Connect analytics
 reports installs by campaign: `seo-en`, `seo-ru`, `seo-uk`;
-`pt=119043617` is the provider token of our account. Apple does not tell
+`pt=119043617` is the provider token of that account. Apple does not tell
 articles of one language apart; clicks per article are the Umami event
 `app-store-click` (see [Analytics](#analytics)).
 

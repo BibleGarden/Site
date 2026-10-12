@@ -98,7 +98,7 @@ Bible Garden has no notes or bookmarks, so keep your journal on paper or in a no
 ## Guiding questions in Lampada
 <!-- screen: lampada-question -->
 
-**We're building a second app for journaling and prayer: [Lampada](https://lampada.app/), coming soon to the App Store.** You choose a theme and a prayer duration; guiding questions help you focus and turn a general reflection into a specific response.
+**For journaling and prayer we have a second app: [Lampada](https://lampada.app/), now [on the App Store](https://apps.apple.com/app/lampada/id6806024678).** You choose a theme and a prayer duration; guiding questions help you focus and turn a general reflection into a specific response.
 
 For SOAP, this will support the prayer step: you can choose a theme based on the verse you wrote down, such as Psalm 1:2. Lampada also selects Scripture passages by meaning, which can complement cross-references during inductive study. Observation and interpretation still begin with the text itself.
 

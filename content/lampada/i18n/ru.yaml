@@ -15,7 +15,7 @@ landing:
     eyebrow: "Молитва · Свет · ИИ"
     title: Освободи место для молитвы
     lead: "Ты выбираешь тему. Lampada помогает молиться целенаправленно, сохранять фокус и замечать главное."
-    availability: Скоро в App Store
+    app_store: Скачать в App Store
     discover: Узнать о Lampada
     art_label: Предпросмотр приложения Lampada
     phone_top: Тихий момент
@@ -51,9 +51,9 @@ articles:
   by: Автор
   previous: Предыдущая статья
   next: Следующая статья
-  download_title: Lampada скоро появится в App Store
-  download_text: "Приложение ещё не опубликовано. Напишите нам, если хотите узнать о запуске."
-  download_cta: Написать в поддержку
+  download_title: Lampada в App Store
+  download_text: "Бесплатно для iPhone. Выберите тему и начните первую молитву."
+  download_cta: Скачать в App Store
 not_found:
   title: Страница не найдена
   text: "Такой страницы нет или она была перемещена."
