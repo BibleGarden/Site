@@ -763,7 +763,11 @@ article_app_store_url: https://apps.apple.com/app/apple-store/id6758955373?pt=11
 
 `{lang}` becomes `en`, `ru` or `uk`, so App Store Connect analytics
 reports installs by campaign: `seo-en`, `seo-ru`, `seo-uk`;
-`pt=119043617` is the provider token of that account. Apple does not tell
+`pt=119043617` is the provider token of that account. Lampada links also carry
+`l=<lang>`: the App Store web page opens in the page language when the
+visitor's storefront offers it (`ru` in the US, KZ and UA storefronts, `uk` in
+UA; checked 2026-10-12 with curl) and in the storefront default otherwise. The
+App Store app on iPhone ignores `l` and follows the device language. Apple does not tell
 articles of one language apart; clicks per article are the Umami event
 `app-store-click` (see [Analytics](#analytics)).
 
