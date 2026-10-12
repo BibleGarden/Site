@@ -66,7 +66,8 @@
     </script>
     <meta name="theme-color" content="#090604">
     <link rel="icon" type="image/png" href="/assets/lampada-icon-64.png">
-    <link rel="stylesheet" href="/assets/styles.css?v=c242d51459f7">
+    <link rel="stylesheet" href="/assets/styles.css?v=c1c81e041257">
+    <script src="/assets/landing.js?v=1b74b2aac344" defer></script>
     <script defer src="https://stats.bible.garden/script.js" data-website-id="a75ebc6a-36c3-45ef-8637-684b2542f098" data-domains="lampada.app" data-exclude-search="true" data-exclude-hash="true"></script>
 </head>
 <body>
@@ -95,13 +96,17 @@
         <section class="hero shell" aria-labelledby="hero-title">
             <div class="hero-copy">
                 <p class="eyebrow">Молитва · Свет · ИИ</p>
-                <h1 id="hero-title">Освободи место для молитвы</h1>
-                <p class="hero-lead">Ты выбираешь тему. Lampada помогает молиться целенаправленно, сохранять фокус и замечать главное.</p>
+                <h1 id="hero-title">Приложение для помощи в молитве</h1>
+                <p class="hero-lead">Ты выбираешь тему и время молитвы.<br>Lampada помогает вопросами, подбирает отрывки из Писания и бережно хранит твои ответы в дневнике.</p>
                 <div class="hero-actions">
                     <a class="app-store-button" href="https://apps.apple.com/app/lampada/id6806024678?l=ru" data-umami-event="app-store-click" target="_blank" rel="noopener">
                         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.7 4.1c-.9 1.1-2.3 2-3.7 1.9-.2-1.4.5-2.9 1.3-3.8.9-1.1 2.4-1.8 3.6-1.9.2 1.4-.4 2.8-1.2 3.8ZM18.9 12.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.7-2.4-4.5-2.5-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.5 1.6 12.6 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1s2.5 1 4.2 1c1.7 0 2.8-1.5 3.8-3.1 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.6-1.4-3.6-5.1Z" fill="currentColor"/></svg>
                         <span>Скачать в App Store</span>
                     </a>
+                    <span class="store-soon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5 21.5 12 5 20.5ZM5 3.5l11.9 10.9M5 20.5l11.9-10.9"/></svg>
+                        <span>Скоро в Google Play</span>
+                    </span>
                     <a class="text-link" href="#purpose">
                         <span>Узнать о Lampada</span>
                         <span aria-hidden="true">↓</span>
@@ -109,60 +114,167 @@
                 </div>
             </div>
 
-            <div class="hero-art" aria-label="Предпросмотр приложения Lampada">
-                <div class="orbit" aria-hidden="true"></div>
-                <div class="phone" aria-hidden="true">
-                    <div class="phone-top">
-                        <span>Тихий момент</span>
-                        <div class="phone-icons"><span class="phone-icon">◫</span><span class="phone-icon">⚙</span></div>
+            <div class="hero-art">
+                <div class="coverflow" role="region" aria-roledescription="carousel" aria-label="Предпросмотр приложения Lampada" data-coverflow>
+                    <div class="coverflow-track">
+                        <div class="coverflow-slide" role="group" aria-roledescription="slide" aria-label="Экран 1 из 8" data-pos="0">
+                            <img src="/assets/screens/home.ru.webp" width="600" height="1304" alt="Главный экран Lampada: лампада и отметки молитв за неделю" decoding="async" fetchpriority="high">
+                        </div>
+                        <div class="coverflow-slide" role="group" aria-roledescription="slide" aria-label="Экран 2 из 8" data-pos="1" aria-hidden="true">
+                            <img src="/assets/screens/topic.ru.webp" width="600" height="1304" alt="Экран перед молитвой: тема и длительность" decoding="async" loading="lazy">
+                        </div>
+                        <div class="coverflow-slide" role="group" aria-roledescription="slide" aria-label="Экран 3 из 8" data-pos="2" aria-hidden="true">
+                            <img src="/assets/screens/question.ru.webp" width="600" height="1304" alt="Молитва с таймером и наводящим вопросом" decoding="async" loading="lazy">
+                        </div>
+                        <div class="coverflow-slide" role="group" aria-roledescription="slide" aria-label="Экран 4 из 8" data-pos="hidden" aria-hidden="true">
+                            <img src="/assets/screens/answer.ru.webp" width="600" height="1304" alt="Ответ на вопрос текстом" decoding="async" loading="lazy">
+                        </div>
+                        <div class="coverflow-slide" role="group" aria-roledescription="slide" aria-label="Экран 5 из 8" data-pos="hidden" aria-hidden="true">
+                            <img src="/assets/screens/audio.ru.webp" width="600" height="1304" alt="Запись голосового ответа" decoding="async" loading="lazy">
+                        </div>
+                        <div class="coverflow-slide" role="group" aria-roledescription="slide" aria-label="Экран 6 из 8" data-pos="hidden" aria-hidden="true">
+                            <img src="/assets/screens/passage.ru.webp" width="600" height="1304" alt="Отрывок Писания во время молитвы" decoding="async" loading="lazy">
+                        </div>
+                        <div class="coverflow-slide" role="group" aria-roledescription="slide" aria-label="Экран 7 из 8" data-pos="-2" aria-hidden="true">
+                            <img src="/assets/screens/reflection.ru.webp" width="600" height="1304" alt="Завершающий вопрос в конце молитвы" decoding="async" loading="lazy">
+                        </div>
+                        <div class="coverflow-slide" role="group" aria-roledescription="slide" aria-label="Экран 8 из 8" data-pos="-1" aria-hidden="true">
+                            <img src="/assets/screens/history.ru.webp" width="600" height="1304" alt="Дневник молитв с поиском" decoding="async" loading="lazy">
+                        </div>
                     </div>
-                    <div class="flame-wrap">
-                        <div class="flame-glow"></div>
-                        <div class="flame"></div>
-                        <div class="lamp-bowl"></div>
+                    <div class="coverflow-dots">
+                        <button type="button" class="coverflow-dot" aria-label="Экран 1 из 8" aria-current="true" hidden></button>
+                        <button type="button" class="coverflow-dot" aria-label="Экран 2 из 8" hidden></button>
+                        <button type="button" class="coverflow-dot" aria-label="Экран 3 из 8" hidden></button>
+                        <button type="button" class="coverflow-dot" aria-label="Экран 4 из 8" hidden></button>
+                        <button type="button" class="coverflow-dot" aria-label="Экран 5 из 8" hidden></button>
+                        <button type="button" class="coverflow-dot" aria-label="Экран 6 из 8" hidden></button>
+                        <button type="button" class="coverflow-dot" aria-label="Экран 7 из 8" hidden></button>
+                        <button type="button" class="coverflow-dot" aria-label="Экран 8 из 8" hidden></button>
                     </div>
-                    <div class="phone-copy">
-                        <strong>Поддержи огонёк</strong>
-                        <div class="week-dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                    </div>
-                    <div class="phone-button">Начать молитву</div>
                 </div>
             </div>
         </section>
 
         <section class="section" id="purpose" aria-labelledby="purpose-title">
             <div class="shell">
-                <div class="section-heading">
-                    <h2 id="purpose-title">Мягкий ритм, а не ещё одна задача</h2>
-                    <p>Lampada сопровождает личную христианскую молитву от первого намерения до завершающего размышления. Она поддерживает внимание, не подменяя твои собственные слова.</p>
-                </div>
+                <h2 id="purpose-title" class="section-title">Приложение не даёт ответов — оно задаёт вопросы</h2>
 
-                <div class="features">
-                    <article class="feature">
-                        <span class="feature-number">01</span>
-                        <h3 class="feature-title">Молись осознанно</h3>
-                        <p>Задай тему и удобную длительность. Направляющие вопросы помогают оставаться в моменте и идти глубже.</p>
-                    </article>
-                    <article class="feature">
-                        <span class="feature-number">02</span>
-                        <h3 class="feature-title">Встречай Писание в контексте</h3>
-                        <p>Lampada подбирает отрывки Писания по смыслу, чтобы чтение отзывалось на молитву, которой ты живёшь сегодня.</p>
-                    </article>
-                    <article class="feature">
-                        <span class="feature-number">03</span>
-                        <h3 class="feature-title">Возвращайся к главному</h3>
-                        <p>Сохраняй текстовые или голосовые размышления, итог молитвы и избранные стихи в личном дневнике на устройстве.</p>
-                    </article>
-                </div>
+                <ol class="steps">
+                    <li class="step">
+                        <div class="step-copy">
+                            <span class="step-number" aria-hidden="true">01</span>
+                            <h3 class="step-title">Огонёк на каждый день</h3>
+                            <p>Лампада на главном экране горит ярче в те дни, когда ты молишься. Семь точек показывают последние семь дней — тихое напоминание, а не соревнование.</p>
+                        </div>
+                        <div class="step-screen">
+                            <img src="/assets/screens/home.ru.webp" width="600" height="1304" alt="Главный экран Lampada: лампада и отметки молитв за неделю" loading="lazy" decoding="async">
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-copy">
+                            <span class="step-number" aria-hidden="true">02</span>
+                            <h3 class="step-title">Выбери тему и время</h3>
+                            <p>Напиши, с чем приходишь к Богу, или начни свободную молитву. Выбери 5, 15 или 30 минут, час, задай своё время или молись без таймера.</p>
+                        </div>
+                        <div class="step-screen">
+                            <img src="/assets/screens/topic.ru.webp" width="600" height="1304" alt="Экран перед молитвой: тема и длительность" loading="lazy" decoding="async">
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-copy">
+                            <span class="step-number" aria-hidden="true">03</span>
+                            <h3 class="step-title">Вопросы, которые ведут глубже</h3>
+                            <p>Во время молитвы Lampada задаёт вопросы по твоей теме — их составляет ИИ. Это лишь подсказки — любой из них можно пропустить.</p>
+                        </div>
+                        <div class="step-screen">
+                            <img src="/assets/screens/question.ru.webp" width="600" height="1304" alt="Молитва с таймером и наводящим вопросом" loading="lazy" decoding="async">
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-copy">
+                            <span class="step-number" aria-hidden="true">04</span>
+                            <h3 class="step-title">Отвечай своими словами</h3>
+                            <p>Напиши ответ на вопрос — он сохранится в дневнике. Если разрешишь, ответы уйдут на сервер, и ИИ задаст следующий вопрос и подберёт Писание с их учётом.</p>
+                        </div>
+                        <div class="step-screen">
+                            <img src="/assets/screens/answer.ru.webp" width="600" height="1304" alt="Ответ на вопрос текстом" loading="lazy" decoding="async">
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-copy">
+                            <span class="step-number" aria-hidden="true">05</span>
+                            <h3 class="step-title">Или скажи вслух</h3>
+                            <p>Если не хочется писать, запиши ответ голосом. Запись можно превратить в текст одним нажатием.</p>
+                        </div>
+                        <div class="step-screen">
+                            <img src="/assets/screens/audio.ru.webp" width="600" height="1304" alt="Запись голосового ответа" loading="lazy" decoding="async">
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-copy">
+                            <span class="step-number" aria-hidden="true">06</span>
+                            <h3 class="step-title">Писание по смыслу молитвы</h3>
+                            <p>Lampada подбирает отрывки Писания по смыслу твоей темы и ответов. Их можно послушать и сохранить в избранное.</p>
+                        </div>
+                        <div class="step-screen">
+                            <img src="/assets/screens/passage.ru.webp" width="600" height="1304" alt="Отрывок Писания во время молитвы" loading="lazy" decoding="async">
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-copy">
+                            <span class="step-number" aria-hidden="true">07</span>
+                            <h3 class="step-title">Итог в конце</h3>
+                            <p>Напоследок Lampada задаёт один вопрос. Запиши строчку-другую, которую хочешь унести с собой, — она сохранится вместе с молитвой.</p>
+                        </div>
+                        <div class="step-screen">
+                            <img src="/assets/screens/reflection.ru.webp" width="600" height="1304" alt="Завершающий вопрос в конце молитвы" loading="lazy" decoding="async">
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="step-copy">
+                            <span class="step-number" aria-hidden="true">08</span>
+                            <h3 class="step-title">Дневник твоих молитв</h3>
+                            <p>Молитвы хранятся в дневнике: тема, ответы, записи и сохранённые отрывки. Дневник остаётся на твоём устройстве, и по нему можно искать.</p>
+                        </div>
+                        <div class="step-screen">
+                            <img src="/assets/screens/history.ru.webp" width="600" height="1304" alt="Дневник молитв с поиском" loading="lazy" decoding="async">
+                        </div>
+                    </li>
+                </ol>
             </div>
         </section>
 
         <section class="section">
             <div class="shell">
-                <div class="quiet-note">
-                    <p>Тёплое пространство без лишнего шума: спокойная музыка, таймер молитвы и мягкие напоминания вернуться.</p>
-                    <span>Создано для тишины</span>
-                </div>
+            </div>
+        </section>
+
+        <section class="section" id="extras" aria-labelledby="extras-title">
+            <div class="shell">
+                <h2 id="extras-title" class="section-title">Ещё в Lampada</h2>
+                <ul class="extras">
+                    <li class="extra">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+                        <h3>Тихая музыка</h3>
+                        <p>Пятнадцать спокойных мелодий для молитвы. Включаются одним нажатием и звучат даже без интернета.</p>
+                    </li>
+                    <li class="extra">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+                        <h3>Напоминания</h3>
+                        <p>Выбери, в какое время Lampada мягко напомнит о молитве.</p>
+                    </li>
+                    <li class="extra">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+                        <h3>Пин-код и Face ID</h3>
+                        <p>Закрой приложение пин-кодом. Код нигде не хранится, поэтому знаешь его только ты.</p>
+                    </li>
+                    <li class="extra">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v13"/><path d="m7 8 5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>
+                        <h3>Поделиться молитвой</h3>
+                        <p>Отправь молитву из дневника текстом: тему, ответы и избранные отрывки.</p>
+                    </li>
+                </ul>
             </div>
         </section>
     </main>

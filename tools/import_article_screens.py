@@ -16,10 +16,9 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
 from sitegen.content import load_site  # noqa: E402
-from sitegen.screens import ASSET_DIR, SOURCE_SIZES, VARIANTS, load_catalog, webp_dimensions  # noqa: E402
+from sitegen.screens import ASSET_DIR, SOURCE_SIZES, VARIANTS, load_catalog, require_cwebp, webp_dimensions  # noqa: E402
 
 ARCHIVE_SHA256 = "eabbb4eb5b3bd65fb1c0bba9adc5a9cfab894f39cf3ca8e353b098cf2a322154"
-CWEBP_VERSION = "1.3.2"
 SOURCE_PREFIX = "bible-garden-screens/"
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
 
@@ -29,12 +28,7 @@ def import_archive(archive: Path, site_config: Path) -> int:
         digest = hashlib.file_digest(archive_file, "sha256").hexdigest()
     if digest != ARCHIVE_SHA256:
         raise ValueError(f"{archive}: SHA-256 differs from the accepted archive")
-    try:
-        version = subprocess.check_output(["cwebp", "-version"], text=True).splitlines()[0]
-    except FileNotFoundError as error:
-        raise RuntimeError(f"cwebp {CWEBP_VERSION} is required") from error
-    if version != CWEBP_VERSION:
-        raise RuntimeError(f"cwebp {CWEBP_VERSION} required, found {version}")
+    require_cwebp()
 
     if site_config.name != "site.yaml":
         raise ValueError(f"{site_config}: expected a site.yaml path")

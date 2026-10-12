@@ -268,10 +268,11 @@ or `cwebp`. The draft `template-check` article exercises two markers in all
 three languages; its HTML exists only after `python -m sitegen preview`.
 Preview `/ru/articles/template-check/` with the local server described below.
 
-To upgrade `cwebp`, change `CWEBP_VERSION` in
-`tools/import_article_screens.py`, install that exact version, rerun the
-importer, and commit all regenerated WebP and `screens.sha256` together. To
-accept a new archive version, update `ARCHIVE_SHA256` in the same script
+To upgrade `cwebp`, change `CWEBP_VERSION` in `sitegen/screens.py` (shared
+with the [Lampada landing importer](#lampada-landing-screenshots)), install that
+exact version, rerun both importers, and commit all regenerated WebP and
+checksum files together. To
+accept a new archive version, update `ARCHIVE_SHA256` in `tools/import_article_screens.py`
 (and `SOURCE_PREFIX` if the archive directory changed), review its files and
 captions in `screens.yaml`, then import and commit the WebP and checksums in
 the same change.
@@ -777,6 +778,41 @@ The landing templates are the original hand-written pages with the text moved
 to `content/<site>/i18n/<lang>.yaml`. To change copy, edit the YAML and
 rebuild; to change markup, edit `templates/<site>/landing.html`. All three
 YAML files of a site must define the same keys.
+
+### Lampada landing screenshots
+
+The lampada.app hero shows all eight app screens as a coverflow carousel in the
+page language; a step section below it explains each screen with the same file. Order
+and ids live in `SCREENS` in `sitegen/landing_screens.py`; alt texts are
+`landing.screens.<id>`, step texts `landing.steps.<id>` in the i18n YAML.
+The server renders the first screen in front with its neighbours fanned out, so
+the hero works without JavaScript; `static/lampada/assets/landing.js` adds
+swipe, clicks on side screens, ←/→ keys and dot buttons (`aria-current` on the
+selected one). Like the Bible Garden carousel it advances every 5 seconds, but
+only while visible, not hovered or focused, and not under
+`prefers-reduced-motion`; any interaction stops it for the page view. The
+Google Play badge is plain text, not a link, until the Android app ships.
+
+Sources are `store/screenshots/iphone-6.9-{en,ru,uk}-{01-home,…,08-history}.png`
+(1320×2868) in
+[Lampada-Mobile](https://github.com/BibleGarden/Lampada-Mobile/tree/fdceb3987d0323e161f2d944cd78ef04d33190ad/store/screenshots),
+commit `fdceb3987d0323e161f2d944cd78ef04d33190ad` (origin/main on 2026-10-12).
+The importer reads them with `git show` from that pinned commit, so a local
+clone's checkout does not matter:
+
+```bash
+.venv/bin/python tools/import_landing_screens.py /path/to/Lampada-Mobile
+.venv/bin/python -m sitegen build
+```
+
+It writes 600 px wide WebP (`cwebp -q 88`, the pinned `cwebp` above) to
+`static/lampada/assets/screens/<id>.<lang>.webp` and their SHA-256 list to
+`content/lampada/landing-screens.sha256`; rerunning it changes nothing. The 24
+files occupy 676,184 bytes, 224,884 for the Russian set (`du -cb`,
+2026-10-12). The build stops when a file is missing, extra, not 600×1304 or
+differs from its checksum. To take newer screenshots, change `SOURCE_COMMIT` in
+the importer, rerun it, and commit the WebP, checksums and this paragraph
+together.
 
 ## Run locally
 

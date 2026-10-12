@@ -13,29 +13,64 @@ landing:
   language_label: Language
   hero:
     eyebrow: "Prayer · Light · AI"
-    title: Make room for prayer
-    lead: "You choose the topic. Lampada helps you pray with intent, stay focused, and notice what matters."
+    title: An app to help you pray
+    lead: "You choose the topic and length of your prayer."
+    lead_app: "Lampada helps with questions, finds Scripture passages, and gently keeps your answers in a journal."
     app_store: Download on the App Store
+    google_play: Coming soon to Google Play
     discover: Discover Lampada
     art_label: Lampada app preview
-    phone_top: A quiet moment
-    phone_copy: Keep the light alive
-    phone_button: Begin prayer
+    screen_position: "Screen {n} of {total}"
   purpose:
-    title: "A gentle rhythm, not another task"
-    text: "Lampada accompanies personal Christian prayer from the first intention to a closing reflection. It supports your attention without replacing your own words."
-    f1:
-      title: Pray with focus
-      text: "Set a topic and a comfortable duration. Guiding questions help you stay present and move deeper."
-    f2:
-      title: Meet Scripture in context
-      text: "Lampada selects Scripture passages by meaning, so the reading can speak to the prayer you are living today."
-    f3:
-      title: Return to what mattered
-      text: "Keep text or voice reflections, a final takeaway, and saved verses in a private journal on your device."
-  quiet:
-    text: "A warm, distraction-free space with optional quiet music, a prayer timer, and gentle reminders to return."
-    label: Designed for stillness
+    title: "The app gives no answers. It asks questions"
+  screens:
+    home: "Lampada home screen: the lamp and the week's prayer dots"
+    topic: "Before prayer: topic and duration"
+    question: "Prayer timer with a guiding question"
+    answer: "Writing an answer to the question"
+    audio: "Recording a voice answer"
+    passage: "A Bible passage during prayer"
+    reflection: "Closing question at the end of prayer"
+    history: "Prayer journal with search"
+  steps:
+    home:
+      title: "A flame for every day"
+      text: "The lamp on the home screen glows brighter on the days you pray. Seven dots show the last seven days — a quiet reminder, not a contest."
+    topic:
+      title: "Choose a topic and a time"
+      text: "Write what you bring to God, or start an open prayer. Pick 5, 15 or 30 minutes, an hour, set your own time, or pray with no timer at all."
+    question:
+      title: "Questions that lead deeper"
+      text: "During prayer, Lampada asks questions about your topic, written by AI. They are only prompts — you can skip any of them."
+    answer:
+      title: "Answer in your own words"
+      text: "Type your answer to the question; it is saved in your journal. If you allow it, your answers are sent to the server so the AI can shape the next question and the Scripture passages around them."
+    audio:
+      title: "Or say it aloud"
+      text: "If you would rather not type, record your answer with your voice. A recording can be turned into text with one tap."
+    passage:
+      title: "Scripture that fits your prayer"
+      text: "Lampada picks Bible passages by the meaning of your topic and answers. Listen to them and save the ones you want to keep."
+    reflection:
+      title: "A closing thought"
+      text: "At the end, Lampada asks one last question. Write a line or two to take with you — it is saved with the prayer."
+    history:
+      title: "Your prayer journal"
+      text: "Your prayers are kept in a journal: topic, answers, recordings and saved passages. It stays on your device, and you can search it."
+  extras:
+    title: "More in Lampada"
+    music:
+      title: "Quiet music"
+      text: "Fifteen calm tracks for prayer. Turn them on with one tap; they play even offline."
+    reminders:
+      title: "Reminders"
+      text: "Choose when Lampada gently reminds you to pray."
+    pin:
+      title: "PIN and Face ID"
+      text: "Lock the app with a PIN. The code is stored nowhere, so only you know it."
+    share:
+      title: "Share a prayer"
+      text: "Send a prayer from your journal as text: its topic, your answers and saved passages."
   footer:
     bible_garden: Bible Garden
 articles:
