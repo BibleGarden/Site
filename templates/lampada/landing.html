@@ -124,6 +124,24 @@
                 </ul>
             </div>
         </section>
+
+        <section class="section" id="privacy" aria-labelledby="privacy-title">
+            <div class="shell">
+                <div class="privacy-note">
+                    <div class="privacy-intro">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.6 3.1 8.4 7.5 9.5 4.4-1.1 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m8.8 12 2.2 2.2 4.2-4.4"/></svg>
+                        <h2 id="privacy-title">{{ t.landing.privacy_note.title }}</h2>
+                        <p>{{ t.landing.privacy_note.lead }}</p>
+                        <a class="back-link" href="{{ privacy_url }}"><span>{{ t.landing.privacy_note.link }}</span><span aria-hidden="true">→</span></a>
+                    </div>
+                    <ul class="privacy-points">
+{% for text in t.landing.privacy_note.points.values() %}
+                        <li>{{ text }}</li>
+{% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer shell">

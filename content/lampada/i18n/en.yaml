@@ -72,6 +72,15 @@ landing:
     share:
       title: "Share a prayer"
       text: "Send a prayer from your journal as text: its topic, your answers and saved passages."
+  privacy_note:
+    title: "Your prayer stays yours"
+    lead: "We take your privacy very seriously."
+    points:
+      device: "Prayers, answers and recordings are kept on your device."
+      ai: "AI works only with your permission, separately for each feature. You can pray without it too."
+      server: "Our server handles prayer text only during a request and keeps no archive of prayers."
+      tracking: "No ads, no trackers, no profiles. Your PIN is stored nowhere."
+    link: "Read the privacy policy"
   footer:
     bible_garden: Bible Garden
 articles:
