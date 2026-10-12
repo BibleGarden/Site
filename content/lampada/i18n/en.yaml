@@ -70,7 +70,7 @@ landing:
       text: "Choose when Lampada gently reminds you to pray."
     pin:
       title: "PIN and Face ID"
-      text: "Lock the app with a PIN. The code is stored nowhere, so only you know it."
+      text: "Lock the app with a PIN. The code itself is never stored, so only you know it."
     share:
       title: "Share a prayer"
       text: "Send a prayer from your journal as text: its topic, your answers and saved passages."
@@ -80,8 +80,8 @@ landing:
     points:
       device: "Prayers, answers and recordings are kept on your device."
       ai: "AI works only with your permission, separately for each feature. You can pray without it too."
-      server: "Our server handles prayer text only during a request and keeps no archive of prayers."
-      tracking: "No ads, no trackers, no profiles. Your PIN is stored nowhere."
+      server: "Text you allow is processed by our server and Google Gemini. Our server keeps no archive of prayers."
+      tracking: "The app has no ads, analytics, trackers or profiles. Your PIN itself is never stored or sent."
     link: "Read the privacy policy"
   footer:
     bible_garden: Bible Garden
