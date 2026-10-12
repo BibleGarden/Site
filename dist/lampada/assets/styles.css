@@ -353,7 +353,6 @@ h1 {
     display: block;
     width: 100%;
     height: auto;
-    -webkit-user-drag: none;
 }
 
 .coverflow-slide[data-pos="0"] {

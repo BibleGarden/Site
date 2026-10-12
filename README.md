@@ -788,9 +788,8 @@ and ids live in `SCREENS` in `sitegen/landing_screens.py`; alt texts are
 The server renders the first screen in front with its neighbours fanned out, so
 the hero works without JavaScript; `static/lampada/assets/landing.js` adds
 swipe, clicks on side screens, ←/→ keys and dot buttons (`aria-current` on the
-selected one). Like the Bible Garden carousel it advances every 5 seconds, but
-only while visible, not hovered or focused, and not under
-`prefers-reduced-motion`; any interaction stops it for the page view. The
+selected one). It advances every 5 seconds, but only while visible, not
+hovered or focused, and not under `prefers-reduced-motion`; any interaction stops it for the page view. The
 Google Play badge is plain text, not a link, until the Android app ships.
 
 Sources are `store/screenshots/iphone-6.9-{en,ru,uk}-{01-home,…,08-history}.png`

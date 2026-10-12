@@ -70,7 +70,7 @@
 {% for id, screen in screens.items() %}
 {% set offset = loop.index0 if loop.index0 <= total // 2 else loop.index0 - total %}
                         <div class="coverflow-slide" role="group" aria-roledescription="slide" aria-label="{{ t.landing.hero.screen_position.format(n=loop.index, total=total) }}" data-pos="{{ offset if offset | abs <= 2 else 'hidden' }}"{% if not loop.first %} aria-hidden="true"{% endif %}>
-                            <img src="{{ screen.url }}" width="{{ screen.width }}" height="{{ screen.height }}" alt="{{ t.landing.screens[id] }}" decoding="async"{% if loop.first %} fetchpriority="high"{% else %} loading="lazy"{% endif %}>
+                            <img src="{{ screen.url }}" width="{{ screen.width }}" height="{{ screen.height }}" alt="{{ t.landing.screens[id] }}" draggable="false" decoding="async"{% if loop.first %} fetchpriority="high"{% else %} loading="lazy"{% endif %}>
                         </div>
 {% endfor %}
                     </div>
@@ -101,11 +101,6 @@
                     </li>
 {% endfor %}
                 </ol>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="shell">
             </div>
         </section>
 
