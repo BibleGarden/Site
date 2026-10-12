@@ -47,6 +47,7 @@
                 <p class="eyebrow">{{ t.landing.hero.eyebrow }}</p>
                 <h1 id="hero-title">{{ t.landing.hero.title }}</h1>
                 <p class="hero-lead">{{ t.landing.hero.lead }}<br>{{ t.landing.hero.lead_app }}</p>
+                <p class="hero-free"><span>{{ t.landing.hero.free }}</span> <span>{{ t.landing.hero.free_detail }}</span></p>
                 <div class="hero-actions">
                     <a class="app-store-button" href="{{ site.config.app_store_url }}?l={{ lang }}" data-umami-event="app-store-click" target="_blank" rel="noopener">
                         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.7 4.1c-.9 1.1-2.3 2-3.7 1.9-.2-1.4.5-2.9 1.3-3.8.9-1.1 2.4-1.8 3.6-1.9.2 1.4-.4 2.8-1.2 3.8ZM18.9 12.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.7-2.4-4.5-2.5-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.5 1.6 12.6 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1s2.5 1 4.2 1c1.7 0 2.8-1.5 3.8-3.1 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.6-1.4-3.6-5.1Z" fill="currentColor"/></svg>
@@ -122,6 +123,24 @@
                     </li>
 {% endfor %}
                 </ul>
+            </div>
+        </section>
+
+        <section class="section" id="privacy" aria-labelledby="privacy-title">
+            <div class="shell">
+                <div class="privacy-note">
+                    <div class="privacy-intro">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.6 3.1 8.4 7.5 9.5 4.4-1.1 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m8.8 12 2.2 2.2 4.2-4.4"/></svg>
+                        <h2 id="privacy-title">{{ t.landing.privacy_note.title }}</h2>
+                        <p>{{ t.landing.privacy_note.lead }}</p>
+                        <a class="back-link" href="{{ privacy_url }}"><span>{{ t.landing.privacy_note.link }}</span><span aria-hidden="true">→</span></a>
+                    </div>
+                    <ul class="privacy-points">
+{% for text in t.landing.privacy_note.points.values() %}
+                        <li>{{ text }}</li>
+{% endfor %}
+                    </ul>
+                </div>
             </div>
         </section>
     </main>
