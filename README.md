@@ -159,8 +159,8 @@ index and the previous/next navigation. The landing page shows up to three
 latest published articles in its own language, followed by an article-index
 link. The block is absent when that language has no published articles.
 Bible Garden also hides its menu link in that case. Lampada always shows
-“Articles on prayer” and “About” in the landing header; privacy and support
-remain in the footer. On mobile, the landing navigation wraps below the brand
+“Articles on prayer” and “About” in generated page headers; privacy and support
+remain in the footer. On mobile, the navigation wraps below the brand
 and language switcher. The footer link is unconditional on every bible.garden
 page, including the hand-written privacy page and languages with no published
 articles.

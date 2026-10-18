@@ -27,24 +27,40 @@ class LampadaHomeArticlesTest(unittest.TestCase):
         self.builder.build_landing(lang)
         return self.builder.output_path(lang, "index.html").read_text(encoding="utf-8")
 
-    def test_header_and_footer_with_only_drafts(self) -> None:
-        for lang in self.builder.site.languages:
-            with self.subTest(lang=lang):
-                html = self.render(lang)
-                strings = self.builder.t(lang)["landing"]
-                nav = html.split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
-                self.assertEqual(re.findall(r'<a href="([^"]+)">([^<]+)</a>', nav), [
-                    (self.builder.site.href(lang, "articles/"), strings["nav"]["articles"]),
-                    ("#purpose", strings["nav"]["about"]),
-                ])
-                footer = html.split("<footer", 1)[1].split("</footer>", 1)[0]
-                suffix = "" if lang == self.builder.site.default_language else f"?lang={lang}"
-                self.assertEqual(re.findall(r'<a href="([^"]+)">([^<]+)</a>', footer), [
-                    (self.builder.site.config["privacy_url"] + suffix, strings["nav"]["privacy"]),
-                    (self.builder.site.config["support_url"] + suffix, strings["nav"]["support"]),
-                    (self.builder.site.config["bible_garden_url"], strings["footer"]["bible_garden"]),
-                ])
-                self.assertNotIn('id="articles"', html)
+    def test_headers_and_footers_with_drafts_and_publications(self) -> None:
+        for draft in (True, False):
+            self.builder.articles = {
+                "fixture": {
+                    lang: replace(original, slug="fixture", draft=draft)
+                    for lang, original in self.fixtures.items()
+                }
+            }
+            for lang in self.builder.site.languages:
+                self.builder.build_articles_index(lang)
+                self.builder.build_article("fixture", lang)
+                pages = {
+                    "landing": self.render(lang),
+                    "index": self.builder.output_path(lang, "articles/index.html").read_text(encoding="utf-8"),
+                    "article": self.builder.output_path(lang, "articles/fixture/index.html").read_text(encoding="utf-8"),
+                }
+                for page, html in pages.items():
+                    with self.subTest(draft=draft, lang=lang, page=page):
+                        strings = self.builder.t(lang)["landing"]
+                        nav = html.split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
+                        about_href = "#purpose" if page == "landing" else self.builder.site.href(lang) + "#purpose"
+                        self.assertEqual(re.findall(r'<a href="([^"]+)">([^<]+)</a>', nav), [
+                            (self.builder.site.href(lang, "articles/"), strings["nav"]["articles"]),
+                            (about_href, strings["nav"]["about"]),
+                        ])
+                        footer = html.split("<footer", 1)[1].split("</footer>", 1)[0]
+                        suffix = "" if lang == self.builder.site.default_language else f"?lang={lang}"
+                        self.assertEqual(re.findall(r'<a href="([^"]+)">([^<]+)</a>', footer), [
+                            (self.builder.site.config["privacy_url"] + suffix, strings["nav"]["privacy"]),
+                            (self.builder.site.config["support_url"] + suffix, strings["nav"]["support"]),
+                            (self.builder.site.config["bible_garden_url"], strings["footer"]["bible_garden"]),
+                        ])
+                        if page == "landing":
+                            self.assertEqual('id="articles"' in html, not draft)
 
     def test_latest_three_published_articles_in_each_language(self) -> None:
         self.builder.articles = {

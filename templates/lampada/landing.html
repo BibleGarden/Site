@@ -17,7 +17,7 @@
 {% include "analytics.html" %}
 </head>
 <body>
-    <header class="site-header landing-header shell">
+    <header class="site-header shell">
         <a class="brand" href="{{ lang_paths[lang] }}" aria-label="{{ t.landing.brand_home }}">
             <span class="brand-mark" aria-hidden="true">
                 <img src="/assets/lampada-icon.webp" width="38" height="38" alt="">
@@ -122,7 +122,7 @@
             </div>
         </section>
 
-        {% if recent_articles %}
+        {%- if recent_articles %}
         <section class="section" id="articles" aria-labelledby="articles-title">
             <div class="shell">
                 <h2 id="articles-title" class="section-title">{{ t.landing.nav.articles }}</h2>
