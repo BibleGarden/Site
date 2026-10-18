@@ -217,8 +217,10 @@ match the row widths: up to 12rem on Lampada and 180px on Bible Garden.
 A single id keeps the existing layout. Duplicate ids within one marker are an
 error; reusing a screen in another section is allowed. Empty list entries,
 unknown ids and missing language variants stop the build with the source line.
-On Bible Garden the desktop phone selects the first id of a marked section;
-its pager includes every listed screen in order of first use.
+On Bible Garden, articles containing a row show all screenshots inline and omit
+the desktop phone and pager. Articles with only single-id markers keep the
+sticky phone. Mixed-app rows align images at the top, with a compact app label
+below the image.
 
 Any HTML comment directly under an `h2` must use this exact syntax; a
 screen-like comment elsewhere in article text also stops the build.
@@ -240,7 +242,8 @@ lampada-journal:
 ```
 
 Lampada screens show its icon and localized “Lampada — our second app” text
-above the phone, both beside the article and below mobile section headings.
+above a single phone, both beside the article and below mobile section headings.
+In a row, the compact label appears below its image.
 The desktop label switches with the decoded image; reserved space prevents
 layout shifts. The label supports light/dark themes and remains readable text,
 including without JavaScript for the first desktop screen. Its icon is copied
@@ -248,8 +251,8 @@ from `static/lampada/assets/lampada-icon-64.png` to
 `static/bible-garden/img/lampada-icon-64.png` for the separate site build.
 
 The build stops for an unknown id, malformed or
-misplaced marker, missing caption, missing WebP variant, or checksum mismatch. On wide screens a
-phone starts beside the breadcrumbs and header, already at its sticky top
+misplaced marker, missing caption, missing WebP variant, or checksum mismatch.
+For Bible Garden articles with only single-id markers, on wide screens a phone starts beside the breadcrumbs and header, already at its sticky top
 position. The header wraps within the text column; the phone changes at marked
 headings. With at least two
 distinct screens, arrows and one dot per screen appear under the phone, in order

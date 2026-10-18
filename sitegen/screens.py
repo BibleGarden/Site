@@ -22,6 +22,15 @@ SOURCE_SIZES = {"app": (1320, 2868), "system": (1284, 2778)}
 SCREEN_ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 # Screenshot importers encode with this exact cwebp so committed WebP files stay reproducible.
 CWEBP_VERSION = "1.3.2"
+# Row widths match both sites' CSS: 32px page padding + 16px gap + 16px spare.
+# Keep this formula synchronized with .article-screen-row in both stylesheets.
+ROW_HALF_WIDTH = "calc((100vw - 64px) / 2)"
+IMAGE_SIZES = {
+    ("bible-garden", False): "180px",
+    ("lampada", False): "min(15rem, 66vw)",
+    ("bible-garden", True): f"min(180px, {ROW_HALF_WIDTH})",
+    ("lampada", True): f"min(12rem, {ROW_HALF_WIDTH})",
+}
 
 
 @dataclass(frozen=True)
@@ -49,6 +58,7 @@ class ScreenRef:
     lang: str
     source: Path
     line: int
+    group_size: int = 1
 
     @property
     def caption(self) -> str:
@@ -193,12 +203,6 @@ class ScreenFigures(Treeprocessor):
 
     def figure(self, ref: ScreenRef, in_row: bool) -> ET.Element:
         figure = ET.Element("figure", {"class": "article-screen-inline"})
-        if ref.screen.app != self.site_app:
-            if not isinstance(self.app_label, str) or not self.app_label.strip():
-                raise BuildError(f"{ref.source}: missing articles.screen_app_lampada translation")
-            label = ET.SubElement(figure, "div" if in_row else "figcaption", {"class": "article-screen-app-label"})
-            ET.SubElement(label, "img", {"src": "/img/lampada-icon-64.png", "alt": "", "width": "32", "height": "32"})
-            ET.SubElement(label, "span").text = self.app_label
         link = ET.SubElement(
             figure,
             "a",
@@ -217,10 +221,7 @@ class ScreenFigures(Treeprocessor):
             {
                 "src": ref.url("mobile"),
                 "srcset": f"{ref.url('mobile')} 360w, {ref.url('phone')} 480w",
-                "sizes": (
-                    "min(12rem, calc((100vw - 64px) / 2))" if self.site_app == "lampada"
-                    else "min(180px, calc((100vw - 64px) / 2))"
-                ) if in_row else ("min(15rem, 66vw)" if self.site_app == "lampada" else "180px"),
+                "sizes": IMAGE_SIZES[self.site_app, in_row],
                 "alt": ref.caption,
                 "width": str(width),
                 "height": str(height),
@@ -228,6 +229,13 @@ class ScreenFigures(Treeprocessor):
                 "decoding": "async",
             },
         )
+        if ref.screen.app != self.site_app:
+            if not isinstance(self.app_label, str) or not self.app_label.strip():
+                raise BuildError(f"{ref.source}: missing articles.screen_app_lampada translation")
+            label = ET.Element("div" if in_row else "figcaption", {"class": "article-screen-app-label"})
+            ET.SubElement(label, "img", {"src": "/img/lampada-icon-64.png", "alt": "", "width": "32", "height": "32"})
+            ET.SubElement(label, "span").text = self.app_label
+            figure.insert(len(figure) if in_row else 0, label)
         if in_row:
             ET.SubElement(figure, "figcaption", {"class": "article-screen-caption"}).text = ref.caption
         return figure

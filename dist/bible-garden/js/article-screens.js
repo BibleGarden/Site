@@ -77,11 +77,11 @@
 
     function updateScreen() {
         scheduled = false;
-        if (!desktop.matches) return;
+        if (!desktop.matches || !images.length) return;
         const section = sectionAtReadingLine();
         if (manualSection === section) return;
         manualSection = null;
-        showScreen(screenIndices.get(headings[section].dataset.screen.split(",")[0]));
+        showScreen(screenIndices.get(headings[section].dataset.screen));
     }
 
     function chooseScreen(index) {

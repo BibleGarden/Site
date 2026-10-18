@@ -310,16 +310,10 @@ body::before {
     line-height: 1.6;
 }
 
-.footer-links > a {
+.footer-links > a,
+.footer-link-group {
     flex-shrink: 0;
     white-space: nowrap;
-}
-
-.footer-link-group {
-    white-space: nowrap;
-    flex-wrap: wrap;
-    flex-shrink: 1;
-    max-width: 100%;
 }
 
 .footer-icon {

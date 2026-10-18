@@ -1393,7 +1393,7 @@ h1 {
     }
 }
 
-/* Multiple screenshots stay inline at every width; single-screen layouts are unchanged. */
+/* Width formula is documented in sitegen/screens.py (ROW_HALF_WIDTH). */
 .article-body .article-screen-row {
     display: flex;
     flex-wrap: wrap;

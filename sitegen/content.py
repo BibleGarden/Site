@@ -146,6 +146,10 @@ class Article:
     has_gospel_today: bool = False
 
     @property
+    def has_screen_rows(self) -> bool:
+        return any(ref.group_size > 1 for ref in self.screens)
+
+    @property
     def path(self) -> str:
         return f"articles/{self.slug}/"
 
@@ -453,17 +457,19 @@ def annotate_screens(
         if not fenced[index] and marker_attempt:
             match = SCREEN_MARKER_RE.fullmatch(line)
             if not match:
-                raise BuildError(f"{source}:{body_start_line + index}: expected <!-- screen: <id> -->")
+                raise BuildError(f"{source}:{body_start_line + index}: expected <!-- screen: <id> --> or <!-- screen: <id>, <id>, ... -->")
             if index == 0 or fenced[index - 1] or not H2_RE.match(lines[index - 1]):
                 raise BuildError(f"{source}:{body_start_line + index}: screen marker must be directly after an h2 heading")
             screen_ids = [value.strip() for value in match.group(1).split(",")]
-            if len(set(screen_ids)) != len(screen_ids):
-                raise BuildError(f"{source}:{body_start_line + index}: duplicate screen id in marker")
+            seen = set()
             for screen_id in screen_ids:
+                if screen_id in seen:
+                    raise BuildError(f"{source}:{body_start_line + index}: duplicate screen id {screen_id!r} in marker")
+                seen.add(screen_id)
                 screen = screens.get(screen_id)
                 if screen is None or lang not in screen.captions:
                     raise BuildError(f"{source}:{body_start_line + index}: unknown screen {screen_id!r} for language {lang!r}")
-                refs.append(ScreenRef(screen, lang, source, body_start_line + index))
+                refs.append(ScreenRef(screen, lang, source, body_start_line + index, len(screen_ids)))
             screen_id = ",".join(screen_ids)
             heading = marked[-1]
             attributes = HEADING_ATTR_RE.search(heading)

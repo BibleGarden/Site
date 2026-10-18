@@ -10,7 +10,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from sitegen.build import SiteBuilder, build_all
+from sitegen.build import SiteBuilder
 from sitegen.content import annotate_screens, extract_faq, parse_article, render_markdown
 from sitegen.errors import BuildError
 from sitegen.screens import Screen, check_asset, load_catalog, load_checksums
@@ -67,12 +67,13 @@ class ArticleScreensTest(unittest.TestCase):
                             self.assertEqual(image.get("sizes"), f"min({size}, calc((100vw - 64px) / 2))")
                             self.assertEqual(figure.find("figcaption").text, screen.captions[lang])
                             self.assertEqual(len(figure.findall("figcaption")), 1)
+                            self.assertEqual(list(figure)[0].tag, "a")
 
     def test_invalid_row_fails_at_marker_source_line(self) -> None:
         for ids, message in (
-            ("home, home", "duplicate screen"),
+            ("home, home", "duplicate screen id 'home'"),
             ("home, missing", "unknown screen"),
-            ("home,", "expected"),
+            ("home,", "expected.*<id>, <id>"),
             (", home", "expected"),
             ("home,, translation-picker", "expected"),
             ("home, Home", "expected"),
@@ -327,17 +328,33 @@ class ArticleScreensTest(unittest.TestCase):
             with self.assertRaisesRegex(BuildError, "checksum paths differ"):
                 load_checksums(path, {"home": screen}, ("ru",))
 
-    def test_generated_phone_images_wait_for_desktop_activation(self) -> None:
+    def test_rows_omit_desktop_phone_but_single_markers_keep_it(self) -> None:
         self.assertFalse((ROOT / "dist/bible-garden/ru/articles/template-check/index.html").exists())
         with tempfile.TemporaryDirectory() as directory:
-            output = Path(directory) / "preview"
-            build_all(preview=True, output_root=output)
-            html = (output / "bible-garden/ru/articles/template-check/index.html").read_text(encoding="utf-8")
+            builder = SiteBuilder(ROOT / "content/bible-garden", Path(directory) / "preview", preview=True)
+            article = builder.articles["template-check"]["ru"]
+            self.assertTrue(article.has_screen_rows)
+            builder.build_article("template-check", "ru")
+            html = builder.output_path("ru", "articles/template-check/index.html").read_text(encoding="utf-8")
+            self.assertIn("article-screen-layout-inline", html)
+            self.assertNotIn('class="article-screen-aside"', html)
+            self.assertNotIn('class="article-screen-phone-image"', html)
+            self.assertIn('class="article-screen-dialog"', html)
+            self.assertIn('class="article-screen-row"', html)
+
+            marked, _, refs = annotate_screens("## Home\n<!-- screen: home -->\n", SOURCE, "ru", self.screens)
+            body = render_markdown(marked, refs, "Open: {caption}", lang="ru")
+            single = replace(article, screens=refs, body_html=body)
+            self.assertFalse(single.has_screen_rows)
+            builder.articles["template-check"]["ru"] = single
+            builder.build_article("template-check", "ru")
+            html = builder.output_path("ru", "articles/template-check/index.html").read_text(encoding="utf-8")
+        self.assertNotIn("article-screen-layout-inline", html)
+        self.assertIn('class="article-screen-aside"', html)
         images = re.findall(r'<img[^>]*class="article-screen-phone-image"[^>]*>', html)
-        self.assertEqual(len(images), 3)
-        for image in images:
-            self.assertIn('data-src="/img/article-screens/phone/', image)
-            self.assertNotIn(' src="', image)
+        self.assertEqual(len(images), 1)
+        self.assertIn('data-src="/img/article-screens/phone/', images[0])
+        self.assertNotIn(' src="', images[0])
         self.assertIn("<noscript><img", html)
         self.assertIn('class="article-screen-app-label" hidden', html)
 

@@ -43,7 +43,7 @@ const path = require('node:path');
     const layout = {
         querySelector(selector) { return selector === '.article-screen-pager' ? pager : selector === '.article-screen-counter' ? null : label; },
         querySelectorAll(selector) {
-            if (selector === 'h2[data-screen]') return positions.map((_, index) => ({ dataset: { screen: index === 1 ? `${headingScreens[index]},${headingScreens[2]}` : headingScreens[index] }, getBoundingClientRect: () => ({ top: positions[index] }) }));
+            if (selector === 'h2[data-screen]') return positions.map((_, index) => ({ dataset: { screen: headingScreens[index] }, getBoundingClientRect: () => ({ top: positions[index] }) }));
             if (selector === '.article-screen-phone-image') return images;
             if (selector === '.article-screen-dot') return dots;
             return [];
