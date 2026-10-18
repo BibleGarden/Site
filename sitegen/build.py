@@ -24,7 +24,7 @@ PUBLIC_DIR = REPO_ROOT / PUBLIC_ROOT_NAME
 PREVIEW_DIR = REPO_ROOT / ".preview"
 STATIC_FILES = {
     "bible-garden": ("css", "js", "img", "audio", "privacy.html"),
-    "lampada": ("assets", "privacy", "support"),
+    "lampada": ("assets", "img", "privacy", "support"),
 }
 # Every generated page carries this tag.
 GENERATOR_META = '<meta name="generator" content="sitegen">'

@@ -378,7 +378,10 @@ def parse_article(
     if refs:
         if "screen_open" not in strings or not isinstance(strings["screen_open"], str) or not strings["screen_open"].strip():
             raise BuildError(f"{source}: missing articles.screen_open translation")
-        body_html = render_markdown(marked_body, refs, strings["screen_open"], strings.get("screen_app_lampada", ""), corpus_sources=sources, lang=lang)
+        body_html = render_markdown(
+            marked_body, refs, strings["screen_open"], strings.get("screen_app_lampada", ""),
+            site_key=site_key, corpus_sources=sources, lang=lang,
+        )
     else:
         body_html = render_markdown(marked_body, corpus_sources=sources, lang=lang)
     if has_gospel_today:
@@ -495,11 +498,11 @@ def _require_bool(meta: dict, key: str, source: Path) -> bool:
 
 def render_markdown(
     text: str, screens: tuple[ScreenRef, ...] = (), screen_open: str = "", screen_app_lampada: str = "",
-    *, lang: str, corpus_sources: Sequence[Mapping[str, Any]] = (),
+    *, lang: str, corpus_sources: Sequence[Mapping[str, Any]] = (), site_key: str = "bible-garden",
 ) -> str:
     extensions = [*MARKDOWN_EXTENSIONS]
     if screens:
-        extensions.append(ScreenFigureExtension(screens, screen_open, screen_app_lampada))
+        extensions.append(ScreenFigureExtension(screens, screen_open, screen_app_lampada, site_key))
     if corpus_sources:
         extensions.append(CorpusFootnotesExtension(corpus_sources, lang))
     return markdown.markdown(text, extensions=extensions, extension_configs=MARKDOWN_EXTENSION_CONFIGS)

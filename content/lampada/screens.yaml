@@ -1,0 +1,9 @@
+# Lampada store screenshots: Lampada-Mobile fdceb39 (same commit as the landing screens).
+# Screen ids are the store screenshot ids; import with tools/import_article_screens.py --mobile-repo.
+question:
+  kind: app
+  app: lampada
+  captions:
+    en: 'Prayer in Lampada: the chosen topic and a guiding question about it'
+    ru: 'Молитва в Lampada: выбранная тема и наводящий вопрос к ней'
+    uk: 'Молитва в Lampada: обрана тема й навідне запитання до неї'
