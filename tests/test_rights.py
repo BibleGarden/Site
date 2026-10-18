@@ -26,6 +26,44 @@ class RightsTest(unittest.TestCase):
             "text:bsb", "text:webus", "text:webbe", "text:npu",
             "audio:bsb:bsb_souer", "audio:webus:winfred_henson", "audio:webbe:web_british",
         } <= set(self.data["items"]))
+        self.assertIs(self.data["items"]["text:npu"]["trademark_required"], True)
+
+    def test_required_trademark_cannot_be_missing_or_null(self):
+        for item_id in ("text:npu", "text:webus", "text:webbe"):
+            for missing in (True, False):
+                data = deepcopy(self.data)
+                item = data["items"][item_id]
+                self.assertIs(item["trademark_required"], True)
+                if missing:
+                    del item["trademark"]
+                else:
+                    item["trademark"] = None
+                with self.subTest(item_id=item_id, missing=missing), self.assertRaisesRegex(BuildError, "require a localized trademark block"):
+                    validate_registry(data)
+
+    def test_trademark_requirement_is_data_driven(self):
+        data = deepcopy(self.data)
+        item = data["items"].pop("text:bsb")
+        item["translation_alias"] = "another_translation"
+        item["trademark_required"] = True
+        data["items"]["text:another_translation"] = item
+        with self.assertRaisesRegex(BuildError, "require a localized trademark block"):
+            validate_registry(data)
+        item["trademark"] = {"en": "Terms", "ru": "Условия", "uk": "Умови"}
+        validate_registry(data)
+        item["trademark_required"] = False
+        del item["trademark"]
+        validate_registry(data)
+
+    def test_trademark_requirement_must_be_explicit_boolean(self):
+        for value in (None, "true", 1):
+            data = deepcopy(self.data)
+            data["items"]["text:npu"]["trademark_required"] = value
+            with self.subTest(value=value), self.assertRaisesRegex(BuildError, "explicit boolean"):
+                validate_registry(data)
+        del data["items"]["text:npu"]["trademark_required"]
+        with self.assertRaisesRegex(BuildError, "explicit boolean"):
+            validate_registry(data)
 
     def test_incomplete_or_invalid_snapshot_fails(self):
         mutations = [

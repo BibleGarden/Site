@@ -30,6 +30,7 @@
         "uk": "Аудіо BSB — Боб Суер"
       },
       "trademark": null,
+      "trademark_required": false,
       "translation_alias": "bsb",
       "voice_alias": "bsb_souer"
     },
@@ -64,6 +65,7 @@
         "uk": "Аудіо WEB British — ім’я читця не зазначено"
       },
       "trademark": null,
+      "trademark_required": false,
       "translation_alias": "webbe",
       "voice_alias": "web_british"
     },
@@ -98,6 +100,7 @@
         "uk": "Аудіо WEB US — Вінфред Генсон (Hinson)"
       },
       "trademark": null,
+      "trademark_required": false,
       "translation_alias": "webus",
       "voice_alias": "winfred_henson"
     },
@@ -132,6 +135,7 @@
         "uk": "Berean Standard Bible (BSB)"
       },
       "trademark": null,
+      "trademark_required": false,
       "translation_alias": "bsb",
       "voice_alias": null
     },
@@ -171,6 +175,7 @@
         "ru": "Разрешение на товарный знак в цитате выше относится к исходному изданию. Неизменённые копии могут сохранять знак Biblica. Переработки должны убрать знак Biblica, обозначить изменения, сохранить указание авторства Biblica, Inc. и ту же лицензию CC BY-SA 4.0. Bible Garden не представляет подготовленный текст как официальную переработку Biblica.",
         "uk": "Дозвіл на торговельну марку в цитаті вище стосується оригінального видання. Незмінені копії можуть зберігати марку Biblica. Переробки мають прибрати марку Biblica, зазначити зміни, зберегти авторство Biblica, Inc. і ту саму ліцензію CC BY-SA 4.0. Bible Garden не представляє підготовлений текст як офіційну переробку Biblica."
       },
+      "trademark_required": true,
       "translation_alias": "npu",
       "voice_alias": null
     },
@@ -209,6 +214,7 @@
         "ru": "World English Bible — товарный знак для точных копий перевода. При изменении слов получившийся текст нельзя называть World English Bible. Здесь название обозначает исходный перевод и не удостоверяет пословное совпадение сохранённого текста с текущим изданием издателя.",
         "uk": "World English Bible — торговельна марка для точних копій перекладу. Якщо слова змінено, отриманий текст не можна називати World English Bible. Тут назва позначає вихідний переклад і не засвідчує послівного збігу збереженого тексту з поточним виданням видавця."
       },
+      "trademark_required": true,
       "translation_alias": "webbe",
       "voice_alias": null
     },
@@ -247,6 +253,7 @@
         "ru": "World English Bible — товарный знак для точных копий перевода. При изменении слов получившийся текст нельзя называть World English Bible. Здесь название обозначает исходный перевод и не удостоверяет пословное совпадение сохранённого текста с текущим изданием издателя.",
         "uk": "World English Bible — торговельна марка для точних копій перекладу. Якщо слова змінено, отриманий текст не можна називати World English Bible. Тут назва позначає вихідний переклад і не засвідчує послівного збігу збереженого тексту з поточним виданням видавця."
       },
+      "trademark_required": true,
       "translation_alias": "webus",
       "voice_alias": null
     }

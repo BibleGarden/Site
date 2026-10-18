@@ -1125,7 +1125,9 @@ The refresh command alone uses the network; the build/tests remain offline.
 For a reviewed unreleased API branch, `--url http://127.0.0.1:<port>/api/rights`
 can target an isolated local server. Do not use the browser audio key, which
 is rejected by this endpoint. No missing snapshot or invalid notice is
-silently replaced. Generated `dist/` is committed with the refreshed snapshot.
+silently replaced. Snapshot validation mirrors the API: an explicit boolean
+`trademark_required` is mandatory; true requires a non-null EN/RU/UK trademark
+block. Generated `dist/` is committed with the refreshed snapshot.
 
 The initial seven-entry snapshot was obtained on 2026-10-18 from this route
 on an isolated server running the companion rights-registry API branch; the

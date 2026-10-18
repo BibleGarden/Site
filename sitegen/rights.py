@@ -62,6 +62,9 @@ def validate_registry(data: object) -> dict:
                 require(text(item.get("copyright")), f"{item_id}: missing copyright")
         else:
             require(localized(basis), f"{item_id}: missing public-domain basis")
+        require(type(item.get("trademark_required")) is bool, f"{item_id}: trademark_required must be an explicit boolean")
+        if item["trademark_required"]:
+            require(localized(item.get("trademark")), f"{item_id}: material terms require a localized trademark block")
         if item.get("trademark") is not None:
             require(localized(item["trademark"]), f"{item_id}: missing trademark localization")
         try:
