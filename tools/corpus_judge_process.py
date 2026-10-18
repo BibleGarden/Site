@@ -8,6 +8,11 @@ import threading
 
 
 _worker = threading.local()
+CLEANUP_TIMEOUT = 5
+
+
+class JudgeCleanupError(RuntimeError):
+    pass
 
 
 class JudgeProcesses:
@@ -43,9 +48,21 @@ class JudgeProcesses:
         # communicate drains inherited pipes and reaps the leader before the slot
         # can run another adapter, including after timeout or interruption.
         self.kill(process)
-        process.communicate()
-        with self.lock:
-            self.active.discard(process)
+        try:
+            process.communicate(timeout=CLEANUP_TIMEOUT)
+        except subprocess.TimeoutExpired as exc:
+            self.stop()
+            for stream in (process.stdin, process.stdout, process.stderr):
+                if stream is not None:
+                    stream.close()
+            try:
+                process.wait(timeout=CLEANUP_TIMEOUT)
+            except subprocess.TimeoutExpired as wait_error:
+                raise JudgeCleanupError('Judge process cleanup timed out; run aborted') from wait_error
+            raise JudgeCleanupError('Judge process cleanup timed out; run aborted') from exc
+        finally:
+            with self.lock:
+                self.active.discard(process)
 
 
 def run_adapter(command, payload, *, timeout=120):
@@ -66,8 +83,6 @@ class JudgeExecutor(ThreadPoolExecutor):
     def __init__(self, max_workers):
         super().__init__(max_workers=max_workers)
         self.processes = JudgeProcesses()
-        # Only the reporting thread reads/writes this per-run review map.
-        self.reviews = {}
 
     def submit(self, function, /, *args, **kwargs):
         def execute():

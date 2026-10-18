@@ -2,6 +2,7 @@
 """Verify Lampada evidence against channel-ai; never publish source context."""
 
 import argparse
+from contextlib import contextmanager
 from functools import cache, partial
 import hashlib
 import json
@@ -9,6 +10,7 @@ import os
 from pathlib import Path
 import re
 import shlex
+import signal
 import subprocess
 import sys
 import unicodedata
@@ -47,12 +49,47 @@ class CorpusAPI:
                           headers={"X-API-Key": self.key, "Content-Type": "application/json"})
         try:
             with urlopen(request, timeout=60) as response:
-                return json.load(response)
+                return self.validate_response(path, json.load(response))
         except HTTPError as exc:
             detail = "; corpus changed or needs reindexing; refresh evidence" if exc.code == 409 else ""
             raise CheckError(f"Corpus HTTP {exc.code}{detail}") from exc
         except (URLError, TimeoutError, ValueError) as exc:
             raise CheckError("Corpus unavailable or invalid JSON response") from exc
+
+
+    @staticmethod
+    def validate_response(path, response):
+        def fields(value, expected):
+            if not isinstance(value, dict):
+                raise CheckError('Unexpected corpus response shape')
+            for key, types in expected.items():
+                if key not in value or type(value[key]) not in types:
+                    raise CheckError('Unexpected corpus response shape')
+
+        def book(value):
+            fields(value, {'id': (int,), 'author': (str,), 'title': (str,),
+                           'translator': (str, type(None)), 'source_url': (str,)})
+
+        def text(value):
+            fields(value, {'book': (dict,), 'text': (str,), 'text_sha256': (str,)})
+            book(value['book'])
+
+        def span(value):
+            text(value)
+            fields(value, {'char_start': (int,), 'char_end': (int,)})
+
+        if path == '/search/chunks':
+            fields(response, {'chunks': (list,)})
+            for chunk in response['chunks']:
+                span(chunk)
+                fields(chunk, {'chunk_id': (str,), 'chapter': (str, type(None))})
+        elif path == '/search/context':
+            span(response)
+        elif path.startswith('/books/') and path.endswith('/text'):
+            text(response)
+        else:
+            raise CheckError('Unexpected corpus response endpoint')
+        return response
 
 
 # Explicit sampling count, not retries: each call evaluates the same evidence afresh.
@@ -115,7 +152,7 @@ def verify(item, api, judge, near=500, book_cache=None, *, judge_runs=DEFAULT_JU
     validate_judge_workers(judge_workers)
     with JudgeExecutor(max_workers=judge_workers) as executor:
         review = prepare_verification(item, api, judge, near, book_cache, judge_runs=judge_runs,
-                                      judge_cache=judge_cache, executor=executor)
+                                      judge_cache=judge_cache, executor=executor, reviews={})
         return review()
 
 
@@ -125,7 +162,7 @@ def validate_judge_workers(workers):
 
 
 def prepare_verification(item, api, judge, near=500, book_cache=None, *, judge_runs=DEFAULT_JUDGE_RUNS,
-                         judge_cache=None, executor):
+                         judge_cache=None, executor, reviews):
     validate_judge_runs(judge_runs)
     hit_response = api.request("/search/chunks", {"ids": [item["chunk_id"]]})
     hits = hit_response["chunks"]
@@ -181,10 +218,10 @@ def prepare_verification(item, api, judge, near=500, book_cache=None, *, judge_r
         "source": item["original"] if translated else text[start:end],
         "author": item["author"], "title": item["title"], "chapter": item["chapter"]}
     key = vote_key(item, payload, judge_runs, judge_cache.identity if judge_cache is not None else None)
-    if key in executor.reviews:
+    if key in reviews:
         if judge_cache is not None:
             judge_cache.hits += 1
-        return partial(shared_review, executor.reviews[key], judge_cache is not None)
+        return partial(shared_review, reviews[key], judge_cache is not None)
     cached = judge_cache.read(key, judge_runs) if judge_cache is not None else None
     if judge_cache is not None:
         judge_cache.hits += int(cached is not None)
@@ -193,7 +230,7 @@ def prepare_verification(item, api, judge, near=500, book_cache=None, *, judge_r
     if judge_cache is not None:
         judge_cache.calls += len(futures)
     review = cache(partial(finish_review, futures, cached, paragraph, judge_cache, key, judge_runs))
-    executor.reviews[key] = review
+    reviews[key] = review
     return review
 
 
@@ -263,6 +300,7 @@ def render_reviews(paths, api, judge, report, near, *, judge_name, judge_runs, j
     summary = ["| Article | Citation | Kind | Verdict |", "| --- | --- | --- | --- |"]
     book_cache = {}
     articles = []
+    shared_reviews = {}
     for path in paths:
         try:
             meta, body, _ = _frontmatter(path, REQUIRED_ARTICLE_KEYS, (*OPTIONAL_ARTICLE_KEYS, "corpus_sources"))
@@ -275,7 +313,8 @@ def render_reviews(paths, api, judge, report, near, *, judge_name, judge_runs, j
             try:
                 # Corpus reads and book-cache access stay on the calling thread.
                 review = prepare_verification(item, api, judge, near, book_cache,
-                                              judge_runs=judge_runs, judge_cache=judge_cache, executor=executor)
+                                              judge_runs=judge_runs, judge_cache=judge_cache, executor=executor,
+                                              reviews=shared_reviews)
             except CheckError as exc:
                 result = ("ERROR", str(exc), "Unavailable: verification failed before context could be trusted.")
                 review = lambda result=result: result
@@ -313,7 +352,26 @@ def render_reviews(paths, api, judge, report, near, *, judge_name, judge_runs, j
     return int(failed)
 
 
+def interrupt_review(signum, frame):
+    raise KeyboardInterrupt()
+
+
+@contextmanager
+def cancellation_signals():
+    previous = {signum: signal.signal(signum, interrupt_review) for signum in (signal.SIGTERM, signal.SIGHUP)}
+    try:
+        yield
+    finally:
+        for signum, handler in previous.items():
+            signal.signal(signum, handler)
+
+
 def main(argv=None):
+    with cancellation_signals():
+        return run_cli(argv)
+
+
+def run_cli(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("articles", nargs="*", type=Path)
     parser.add_argument("--base-url", default=os.getenv("CORPUS_API_URL", "http://127.0.0.1:3018"))

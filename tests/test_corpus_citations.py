@@ -3,9 +3,11 @@
 import copy
 from datetime import date
 import hashlib
+import io
 import json
 import os
 import subprocess
+import signal
 from pathlib import Path
 import tempfile
 import unittest
@@ -561,6 +563,64 @@ class CitationTest(unittest.TestCase):
             self.api.hit['text_sha256'] = '0' * 64
             self.assertEqual(check_articles([path], self.api, self.judge, report), 1)
             self.assertIn('refresh evidence', report.read_text())
+
+
+class CorpusResponseTest(unittest.TestCase):
+    def test_response_schema_rejects_missing_and_wrong_types_at_boundary(self):
+        api = FakeCorpus()
+        responses = {'/search/chunks': {'chunks': [api.hit]},
+                     '/books/5/text': api.book, '/search/context': api.context}
+        client = CorpusAPI('http://fake', 'private')
+        for endpoint, valid in responses.items():
+            with self.subTest(endpoint=endpoint), patch('tools.check_corpus_citations.urlopen') as request:
+                request.return_value = io.BytesIO(json.dumps(valid).encode())
+                self.assertEqual(client.request(endpoint), valid)
+            bad = [None, [], {}, {'chunks': [None]}]
+            if endpoint != '/search/chunks':
+                bad += [{**valid, 'text': None}, {**valid, 'book': {'id': 5}},
+                        {**valid, 'text_sha256': 17}, {**valid, 'book': {**valid['book'], 'id': True}}]
+            else:
+                bad += [{'chunks': [{**api.hit, 'char_start': 'wrong'}]},
+                        {'chunks': [{**api.hit, 'book': None}]}]
+            for response in bad:
+                with self.subTest(endpoint=endpoint, response=response), \
+                     patch('tools.check_corpus_citations.urlopen', return_value=io.BytesIO(json.dumps(response).encode())):
+                    with self.assertRaisesRegex(CheckError, 'response shape'):
+                        client.request(endpoint)
+
+    def test_malformed_corpus_reply_is_fragment_error_and_other_article_continues(self):
+        api = FakeCorpus()
+        lookups = 0
+        def response(request, **kwargs):
+            nonlocal lookups
+            endpoint = request.full_url.split('/lampada', 1)[1]
+            if endpoint == '/search/chunks':
+                lookups += 1
+                payload = {'chunks': [None]} if lookups == 1 else {'chunks': [api.hit]}
+            elif endpoint == '/books/5/text':
+                payload = api.book
+            else:
+                payload = api.context
+            return io.BytesIO(json.dumps(payload).encode())
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            fixture = CitationTest()
+            fixture.item = copy.deepcopy(ITEM)
+            paths = [root / 'ru.md', root / 'en.md']
+            for path in paths:
+                fixture.write_article(path, [fixture.item])
+            report = root / 'report.md'
+            with patch('tools.check_corpus_citations.urlopen', side_effect=response):
+                self.assertEqual(check_articles(paths, CorpusAPI('http://fake', 'private'), fixture.judge, report), 1)
+            text = report.read_text()
+            self.assertIn('Unexpected corpus response shape', text)
+            self.assertIn('PASS: 1; FAIL: 0; UNSTABLE: 0; ERROR: 1', text)
+
+    def test_main_restores_previous_signal_handlers(self):
+        previous = {s: signal.getsignal(s) for s in (signal.SIGTERM, signal.SIGHUP)}
+        with patch('tools.check_corpus_citations.run_cli', return_value=0):
+            self.assertEqual(main([]), 0)
+        self.assertEqual({s: signal.getsignal(s) for s in previous}, previous)
 
 
 if __name__ == '__main__':

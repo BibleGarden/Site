@@ -205,14 +205,17 @@ fragments continue. Calls are never retried or replaced. Unexpected programming
 exceptions propagate. Exact untranslated quotes use deterministic checks.
 
 Each adapter starts in its own POSIX process group. Timeout cleanup kills that
-whole group and waits before freeing its worker slot. Interruption or an uncaught
-exception cancels queued work, kills active groups and joins their workers.
+whole group and waits before freeing its worker slot. Cleanup communication is
+bounded to five seconds; exceeding it aborts the run with an explicit cleanup
+error. Ctrl-C, SIGTERM, SIGHUP or an uncaught exception cancels queued work, kills
+active groups and joins their workers. CLI signal handlers are restored on exit.
 Identical evidence keys share one review across the run, including across articles.
 A cache-write error marks ERROR while preserving votes and trusted source context.
 
 Reports list all completed votes, categories and reasons, the run count, and
 final PASS/FAIL/UNSTABLE/ERROR counters plus invalid-article count. Any FAIL,
-UNSTABLE, ERROR or invalid article exits 1. Missing credentials also fail.
+UNSTABLE, ERROR or invalid article exits 1. Missing credentials also fail. Corpus response objects and required field types
+are validated at the API boundary; malformed replies mark the fragment ERROR.
 Adapter diagnostics stay on stderr; raw output is not echoed into reports.
 
 ## Judge verdict cache
@@ -267,5 +270,6 @@ revalidation, corrupt/unwritable records, private paths and `--no-cache`.
 Delayed fake judges verify the shared worker limit across articles/runs,
 deterministic reports, deduplicated reviews and preserved error/peer results.
 Real subprocess fixtures verify Ctrl-C queue cancellation, descendant termination
-and timeout cleanup before a worker slot is reused.
+and timeout cleanup before a worker slot is reused, SIGTERM/SIGHUP cancellation,
+bounded cleanup failure and malformed corpus replies.
 Existing CI discovers these tests without live API calls or credentials.

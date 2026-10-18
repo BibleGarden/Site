@@ -11,7 +11,10 @@ import tempfile
 import time
 import unittest
 
-from tools.corpus_judge_process import JudgeExecutor, run_adapter
+from unittest.mock import Mock, patch
+
+import test_corpus_citations as fixtures
+from tools.corpus_judge_process import JudgeCleanupError, JudgeExecutor, JudgeProcesses, run_adapter
 
 
 class JudgeProcessTest(unittest.TestCase):
@@ -42,7 +45,7 @@ class JudgeProcessTest(unittest.TestCase):
         try:
             state = Path(f'/proc/{pid}/stat').read_text().rsplit(')', 1)[1].split()[0]
             return state != 'Z'
-        except FileNotFoundError:
+        except (FileNotFoundError, ProcessLookupError):
             return False
 
     def pids(self):
@@ -106,3 +109,59 @@ class JudgeProcessTest(unittest.TestCase):
         with self.assertRaises(subprocess.CalledProcessError) as error:
             run_adapter([sys.executable, '-c', 'raise SystemExit(7)'], '{}')
         self.assertEqual(error.exception.returncode, 7)
+
+    def assert_main_signal_cancellation(self, signum):
+        root = Path(__file__).resolve().parents[1]
+        item = {**fixtures.ITEM, 'kind': 'retelling', 'original': None, 'translation': None, 'text': 'Claim'}
+        fixture = fixtures.CitationTest()
+        fixture.item = item
+        article = self.root / 'article.md'
+        fixture.write_article(article, [item])
+        arguments = [str(article), '--no-cache', '--report', str(self.root / 'report.md'),
+                     '--judge-command', shlex.join(self.command), '--judge-runs', '27', '--judge-workers', '1']
+        harness = self.root / 'signal-main.py'
+        harness.write_text(
+            'import sys\n'
+            f'sys.path[:0] = [{str(root)!r}, {str(root / "tests")!r}]\n'
+            'from tools import check_corpus_citations as checker\n'
+            'from test_corpus_citations import FakeCorpus\n'
+            'checker.CorpusAPI = lambda *args: FakeCorpus()\n'
+            'try:\n'
+            f'    sys.exit(checker.main({arguments!r}))\n'
+            'except KeyboardInterrupt:\n'
+            '    sys.exit(130)\n')
+        process = subprocess.Popen([sys.executable, str(harness)], stdout=subprocess.PIPE,
+                                   stderr=subprocess.PIPE, text=True)
+        try:
+            self.wait_for(self.ready)
+            pids = self.pids()
+            process.send_signal(signum)
+            stdout, stderr = process.communicate(timeout=5)
+            self.assertEqual(process.returncode, 130, stdout + stderr)
+            self.assertEqual(len(list(self.root.glob('parent-*'))), 1)
+            self.assertFalse(any(self.alive(pid) for pid in pids))
+        finally:
+            if process.poll() is None:
+                process.kill()
+                process.communicate(timeout=5)
+
+    def test_sigterm_in_main_cancels_queue_and_process_groups(self):
+        self.assert_main_signal_cancellation(signal.SIGTERM)
+
+    def test_sighup_in_main_cancels_queue_and_process_groups(self):
+        self.assert_main_signal_cancellation(signal.SIGHUP)
+
+    def test_cleanup_communicate_is_bounded_and_failure_stops_run(self):
+        processes = JudgeProcesses()
+        process = Mock()
+        processes.active.add(process)
+        process.communicate.side_effect = subprocess.TimeoutExpired('adapter', 5)
+        with patch.object(processes, 'kill'):
+            with self.assertRaisesRegex(JudgeCleanupError, 'cleanup timed out'):
+                processes.finish(process)
+        process.communicate.assert_called_once_with(timeout=5)
+        process.wait.assert_called_once_with(timeout=5)
+        self.assertTrue(processes.stopped)
+        self.assertEqual(processes.active, set())
+        for stream in (process.stdin, process.stdout, process.stderr):
+            stream.close.assert_called_once()
