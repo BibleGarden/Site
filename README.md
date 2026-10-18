@@ -180,6 +180,13 @@ fenced code, heading anchors). Headings inside fenced code blocks (``` or ~~~,
 CommonMark rules) are ignored by the FAQ parser. Links inside the site are root-relative
 (`/ru/articles/other-slug/`).
 
+### Corpus quotations and retellings
+
+Lampada articles can declare `corpus_sources` in front matter and attach
+`[^corpus-<id>]` footnotes to the supported text. See
+[the evidence format, checker and private review report](docs/corpus/citations.md).
+The site build is offline; source verification is an explicit authoring step.
+
 ### Screens in articles
 
 Add a marker on the line immediately after a second-level heading:

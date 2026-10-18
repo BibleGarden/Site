@@ -14,6 +14,7 @@ from markdown.extensions.toc import slugify_unicode
 from markupsafe import Markup, escape
 
 from .errors import BuildError
+from .corpus import citations as corpus_citations, annotate as annotate_corpus
 from .gospel_today import PLACEHOLDER as GOSPEL_PLACEHOLDER, annotate_marker as annotate_gospel_marker, render_component as render_gospel_today
 from .multi_reading_demo import annotate_demo_marker, load_demo, placeholder_for, render_demo
 from .reading_time import PLACEHOLDER as CALCULATOR_PLACEHOLDER, annotate_calculator_marker, load_data as load_reading_time, render_calculator
@@ -358,7 +359,10 @@ def parse_article(
     gospel_audio: dict | None = None,
     preview: bool = False,
 ) -> Article:
-    meta, body, body_start_line = _frontmatter(source, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS)
+    optional = (*OPTIONAL_ARTICLE_KEYS, "corpus_sources") if site_key == "lampada" else OPTIONAL_ARTICLE_KEYS
+    meta, body, body_start_line = _frontmatter(source, REQUIRED_ARTICLE_KEYS, optional)
+    sources = corpus_citations(meta.get("corpus_sources", []), body, source)
+    body = annotate_corpus(body, sources, lang)
     gospel_body, has_gospel_today = annotate_gospel_marker(body, source, site_key, lang, body_start_line)
     plan_body, has_plan = annotate_plan_marker(gospel_body, source, site_key, body_start_line)
     demo_body, demo_id = annotate_demo_marker(plan_body, source, site_key, body_start_line)
