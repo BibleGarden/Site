@@ -99,7 +99,8 @@ No positional paths means every Lampada article, including drafts. Files without
 sources have zero evidence entries; that does not mean their prose was reviewed.
 Reports must live outside the repository: they contain internal source text.
 A summary table precedes each detailed article/source pair and explicit
-`Verdict:`. Translated quotes show both article text and original. Exit 0 means
+`Verdict:`. The report names the selected judge command/adapter (only invoked
+for translations and retellings); in-process use names the callback. Translated quotes show both article text and original. Exit 0 means
 all declared sources passed; exit 1 means a verification/API/judge/configuration
 failure; invalid CLI arguments exit 2.
 

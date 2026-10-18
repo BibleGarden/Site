@@ -162,8 +162,9 @@ def table_cell(value):
     return str(value).replace("|", "\\|").replace("\n", " ")
 
 
-def check_articles(paths, api, judge, report, near=500):
+def check_articles(paths, api, judge, report, near=500, *, judge_name=None):
     entries = ["# Corpus citation review", "", "Internal report for Maria. Contains corpus excerpts; do not publish or commit."]
+    judge_name = judge_name if judge_name is not None else f"{judge.__module__}.{judge.__qualname__}"
     failed = False
     count = 0
     summary = ["| Article | Citation | Kind | Verdict |", "| --- | --- | --- | --- |"]
@@ -195,7 +196,8 @@ def check_articles(paths, api, judge, report, near=500):
                         "", "Source paragraph / bounded context:",
                         block(paragraph), "", f'Verdict: {"PASS" if ok else "FAIL"} — {reason}']
     entries += ["", f"Checked: {count}; result: {'FAIL' if failed else 'PASS'}", ""]
-    report.write_text("\n".join(entries[:3] + ["", *summary, ""] + entries[3:]), encoding="utf-8")
+    report.write_text("\n".join(entries[:3] + ["", "Judge command/adapter (used for translations and retellings only):",
+                                                    block(judge_name), "", *summary, ""] + entries[3:]), encoding="utf-8")
     return int(failed)
 
 
@@ -217,7 +219,7 @@ def main(argv=None):
         parser.error("No article files found")
     try:
         api = CorpusAPI(args.base_url, os.getenv("CORPUS_API_KEY"))
-        return check_articles(paths, api, lambda payload: command_judge(args.judge_command, payload), args.report, args.near)
+        return check_articles(paths, api, lambda payload: command_judge(args.judge_command, payload), args.report, args.near, judge_name=args.judge_command)
     except (CheckError, OSError) as exc:
         print(str(exc), file=sys.stderr)
         return 1

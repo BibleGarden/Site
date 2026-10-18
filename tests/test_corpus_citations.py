@@ -175,7 +175,7 @@ class CitationTest(unittest.TestCase):
             path = Path(tmp) / 'ru.md'
             self.write_article(path, [self.item])
             article = parse_article(path, 'fixture', 'ru', {}, {}, {}, Path(tmp), site_key='lampada')
-            self.assertIn('Author. Work. Prayer. перевод Translator', article.body_html)
+            self.assertIn('Author. Work. Prayer, перевод Translator', article.body_html)
             self.assertIn('href="https://predanie.ru/book"', article.body_html)
             self.assertIn('footnote-ref', article.body_html)
             self.assertNotIn(self.item['text_sha256'], article.body_html)
@@ -272,12 +272,12 @@ class CitationTest(unittest.TestCase):
         for lang, label in (('en', 'our translation'), ('ru', 'наш перевод'), ('uk', 'наш переклад')):
             with self.subTest(lang=lang):
                 rendered = annotate(self.body(), [self.item], lang)
-                self.assertIn(label, rendered)
+                self.assertIn(', ' + label, rendered)
                 self.assertIn('Translator', rendered)
         self.item['translator'] = None
         self.assertNotIn('Translator', annotate(self.body(), [self.item], 'en'))
         self.item.update(translation='published', translator='Published Name')
-        self.assertIn('translated by Published Name', annotate(self.body(), [self.item], 'en'))
+        self.assertIn(', translated by Published Name', annotate(self.body(), [self.item], 'en'))
         self.assertNotIn('our translation', annotate(self.body(), [self.item], 'en'))
 
     def test_closing_quotes_and_punctuation_between_text_and_marker(self):
@@ -287,6 +287,13 @@ class CitationTest(unittest.TestCase):
                 self.assertEqual(citations([self.item], body, 'test'), [self.item])
         with self.assertRaises(BuildError):
             citations([self.item], self.item['text'] + ' unrelated [^corpus-prayer]', 'test')
+
+    def test_source_translator_uses_comma_in_all_languages(self):
+        for lang, label in (('en', 'translated by'), ('ru', 'перевод'), ('uk', 'переклад')):
+            with self.subTest(lang=lang):
+                rendered = annotate(self.body(), [self.item], lang)
+                self.assertIn(f'Prayer, {label} Translator', rendered)
+                self.assertNotIn(f'Prayer. {label}', rendered)
 
     def test_translated_quote_build_with_wrapping_punctuation(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -337,6 +344,8 @@ class CitationTest(unittest.TestCase):
             self.assertIn('| prayer | quote | PASS |', result)
             self.assertIn('Verdict: PASS —', result)
             self.assertIn('Original quotation:', result)
+            self.assertIn('Judge command/adapter', result)
+            self.assertIn('CitationTest.judge', result)
 
     def test_cli_uses_default_adapter_and_environment_override(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -353,6 +362,7 @@ class CitationTest(unittest.TestCase):
                         judge.return_value = {'supported': True, 'reason': 'Faithful'}
                         self.assertEqual(main([str(path), '--report', str(report)]), 0)
                         self.assertEqual(judge.call_args.args[0], command or DEFAULT_JUDGE)
+                        self.assertIn(command or DEFAULT_JUDGE, report.read_text())
 
     def test_claude_adapter_with_fake_cli_no_live_calls(self):
         adapter = Path(__file__).resolve().parents[1] / 'tools/corpus_judge_claude.sh'

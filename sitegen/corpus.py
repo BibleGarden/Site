@@ -72,9 +72,9 @@ def annotate(body, sources, lang):
         if item["chapter"]:
             label += f'. {item["chapter"]}'
         if item["translator"]:
-            label += f'. {labels[lang]} {item["translator"]}'
+            label += f', {labels[lang]} {item["translator"]}'
         if item["translation"] == "ours":
-            label += f'. {ours[lang]}'
+            label += f', {ours[lang]}'
         label += f' ({urlsplit(item["source_url"]).hostname})'
         # Raw HTML is escaped here; corpus IDs, offsets and source fragments stay private.
         link = f'<a href="{html.escape(item["source_url"], quote=True)}">{html.escape(label)}</a>'
