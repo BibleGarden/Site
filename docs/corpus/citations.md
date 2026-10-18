@@ -23,7 +23,7 @@ corpus_sources:
     text_sha256: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
     author: Author
     title: Work
-    chapter: Prayer             # null when the corpus has no chapter
+    chapter: 'II — 3. Prayer'   # exact API citation_label; null for an empty label
     translator: null            # published translator of the SOURCE EDITION only
     source_url: https://example.org/book
 ```
@@ -40,6 +40,15 @@ All fields above are required. IDs are unique lowercase Latin letters, digits
 and hyphens. Use **one item per continuous fragment and occurrence**: no `…`
 or `[...]` elisions joining separated source passages. Split those into separate
 items with precise ranges. Ordinary Markdown footnotes remain available.
+
+`chapter` is a copy of the API's complete, human-readable **`citation_label`**,
+including native number/title and part/volume when supplied. It is independent
+of the API's structural `chapter`. There is no second article field. Copy the
+label verbatim; do not compose, translate or shorten it. The API's empty string
+means there is no proven locator: store **`chapter: null`**, and the footnote
+omits that component. Missing/null/whitespace-only API labels are errors, never
+an invitation to substitute a structural chapter, section path or book title.
+The offline site only escapes and displays this ready label; it calls no API.
 
 - `kind: quote`: `original` is a non-empty verbatim span of the canonical source
   edition, in whatever language the corpus contains. It must occur inside
@@ -66,7 +75,7 @@ editorial cycle, start with [the article workflow](article-workflow.md). The ste
 below describe the evidence format and verification within that cycle.
 
 1. Search `POST /api/v1/channels/lampada/search` with optional filters. Keep the
-   hit's chunk ID, book ID, metadata, chapter, offsets and SHA-256.
+   hit's chunk ID, book ID, metadata, citation_label, offsets and SHA-256.
 2. Inspect `/search/context` (`scope=leaf`). Choose a precise subrange within
    that chunk. Offsets count Unicode code points, zero-based `[start,end)`, not
    bytes or UTF-16 units.
@@ -122,6 +131,75 @@ full book responses are cached by `(book_id, text_sha256)`; current chunks and
 context are fetched for every item to detect version changes. HTTP 409 fails
 explicitly: inspect ingestion/migration and refresh evidence intentionally.
 There are no retries, re-extraction or silent source substitutions.
+The article's `chapter` must match the chunk's `citation_label` (empty string
+maps to null); leaf context must return that same label. Structural `chapter`
+is never used for this comparison.
+
+## Reanchor after a corpus migration
+
+Use `tools/reanchor_corpus_sources.py` only after the maintenance window has
+finished, the new index version is confirmed by the corpus operator, and the
+API serves the migrated corpus. The channel API does not expose `index_version`;
+a listening port alone does not prove that reindexing is complete. For content
+branches, first merge the tooling PR, then rebase each branch on fresh `main`.
+Keep old snapshots unchanged. `--snapshots` names the **backup root**, containing
+`data/lampada/texts/book_<id>.json` and `.txt` for books whose text hash changed.
+An archive must first be unpacked into this layout in a separate directory;
+never use the live sidecar tree as the old snapshot directory.
+
+```bash
+python tools/reanchor_corpus_sources.py \
+  content/lampada/articles/<slug>/ru.md \
+  --snapshots <backup-root> \
+  --report /tmp/lampada-reanchor.json
+# Review the private JSON report, then explicitly apply it:
+python tools/reanchor_corpus_sources.py --apply /tmp/lampada-reanchor.json
+python tools/check_corpus_citations.py \
+  content/lampada/articles/<slug>/ru.md --report /tmp/lampada-review.md
+```
+
+Multiple explicit article paths share cached book/chunk reads within a report.
+Report mode writes no articles. Its JSON records article paths, file SHA-256,
+old/new anchors and `ready`/`manual` outcomes; it contains private metadata and
+must stay outside git. Existing reports are never overwritten. Exit 0 means
+every source is ready (or application succeeded); exit 1 means a manual case
+or error; invalid arguments exit 2.
+
+For each source, the tool verifies the current canonical text hash. If it
+matches the article's hash, that text is also the old text: no backup is needed
+and offsets stay fixed, even for repeated fragments. Otherwise, a matching old
+sidecar/text pair is required; its hash and the article range must be valid.
+The **entire old exact fragment** must be unique in both old and new texts,
+counting overlapping matches. Quotes also require `original` inside the old
+precise range using the checker's normalization; exact relocation preserves it.
+No fuzzy matching, sentence substitution,
+range splitting or prose edits are allowed. Removed/edited/repeated passages,
+changed source-edition metadata, or a range without one containing chunk go to
+manual review. Chunk IDs are enumerated from `/books`' `chunks_count` using
+channel-ai's `book-{book_id}-{zero_based_index:04d}` contract, fetched in batches
+of at most 100 and checked against canonical text; semantic search is not used.
+Only these editorial outcomes produce `manual` entries. Missing/corrupt
+snapshots, invalid hashes/ranges, API failures (including HTTP 409/503), malformed
+responses and code errors abort the run without writing a report or articles.
+There are no automatic retries, including for subsequent sources of that book.
+
+Application refuses any report with manual cases. It checks every article's
+file SHA against the report, recreates the plan against live chunks/text/leaf
+context and any required old snapshots, and requires an identical result.
+It stages every article and compares parsed evidence to the original sources
+with only the planned anchors replaced, then checks SHA again before writes.
+Each file replacement is atomic; the set of files is not a filesystem
+transaction. Only `chunk_id`, `char_start`, `char_end`, `text_sha256`, and
+`chapter` scalars change; body and other YAML remain byte-for-byte intact,
+including LF or CRLF line endings.
+Do not edit articles concurrently. If an article or corpus changed, make a new
+report; do not edit the saved plan. Resolve manual cases editorially in a new
+review cycle, never by making the migration tool guess.
+
+After applying, run the checker **with its cache enabled** and require exit 0;
+reanchoring alone is not an evidence verdict. Rebuild the relevant draft with
+`python -m sitegen preview`, then restart its preview service. Commit anchor
+changes in the corresponding content branch; `.preview/` output is ignored.
 
 ## LLM judge adapter
 

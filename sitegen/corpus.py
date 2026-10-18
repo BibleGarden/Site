@@ -12,6 +12,13 @@ FIELDS = {"id", "chunk_id", "book_id", "char_start", "char_end", "text_sha256",
           "kind", "text", "original", "translation", "author", "title", "chapter", "translator", "source_url"}
 
 
+def citation_chapter(label):
+    """Article-schema conversion for tools: API empty locator becomes null, never invented."""
+    if not isinstance(label, str) or (label and not label.strip()):
+        raise ValueError("citation_label must be a string, empty only when no locator is proven")
+    return label if label else None
+
+
 def citations(value, body, source):
     if not isinstance(value, list):
         raise BuildError(f"{source}: corpus_sources must be a list")
@@ -69,6 +76,7 @@ def annotate(body, sources, lang):
     ours = {"en": "our translation", "ru": "наш перевод", "uk": "наш переклад"}
     for item in sources:
         label = f'{item["author"]}. {item["title"]}'
+        # chapter already contains the complete API citation_label.
         if item["chapter"]:
             label += f'. {item["chapter"]}'
         if item["translator"]:

@@ -38,12 +38,12 @@ ITEM = dict(id='prayer', chunk_id='book-5-1', book_id=5, char_start=START,
 
 class FakeCorpus:
     def __init__(self):
-        self.hit = dict(chunk_id=ITEM['chunk_id'], book=copy.deepcopy(BOOK), chapter='Prayer',
+        self.hit = dict(chunk_id=ITEM['chunk_id'], book=copy.deepcopy(BOOK), chapter='Structural wrapper', citation_label='Prayer',
                         char_start=START, char_end=END, text=TEXT[START:END],
                         text_sha256=ITEM['text_sha256'])
         self.book = dict(book=copy.deepcopy(BOOK), text=TEXT, text_sha256=ITEM['text_sha256'], sections=[])
         self.context = dict(book=copy.deepcopy(BOOK), text=TEXT, char_start=0,
-                            char_end=len(TEXT), text_sha256=ITEM['text_sha256'])
+                            char_end=len(TEXT), text_sha256=ITEM['text_sha256'], citation_label='Prayer')
         self.calls = []
 
     def request(self, path, data=None):
@@ -68,6 +68,39 @@ class CitationTest(unittest.TestCase):
     def test_exact_quote_and_canonical_range(self):
         self.assertEqual(verify(self.item, self.api, self.judge)[0], "PASS")
         self.assertEqual(self.api.calls[-1][1]['scope'], 'leaf')
+
+    def test_citation_label_is_independent_of_structural_chapter(self):
+        self.api.hit['chapter'] = 'Part II'
+        self.api.hit['citation_label'] = 'Part II — 3. Prayer'
+        self.api.context['citation_label'] = 'Part II — 3. Prayer'
+        self.item['chapter'] = 'Part II — 3. Prayer'
+        self.assertEqual(verify(self.item, self.api, self.judge)[0], 'PASS')
+        self.assertIn('Part II — 3. Prayer', annotate(self.body(), [self.item], 'en'))
+        self.item['chapter'] = 'Part II'
+        with self.assertRaisesRegex(CheckError, 'citation_label'):
+            verify(self.item, self.api, self.judge)
+
+    def test_empty_citation_label_maps_only_to_null(self):
+        self.api.hit['citation_label'] = self.api.context['citation_label'] = ''
+        self.item['chapter'] = None
+        self.assertEqual(verify(self.item, self.api, self.judge)[0], 'PASS')
+        self.assertNotIn('Structural wrapper', annotate(self.body(), [self.item], 'en'))
+        self.item['chapter'] = self.api.hit['chapter']
+        with self.assertRaisesRegex(CheckError, 'citation_label'):
+            verify(self.item, self.api, self.judge)
+
+    def test_invalid_and_mismatched_citation_labels_fail(self):
+        for label in (None, 4, '   '):
+            self.api.hit['citation_label'] = label
+            with self.assertRaisesRegex(CheckError, 'citation_label'):
+                verify(self.item, self.api, self.judge)
+        del self.api.hit['citation_label']
+        with self.assertRaisesRegex(CheckError, 'citation_label'):
+            verify(self.item, self.api, self.judge)
+        self.api = FakeCorpus()
+        self.api.context['citation_label'] = 'Different locator'
+        with self.assertRaisesRegex(CheckError, 'citation_label'):
+            verify(self.item, self.api, self.judge)
 
     def test_distorted_quote_fails(self):
         self.item['text'] = 'Pray without love and care.'
@@ -95,7 +128,7 @@ class CitationTest(unittest.TestCase):
             verify(self.item, self.api, self.judge)
 
     def test_identity_metadata_chunk_range_and_context_fail_closed(self):
-        mutations = [('hit', 'chunk_id', 'wrong'), ('hit', 'chapter', 'Wrong'),
+        mutations = [('hit', 'chunk_id', 'wrong'), ('hit', 'citation_label', 'Wrong'),
                      ('hit', 'char_end', END-1), ('hit', 'text', 'wrong'),
                      ('context', 'text', 'wrong'), ('context', 'char_start', START+1)]
         for target, key, value in mutations:
@@ -582,6 +615,13 @@ class CorpusResponseTest(unittest.TestCase):
             else:
                 bad += [{'chunks': [{**api.hit, 'char_start': 'wrong'}]},
                         {'chunks': [{**api.hit, 'book': None}]}]
+            if endpoint in ('/search/chunks', '/search/context'):
+                for label in (None, 12):
+                    bad.append({'chunks': [{**api.hit, 'citation_label': label}]}
+                               if endpoint == '/search/chunks' else {**valid, 'citation_label': label})
+                missing = dict(api.hit if endpoint == '/search/chunks' else valid)
+                del missing['citation_label']
+                bad.append({'chunks': [missing]} if endpoint == '/search/chunks' else missing)
             for response in bad:
                 with self.subTest(endpoint=endpoint, response=response), \
                      patch('tools.check_corpus_citations.urlopen', return_value=io.BytesIO(json.dumps(response).encode())):
