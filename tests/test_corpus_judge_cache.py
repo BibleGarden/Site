@@ -134,8 +134,11 @@ class JudgeCacheTest(unittest.TestCase):
 
     def test_failed_atomic_write_is_explicit_and_cleans_temporary_file(self):
         with patch('tools.corpus_judge_cache.os.replace', side_effect=OSError('Disk full')):
-            with self.assertRaisesRegex(CheckError, 'Cannot write judge cache'):
-                verify(self.item, self.api, Mock(return_value=PASS), judge_cache=self.cache)
+            status, reason, paragraph = verify(self.item, self.api, Mock(return_value=PASS), judge_cache=self.cache)
+            self.assertEqual(status, 'ERROR')
+            self.assertIn('Cannot write judge cache', reason)
+            self.assertIn('Run 3/3: PASS', reason)
+            self.assertIn(fixtures.TEXT[fixtures.START:fixtures.END], paragraph)
         self.assertEqual(list(self.cache.directory.iterdir()), [])
 
     def test_records_have_private_permissions_and_run_count_invalidates_votes(self):

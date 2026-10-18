@@ -2,8 +2,7 @@
 """Verify Lampada evidence against channel-ai; never publish source context."""
 
 import argparse
-from concurrent.futures import ThreadPoolExecutor
-from functools import partial
+from functools import cache, partial
 import hashlib
 import json
 import os
@@ -25,7 +24,8 @@ from sitegen.content import _frontmatter, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICL
 from sitegen.corpus import citations
 from sitegen.errors import BuildError
 from tools.corpus_judge import CheckError, unique_object, validate_verdict
-from tools.corpus_judge_cache import DEFAULT_CACHE_DIR, JudgeCache, digest, judge_environment
+from tools.corpus_judge_process import JudgeExecutor, run_adapter
+from tools.corpus_judge_cache import DEFAULT_CACHE_DIR, JudgeCache, digest, judge_environment, vote_key
 
 
 def normalize(text):
@@ -97,9 +97,8 @@ def command_judge(command, payload):
     if not command:
         raise CheckError("LLM review requires --judge-command or CORPUS_JUDGE_COMMAND")
     try:
-        result = subprocess.run(shlex.split(command), input=json.dumps(payload, ensure_ascii=False),
-                                text=True, capture_output=True, timeout=120, check=True)
-        verdict = json.loads(result.stdout, object_pairs_hook=unique_object)
+        output = run_adapter(shlex.split(command), json.dumps(payload, ensure_ascii=False), timeout=120)
+        verdict = json.loads(output, object_pairs_hook=unique_object)
     except subprocess.TimeoutExpired as exc:
         raise CheckError("LLM judge timed out (no retry)") from exc
     except subprocess.CalledProcessError as exc:
@@ -114,7 +113,7 @@ def command_judge(command, payload):
 def verify(item, api, judge, near=500, book_cache=None, *, judge_runs=DEFAULT_JUDGE_RUNS,
            judge_cache=None, judge_workers=DEFAULT_JUDGE_WORKERS):
     validate_judge_workers(judge_workers)
-    with ThreadPoolExecutor(max_workers=judge_workers) as executor:
+    with JudgeExecutor(max_workers=judge_workers) as executor:
         review = prepare_verification(item, api, judge, near, book_cache, judge_runs=judge_runs,
                                       judge_cache=judge_cache, executor=executor)
         return review()
@@ -181,7 +180,11 @@ def prepare_verification(item, api, judge, near=500, book_cache=None, *, judge_r
         "article_text": item["text"], "original": item["original"],
         "source": item["original"] if translated else text[start:end],
         "author": item["author"], "title": item["title"], "chapter": item["chapter"]}
-    key = judge_cache.key(item, payload, judge_runs) if judge_cache is not None else None
+    key = vote_key(item, payload, judge_runs, judge_cache.identity if judge_cache is not None else None)
+    if key in executor.reviews:
+        if judge_cache is not None:
+            judge_cache.hits += 1
+        return partial(shared_review, executor.reviews[key], judge_cache is not None)
     cached = judge_cache.read(key, judge_runs) if judge_cache is not None else None
     if judge_cache is not None:
         judge_cache.hits += int(cached is not None)
@@ -189,7 +192,19 @@ def prepare_verification(item, api, judge, near=500, book_cache=None, *, judge_r
     futures = [] if cached is not None else [executor.submit(judge, dict(payload)) for _ in range(judge_runs)]
     if judge_cache is not None:
         judge_cache.calls += len(futures)
-    return partial(finish_review, futures, cached, paragraph, judge_cache, key, judge_runs)
+    review = cache(partial(finish_review, futures, cached, paragraph, judge_cache, key, judge_runs))
+    executor.reviews[key] = review
+    return review
+
+
+def shared_review(review, cached):
+    status, reason, paragraph = review()
+    lines = reason.splitlines()
+    if cached:
+        lines[0] = "Cache: HIT (shared in-run review)"
+    else:
+        lines.insert(0, "Shared in-run review")
+    return status, "\n".join(lines), paragraph
 
 
 def finish_review(futures, cached, paragraph, judge_cache, key, judge_runs):
@@ -202,10 +217,9 @@ def finish_review(futures, cached, paragraph, judge_cache, key, judge_runs):
     for run in range(1, judge_runs + 1):
         try:
             verdict = cached[run - 1] if cached is not None else validate_verdict(futures[run - 1].result())
-        except Exception as exc:
+        except CheckError as exc:
             errors = True
-            reason = str(exc) if isinstance(exc, CheckError) else f"Unexpected judge exception: {type(exc).__name__}"
-            explanations.append(f"Run {run}/{judge_runs}: ERROR — {reason}")
+            explanations.append(f"Run {run}/{judge_runs}: ERROR — {exc}")
             continue
         votes.append(verdict)
         explanations.append(f'Run {run}/{judge_runs}: {verdict["verdict"]} '
@@ -213,7 +227,11 @@ def finish_review(futures, cached, paragraph, judge_cache, key, judge_runs):
     if errors:
         return "ERROR", "\n".join(explanations), paragraph
     if judge_cache is not None and cached is None:
-        judge_cache.write(key, votes)
+        try:
+            judge_cache.write(key, votes)
+        except CheckError as exc:
+            explanations.append(f"Cache write: ERROR — {exc}")
+            return "ERROR", "\n".join(explanations), paragraph
     results = [vote["verdict"] for vote in votes]
     status = results[0] if len(set(results)) == 1 else "UNSTABLE"
     return status, "\n".join(explanations), paragraph
@@ -230,7 +248,7 @@ def table_cell(value):
 def check_articles(paths, api, judge, report, near=500, *, judge_name=None, judge_runs=DEFAULT_JUDGE_RUNS,
                    judge_cache=None, judge_workers=DEFAULT_JUDGE_WORKERS):
     validate_judge_workers(judge_workers)
-    with ThreadPoolExecutor(max_workers=judge_workers) as executor:
+    with JudgeExecutor(max_workers=judge_workers) as executor:
         return render_reviews(paths, api, judge, report, near, judge_name=judge_name,
                               judge_runs=judge_runs, judge_cache=judge_cache, executor=executor)
 
@@ -244,16 +262,13 @@ def render_reviews(paths, api, judge, report, near, *, judge_name, judge_runs, j
     invalid_articles = 0
     summary = ["| Article | Citation | Kind | Verdict |", "| --- | --- | --- | --- |"]
     book_cache = {}
+    articles = []
     for path in paths:
-        entries += ["", f"## {path}"]
         try:
             meta, body, _ = _frontmatter(path, REQUIRED_ARTICLE_KEYS, (*OPTIONAL_ARTICLE_KEYS, "corpus_sources"))
             items = citations(meta.get("corpus_sources", []), body, path)
         except (BuildError, ValueError, yaml.YAMLError, OSError) as exc:
-            failed = True
-            invalid_articles += 1
-            entries += [f"Verdict: FAIL — {exc}"]
-            summary.append(f"| {table_cell(path)} | — | schema | FAIL |")
+            articles.append((path, str(exc), []))
             continue
         reviews = []
         for item in items:
@@ -261,16 +276,22 @@ def render_reviews(paths, api, judge, report, near, *, judge_name, judge_runs, j
                 # Corpus reads and book-cache access stay on the calling thread.
                 review = prepare_verification(item, api, judge, near, book_cache,
                                               judge_runs=judge_runs, judge_cache=judge_cache, executor=executor)
-            except (CheckError, KeyError, TypeError, ValueError) as exc:
-                review = partial(lambda reason: ("ERROR", reason,
-                                 "Unavailable: verification failed before context could be trusted."), str(exc))
+            except CheckError as exc:
+                result = ("ERROR", str(exc), "Unavailable: verification failed before context could be trusted.")
+                review = lambda result=result: result
             reviews.append((item, review))
+        articles.append((path, None, reviews))
+    for path, schema_error, reviews in articles:
+        entries += ["", f"## {path}"]
+        if schema_error is not None:
+            failed = True
+            invalid_articles += 1
+            entries += [f"Verdict: FAIL — {schema_error}"]
+            summary.append(f"| {table_cell(path)} | — | schema | FAIL |")
+            continue
         for item, review in reviews:
             count += 1
-            try:
-                status, reason, paragraph = review()
-            except (CheckError, OSError) as exc:
-                status, reason, paragraph = "ERROR", str(exc), "Unavailable: cache result could not be persisted."
+            status, reason, paragraph = review()
             failed |= status != "PASS"
             statuses[status] += 1
             summary.append(f'| {table_cell(path)} | {item["id"]} | {item["kind"]} | {status} |')
@@ -327,7 +348,7 @@ def main(argv=None):
         cache = None
         if not args.no_cache:
             implementation = digest({name: Path(__file__).with_name(name).read_text() for name in
-                                     ("corpus_judge.py", "corpus_judge_claude.sh", "check_corpus_citations.py")})
+                                     ("corpus_judge.py", "corpus_judge_claude.sh", "corpus_judge_process.py", "check_corpus_citations.py")})
             cache = JudgeCache(args.cache_dir, {
                 "adapter_version": args.judge_version, "implementation": implementation,
                 "environment": judge_environment(args.judge_command)})

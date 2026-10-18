@@ -5,7 +5,7 @@ import time
 from pathlib import Path
 import tempfile
 import unittest
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 import test_corpus_citations as fixtures
 from tools.check_corpus_citations import CheckError, check_articles, main, verify
@@ -110,3 +110,85 @@ class JudgeParallelTest(unittest.TestCase):
                 with self.subTest(workers=workers), self.assertRaises(SystemExit) as error:
                     main(['--report', str(Path(tmp) / 'r.md'), '--judge-workers', workers])
                 self.assertEqual(error.exception.code, 2)
+
+    def test_unexpected_judge_exception_propagates(self):
+        item = {**fixtures.ITEM, 'kind': 'retelling', 'original': None, 'translation': None}
+        with self.assertRaisesRegex(TypeError, 'programming defect'):
+            verify(item, fixtures.FakeCorpus(), Mock(side_effect=TypeError('programming defect')))
+
+    def test_all_articles_share_the_pool_without_article_barriers(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp)
+            first, _ = self.article(directory, 1)
+            second = directory / 'en.md'
+            second.write_text(first.read_text().replace('Claim 0', 'Claim 1'))
+            barrier = threading.Barrier(6)
+            def judge(payload):
+                barrier.wait(timeout=5)
+                return {'verdict': 'PASS', 'category': 'supported', 'reason': payload['article_text']}
+            report = directory / 'report.md'
+            self.assertEqual(check_articles([first, second], fixtures.FakeCorpus(), judge, report,
+                                             judge_name='fake', judge_workers=6), 0)
+            self.assertLess(report.read_text().index(f'## {first}'), report.read_text().index(f'## {second}'))
+
+    def test_duplicate_fragments_share_votes_with_or_without_cache(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp)
+            path, _ = self.article(directory, 2)
+            path.write_text(path.read_text().replace('Claim 1', 'Claim 0'))
+            for cached in (False, True):
+                judge = Mock(return_value={'verdict': 'PASS', 'category': 'supported', 'reason': 'Shared reason'})
+                cache = JudgeCache(directory / 'cache', {}) if cached else None
+                report = directory / f'report-{cached}.md'
+                self.assertEqual(check_articles([path], fixtures.FakeCorpus(), judge, report,
+                                                 judge_name='fake', judge_cache=cache), 0)
+                self.assertEqual(judge.call_count, 3)
+                self.assertEqual(report.read_text().count('Shared reason'), 6)
+                if cached:
+                    self.assertEqual(cache.calls, 3)
+                    self.assertEqual(cache.hits, 1)
+                    self.assertEqual(len(list(cache.directory.glob('*.json'))), 1)
+
+    def test_cache_write_error_preserves_votes_and_source_in_report(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp)
+            path, _ = self.article(directory, 1)
+            cache = JudgeCache(directory / 'cache', {})
+            judge = Mock(return_value={'verdict': 'PASS', 'category': 'supported', 'reason': 'Concrete reason'})
+            report = directory / 'report.md'
+            with patch.object(cache, 'write', side_effect=CheckError('Disk full')) as write:
+                self.assertEqual(check_articles([path], fixtures.FakeCorpus(), judge, report,
+                                                 judge_name='fake', judge_cache=cache), 1)
+                write.assert_called_once()
+            text = report.read_text()
+            self.assertIn('Cache write: ERROR — Disk full', text)
+            self.assertEqual(text.count('Concrete reason'), 3)
+            self.assertIn(fixtures.TEXT[fixtures.START:fixtures.END], text)
+            self.assertIn('ERROR: 1', text)
+
+    def test_unexpected_api_error_cancels_queued_votes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp)
+            path, _ = self.article(directory, 9)
+            api = fixtures.FakeCorpus()
+            request = api.request
+            started = threading.Event()
+            calls = []
+            lookups = 0
+            def broken_api(endpoint, data=None):
+                nonlocal lookups
+                if endpoint == '/search/chunks':
+                    lookups += 1
+                    if lookups == 2:
+                        self.assertTrue(started.wait(timeout=5))
+                        raise ConnectionResetError('API disconnected')
+                return request(endpoint, data)
+            def judge(payload):
+                calls.append(payload['article_text'])
+                started.set()
+                time.sleep(0.05)
+                return {'verdict': 'PASS', 'category': 'supported', 'reason': 'Concrete reason'}
+            with patch.object(api, 'request', side_effect=broken_api):
+                with self.assertRaisesRegex(ConnectionResetError, 'API disconnected'):
+                    check_articles([path], api, judge, directory / 'report.md', judge_name='fake', judge_workers=1)
+            self.assertEqual(calls, ['Claim 0'])

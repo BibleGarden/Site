@@ -126,12 +126,12 @@ class CitationTest(unittest.TestCase):
         with self.assertRaises(CheckError):
             command_judge(None, {})
         for output in ('invalid', '{', 'two objects {} {}'):
-            with patch('tools.check_corpus_citations.subprocess.run') as run:
-                run.return_value.stdout = output
+            with patch('tools.check_corpus_citations.run_adapter') as run:
+                run.return_value = output
                 with self.assertRaises(CheckError):
                     command_judge('judge --json', {})
-        with patch('tools.check_corpus_citations.subprocess.run') as run:
-            run.return_value.stdout = '{"verdict":"FAIL","category":"contradiction","reason":"Unsupported"}'
+        with patch('tools.check_corpus_citations.run_adapter') as run:
+            run.return_value = '{"verdict":"FAIL","category":"contradiction","reason":"Unsupported"}'
             self.assertEqual(command_judge('judge --json', {})['verdict'], 'FAIL')
             self.assertNotIn('shell', run.call_args.kwargs)
 
@@ -139,7 +139,7 @@ class CitationTest(unittest.TestCase):
         for error in (OSError('Unavailable'), subprocess.TimeoutExpired('judge', 120),
                       subprocess.CalledProcessError(1, 'judge')):
             with self.subTest(error=type(error).__name__), \
-                 patch('tools.check_corpus_citations.subprocess.run', side_effect=error) as run:
+                 patch('tools.check_corpus_citations.run_adapter', side_effect=error) as run:
                 with self.assertRaises(CheckError):
                     command_judge('judge --json', {})
                 self.assertEqual(run.call_count, 1)
@@ -487,8 +487,8 @@ class CitationTest(unittest.TestCase):
         for raw in ('{"verdict":"FAIL","verdict":"PASS","category":"supported","reason":"Faithful"}',
                     '{"verdict":"PASS","category":"contradiction","category":"supported","reason":"Faithful"}',
                     '{"verdict":"PASS","category":"supported","reason":"Mismatch","reason":"Faithful"}'):
-            with self.subTest(raw=raw), patch('tools.check_corpus_citations.subprocess.run') as run:
-                run.return_value.stdout = raw
+            with self.subTest(raw=raw), patch('tools.check_corpus_citations.run_adapter') as run:
+                run.return_value = raw
                 with self.assertRaisesRegex(CheckError, 'Duplicate JSON'):
                     command_judge('judge --json', {})
                 self.assertEqual(run.call_count, 1)

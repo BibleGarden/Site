@@ -197,10 +197,18 @@ Each translated quote or retelling receives three independent calls (default
 and no prior verdicts. Unanimous PASS or FAIL yields that status; mixed votes
 yield UNSTABLE. One shared pool limits simultaneous judge calls across fragments
 and their runs (`DEFAULT_JUDGE_WORKERS = 6`, positive `--judge-workers` override).
-Corpus validation stays serial. Reports retain article order and run-number order,
+All articles are prepared before collecting results; corpus validation stays
+serial. Reports retain article order and run-number order,
 independently of completion order. Every scheduled call is awaited and reported;
 any error makes that fragment ERROR, and its partial set is not cached. Other
-fragments continue. Calls are never retried or replaced. Exact untranslated quotes use deterministic checks.
+fragments continue. Calls are never retried or replaced. Unexpected programming
+exceptions propagate. Exact untranslated quotes use deterministic checks.
+
+Each adapter starts in its own POSIX process group. Timeout cleanup kills that
+whole group and waits before freeing its worker slot. Interruption or an uncaught
+exception cancels queued work, kills active groups and joins their workers.
+Identical evidence keys share one review across the run, including across articles.
+A cache-write error marks ERROR while preserving votes and trusted source context.
 
 Reports list all completed votes, categories and reasons, the run count, and
 final PASS/FAIL/UNSTABLE/ERROR counters plus invalid-article count. Any FAIL,
@@ -248,13 +256,16 @@ python -m unittest discover -s tests -p 'test_corpus*.py'
 Fake corpus, fake judge and a fake Claude executable cover exact/distorted and
 translated quotes, wrong retellings, hashes/ranges/metadata, caching, punctuation,
 localized footnotes, reports, CLI adapter errors, strict verdict/category
-validation, configurable independent runs, unanimous PASS/FAIL, disagreement reports, category-derived verdicts,
+validation, configurable independent runs, unanimous PASS/FAIL, disagreement
+reports, category-derived verdicts,
 schema arguments, structured-output validation, duplicate-key rejection, errors
 without checker retries, and
 Lampada-only front matter.
 Cache tests cover reuse with zero calls, one edited fragment, prompt/adapter/run
 invalidation, preserved FAIL/UNSTABLE explanations, ERROR exclusion, canonical
-revalidation, corrupt/unwritable records, private paths and `--no-cache`. Delayed fake judges verify the global worker
-limit, concurrency between fragments and runs, deterministic reports and
-complete error/peer results.
+revalidation, corrupt/unwritable records, private paths and `--no-cache`.
+Delayed fake judges verify the shared worker limit across articles/runs,
+deterministic reports, deduplicated reviews and preserved error/peer results.
+Real subprocess fixtures verify Ctrl-C queue cancellation, descendant termination
+and timeout cleanup before a worker slot is reused.
 Existing CI discovers these tests without live API calls or credentials.
