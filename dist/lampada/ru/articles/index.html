@@ -6,8 +6,11 @@
     <meta name="generator" content="sitegen">
     <title>Статьи — Lampada</title>
     <meta name="description" content="Заметки о личной молитве: как молиться, вести молитвенный дневник и возвращаться к главному.">
-    <meta name="robots" content="noindex">
     <link rel="canonical" href="https://lampada.app/ru/articles/">
+    <link rel="alternate" hreflang="en" href="https://lampada.app/articles/">
+    <link rel="alternate" hreflang="ru" href="https://lampada.app/ru/articles/">
+    <link rel="alternate" hreflang="uk" href="https://lampada.app/uk/articles/">
+    <link rel="alternate" hreflang="x-default" href="https://lampada.app/articles/">
     <meta property="og:site_name" content="Lampada">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lampada.app/ru/articles/">
@@ -15,6 +18,8 @@
     <meta property="og:description" content="Заметки о личной молитве: как молиться, вести молитвенный дневник и возвращаться к главному.">
     <meta property="og:image" content="https://lampada.app/assets/lampada-icon-512.png">
     <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="uk_UA">
     <script>
         // Language handling without a server:
         //  1. landing pages only: legacy ?lang=en|ru|uk links (ua = uk) go to the language URL
@@ -58,9 +63,9 @@
                 <a href="/ru/#purpose">О приложении</a>
             </nav>
             <div class="language-switcher" aria-label="Язык">
-                <span aria-disabled="true" title="Статьи доступны только на: RU">EN</span>
+                <a href="/articles/" hreflang="en" data-lang="en">EN</a>
                 <a href="/ru/articles/" hreflang="ru" data-lang="ru" class="is-active" aria-current="page">RU</a>
-                <span aria-disabled="true" title="Статьи доступны только на: RU">UK</span>
+                <a href="/uk/articles/" hreflang="uk" data-lang="uk">UK</a>
             </div>
         </div>
     </header>
@@ -71,7 +76,15 @@
             <h1 class="article-title">Статьи</h1>
             <p class="article-lead">Заметки о личной молитве: как молиться, вести молитвенный дневник и возвращаться к главному.</p>
         </header>
-        <p class="article-empty">Статьи скоро появятся.</p>
+        <ul class="article-list">
+            <li>
+                <a href="/ru/articles/how-to-start-praying/">
+                    <h2>Как молиться своими словами: с чего начать</h2>
+                    <p>Как начать молиться своими словами: говорить с Богом о том, что на сердце сейчас, обычными словами. Истории Сильвио Пеллико, Розалинд Гофорт, Терезы из Лизьё и Феофана Затворника.</p>
+                    <time datetime="2026-10-18">2026-10-18</time>
+                </a>
+            </li>
+        </ul>
     </main>
 
     <footer class="site-footer shell">
