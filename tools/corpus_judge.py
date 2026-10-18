@@ -13,6 +13,16 @@ FAIL_CATEGORIES = {"distortion", "addition", "contradiction", "misattribution",
                    "meaning_changing_omission", "close_paraphrase"}
 
 
+def unique_object(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            # Keys may contain private model text; do not include them in errors.
+            raise CheckError("Duplicate JSON object key in judge response")
+        result[key] = value
+    return result
+
+
 def assessment_verdict(assessment):
     if (not isinstance(assessment, dict) or set(assessment) != {"category", "reason"}
             or not isinstance(assessment["category"], str)
@@ -43,7 +53,7 @@ def claude_verdict(envelope):
     if start < 0 or "[" in result[:start]:
         raise CheckError("Claude response must contain exactly one JSON object")
     try:
-        assessment, end = json.JSONDecoder().raw_decode(result, start)
+        assessment, end = json.JSONDecoder(object_pairs_hook=unique_object).raw_decode(result, start)
     except ValueError as exc:
         raise CheckError("Claude assessment contains malformed JSON") from exc
     if any(char in result[end:] for char in "{}[]"):
@@ -53,7 +63,7 @@ def claude_verdict(envelope):
 
 def main():
     try:
-        envelope = json.load(sys.stdin)
+        envelope = json.load(sys.stdin, object_pairs_hook=unique_object)
         verdict = claude_verdict(envelope)
     except (CheckError, ValueError) as exc:
         # Never echo the raw model text or CLI envelope into diagnostics.

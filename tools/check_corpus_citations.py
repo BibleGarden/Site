@@ -22,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from sitegen.content import _frontmatter, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS
 from sitegen.corpus import citations
 from sitegen.errors import BuildError
-from tools.corpus_judge import CheckError, validate_verdict
+from tools.corpus_judge import CheckError, unique_object, validate_verdict
 
 
 def normalize(text):
@@ -95,7 +95,7 @@ def command_judge(command, payload):
     try:
         result = subprocess.run(shlex.split(command), input=json.dumps(payload, ensure_ascii=False),
                                 text=True, capture_output=True, timeout=120, check=True)
-        verdict = json.loads(result.stdout)
+        verdict = json.loads(result.stdout, object_pairs_hook=unique_object)
     except subprocess.TimeoutExpired as exc:
         raise CheckError("LLM judge timed out (no retry)") from exc
     except subprocess.CalledProcessError as exc:

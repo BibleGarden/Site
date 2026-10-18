@@ -486,6 +486,37 @@ class CitationTest(unittest.TestCase):
             with self.subTest(envelope=envelope), self.assertRaises(CheckError):
                 claude_verdict(envelope)
 
+    def test_duplicate_assessment_keys_are_rejected(self):
+        for raw in ('{"category":"contradiction","category":"supported","reason":"Faithful"}',
+                    '{"category":"supported","reason":"Mismatch","reason":"Faithful"}',
+                    '{"category":"supported","rea\\u0073on":"Mismatch","reason":"Faithful"}'):
+            with self.subTest(raw=raw), self.assertRaisesRegex(CheckError, 'Duplicate JSON'):
+                claude_verdict({'result': raw})
+
+    def test_duplicate_custom_adapter_keys_are_rejected_without_retry(self):
+        for raw in ('{"verdict":"FAIL","verdict":"PASS","category":"supported","reason":"Faithful"}',
+                    '{"verdict":"PASS","category":"contradiction","category":"supported","reason":"Faithful"}',
+                    '{"verdict":"PASS","category":"supported","reason":"Mismatch","reason":"Faithful"}'):
+            with self.subTest(raw=raw), patch('tools.check_corpus_citations.subprocess.run') as run:
+                run.return_value.stdout = raw
+                with self.assertRaisesRegex(CheckError, 'Duplicate JSON'):
+                    command_judge('judge --json', {})
+                self.assertEqual(run.call_count, 1)
+
+    def test_duplicate_envelope_keys_fail_without_leaking_keys_or_output(self):
+        parser = Path(__file__).resolve().parents[1] / 'tools/corpus_judge.py'
+        assessment = json.dumps({'category': 'supported', 'reason': 'Faithful'})
+        for raw in ('{"is_error":true,"is_error":false,"result":' + json.dumps(assessment) + '}',
+                    '{"result":"secret","result":' + json.dumps(assessment) + '}',
+                    '{"secret":1,"secret":2,"result":' + json.dumps(assessment) + '}'):
+            with self.subTest(raw=raw):
+                result = subprocess.run([os.sys.executable, str(parser)], input=raw,
+                                        text=True, capture_output=True)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertEqual(result.stdout, '')
+                self.assertIn('Duplicate JSON', result.stderr)
+                self.assertNotIn('secret', result.stderr)
+
     def test_claude_adapter_with_fake_cli_no_live_calls(self):
         adapter = Path(__file__).resolve().parents[1] / 'tools/corpus_judge_claude.sh'
         with tempfile.TemporaryDirectory() as tmp:

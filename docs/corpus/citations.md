@@ -175,7 +175,8 @@ category. Custom adapters' verdicts must also match the category. Categories:
   how its absence changes the claim. Translations may retain source structure.
 
 Unknown categories, mismatched verdict/category pairs, extra/missing fields and
-wrong field types are explicit errors, never approvals. The prompt requires a
+wrong field types are explicit errors, never approvals. Duplicate JSON keys are
+rejected in CLI envelopes, model assessments and custom-adapter replies. The prompt requires a
 concrete mismatch for a failure category; uncertainty or possible closeness is
 not itself an established error. Free-text reasoning still needs editorial
 review: structural validation cannot prove its semantic consistency.
