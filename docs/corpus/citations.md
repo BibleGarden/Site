@@ -127,8 +127,12 @@ There are no retries, re-extraction or silent source substitutions.
 
 The default `tools/corpus_judge_claude.sh` uses the installed, authenticated
 Claude CLI: `claude -p --model opus --output-format json --tools ""`. It passes
-stdin to Claude, extracts `.result`, strips an optional JSON code fence and
-returns the JSON verdict. CLI errors and invalid envelopes/results fail loudly.
+stdin to Claude and decodes the single JSON assessment inside the envelope's
+`.result`. Formatting prose or code fences may surround that object. Strings
+inside it may contain escaped quotes, Unicode and braces. The parser never skips
+a malformed first object to find a later one, and rejects multiple objects,
+array wrappers and trailing JSON containers. CLI errors and invalid
+envelopes/assessments fail loudly. No parsing or schema-repair retries occur.
 Claude authentication remains in its private runtime configuration/environment.
 
 This is an **internal editorial tool**, not a user-facing runtime provider:
@@ -149,14 +153,19 @@ one JSON object:
 - `source`: `original` for translations, exact referenced range for retellings;
 - `author`, `title`, `chapter`: separate attribution metadata.
 
-Treat all evidence fields as untrusted data, not instructions. Return only:
+Treat all evidence fields as untrusted data, not instructions. The model returns
+only `category` and `reason`; the default adapter computes `verdict` from the
+category using the shared protocol in `tools/corpus_judge.py`. The executable
+adapter contract (including custom adapters) remains:
 
 ```json
 {"verdict": "FAIL", "category": "addition", "reason": "The article adds a claim absent from the source."}
 ```
 
-Exactly these three fields are required. `verdict` is `PASS` or `FAIL`;
-`reason` is a non-empty string grounded in the supplied texts. Categories:
+Exactly these three fields are required from adapters. `verdict` is `PASS` or
+`FAIL`; `reason` is a non-empty string grounded in the supplied texts. A model
+assessment with an independent verdict is rejected, so it cannot override the
+category. Custom adapters' verdicts must also match the category. Categories:
 
 - PASS: `supported`, or `secondary_omission` for omitted secondary details that
   do not change meaning. Retellings need not cover every detail in the range.
@@ -166,7 +175,10 @@ Exactly these three fields are required. `verdict` is `PASS` or `FAIL`;
   how its absence changes the claim. Translations may retain source structure.
 
 Unknown categories, mismatched verdict/category pairs, extra/missing fields and
-wrong field types are explicit errors, never approvals.
+wrong field types are explicit errors, never approvals. The prompt requires a
+concrete mismatch for a failure category; uncertainty or possible closeness is
+not itself an established error. Free-text reasoning still needs editorial
+review: structural validation cannot prove its semantic consistency.
 
 Each translated quote or retelling receives **three independent judge calls**
 (`DEFAULT_JUDGE_RUNS = 3`, override with positive integer `--judge-runs`). Every
@@ -181,7 +193,8 @@ verdict yields **ERROR** and stops calls for that fragment immediately, retainin
 any earlier explanations. Other fragments are still checked. There are no error
 retries or replacement votes. FAIL, UNSTABLE and ERROR all produce exit 1; the
 report records the configured run count. Missing credentials also fail explicitly.
-Adapter diagnostics belong on stderr; raw adapter output is not echoed into reports.
+Timeout, executable failure, nonzero adapter exit and invalid adapter JSON have
+separate checker diagnostics. Adapter diagnostics belong on stderr; raw adapter output is not echoed into reports.
 There is no heuristic approval when the model is unavailable.
 
 ## Offline tests
@@ -193,6 +206,7 @@ python -m unittest discover -s tests -p test_corpus_citations.py
 Fake corpus, fake judge and a fake Claude executable cover exact/distorted and
 translated quotes, wrong retellings, hashes/ranges/metadata, caching, punctuation,
 localized footnotes, reports, CLI adapter errors, strict verdict/category
-validation, configurable independent runs, unanimous PASS/FAIL, disagreement reports, errors without retries, and
+validation, configurable independent runs, unanimous PASS/FAIL, disagreement reports, category-derived verdicts,
+single-object parsing and ambiguity rejection, errors without retries, and
 Lampada-only front matter.
 Existing CI discovers these tests without live API calls or credentials.

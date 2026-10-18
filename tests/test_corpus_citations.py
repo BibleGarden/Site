@@ -17,6 +17,8 @@ import yaml
 from sitegen.content import parse_article
 from sitegen.corpus import annotate, citations
 from sitegen.errors import BuildError
+from tools.corpus_judge import (PASS_CATEGORIES, FAIL_CATEGORIES, assessment_verdict,
+                                claude_verdict)
 from tools.check_corpus_citations import (CheckError, CorpusAPI, DEFAULT_JUDGE, check_articles,
                                           command_judge, main, normalize, validate_verdict, verify)
 
@@ -450,6 +452,40 @@ class CitationTest(unittest.TestCase):
                         self.assertEqual(judge.call_args.args[0], command or DEFAULT_JUDGE)
                         self.assertIn(command or DEFAULT_JUDGE, report.read_text())
 
+    def test_model_category_determines_verdict(self):
+        for category in PASS_CATEGORIES | FAIL_CATEGORIES:
+            with self.subTest(category=category):
+                verdict = assessment_verdict({'category': category, 'reason': 'Concrete evidence'})
+                expected = 'PASS' if category in PASS_CATEGORIES else 'FAIL'
+                self.assertEqual(verdict['verdict'], expected)
+                self.assertEqual(validate_verdict(verdict), verdict)
+                verdict['verdict'] = 'FAIL' if expected == 'PASS' else 'PASS'
+                with self.assertRaises(CheckError):
+                    validate_verdict(verdict)
+        # The model cannot supply an independent conflicting verdict at all.
+        with self.assertRaises(CheckError):
+            assessment_verdict({'category': 'supported', 'reason': 'Meaning is faithful', 'verdict': 'FAIL'})
+
+    def test_claude_single_object_wrappers_and_escaped_braces(self):
+        assessment = {'category': 'secondary_omission', 'reason': 'Meaning faithful: "слово" {detail}'}
+        raw = json.dumps(assessment, ensure_ascii=False)
+        for text in (raw, '```json\n' + raw + '\n```',
+                     'Here is my assessment:\n' + raw + '\nEnd of assessment.',
+                     'Assessment:\n```json\n' + raw + '\n```\nDone.'):
+            with self.subTest(text=text):
+                self.assertEqual(claude_verdict({'result': text, 'is_error': False}),
+                                 {'verdict': 'PASS', **assessment})
+        for text in (raw + raw, '[' + raw + ']', '{invalid}' + raw,
+                     raw + '\n{}', raw + '\n[]', raw[:-1],
+                     '{"category":"supported","reason":""}',
+                     '{"category":"unknown","reason":"Meaning faithful"}',
+                     '{"verdict":"FAIL","category":"supported","reason":"Meaning faithful"}'):
+            with self.subTest(text=text), self.assertRaises(CheckError):
+                claude_verdict({'result': text})
+        for envelope in (None, [], {'is_error': True, 'result': raw}, {'result': None}, {}):
+            with self.subTest(envelope=envelope), self.assertRaises(CheckError):
+                claude_verdict(envelope)
+
     def test_claude_adapter_with_fake_cli_no_live_calls(self):
         adapter = Path(__file__).resolve().parents[1] / 'tools/corpus_judge_claude.sh'
         with tempfile.TemporaryDirectory() as tmp:
@@ -464,10 +500,9 @@ class CitationTest(unittest.TestCase):
             env = {**os.environ, 'PATH': tmp + os.pathsep + os.environ['PATH'],
                    'ARGS_PATH': str(args_path), 'INPUT_PATH': str(input_path)}
             payload = {'article_text': 'Молитва', 'source': 'Prayer'}
-            for fenced in (False, True):
-                verdict = json.dumps({'verdict': 'PASS', 'category': 'supported', 'reason': 'Supported'})
-                if fenced:
-                    verdict = '```json\n' + verdict + '\n```'
+            for wrapper in ("{}", "```json\n{}\n```", "Assessment:\n{}\nDone."):
+                verdict = json.dumps({'category': 'supported', 'reason': 'Supported'})
+                verdict = wrapper.format(verdict)
                 env['FAKE_CLAUDE_OUTPUT'] = json.dumps({'result': verdict, 'is_error': False})
                 result = subprocess.run([str(adapter)], input=json.dumps(payload), text=True, capture_output=True, env=env)
                 self.assertEqual(result.returncode, 0, result.stderr)
