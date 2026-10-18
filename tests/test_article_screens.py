@@ -103,6 +103,7 @@ class ArticleScreensTest(unittest.TestCase):
         figure = ET.fromstring(f"<div>{body}</div>").find("figure")
         self.assertIsNone(figure.find("figcaption"))
         self.assertEqual(figure.find("a").get("href"), "/img/article-screens/zoom/question.ru.webp")
+        self.assertEqual(figure.find("a/img").get("sizes"), "min(15rem, 66vw)")
 
     def test_pager_uses_unique_screens_in_article_order_and_localized_buttons(self) -> None:
         labels = {

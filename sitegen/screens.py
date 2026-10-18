@@ -204,7 +204,7 @@ class ScreenFigures(Treeprocessor):
                 {
                     "src": ref.url("mobile"),
                     "srcset": f"{ref.url('mobile')} 360w, {ref.url('phone')} 480w",
-                    "sizes": "180px",
+                    "sizes": "min(15rem, 66vw)" if self.site_app == "lampada" else "180px",
                     "alt": ref.caption,
                     "width": str(width),
                     "height": str(height),
