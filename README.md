@@ -1098,3 +1098,38 @@ The fixture preview must use the real local API override above. It checks ru/uk,
 per-reading jumps, highlighting, progress, stable layout and contrast, plus
 persistence, fixed calendar and partial/missing audio on a Lent weekday.
 Screenshots/report are generated outside git.
+
+## Rights & attribution
+
+Bible Garden publishes `/rights/`, `/ru/rights/`, `/uk/rights/`, linked from
+the shared footer, the hand-written privacy footer and About. Standalone
+pages use the existing canonical/hreflang, WebPage JSON-LD and sitemap rules.
+They list only confirmed texts and recordings; text and audio have separate
+rights. This page does not declare the entire app catalog cleared.
+
+The single source of truth is **Bible-API/app/rights.yaml** (Architecture
+ADR-0019, owner decision 2026-10-18). `content/bible-garden/rights.json` is a
+derived response from `GET /api/rights`, not an editable second registry.
+To publish a new permission, first review the API registry change, then
+refresh this snapshot and rebuild Site in a PR:
+
+```bash
+# Set RIGHTS_API_KEY in your shell to an ordinary catalog key. Never commit it.
+.venv/bin/python tools/refresh_rights.py
+.venv/bin/python -m sitegen build
+.venv/bin/python -m sitegen check
+.venv/bin/python -m unittest discover -s tests
+```
+
+The refresh command alone uses the network; the build/tests remain offline.
+For a reviewed unreleased API branch, `--url http://127.0.0.1:<port>/api/rights`
+can target an isolated local server. Do not use the browser audio key, which
+is rejected by this endpoint. No missing snapshot or invalid notice is
+silently replaced. Generated `dist/` is committed with the refreshed snapshot.
+
+The initial seven-entry snapshot was obtained on 2026-10-18 from this route
+on an isolated server running the companion rights-registry API branch; the
+API endpoint is not assumed to be deployed yet. No production or DB changes
+are part of this change. NPU covers NT and Psalms **text**, not audio. Its
+changes notice explicitly leaves word-level verification open; see the API
+registry for the wording, sources and original Biblica notice.

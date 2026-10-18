@@ -1,0 +1,30 @@
+{% for kind in ('text', 'audio') %}
+        <section class="rights-notices" aria-labelledby="rights-{{ kind }}">
+            <h2 id="rights-{{ kind }}">{{ t.rights_page[kind] }}</h2>
+{% for item_id, item in rights['items'].items() if item.kind == kind %}
+            <section aria-labelledby="{{ item_id | replace(':', '-') }}">
+                <h3 id="{{ item_id | replace(':', '-') }}">{{ item.title[lang] }}</h3>
+                <p>{{ item.rights_holder }}</p>
+{% if item.copyright %}
+                <p>{{ item.copyright }}</p>
+{% endif %}
+{% if item.license %}
+                <p><a href="{{ item.license.url }}">{{ item.license.name }}</a></p>
+{% else %}
+                <p><strong>{{ t.rights_page.public_domain }}</strong> {{ item.public_domain_basis[lang] }}</p>
+{% endif %}
+                <p>{{ item.attribution[lang] | nl2br }}</p>
+                <p><strong>{{ t.rights_page.changes }}</strong> {{ item.changes[lang] }}</p>
+{% if item.trademark %}
+                <p>{{ item.trademark[lang] }}</p>
+{% endif %}
+                <p>{{ t.rights_page.sources }}:
+{% for source in item.sources %}
+                    <a href="{{ source }}">{{ source }}</a>{% if not loop.last %}<br>{% endif %}
+{% endfor %}
+                </p>
+                <p>{{ t.rights_page.checked_on }}: <time datetime="{{ item.checked_on }}">{{ item.checked_on }}</time></p>
+            </section>
+{% endfor %}
+        </section>
+{% endfor %}

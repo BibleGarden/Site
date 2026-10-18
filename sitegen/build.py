@@ -112,6 +112,10 @@ class SiteBuilder:
     def __init__(self, content_dir: Path, output_dir: Path, *, preview: bool) -> None:
         self.site = replace(load_site(content_dir, REPO_ROOT, preview=preview), output_dir=output_dir)
         self.preview = preview
+        self.rights = None
+        if self.site.key == "bible-garden":
+            from .rights import load_registry
+            self.rights = load_registry(content_dir / "rights.json")
         output_dir.mkdir(parents=True)
         for name in STATIC_FILES[self.site.key]:
             source = REPO_ROOT / "static" / self.site.key / name
@@ -385,6 +389,7 @@ class SiteBuilder:
             lang,
             page=page,
             static=static,
+            rights=self.rights,
             json_ld=[self.page_json_ld(static, page)],
             switcher=self.switcher(lang, page.alternates, "only_in"),
         )

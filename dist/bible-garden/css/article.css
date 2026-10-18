@@ -895,3 +895,7 @@
     .article-body .gospel-player-current { margin-left: 3rem; }
 }
 @media print { .gospel-today-window { min-height: 0; } .gospel-selectors, .gospel-audio-controls, .gospel-reading-play { display: none; } }
+
+/* Rights notices include publisher URLs and original multilingual notices. */
+.rights-notices { overflow-wrap: anywhere; }
+.rights-notices p + p { margin-top: 0.75em; }

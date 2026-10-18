@@ -118,6 +118,7 @@
                 </a>
                 <nav class="footer-links text-gray-400">
                     <a id="about-link" href="/about/" data-i18n="about">How we write</a>
+                    <a id="rights-link" href="/rights/" data-i18n="rights">Rights &amp; attribution</a>
                     <a id="rights-holders-link" href="/about/#rights-holders" data-i18n="rights_holders">For rights holders</a>
                     <a id="articles-link" href="/articles/" data-i18n="articles">Articles</a>
                 </nav>
@@ -158,6 +159,7 @@
             'footer': 'Open source project under the GPL-3.0 license. All rights belong to God.',
             'about': 'How we write',
             'rights_holders': 'For rights holders',
+            'rights': 'Rights & attribution',
             'articles': 'Articles',
         },
         ru: {
@@ -190,6 +192,7 @@
             'footer': 'Проект с открытым кодом под лицензией GPL-3.0. Все права принадлежат Богу.',
             'about': 'Как мы пишем',
             'rights_holders': 'Правообладателям',
+            'rights': 'Права и атрибуция',
             'articles': 'Статьи',
         },
         ua: {
@@ -222,6 +225,7 @@
             'footer': 'Проєкт з відкритим кодом під ліцензією GPL-3.0. Усі права належать Богу.',
             'about': 'Як ми пишемо',
             'rights_holders': 'Правовласникам',
+            'rights': 'Права та атрибуція',
             'articles': 'Статті',
         }
     };
@@ -245,6 +249,7 @@
 
         document.getElementById('footer-home-link').href = { en: '/', ru: '/ru/', ua: '/uk/' }[lang];
         document.getElementById('about-link').href = { en: '/about/', ru: '/ru/about/', ua: '/uk/about/' }[lang];
+        document.getElementById('rights-link').href = { en: '/rights/', ru: '/ru/rights/', ua: '/uk/rights/' }[lang];
         document.getElementById('rights-holders-link').href = document.getElementById('about-link').href + '#rights-holders';
         document.getElementById('articles-link').href = { en: '/articles/', ru: '/ru/articles/', ua: '/uk/articles/' }[lang];
 
