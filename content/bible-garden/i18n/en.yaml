@@ -65,6 +65,7 @@ landing:
     desc: "Have questions, want to contribute, or just say hello? Reach out through any of these channels."
     telegram: Telegram
   footer:
+    rights: Rights & attribution
     copyright: "Open source project under the GPL-3.0 license. All rights belong to God."
     privacy: Privacy Policy
     about: How we write
@@ -220,3 +221,17 @@ articles:
 not_found:
   title: Page not found
   text: "The page you are looking for does not exist or has moved."
+
+rights_page:
+  text: "Bible texts"
+  audio: "Audio recordings"
+  public_domain: "Public domain."
+  changes: "Changes:"
+  sources: "Sources and evidence"
+  checked_on: "Evidence checked"
+  rights_holder: "Rights holder:"
+  credit: "Credit:"
+  copyright: "Copyright:"
+  license: "License:"
+  attribution: "Attribution:"
+  trademark: "Trademark terms:"

@@ -21,6 +21,9 @@
 
         <div class="article-body">
 {{ static.body_html | safe }}
+{% if static.slug == "rights" %}
+{% include "rights.html" %}
+{% endif %}
         </div>
     </article>
 {% endblock %}
