@@ -296,9 +296,9 @@ class CitationTest(unittest.TestCase):
             path, report = Path(tmp) / 'ru.md', Path(tmp) / 'review.md'
             self.write_article(path, [self.item])
             with patch('tools.check_corpus_citations.CorpusAPI', return_value=self.api):
-                self.assertEqual(main([str(path), '--report', str(report)]), 0)
+                self.assertEqual(main(['--no-cache', str(path), '--report', str(report)]), 0)
                 self.api.hit['text_sha256'] = '0' * 64
-                self.assertEqual(main([str(path), '--report', str(report)]), 1)
+                self.assertEqual(main(['--no-cache', str(path), '--report', str(report)]), 1)
 
     def test_judge_unavailable_preserves_source_in_report(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -450,7 +450,7 @@ class CitationTest(unittest.TestCase):
                     with patch('tools.check_corpus_citations.CorpusAPI', return_value=self.api), \
                          patch('tools.check_corpus_citations.command_judge') as judge:
                         judge.return_value = {'verdict': 'PASS', 'category': 'supported', 'reason': 'Faithful'}
-                        self.assertEqual(main([str(path), '--report', str(report), '--judge-runs', str(runs)]), 0)
+                        self.assertEqual(main(['--no-cache', str(path), '--report', str(report), '--judge-runs', str(runs)]), 0)
                         self.assertEqual(judge.call_count, runs)
                         self.assertEqual(judge.call_args.args[0], command or DEFAULT_JUDGE)
                         self.assertIn(command or DEFAULT_JUDGE, report.read_text())
@@ -521,16 +521,20 @@ class CitationTest(unittest.TestCase):
             cli.chmod(0o755)
             env = {**os.environ, 'PATH': tmp + os.pathsep + os.environ['PATH'],
                    'ARGS_PATH': str(args_path), 'INPUT_PATH': str(input_path)}
+            alias = Path(tmp) / 'judge-alias'
+            alias.symlink_to(adapter)
             payload = {'article_text': 'Молитва', 'source': 'Prayer'}
             env['FAKE_CLAUDE_OUTPUT'] = json.dumps({
                 'structured_output': {'category': 'supported', 'reason': 'Supported'},
                 'result': 'Prose [with {braces}] is not part of the structured verdict.', 'is_error': False})
-            result = subprocess.run([str(adapter)], input=json.dumps(payload), text=True, capture_output=True, env=env)
+            result = subprocess.run([str(alias)], input=json.dumps(payload), text=True, capture_output=True, env=env)
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertEqual(json.loads(result.stdout)['verdict'], 'PASS')
             self.assertEqual(json.loads(input_path.read_text()), payload)
             args = json.loads(args_path.read_text())
-            self.assertEqual(args[:-2], ['-p', '--model', 'opus', '--output-format', 'json', '--tools', ''])
+            self.assertEqual(args[:-2], ['-p', '--model', 'opus', '--output-format', 'json', '--tools', '',
+                                             '--safe-mode', '--setting-sources', '', '--strict-mcp-config',
+                                             '--no-session-persistence'])
             self.assertEqual(args[-2], '--json-schema')
             self.assertEqual(json.loads(args[-1]), ASSESSMENT_SCHEMA)
             self.assertEqual(ASSESSMENT_SCHEMA['properties']['category']['enum'],

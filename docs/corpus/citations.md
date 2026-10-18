@@ -126,7 +126,19 @@ There are no retries, re-extraction or silent source substitutions.
 ## LLM judge adapter
 
 The default `tools/corpus_judge_claude.sh` uses the installed, authenticated
-Claude CLI: `claude -p --model opus --output-format json --tools "" --json-schema <schema>`.
+Claude CLI with Opus fixed in the adapter:
+
+```bash
+claude -p --model opus --output-format json --tools "" \
+  --safe-mode --setting-sources "" --strict-mcp-config --no-session-persistence \
+  --json-schema <schema>
+```
+
+Safe mode disables CLAUDE.md and custom skills/plugins/hooks; setting sources and
+configured MCP servers are disabled, and sessions are not persisted. Managed
+policy, inherited environment and remote provider configuration still apply;
+bump `--judge-version` when those change. Authentication remains private.
+
 The schema comes from `tools/corpus_judge.py`: category enum, a non-empty reason,
 required fields and no additional properties. The adapter reads only the envelope's
 `structured_output` and validates it with `assessment_verdict`; prose in `.result`
@@ -192,10 +204,40 @@ final PASS/FAIL/UNSTABLE/ERROR counters plus invalid-article count. Any FAIL,
 UNSTABLE, ERROR or invalid article exits 1. Missing credentials also fail.
 Adapter diagnostics stay on stderr; raw output is not echoed into reports.
 
+## Judge verdict cache
+
+The CLI stores complete PASS/FAIL/UNSTABLE vote sets in
+`~/.cache/lampada-citation-judge`; override with `--cache-dir` outside the repo.
+ERROR and partial sets are never stored. Records contain private explanations:
+do not commit or publish them. New directories/files use 0700/0600. Writes use
+a temporary file + rename, without per-key locks or alternative cache locations.
+
+Keys cover fragment text, kind, original/translation, canonical range text and
+full-book hash, offsets, book/chunk identity, attribution, exact criteria, run
+count, adapter SHA-256/arguments, bundled code/schema and Claude CLI version.
+Opus and its fixed flags are part of the adapter fingerprint. Executable paths
+are excluded so identical worktrees share votes; resolving a bundled-adapter
+symlink still includes `claude --version`. Unavailable/invalid version discovery
+is an error. Custom adapters need no Claude, but must bump `--judge-version`
+(default `1`) for changed wrapper dependencies or hidden configuration.
+
+Each run revalidates the corpus before using cached votes. Invalid, incomplete,
+duplicate-key or corrupt records fail explicitly: repair or remove the named
+record. Reports mark `Cache: HIT`/`MISS`, retain votes/reasons and count judge
+calls and cached fragments. In-process callers opt in with a `JudgeCache`.
+
+Before merge, run a fresh review without cache reads, writes or fingerprinting:
+
+```bash
+python tools/check_corpus_citations.py content/lampada/articles/<slug>/{ru,en,uk}.md \
+  --no-cache --report /tmp/lampada-final-review.md
+```
+
+
 ## Offline tests
 
 ```bash
-python -m unittest discover -s tests -p test_corpus_citations.py
+python -m unittest discover -s tests -p 'test_corpus*.py'
 ```
 
 Fake corpus, fake judge and a fake Claude executable cover exact/distorted and
@@ -205,4 +247,7 @@ validation, configurable independent runs, unanimous PASS/FAIL, disagreement rep
 schema arguments, structured-output validation, duplicate-key rejection, errors
 without checker retries, and
 Lampada-only front matter.
+Cache tests cover reuse with zero calls, one edited fragment, prompt/adapter/run
+invalidation, preserved FAIL/UNSTABLE explanations, ERROR exclusion, canonical
+revalidation, corrupt/unwritable records, private paths and `--no-cache`.
 Existing CI discovers these tests without live API calls or credentials.

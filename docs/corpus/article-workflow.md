@@ -153,6 +153,13 @@ python tools/check_corpus_citations.py content/lampada/articles/<slug>/ru.md \
   --report /tmp/lampada-ru-review.md
 ```
 
+Повторный запуск использует кэш полных вердиктов в
+`~/.cache/lampada-citation-judge` (путь можно задать `--cache-dir` вне репо).
+Меняются текст фрагмента, источник, критерии, модель или число прогонов —
+соответствующий фрагмент проверяется заново. Корпус проверяется при каждом запуске;
+в отчёте отмечены `Cache: HIT`/`MISS` и число вызовов судьи. Повреждение кэша —
+явная ошибка, не повод молча запускать модель. Детали — [citations.md](citations.md#judge-verdict-cache).
+
 Exit 0 обязателен. Ошибка/неодобрение judge — исправить источник или текст,
 заново проверить изменённый результат; отсутствие проверки не обходить.
 Checker проверяет **только объявленные** источники. Рецензент Claude Opus
@@ -173,11 +180,14 @@ hash и диапазон остаются прежними; меняется `te
 
 ```bash
 python tools/check_corpus_citations.py content/lampada/articles/<slug>/{ru,en,uk}.md \
-  --report /tmp/lampada-all-review.md
+  --no-cache --report /tmp/lampada-all-review.md
 python -m sitegen build
 python -m sitegen check
 python -m unittest discover -s tests
 ```
+
+Финальный checker перед мержем обязательно запускать с `--no-cache`: все
+вердикты свежие, существующий кэш не читается и не перезаписывается.
 
 **Мария вычитывает все три версии и разрешает мерж**. Богословские вопросы и
 тексты молитв передать рецензенту соответствующей традиции. Снять draft только

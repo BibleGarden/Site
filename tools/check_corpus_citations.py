@@ -23,6 +23,7 @@ from sitegen.content import _frontmatter, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICL
 from sitegen.corpus import citations
 from sitegen.errors import BuildError
 from tools.corpus_judge import CheckError, unique_object, validate_verdict
+from tools.corpus_judge_cache import DEFAULT_CACHE_DIR, JudgeCache, digest, judge_environment
 
 
 def normalize(text):
@@ -107,7 +108,7 @@ def command_judge(command, payload):
     return verdict
 
 
-def verify(item, api, judge, near=500, book_cache=None, *, judge_runs=DEFAULT_JUDGE_RUNS):
+def verify(item, api, judge, near=500, book_cache=None, *, judge_runs=DEFAULT_JUDGE_RUNS, judge_cache=None):
     validate_judge_runs(judge_runs)
     hit_response = api.request("/search/chunks", {"ids": [item["chunk_id"]]})
     hits = hit_response["chunks"]
@@ -162,17 +163,30 @@ def verify(item, api, judge, near=500, book_cache=None, *, judge_runs=DEFAULT_JU
         "article_text": item["text"], "original": item["original"],
         "source": item["original"] if translated else text[start:end],
         "author": item["author"], "title": item["title"], "chapter": item["chapter"]}
-    results, explanations = [], []
+    key = judge_cache.key(item, payload, judge_runs) if judge_cache is not None else None
+    cached = judge_cache.read(key, judge_runs) if judge_cache is not None else None
+    votes, explanations = [], []
+    if judge_cache is not None:
+        explanations.append("Cache: HIT" if cached is not None else "Cache: MISS")
+        judge_cache.hits += int(cached is not None)
     for run in range(1, judge_runs + 1):
         try:
             # No prior answers/history: each invocation receives identical evidence.
-            verdict = validate_verdict(judge(dict(payload)))
+            if cached is not None:
+                verdict = cached[run - 1]
+            else:
+                if judge_cache is not None:
+                    judge_cache.calls += 1
+                verdict = validate_verdict(judge(dict(payload)))
         except CheckError as exc:
             explanations.append(f"Run {run}/{judge_runs}: ERROR — {exc}")
             return "ERROR", "\n".join(explanations), paragraph
-        results.append(verdict["verdict"])
+        votes.append(verdict)
         explanations.append(f'Run {run}/{judge_runs}: {verdict["verdict"]} '
                             f'[{verdict["category"]}] — {verdict["reason"]}')
+    if judge_cache is not None and cached is None:
+        judge_cache.write(key, votes)
+    results = [vote["verdict"] for vote in votes]
     status = results[0] if len(set(results)) == 1 else "UNSTABLE"
     return status, "\n".join(explanations), paragraph
 
@@ -185,7 +199,7 @@ def table_cell(value):
     return str(value).replace("|", "\\|").replace("\n", " ")
 
 
-def check_articles(paths, api, judge, report, near=500, *, judge_name=None, judge_runs=DEFAULT_JUDGE_RUNS):
+def check_articles(paths, api, judge, report, near=500, *, judge_name=None, judge_runs=DEFAULT_JUDGE_RUNS, judge_cache=None):
     entries = ["# Corpus citation review", "", "Internal report for Maria. Contains corpus excerpts; do not publish or commit."]
     judge_name = judge_name if judge_name is not None else f"{judge.__module__}.{judge.__qualname__}"
     failed = False
@@ -209,7 +223,7 @@ def check_articles(paths, api, judge, report, near=500, *, judge_name=None, judg
             count += 1
             paragraph = "Unavailable: verification failed before context could be trusted."
             try:
-                status, reason, paragraph = verify(item, api, judge, near, book_cache, judge_runs=judge_runs)
+                status, reason, paragraph = verify(item, api, judge, near, book_cache, judge_runs=judge_runs, judge_cache=judge_cache)
             except (CheckError, KeyError, TypeError, ValueError) as exc:
                 status, reason = "ERROR", str(exc)
             failed |= status != "PASS"
@@ -222,6 +236,10 @@ def check_articles(paths, api, judge, report, near=500, *, judge_name=None, judg
                         "", "Article:", block(item["text"]), "", "Original quotation:", block(item["original"] or "—"),
                         "", "Source paragraph / bounded context:",
                         block(paragraph), "", f'Verdict: {status}', block(reason)]
+    if judge_cache is not None:
+        entries += ["", f"Judge calls: {judge_cache.calls}; cached fragments: {judge_cache.hits}"]
+    else:
+        entries += ["", "Judge cache: disabled"]
     totals = "; ".join(f"{status}: {total}" for status, total in statuses.items())
     entries += ["", f"Checked: {count}; {totals}; invalid articles: {invalid_articles}", ""]
     report.write_text("\n".join(entries[:3] + ["", "Judge command/adapter (used for translations and retellings only):",
@@ -238,7 +256,13 @@ def main(argv=None):
     parser.add_argument("--judge-command", default=os.getenv("CORPUS_JUDGE_COMMAND", DEFAULT_JUDGE))
     parser.add_argument("--judge-runs", type=int, default=DEFAULT_JUDGE_RUNS,
                         help="Independent calls per translation/retelling (default: 3); no error retries")
+    parser.add_argument("--cache-dir", type=Path, default=DEFAULT_CACHE_DIR,
+                        help="Private judge cache outside the repository (default: ~/.cache/lampada-citation-judge)")
+    parser.add_argument("--no-cache", action="store_true", help="Full review: neither read nor write judge cache")
+    parser.add_argument("--judge-version", default="1", help="Adapter/config revision; bump for custom adapter changes")
     args = parser.parse_args(argv)
+    if not args.judge_version.strip():
+        parser.error("--judge-version must be non-empty")
     if args.judge_runs < 1:
         parser.error("--judge-runs must be a positive integer")
     if not 0 <= args.near <= 10000:
@@ -251,7 +275,16 @@ def main(argv=None):
         parser.error("No article files found")
     try:
         api = CorpusAPI(args.base_url, os.getenv("CORPUS_API_KEY"))
-        return check_articles(paths, api, lambda payload: command_judge(args.judge_command, payload), args.report, args.near, judge_name=args.judge_command, judge_runs=args.judge_runs)
+        cache = None
+        if not args.no_cache:
+            implementation = digest({name: Path(__file__).with_name(name).read_text() for name in
+                                     ("corpus_judge.py", "corpus_judge_claude.sh", "check_corpus_citations.py")})
+            cache = JudgeCache(args.cache_dir, {
+                "adapter_version": args.judge_version, "implementation": implementation,
+                "environment": judge_environment(args.judge_command)})
+        return check_articles(paths, api, lambda payload: command_judge(args.judge_command, payload),
+                              args.report, args.near, judge_name=args.judge_command,
+                              judge_runs=args.judge_runs, judge_cache=cache)
     except (CheckError, OSError) as exc:
         print(str(exc), file=sys.stderr)
         return 1
