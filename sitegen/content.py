@@ -43,7 +43,7 @@ ANALYTICS_KEYS = {"script_url", "website_id"}
 ANALYTICS_DISABLED = "none"
 PUBLIC_ROOT_NAME = "dist"
 REQUIRED_ARTICLE_KEYS = ("title", "description", "date")
-OPTIONAL_ARTICLE_KEYS = ("updated", "draft", "image", "corpus_sources")
+OPTIONAL_ARTICLE_KEYS = ("updated", "draft", "image")
 PAGE_KEYS = ("title", "description")
 MARKDOWN_EXTENSIONS = ["extra", "toc", "sane_lists"]
 MARKDOWN_EXTENSION_CONFIGS = {"toc": {"slugify": slugify_unicode, "toc_depth": "2-3"}}
@@ -359,7 +359,8 @@ def parse_article(
     gospel_audio: dict | None = None,
     preview: bool = False,
 ) -> Article:
-    meta, body, body_start_line = _frontmatter(source, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS)
+    optional = (*OPTIONAL_ARTICLE_KEYS, "corpus_sources") if site_key == "lampada" else OPTIONAL_ARTICLE_KEYS
+    meta, body, body_start_line = _frontmatter(source, REQUIRED_ARTICLE_KEYS, optional)
     sources = corpus_citations(meta.get("corpus_sources", []), body, source)
     body = annotate_corpus(body, sources, lang)
     gospel_body, has_gospel_today = annotate_gospel_marker(body, source, site_key, lang, body_start_line)

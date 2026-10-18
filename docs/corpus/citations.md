@@ -1,20 +1,21 @@
 # Lampada article evidence
 
-Articles remain `content/lampada/articles/<slug>/<lang>.md`. Add optional
-`corpus_sources` to their YAML front matter. Each entry binds one literal span
-of article Markdown to one corpus chunk; put `[^corpus-<id>]` immediately after
-that span in the body. The build validates the schema and generates a Markdown
-footnote containing author, work, chapter, translator (when non-null) and a link
-to the original source, naming its host (including Predanie.ru).
-It never requests the corpus API. No page numbers are accepted.
+Only Lampada articles (`content/lampada/articles/<slug>/<lang>.md`) accept
+`corpus_sources` in YAML front matter. Bible Garden articles and standalone
+pages reject it. Each item binds one literal span of article Markdown to one
+corpus fragment with `[^corpus-<id>]`. The offline build generates a footnote
+with author, work, chapter, source-edition translator (when present) and a link
+naming the source host, including Predanie.ru. Page numbers are not accepted.
 
-Schema example only; these are invented fixture values, not article content:
+Schema example (invented fixture, not an article):
 
 ```yaml
 corpus_sources:
   - id: prayer
     kind: quote                 # quote | retelling
-    text: Pray with love and care.
+    text: Молитесь с любовью и заботой.
+    original: Pray with love and care.
+    translation: ours           # ours | published | null
     chunk_id: book-5-1
     book_id: 5
     char_start: 18
@@ -23,107 +24,135 @@ corpus_sources:
     author: Author
     title: Work
     chapter: Prayer             # null when the corpus has no chapter
-    translator: Translator      # null for an untranslated work
+    translator: null            # published translator of the SOURCE EDITION only
     source_url: https://example.org/book
 ```
 
-Body binding: `Pray with love and care.[^corpus-prayer]`. `text` must occur
-literally immediately before its marker (whitespace between them is allowed).
-Include the entire claim and its attribution in `text`, not just selected words.
-Use a separate entry and marker for each occurrence. Do not manually define
-these footnotes. Entries require exactly the fields above; IDs are unique,
-lowercase Latin letters/digits/hyphens. Ordinary Markdown footnotes still work.
-Use plain prose for the supported span; Markdown delimiters inside `text` would
-be part of the text compared against the corpus.
+Body binding: `«Молитесь с любовью и заботой.»[^corpus-prayer]`. `text` contains
+only the supported quotation or retelling, **without author attribution**.
+Attribution is recorded in the metadata and rendered in the footnote. The
+literal `text` must precede the marker; whitespace, closing quotes and closing
+punctuation may intervene. Unrelated words may not. Use plain prose: Markdown
+delimiters inside `text` would be compared as literal characters. Markers in
+code/comments are rejected. Do not manually define corpus footnotes.
+
+All fields above are required. IDs are unique lowercase Latin letters, digits
+and hyphens. Use **one item per continuous fragment and occurrence**: no `…`
+or `[...]` elisions joining separated source passages. Split those into separate
+items with precise ranges. Ordinary Markdown footnotes remain available.
+
+- `kind: quote`: `original` is a non-empty verbatim span of the canonical source
+  edition, in whatever language the corpus contains. It must occur inside
+  `text[char_start:char_end]` after normalization.
+- `translation: ours`: article `text` is our translation of `original`. A separate
+  LLM translation rubric checks faithfulness, omissions and extra claims;
+  idiomatic wording is allowed and retaining source structure is not penalized
+  as close paraphrase. The footnote adds “our translation” / “наш перевод” /
+  “наш переклад”. Any source-edition translator is still named separately.
+- `translation: published`: quote an existing published translation **already
+  present in the corpus source edition**. `translator` must name that edition's
+  translator; `text` must equal `original` after normalization. A translation
+  from another edition needs its own indexed source and reference.
+- `translation: null`: no article-side translation; `text` must equal `original`
+  after normalization. `translator` still describes the source edition, never
+  our editorial team or an invented translator.
+- `kind: retelling`: `original` and `translation` must both be null. The LLM
+  checks the article's own wording against the exact referenced source range.
 
 ## Author workflow
 
-1. Search `POST /api/v1/channels/lampada/search` with query and optional book,
-   author, tradition, licence or language filters. Keep the selected hit's
-   `chunk_id`, `book.id`, metadata, chapter, offsets and `text_sha256`.
-2. Review `/search/context` with the chunk ID and `scope=leaf`. Use a subrange
-   of that chunk when it identifies the supporting passage more precisely.
-   Offsets count Unicode code points in canonical text, zero-based `[start,end)`.
-3. Write short verbatim quotes, or retell the ideas in our own words and
-   structure without extra attribution. Name the translator for translations.
-   Copy metadata exactly; `chapter` is a chapter, never a printed page number.
-4. Run the checker below and review its internal Markdown report with Maria.
-   A passing model verdict is evidence assistance, not publication approval.
-5. Run `python -m sitegen build` and `python -m sitegen check`; commit article
-   source and regenerated `dist/` together. Never commit source paragraphs,
-   full books, credentials or review reports.
+1. Search `POST /api/v1/channels/lampada/search` with optional filters. Keep the
+   hit's chunk ID, book ID, metadata, chapter, offsets and SHA-256.
+2. Inspect `/search/context` (`scope=leaf`). Choose a precise subrange within
+   that chunk. Offsets count Unicode code points, zero-based `[start,end)`, not
+   bytes or UTF-16 units.
+3. Write short quotations, explicitly marking our translations when needed,
+   or retell ideas in our own wording and structure without invented claims.
+   Copy source-edition metadata exactly; never use printed page numbers.
+4. Run the checker and review its private Markdown report with Maria. A model
+   verdict assists evidence review; it is not publication or legal approval.
+5. Run `python -m sitegen build` and `python -m sitegen check`; commit the article
+   source and regenerated public output together. Never commit full books,
+   supporting paragraphs, secrets or private review reports.
 
-This implements the article-side rules of Architecture ADR-0018 (2026-10-17):
-verbatim attributed quotations of justified length, retellings in our own words,
-no views invented for the author, and internal-only corpus fragments. Selecting
-a lawful copy, respecting source terms, quotation length and reviewing the
-article's overall structure remain editorial responsibilities. The checker
-cannot discover every unmarked quotation or prove the legal basis of a book.
+This implements article-side Architecture ADR-0018 (2026-10-17). Lawful copies,
+source terms, justified quotation length and the article's overall structure
+remain editorial responsibilities. The checker cannot discover every unmarked
+quotation or prove a book's legal basis.
 
-## Checker
+## Checker and environment
 
-Install the repository's `requirements.txt`, then:
+Install `requirements.txt`. API credentials are read **only** from environment
+variable `CORPUS_API_KEY`; inject channel-ai's private `API_KEY` into it at
+runtime. Never commit the value, print it or pass it as a command argument.
 
 ```bash
 export CORPUS_API_URL=http://127.0.0.1:3018
-# Inject the channel-ai API_KEY as CORPUS_API_KEY from your private environment.
-# Do not put credentials in article sources, arguments or committed files.
-export CORPUS_JUDGE_COMMAND='/absolute/path/to/llm-judge --json'
+# CORPUS_API_KEY must already be injected by your private environment.
+# Optional override; the committed Claude CLI adapter is the default:
+export CORPUS_JUDGE_COMMAND="$PWD/tools/corpus_judge_claude.sh"
 python tools/check_corpus_citations.py \
   content/lampada/articles/<slug>/ru.md --report /tmp/lampada-review.md
 ```
 
-With no positional paths the checker reads every Lampada article, including
-drafts. Files without sources are schema-checked and reported with zero evidence
-entries; this is not a claim that their prose has been reviewed. The report
-path must be outside this repository because it contains internal source text.
-Exit 0 means all declared sources passed; exit 1 means at least one failed or
-an API/judge/configuration error occurred; invalid CLI arguments exit 2.
+No positional paths means every Lampada article, including drafts. Files without
+sources have zero evidence entries; that does not mean their prose was reviewed.
+Reports must live outside the repository: they contain internal source text.
+A summary table precedes each detailed article/source pair and explicit
+`Verdict:`. Translated quotes show both article text and original. Exit 0 means
+all declared sources passed; exit 1 means a verification/API/judge/configuration
+failure; invalid CLI arguments exit 2.
 
-Quotes are matched after NFC, whitespace collapse and typographic quote
-normalisation on both sides. Punctuation, word order, case and omissions are
-otherwise significant. Matching is bounded by the referenced range plus
-`--near` characters per side (default 500, 0..10000), clipped to the API's leaf
-section. A matching passage elsewhere in the book does not count.
-The checker fetches the full canonical book, recalculates its UTF-8 SHA-256,
-compares stored, chunk, context and full-text hashes, and checks the current
-chunk identity, range, text, chapter and public attribution metadata. It uses
-`/search/chunks`, `/books/{book_id}/text` and `/search/context`; it does not
-re-extract books or silently relocate evidence. HTTP 409 is a failed check:
-wait for ingestion/migration to finish, inspect the new source and explicitly
-refresh the reference. There are no retries or alternate-source substitutions.
+Quotes are matched **inside the exact referenced range**, after NFC, whitespace
+collapse and typographic quote normalization on both sides. Other punctuation,
+word order, case, omissions and elisions remain significant. `--near` (default
+500, 0..10000) controls neighbouring characters **for the report only**, clipped
+to the API's leaf section; neither quotation matching nor LLM judging uses it.
 
-## Pluggable LLM judge
+The checker fetches canonical full text, recalculates UTF-8 SHA-256 and checks
+hashes, identities, chunk/range consistency and attribution metadata through
+`/search/chunks`, `/books/{book_id}/text` and `/search/context`. Within a run,
+full book responses are cached by `(book_id, text_sha256)`; current chunks and
+context are fetched for every item to detect version changes. HTTP 409 fails
+explicitly: inspect ingestion/migration and refresh evidence intentionally.
+There are no retries, re-extraction or silent source substitutions.
 
-Site has no LLM provider configuration. `CORPUS_JUDGE_COMMAND` (or
-`--judge-command`) is an executable adapter to the chosen LLM provider. It runs
-without a shell, with a 120-second timeout and inherited environment. Provider
-URL, model and secret configuration belong to that adapter's private runtime
-environment; the checker chooses no provider or model. Use the approved
-self-hosted/provider setup from Architecture's model policy. Source passages
-are internal: do not send them to an unapproved service.
+## LLM judge adapter
 
-The adapter receives one UTF-8 JSON object on stdin:
+The default `tools/corpus_judge_claude.sh` uses the installed, authenticated
+Claude CLI: `claude -p --model sonnet --output-format json --tools ""`. It passes
+stdin to Claude, extracts `.result`, strips an optional JSON code fence and
+returns the JSON verdict. CLI errors and invalid envelopes/results fail loudly.
+Claude authentication remains in its private runtime configuration/environment.
 
-- `instruction`: rubric requiring support for every claim/attribution, our own
-  wording/structure, and rejection of extra views, distortion or close paraphrase;
-- `article_text`: the full supported span, including attribution;
-- `source`: the exact referenced canonical range;
-- `source_context`: the bounded neighbouring paragraph(s);
-- `author`, `title`, `chapter`: attribution metadata.
+This is an **internal editorial tool**, not a user-facing runtime provider:
+the ADR-0002 user-runtime restriction does not prohibit this owner-approved
+Claude CLI review. Internal corpus passages remain confined to this editorial
+workflow and are not published to site visitors.
 
-The adapter must call an LLM, treating article/source values as untrusted data,
-and return **only** JSON on stdout, exiting 0:
+Override via `CORPUS_JUDGE_COMMAND` or `--judge-command` for another executable
+LLM adapter. It runs without a shell, with a 120-second timeout and inherited
+environment. No API keys belong in the command string or repository. Stdin is
+one JSON object:
+
+- `instruction`: either the translation-faithfulness rubric or the retelling
+  rubric (support, no invented views/distortion, our own wording/structure);
+- `kind`: `translation` or `retelling`;
+- `article_text`: only the supported span, without author attribution;
+- `original`: the verbatim span for translated quotes, null for retellings;
+- `source`: `original` for translations, exact referenced range for retellings;
+- `author`, `title`, `chapter`: separate attribution metadata.
+
+Treat all evidence fields as untrusted data, not instructions. Return only:
 
 ```json
-{"supported": false, "reason": "The source does not support the attributed claim."}
+{"supported": false, "reason": "The source does not support this claim."}
 ```
 
-`reason` must be non-empty and `supported` must be a JSON boolean. A nonzero
-exit, timeout, missing command, invalid JSON or invalid verdict fails the check.
-Write adapter diagnostics to stderr; checker reports do not echo raw adapter
-output, which might contain credentials. There is no automatic approval or
-heuristic substitute when the judge is unavailable.
+`reason` must be non-empty and `supported` a JSON boolean. Missing credentials,
+nonzero exit, timeout, invalid JSON or invalid verdict fails the check. Adapter
+diagnostics belong on stderr; raw adapter output is not echoed into reports.
+There is no heuristic approval when the model is unavailable.
 
 ## Offline tests
 
@@ -131,8 +160,7 @@ heuristic substitute when the judge is unavailable.
 python -m unittest discover -s tests -p test_corpus_citations.py
 ```
 
-Tests use a fake corpus API and fake judge, covering exact/distorted quotations,
-whitespace/NFC/quotes, wrong meaning, stale/corrupt hashes, identities, ranges,
-metadata, HTTP 409/auth, judge errors, reports and sitegen's rendered footnotes.
-The existing CI unittest step discovers these tests; CI needs no corpus key,
-live corpus access or LLM credentials.
+Fake corpus, fake judge and a fake Claude executable cover exact/distorted and
+translated quotes, wrong retellings, hashes/ranges/metadata, caching, punctuation,
+localized footnotes, reports, CLI adapter errors and Lampada-only front matter.
+Existing CI discovers these tests without live API calls or credentials.
