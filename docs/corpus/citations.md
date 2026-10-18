@@ -61,7 +61,7 @@ items with precise ranges. Ordinary Markdown footnotes remain available.
 
 ## Author workflow
 
-For topic selection, chapter research, Maria's dossier approval and the ru/en/uk
+For topic selection, chapter research, Maria's plan approval and the ru/en/uk
 editorial cycle, start with [the article workflow](article-workflow.md). The steps
 below describe the evidence format and verification within that cycle.
 
