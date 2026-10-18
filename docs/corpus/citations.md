@@ -126,13 +126,11 @@ There are no retries, re-extraction or silent source substitutions.
 ## LLM judge adapter
 
 The default `tools/corpus_judge_claude.sh` uses the installed, authenticated
-Claude CLI: `claude -p --model opus --output-format json --tools ""`. It passes
-stdin to Claude and decodes the single JSON assessment inside the envelope's
-`.result`. Formatting prose or code fences may surround that object. Strings
-inside it may contain escaped quotes, Unicode and braces. The parser never skips
-a malformed first object to find a later one, and rejects multiple objects,
-array wrappers and trailing JSON containers. CLI errors and invalid
-envelopes/assessments fail loudly. No parsing or schema-repair retries occur.
+Claude CLI: `claude -p --model opus --output-format json --tools "" --json-schema <schema>`.
+The schema comes from `tools/corpus_judge.py`: category enum, a non-empty reason,
+required fields and no additional properties. The adapter reads only the envelope's
+`structured_output` and validates it with `assessment_verdict`; prose in `.result`
+is ignored. Missing/invalid structured output and CLI errors fail explicitly.
 Claude authentication remains in its private runtime configuration/environment.
 
 This is an **internal editorial tool**, not a user-facing runtime provider:
@@ -172,31 +170,27 @@ category. Custom adapters' verdicts must also match the category. Categories:
 - FAIL: `distortion`, `addition`, `contradiction`, `misattribution`,
   `meaning_changing_omission`, or `close_paraphrase` (retellings only).
   A meaning-changing omission must identify the omitted qualification and explain
-  how its absence changes the claim. Translations may retain source structure.
+  how its absence changes the claim. `close_paraphrase` means preserving source
+  sentence order and distinctive phrases in most sentences; common theological
+  terms and short fixed expressions do not count. Faithful retellings must also
+  use our own words. Translations may retain source structure.
 
 Unknown categories, mismatched verdict/category pairs, extra/missing fields and
 wrong field types are explicit errors, never approvals. Duplicate JSON keys are
-rejected in CLI envelopes, model assessments and custom-adapter replies. The prompt requires a
-concrete mismatch for a failure category; uncertainty or possible closeness is
-not itself an established error. Free-text reasoning still needs editorial
-review: structural validation cannot prove its semantic consistency.
+rejected in CLI envelopes (including structured output) and custom-adapter replies.
+Free-text reasoning still requires editorial review.
 
-Each translated quote or retelling receives **three independent judge calls**
-(`DEFAULT_JUDGE_RUNS = 3`, override with positive integer `--judge-runs`). Every
-call receives identical evidence and criteria, without previous verdicts or
-conversation history. Only unanimous PASS yields PASS; unanimous FAIL yields
-FAIL; any mixture yields **UNSTABLE**. All completed calls and their categories
-and reasons appear in the private report. Exact, untranslated quotations still
-use deterministic checks without an LLM.
+Each translated quote or retelling receives three independent calls (default
+`DEFAULT_JUDGE_RUNS = 3`, positive `--judge-runs` override) with identical evidence
+and no prior verdicts. Unanimous PASS or FAIL yields that status; mixed votes
+yield UNSTABLE. Errors stop calls for that fragment with ERROR; earlier votes
+remain in the report and other fragments continue. The checker never retries
+errors or replaces votes. Exact untranslated quotes use deterministic checks.
 
-Errors are not votes: a nonzero adapter exit, timeout, invalid JSON or invalid
-verdict yields **ERROR** and stops calls for that fragment immediately, retaining
-any earlier explanations. Other fragments are still checked. There are no error
-retries or replacement votes. FAIL, UNSTABLE and ERROR all produce exit 1; the
-report records the configured run count. Missing credentials also fail explicitly.
-Timeout, executable failure, nonzero adapter exit and invalid adapter JSON have
-separate checker diagnostics. Adapter diagnostics belong on stderr; raw adapter output is not echoed into reports.
-There is no heuristic approval when the model is unavailable.
+Reports list all completed votes, categories and reasons, the run count, and
+final PASS/FAIL/UNSTABLE/ERROR counters plus invalid-article count. Any FAIL,
+UNSTABLE, ERROR or invalid article exits 1. Missing credentials also fail.
+Adapter diagnostics stay on stderr; raw output is not echoed into reports.
 
 ## Offline tests
 
@@ -208,6 +202,7 @@ Fake corpus, fake judge and a fake Claude executable cover exact/distorted and
 translated quotes, wrong retellings, hashes/ranges/metadata, caching, punctuation,
 localized footnotes, reports, CLI adapter errors, strict verdict/category
 validation, configurable independent runs, unanimous PASS/FAIL, disagreement reports, category-derived verdicts,
-single-object parsing and ambiguity rejection, errors without retries, and
+schema arguments, structured-output validation, duplicate-key rejection, errors
+without checker retries, and
 Lampada-only front matter.
 Existing CI discovers these tests without live API calls or credentials.

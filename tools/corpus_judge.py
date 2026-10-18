@@ -13,6 +13,17 @@ FAIL_CATEGORIES = {"distortion", "addition", "contradiction", "misattribution",
                    "meaning_changing_omission", "close_paraphrase"}
 
 
+ASSESSMENT_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "category": {"type": "string", "enum": sorted(PASS_CATEGORIES | FAIL_CATEGORIES)},
+        "reason": {"type": "string", "minLength": 1},
+    },
+    "required": ["category", "reason"],
+    "additionalProperties": False,
+}
+
+
 def unique_object(pairs):
     result = {}
     for key, value in pairs:
@@ -44,24 +55,13 @@ def validate_verdict(verdict):
 def claude_verdict(envelope):
     if not isinstance(envelope, dict) or envelope.get("is_error") is True:
         raise CheckError("Claude returned an error envelope")
-    result = envelope.get("result")
-    if not isinstance(result, str) or not result.strip():
-        raise CheckError("Claude response is missing result text")
-    # Decode the first object, never skip a malformed candidate to find a later one.
-    # Formatting prose/fences may surround it; a second object/array is ambiguous.
-    start = result.find("{")
-    if start < 0 or "[" in result[:start]:
-        raise CheckError("Claude response must contain exactly one JSON object")
-    try:
-        assessment, end = json.JSONDecoder(object_pairs_hook=unique_object).raw_decode(result, start)
-    except ValueError as exc:
-        raise CheckError("Claude assessment contains malformed JSON") from exc
-    if any(char in result[end:] for char in "{}[]"):
-        raise CheckError("Claude response contains ambiguous extra JSON")
-    return assessment_verdict(assessment)
+    return assessment_verdict(envelope.get("structured_output"))
 
 
 def main():
+    if sys.argv[1:] == ["--schema"]:
+        json.dump(ASSESSMENT_SCHEMA, sys.stdout)
+        return
     try:
         envelope = json.load(sys.stdin, object_pairs_hook=unique_object)
         verdict = claude_verdict(envelope)

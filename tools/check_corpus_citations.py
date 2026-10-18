@@ -61,21 +61,21 @@ JUDGE_CRITERIA = (
     "or an omission that changes meaning. For meaning_changing_omission, identify the "
     "omitted qualification and explain how its absence changes the article claim. "
     "Omitting secondary details without changing meaning is PASS (secondary_omission); "
-    "a retelling need not reproduce every detail in the source. Otherwise faithful, "
-    "supported wording is PASS (supported). Do not demand exhaustive coverage. "
+    "a retelling need not reproduce every detail in the source. Faithful wording that, "
+    "for retellings, is in our own words is PASS (supported). Do not demand exhaustive coverage. "
     "Return exactly one JSON object with exactly two fields: category (supported, "
     "secondary_omission, distortion, addition, contradiction, misattribution, "
     "meaning_changing_omission or close_paraphrase), and reason (a non-empty explanation "
     "grounded in the supplied texts). Do not return a verdict: code derives PASS from "
     "supported or secondary_omission and FAIL from the other categories. Choose the "
-    "category justified by the explanation; uncertainty or possible closeness alone is "
-    "not an established error. For a failure category, state the concrete mismatch. "
+    "category justified by the explanation. For a failure category, state the concrete mismatch. "
     "This is evidence review, not legal approval. "
 )
 JUDGE_INSTRUCTION = JUDGE_CRITERIA + (
     "Check every claim in article_text against source and attribution metadata. "
-    "FAIL also for close paraphrase retaining distinctive wording or structure "
-    "instead of retelling in our own words."
+    "FAIL for close_paraphrase when the retelling preserves the source sentence order "
+    "and distinctive phrases in most sentences. Common theological terms and short "
+    "fixed expressions do not count toward close_paraphrase."
 )
 TRANSLATION_INSTRUCTION = JUDGE_CRITERIA + (
     "Check article_text as a faithful translation of original. Natural idiomatic translation "
@@ -104,7 +104,7 @@ def command_judge(command, payload):
         raise CheckError("LLM judge executable unavailable (no retry)") from exc
     except ValueError as exc:
         raise CheckError("LLM adapter returned invalid JSON (no retry)") from exc
-    return validate_verdict(verdict)
+    return verdict
 
 
 def verify(item, api, judge, near=500, book_cache=None, *, judge_runs=DEFAULT_JUDGE_RUNS):
@@ -186,11 +186,12 @@ def table_cell(value):
 
 
 def check_articles(paths, api, judge, report, near=500, *, judge_name=None, judge_runs=DEFAULT_JUDGE_RUNS):
-    validate_judge_runs(judge_runs)
     entries = ["# Corpus citation review", "", "Internal report for Maria. Contains corpus excerpts; do not publish or commit."]
     judge_name = judge_name if judge_name is not None else f"{judge.__module__}.{judge.__qualname__}"
     failed = False
     count = 0
+    statuses = dict.fromkeys(("PASS", "FAIL", "UNSTABLE", "ERROR"), 0)
+    invalid_articles = 0
     summary = ["| Article | Citation | Kind | Verdict |", "| --- | --- | --- | --- |"]
     book_cache = {}
     for path in paths:
@@ -200,6 +201,7 @@ def check_articles(paths, api, judge, report, near=500, *, judge_name=None, judg
             items = citations(meta.get("corpus_sources", []), body, path)
         except (BuildError, ValueError, yaml.YAMLError, OSError) as exc:
             failed = True
+            invalid_articles += 1
             entries += [f"Verdict: FAIL — {exc}"]
             summary.append(f"| {table_cell(path)} | — | schema | FAIL |")
             continue
@@ -211,6 +213,7 @@ def check_articles(paths, api, judge, report, near=500, *, judge_name=None, judg
             except (CheckError, KeyError, TypeError, ValueError) as exc:
                 status, reason = "ERROR", str(exc)
             failed |= status != "PASS"
+            statuses[status] += 1
             summary.append(f'| {table_cell(path)} | {item["id"]} | {item["kind"]} | {status} |')
             entries += ["", f'### {item["id"]} ({item["kind"]}) — {status}',
                         f'{item["author"]}. {item["title"]}. {item["chapter"] or ""}',
@@ -219,7 +222,8 @@ def check_articles(paths, api, judge, report, near=500, *, judge_name=None, judg
                         "", "Article:", block(item["text"]), "", "Original quotation:", block(item["original"] or "—"),
                         "", "Source paragraph / bounded context:",
                         block(paragraph), "", f'Verdict: {status}', block(reason)]
-    entries += ["", f"Checked: {count}; result: {'FAIL' if failed else 'PASS'}", ""]
+    totals = "; ".join(f"{status}: {total}" for status, total in statuses.items())
+    entries += ["", f"Checked: {count}; {totals}; invalid articles: {invalid_articles}", ""]
     report.write_text("\n".join(entries[:3] + ["", "Judge command/adapter (used for translations and retellings only):",
                                                     block(judge_name), f"Independent judge runs per fragment: {judge_runs}", "", *summary, ""] + entries[3:]), encoding="utf-8")
     return int(failed)

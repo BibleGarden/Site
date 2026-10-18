@@ -17,7 +17,7 @@ import yaml
 from sitegen.content import parse_article
 from sitegen.corpus import annotate, citations
 from sitegen.errors import BuildError
-from tools.corpus_judge import (PASS_CATEGORIES, FAIL_CATEGORIES, assessment_verdict,
+from tools.corpus_judge import (PASS_CATEGORIES, FAIL_CATEGORIES, ASSESSMENT_SCHEMA, assessment_verdict,
                                 claude_verdict)
 from tools.check_corpus_citations import (CheckError, CorpusAPI, DEFAULT_JUDGE, check_articles,
                                           command_judge, main, normalize, validate_verdict, verify)
@@ -125,7 +125,7 @@ class CitationTest(unittest.TestCase):
     def test_missing_failed_and_malformed_judge(self):
         with self.assertRaises(CheckError):
             command_judge(None, {})
-        for output in ('invalid', '{}', '{"supported":"yes","reason":"ok"}', '{"supported":true,"reason":""}'):
+        for output in ('invalid', '{', 'two objects {} {}'):
             with patch('tools.check_corpus_citations.subprocess.run') as run:
                 run.return_value.stdout = output
                 with self.assertRaises(CheckError):
@@ -215,6 +215,8 @@ class CitationTest(unittest.TestCase):
             result = report.read_text()
             self.assertIn('| prayer | retelling | UNSTABLE |', result)
             self.assertIn('Verdict: UNSTABLE', result)
+            self.assertIn('PASS: 0; FAIL: 0; UNSTABLE: 1; ERROR: 0', result)
+            self.assertNotIn('result: FAIL', result)
             for reason in ('First reason', 'Second reason', 'Third reason'):
                 self.assertIn(reason, result)
 
@@ -308,6 +310,7 @@ class CitationTest(unittest.TestCase):
             self.assertEqual(check_articles([path], self.api, judge, report), 1)
             self.assertIn('Judge unavailable', report.read_text())
             self.assertIn('Verdict: ERROR', report.read_text())
+            self.assertIn('PASS: 0; FAIL: 0; UNSTABLE: 0; ERROR: 1', report.read_text())
             self.assertIn(TEXT[START:END], report.read_text())
 
     def test_translated_quote_judges_article_against_verbatim_original(self):
@@ -466,32 +469,18 @@ class CitationTest(unittest.TestCase):
         with self.assertRaises(CheckError):
             assessment_verdict({'category': 'supported', 'reason': 'Meaning is faithful', 'verdict': 'FAIL'})
 
-    def test_claude_single_object_wrappers_and_escaped_braces(self):
+    def test_claude_uses_only_structured_output(self):
         assessment = {'category': 'secondary_omission', 'reason': 'Meaning faithful: "слово" {detail}'}
-        raw = json.dumps(assessment, ensure_ascii=False)
-        for text in (raw, '```json\n' + raw + '\n```',
-                     'Here is my assessment:\n' + raw + '\nEnd of assessment.',
-                     'Assessment:\n```json\n' + raw + '\n```\nDone.'):
-            with self.subTest(text=text):
-                self.assertEqual(claude_verdict({'result': text, 'is_error': False}),
-                                 {'verdict': 'PASS', **assessment})
-        for text in (raw + raw, '[' + raw + ']', '{invalid}' + raw,
-                     raw + '\n{}', raw + '\n[]', raw[:-1],
-                     '{"category":"supported","reason":""}',
-                     '{"category":"unknown","reason":"Meaning faithful"}',
-                     '{"verdict":"FAIL","category":"supported","reason":"Meaning faithful"}'):
-            with self.subTest(text=text), self.assertRaises(CheckError):
-                claude_verdict({'result': text})
-        for envelope in (None, [], {'is_error': True, 'result': raw}, {'result': None}, {}):
+        self.assertEqual(claude_verdict({'structured_output': assessment,
+                                        'result': 'Arbitrary prose [with {brackets}].'}),
+                         {'verdict': 'PASS', **assessment})
+        for envelope in (None, [], {'is_error': True, 'structured_output': assessment},
+                         {'result': json.dumps(assessment)}, {'structured_output': None}, {},
+                         {'structured_output': {'category': 'unknown', 'reason': 'Reason'}},
+                         {'structured_output': {'category': 'supported', 'reason': ' '}},
+                         {'structured_output': {**assessment, 'verdict': 'PASS'}}):
             with self.subTest(envelope=envelope), self.assertRaises(CheckError):
                 claude_verdict(envelope)
-
-    def test_duplicate_assessment_keys_are_rejected(self):
-        for raw in ('{"category":"contradiction","category":"supported","reason":"Faithful"}',
-                    '{"category":"supported","reason":"Mismatch","reason":"Faithful"}',
-                    '{"category":"supported","rea\\u0073on":"Mismatch","reason":"Faithful"}'):
-            with self.subTest(raw=raw), self.assertRaisesRegex(CheckError, 'Duplicate JSON'):
-                claude_verdict({'result': raw})
 
     def test_duplicate_custom_adapter_keys_are_rejected_without_retry(self):
         for raw in ('{"verdict":"FAIL","verdict":"PASS","category":"supported","reason":"Faithful"}',
@@ -506,9 +495,11 @@ class CitationTest(unittest.TestCase):
     def test_duplicate_envelope_keys_fail_without_leaking_keys_or_output(self):
         parser = Path(__file__).resolve().parents[1] / 'tools/corpus_judge.py'
         assessment = json.dumps({'category': 'supported', 'reason': 'Faithful'})
-        for raw in ('{"is_error":true,"is_error":false,"result":' + json.dumps(assessment) + '}',
-                    '{"result":"secret","result":' + json.dumps(assessment) + '}',
-                    '{"secret":1,"secret":2,"result":' + json.dumps(assessment) + '}'):
+        for raw in ('{"is_error":true,"is_error":false,"structured_output":' + assessment + '}',
+                    '{"structured_output":null,"structured_output":' + assessment + '}',
+                    '{"secret":1,"secret":2,"structured_output":' + assessment + '}',
+                    '{"structured_output":{"category":"contradiction","category":"supported","reason":"Faithful"}}',
+                    '{"structured_output":{"category":"supported","rea\\u0073on":"Mismatch","reason":"Faithful"}}'):
             with self.subTest(raw=raw):
                 result = subprocess.run([os.sys.executable, str(parser)], input=raw,
                                         text=True, capture_output=True)
@@ -531,23 +522,30 @@ class CitationTest(unittest.TestCase):
             env = {**os.environ, 'PATH': tmp + os.pathsep + os.environ['PATH'],
                    'ARGS_PATH': str(args_path), 'INPUT_PATH': str(input_path)}
             payload = {'article_text': 'Молитва', 'source': 'Prayer'}
-            for wrapper in ("{}", "```json\n{}\n```", "Assessment:\n{}\nDone."):
-                verdict = json.dumps({'category': 'supported', 'reason': 'Supported'})
-                verdict = wrapper.format(verdict)
-                env['FAKE_CLAUDE_OUTPUT'] = json.dumps({'result': verdict, 'is_error': False})
-                result = subprocess.run([str(adapter)], input=json.dumps(payload), text=True, capture_output=True, env=env)
-                self.assertEqual(result.returncode, 0, result.stderr)
-                self.assertEqual(json.loads(result.stdout)['verdict'], 'PASS')
-                self.assertEqual(json.loads(input_path.read_text()), payload)
-                self.assertEqual(json.loads(args_path.read_text()),
-                                 ['-p', '--model', 'opus', '--output-format', 'json', '--tools', ''])
+            env['FAKE_CLAUDE_OUTPUT'] = json.dumps({
+                'structured_output': {'category': 'supported', 'reason': 'Supported'},
+                'result': 'Prose [with {braces}] is not part of the structured verdict.', 'is_error': False})
+            result = subprocess.run([str(adapter)], input=json.dumps(payload), text=True, capture_output=True, env=env)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(json.loads(result.stdout)['verdict'], 'PASS')
+            self.assertEqual(json.loads(input_path.read_text()), payload)
+            args = json.loads(args_path.read_text())
+            self.assertEqual(args[:-2], ['-p', '--model', 'opus', '--output-format', 'json', '--tools', ''])
+            self.assertEqual(args[-2], '--json-schema')
+            self.assertEqual(json.loads(args[-1]), ASSESSMENT_SCHEMA)
+            self.assertEqual(ASSESSMENT_SCHEMA['properties']['category']['enum'],
+                             sorted(PASS_CATEGORIES | FAIL_CATEGORIES))
+            self.assertFalse(ASSESSMENT_SCHEMA['additionalProperties'])
+            self.assertEqual(ASSESSMENT_SCHEMA['properties']['reason']['minLength'], 1)
+            self.assertEqual(set(ASSESSMENT_SCHEMA['required']), {'category', 'reason'})
             for reply in ('{}', 'not json', '{"is_error":true,"result":"secret"}',
                           '{"result":"not json"}', '{"result":42}'):
                 env['FAKE_CLAUDE_OUTPUT'] = reply
                 result = subprocess.run([str(adapter)], input='{}', text=True, capture_output=True, env=env)
                 self.assertNotEqual(result.returncode, 0)
                 self.assertNotIn('secret', result.stderr)
-            env.update(FAKE_EXIT='1', FAKE_CLAUDE_OUTPUT=json.dumps({'result': '{"verdict":"PASS","category":"supported","reason":"ok"}'}))
+            env.update(FAKE_EXIT='1', FAKE_CLAUDE_OUTPUT=json.dumps({
+                'structured_output': {'category': 'supported', 'reason': 'Supported'}}))
             result = subprocess.run([str(adapter)], input='{}', text=True, capture_output=True, env=env)
             self.assertNotEqual(result.returncode, 0)
 
