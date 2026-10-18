@@ -66,4 +66,28 @@
     <xhtml:link rel="alternate" hreflang="uk" href="https://lampada.app/uk/articles/how-to-start-praying/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lampada.app/articles/how-to-start-praying/"/>
   </url>
+  <url>
+    <loc>https://lampada.app/articles/what-to-pray-about/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lampada.app/articles/what-to-pray-about/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lampada.app/ru/articles/what-to-pray-about/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://lampada.app/uk/articles/what-to-pray-about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lampada.app/articles/what-to-pray-about/"/>
+  </url>
+  <url>
+    <loc>https://lampada.app/ru/articles/what-to-pray-about/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lampada.app/articles/what-to-pray-about/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lampada.app/ru/articles/what-to-pray-about/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://lampada.app/uk/articles/what-to-pray-about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lampada.app/articles/what-to-pray-about/"/>
+  </url>
+  <url>
+    <loc>https://lampada.app/uk/articles/what-to-pray-about/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lampada.app/articles/what-to-pray-about/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lampada.app/ru/articles/what-to-pray-about/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://lampada.app/uk/articles/what-to-pray-about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lampada.app/articles/what-to-pray-about/"/>
+  </url>
 </urlset>
