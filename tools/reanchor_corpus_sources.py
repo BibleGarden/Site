@@ -7,13 +7,14 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import sys
 import tempfile
 
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from sitegen.content import FRONTMATTER_RE, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS, _frontmatter
+from sitegen.content import REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS, _frontmatter
 from sitegen.corpus import citation_chapter, citations
 from sitegen.errors import BuildError
 from tools.check_corpus_citations import CheckError, CorpusAPI, normalize
@@ -21,6 +22,10 @@ from tools.corpus_judge import unique_object
 
 ANCHORS = ("chunk_id", "char_start", "char_end", "text_sha256", "chapter")
 METADATA = ("author", "title", "translator", "source_url")
+
+
+class ManualReview(Exception):
+    """A valid source needs an editorial decision rather than automatic relocation."""
 
 
 def sha(data):
@@ -91,30 +96,34 @@ class Migration:
         return book, chunks
 
     def source(self, item):
-        old, old_hash = self.old_text(item["book_id"])
+        book, chunks = self.current_book(item["book_id"])
+        unchanged = book["text_sha256"] == item["text_sha256"]
+        if unchanged:
+            # A verified identical hash proves this is also the old canonical text.
+            old, old_hash = book["text"], book["text_sha256"]
+        else:
+            old, old_hash = self.old_text(item["book_id"])
         start, end = item["char_start"], item["char_end"]
         if old_hash != item["text_sha256"] or not 0 <= start < end <= len(old):
             raise CheckError("Old evidence hash/range does not match snapshot")
         fragment = old[start:end]
         if item["kind"] == "quote" and normalize(item["original"]) not in normalize(fragment):
-            raise CheckError("Original quotation is absent from the old exact fragment")
-        book, chunks = self.current_book(item["book_id"])
+            raise ManualReview("Original quotation is absent from the old exact fragment")
         for key in METADATA:
             if book["book"][key] != item[key]:
-                raise CheckError(f"Source edition metadata changed: {key}; review manually")
-        unchanged = book["text"] == old
+                raise ManualReview(f"Source edition metadata changed: {key}; review manually")
         if not unchanged:
+            if old.find(fragment) != start or old.find(fragment, start + 1) >= 0:
+                raise ManualReview("Exact old fragment has ambiguous matches in the old text; review manually")
             start = book["text"].find(fragment)
             if start < 0:
-                raise CheckError("Exact old fragment was removed or edited; review manually")
+                raise ManualReview("Exact old fragment was removed or edited; review manually")
             if book["text"].find(fragment, start + 1) >= 0:
-                raise CheckError("Exact old fragment has ambiguous matches; review manually")
+                raise ManualReview("Exact old fragment has ambiguous matches in the new text; review manually")
             end = start + len(fragment)
-        if item["kind"] == "quote" and normalize(item["original"]) not in normalize(book["text"][start:end]):
-            raise CheckError("Original quotation is absent from the new exact fragment")
         containing = [hit for hit in chunks if hit["char_start"] <= start < end <= hit["char_end"]]
         if len(containing) != 1:
-            raise CheckError("Range crosses a chunk boundary or has no unique containing chunk; review manually")
+            raise ManualReview("Range crosses a chunk boundary or has no unique containing chunk; review manually")
         hit = containing[0]
         context = self.api.request("/search/context", {"book_id": item["book_id"],
                                    "char_start": start, "char_end": end,
@@ -139,7 +148,7 @@ def plan(paths, snapshots, api):
             try:
                 entry["after"], entry["text_unchanged"] = migration.source(item)
                 entry["status"] = "ready"
-            except (CheckError, OSError, ValueError, KeyError, TypeError) as exc:
+            except ManualReview as exc:
                 entry.update(status="manual", reason=str(exc))
             entries.append(entry)
         articles.append({"path": str(path), "sha256": sha(raw), "sources": entries})
@@ -149,7 +158,9 @@ def plan(paths, snapshots, api):
 def patch_anchors(raw, entries):
     """Replace only anchor scalars, retaining prose and other YAML byte-for-byte."""
     text = raw.decode("utf-8")
-    match = FRONTMATTER_RE.match(text)
+    match = re.match(r"\A---\r?\n(.*?)\r?\n---\r?\n(.*)\Z", text, re.DOTALL)
+    if match is None:
+        raise CheckError("Article must contain YAML frontmatter delimited by '---' lines")
     document = yaml.compose(match.group(1))
     source_nodes = [value for key, value in document.value if key.value == "corpus_sources"]
     if not entries:
@@ -165,7 +176,10 @@ def patch_anchors(raw, entries):
         keys = {key.value: key for key, _ in node.value}
         if len(fields) != len(node.value) or "id" not in fields:
             raise CheckError("Duplicate or implicit source keys are not supported")
-        entry = changes.pop(fields["id"].value)
+        ident = fields["id"].value
+        if ident not in changes:
+            raise CheckError(f"Article source ID {ident!r} is missing from the report")
+        entry = changes.pop(ident)
         for key in ANCHORS:
             if entry["before"][key] == entry["after"][key]:
                 continue
@@ -175,7 +189,10 @@ def patch_anchors(raw, entries):
                 raise CheckError("Anchors must be explicit scalars, without YAML aliases")
             replacement = json.dumps(entry["after"][key], ensure_ascii=False)
             if value.style in ("|", ">"):
-                replacement += "\n"
+                scalar = match.group(1)[value.start_mark.index:value.end_mark.index]
+                ending = re.search(r"\r?\n\Z", scalar)
+                if ending:
+                    replacement += ending.group()
             edits.append((match.start(1) + value.start_mark.index,
                           match.start(1) + value.end_mark.index,
                           replacement))
@@ -204,7 +221,7 @@ def apply_report(report, api):
     prepared = []
     try:
         for path, article in zip(paths, articles):
-            raw = path.read_bytes()
+            raw, items = load_article(path)
             if sha(raw) != article["sha256"]:
                 raise CheckError(f"Article changed during revalidation: {path}")
             updated = patch_anchors(raw, article["sources"])
@@ -213,11 +230,12 @@ def apply_report(report, api):
                 prepared.append((path, staged, article["sha256"]))
                 handle.write(updated)
             staged.chmod(path.stat().st_mode & 0o777)
-            load_article(staged)
-        # All articles are preflighted before the first replacement.
-        for path, _, expected in prepared:
-            if sha(path.read_bytes()) != expected:
-                raise CheckError(f"Article changed before write: {path}")
+            changes = {entry["id"]: entry["after"] for entry in article["sources"]}
+            expected_items = [{**item, **changes[item["id"]]} for item in items]
+            _, staged_items = load_article(staged)
+            if staged_items != expected_items:
+                raise CheckError(f"Staged evidence differs from the planned anchor changes: {path}")
+        # All files passed schema, semantic and SHA preflight during staging.
         for path, staged, expected in prepared:
             if sha(path.read_bytes()) != expected:
                 raise CheckError(f"Article changed before write: {path}")

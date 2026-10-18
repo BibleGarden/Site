@@ -13,7 +13,7 @@ FIELDS = {"id", "chunk_id", "book_id", "char_start", "char_end", "text_sha256",
 
 
 def citation_chapter(label):
-    """Map the API's explicit empty locator to article null; never invent one."""
+    """Article-schema conversion for tools: API empty locator becomes null, never invented."""
     if not isinstance(label, str) or (label and not label.strip()):
         raise ValueError("citation_label must be a string, empty only when no locator is proven")
     return label if label else None

@@ -143,12 +143,14 @@ API serves the migrated corpus. The channel API does not expose `index_version`;
 a listening port alone does not prove that reindexing is complete. For content
 branches, first merge the tooling PR, then rebase each branch on fresh `main`.
 Keep old snapshots unchanged. `--snapshots` names the **backup root**, containing
-`data/lampada/texts/book_<id>.json` and `.txt` for every referenced book.
+`data/lampada/texts/book_<id>.json` and `.txt` for books whose text hash changed.
+An archive must first be unpacked into this layout in a separate directory;
+never use the live sidecar tree as the old snapshot directory.
 
 ```bash
 python tools/reanchor_corpus_sources.py \
   content/lampada/articles/<slug>/ru.md \
-  --snapshots /root/backups/channel-ai-12.11-20261018 \
+  --snapshots <backup-root> \
   --report /tmp/lampada-reanchor.json
 # Review the private JSON report, then explicitly apply it:
 python tools/reanchor_corpus_sources.py --apply /tmp/lampada-reanchor.json
@@ -163,24 +165,33 @@ must stay outside git. Existing reports are never overwritten. Exit 0 means
 every source is ready (or application succeeded); exit 1 means a manual case
 or error; invalid arguments exit 2.
 
-For each source, the tool checks the old sidecar/text hash and article range.
-If canonical text is unchanged, offsets stay fixed. Otherwise, the **entire
-old exact fragment** must have one unambiguous match in the new text, counting
-overlapping matches. Quotes also require `original` inside both precise ranges
-using the checker's normalization. No fuzzy matching, sentence substitution,
+For each source, the tool verifies the current canonical text hash. If it
+matches the article's hash, that text is also the old text: no backup is needed
+and offsets stay fixed, even for repeated fragments. Otherwise, a matching old
+sidecar/text pair is required; its hash and the article range must be valid.
+The **entire old exact fragment** must be unique in both old and new texts,
+counting overlapping matches. Quotes also require `original` inside the old
+precise range using the checker's normalization; exact relocation preserves it.
+No fuzzy matching, sentence substitution,
 range splitting or prose edits are allowed. Removed/edited/repeated passages,
 changed source-edition metadata, or a range without one containing chunk go to
 manual review. Chunk IDs are enumerated from `/books`' `chunks_count` using
 channel-ai's `book-{book_id}-{zero_based_index:04d}` contract, fetched in batches
 of at most 100 and checked against canonical text; semantic search is not used.
+Only these editorial outcomes produce `manual` entries. Missing/corrupt
+snapshots, invalid hashes/ranges, API failures (including HTTP 409/503), malformed
+responses and code errors abort the run without writing a report or articles.
+There are no automatic retries, including for subsequent sources of that book.
 
 Application refuses any report with manual cases. It checks every article's
 file SHA against the report, recreates the plan against live chunks/text/leaf
-context and old snapshots, and requires an identical result. It then stages and
-validates every article before replacement, checking SHA again before writes.
+context and any required old snapshots, and requires an identical result.
+It stages every article and compares parsed evidence to the original sources
+with only the planned anchors replaced, then checks SHA again before writes.
 Each file replacement is atomic; the set of files is not a filesystem
 transaction. Only `chunk_id`, `char_start`, `char_end`, `text_sha256`, and
-`chapter` scalars change; body and other YAML remain byte-for-byte intact.
+`chapter` scalars change; body and other YAML remain byte-for-byte intact,
+including LF or CRLF line endings.
 Do not edit articles concurrently. If an article or corpus changed, make a new
 report; do not edit the saved plan. Resolve manual cases editorially in a new
 review cycle, never by making the migration tool guess.

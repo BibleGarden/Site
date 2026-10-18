@@ -12,6 +12,9 @@ import time
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from sitegen.corpus import citation_chapter
+
 
 class ResearchError(Exception):
     pass
@@ -64,9 +67,10 @@ def collect(api, queries, max_per_book=2, max_hits=12, query_delay=0):
             raise ResearchError(f"Search query {number} failed: {exc}") from exc
         counts.append(len(hits))
         for hit in hits:
-            label = hit.get("citation_label")
-            if not isinstance(label, str) or (label and not label.strip()):
-                raise ResearchError("Missing or invalid citation_label; refresh the corpus index")
+            try:
+                citation_chapter(hit["citation_label"])
+            except (KeyError, ValueError) as exc:
+                raise ResearchError("Missing or invalid citation_label; refresh the corpus index") from exc
             key = (hit["book"]["id"], hit["section_index"])
             previous = candidates.get(key)
             matched = {number} if previous is None else previous["queries"] | {number}
@@ -154,8 +158,8 @@ def render(topic, queries, inventory, selected, counts, excerpt_chars=180):
                   '- Выдержка (предложение вокруг лучшего буквального совпадения; длинное ограничено лимитом; не готовая цитата):', "",
                   f'> {md(excerpt) if excerpt is not None else "Нет буквального совпадения; выбрать фрагмент после чтения контекста."}', ""]
     lines += ["## Перед решением Марии", "",
-              "- Прочитать /search/context с scope=chapter; сохранить контекст только вне git.",
-              "- Если chapter совпадает с названием книги или раздел охватывает всю книгу — стоп: сообщить владельцу корпуса, не обходить через leaf или полный текст.",
+              "- Прочитать /search/context с scope=chapter; для книги без структуры при 422 явно запросить scope=leaf; контекст хранить вне git.",
+              "- Пустая citation_label допустима: chapter: null, сноска по книге. Явно неверная метка (сырой путь, повтор названия книги) — стоп и сообщение владельцу корпуса; не исправлять в Site и не подставлять структурный chapter.",
               "- Выбрать не менее трёх книг разных авторов, желательно разных традиций; описать зачем каждый фрагмент и ограничения.",
               "- Уточнить узкие диапазоны для будущих corpus_sources; текущие диапазоны относятся к целым чанкам.",
               "- Записать решение Марии и утверждённые chunk_id. До этого текст не писать.", ""]
