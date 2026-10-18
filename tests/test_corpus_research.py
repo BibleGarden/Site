@@ -17,7 +17,7 @@ def hit(book_id=1, section=1, score=0.5, chunk='one'):
         'book': {'id': book_id, 'author': 'Author', 'title': 'Book',
                  'tradition': 'Tradition', 'language': 'ru', 'translator': None,
                  'source_url': 'https://example.org/book', 'license': 'public_domain'},
-        'chunk_id': chunk, 'section_index': section, 'chapter': 'Chapter',
+        'chunk_id': chunk, 'section_index': section, 'chapter': 'Structural wrapper', 'citation_label': 'Chapter',
         'section_path': 'Chapter / Section', 'char_start': 10, 'char_end': 300,
         'text_sha256': 'a' * 64, 'text': 'Молитва — живой разговор. ' * 30,
         'score': score,
@@ -41,6 +41,24 @@ class FakeAPI:
 
 
 class ResearchTests(unittest.TestCase):
+    def test_labels_are_required_and_never_replaced_by_chapter(self):
+        for label in (None, 1, '  '):
+            candidate = hit()
+            candidate['citation_label'] = label
+            with self.assertRaisesRegex(research.ResearchError, 'citation_label'):
+                research.collect(FakeAPI([[candidate]]), [{'query': 'prayer'}])
+        candidate = hit()
+        del candidate['citation_label']
+        with self.assertRaisesRegex(research.ResearchError, 'citation_label'):
+            research.collect(FakeAPI([[candidate]]), [{'query': 'prayer'}])
+        for label in ('II — 3. Prayer', ''):
+            candidate = hit()
+            candidate['citation_label'] = label
+            inventory, selected, counts = research.collect(FakeAPI([[candidate]]), [{'query': 'prayer'}])
+            output = research.render('Topic', [{'query': 'prayer'}], inventory, selected, counts)
+            self.assertIn(label or 'нет подтверждённой метки', output)
+            self.assertNotIn('Structural wrapper', output)
+
     def test_best_per_book_section_and_query_provenance(self):
         api = FakeAPI([[hit(score=.4), hit(2, score=.6)],
                        [hit(score=.9, chunk='better'), hit(section=2, score=.7)],

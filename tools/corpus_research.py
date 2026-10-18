@@ -64,6 +64,9 @@ def collect(api, queries, max_per_book=2, max_hits=12, query_delay=0):
             raise ResearchError(f"Search query {number} failed: {exc}") from exc
         counts.append(len(hits))
         for hit in hits:
+            label = hit.get("citation_label")
+            if not isinstance(label, str) or (label and not label.strip()):
+                raise ResearchError("Missing or invalid citation_label; refresh the corpus index")
             key = (hit["book"]["id"], hit["section_index"])
             previous = candidates.get(key)
             matched = {number} if previous is None else previous["queries"] | {number}
@@ -141,7 +144,8 @@ def render(topic, queries, inventory, selected, counts, excerpt_chars=180):
         )
         lines += [f'### {number}. {md(book["title"])}', "",
                   f'- Автор: {md(book["author"])}; традиция: {md(book["tradition"])}; язык: {md(book["language"])}.',
-                  f'- Глава: {md(hit["chapter"])}; раздел: {md(hit["section_path"])}; section_index: {hit["section_index"]}.',
+                  f'- Глава: {md(hit["citation_label"]) if hit["citation_label"] else "нет подтверждённой метки"}; '
+                  f'раздел: {md(hit["section_path"])}; section_index: {hit["section_index"]}.',
                   f'- chunk_id: `{hit["chunk_id"]}`; book_id: {book["id"]}; score: {hit["score"]}.',
                   f'- Диапазон чанка: [{hit["char_start"]}, {hit["char_end"]}); text_sha256: `{hit["text_sha256"]}`.',
                   f'- Источник: {md(book["source_url"])}; лицензия: {md(book["license"])}; переводчик издания: {md(book["translator"])}.',

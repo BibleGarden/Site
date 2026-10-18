@@ -23,7 +23,7 @@ from urllib.request import Request, urlopen
 # Allow both direct execution and importing in tests.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from sitegen.content import _frontmatter, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS
-from sitegen.corpus import citations
+from sitegen.corpus import citation_chapter, citations
 from sitegen.errors import BuildError
 from tools.corpus_judge import CheckError, unique_object, validate_verdict
 from tools.corpus_judge_process import JudgeExecutor, run_adapter
@@ -82,11 +82,16 @@ class CorpusAPI:
             fields(response, {'chunks': (list,)})
             for chunk in response['chunks']:
                 span(chunk)
-                fields(chunk, {'chunk_id': (str,), 'chapter': (str, type(None))})
+                fields(chunk, {'chunk_id': (str,), 'citation_label': (str,)})
         elif path == '/search/context':
             span(response)
+            fields(response, {'citation_label': (str,)})
         elif path.startswith('/books/') and path.endswith('/text'):
             text(response)
+        elif path == '/books':
+            fields(response, {'books': (list,)})
+            for entry in response['books']:
+                fields(entry, {'id': (int,), 'chunks_count': (int,), 'status': (str,)})
         else:
             raise CheckError('Unexpected corpus response endpoint')
         return response
@@ -186,8 +191,12 @@ def prepare_verification(item, api, judge, near=500, book_cache=None, *, judge_r
         for key in ("author", "title", "translator", "source_url"):
             if data["book"][key] != item[key]:
                 raise CheckError(f"Stale book metadata: {key}")
-    if (hit["chapter"] or None) != item["chapter"]:
-        raise CheckError("Stale chapter metadata")
+    try:
+        chapter = citation_chapter(hit["citation_label"])
+    except (KeyError, ValueError) as exc:
+        raise CheckError("Missing or invalid citation_label; refresh evidence") from exc
+    if chapter != item["chapter"]:
+        raise CheckError("Stale chapter metadata: expected API citation_label")
     start, end = item["char_start"], item["char_end"]
     if not (0 <= hit["char_start"] <= start < end <= hit["char_end"] <= len(text)):
         raise CheckError("Referenced range must lie inside the referenced chunk")
@@ -202,6 +211,8 @@ def prepare_verification(item, api, judge, near=500, book_cache=None, *, judge_r
             or not 0 <= context["char_start"] <= start < end <= context["char_end"] <= len(text)
             or context["text"] != text[context["char_start"]:context["char_end"]]):
         raise CheckError("Context identity, hash or canonical range mismatch")
+    if context["citation_label"] != hit["citation_label"]:
+        raise CheckError("Context citation_label differs from referenced chunk")
     paragraph = context["text"]
     translated = item["kind"] == "quote" and item["translation"] == "ours"
     if item["kind"] == "quote":
