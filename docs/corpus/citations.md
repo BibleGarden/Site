@@ -192,10 +192,52 @@ final PASS/FAIL/UNSTABLE/ERROR counters plus invalid-article count. Any FAIL,
 UNSTABLE, ERROR or invalid article exits 1. Missing credentials also fail.
 Adapter diagnostics stay on stderr; raw output is not echoed into reports.
 
+## Judge verdict cache
+
+The CLI caches complete model vote sets in `~/.cache/lampada-citation-judge`
+(default, independent of the working directory). Use `--cache-dir /private/path`
+to choose another directory outside this repository. No alternative location is
+tried if the directory cannot be used. Cache files contain private explanations;
+never commit or publish them. New directories use mode 0700 and records 0600;
+writes replace records atomically.
+
+The content-addressed key includes article fragment text, quote/retelling kind,
+original/translation, canonical source range text, full-book SHA-256, offsets,
+book/chunk identity and attribution metadata, the exact prompt/criteria, model,
+run count, adapter command/version and bundled implementation fingerprint.
+Occurrence IDs and report-only neighbourhood size do not affect the verdict.
+Changing one fragment rechecks only that fragment; changing criteria or model
+invalidates the corresponding cached votes. `--judge-model` defaults to `opus`
+and is passed to adapters as `CORPUS_JUDGE_MODEL`; the bundled adapter uses it for
+Claude's `--model`. Custom adapters must honour that setting and bump
+`--judge-version` (default `1`) whenever their implementation, provider or hidden
+configuration changes. Bundled protocol/adapter/checker edits invalidate keys
+automatically. The `opus` alias may change upstream; use a full final review.
+
+Every run still fetches and validates current corpus chunks, canonical text and
+context before consulting the judge cache. Completed PASS, FAIL and UNSTABLE
+vote sets are reusable only with the exact configured number of valid votes.
+ERROR and partial vote sets are never stored. Corrupt, duplicate-key, mismatched
+or incomplete records produce an explicit error, not a cache miss or an automatic
+model retry. Repair or remove the named entry intentionally. Reports mark model
+fragments `Cache: HIT` or `Cache: MISS`, preserve each vote/reason and count actual
+judge calls and cached fragments. Direct in-process calls cache only when given
+an explicit `JudgeCache` instance.
+
+For a final review before merge, bypass cache reads **and writes**:
+
+```bash
+python tools/check_corpus_citations.py content/lampada/articles/<slug>/{ru,en,uk}.md \
+  --no-cache --report /tmp/lampada-final-review.md
+```
+
+`--no-cache` performs fresh judging even when cached entries exist or are corrupt;
+it leaves the cache untouched. It does not approve failures or retry errors.
+
 ## Offline tests
 
 ```bash
-python -m unittest discover -s tests -p test_corpus_citations.py
+python -m unittest discover -s tests -p 'test_corpus*.py'
 ```
 
 Fake corpus, fake judge and a fake Claude executable cover exact/distorted and
@@ -205,4 +247,7 @@ validation, configurable independent runs, unanimous PASS/FAIL, disagreement rep
 schema arguments, structured-output validation, duplicate-key rejection, errors
 without checker retries, and
 Lampada-only front matter.
+Cache tests cover reuse with zero calls, one edited fragment, prompt/model/run
+invalidation, preserved FAIL/UNSTABLE explanations, ERROR exclusion, canonical
+revalidation, corrupt/unwritable records, private paths and `--no-cache`.
 Existing CI discovers these tests without live API calls or credentials.
