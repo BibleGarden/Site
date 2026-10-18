@@ -45,6 +45,12 @@ def judge_environment(command):
         raise CheckError('Cannot identify judge environment for cache; no fallback') from exc
 
 
+def vote_key(item, payload, runs, identity):
+    # Occurrence IDs do not change the evidence seen by the judge.
+    return digest({'version': CACHE_VERSION, 'identity': identity, 'runs': runs,
+                   'item': {k: v for k, v in item.items() if k != 'id'}, 'payload': payload})
+
+
 class JudgeCache:
     def __init__(self, directory, identity):
         self.directory = Path(directory).expanduser().resolve()
@@ -55,9 +61,7 @@ class JudgeCache:
         self.calls = 0
 
     def key(self, item, payload, runs):
-        # IDs bind occurrences, but do not affect the judge's evidence or criteria.
-        return digest({'version': CACHE_VERSION, 'identity': self.identity, 'runs': runs,
-                       'item': {k: v for k, v in item.items() if k != 'id'}, 'payload': payload})
+        return vote_key(item, payload, runs, self.identity)
 
     def read(self, key, runs):
         path = self.directory / f'{key}.json'

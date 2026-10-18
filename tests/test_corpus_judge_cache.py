@@ -92,9 +92,9 @@ class JudgeCacheTest(unittest.TestCase):
                     self.assertIn(vote['reason'], second[1])
 
     def test_error_is_not_cached_or_retried(self):
-        judge = Mock(side_effect=[PASS, CheckError('Unavailable')])
+        judge = Mock(side_effect=[PASS, CheckError('Unavailable'), PASS])
         self.assertEqual(verify(self.item, self.api, judge, judge_cache=self.cache)[0], 'ERROR')
-        self.assertEqual(judge.call_count, 2)
+        self.assertEqual(judge.call_count, 3)
         self.assertEqual(list(self.cache.directory.glob('*.json')), [])
         next_judge = Mock(return_value=PASS)
         verify(self.item, self.api, next_judge, judge_cache=self.cache)
@@ -134,8 +134,11 @@ class JudgeCacheTest(unittest.TestCase):
 
     def test_failed_atomic_write_is_explicit_and_cleans_temporary_file(self):
         with patch('tools.corpus_judge_cache.os.replace', side_effect=OSError('Disk full')):
-            with self.assertRaisesRegex(CheckError, 'Cannot write judge cache'):
-                verify(self.item, self.api, Mock(return_value=PASS), judge_cache=self.cache)
+            status, reason, paragraph = verify(self.item, self.api, Mock(return_value=PASS), judge_cache=self.cache)
+            self.assertEqual(status, 'ERROR')
+            self.assertIn('Cannot write judge cache', reason)
+            self.assertIn('Run 3/3: PASS', reason)
+            self.assertIn(fixtures.TEXT[fixtures.START:fixtures.END], paragraph)
         self.assertEqual(list(self.cache.directory.iterdir()), [])
 
     def test_records_have_private_permissions_and_run_count_invalidates_votes(self):
