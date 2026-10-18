@@ -9,7 +9,7 @@ import subprocess
 from pathlib import Path
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 from urllib.error import HTTPError
 
 import yaml
@@ -18,7 +18,7 @@ from sitegen.content import parse_article
 from sitegen.corpus import annotate, citations
 from sitegen.errors import BuildError
 from tools.check_corpus_citations import (CheckError, CorpusAPI, DEFAULT_JUDGE, check_articles,
-                                          command_judge, main, normalize, verify)
+                                          command_judge, main, normalize, validate_verdict, verify)
 
 TEXT = 'First paragraph.\n\nPray with love and care.\n\nFinal paragraph.'
 START = TEXT.index('Pray')
@@ -62,22 +62,22 @@ class CitationTest(unittest.TestCase):
         raise AssertionError('Quotes must not invoke an LLM')
 
     def test_exact_quote_and_canonical_range(self):
-        self.assertTrue(verify(self.item, self.api, self.judge)[0])
+        self.assertEqual(verify(self.item, self.api, self.judge)[0], "PASS")
         self.assertEqual(self.api.calls[-1][1]['scope'], 'leaf')
 
     def test_distorted_quote_fails(self):
         self.item['text'] = 'Pray without love and care.'
-        self.assertFalse(verify(self.item, self.api, self.judge)[0])
+        self.assertEqual(verify(self.item, self.api, self.judge)[0], "FAIL")
 
     def test_quote_elsewhere_in_book_does_not_pass(self):
         self.item.update(text='Final paragraph.', original='Final paragraph.')
         # Full report context contains the quote, but the precise range does not.
-        self.assertFalse(verify(self.item, self.api, self.judge)[0])
+        self.assertEqual(verify(self.item, self.api, self.judge)[0], "FAIL")
 
     def test_whitespace_quotes_and_nfc(self):
         self.assertEqual(normalize('«Cafe\u0301»\n\t ‘word’'), normalize('“Café”  ’word‘'))
         self.item['text'] = 'Pray\nwith   love and care.'
-        self.assertTrue(verify(self.item, self.api, self.judge)[0])
+        self.assertEqual(verify(self.item, self.api, self.judge)[0], "PASS")
 
     def test_stale_and_corrupt_hashes(self):
         for target in ('item', 'hit', 'book', 'context'):
@@ -114,11 +114,11 @@ class CitationTest(unittest.TestCase):
         seen = []
         def judge(payload):
             seen.append(payload)
-            return {'supported': True, 'reason': 'Supported by the fragment'}
-        self.assertTrue(verify(self.item, self.api, judge)[0])
+            return {'verdict': 'PASS', 'category': 'supported', 'reason': 'Supported by the fragment'}
+        self.assertEqual(verify(self.item, self.api, judge)[0], "PASS")
         self.assertEqual(seen[0]['source'], TEXT[START:END])
         self.item['text'] = 'Prayer is useless.'
-        self.assertFalse(verify(self.item, self.api, lambda p: {'supported': False, 'reason': 'Contradiction'})[0])
+        self.assertEqual(verify(self.item, self.api, lambda p: {'verdict': 'FAIL', 'category': 'contradiction', 'reason': 'Contradiction'})[0], "FAIL")
 
     def test_missing_failed_and_malformed_judge(self):
         with self.assertRaises(CheckError):
@@ -129,9 +129,92 @@ class CitationTest(unittest.TestCase):
                 with self.assertRaises(CheckError):
                     command_judge('judge --json', {})
         with patch('tools.check_corpus_citations.subprocess.run') as run:
-            run.return_value.stdout = '{"supported":false,"reason":"Unsupported"}'
-            self.assertFalse(command_judge('judge --json', {})['supported'])
+            run.return_value.stdout = '{"verdict":"FAIL","category":"contradiction","reason":"Unsupported"}'
+            self.assertEqual(command_judge('judge --json', {})['verdict'], 'FAIL')
             self.assertNotIn('shell', run.call_args.kwargs)
+
+    def test_adapter_failures_are_explicit_without_retry(self):
+        for error in (OSError('Unavailable'), subprocess.TimeoutExpired('judge', 120),
+                      subprocess.CalledProcessError(1, 'judge')):
+            with self.subTest(error=type(error).__name__), \
+                 patch('tools.check_corpus_citations.subprocess.run', side_effect=error) as run:
+                with self.assertRaises(CheckError):
+                    command_judge('judge --json', {})
+                self.assertEqual(run.call_count, 1)
+
+    def test_independent_runs_consensus_and_disagreement(self):
+        self.item.update(kind='retelling', original=None, translation=None, text='Prayer needs care.')
+        passed = {'verdict': 'PASS', 'category': 'secondary_omission', 'reason': 'Meaning unchanged'}
+        failed = {'verdict': 'FAIL', 'category': 'meaning_changing_omission',
+                  'reason': 'Omitting care makes the instruction unconditional'}
+        for answers, expected in (([passed] * 3, 'PASS'), ([failed] * 3, 'FAIL'),
+                                  ([passed, failed, passed], 'UNSTABLE'),
+                                  ([failed, failed, passed], 'UNSTABLE')):
+            with self.subTest(expected=expected):
+                judge = Mock(side_effect=answers)
+                status, reason, _ = verify(self.item, self.api, judge)
+                self.assertEqual(status, expected)
+                self.assertEqual(judge.call_count, 3)
+                for number, answer in enumerate(answers, 1):
+                    self.assertIn(f'Run {number}/3: {answer["verdict"]} [{answer["category"]}]', reason)
+                    self.assertIn(answer['reason'], reason)
+                payloads = [call.args[0] for call in judge.call_args_list]
+                self.assertEqual(payloads, [payloads[0]] * 3)
+                self.assertIsNot(payloads[0], payloads[1])
+
+    def test_judge_errors_stop_without_retry_and_keep_previous_reason(self):
+        self.item.update(kind='retelling', original=None, translation=None, text='Prayer needs care.')
+        passed = {'verdict': 'PASS', 'category': 'supported', 'reason': 'First explanation'}
+        for error in (CheckError('Unavailable'), {}, {'verdict': 'PASS'}):
+            judge = Mock(side_effect=[passed, error, passed])
+            status, reason, paragraph = verify(self.item, self.api, judge)
+            self.assertEqual(status, 'ERROR')
+            self.assertEqual(judge.call_count, 2)
+            self.assertIn('First explanation', reason)
+            self.assertIn('Run 2/3: ERROR', reason)
+            self.assertIn(TEXT[START:END], paragraph)
+
+    def test_strict_verdict_schema(self):
+        valid = {'verdict': 'PASS', 'category': 'supported', 'reason': 'Evidence agrees'}
+        invalid = [None, [], True, {**valid, 'extra': 1}]
+        for key, values in {'verdict': ['pass', True, None, []],
+                            'category': ['unknown', 'distortion', None, []],
+                            'reason': ['', '  ', 1, None]}.items():
+            invalid.extend({**valid, key: value} for value in values)
+        invalid.append({'verdict': 'FAIL', 'category': 'supported', 'reason': 'Mismatch'})
+        for value in invalid:
+            with self.subTest(value=value), self.assertRaises(CheckError):
+                validate_verdict(value)
+
+    def test_configurable_runs_and_invalid_counts(self):
+        self.item.update(kind='retelling', original=None, translation=None, text='Prayer needs care.')
+        judge = Mock(return_value={'verdict': 'PASS', 'category': 'supported', 'reason': 'Supported'})
+        self.assertEqual(verify(self.item, self.api, judge, judge_runs=4)[0], 'PASS')
+        self.assertEqual(judge.call_count, 4)
+        for runs in (0, -1, True, 1.5):
+            with self.subTest(runs=runs), self.assertRaises(CheckError):
+                verify(self.item, self.api, judge, judge_runs=runs)
+        with tempfile.TemporaryDirectory() as tmp:
+            for runs in ('0', '-1', 'bad'):
+                with self.subTest(runs=runs), self.assertRaises(SystemExit) as error:
+                    main(['--report', str(Path(tmp) / 'review.md'), '--judge-runs', runs])
+                self.assertEqual(error.exception.code, 2)
+
+    def test_unstable_report_preserves_all_reasons_and_fails(self):
+        self.item.update(kind='retelling', original=None, translation=None, text='Prayer needs care.')
+        judge = Mock(side_effect=[
+            {'verdict': 'PASS', 'category': 'supported', 'reason': 'First reason'},
+            {'verdict': 'FAIL', 'category': 'addition', 'reason': 'Second reason'},
+            {'verdict': 'PASS', 'category': 'secondary_omission', 'reason': 'Third reason'}])
+        with tempfile.TemporaryDirectory() as tmp:
+            path, report = Path(tmp) / 'ru.md', Path(tmp) / 'review.md'
+            self.write_article(path, [self.item])
+            self.assertEqual(check_articles([path], self.api, judge, report, judge_name='stub'), 1)
+            result = report.read_text()
+            self.assertIn('| prayer | retelling | UNSTABLE |', result)
+            self.assertIn('Verdict: UNSTABLE', result)
+            for reason in ('First reason', 'Second reason', 'Third reason'):
+                self.assertIn(reason, result)
 
     def test_http_auth_and_409(self):
         with self.assertRaises(CheckError):
@@ -222,6 +305,7 @@ class CitationTest(unittest.TestCase):
                 raise CheckError('Judge unavailable')
             self.assertEqual(check_articles([path], self.api, judge, report), 1)
             self.assertIn('Judge unavailable', report.read_text())
+            self.assertIn('Verdict: ERROR', report.read_text())
             self.assertIn(TEXT[START:END], report.read_text())
 
     def test_translated_quote_judges_article_against_verbatim_original(self):
@@ -229,28 +313,29 @@ class CitationTest(unittest.TestCase):
         seen = []
         def judge(payload):
             seen.append(payload)
-            return {'supported': True, 'reason': 'Faithful translation'}
-        self.assertTrue(verify(self.item, self.api, judge)[0])
+            return {'verdict': 'PASS', 'category': 'supported', 'reason': 'Faithful translation'}
+        self.assertEqual(verify(self.item, self.api, judge)[0], "PASS")
+        self.assertEqual(len(seen), 3)
         self.assertEqual(seen[0]['original'], ITEM['original'])
         self.assertEqual(seen[0]['source'], ITEM['original'])
         self.assertEqual(seen[0]['article_text'], self.item['text'])
         self.assertEqual(seen[0]['kind'], 'translation')
         self.assertNotIn('source_context', seen[0])
         self.assertIn('Natural idiomatic translation', seen[0]['instruction'])
-        self.assertFalse(verify(self.item, self.api, lambda p: {'supported': False, 'reason': 'Added claim'})[0])
+        self.assertEqual(verify(self.item, self.api, lambda p: {'verdict': 'FAIL', 'category': 'addition', 'reason': 'Added claim'})[0], "FAIL")
         self.item['original'] = 'Pray without love and care.'
-        self.assertFalse(verify(self.item, self.api, self.judge)[0])
+        self.assertEqual(verify(self.item, self.api, self.judge)[0], "FAIL")
 
     def test_untranslated_and_published_quotes_cannot_bypass_verbatim_text(self):
         for mode in (None, 'published'):
             self.item['translation'] = mode
-            self.assertTrue(verify(self.item, self.api, self.judge)[0])
+            self.assertEqual(verify(self.item, self.api, self.judge)[0], "PASS")
             self.item['text'] = 'Our changed wording.'
-            self.assertFalse(verify(self.item, self.api, self.judge)[0])
+            self.assertEqual(verify(self.item, self.api, self.judge)[0], "FAIL")
             self.item['text'] = ITEM['text']
         for original in ('Pray … care.', 'Pray with care.', 'Pray with love and hate.'):
             self.item.update(original=original, text=original)
-            self.assertFalse(verify(self.item, self.api, self.judge)[0])
+            self.assertEqual(verify(self.item, self.api, self.judge)[0], "FAIL")
 
     def test_translation_schema(self):
         for updates in ({'original': None}, {'original': ''}, {'translation': 'unknown'},
@@ -318,7 +403,7 @@ class CitationTest(unittest.TestCase):
     def test_full_book_cached_by_book_id_and_hash_but_chunks_remain_current(self):
         cache = {}
         for _ in range(2):
-            self.assertTrue(verify(self.item, self.api, self.judge, book_cache=cache)[0])
+            self.assertEqual(verify(self.item, self.api, self.judge, book_cache=cache)[0], "PASS")
         self.assertEqual(sum(path == '/books/5/text' for path, data in self.api.calls), 1)
         self.assertEqual(sum(path == '/search/chunks' for path, data in self.api.calls), 2)
         self.api.hit['text_sha256'] = '0' * 64
@@ -330,7 +415,7 @@ class CitationTest(unittest.TestCase):
         self.api.hit['text_sha256'] = new_hash
         self.api.context.update(text=new_text, char_end=len(new_text), text_sha256=new_hash)
         self.item['text_sha256'] = new_hash
-        self.assertTrue(verify(self.item, self.api, self.judge, book_cache=cache)[0])
+        self.assertEqual(verify(self.item, self.api, self.judge, book_cache=cache)[0], "PASS")
         self.assertEqual(sum(path == '/books/5/text' for path, data in self.api.calls), 2)
         self.assertEqual(set(cache), {(5, ITEM['text_sha256']), (5, new_hash)})
 
@@ -342,7 +427,7 @@ class CitationTest(unittest.TestCase):
             result = report.read_text()
             self.assertLess(result.index('| Article | Citation | Kind | Verdict |'), result.index('## '))
             self.assertIn('| prayer | quote | PASS |', result)
-            self.assertIn('Verdict: PASS —', result)
+            self.assertIn('Verdict: PASS', result)
             self.assertIn('Original quotation:', result)
             self.assertIn('Judge command/adapter', result)
             self.assertIn('CitationTest.judge', result)
@@ -352,15 +437,16 @@ class CitationTest(unittest.TestCase):
             path, report = Path(tmp) / 'ru.md', Path(tmp) / 'review.md'
             self.item.update(translation='ours', text='Молитесь с любовью и заботой.')
             self.write_article(path, [self.item])
-            for command in (None, 'custom-judge --json'):
+            for command, runs in ((None, 3), ('custom-judge --json', 4)):
                 with patch.dict(os.environ):
                     os.environ.pop('CORPUS_JUDGE_COMMAND', None)
                     if command is not None:
                         os.environ['CORPUS_JUDGE_COMMAND'] = command
                     with patch('tools.check_corpus_citations.CorpusAPI', return_value=self.api), \
                          patch('tools.check_corpus_citations.command_judge') as judge:
-                        judge.return_value = {'supported': True, 'reason': 'Faithful'}
-                        self.assertEqual(main([str(path), '--report', str(report)]), 0)
+                        judge.return_value = {'verdict': 'PASS', 'category': 'supported', 'reason': 'Faithful'}
+                        self.assertEqual(main([str(path), '--report', str(report), '--judge-runs', str(runs)]), 0)
+                        self.assertEqual(judge.call_count, runs)
                         self.assertEqual(judge.call_args.args[0], command or DEFAULT_JUDGE)
                         self.assertIn(command or DEFAULT_JUDGE, report.read_text())
 
@@ -379,23 +465,23 @@ class CitationTest(unittest.TestCase):
                    'ARGS_PATH': str(args_path), 'INPUT_PATH': str(input_path)}
             payload = {'article_text': 'Молитва', 'source': 'Prayer'}
             for fenced in (False, True):
-                verdict = json.dumps({'supported': True, 'reason': 'Supported'})
+                verdict = json.dumps({'verdict': 'PASS', 'category': 'supported', 'reason': 'Supported'})
                 if fenced:
                     verdict = '```json\n' + verdict + '\n```'
                 env['FAKE_CLAUDE_OUTPUT'] = json.dumps({'result': verdict, 'is_error': False})
                 result = subprocess.run([str(adapter)], input=json.dumps(payload), text=True, capture_output=True, env=env)
                 self.assertEqual(result.returncode, 0, result.stderr)
-                self.assertTrue(json.loads(result.stdout)['supported'])
+                self.assertEqual(json.loads(result.stdout)['verdict'], 'PASS')
                 self.assertEqual(json.loads(input_path.read_text()), payload)
                 self.assertEqual(json.loads(args_path.read_text()),
-                                 ['-p', '--model', 'sonnet', '--output-format', 'json', '--tools', ''])
+                                 ['-p', '--model', 'opus', '--output-format', 'json', '--tools', ''])
             for reply in ('{}', 'not json', '{"is_error":true,"result":"secret"}',
                           '{"result":"not json"}', '{"result":42}'):
                 env['FAKE_CLAUDE_OUTPUT'] = reply
                 result = subprocess.run([str(adapter)], input='{}', text=True, capture_output=True, env=env)
                 self.assertNotEqual(result.returncode, 0)
                 self.assertNotIn('secret', result.stderr)
-            env.update(FAKE_EXIT='1', FAKE_CLAUDE_OUTPUT=json.dumps({'result': '{"supported":true,"reason":"ok"}'}))
+            env.update(FAKE_EXIT='1', FAKE_CLAUDE_OUTPUT=json.dumps({'result': '{"verdict":"PASS","category":"supported","reason":"ok"}'}))
             result = subprocess.run([str(adapter)], input='{}', text=True, capture_output=True, env=env)
             self.assertNotEqual(result.returncode, 0)
 
