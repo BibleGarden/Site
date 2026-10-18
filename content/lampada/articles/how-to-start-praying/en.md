@@ -9,14 +9,14 @@ corpus_sources:
   text: On 13 October 1820 he was arrested in Milan and locked up in the Santa Margherita prison
   original: null
   translation: null
-  chunk_id: book-54-0002
+  chunk_id: "book-54-0001"
   book_id: 54
-  char_start: 1092
-  char_end: 1173
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 1006
+  char_end: 1671
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap I
+  chapter: "Capo Primo."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-cell
@@ -24,14 +24,14 @@ corpus_sources:
   text: Once the interrogations were over, loneliness came down on him with its full weight, and for reading he had only a Bible, Dante and a few novels from the jailer’s own shelf
   original: null
   translation: null
-  chunk_id: book-54-0020
+  chunk_id: "book-54-0019"
   book_id: 54
-  char_start: 15537
-  char_end: 15872
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 15331
+  char_end: 15666
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap VI
+  chapter: "Capo VI."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-bible
@@ -39,14 +39,14 @@ corpus_sources:
   text: Pellico had loved the Bible deeply even in the years when he thought of himself as an unbeliever, and now, when nothing else he read could hold his attention, a passage from it sometimes still did
   original: null
   translation: null
-  chunk_id: book-54-0020
+  chunk_id: "book-54-0019"
   book_id: 54
-  char_start: 16111
-  char_end: 16350
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 15905
+  char_end: 16144
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap VI
+  chapter: "Capo VI."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-pagans
@@ -54,14 +54,14 @@ corpus_sources:
   text: One day he set himself a goal, that every thought he had would be moved by the wish to bend to God’s will. What prompted it was something he had read, that we must pray without ceasing, and that true prayer is not mumbling a great many words, as the pagans do, but worshipping God simply, in word and in deed
   original: null
   translation: null
-  chunk_id: book-54-0021
+  chunk_id: "book-54-0020"
   book_id: 54
-  char_start: 16978
-  char_end: 17420
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 16772
+  char_end: 17214
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap VI
+  chapter: "Capo VI."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-formulas
@@ -69,14 +69,14 @@ corpus_sources:
   text: Pellico used few set prayers. Not out of contempt, since he believed they were very helpful. He simply knew he could not recite many of them without his mind wandering off until he forgot he was worshipping at all
   original: null
   translation: null
-  chunk_id: book-54-0022
+  chunk_id: "book-54-0021"
   book_id: 54
-  char_start: 17422
-  char_end: 17749
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 17216
+  char_end: 17543
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap VI
+  chapter: "Capo VI."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-presence
@@ -84,14 +84,14 @@ corpus_sources:
   text: Instead, he tried to remember all day long that God was near, and with every passing day his solitude frightened him less
   original: null
   translation: null
-  chunk_id: book-54-0022
+  chunk_id: "book-54-0021"
   book_id: 54
-  char_start: 17751
-  char_end: 18067
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 17545
+  char_end: 17861
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap VI
+  chapter: "Capo VI."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-company
@@ -99,14 +99,14 @@ corpus_sources:
   text: Am I not in excellent company?
   original: Non sono io in ottima compagnia?
   translation: ours
-  chunk_id: book-54-0022
+  chunk_id: "book-54-0021"
   book_id: 54
-  char_start: 18070
-  char_end: 18102
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 17864
+  char_end: 17896
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap VI
+  chapter: "Capo VI."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-whistle
@@ -114,14 +114,14 @@ corpus_sources:
   text: he would tell himself, and he grew calm and even started humming and whistling
   original: null
   translation: null
-  chunk_id: book-54-0022
+  chunk_id: "book-54-0021"
   book_id: 54
-  char_start: 18104
-  char_end: 18196
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 17898
+  char_end: 17990
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap VI
+  chapter: "Capo VI."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: goforth-tell
@@ -136,7 +136,7 @@ corpus_sources:
   text_sha256: 64c642c96a95339312d7539ca6ef832f5807ad2f01d72f4b8290d8e5ecc0138e
   author: Rosalind Goforth
   title: 'How I Know God Answers Prayer: The Personal Testimony of One Life-Time'
-  chapter: II
+  chapter: "II. EARLY LESSONS IN THE LIFE OF FAITH"
   translator: null
   source_url: https://www.gutenberg.org/ebooks/26033
 - id: goforth-pain
@@ -151,7 +151,7 @@ corpus_sources:
   text_sha256: 64c642c96a95339312d7539ca6ef832f5807ad2f01d72f4b8290d8e5ecc0138e
   author: Rosalind Goforth
   title: 'How I Know God Answers Prayer: The Personal Testimony of One Life-Time'
-  chapter: II
+  chapter: "II. EARLY LESSONS IN THE LIFE OF FAITH"
   translator: null
   source_url: https://www.gutenberg.org/ebooks/26033
 - id: goforth-prayer
@@ -166,7 +166,7 @@ corpus_sources:
   text_sha256: 64c642c96a95339312d7539ca6ef832f5807ad2f01d72f4b8290d8e5ecc0138e
   author: Rosalind Goforth
   title: 'How I Know God Answers Prayer: The Personal Testimony of One Life-Time'
-  chapter: II
+  chapter: "II. EARLY LESSONS IN THE LIFE OF FAITH"
   translator: null
   source_url: https://www.gutenberg.org/ebooks/26033
 - id: goforth-deal
@@ -181,7 +181,7 @@ corpus_sources:
   text_sha256: 64c642c96a95339312d7539ca6ef832f5807ad2f01d72f4b8290d8e5ecc0138e
   author: Rosalind Goforth
   title: 'How I Know God Answers Prayer: The Personal Testimony of One Life-Time'
-  chapter: II
+  chapter: "II. EARLY LESSONS IN THE LIFE OF FAITH"
   translator: null
   source_url: https://www.gutenberg.org/ebooks/26033
 - id: goforth-presence
@@ -196,7 +196,7 @@ corpus_sources:
   text_sha256: 64c642c96a95339312d7539ca6ef832f5807ad2f01d72f4b8290d8e5ecc0138e
   author: Rosalind Goforth
   title: 'How I Know God Answers Prayer: The Personal Testimony of One Life-Time'
-  chapter: II
+  chapter: "II. EARLY LESSONS IN THE LIFE OF FAITH"
   translator: null
   source_url: https://www.gutenberg.org/ebooks/26033
 - id: therese-books
@@ -204,14 +204,14 @@ corpus_sources:
   text: With so many beautiful prayers to choose from, picking one out of a book gives her a headache, so she does not go hunting for them, even though she gladly recites the Church’s daily Office
   original: null
   translation: null
-  chunk_id: book-47-0415
+  chunk_id: "book-47-0401"
   book_id: 47
-  char_start: 361204
-  char_end: 361495
-  text_sha256: f1a2473d8a48551a0f9e6916ac164249c2a199d69258c3626506ed0d869a7ff9
-  author: св. Тереза из Лизьё
+  char_start: 360830
+  char_end: 361121
+  text_sha256: "10b2975a3d23b3516ae56a2ffa86d1574841fce7aafaf334d5bf39c5dd18e2f0"
+  author: Sœur Thérèse de l’Enfant Jésus
   title: Histoire d'une âme
-  chapter: Histoire d’une âme/1/10
+  chapter: "CHAPITRE X Nouvelles lumières sur la charité. — Le petit pinceau : sa manière de peindre dans les âmes. — Une prière exaucée. — Les miettes qui tombent de la table des enfants. — Le bon Samaritain. — Dix minutes plus précieuses que mille ans des joies de la terre."
   translator: null
   source_url: https://fr.wikisource.org/wiki/Histoire_d%E2%80%99une_%C3%A2me
 - id: therese-children
@@ -219,14 +219,14 @@ corpus_sources:
   text: I do as children do who cannot read. I simply tell God what I want to say to Him, and He always understands me.
   original: je fais comme les enfants qui ne savent pas lire je dis tout simplement au bon Dieu ce que je veux lui dire, et toujours il me comprend.
   translation: ours
-  chunk_id: book-47-0415
+  chunk_id: "book-47-0401"
   book_id: 47
-  char_start: 361566
-  char_end: 361702
-  text_sha256: f1a2473d8a48551a0f9e6916ac164249c2a199d69258c3626506ed0d869a7ff9
-  author: св. Тереза из Лизьё
+  char_start: 361192
+  char_end: 361328
+  text_sha256: "10b2975a3d23b3516ae56a2ffa86d1574841fce7aafaf334d5bf39c5dd18e2f0"
+  author: Sœur Thérèse de l’Enfant Jésus
   title: Histoire d'une âme
-  chapter: Histoire d’une âme/1/10
+  chapter: "CHAPITRE X Nouvelles lumières sur la charité. — Le petit pinceau : sa manière de peindre dans les âmes. — Une prière exaucée. — Les miettes qui tombent de la table des enfants. — Le bon Samaritain. — Dix minutes plus précieuses que mille ans des joies de la terre."
   translator: null
   source_url: https://fr.wikisource.org/wiki/Histoire_d%E2%80%99une_%C3%A2me
 - id: therese-pater
@@ -234,14 +234,14 @@ corpus_sources:
   text: 'On dry days her lifeline is the Our Father or the Hail Mary. When her mind is so parched that not one good thought will surface, she prays one of them as unhurriedly as she can, and she needs nothing more: that prayer by itself fills her with joy and nourishes her soul'
   original: null
   translation: null
-  chunk_id: book-47-0416
+  chunk_id: "book-47-0402"
   book_id: 47
-  char_start: 361966
-  char_end: 362225
-  text_sha256: f1a2473d8a48551a0f9e6916ac164249c2a199d69258c3626506ed0d869a7ff9
-  author: св. Тереза из Лизьё
+  char_start: 361592
+  char_end: 361851
+  text_sha256: "10b2975a3d23b3516ae56a2ffa86d1574841fce7aafaf334d5bf39c5dd18e2f0"
+  author: Sœur Thérèse de l’Enfant Jésus
   title: Histoire d'une âme
-  chapter: Histoire d’une âme/1/10
+  chapter: "CHAPITRE X Nouvelles lumières sur la charité. — Le petit pinceau : sa manière de peindre dans les âmes. — Une prière exaucée. — Les miettes qui tombent de la table des enfants. — Le bon Samaritain. — Dix minutes plus précieuses que mille ans des joies de la terre."
   translator: null
   source_url: https://fr.wikisource.org/wiki/Histoire_d%E2%80%99une_%C3%A2me
 - id: feofan-worry
@@ -249,11 +249,11 @@ corpus_sources:
   text: I no longer pray as well using prayer books
   original: Я стал хуже молиться по молитвенникам
   translation: ours
-  chunk_id: book-77-0082
+  chunk_id: "book-77-0081"
   book_id: 77
-  char_start: 69469
-  char_end: 69506
-  text_sha256: 5d680e4091a942a13c026c54b1959dcd0b70a38c00d11e76ce52099c1f64c85b
+  char_start: 69063
+  char_end: 69100
+  text_sha256: "40a8ca4a2f7ea44825b74a93bb9045adaa498b44f68617387daaf05e313a7d03"
   author: свт. Феофан Затворник
   title: Письма о молитве
   chapter: 14 (256)
@@ -264,11 +264,11 @@ corpus_sources:
   text: That is no loss
   original: Это не ущерб
   translation: ours
-  chunk_id: book-77-0082
+  chunk_id: "book-77-0081"
   book_id: 77
-  char_start: 69511
-  char_end: 69523
-  text_sha256: 5d680e4091a942a13c026c54b1959dcd0b70a38c00d11e76ce52099c1f64c85b
+  char_start: 69105
+  char_end: 69117
+  text_sha256: "40a8ca4a2f7ea44825b74a93bb9045adaa498b44f68617387daaf05e313a7d03"
   author: свт. Феофан Затворник
   title: Письма о молитве
   chapter: 14 (256)
@@ -279,11 +279,11 @@ corpus_sources:
   text: Prayer books are just like phrasebooks, French ones for example
   original: Молитвенники – то же, что разговоры, например, французские
   translation: ours
-  chunk_id: book-77-0083
+  chunk_id: "book-77-0082"
   book_id: 77
-  char_start: 69569
-  char_end: 69627
-  text_sha256: 5d680e4091a942a13c026c54b1959dcd0b70a38c00d11e76ce52099c1f64c85b
+  char_start: 69163
+  char_end: 69221
+  text_sha256: "40a8ca4a2f7ea44825b74a93bb9045adaa498b44f68617387daaf05e313a7d03"
   author: свт. Феофан Затворник
   title: Письма о молитве
   chapter: 14 (256)
@@ -294,11 +294,11 @@ corpus_sources:
   text: In other words, ready-made texts are something to lean on while you learn. Once the soul can turn to God by itself, the book can be set aside
   original: null
   translation: null
-  chunk_id: book-77-0083
+  chunk_id: "book-77-0082"
   book_id: 77
-  char_start: 69629
-  char_end: 69844
-  text_sha256: 5d680e4091a942a13c026c54b1959dcd0b70a38c00d11e76ce52099c1f64c85b
+  char_start: 69223
+  char_end: 69438
+  text_sha256: "40a8ca4a2f7ea44825b74a93bb9045adaa498b44f68617387daaf05e313a7d03"
   author: свт. Феофан Затворник
   title: Письма о молитве
   chapter: 14 (256)
@@ -309,11 +309,11 @@ corpus_sources:
   text: Theophan tells him he may pray without the book whenever prayer is alive in his heart, and in the same breath warns him not to let laziness hide behind it
   original: null
   translation: null
-  chunk_id: book-77-0083
+  chunk_id: "book-77-0082"
   book_id: 77
-  char_start: 70204
-  char_end: 70354
-  text_sha256: 5d680e4091a942a13c026c54b1959dcd0b70a38c00d11e76ce52099c1f64c85b
+  char_start: 69798
+  char_end: 69948
+  text_sha256: "40a8ca4a2f7ea44825b74a93bb9045adaa498b44f68617387daaf05e313a7d03"
   author: свт. Феофан Затворник
   title: Письма о молитве
   chapter: 14 (256)
@@ -324,11 +324,11 @@ corpus_sources:
   text: And when his own prayer will not come, Theophan advises starting with printed prayers to stir it up, and knowing a few prayers and psalms by heart
   original: null
   translation: null
-  chunk_id: book-77-0083
+  chunk_id: "book-77-0082"
   book_id: 77
-  char_start: 69845
-  char_end: 70203
-  text_sha256: 5d680e4091a942a13c026c54b1959dcd0b70a38c00d11e76ce52099c1f64c85b
+  char_start: 69439
+  char_end: 69797
+  text_sha256: "40a8ca4a2f7ea44825b74a93bb9045adaa498b44f68617387daaf05e313a7d03"
   author: свт. Феофан Затворник
   title: Письма о молитве
   chapter: 14 (256)
@@ -339,14 +339,14 @@ corpus_sources:
   text: One night he woke with the feeling that he was being strangled. His own handkerchief was wound tightly around his neck and tied in several knots, and he had no memory of doing it
   original: null
   translation: null
-  chunk_id: book-54-0180
+  chunk_id: "book-54-0179"
   book_id: 54
-  char_start: 148009
-  char_end: 148551
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 146769
+  char_end: 147311
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap XLVI
+  chapter: "Capo XLVI."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-abandoned
@@ -354,14 +354,14 @@ corpus_sources:
   text: By day he joked with his fellow prisoners and his jailers, but at sunset he would start to shiver, and in the end he was gripped by the dreadful thought that God had abandoned him for good
   original: null
   translation: null
-  chunk_id: book-54-0181
+  chunk_id: "book-54-0180"
   book_id: 54
-  char_start: 148958
-  char_end: 149885
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 147718
+  char_end: 148645
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap XLVI
+  chapter: "Capo XLVI."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-doubt
@@ -369,14 +369,14 @@ corpus_sources:
   text: Doubt followed. He held out for days against the clever-sounding case against Providence, but in the end he let it win, and he began to talk like the furious atheists he had heard, insisting that religion does nothing but weaken the mind. He later wondered whether an illness explains it all, or whether God was also using it to bring his pride low
   original: null
   translation: null
-  chunk_id: book-54-0182
+  chunk_id: "book-54-0181"
   book_id: 54
-  char_start: 149887
-  char_end: 150813
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 148647
+  char_end: 149573
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap XLVI
+  chapter: "Capo XLVI."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-return
@@ -384,14 +384,14 @@ corpus_sources:
   text: When it passed, overflowing with gratitude, he threw himself on his knees and begged God to forgive him for denying Him those days, and he fell asleep right there, still kneeling, leaning against a chair
   original: null
   translation: null
-  chunk_id: book-54-0183
+  chunk_id: "book-54-0182"
   book_id: 54
-  char_start: 151278
-  char_end: 151630
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 150038
+  char_end: 150390
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap XLVI
+  chapter: "Capo XLVI."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-letter
@@ -399,14 +399,14 @@ corpus_sources:
   text: When he learned his fate, the first thing Pellico did was sit down and write to his father. He wanted his family to hear the terrible news from him rather than from anyone else
   original: null
   translation: null
-  chunk_id: book-54-0209
+  chunk_id: "book-54-0206"
   book_id: 54
-  char_start: 170752
-  char_end: 171064
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 169359
+  char_end: 169671
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap LII
+  chapter: "Capo LII."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-night
@@ -414,29 +414,44 @@ corpus_sources:
   text: That night he could not sleep for thinking of his elderly parents. Would they survive such a blow?
   original: null
   translation: null
-  chunk_id: book-54-0210
+  chunk_id: "book-54-0207"
   book_id: 54
-  char_start: 171695
-  char_end: 172099
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 170302
+  char_end: 170706
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap LII
+  chapter: "Capo LII."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-judge
+  kind: retelling
+  text: He thought, too, about the judge, whom he imagined gloating
+  original: null
+  translation: null
+  chunk_id: book-54-0207
+  book_id: 54
+  char_start: 170825
+  char_end: 170893
+  text_sha256: d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo LII."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-hate
   kind: retelling
-  text: He thought, too, about the judge, whom he imagined gloating. Hatred tasted sweeter to him than forgiveness, and he spent a night in hell
+  text: 'The night was hell: he could not forgive, nor did he want to; hatred tasted sweeter'
   original: null
   translation: null
-  chunk_id: book-54-0211
+  chunk_id: book-54-0208
   book_id: 54
-  char_start: 172218
-  char_end: 172639
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 171098
+  char_end: 171246
+  text_sha256: d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap LII
+  chapter: "Capo LII."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-no-prayer
@@ -444,14 +459,14 @@ corpus_sources:
   text: In the morning, I did not pray.
   original: Il mattino, non pregai.
   translation: ours
-  chunk_id: book-54-0211
+  chunk_id: "book-54-0208"
   book_id: 54
-  char_start: 172641
-  char_end: 172664
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 171248
+  char_end: 171271
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap LII
+  chapter: "Capo LII."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-pride
@@ -459,14 +474,14 @@ corpus_sources:
   text: I felt wretched that I could not pray; but where pride reigns, one finds no other God than oneself.
   original: Io mi sentiva infelice di non poter pregare; ma ove regna superbia, non rinviensi altro Dio che se medesimo.
   translation: ours
-  chunk_id: book-54-0212
+  chunk_id: "book-54-0209"
   book_id: 54
-  char_start: 173428
-  char_end: 173536
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 172035
+  char_end: 172143
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap LII
+  chapter: "Capo LII."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-scaffold
@@ -474,14 +489,14 @@ corpus_sources:
   text: Then he was led out onto a platform in the middle of the square by the Doge’s Palace, in front of a huge crowd
   original: null
   translation: null
-  chunk_id: book-54-0214
+  chunk_id: "book-54-0211"
   book_id: 54
-  char_start: 174488
-  char_end: 174947
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 173069
+  char_end: 173528
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap LIII
+  chapter: "Capo LIII."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-sentence
@@ -489,14 +504,14 @@ corpus_sources:
   text: First came the death sentence, and a murmur of pity ran through the crowd. Then the reading went on, and for Pellico himself it came to fifteen years of harsh imprisonment
   original: null
   translation: null
-  chunk_id: book-54-0215
+  chunk_id: "book-54-0212"
   book_id: 54
-  char_start: 175534
-  char_end: 175824
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 174115
+  char_end: 174405
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap LIII
+  chapter: "Capo LIII."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-company-end
@@ -504,14 +519,14 @@ corpus_sources:
   text: Am I not in excellent company?
   original: Non sono io in ottima compagnia?
   translation: ours
-  chunk_id: book-54-0022
+  chunk_id: "book-54-0021"
   book_id: 54
-  char_start: 18070
-  char_end: 18102
-  text_sha256: 8e8ea9e64e7c05f1a9fcb61e27dff3cb29afdd561a5d9d997abdefe6cb79eb5e
+  char_start: 17864
+  char_end: 17896
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
-  chapter: Le mie prigioni/Cap VI
+  chapter: "Capo VI."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: goforth-heart
@@ -526,7 +541,7 @@ corpus_sources:
   text_sha256: 64c642c96a95339312d7539ca6ef832f5807ad2f01d72f4b8290d8e5ecc0138e
   author: Rosalind Goforth
   title: 'How I Know God Answers Prayer: The Personal Testimony of One Life-Time'
-  chapter: II
+  chapter: "II. EARLY LESSONS IN THE LIFE OF FAITH"
   translator: null
   source_url: https://www.gutenberg.org/ebooks/26033
 ---
@@ -573,7 +588,7 @@ Our own advice, not Theophan’s, for anyone who prays with a prayer rule or a p
 
 Pellico’s prayer wasn’t steady either. Nightmares began to torment him. One night he woke with the feeling that he was being strangled. His own handkerchief was wound tightly around his neck and tied in several knots, and he had no memory of doing it[^corpus-pellico-terror]. By day he joked with his fellow prisoners and his jailers, but at sunset he would start to shiver, and in the end he was gripped by the dreadful thought that God had abandoned him for good[^corpus-pellico-abandoned]. Doubt followed. He held out for days against the clever-sounding case against Providence, but in the end he let it win, and he began to talk like the furious atheists he had heard, insisting that religion does nothing but weaken the mind. He later wondered whether an illness explains it all, or whether God was also using it to bring his pride low[^corpus-pellico-doubt]. When it passed, overflowing with gratitude, he threw himself on his knees and begged God to forgive him for denying Him those days, and he fell asleep right there, still kneeling, leaning against a chair[^corpus-pellico-return].
 
-The hardest part was still ahead. When he learned his fate, the first thing Pellico did was sit down and write to his father. He wanted his family to hear the terrible news from him rather than from anyone else[^corpus-pellico-letter]. That night he could not sleep for thinking of his elderly parents. Would they survive such a blow?[^corpus-pellico-night] He thought, too, about the judge, whom he imagined gloating. Hatred tasted sweeter to him than forgiveness, and he spent a night in hell[^corpus-pellico-hate]. He admits it plainly: “In the morning, I did not pray.”[^corpus-pellico-no-prayer] And he goes on: “I felt wretched that I could not pray; but where pride reigns, one finds no other God than oneself.”[^corpus-pellico-pride]
+The hardest part was still ahead. When he learned his fate, the first thing Pellico did was sit down and write to his father. He wanted his family to hear the terrible news from him rather than from anyone else[^corpus-pellico-letter]. That night he could not sleep for thinking of his elderly parents. Would they survive such a blow?[^corpus-pellico-night] He thought, too, about the judge, whom he imagined gloating[^corpus-pellico-judge]. The night was hell: he could not forgive, nor did he want to; hatred tasted sweeter[^corpus-pellico-hate]. He admits it plainly: “In the morning, I did not pray.”[^corpus-pellico-no-prayer] And he goes on: “I felt wretched that I could not pray; but where pride reigns, one finds no other God than oneself.”[^corpus-pellico-pride]
 
 Then he was led out onto a platform in the middle of the square by the Doge’s Palace, in front of a huge crowd[^corpus-pellico-scaffold]. First came the death sentence, and a murmur of pity ran through the crowd. Then the reading went on, and for Pellico himself it came to fifteen years of harsh imprisonment[^corpus-pellico-sentence].
 
@@ -588,6 +603,9 @@ And if you have no words at all, the apostle Paul offers comfort: “In the same
 - **When words won’t come, lean on written prayers.** Read the Lord’s Prayer or a psalm very slowly, then carry on in your own words. Theophan advised this, and Thérèse did it.
 - **Name whatever is in the way.** Resentment and pride took Pellico’s prayer from him; telling God about them is already the start of a conversation.
 - **Don’t wait for the right place or time.** Pellico prayed in a prison cell, Rosalind with her face hidden against her mother.
+
+## Support for your own words
+<!-- screen: question, passage, reflection -->
 
 If you’d like something to lean on, try [Lampada](/). It’s an app for praying in your own words: you choose a topic and how long to pray, and when your words run out, Lampada offers a guiding question and finds Scripture passages that fit what you are praying about. At the end you can write down your main takeaway in a journal that stays only on your phone. The prayer itself remains yours: you do the talking.
 
