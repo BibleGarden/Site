@@ -203,10 +203,27 @@ Add a marker on the line immediately after a second-level heading:
 <!-- screen: translation-picker -->
 ```
 
+For a row of screenshots, list ids in display order:
+
+```markdown
+## Prayer in Lampada
+<!-- screen: topic, question, reflection -->
+```
+
+A list renders below the heading on both sites at every width. Each image has
+its own localized caption, alt text and enlargement link. Rows wrap, including
+two images per row at 320–375 px, without page overflow. Responsive `sizes`
+match the row widths: up to 12rem on Lampada and 180px on Bible Garden.
+A single id keeps the existing layout. Duplicate ids within one marker are an
+error; reusing a screen in another section is allowed. Empty list entries,
+unknown ids and missing language variants stop the build with the source line.
+On Bible Garden the desktop phone selects the first id of a marked section;
+its pager includes every listed screen in order of first use.
+
 Any HTML comment directly under an `h2` must use this exact syntax; a
 screen-like comment elsewhere in article text also stops the build.
 
-The id must exist in `content/bible-garden/screens.yaml`; the article language
+Each id must exist in the site’s `content/<site>/screens.yaml`; the article language
 selects its caption and image (`translation-picker.ru.webp` for `ru.md`). The
 caption is the image alt text. Each catalog entry requires `kind` and localized
 `captions`, and accepts an optional `app`: `bible-garden` (the default, no label)
@@ -278,8 +295,8 @@ The 306 WebP occupy 14.39 MiB (15,090,286 bytes). The ZIP is
 files were counted and summed in `static/bible-garden/img/article-screens/`
 after import. The expected PNG list is derived from `screens.yaml`.
 CI checks committed variants without needing the archive
-or `cwebp`. The draft `template-check` article exercises two markers in all
-three languages; its HTML exists only after `python -m sitegen preview`.
+or `cwebp`. The draft `template-check` articles exercise screenshot rows in all
+three languages; their HTML exists only after `python -m sitegen preview`.
 Preview `/ru/articles/template-check/` with the local server described below.
 
 To upgrade `cwebp`, change `CWEBP_VERSION` in `sitegen/screens.py` (shared
@@ -293,7 +310,7 @@ the same change.
 
 Lampada articles use the same `<!-- screen: <id> -->` markers with their own
 catalog `content/lampada/screens.yaml`. Its ids are Lampada store screenshot ids
-(`home`, `topic`, `question`, …); the importer reads the PNGs from the pinned
+(`home`, `topic`, `question`, `answer`, `audio`, `passage`, `reflection`, `history`); the importer reads the PNGs from the pinned
 Lampada-Mobile commit used for the landing (`LAMPADA_MOBILE_COMMIT` in the importer)
 and writes `static/lampada/img/article-screens/` plus `content/lampada/screens.sha256`:
 

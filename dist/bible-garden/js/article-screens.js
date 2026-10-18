@@ -81,7 +81,7 @@
         const section = sectionAtReadingLine();
         if (manualSection === section) return;
         manualSection = null;
-        showScreen(screenIndices.get(headings[section].dataset.screen));
+        showScreen(screenIndices.get(headings[section].dataset.screen.split(",")[0]));
     }
 
     function chooseScreen(index) {

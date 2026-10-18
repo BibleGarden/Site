@@ -899,3 +899,33 @@
 /* Rights notices include publisher URLs and original multilingual notices. */
 .rights-notices { overflow-wrap: anywhere; }
 .rights-notices p + p { margin-top: 0.75em; }
+
+/* Multiple screenshots stay inline at every width; single-screen layouts are unchanged. */
+.article-body .article-screen-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 1.6em 0 2em;
+}
+
+.article-screen-row .article-screen-inline {
+    display: block;
+    flex: none;
+    width: min(180px, calc((100vw - 64px) / 2));
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.article-screen-row .article-screen-link {
+    display: block;
+}
+
+.article-screen-caption {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}

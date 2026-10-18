@@ -30,7 +30,7 @@ FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---\n(.*)\Z", re.DOTALL)
 FAQ_HEADING_RE = re.compile(r"^## .*\{#faq\}\s*$")
 H2_RE = re.compile(r"^## ")
 H3_RE = re.compile(r"^### (.+?)\s*$")
-SCREEN_MARKER_RE = re.compile(r"^<!-- screen: ([a-z0-9]+(?:-[a-z0-9]+)*) -->$")
+SCREEN_MARKER_RE = re.compile(r"^<!-- screen: ([a-z0-9]+(?:-[a-z0-9]+)*(?:, *[a-z0-9]+(?:-[a-z0-9]+)*)*) -->$")
 SCREEN_INTENT_RE = re.compile(r"<!--\s*(?:scre+n|sreen|screan)s?\b", re.IGNORECASE)
 HTML_COMMENT_LINE_RE = re.compile(r"^\s*(?:>\s*)*<!--")
 HEADING_ATTR_RE = re.compile(r"\s+\{([:#.][^{}]*)\}\s*$")
@@ -456,10 +456,15 @@ def annotate_screens(
                 raise BuildError(f"{source}:{body_start_line + index}: expected <!-- screen: <id> -->")
             if index == 0 or fenced[index - 1] or not H2_RE.match(lines[index - 1]):
                 raise BuildError(f"{source}:{body_start_line + index}: screen marker must be directly after an h2 heading")
-            screen_id = match.group(1)
-            screen = screens.get(screen_id)
-            if screen is None or lang not in screen.captions:
-                raise BuildError(f"{source}:{body_start_line + index}: unknown screen {screen_id!r} for language {lang!r}")
+            screen_ids = [value.strip() for value in match.group(1).split(",")]
+            if len(set(screen_ids)) != len(screen_ids):
+                raise BuildError(f"{source}:{body_start_line + index}: duplicate screen id in marker")
+            for screen_id in screen_ids:
+                screen = screens.get(screen_id)
+                if screen is None or lang not in screen.captions:
+                    raise BuildError(f"{source}:{body_start_line + index}: unknown screen {screen_id!r} for language {lang!r}")
+                refs.append(ScreenRef(screen, lang, source, body_start_line + index))
+            screen_id = ",".join(screen_ids)
             heading = marked[-1]
             attributes = HEADING_ATTR_RE.search(heading)
             if attributes:
@@ -467,7 +472,6 @@ def annotate_screens(
             else:
                 heading += f' {{: data-screen="{screen_id}"}}'
             marked[-1] = heading
-            refs.append(ScreenRef(screen, lang, source, body_start_line + index))
             continue
         marked.append(line)
         clean.append(line)

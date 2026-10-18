@@ -40,6 +40,46 @@ class ArticleScreensTest(unittest.TestCase):
         self.assertNotIn("screen:", html)
         self.assertEqual(clean, "## Выбор перевода {#translation}\n\nТекст.\n")
 
+    def test_rows_preserve_order_captions_links_and_site_sizes(self) -> None:
+        for site, ids, size in (
+            ("lampada", ["topic", "question", "reflection"], "12rem"),
+            ("bible-garden", ["home", "translation-picker", "lampada-question"], "180px"),
+        ):
+            screens = load_catalog(ROOT / f"content/{site}/screens.yaml", ("en", "ru", "uk"))
+            for lang in ("en", "ru", "uk"):
+                for count in (2, 3):
+                    with self.subTest(site=site, lang=lang, count=count):
+                        body = f"## Prayer {{#prayer .lead}}\n<!-- screen: {', '.join(ids[:count])} -->\n\nText.\n"
+                        marked, clean, refs = annotate_screens(body, SOURCE, lang, screens)
+                        html = render_markdown(marked, refs, "Open: {caption}", "Lampada", lang=lang, site_key=site)
+                        root = ET.fromstring(f"<div>{html}</div>")
+                        heading, row = list(root)[:2]
+                        self.assertEqual(heading.get("id"), "prayer")
+                        self.assertEqual(heading.get("class"), "lead")
+                        self.assertEqual(row.get("class"), "article-screen-row")
+                        self.assertNotIn("screen:", clean)
+                        self.assertEqual(len(row), count)
+                        for figure, screen_id in zip(row, ids):
+                            screen = screens[screen_id]
+                            self.assertEqual(figure.find("a").get("href"), screen.url(lang, "zoom"))
+                            image = figure.find("a/img")
+                            self.assertEqual(image.get("alt"), screen.captions[lang])
+                            self.assertEqual(image.get("sizes"), f"min({size}, calc((100vw - 64px) / 2))")
+                            self.assertEqual(figure.find("figcaption").text, screen.captions[lang])
+                            self.assertEqual(len(figure.findall("figcaption")), 1)
+
+    def test_invalid_row_fails_at_marker_source_line(self) -> None:
+        for ids, message in (
+            ("home, home", "duplicate screen"),
+            ("home, missing", "unknown screen"),
+            ("home,", "expected"),
+            (", home", "expected"),
+            ("home,, translation-picker", "expected"),
+            ("home, Home", "expected"),
+        ):
+            with self.subTest(ids=ids), self.assertRaisesRegex(BuildError, f"ru.md:13:.*{message}"):
+                annotate_screens(f"## Heading\n<!-- screen: {ids} -->\n", SOURCE, "ru", self.screens, 12)
+
     def test_catalog_app_default_and_strict_validation(self) -> None:
         self.assertEqual(self.screens["home"].app, "bible-garden")
         for screen_id in ("lampada-journal", "lampada-question"):
@@ -294,7 +334,7 @@ class ArticleScreensTest(unittest.TestCase):
             build_all(preview=True, output_root=output)
             html = (output / "bible-garden/ru/articles/template-check/index.html").read_text(encoding="utf-8")
         images = re.findall(r'<img[^>]*class="article-screen-phone-image"[^>]*>', html)
-        self.assertEqual(len(images), 2)
+        self.assertEqual(len(images), 3)
         for image in images:
             self.assertIn('data-src="/img/article-screens/phone/', image)
             self.assertNotIn(' src="', image)

@@ -8,7 +8,7 @@ draft: true
 This draft exists so the article template can be reviewed before the first real article is written. It stays out of the sitemap and is not linked from the landing page.
 
 ## Headings and text
-<!-- screen: home -->
+<!-- screen: home, translation-picker, lampada-question -->
 
 A paragraph with **bold text**, *emphasis*, a [link to the landing page](/) and inline `code`.
 
