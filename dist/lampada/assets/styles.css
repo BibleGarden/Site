@@ -906,8 +906,22 @@ h1 {
 }
 
 @media (max-width: 920px) {
-    .site-nav {
-        display: none;
+    .site-header {
+        flex-wrap: wrap;
+        gap: 18px;
+        padding-block: 20px;
+    }
+
+    .site-header .header-tools {
+        display: contents;
+    }
+
+    .site-header .site-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+        order: 1;
+        width: 100%;
     }
 
     .hero {
@@ -1303,6 +1317,7 @@ h1 {
 .article-list {
     display: grid;
     gap: 16px;
+    overflow-wrap: anywhere;
     max-width: 780px;
     margin: 36px 0 0;
     padding: 0;
@@ -1323,7 +1338,8 @@ h1 {
     border-color: var(--amber);
 }
 
-.article-list h2 {
+.article-list h2,
+.article-list h3 {
     margin: 0 0 8px;
     font-size: 26px;
     line-height: 1.2;

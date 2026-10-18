@@ -25,11 +25,8 @@
         </a>
         <div class="header-tools">
             <nav class="site-nav" aria-label="{{ t.landing.nav_label }}">
-                {% if has_articles %}
-                <a href="{{ prefix }}articles/">{{ t.articles.section_title }}</a>
-                {% endif %}
-                <a href="{{ privacy_url }}">{{ t.landing.nav.privacy }}</a>
-                <a href="{{ support_url }}">{{ t.landing.nav.support }}</a>
+                <a href="{{ site.href(lang, 'articles/') }}">{{ t.landing.nav.articles }}</a>
+                <a href="{{ site.href(lang) }}#purpose">{{ t.landing.nav.about }}</a>
             </nav>
             {% if switcher is defined %}
             <div class="language-switcher" aria-label="{{ t.landing.language_label }}">

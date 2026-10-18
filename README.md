@@ -157,9 +157,13 @@ Google expects for `Article` rich results.
 Drafts stay out of the sitemap, `llms.txt`, the article
 index and the previous/next navigation. The landing page shows up to three
 latest published articles in its own language, followed by an article-index
-link; the block and menu link are absent when that language has no published
-articles. The footer link is unconditional on every bible.garden page, including
-the hand-written privacy page and languages with no published articles.
+link. The block is absent when that language has no published articles.
+Bible Garden also hides its menu link in that case. Lampada always shows
+“Articles on prayer” and “About” in generated page headers; privacy and support
+remain in the footer. On mobile, the navigation wraps below the brand
+and language switcher. The footer link is unconditional on every bible.garden
+page, including the hand-written privacy page and languages with no published
+articles.
 
 Generated Bible Garden pages share `templates/bible-garden/footer.html` and the
 footer rules in `static/bible-garden/css/site.css`. The brand stays on one line;

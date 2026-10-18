@@ -7,6 +7,7 @@ landing:
   brand_home: Головна Lampada
   nav_label: Основна навігація
   nav:
+    articles: Статті про молитву
     about: Про застосунок
     privacy: Конфіденційність
     support: Підтримка
@@ -83,6 +84,8 @@ landing:
       server: "Дозволений текст обробляють наш сервер і Google Gemini. Архіву молитов на нашому сервері немає."
       tracking: "У застосунку немає реклами, аналітики, трекерів і профілів. Сам пін-код не зберігається й нікуди не передається."
     link: "Політика конфіденційності"
+  articles:
+    all: Усі статті
   footer:
     bible_garden: Bible Garden
 articles:
