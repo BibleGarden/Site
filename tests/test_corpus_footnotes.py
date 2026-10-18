@@ -8,10 +8,12 @@ import unittest
 from xml.etree import ElementTree as etree
 
 import yaml
+from markdown import Markdown
+from markdown.extensions.footnotes import FootnoteExtension
 
 from sitegen.content import parse_article, render_markdown
 from sitegen.corpus import annotate, citations
-from sitegen.corpus_footnotes import occurrence_label
+from sitegen.corpus_footnotes import CorpusFootnotesProcessor, citation_key, occurrence_label
 from test_corpus_citations import ITEM
 
 
@@ -63,6 +65,25 @@ class CorpusFootnotesTest(unittest.TestCase):
                 self.assertEqual(len(root.findall('.//ol/li')), 2)
                 self.assert_links_resolve(root)
 
+    def test_collapsible_whitespace_in_visible_citation_is_grouped(self):
+        root, _, _ = self.render([{'chapter': 'Same  chapter'}, {'chapter': 'Same chapter'},
+                                  {'chapter': 'Same\t\nchapter'}])
+        self.assertEqual(len(root.findall('.//ol/li')), 1)
+        self.assertEqual([ref.text for ref in root.findall('.//a[@class="footnote-ref"]')], ['1'] * 3)
+        self.assert_links_resolve(root)
+        self.assertEqual(citation_key('<a href="https://example.org/a?x=1&amp;y=2">Same\f chapter</a>'),
+                         ('https://example.org/a?x=1&y=2', 'Same chapter'))
+
+    def test_nonbreaking_spaces_and_url_whitespace_stay_distinct(self):
+        root, _, _ = self.render([{'chapter': 'Same chapter'}, {'chapter': 'Same\u00a0chapter'}])
+        self.assertEqual(len(root.findall('.//ol/li')), 2)
+        self.assertNotEqual(citation_key('<a href="https://example.org/a  b">Same</a>'),
+                            citation_key('<a href="https://example.org/a b">Same</a>'))
+
+    def test_escaped_markup_in_label_is_visible_text(self):
+        root, _, _ = self.render([{'chapter': '<Same> &  chapter'}, {'chapter': '<Same> & chapter'}])
+        self.assertEqual(len(root.findall('.//ol/li')), 1)
+
     def test_private_evidence_differences_do_not_split_public_notes(self):
         root, _, _ = self.render([{}, {'kind': 'retelling', 'original': None, 'translation': None,
                                       'book_id': 6, 'chunk_id': 'other-chunk', 'char_start': 1, 'char_end': 5,
@@ -75,11 +96,17 @@ class CorpusFootnotesTest(unittest.TestCase):
             with self.subTest(lang=lang):
                 root, _, _ = self.render([{}, {}, {'chapter': 'Other'}], lang=lang)
                 backs = root.findall('.//a[@class="footnote-backref"]')
-                self.assertEqual([back.text for back in backs], ['a', 'b', '↩'])
+                self.assertEqual([''.join(back.itertext()) for back in backs], ['a', 'b', '↩'])
                 self.assertEqual(len({back.get('aria-label') for back in backs}), 3)
                 for back in backs:
                     self.assertTrue(back.get('aria-label').startswith(label))
                     self.assertEqual(back.get('aria-label'), back.get('title'))
+                self.assertEqual(backs[-1].get('aria-label'), label + ' 2')
+                self.assertIsNotNone(backs[-1].find('span[@aria-hidden="true"]'))
+                paragraph = root.find('.//ol/li/p')
+                arrow = paragraph.find('span[@aria-hidden="true"]')
+                self.assertEqual(arrow.text, '↩')
+                self.assertTrue(list(paragraph).index(arrow) < list(paragraph).index(backs[0]))
 
     def test_ordinary_notes_keep_distinct_content_and_repeated_backlinks(self):
         root, _, _ = self.render([{}, {}], ordinary=True)
@@ -92,8 +119,50 @@ class CorpusFootnotesTest(unittest.TestCase):
 
     def test_ordinary_footnotes_render_identically_without_corpus(self):
         body = 'First[^b], again[^b], second[^a].\n\n[^a]: Same.\n[^b]: Same.'
-        self.assertEqual(render_markdown(body), render_markdown(body, corpus_sources=[]))
-        self.assertEqual(render_markdown(body).count('<li id="fn:'), 2)
+        self.assertEqual(render_markdown(body, lang="en"), render_markdown(body, corpus_sources=[], lang="en"))
+        self.assertEqual(render_markdown(body, lang="en").count('<li id="fn:'), 2)
+
+    def test_language_is_required(self):
+        for sources in ([], [ITEM]):
+            with self.subTest(sources=sources), self.assertRaisesRegex(TypeError, 'lang'):
+                render_markdown('Text.', corpus_sources=sources)
+
+    def test_ordinary_note_first_seen_after_corpus_is_renumbered(self):
+        sources = [{**ITEM, 'id': 'first'}, {**ITEM, 'id': 'again'}]
+        body = (ITEM['text'] + '[^corpus-first]\n\nOrdinary[^later].\n\n'
+                + ITEM['text'] + '[^corpus-again]\n\nAgain[^later].\n\n'
+                '[^later]: An ordinary note.')
+        rendered = render_markdown(annotate(body, sources, 'en'), corpus_sources=sources, lang='en')
+        root = etree.fromstring('<article>' + rendered + '</article>')
+        self.assertEqual([ref.text for ref in root.findall('.//a[@class="footnote-ref"]')],
+                         ['1', '2', '1', '2'])
+        self.assertEqual([note.get('id') for note in root.findall('.//ol/li')],
+                         ['fn:corpus-first', 'fn:later'])
+        backs = root.findall('.//li[@id="fn:later"]//a[@class="footnote-backref"]')
+        self.assertEqual(len(backs), 2)
+        self.assertTrue(all(back.get('title') == 'Jump back to footnote 2 in the text' for back in backs))
+        self.assert_links_resolve(root)
+
+    def test_decorative_arrow_follows_citation_element(self):
+        md = Markdown(extensions=['extra'])
+        footnotes = next(ext for ext in md.registeredExtensions if isinstance(ext, FootnoteExtension))
+        definition = '<a href="https://example.org">Source</a>'
+        footnotes.footnotes.update({'corpus-first': definition, 'corpus-again': definition})
+        root = etree.fromstring('''<article>
+          <p><sup id="fnref:corpus-first"><a class="footnote-ref" href="#fn:corpus-first">1</a></sup>
+          <sup id="fnref:corpus-again"><a class="footnote-ref" href="#fn:corpus-again">2</a></sup></p>
+          <div class="footnote"><ol>
+          <li id="fn:corpus-first"><p><a href="https://example.org">Source</a>
+          <a class="footnote-backref" href="#fnref:corpus-first">↩</a></p></li>
+          <li id="fn:corpus-again"><p><a href="https://example.org">Source</a>
+          <a class="footnote-backref" href="#fnref:corpus-again">↩</a></p></li>
+          </ol></div></article>''')
+        CorpusFootnotesProcessor(md, footnotes, {'corpus-first', 'corpus-again'}, 'en').run(root)
+        paragraph = root.find('.//ol/li/p')
+        self.assertEqual([node.tag for node in paragraph], ['a', 'span', 'a', 'a'])
+        self.assertEqual(paragraph[1].attrib, {'aria-hidden': 'true'})
+        self.assertEqual(paragraph[1].text, '↩')
+        self.assert_links_resolve(root)
 
     def test_backlink_labels_extend_past_z(self):
         self.assertEqual([occurrence_label(i) for i in [0, 25, 26, 27, 51, 52]],

@@ -4,8 +4,10 @@ from __future__ import annotations
 
 import datetime as dt
 import re
+from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 from urllib.parse import urlsplit
 
 import markdown
@@ -320,7 +322,7 @@ def load_pages(site: Site, content_dir: Path) -> dict[str, dict[str, StaticPage]
                 lang=source.stem,
                 title=_require_str(meta, "title", source),
                 description=_require_str(meta, "description", source),
-                body_html=render_markdown(body),
+                body_html=render_markdown(body, lang=source.stem),
             )
         if not versions:
             raise BuildError(f"{slug_dir}: page directory has no language versions")
@@ -422,7 +424,7 @@ def parse_article(
         draft=_require_bool(meta, "draft", source) if "draft" in meta else False,
         image=_require_str(meta, "image", source) if "image" in meta else None,
         body_html=body_html,
-        faq=extract_faq(clean_body_no_demo.replace(PLACEHOLDER, ""), source),
+        faq=extract_faq(clean_body_no_demo.replace(PLACEHOLDER, ""), source, lang=lang),
         screens=refs,
         has_plan=has_plan,
         has_chronological_plan=has_plan and placeholder == CHRONOLOGICAL_PLACEHOLDER,
@@ -491,7 +493,10 @@ def _require_bool(meta: dict, key: str, source: Path) -> bool:
     return value
 
 
-def render_markdown(text: str, screens: tuple[ScreenRef, ...] = (), screen_open: str = "", screen_app_lampada: str = "", *, corpus_sources=(), lang: str = "en") -> str:
+def render_markdown(
+    text: str, screens: tuple[ScreenRef, ...] = (), screen_open: str = "", screen_app_lampada: str = "",
+    *, lang: str, corpus_sources: Sequence[Mapping[str, Any]] = (),
+) -> str:
     extensions = [*MARKDOWN_EXTENSIONS]
     if screens:
         extensions.append(ScreenFigureExtension(screens, screen_open, screen_app_lampada))
@@ -500,7 +505,7 @@ def render_markdown(text: str, screens: tuple[ScreenRef, ...] = (), screen_open:
     return markdown.markdown(text, extensions=extensions, extension_configs=MARKDOWN_EXTENSION_CONFIGS)
 
 
-def extract_faq(body: str, source: Path) -> tuple[FaqItem, ...]:
+def extract_faq(body: str, source: Path, *, lang: str) -> tuple[FaqItem, ...]:
     """Collect '### question' / answer pairs from the '## ... {#faq}' section, if present."""
     lines = body.splitlines()
     fenced = _fenced_flags(lines)
@@ -524,7 +529,7 @@ def extract_faq(body: str, source: Path) -> tuple[FaqItem, ...]:
         answer_text = "\n".join(answer).strip()
         if not answer_text:
             raise BuildError(f"{source}: FAQ question '{question}' has no answer")
-        items.append(FaqItem(question=question, answer_html=render_markdown(answer_text)))
+        items.append(FaqItem(question=question, answer_html=render_markdown(answer_text, lang=lang)))
 
     for index in range(starts[0] + 1, end):
         match = heading(index, H3_RE)

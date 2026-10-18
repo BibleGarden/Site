@@ -28,7 +28,7 @@ class ArticleScreensTest(unittest.TestCase):
     def test_markers_render_localized_images_and_preserve_heading_anchor(self) -> None:
         body = "## Выбор перевода {#translation}\n<!-- screen: translation-picker -->\n\nТекст.\n"
         marked, clean, refs = annotate_screens(body, SOURCE, "ru", self.screens)
-        html = render_markdown(marked, refs, "Открыть скриншот крупнее: {caption}")
+        html = render_markdown(marked, refs, "Открыть скриншот крупнее: {caption}", lang="ru")
         self.assertIn('id="translation"', html)
         self.assertIn('data-screen="translation-picker"', html)
         self.assertIn('/img/article-screens/mobile/translation-picker.ru.webp', html)
@@ -61,7 +61,7 @@ class ArticleScreensTest(unittest.TestCase):
         marked, _, refs = annotate_screens("## Journal\n<!-- screen: lampada-journal -->\n", SOURCE, "ru", self.screens)
         for label in ("", " ", None):
             with self.subTest(label=label), self.assertRaisesRegex(BuildError, "missing articles.screen_app_lampada"):
-                render_markdown(marked, refs, "Open: {caption}", label)
+                render_markdown(marked, refs, "Open: {caption}", label, lang="ru")
 
     def test_lampada_labels_render_in_all_languages_and_first_screen_without_js(self) -> None:
         labels = {
@@ -76,7 +76,7 @@ class ArticleScreensTest(unittest.TestCase):
                     "## Journal\n<!-- screen: lampada-journal -->\n\n## Home\n<!-- screen: home -->\n\n## Question\n<!-- screen: lampada-question -->\n",
                     SOURCE, lang, self.screens,
                 )
-                body = render_markdown(marked, refs, builder.t(lang)["articles"]["screen_open"], builder.t(lang)["articles"]["screen_app_lampada"])
+                body = render_markdown(marked, refs, builder.t(lang)["articles"]["screen_open"], builder.t(lang)["articles"]["screen_app_lampada"], lang=lang)
                 figures = ET.fromstring(f"<div>{body}</div>").findall("figure")
                 self.assertEqual([len(figure.findall("figcaption")) for figure in figures], [1, 0, 1])
                 for figure in (figures[0], figures[2]):
@@ -110,7 +110,7 @@ class ArticleScreensTest(unittest.TestCase):
                 )
                 body = render_markdown(
                     marked, refs, builder.t(lang)["articles"]["screen_open"],
-                    builder.t(lang)["articles"]["screen_app_lampada"],
+                    builder.t(lang)["articles"]["screen_app_lampada"], lang=lang,
                 )
                 article = builder.articles["template-check"][lang]
                 for selected_refs, count in ((refs, 3), (refs[:1] * 2, 0), ((), 0)):
@@ -153,7 +153,7 @@ class ArticleScreensTest(unittest.TestCase):
                     "\n".join(f"## Section {n}\n<!-- screen: {screen_id} -->\n" for n, screen_id in enumerate(ids)),
                     SOURCE, "ru", self.screens,
                 )
-                body = render_markdown(marked, refs, builder.t("ru")["articles"]["screen_open"])
+                body = render_markdown(marked, refs, builder.t("ru")["articles"]["screen_open"], lang="ru")
                 article = builder.articles["template-check"]["ru"]
                 builder.articles["template-check"]["ru"] = replace(article, screens=refs, body_html=body)
                 builder.build_article("template-check", "ru")
@@ -190,7 +190,7 @@ class ArticleScreensTest(unittest.TestCase):
     def test_existing_heading_class_and_source_line_are_preserved(self) -> None:
         body = "## Heading {.lead}\n<!-- screen: home -->\n\nText.\n"
         marked, _, refs = annotate_screens(body, SOURCE, "ru", self.screens, body_start_line=12)
-        html = render_markdown(marked, refs, "Открыть: {caption}")
+        html = render_markdown(marked, refs, "Открыть: {caption}", lang="ru")
         self.assertIn('class="lead"', html)
         self.assertIn('data-screen="home"', html)
         self.assertIn('id="heading"', html)
@@ -217,8 +217,8 @@ class ArticleScreensTest(unittest.TestCase):
         marked, clean, refs = annotate_screens(body, SOURCE, "ru", self.screens)
         self.assertEqual(len(refs), 1)
         self.assertIn("<!-- screen: home -->", marked)
-        self.assertEqual(len(extract_faq(clean, SOURCE)), 1)
-        self.assertIn('id="faq"', render_markdown(marked, refs, "Открыть: {caption}"))
+        self.assertEqual(len(extract_faq(clean, SOURCE, lang="ru")), 1)
+        self.assertIn('id="faq"', render_markdown(marked, refs, "Открыть: {caption}", lang="ru"))
 
     def test_unrelated_comment_outside_heading_is_allowed(self) -> None:
         body = "Paragraph\n\n<!-- editorial note -->\n"
