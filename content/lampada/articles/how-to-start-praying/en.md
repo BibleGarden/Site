@@ -246,7 +246,7 @@ corpus_sources:
   source_url: https://fr.wikisource.org/wiki/Histoire_d%E2%80%99une_%C3%A2me
 - id: feofan-worry
   kind: quote
-  text: I have started praying worse from prayer books
+  text: I no longer pray as well using prayer books
   original: Я стал хуже молиться по молитвенникам
   translation: ours
   chunk_id: book-77-0082
@@ -486,7 +486,7 @@ corpus_sources:
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-sentence
   kind: retelling
-  text: First came the death sentence, and a murmur of pity ran through the crowd. Then the reading went on, and it was fifteen years of hard prison
+  text: First came the death sentence, and a murmur of pity ran through the crowd. Then the reading went on, and for Pellico himself it came to fifteen years of harsh imprisonment
   original: null
   translation: null
   chunk_id: book-54-0215
@@ -543,7 +543,7 @@ Pellico used few set prayers. Not out of contempt, since he believed they were v
 
 ## A little girl with a toothache
 
-Rosalind Goforth, a Presbyterian missionary, spent nearly half a century in China. In the summer of 1900 she and her husband fled across hundreds of miles of the country to escape the Boxer uprising, and of her eleven children, five died young[^goforth]. In 1921 she published *How I Know God Answers Prayer*, the testimony of a lifetime. She opened it not with the dangers she had survived but with her childhood.
+Rosalind Goforth, a Presbyterian missionary, spent nearly half a century in China. In the summer of 1900 she and her husband fled across hundreds of miles of the country to escape the Boxer uprising, and of her eleven children, five died young[^goforth]. In 1921 she published *How I Know God Answers Prayer*, the testimony of a lifetime. Telling the story of her life, she begins with her childhood.
 
 From the time she was tiny, whenever something went wrong, Rosalind’s habit was to take it straight to Jesus[^corpus-goforth-tell]. She was six or seven and playing in the garden when a tooth suddenly began to ache badly. Her mother tried to comfort her, but nothing helped[^corpus-goforth-pain]. So, with her face hidden against her mother, the little girl prayed without a sound: “Lord Jesus, if you will take away this toothache right now, now, I will be your little girl for three years.”[^corpus-goforth-prayer]
 
@@ -563,11 +563,11 @@ That doesn’t mean she throws written prayers away. On dry days her lifeline is
 
 Theophan the Recluse was a Russian Orthodox bishop. At fifty-one he gave up his diocese and settled at the Vysha Hermitage, and he spent the last twenty-two years of his life there in seclusion, from 1872 until his death in 1894. The mail brought him twenty to forty letters a day, and he answered every one[^feofan].
 
-His *Letters on Prayer* include a reply to someone who confessed, clearly worried: “I have started praying worse from prayer books”[^corpus-feofan-worry]. Theophan answered: “That is no loss”[^corpus-feofan-no-harm]. Then he explained with an unexpected comparison: “Prayer books are just like phrasebooks, French ones for example”[^corpus-feofan-phrasebook]. In other words, ready-made texts are something to lean on while you learn. Once the soul can turn to God by itself, the book can be set aside[^corpus-feofan-until].
+His *Letters on Prayer* include a reply to someone who confessed, clearly worried: “I no longer pray as well using prayer books”[^corpus-feofan-worry]. Theophan answered: “That is no loss”[^corpus-feofan-no-harm]. Then he explained with an unexpected comparison: “Prayer books are just like phrasebooks, French ones for example”[^corpus-feofan-phrasebook]. In other words, ready-made texts are something to lean on while you learn. Once the soul can turn to God by itself, the book can be set aside[^corpus-feofan-until].
 
 It matters who this was written to: someone already used to praying from a prayer book. Theophan tells him he may pray without the book whenever prayer is alive in his heart, and in the same breath warns him not to let laziness hide behind it[^corpus-feofan-sloth]. And when his own prayer will not come, Theophan advises starting with printed prayers to stir it up, and knowing a few prayers and psalms by heart[^corpus-feofan-printed].
 
-Our takeaway for anyone who prays with a prayer rule or a prayer book, whether Orthodox, Catholic or Anglican: your own words don’t replace those prayers, they come alongside them. Theophan doesn’t put it in exactly these terms, but his phrasebook comparison points that way.
+Our own advice, not Theophan’s, for anyone who prays with a prayer rule or a prayer book, whether Orthodox, Catholic or Anglican: your own words don’t replace those prayers, they come alongside them.
 
 ## When prayer won’t come
 
@@ -575,7 +575,7 @@ Pellico’s prayer wasn’t steady either. Nightmares began to torment him. One 
 
 The hardest part was still ahead. When he learned his fate, the first thing Pellico did was sit down and write to his father. He wanted his family to hear the terrible news from him rather than from anyone else[^corpus-pellico-letter]. That night he could not sleep for thinking of his elderly parents. Would they survive such a blow?[^corpus-pellico-night] He thought, too, about the judge, whom he imagined gloating. Hatred tasted sweeter to him than forgiveness, and he spent a night in hell[^corpus-pellico-hate]. He admits it plainly: “In the morning, I did not pray.”[^corpus-pellico-no-prayer] And he goes on: “I felt wretched that I could not pray; but where pride reigns, one finds no other God than oneself.”[^corpus-pellico-pride]
 
-Then he was led out onto a platform in the middle of the square by the Doge’s Palace, in front of a huge crowd[^corpus-pellico-scaffold]. First came the death sentence, and a murmur of pity ran through the crowd. Then the reading went on, and it was fifteen years of hard prison[^corpus-pellico-sentence].
+Then he was led out onto a platform in the middle of the square by the Doge’s Palace, in front of a huge crowd[^corpus-pellico-scaffold]. First came the death sentence, and a murmur of pity ran through the crowd. Then the reading went on, and for Pellico himself it came to fifteen years of harsh imprisonment[^corpus-pellico-sentence].
 
 Pellico doesn’t hide that night or turn it into a tidy moral. But his honesty suggests a useful question: if prayer suddenly won’t come, what am I hiding from God right now? Resentment, anger and pride can be named out loud, and that, too, is praying in your own words.
 
