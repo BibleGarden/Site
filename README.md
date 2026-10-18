@@ -395,8 +395,10 @@ Use it sparingly — at most one per article.
 
 A second-level heading with the `{#faq}` id marks the FAQ section. Every
 third-level heading inside it is a question; the text up to the next heading
-is its answer. The section renders as normal text and additionally produces a
-`FAQPage` JSON-LD block.
+is its answer. The section, from its heading to the next second-level heading,
+renders inside `<section class="article-faq">` (Lampada styles it as a card
+with compact questions; Bible Garden keeps the article text rhythm) and
+additionally produces a `FAQPage` JSON-LD block.
 
 ```markdown
 ## Frequently asked questions {#faq}

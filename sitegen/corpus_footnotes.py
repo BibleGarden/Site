@@ -108,13 +108,13 @@ class CorpusFootnotesProcessor(Treeprocessor):
             refs = occurrences.get(ident, [])
             for ref, _ in refs:
                 ref.text = str(number)
-            if ident not in definitions:
+            if ident not in definitions and len(refs) < 2:
                 for back in item.iter('a'):
                     if back.get('class') == 'footnote-backref':
                         back.set('title', self.footnotes.getConfig('BACKLINK_TITLE').format(number))
                 continue
-            paragraph = item.find('p')
-            assert paragraph is not None
+            # Repeated references get one arrow and lettered backlinks, corpus or not.
+            paragraph = next(p for p in item.iter('p') if p.find('a[@class="footnote-backref"]') is not None)
             for back in list(paragraph):
                 if back.get('class') == 'footnote-backref':
                     paragraph.remove(back)

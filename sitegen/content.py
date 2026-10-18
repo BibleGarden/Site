@@ -18,6 +18,7 @@ from markupsafe import Markup, escape
 from .errors import BuildError
 from .corpus import citations as corpus_citations, annotate as annotate_corpus
 from .corpus_footnotes import CorpusFootnotesExtension
+from .faq import FaqSectionExtension
 from .gospel_today import PLACEHOLDER as GOSPEL_PLACEHOLDER, annotate_marker as annotate_gospel_marker, render_component as render_gospel_today
 from .multi_reading_demo import annotate_demo_marker, load_demo, placeholder_for, render_demo
 from .reading_time import PLACEHOLDER as CALCULATOR_PLACEHOLDER, annotate_calculator_marker, load_data as load_reading_time, render_calculator
@@ -510,11 +511,9 @@ def render_markdown(
     text: str, screens: tuple[ScreenRef, ...] = (), screen_open: str = "", screen_app_lampada: str = "",
     *, lang: str, corpus_sources: Sequence[Mapping[str, Any]] = (), site_key: str = "bible-garden",
 ) -> str:
-    extensions = [*MARKDOWN_EXTENSIONS]
+    extensions = [*MARKDOWN_EXTENSIONS, FaqSectionExtension(), CorpusFootnotesExtension(corpus_sources, lang)]
     if screens:
         extensions.append(ScreenFigureExtension(screens, screen_open, screen_app_lampada, site_key))
-    if corpus_sources:
-        extensions.append(CorpusFootnotesExtension(corpus_sources, lang))
     return markdown.markdown(text, extensions=extensions, extension_configs=MARKDOWN_EXTENSION_CONFIGS)
 
 
