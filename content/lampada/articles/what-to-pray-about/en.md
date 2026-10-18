@@ -2,7 +2,7 @@
 title: 'What to Pray About: Prayer Topics and Questions to Ask'
 description: 'What to pray for: the people around you, your work and needs, thanksgiving and confession, and the Lord’s Prayer as a map of topics, plus a prayer list with a question for each. Stories of Silouan of Athos, Robert Murray M’Cheyne, Simone Weil, and Barsanuphius and John.'
 date: 2026-10-18
-draft: true
+draft: false
 corpus_sources:
 - id: silouan-workshop
   kind: retelling
