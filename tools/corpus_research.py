@@ -92,6 +92,33 @@ def md(value):
     return re.sub(r"([\\`*_{}\[\]<>|#])", r"\\\1", " ".join(str(value).split()))
 
 
+def excerpt_around_match(text, queries, limit):
+    """Locate a lexical sentence match; semantic search supplies no sentence offsets."""
+    stopwords = set(("the and for with from when how did you your "
+                     "что как для это при его она они que les des une est avec").split())
+
+    def terms(value):
+        return {word[:4] for word in re.findall(r"[^\W\d_]{3,}", value.casefold())
+                if word not in stopwords}
+
+    wanted = set().union(*(terms(query) for query in queries))
+    sentences = list(re.finditer(r"[^.!?…\n]+(?:[.!?…]+[»\"’”]*|$)", text))
+    ranked = [(len(terms(match.group()) & wanted), match) for match in sentences]
+    if not ranked or max(score for score, _ in ranked) == 0:
+        return None
+    _, best = max(ranked, key=lambda pair: (pair[0], -pair[1].start()))
+    start, end = best.span()
+    while start < end and text[start].isspace():
+        start += 1
+    if end - start > limit:
+        # Keep the matching words visible when a source sentence exceeds the cap.
+        words = list(re.finditer(r"[^\W\d_]{3,}", text[start:end]))
+        anchor = next(word for word in words if word.group().casefold()[:4] in wanted)
+        start = max(start, start + anchor.start() - limit // 3)
+        end = min(end, start + limit)
+    return text[start:end]
+
+
 def render(topic, queries, inventory, selected, counts, excerpt_chars=180):
     stamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
     lines = [f"# Досье: {md(topic)}", "", f"Снято: {stamp}. Канал: lampada.", "",
@@ -109,7 +136,9 @@ def render(topic, queries, inventory, selected, counts, excerpt_chars=180):
     for number, candidate in enumerate(selected, 1):
         hit = candidate["hit"]
         book = hit["book"]
-        excerpt = hit["text"][:excerpt_chars]
+        excerpt = excerpt_around_match(
+            hit["text"], [queries[i - 1]["query"] for i in candidate["queries"]], excerpt_chars
+        )
         lines += [f'### {number}. {md(book["title"])}', "",
                   f'- Автор: {md(book["author"])}; традиция: {md(book["tradition"])}; язык: {md(book["language"])}.',
                   f'- Глава: {md(hit["chapter"])}; раздел: {md(hit["section_path"])}; section_index: {hit["section_index"]}.',
@@ -118,11 +147,11 @@ def render(topic, queries, inventory, selected, counts, excerpt_chars=180):
                   f'- Источник: {md(book["source_url"])}; лицензия: {md(book["license"])}; переводчик издания: {md(book["translator"])}.',
                   f'- Раздел найден запросами: {", ".join(map(str, sorted(candidate["queries"])))}.',
                   '- Почему кандидат: совпадение с запросом; смысл, опыт и пригодность подтвердить после чтения контекста.',
-                  f'- Выдержка (первые {len(excerpt)} символов чанка, может обрываться; не готовая цитата):', "",
-                  f'> {md(excerpt)}', ""]
+                  '- Выдержка (предложение вокруг лучшего буквального совпадения; длинное ограничено лимитом; не готовая цитата):', "",
+                  f'> {md(excerpt) if excerpt is not None else "Нет буквального совпадения; выбрать фрагмент после чтения контекста."}', ""]
     lines += ["## Перед решением Марии", "",
               "- Прочитать /search/context с scope=chapter; сохранить контекст только вне git.",
-              "- Для предисловия/текста без глав API может вернуть 422: зафиксировать ограничение и явно запросить leaf; без автоматической подмены.",
+              "- Если chapter совпадает с названием книги или раздел охватывает всю книгу — стоп: сообщить владельцу корпуса, не обходить через leaf или полный текст.",
               "- Выбрать не менее трёх книг разных авторов, желательно разных традиций; описать зачем каждый фрагмент и ограничения.",
               "- Уточнить узкие диапазоны для будущих corpus_sources; текущие диапазоны относятся к целым чанкам.",
               "- Записать решение Марии и утверждённые chunk_id. До этого текст не писать.", ""]
@@ -141,6 +170,7 @@ def main(argv=None):
     parser.add_argument("--queries", type=Path, required=True)
     parser.add_argument("--topic", required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--force", action="store_true", help="Explicitly replace an existing dossier")
     parser.add_argument("--api-url", default=os.environ.get("CORPUS_API_URL", "http://127.0.0.1:3018"))
     parser.add_argument("--query-delay", type=int, choices=range(31), default=0, metavar="0..30",
                         help="Seconds between queries; no retries")
@@ -149,11 +179,14 @@ def main(argv=None):
     parser.add_argument("--excerpt-chars", type=int, choices=range(1, 301), default=180, metavar="1..300")
     args = parser.parse_args(argv)
     try:
+        if args.output.exists() and not args.force:
+            raise ResearchError("Output already exists; choose a new file or explicitly use --force")
         queries = load_queries(args.queries)
         api = CorpusAPI(args.api_url, os.environ.get("CORPUS_API_KEY"))
         inventory, selected, counts = collect(api, queries, args.max_per_book, args.max_hits, args.query_delay)
         dossier = render(args.topic, queries, inventory, selected, counts, args.excerpt_chars)
-        args.output.write_text(dossier, encoding="utf-8")
+        with args.output.open("w" if args.force else "x", encoding="utf-8") as output:
+            output.write(dossier)
     except (ResearchError, OSError, ValueError, KeyError, TypeError) as exc:
         print(f"Research failed: {exc}", file=sys.stderr)
         return 1

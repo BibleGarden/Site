@@ -85,6 +85,46 @@ class ResearchTests(unittest.TestCase):
         self.assertNotIn(hit()['text'], dossier)
         self.assertNotIn('> Молитва — ж', dossier)
 
+    def test_excerpt_selects_matching_sentence_not_chunk_prefix(self):
+        text = 'Unrelated introduction. I speak to God — simply! Another sentence.'
+        self.assertEqual(research.excerpt_around_match(text, ['God simply'], 180),
+                         'I speak to God — simply!')
+        self.assertIsNone(research.excerpt_around_match(text, ['тишина'], 180))
+        self.assertEqual(research.excerpt_around_match(
+            'You are here. Prayer can be honest.', ['how did you learn prayer'], 180),
+            'Prayer can be honest.')
+
+    def test_long_sentence_window_keeps_late_match_and_punctuation(self):
+        text = 'Unrelated words ' * 40 + 'prayer — honest words!'
+        excerpt = research.excerpt_around_match(text, ['prayer honest'], 70)
+        self.assertIn('prayer — honest words!', excerpt)
+        self.assertLessEqual(len(excerpt), 70)
+        self.assertIn(excerpt, text)
+
+    def test_existing_dossier_requires_force_before_api_access(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / 'd.md'
+            output.write_text('editorial notes')
+            queries = Path(directory) / 'q.json'
+            queries.write_text('[{"query":"prayer"}]')
+            with patch.object(research, 'CorpusAPI') as api, contextlib.redirect_stderr(io.StringIO()):
+                result = research.main(['--queries', str(queries), '--topic', 'Topic', '--output', str(output)])
+            self.assertEqual(result, 1)
+            self.assertEqual(output.read_text(), 'editorial notes')
+            api.assert_not_called()
+
+    def test_force_explicitly_replaces_existing_dossier(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / 'd.md'
+            queries = Path(directory) / 'q.json'
+            output.write_text('old dossier')
+            queries.write_text('[{"query":"молитва"}]')
+            with patch.object(research, 'CorpusAPI', return_value=FakeAPI([[hit()]])), contextlib.redirect_stdout(io.StringIO()):
+                result = research.main(['--queries', str(queries), '--topic', 'Topic', '--output', str(output), '--force'])
+            self.assertEqual(result, 0)
+            self.assertNotIn('old dossier', output.read_text())
+            self.assertIn('Досье: Topic', output.read_text())
+
     def test_untrusted_metadata_cannot_inject_markdown_or_html(self):
         self.assertEqual(research.md('<script>\n# title [x](y)'), r'\<script\> \# title \[x\](y)')
         self.assertEqual(research.md(None), 'не указано в API')
@@ -106,7 +146,7 @@ class ResearchTests(unittest.TestCase):
             queries.write_text('[{"query":"one"},{"query":"two"}]')
             output.write_text('previous dossier')
             with patch.object(research, 'CorpusAPI', return_value=api), contextlib.redirect_stderr(io.StringIO()):
-                result = research.main(['--queries', str(queries), '--topic', 'Topic', '--output', str(output)])
+                result = research.main(['--queries', str(queries), '--topic', 'Topic', '--output', str(output), '--force'])
             self.assertEqual(result, 1)
             self.assertEqual(output.read_text(), 'previous dossier')
             self.assertEqual(len(api.requests), 3)
