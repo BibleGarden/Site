@@ -1148,9 +1148,9 @@ h1 {
 
 .article-lead {
     margin: 0 0 18px;
-    color: #cdbfa8;
-    font-size: 18px;
-    line-height: 1.6;
+    color: #a99b85;
+    font-size: 15px;
+    line-height: 1.55;
 }
 
 .article-meta {
@@ -1211,6 +1211,20 @@ h1 {
 
 .article-body li + li {
     margin-top: 0.4em;
+}
+
+.article-body .footnote {
+    color: #a99b85;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.article-body .footnote li + li {
+    margin-top: 0.2em;
+}
+
+.article-body .footnote p {
+    margin: 0;
 }
 
 .article-body blockquote {
