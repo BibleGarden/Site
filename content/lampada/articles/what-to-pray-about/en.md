@@ -111,7 +111,7 @@ corpus_sources:
   source_url: https://predanie.ru/book/69621-starec-siluan-afonskiy/
 - id: silouan-world
   kind: quote
-  text: prayed a great prayer for the whole world
+  text: offered up a great prayer for the whole world
   original: молился великою молитвою о всем мире
   translation: ours
   chunk_id: book-61-0117
@@ -762,7 +762,7 @@ If you don’t know what to pray about, start the same way: with what is in your
 
 ## “Here is Mikhail…”
 
-Semyon Antonov was born into a peasant family in 1866 and came to Athos in 1892[^corpus-silouan-formular]. Back in his village, on the feast day of the local church, he ran into a tipsy cobbler, a huge man and a notorious brawler, who mockingly tried to grab Semyon’s accordion[^corpus-silouan-feast]. Semyon didn’t back down. He struck the bully in the chest so hard that the man went flying and crashed onto his back in the middle of the road, and Semyon froze in horror, sure he had killed him[^corpus-silouan-hit]. That young man grew into a monk of whom his disciple would write that he “prayed a great prayer for the whole world”[^corpus-silouan-world].
+Semyon Antonov was born into a peasant family in 1866 and came to Athos in 1892[^corpus-silouan-formular]. Back in his village, on the feast day of the local church, he ran into a tipsy cobbler, a huge man and a notorious brawler, who mockingly tried to grab Semyon’s accordion[^corpus-silouan-feast]. Semyon didn’t back down. He struck the bully in the chest so hard that the man went flying and crashed onto his back in the middle of the road, and Semyon froze in horror, sure he had killed him[^corpus-silouan-hit]. That young man grew into a monk of whom his disciple would write that he “offered up a great prayer for the whole world”[^corpus-silouan-world].
 
 Back to the two hundred workmen. He grieved, too, for the mothers and fathers who had sent a boy off with a heavy heart to live among strangers for a beggar’s wage, and over the fact that nobody cared what became of these poor people[^corpus-silouan-poverty]. “The Lord pities everyone”[^corpus-silouan-pity], he used to say. And also: “To pray for people is to shed blood”[^corpus-silouan-blood].
 
@@ -788,7 +788,7 @@ Simone Weil, the French philosopher, was drawn to Catholicism but declined bapti
 
 The change began with the Lord’s Prayer. The summer before, while studying Greek with an acquaintance, she had gone through it word by word with him and they had promised each other to learn it by heart; a few weeks later she decided a promise was a promise and did it[^corpus-weil-promise]. “The infinite sweetness of this Greek text so took hold of me that for several days I could not stop reciting it to myself over and over.”[^corpus-weil-sweetness] “A week later I began the grape harvest. I recited the Our Father in Greek every day before work, and I repeated it very often in the vineyard.”[^corpus-weil-vineyard] “Since then I have made it my only practice to recite it once every morning with absolute attention.”[^corpus-weil-rule] If her mind drifts even slightly, she starts over, until she has said the whole prayer once without a moment’s distraction[^corpus-weil-again].
 
-Her path is no model of church life, but her story points to something simple. If you have no topics of your own, there is the prayer Jesus gave His disciples as a pattern (Matthew 6:9–13). Weil wrote of it: “This prayer contains every possible petition; we cannot conceive of a prayer that is not already contained in it.”[^corpus-weil-all-requests] The main topics are already named there: God’s name and His will; our daily bread, meaning work, money and health; the forgiveness we ask for and the forgiveness we owe; the temptation and evil we ask to be delivered from. You can walk through it slowly and stop at whichever petition is about you today.
+Her path is no model of church life, but her story points to something simple. If you have no topics of your own, there is the prayer Jesus gave His disciples as a pattern (Matthew 6:9–13). Weil wrote of it: “This prayer contains every possible petition; we cannot conceive of a prayer that is not already contained in it.”[^corpus-weil-all-requests] The main topics are already named there: God’s name and His will; our daily bread, meaning work, money and health; the forgiveness we ask for and the forgiveness we owe; the temptation and evil we ask to be delivered from. You can walk through it slowly and stop at whichever petition speaks to your situation today.
 
 ## When there are too many topics
 
@@ -850,7 +850,7 @@ Yes. The apostle Paul says “in everything” (Philippians 4:6). The elders of 
 
 ### What are 5 things you should pray for?
 
-There is no fixed rule. M’Cheyne named five parts of prayer: confession, adoration, thanksgiving, petition and intercession[^corpus-mccheyne-parts-faq]. He allowed that a single prayer need not include them all, but he was sure that each one deserved a place at some point every day[^corpus-mccheyne-each-day-faq]. Many Christians today use a similar pattern under the acronym ACTS: adoration, confession, thanksgiving, supplication.
+There is no fixed rule. M’Cheyne named five parts of prayer: confession, adoration, thanksgiving, petition and intercession[^corpus-mccheyne-parts-faq]. He allowed that a single prayer need not include them all, but he was sure that each one deserved a place at some point every day[^corpus-mccheyne-each-day-faq].
 
 [^phil4]: Philippians 4:6. Berean Standard Bible (BSB), public domain.
 [^mccheyne]: [Robert Murray M'Cheyne](https://en.wikipedia.org/wiki/Robert_Murray_M%27Cheyne) on Wikipedia: born in 1813; minister of St Peter’s Church, Dundee, from 1836; died of typhus in March 1843. Andrew Bonar, his companion on a journey to Palestine in 1839, published his *Memoir and Remains*, which went through more than a hundred editions; Bonar places “Reformation” in his account of M’Cheyne’s last months.
