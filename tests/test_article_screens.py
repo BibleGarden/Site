@@ -270,7 +270,10 @@ class ArticleScreensTest(unittest.TestCase):
         self.assertEqual(len(refs), 1)
         self.assertIn("<!-- screen: home -->", marked)
         self.assertEqual(len(extract_faq(clean, SOURCE, lang="ru")), 1)
-        self.assertIn('id="faq"', render_markdown(marked, refs, "Открыть: {caption}", lang="ru"))
+        html = render_markdown(marked, refs, "Открыть: {caption}", lang="ru")
+        section = ET.fromstring(f"<root>{html}</root>").find("section")
+        self.assertEqual([node.tag for node in section][:2], ["h2", "figure"])
+        self.assertEqual(section[0].get("id"), "faq")
 
     def test_unrelated_comment_outside_heading_is_allowed(self) -> None:
         body = "Paragraph\n\n<!-- editorial note -->\n"
