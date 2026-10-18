@@ -139,8 +139,24 @@ class CorpusFootnotesTest(unittest.TestCase):
         self.assertEqual([note.get('id') for note in root.findall('.//ol/li')],
                          ['fn:corpus-first', 'fn:later'])
         backs = root.findall('.//li[@id="fn:later"]//a[@class="footnote-backref"]')
-        self.assertEqual(len(backs), 2)
-        self.assertTrue(all(back.get('title') == 'Jump back to footnote 2 in the text' for back in backs))
+        self.assertEqual([back.text for back in backs], ['a', 'b'])
+        self.assertEqual([back.get('aria-label') for back in backs],
+                         ['Back to reference 2, occurrence 1', 'Back to reference 2, occurrence 2'])
+        self.assert_links_resolve(root)
+
+    def test_repeated_ordinary_note_gets_one_arrow_and_lettered_backlinks(self):
+        body = 'First[^note], again[^note], single[^one].\n\n[^note]: A note.\n\n    Second paragraph.\n[^one]: Once.'
+        root = etree.fromstring('<article>' + render_markdown(body, lang='ru') + '</article>')
+        note = root.find('.//li[@id="fn:note"]')
+        paragraph = note.findall('p')[-1]
+        self.assertEqual(paragraph.find('span[@aria-hidden="true"]').text, '↩')
+        backs = paragraph.findall('a[@class="footnote-backref"]')
+        self.assertEqual([back.text for back in backs], ['a', 'b'])
+        self.assertEqual([back.get('href') for back in backs], ['#fnref:note', '#fnref2:note'])
+        self.assertEqual(backs[1].get('aria-label'), 'Вернуться к сноске 1, упоминание 2')
+        self.assertEqual(len(note.findall('.//a[@class="footnote-backref"]')), 2)
+        single = root.findall('.//li[@id="fn:one"]//a[@class="footnote-backref"]')
+        self.assertEqual([back.get('title') for back in single], ['Jump back to footnote 2 in the text'])
         self.assert_links_resolve(root)
 
     def test_decorative_arrow_follows_citation_element(self):

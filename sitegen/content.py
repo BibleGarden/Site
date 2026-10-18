@@ -511,11 +511,9 @@ def render_markdown(
     text: str, screens: tuple[ScreenRef, ...] = (), screen_open: str = "", screen_app_lampada: str = "",
     *, lang: str, corpus_sources: Sequence[Mapping[str, Any]] = (), site_key: str = "bible-garden",
 ) -> str:
-    extensions = [*MARKDOWN_EXTENSIONS, FaqSectionExtension()]
+    extensions = [*MARKDOWN_EXTENSIONS, FaqSectionExtension(), CorpusFootnotesExtension(corpus_sources, lang)]
     if screens:
         extensions.append(ScreenFigureExtension(screens, screen_open, screen_app_lampada, site_key))
-    if corpus_sources:
-        extensions.append(CorpusFootnotesExtension(corpus_sources, lang))
     return markdown.markdown(text, extensions=extensions, extension_configs=MARKDOWN_EXTENSION_CONFIGS)
 
 

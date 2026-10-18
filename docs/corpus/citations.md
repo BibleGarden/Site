@@ -72,9 +72,10 @@ Corpus entries with the same visible citation and source URL share one footnote;
 collapsible HTML whitespace in the citation is ignored. Each occurrence retains
 its own anchor and return link: `↩ a b c` for a group, `↩` for a single occurrence,
 with localized accessible labels. In mixed articles, all footnotes (including
-ordinary ones) are numbered by first appearance. Ordinary notes are never grouped;
-articles without corpus entries render unchanged. Evidence items, markers and
-checker verification remain independent.
+ordinary ones) are numbered by first appearance. Ordinary notes are never grouped,
+but an ordinary note referenced several times gets the same `↩ a b` return links
+in every article; a single ordinary reference keeps Markdown's `↩`. Evidence
+items, markers and checker verification remain independent.
 
 ## Author workflow
 
