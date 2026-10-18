@@ -280,7 +280,7 @@ def main(argv=None):
         manual = sum(source["status"] == "manual" for article in articles for source in article["sources"])
         print(f"Report: {artifact}; manual cases: {manual}; articles unchanged")
         return int(manual > 0)
-    except (CheckError, BuildError, OSError, ValueError, KeyError, TypeError, yaml.YAMLError) as exc:
+    except (CheckError, BuildError, OSError, ValueError, yaml.YAMLError) as exc:
         print(f"Reanchor failed: {exc}", file=sys.stderr)
         return 1
 
