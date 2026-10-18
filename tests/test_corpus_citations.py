@@ -164,16 +164,17 @@ class CitationTest(unittest.TestCase):
                 self.assertEqual(payloads, [payloads[0]] * 3)
                 self.assertIsNot(payloads[0], payloads[1])
 
-    def test_judge_errors_stop_without_retry_and_keep_previous_reason(self):
+    def test_judge_errors_wait_for_all_calls_without_retry_and_keep_reasons(self):
         self.item.update(kind='retelling', original=None, translation=None, text='Prayer needs care.')
         passed = {'verdict': 'PASS', 'category': 'supported', 'reason': 'First explanation'}
         for error in (CheckError('Unavailable'), {}, {'verdict': 'PASS'}):
             judge = Mock(side_effect=[passed, error, passed])
             status, reason, paragraph = verify(self.item, self.api, judge)
             self.assertEqual(status, 'ERROR')
-            self.assertEqual(judge.call_count, 2)
+            self.assertEqual(judge.call_count, 3)
             self.assertIn('First explanation', reason)
             self.assertIn('Run 2/3: ERROR', reason)
+            self.assertIn('Run 3/3: PASS', reason)
             self.assertIn(TEXT[START:END], paragraph)
 
     def test_strict_verdict_schema(self):

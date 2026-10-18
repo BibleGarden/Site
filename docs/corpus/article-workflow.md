@@ -187,14 +187,16 @@ Exit 0 обязателен; checker проверяет **только объя�
 
 ```bash
 python tools/check_corpus_citations.py content/lampada/articles/<slug>/{ru,en,uk}.md \
-  --no-cache --report /tmp/lampada-all-review.md
+  --report /tmp/lampada-all-review.md
 python -m sitegen build
 python -m sitegen check
 python -m unittest discover -s tests
 ```
 
-Финальный checker перед мержем обязательно запускать с `--no-cache`: все
-вердикты свежие, существующий кэш не читается и не перезаписывается.
+Финальная проверка использует кэш вердиктов с теми же данными источника,
+текстом и конфигурацией судьи. `--no-cache` — диагностическая перепроверка,
+например при подозрении на порчу кэша. Лимит конкурентных вызовов судьи —
+`--judge-workers` (по умолчанию 6).
 
 **Мария вычитывает все три версии и разрешает мерж.** Draft снять только
 после принятия; закоммитить пересобранный `dist` вместе с Markdown. PR

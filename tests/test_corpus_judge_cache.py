@@ -92,9 +92,9 @@ class JudgeCacheTest(unittest.TestCase):
                     self.assertIn(vote['reason'], second[1])
 
     def test_error_is_not_cached_or_retried(self):
-        judge = Mock(side_effect=[PASS, CheckError('Unavailable')])
+        judge = Mock(side_effect=[PASS, CheckError('Unavailable'), PASS])
         self.assertEqual(verify(self.item, self.api, judge, judge_cache=self.cache)[0], 'ERROR')
-        self.assertEqual(judge.call_count, 2)
+        self.assertEqual(judge.call_count, 3)
         self.assertEqual(list(self.cache.directory.glob('*.json')), [])
         next_judge = Mock(return_value=PASS)
         verify(self.item, self.api, next_judge, judge_cache=self.cache)

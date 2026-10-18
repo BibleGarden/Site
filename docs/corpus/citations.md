@@ -195,9 +195,12 @@ Free-text reasoning still requires editorial review.
 Each translated quote or retelling receives three independent calls (default
 `DEFAULT_JUDGE_RUNS = 3`, positive `--judge-runs` override) with identical evidence
 and no prior verdicts. Unanimous PASS or FAIL yields that status; mixed votes
-yield UNSTABLE. Errors stop calls for that fragment with ERROR; earlier votes
-remain in the report and other fragments continue. The checker never retries
-errors or replaces votes. Exact untranslated quotes use deterministic checks.
+yield UNSTABLE. One shared pool limits simultaneous judge calls across fragments
+and their runs (`DEFAULT_JUDGE_WORKERS = 6`, positive `--judge-workers` override).
+Corpus validation stays serial. Reports retain article order and run-number order,
+independently of completion order. Every scheduled call is awaited and reported;
+any error makes that fragment ERROR, and its partial set is not cached. Other
+fragments continue. Calls are never retried or replaced. Exact untranslated quotes use deterministic checks.
 
 Reports list all completed votes, categories and reasons, the run count, and
 final PASS/FAIL/UNSTABLE/ERROR counters plus invalid-article count. Any FAIL,
@@ -226,11 +229,13 @@ duplicate-key or corrupt records fail explicitly: repair or remove the named
 record. Reports mark `Cache: HIT`/`MISS`, retain votes/reasons and count judge
 calls and cached fragments. In-process callers opt in with a `JudgeCache`.
 
-Before merge, run a fresh review without cache reads, writes or fingerprinting:
+Regular checks, including the final review, reuse complete cached verdicts for
+unchanged evidence and judge configuration. Use `--no-cache` for diagnostics
+(for example, suspected cache corruption): no reads, writes or fingerprinting.
 
 ```bash
 python tools/check_corpus_citations.py content/lampada/articles/<slug>/{ru,en,uk}.md \
-  --no-cache --report /tmp/lampada-final-review.md
+  --no-cache --report /tmp/lampada-diagnostic-review.md
 ```
 
 
@@ -249,5 +254,7 @@ without checker retries, and
 Lampada-only front matter.
 Cache tests cover reuse with zero calls, one edited fragment, prompt/adapter/run
 invalidation, preserved FAIL/UNSTABLE explanations, ERROR exclusion, canonical
-revalidation, corrupt/unwritable records, private paths and `--no-cache`.
+revalidation, corrupt/unwritable records, private paths and `--no-cache`. Delayed fake judges verify the global worker
+limit, concurrency between fragments and runs, deterministic reports and
+complete error/peer results.
 Existing CI discovers these tests without live API calls or credentials.
