@@ -5,6 +5,9 @@ import json
 import os
 from pathlib import Path
 import tempfile
+import shlex
+import shutil
+import subprocess
 
 from tools.corpus_judge import CheckError, unique_object, validate_verdict
 
@@ -16,6 +19,31 @@ DEFAULT_CACHE_DIR = Path.home() / '.cache/lampada-citation-judge'
 def digest(value):
     return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True,
                                      separators=(',', ':')).encode()).hexdigest()
+
+
+def judge_environment(command, *, claude_cli=False):
+    """Identify the executable actually selected by PATH and the bundled CLI runtime."""
+    try:
+        arguments = shlex.split(command)
+        executable = shutil.which(arguments[0]) if arguments else None
+        if executable is None:
+            raise CheckError('Judge adapter executable unavailable for cache identity')
+        adapter = Path(executable).resolve()
+        identity = {'adapter_path': str(adapter),
+                    'adapter_sha256': hashlib.sha256(adapter.read_bytes()).hexdigest(),
+                    'arguments': arguments[1:]}
+        if claude_cli:
+            cli = shutil.which('claude')
+            if cli is None:
+                raise CheckError('Claude CLI unavailable for cache identity')
+            result = subprocess.run([cli, '--version'], text=True, capture_output=True,
+                                    timeout=10, check=True)
+            if not result.stdout.strip():
+                raise CheckError('Claude CLI returned an empty version')
+            identity.update(claude_path=str(Path(cli).resolve()), claude_version=result.stdout.strip())
+        return identity
+    except (OSError, ValueError, subprocess.SubprocessError) as exc:
+        raise CheckError('Cannot identify judge environment for cache; no fallback') from exc
 
 
 class JudgeCache:

@@ -9,7 +9,7 @@ from unittest.mock import Mock, patch
 
 import test_corpus_citations as fixtures
 from tools.check_corpus_citations import CheckError, check_articles, main, verify
-from tools.corpus_judge_cache import JudgeCache
+from tools.corpus_judge_cache import JudgeCache, judge_environment
 
 
 PASS = {'verdict': 'PASS', 'category': 'supported', 'reason': 'Supported'}
@@ -150,7 +150,8 @@ class JudgeCacheTest(unittest.TestCase):
         fixture.item = self.item
         fixture.write_article(path, [self.item])
         with patch('tools.check_corpus_citations.CorpusAPI', return_value=self.api), \
-             patch('tools.check_corpus_citations.command_judge', return_value=PASS) as judge:
+             patch('tools.check_corpus_citations.command_judge', return_value=PASS) as judge, \
+             patch('tools.check_corpus_citations.judge_environment', return_value={'claude_version': '1'}) as environment:
             args = [str(path), '--report', str(report), '--cache-dir', str(self.cache.directory)]
             self.assertEqual(main(args), 0)
             self.assertEqual(judge.call_count, 3)
@@ -162,4 +163,56 @@ class JudgeCacheTest(unittest.TestCase):
             self.assertEqual(judge.call_count, 3)
             self.assertEqual(judge.call_args.args[2], 'test-model')
             self.assertIn('Judge cache: disabled', report.read_text())
+            self.assertEqual(environment.call_count, 2)
             self.assertEqual(next(self.cache.directory.glob('*.json')).read_text(), 'corrupt')
+
+
+class JudgeEnvironmentTest(unittest.TestCase):
+    def test_cli_version_adapter_contents_and_arguments_invalidate_identity(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            adapter = Path(tmp) / 'adapter'
+            adapter.write_text('adapter version 1')
+            adapter.chmod(0o700)
+            def executable(name):
+                return str(adapter) if name == 'adapter' else '/fake/claude'
+            with patch('tools.corpus_judge_cache.shutil.which', side_effect=executable), \
+                 patch('tools.corpus_judge_cache.subprocess.run') as version:
+                version.return_value.stdout = '2.1.302 (Claude Code)'
+                first = judge_environment('adapter --tools ""', claude_cli=True)
+                version.assert_called_once_with(['/fake/claude', '--version'], text=True,
+                                                capture_output=True, timeout=10, check=True)
+                version.return_value.stdout = '2.1.303 (Claude Code)'
+                upgraded = judge_environment('adapter --tools ""', claude_cli=True)
+                changed_args = judge_environment('adapter --tools Read', claude_cli=True)
+                adapter.write_text('adapter version 2')
+                changed_adapter = judge_environment('adapter --tools ""', claude_cli=True)
+                item, payload = {'text': 'Claim'}, {'instruction': 'Rubric'}
+                initial_key = JudgeCache(Path(tmp) / 'cache', first).key(item, payload, 3)
+                for identity in (upgraded, changed_args, changed_adapter):
+                    self.assertNotEqual(initial_key, JudgeCache(Path(tmp) / 'cache', identity).key(item, payload, 3))
+
+    def test_unavailable_or_failed_version_is_an_error(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            adapter = Path(tmp) / 'adapter'
+            adapter.write_text('adapter')
+            with patch('tools.corpus_judge_cache.shutil.which', return_value=None):
+                with self.assertRaises(CheckError):
+                    judge_environment('missing')
+            with patch('tools.corpus_judge_cache.shutil.which', return_value=str(adapter)), \
+                 patch('tools.corpus_judge_cache.subprocess.run') as version:
+                version.return_value.stdout = '  '
+                with self.assertRaises(CheckError):
+                    judge_environment('adapter', claude_cli=True)
+                version.side_effect = OSError('Unavailable')
+                with self.assertRaises(CheckError):
+                    judge_environment('adapter', claude_cli=True)
+
+    def test_custom_adapter_does_not_require_claude(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            adapter = Path(tmp) / 'adapter'
+            adapter.write_text('custom adapter')
+            with patch('tools.corpus_judge_cache.shutil.which', return_value=str(adapter)), \
+                 patch('tools.corpus_judge_cache.subprocess.run') as version:
+                identity = judge_environment('adapter --model custom')
+                version.assert_not_called()
+                self.assertEqual(identity['arguments'], ['--model', 'custom'])

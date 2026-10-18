@@ -199,12 +199,16 @@ The CLI caches complete model vote sets in `~/.cache/lampada-citation-judge`
 to choose another directory outside this repository. No alternative location is
 tried if the directory cannot be used. Cache files contain private explanations;
 never commit or publish them. New directories use mode 0700 and records 0600;
-writes replace records atomically.
+writes replace records atomically (temporary file + rename). No per-key lock is
+used: concurrent complete reviews may safely replace the same record.
 
 The content-addressed key includes article fragment text, quote/retelling kind,
 original/translation, canonical source range text, full-book SHA-256, offsets,
 book/chunk identity and attribution metadata, the exact prompt/criteria, model,
-run count, adapter command/version and bundled implementation fingerprint.
+run count, adapter command/version, resolved executable path and SHA-256, fixed command
+arguments, bundled implementation fingerprint and `claude --version` for the
+bundled adapter. The shell fingerprint covers its fixed flags; the implementation
+fingerprint covers the generated JSON schema.
 Occurrence IDs and report-only neighbourhood size do not affect the verdict.
 Changing one fragment rechecks only that fragment; changing criteria or model
 invalidates the corresponding cached votes. `--judge-model` defaults to `opus`
@@ -212,7 +216,21 @@ and is passed to adapters as `CORPUS_JUDGE_MODEL`; the bundled adapter uses it f
 Claude's `--model`. Custom adapters must honour that setting and bump
 `--judge-version` (default `1`) whenever their implementation, provider or hidden
 configuration changes. Bundled protocol/adapter/checker edits invalidate keys
-automatically. The `opus` alias may change upstream; use a full final review.
+automatically. Reading the CLI version fails explicitly if the executable is
+missing, fails, times out or reports an empty version; no cache identity fallback
+is used. `--no-cache` does not require computing a cache identity. Custom adapters
+are fingerprinted without requiring Claude; wrapper/interpreter dependencies
+still require an explicit version bump when they change.
+
+The bundled adapter uses `--safe-mode --setting-sources "" --strict-mcp-config
+--no-session-persistence`. This disables CLAUDE.md, user/project/local settings,
+custom skills/plugins/hooks and configured MCP servers without replacing runtime
+authentication. Admin-managed policy settings still apply. Inherited environment
+and remote provider configuration can affect requests; these are not completely
+isolated or automatically fingerprinted. Bump `--judge-version` when managed
+policy, provider/environment configuration or custom-adapter dependencies change.
+Do not put secrets in command arguments or version labels. The `opus` alias may
+change upstream; use a full final review.
 
 Every run still fetches and validates current corpus chunks, canonical text and
 context before consulting the judge cache. Completed PASS, FAIL and UNSTABLE

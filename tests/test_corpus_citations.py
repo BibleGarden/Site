@@ -530,7 +530,9 @@ class CitationTest(unittest.TestCase):
             self.assertEqual(json.loads(result.stdout)['verdict'], 'PASS')
             self.assertEqual(json.loads(input_path.read_text()), payload)
             args = json.loads(args_path.read_text())
-            self.assertEqual(args[:-2], ['-p', '--model', 'opus', '--output-format', 'json', '--tools', ''])
+            self.assertEqual(args[:-2], ['-p', '--model', 'opus', '--output-format', 'json', '--tools', '',
+                                             '--safe-mode', '--setting-sources', '', '--strict-mcp-config',
+                                             '--no-session-persistence'])
             self.assertEqual(args[-2], '--json-schema')
             self.assertEqual(json.loads(args[-1]), ASSESSMENT_SCHEMA)
             self.assertEqual(ASSESSMENT_SCHEMA['properties']['category']['enum'],

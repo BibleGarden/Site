@@ -23,7 +23,7 @@ from sitegen.content import _frontmatter, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICL
 from sitegen.corpus import citations
 from sitegen.errors import BuildError
 from tools.corpus_judge import CheckError, unique_object, validate_verdict
-from tools.corpus_judge_cache import DEFAULT_CACHE_DIR, JudgeCache, digest
+from tools.corpus_judge_cache import DEFAULT_CACHE_DIR, JudgeCache, digest, judge_environment
 
 
 def normalize(text):
@@ -283,7 +283,8 @@ def main(argv=None):
                                  ("corpus_judge.py", "corpus_judge_claude.sh", "check_corpus_citations.py")})
         cache = None if args.no_cache else JudgeCache(args.cache_dir, {
             "model": args.judge_model, "command": args.judge_command,
-            "adapter_version": args.judge_version, "implementation": implementation})
+            "adapter_version": args.judge_version, "implementation": implementation,
+            "environment": judge_environment(args.judge_command, claude_cli=args.judge_command == DEFAULT_JUDGE)})
         return check_articles(paths, api, lambda payload: command_judge(args.judge_command, payload, args.judge_model),
                               args.report, args.near, judge_name=args.judge_command,
                               judge_runs=args.judge_runs, judge_cache=cache)

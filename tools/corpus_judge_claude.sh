@@ -3,5 +3,7 @@
 set -euo pipefail
 judge_protocol="$(dirname -- "${BASH_SOURCE[0]}")/corpus_judge.py"
 judge_schema="$(python3 "$judge_protocol" --schema)"
-claude -p --model "${CORPUS_JUDGE_MODEL:-opus}" --output-format json --tools "" --json-schema "$judge_schema" |
+claude -p --model "${CORPUS_JUDGE_MODEL:-opus}" --output-format json --tools "" \
+  --safe-mode --setting-sources "" --strict-mcp-config --no-session-persistence \
+  --json-schema "$judge_schema" |
   python3 "$judge_protocol"
