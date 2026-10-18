@@ -117,10 +117,18 @@ class CorpusFootnotesTest(unittest.TestCase):
         self.assertIn('An ordinary note.', ''.join(notes[0].itertext()))
         self.assert_links_resolve(root)
 
-    def test_ordinary_footnotes_render_identically_without_corpus(self):
-        body = 'First[^b], again[^b], second[^a].\n\n[^a]: Same.\n[^b]: Same.'
-        self.assertEqual(render_markdown(body, lang="en"), render_markdown(body, corpus_sources=[], lang="en"))
-        self.assertEqual(render_markdown(body, lang="en").count('<li id="fn:'), 2)
+    def test_single_ordinary_notes_follow_first_mention_with_markdown_backlinks(self):
+        body = 'First[^b], second[^a].\n\n[^a]: Defined first.\n[^b]: Defined second.'
+        root = etree.fromstring('<article>' + render_markdown(body, lang='en') + '</article>')
+        self.assertEqual([ref.text for ref in root.findall('.//a[@class="footnote-ref"]')], ['1', '2'])
+        self.assertEqual([note.get('id') for note in root.findall('.//ol/li')], ['fn:b', 'fn:a'])
+        backs = root.findall('.//a[@class="footnote-backref"]')
+        self.assertEqual([(back.get('href'), back.text, back.get('title')) for back in backs], [
+            ('#fnref:b', '↩', 'Jump back to footnote 1 in the text'),
+            ('#fnref:a', '↩', 'Jump back to footnote 2 in the text'),
+        ])
+        self.assertIsNone(root.find('.//span[@aria-hidden="true"]'))
+        self.assert_links_resolve(root)
 
     def test_language_is_required(self):
         for sources in ([], [ITEM]):
