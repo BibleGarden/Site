@@ -910,6 +910,24 @@ h1 {
         display: none;
     }
 
+    .landing-header {
+        flex-wrap: wrap;
+        gap: 18px;
+        padding-block: 20px;
+    }
+
+    .landing-header .header-tools {
+        display: contents;
+    }
+
+    .landing-header .site-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+        order: 1;
+        width: 100%;
+    }
+
     .hero {
         grid-template-columns: 1fr;
         gap: 36px;
@@ -1303,6 +1321,8 @@ h1 {
 .article-list {
     display: grid;
     gap: 16px;
+    min-width: 0;
+    overflow-wrap: anywhere;
     max-width: 780px;
     margin: 36px 0 0;
     padding: 0;
@@ -1323,7 +1343,8 @@ h1 {
     border-color: var(--amber);
 }
 
-.article-list h2 {
+.article-list h2,
+.article-list h3 {
     margin: 0 0 8px;
     font-size: 26px;
     line-height: 1.2;

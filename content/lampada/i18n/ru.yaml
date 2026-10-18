@@ -7,6 +7,7 @@ landing:
   brand_home: Главная Lampada
   nav_label: Основная навигация
   nav:
+    articles: Статьи о молитве
     about: О приложении
     privacy: Конфиденциальность
     support: Поддержка
@@ -83,6 +84,8 @@ landing:
       server: "Разрешённый текст обрабатывают наш сервер и Google Gemini. Архива молитв на нашем сервере нет."
       tracking: "В приложении нет рекламы, аналитики, трекеров и профилей. Сам пин-код не хранится и никуда не передаётся."
     link: "Политика конфиденциальности"
+  articles:
+    all: Все статьи
   footer:
     bible_garden: Bible Garden
 articles:
