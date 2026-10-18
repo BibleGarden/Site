@@ -1,0 +1,9 @@
+[
+  {"query": "молитва своими словами искренность разговор с Богом", "language": "ru", "limit": 8, "min_score": 0.35},
+  {"query": "как начать молиться короткая молитва простыми словами", "language": "ru", "limit": 8, "min_score": 0.35},
+  {"query": "honest prayer speak to God simply personal experience", "language": "en", "limit": 8, "min_score": 0.35},
+  {"query": "beginning prayer when I do not know what to say", "language": "en", "limit": 8, "min_score": 0.35},
+  {"query": "parler à Dieu simplement prière expérience présence de Dieu", "language": "fr", "limit": 6, "min_score": 0.3},
+  {"query": "prayer simple words conversation with God", "book_id": 34, "limit": 4, "min_score": 0.3},
+  {"query": "prayer personal experience asking God ordinary needs", "book_id": 49, "limit": 4, "min_score": 0.3}
+]

@@ -61,6 +61,10 @@ items with precise ranges. Ordinary Markdown footnotes remain available.
 
 ## Author workflow
 
+For topic selection, chapter research, Maria's dossier approval and the ru/en/uk
+editorial cycle, start with [the article workflow](article-workflow.md). The steps
+below describe the evidence format and verification within that cycle.
+
 1. Search `POST /api/v1/channels/lampada/search` with optional filters. Keep the
    hit's chunk ID, book ID, metadata, chapter, offsets and SHA-256.
 2. Inspect `/search/context` (`scope=leaf`). Choose a precise subrange within
