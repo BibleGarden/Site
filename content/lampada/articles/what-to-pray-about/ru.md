@@ -16,7 +16,7 @@ corpus_sources:
   text_sha256: e16888244664185f7e7777c3e93142e7a5d02afe5c78f2f37c790748d4eed140
   author: архим. Софроний (Сахаров)
   title: Старец Силуан Афонский
-  chapter: Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА
+  chapter: "Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА — III ВНЕШНОСТЬ И БЕСЕДЫ СТАРЦА"
   translator: null
   source_url: https://predanie.ru/book/69621-starec-siluan-afonskiy/
 - id: silouan-mikhail
@@ -31,7 +31,7 @@ corpus_sources:
   text_sha256: e16888244664185f7e7777c3e93142e7a5d02afe5c78f2f37c790748d4eed140
   author: архим. Софроний (Сахаров)
   title: Старец Силуан Афонский
-  chapter: Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА
+  chapter: "Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА — III ВНЕШНОСТЬ И БЕСЕДЫ СТАРЦА"
   translator: null
   source_url: https://predanie.ru/book/69621-starec-siluan-afonskiy/
 - id: silouan-nikita
@@ -46,7 +46,7 @@ corpus_sources:
   text_sha256: e16888244664185f7e7777c3e93142e7a5d02afe5c78f2f37c790748d4eed140
   author: архим. Софроний (Сахаров)
   title: Старец Силуан Афонский
-  chapter: Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА
+  chapter: "Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА — III ВНЕШНОСТЬ И БЕСЕДЫ СТАРЦА"
   translator: null
   source_url: https://predanie.ru/book/69621-starec-siluan-afonskiy/
 - id: silouan-nikolka
@@ -61,7 +61,7 @@ corpus_sources:
   text_sha256: e16888244664185f7e7777c3e93142e7a5d02afe5c78f2f37c790748d4eed140
   author: архим. Софроний (Сахаров)
   title: Старец Силуан Афонский
-  chapter: Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА
+  chapter: "Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА — III ВНЕШНОСТЬ И БЕСЕДЫ СТАРЦА"
   translator: null
   source_url: https://predanie.ru/book/69621-starec-siluan-afonskiy/
 - id: silouan-formular
@@ -76,7 +76,7 @@ corpus_sources:
   text_sha256: e16888244664185f7e7777c3e93142e7a5d02afe5c78f2f37c790748d4eed140
   author: архим. Софроний (Сахаров)
   title: Старец Силуан Афонский
-  chapter: Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА
+  chapter: "Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА — I ДЕТСТВО И МОЛОДЫЕ ГОДЫ"
   translator: null
   source_url: https://predanie.ru/book/69621-starec-siluan-afonskiy/
 - id: silouan-feast
@@ -91,7 +91,7 @@ corpus_sources:
   text_sha256: e16888244664185f7e7777c3e93142e7a5d02afe5c78f2f37c790748d4eed140
   author: архим. Софроний (Сахаров)
   title: Старец Силуан Афонский
-  chapter: Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА
+  chapter: "Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА — I ДЕТСТВО И МОЛОДЫЕ ГОДЫ"
   translator: null
   source_url: https://predanie.ru/book/69621-starec-siluan-afonskiy/
 - id: silouan-hit
@@ -106,7 +106,7 @@ corpus_sources:
   text_sha256: e16888244664185f7e7777c3e93142e7a5d02afe5c78f2f37c790748d4eed140
   author: архим. Софроний (Сахаров)
   title: Старец Силуан Афонский
-  chapter: Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА
+  chapter: "Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА — I ДЕТСТВО И МОЛОДЫЕ ГОДЫ"
   translator: null
   source_url: https://predanie.ru/book/69621-starec-siluan-afonskiy/
 - id: silouan-world
@@ -121,7 +121,7 @@ corpus_sources:
   text_sha256: e16888244664185f7e7777c3e93142e7a5d02afe5c78f2f37c790748d4eed140
   author: архим. Софроний (Сахаров)
   title: Старец Силуан Афонский
-  chapter: Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА
+  chapter: "Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА — III ВНЕШНОСТЬ И БЕСЕДЫ СТАРЦА"
   translator: null
   source_url: https://predanie.ru/book/69621-starec-siluan-afonskiy/
 - id: silouan-poverty
@@ -136,7 +136,7 @@ corpus_sources:
   text_sha256: e16888244664185f7e7777c3e93142e7a5d02afe5c78f2f37c790748d4eed140
   author: архим. Софроний (Сахаров)
   title: Старец Силуан Афонский
-  chapter: Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА
+  chapter: "Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА — III ВНЕШНОСТЬ И БЕСЕДЫ СТАРЦА"
   translator: null
   source_url: https://predanie.ru/book/69621-starec-siluan-afonskiy/
 - id: silouan-pity
@@ -151,7 +151,7 @@ corpus_sources:
   text_sha256: e16888244664185f7e7777c3e93142e7a5d02afe5c78f2f37c790748d4eed140
   author: архим. Софроний (Сахаров)
   title: Старец Силуан Афонский
-  chapter: Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА
+  chapter: "Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА — III ВНЕШНОСТЬ И БЕСЕДЫ СТАРЦА"
   translator: null
   source_url: https://predanie.ru/book/69621-starec-siluan-afonskiy/
 - id: silouan-blood
@@ -166,7 +166,7 @@ corpus_sources:
   text_sha256: e16888244664185f7e7777c3e93142e7a5d02afe5c78f2f37c790748d4eed140
   author: архим. Софроний (Сахаров)
   title: Старец Силуан Афонский
-  chapter: Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА
+  chapter: "Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА — III ВНЕШНОСТЬ И БЕСЕДЫ СТАРЦА"
   translator: null
   source_url: https://predanie.ru/book/69621-starec-siluan-afonskiy/
 - id: silouan-disobedient
@@ -181,7 +181,7 @@ corpus_sources:
   text_sha256: e16888244664185f7e7777c3e93142e7a5d02afe5c78f2f37c790748d4eed140
   author: архим. Софроний (Сахаров)
   title: Старец Силуан Афонский
-  chapter: Часть вторая ПИСАНИЯ СТАРЦА СИЛУАНА
+  chapter: "Часть вторая ПИСАНИЯ СТАРЦА СИЛУАНА — XIV О МОНАХАХ — О монастырском экономе"
   translator: null
   source_url: https://predanie.ru/book/69621-starec-siluan-afonskiy/
 - id: silouan-never-stops
@@ -196,7 +196,7 @@ corpus_sources:
   text_sha256: e16888244664185f7e7777c3e93142e7a5d02afe5c78f2f37c790748d4eed140
   author: архим. Софроний (Сахаров)
   title: Старец Силуан Афонский
-  chapter: Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА
+  chapter: "Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА — III ВНЕШНОСТЬ И БЕСЕДЫ СТАРЦА"
   translator: null
   source_url: https://predanie.ru/book/69621-starec-siluan-afonskiy/
 - id: mccheyne-amend
@@ -209,9 +209,9 @@ corpus_sources:
   char_start: 354183
   char_end: 354295
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: mccheyne-reformation
@@ -224,9 +224,9 @@ corpus_sources:
   char_start: 354883
   char_end: 354956
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: mccheyne-parts
@@ -239,9 +239,9 @@ corpus_sources:
   char_start: 370999
   char_end: 371110
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: mccheyne-selfish
@@ -254,9 +254,9 @@ corpus_sources:
   char_start: 371683
   char_end: 371747
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: mccheyne-each-day
@@ -269,9 +269,9 @@ corpus_sources:
   char_start: 371879
   char_end: 371999
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: mccheyne-list
@@ -284,9 +284,9 @@ corpus_sources:
   char_start: 373408
   char_end: 374068
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: mccheyne-map
@@ -299,9 +299,9 @@ corpus_sources:
   char_start: 374198
   char_end: 374249
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: mccheyne-scheme
@@ -314,9 +314,9 @@ corpus_sources:
   char_start: 374250
   char_end: 374331
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: mccheyne-days
@@ -329,9 +329,9 @@ corpus_sources:
   char_start: 374332
   char_end: 374543
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: mccheyne-everything
@@ -344,9 +344,9 @@ corpus_sources:
   char_start: 374544
   char_end: 375119
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: mccheyne-plan
@@ -359,14 +359,14 @@ corpus_sources:
   char_start: 376231
   char_end: 376263
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: mccheyne-unfinished
   kind: retelling
-  text: Бонар отмечает, что Макчейн их так и не закончил
+  text: Бонар замечает, что Макчейн, очевидно, оставил их незаконченными
   original: null
   translation: null
   chunk_id: book-79-0422
@@ -374,9 +374,9 @@ corpus_sources:
   char_start: 376663
   char_end: 376700
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: mccheyne-typhus
@@ -389,9 +389,9 @@ corpus_sources:
   char_start: 382708
   char_end: 382861
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: mccheyne-age
@@ -404,9 +404,9 @@ corpus_sources:
   char_start: 391293
   char_end: 391360
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: weil-leaving
@@ -421,7 +421,7 @@ corpus_sources:
   text_sha256: e0e825b857c7341087061147574ce4b3301edf0de1ca16f4bf8d2eb64bc81a87
   author: Simone Weil
   title: Attente de Dieu
-  chapter: LETTRES D’ADIEUX
+  chapter: "LETTRES D’ADIEUX — LETTRE IV Autobiographie spirituelle"
   translator: null
   source_url: https://fr.wikisource.org/wiki/Attente_de_Dieu
 - id: weil-never
@@ -436,7 +436,7 @@ corpus_sources:
   text_sha256: e0e825b857c7341087061147574ce4b3301edf0de1ca16f4bf8d2eb64bc81a87
   author: Simone Weil
   title: Attente de Dieu
-  chapter: LETTRES D’ADIEUX
+  chapter: "LETTRES D’ADIEUX — LETTRE IV Autobiographie spirituelle"
   translator: null
   source_url: https://fr.wikisource.org/wiki/Attente_de_Dieu
 - id: weil-promise
@@ -451,7 +451,7 @@ corpus_sources:
   text_sha256: e0e825b857c7341087061147574ce4b3301edf0de1ca16f4bf8d2eb64bc81a87
   author: Simone Weil
   title: Attente de Dieu
-  chapter: LETTRES D’ADIEUX
+  chapter: "LETTRES D’ADIEUX — LETTRE IV Autobiographie spirituelle"
   translator: null
   source_url: https://fr.wikisource.org/wiki/Attente_de_Dieu
 - id: weil-sweetness
@@ -466,7 +466,7 @@ corpus_sources:
   text_sha256: e0e825b857c7341087061147574ce4b3301edf0de1ca16f4bf8d2eb64bc81a87
   author: Simone Weil
   title: Attente de Dieu
-  chapter: LETTRES D’ADIEUX
+  chapter: "LETTRES D’ADIEUX — LETTRE IV Autobiographie spirituelle"
   translator: null
   source_url: https://fr.wikisource.org/wiki/Attente_de_Dieu
 - id: weil-vineyard
@@ -481,7 +481,7 @@ corpus_sources:
   text_sha256: e0e825b857c7341087061147574ce4b3301edf0de1ca16f4bf8d2eb64bc81a87
   author: Simone Weil
   title: Attente de Dieu
-  chapter: LETTRES D’ADIEUX
+  chapter: "LETTRES D’ADIEUX — LETTRE IV Autobiographie spirituelle"
   translator: null
   source_url: https://fr.wikisource.org/wiki/Attente_de_Dieu
 - id: weil-rule
@@ -496,7 +496,7 @@ corpus_sources:
   text_sha256: e0e825b857c7341087061147574ce4b3301edf0de1ca16f4bf8d2eb64bc81a87
   author: Simone Weil
   title: Attente de Dieu
-  chapter: LETTRES D’ADIEUX
+  chapter: "LETTRES D’ADIEUX — LETTRE IV Autobiographie spirituelle"
   translator: null
   source_url: https://fr.wikisource.org/wiki/Attente_de_Dieu
 - id: weil-again
@@ -511,7 +511,7 @@ corpus_sources:
   text_sha256: e0e825b857c7341087061147574ce4b3301edf0de1ca16f4bf8d2eb64bc81a87
   author: Simone Weil
   title: Attente de Dieu
-  chapter: LETTRES D’ADIEUX
+  chapter: "LETTRES D’ADIEUX — LETTRE IV Autobiographie spirituelle"
   translator: null
   source_url: https://fr.wikisource.org/wiki/Attente_de_Dieu
 - id: barsanuphius-hidden
@@ -519,11 +519,11 @@ corpus_sources:
   text: Серид укрывал их от людей
   original: null
   translation: null
-  chunk_id: book-63-0003
+  chunk_id: "book-63-0001"
   book_id: 63
-  char_start: 996
-  char_end: 1048
-  text_sha256: 4a06aa5b5a0f6b34b2cd1b8a397731f35945af0b6742b4887ba87913ff5aaf02
+  char_start: 808
+  char_end: 860
+  text_sha256: "412ef5cd964171b87fc904503510c1d7bb732a6eb9ba553adc05c87ad16ccfc9"
   author: прпп. Варсонофий Великий и Иоанн Пророк
   title: Βίβλος ψυχωφελεστάτη… (Руководство к духовной жизни в ответах на вопрошения учеников)
   chapter: Ответ 1
@@ -534,11 +534,11 @@ corpus_sources:
   text: он был игуменом местного монастыря, и через него Варсонофий передавал свои ответы
   original: null
   translation: null
-  chunk_id: book-63-0004
+  chunk_id: "book-63-0002"
   book_id: 63
-  char_start: 2530
-  char_end: 2669
-  text_sha256: 4a06aa5b5a0f6b34b2cd1b8a397731f35945af0b6742b4887ba87913ff5aaf02
+  char_start: 2342
+  char_end: 2481
+  text_sha256: "412ef5cd964171b87fc904503510c1d7bb732a6eb9ba553adc05c87ad16ccfc9"
   author: прпп. Варсонофий Великий и Иоанн Пророк
   title: Βίβλος ψυχωφελεστάτη… (Руководство к духовной жизни в ответах на вопрошения учеников)
   chapter: Ответ 1
@@ -549,11 +549,11 @@ corpus_sources:
   text: 'если молишься о многом, нужно ли называть каждую вещь? Ответ был такой: раз Бог знает, в чём мы нуждаемся, можно просто просить, чтобы Господь направил тебя так, как Он хочет. О своих страстях — просить исцеления по Его воле, а об искушениях сказать, что Он лучше знает, что тебе полезно, и попросить помощи и избавления'
   original: null
   translation: null
-  chunk_id: book-63-1219
+  chunk_id: "book-63-0783"
   book_id: 63
-  char_start: 581109
-  char_end: 581560
-  text_sha256: 4a06aa5b5a0f6b34b2cd1b8a397731f35945af0b6742b4887ba87913ff5aaf02
+  char_start: 554828
+  char_end: 555279
+  text_sha256: "412ef5cd964171b87fc904503510c1d7bb732a6eb9ba553adc05c87ad16ccfc9"
   author: прпп. Варсонофий Великий и Иоанн Пророк
   title: Βίβλος ψυχωφελεστάτη… (Руководство к духовной жизни в ответах на вопрошения учеников)
   chapter: Вопрос 435. Когда молюсь о многих предметах, должно ли о каждом из них упоминать в молитве?
@@ -564,11 +564,11 @@ corpus_sources:
   text: Иоанн советовал не требовать его через силу, раз мы не знаем, что для нас полезно. Лучше сказать Богу, что ты в Его руках, попросить милости и, если это на пользу, скорого выздоровления — и благодарить за всё
   original: null
   translation: null
-  chunk_id: book-63-1085
+  chunk_id: "book-63-0703"
   book_id: 63
-  char_start: 524376
-  char_end: 524927
-  text_sha256: 4a06aa5b5a0f6b34b2cd1b8a397731f35945af0b6742b4887ba87913ff5aaf02
+  char_start: 501339
+  char_end: 501890
+  text_sha256: "412ef5cd964171b87fc904503510c1d7bb732a6eb9ba553adc05c87ad16ccfc9"
   author: прпп. Варсонофий Великий и Иоанн Пророк
   title: Βίβλος ψυχωφελεστάτη… (Руководство к духовной жизни в ответах на вопрошения учеников)
   chapter: 'Вопрос 381. Если я попрошу (помолиться) святых о душевной страсти или телесной (болезни), и верую, что тотчас же последует исцеление: бывает ли так, хотя мне и неполезно немедленное исцеление?'
@@ -579,11 +579,11 @@ corpus_sources:
   text: 'как распорядиться ими по-Божьи, если не у кого посоветоваться? Ответ тот же: признать, что всё принадлежит Богу, и просить Его вразумить и не дать ошибиться'
   original: null
   translation: null
-  chunk_id: book-63-1223
+  chunk_id: "book-63-0785"
   book_id: 63
-  char_start: 581956
-  char_end: 582525
-  text_sha256: 4a06aa5b5a0f6b34b2cd1b8a397731f35945af0b6742b4887ba87913ff5aaf02
+  char_start: 555555
+  char_end: 556124
+  text_sha256: "412ef5cd964171b87fc904503510c1d7bb732a6eb9ba553adc05c87ad16ccfc9"
   author: прпп. Варсонофий Великий и Иоанн Пророк
   title: Βίβλος ψυχωφελεστάτη… (Руководство к духовной жизни в ответах на вопрошения учеников)
   chapter: Вопрос 437. Если кто желает благочестиво распорядиться своим имуществом или предоставить оное кому-либо, сообразно с волею Божиею, и не знает, как надлежит сие сделать, и не имеет возможности получить наставление от отцов, – что он должен говорить в молитве?
@@ -599,9 +599,9 @@ corpus_sources:
   char_start: 354296
   char_end: 354316
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: silouan-asked
@@ -616,7 +616,7 @@ corpus_sources:
   text_sha256: e16888244664185f7e7777c3e93142e7a5d02afe5c78f2f37c790748d4eed140
   author: архим. Софроний (Сахаров)
   title: Старец Силуан Афонский
-  chapter: Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА
+  chapter: "Часть первая ЖИЗНЬ И УЧЕНИЯ СТАРЦА СИЛУАНА — III ВНЕШНОСТЬ И БЕСЕДЫ СТАРЦА"
   translator: null
   source_url: https://predanie.ru/book/69621-starec-siluan-afonskiy/
 - id: mccheyne-days-list
@@ -629,9 +629,9 @@ corpus_sources:
   char_start: 374332
   char_end: 374543
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: barsanuphius-many-faq
@@ -639,11 +639,11 @@ corpus_sources:
   text: 'можно попросить Бога направить вас так, как Он хочет: Он и так знает, в чём мы нуждаемся'
   original: null
   translation: null
-  chunk_id: book-63-1219
+  chunk_id: "book-63-0783"
   book_id: 63
-  char_start: 581109
-  char_end: 581371
-  text_sha256: 4a06aa5b5a0f6b34b2cd1b8a397731f35945af0b6742b4887ba87913ff5aaf02
+  char_start: 554828
+  char_end: 555090
+  text_sha256: "412ef5cd964171b87fc904503510c1d7bb732a6eb9ba553adc05c87ad16ccfc9"
   author: прпп. Варсонофий Великий и Иоанн Пророк
   title: Βίβλος ψυχωφελεστάτη… (Руководство к духовной жизни в ответах на вопрошения учеников)
   chapter: Вопрос 435. Когда молюсь о многих предметах, должно ли о каждом из них упоминать в молитве?
@@ -654,11 +654,11 @@ corpus_sources:
   text: Старцев из Газы спрашивали даже о том, что говорить в молитве, если хочешь по-Божьи распорядиться имуществом, а посоветоваться не с кем
   original: null
   translation: null
-  chunk_id: book-63-1223
+  chunk_id: "book-63-0785"
   book_id: 63
-  char_start: 581956
-  char_end: 582214
-  text_sha256: 4a06aa5b5a0f6b34b2cd1b8a397731f35945af0b6742b4887ba87913ff5aaf02
+  char_start: 555555
+  char_end: 555813
+  text_sha256: "412ef5cd964171b87fc904503510c1d7bb732a6eb9ba553adc05c87ad16ccfc9"
   author: прпп. Варсонофий Великий и Иоанн Пророк
   title: Βίβλος ψυχωφελεστάτη… (Руководство к духовной жизни в ответах на вопрошения учеников)
   chapter: Вопрос 437. Если кто желает благочестиво распорядиться своим имуществом или предоставить оное кому-либо, сообразно с волею Божиею, и не знает, как надлежит сие сделать, и не имеет возможности получить наставление от отцов, – что он должен говорить в молитве?
@@ -674,9 +674,9 @@ corpus_sources:
   char_start: 375013
   char_end: 375076
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: mccheyne-parts-faq
@@ -689,9 +689,9 @@ corpus_sources:
   char_start: 370999
   char_end: 371110
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: mccheyne-each-day-faq
@@ -704,9 +704,9 @@ corpus_sources:
   char_start: 371879
   char_end: 371999
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: mccheyne-adoration
@@ -719,9 +719,9 @@ corpus_sources:
   char_start: 371333
   char_end: 371368
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 - id: mccheyne-thanks
@@ -734,9 +734,9 @@ corpus_sources:
   char_start: 371574
   char_end: 371636
   text_sha256: 4a04e4b570ac44f3ef690cb2dd8e170e6590d41f13c9dab4a805b8a66e0ff4c3
-  author: Andrew A. Bonar (о R. M. M'Cheyne)
+  author: Andrew A. Bonar
   title: Memoir of Robert Murray M'Cheyne
-  chapter: CHAPTER VI.
+  chapter: "CHAPTER VI. — THE LATTER DAYS OF HIS MINISTRY."
   translator: null
   source_url: https://www.gutenberg.org/ebooks/15251
 ---
@@ -765,7 +765,7 @@ corpus_sources:
 
 Самые простые дела тоже становятся темой. Макчейн замечает, что отвечает на письма и идёт к больному в спешке, не спросив сначала Бога, и приходит к убеждению, что ничего не стоит делать без молитвы. Опирается он на слова апостола Павла[^corpus-mccheyne-everything]: «не тревожьтесь ни о чем, но в любом случае в молитве и прошении с благодарностью открывайте свои желания Богу» (Флп 4:6)[^phil4]. А против сонливости на вечерней молитве у него совет, который пригодится и сегодня: лучшее средство — «заранее продумать, о чём я буду просить»[^corpus-mccheyne-plan].
 
-Заметки обрываются: Бонар отмечает, что Макчейн их так и не закончил[^corpus-mccheyne-unfinished]. В его приходе тогда свирепствовал тиф, и ослабевший пастор продолжал навещать больных[^corpus-mccheyne-typhus]. Он умер, прожив всего двадцать девять лет[^corpus-mccheyne-age]. Его список — не бухгалтерия, а способ не забывать тех, о ком мы обычно забываем.
+Заметки обрываются: Бонар замечает, что Макчейн, очевидно, оставил их незаконченными[^corpus-mccheyne-unfinished]. В его приходе тогда свирепствовал тиф, и ослабевший пастор продолжал навещать больных[^corpus-mccheyne-typhus]. Он умер, прожив всего двадцать девять лет[^corpus-mccheyne-age]. Его список — не бухгалтерия, а способ не забывать тех, о ком мы обычно забываем.
 
 ## Молитва, которая уже содержит все темы
 
@@ -817,7 +817,7 @@ corpus_sources:
 Если тем много, заведите свой список имён и дел. Его можно раздать по дням недели — Макчейн думал о том, чтобы молиться о разных кругах в разные дни[^corpus-mccheyne-days-list], — и время от времени перечитывать.
 
 ## Одна тема за раз
-<!-- screen: question -->
+<!-- screen: topic, question, history -->
 
 Если хочется, чтобы тема и вопросы были под рукой, попробуйте [Lampada](/ru/). Перед молитвой в приложении можно выбрать тему — человека, дело, тревогу — и ответить на вопросы текстом или голосом. Если вы разрешите, ответы уйдут на сервер, и ИИ задаст следующий наводящий вопрос и подберёт отрывки из Писания по смыслу; без этого тоже можно молиться. А дневник на вашем телефоне хранит, о чём вы молились, — ваш собственный список, к которому можно вернуться.
 
