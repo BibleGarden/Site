@@ -498,7 +498,7 @@ def _require_bool(meta: dict, key: str, source: Path) -> bool:
 
 def render_markdown(
     text: str, screens: tuple[ScreenRef, ...] = (), screen_open: str = "", screen_app_lampada: str = "",
-    *, lang: str = "", corpus_sources: Sequence[Mapping[str, Any]] = (), site_key: str = "bible-garden",
+    *, lang: str, corpus_sources: Sequence[Mapping[str, Any]] = (), site_key: str = "bible-garden",
 ) -> str:
     extensions = [*MARKDOWN_EXTENSIONS]
     if screens:

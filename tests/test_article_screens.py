@@ -99,7 +99,7 @@ class ArticleScreensTest(unittest.TestCase):
         load_checksums(ROOT / "content/lampada/screens.sha256", screens, ("en", "ru", "uk"))
         source = ROOT / "content/lampada/articles/what-to-pray-about/ru.md"
         marked, _, refs = annotate_screens("## Тема\n<!-- screen: question -->\n\nТекст.\n", source, "ru", screens)
-        body = render_markdown(marked, refs, "Открыть: {caption}", "", site_key="lampada")
+        body = render_markdown(marked, refs, "Открыть: {caption}", "", lang="ru", site_key="lampada")
         figure = ET.fromstring(f"<div>{body}</div>").find("figure")
         self.assertIsNone(figure.find("figcaption"))
         self.assertEqual(figure.find("a").get("href"), "/img/article-screens/zoom/question.ru.webp")
