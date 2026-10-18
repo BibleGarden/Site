@@ -15,6 +15,7 @@ from markupsafe import Markup, escape
 
 from .errors import BuildError
 from .corpus import citations as corpus_citations, annotate as annotate_corpus
+from .corpus_footnotes import CorpusFootnotesExtension
 from .gospel_today import PLACEHOLDER as GOSPEL_PLACEHOLDER, annotate_marker as annotate_gospel_marker, render_component as render_gospel_today
 from .multi_reading_demo import annotate_demo_marker, load_demo, placeholder_for, render_demo
 from .reading_time import PLACEHOLDER as CALCULATOR_PLACEHOLDER, annotate_calculator_marker, load_data as load_reading_time, render_calculator
@@ -375,9 +376,9 @@ def parse_article(
     if refs:
         if "screen_open" not in strings or not isinstance(strings["screen_open"], str) or not strings["screen_open"].strip():
             raise BuildError(f"{source}: missing articles.screen_open translation")
-        body_html = render_markdown(marked_body, refs, strings["screen_open"], strings.get("screen_app_lampada", ""))
+        body_html = render_markdown(marked_body, refs, strings["screen_open"], strings.get("screen_app_lampada", ""), corpus_sources=sources, lang=lang)
     else:
-        body_html = render_markdown(marked_body)
+        body_html = render_markdown(marked_body, corpus_sources=sources, lang=lang)
     if has_gospel_today:
         if body_html.count(GOSPEL_PLACEHOLDER) != 1:
             raise BuildError(f"{source}: gospel-today marker did not render exactly once")
@@ -490,10 +491,12 @@ def _require_bool(meta: dict, key: str, source: Path) -> bool:
     return value
 
 
-def render_markdown(text: str, screens: tuple[ScreenRef, ...] = (), screen_open: str = "", screen_app_lampada: str = "") -> str:
+def render_markdown(text: str, screens: tuple[ScreenRef, ...] = (), screen_open: str = "", screen_app_lampada: str = "", *, corpus_sources=(), lang: str = "en") -> str:
     extensions = [*MARKDOWN_EXTENSIONS]
     if screens:
         extensions.append(ScreenFigureExtension(screens, screen_open, screen_app_lampada))
+    if corpus_sources:
+        extensions.append(CorpusFootnotesExtension(corpus_sources, lang))
     return markdown.markdown(text, extensions=extensions, extension_configs=MARKDOWN_EXTENSION_CONFIGS)
 
 

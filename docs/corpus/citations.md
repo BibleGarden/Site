@@ -50,6 +50,18 @@ omits that component. Missing/null/whitespace-only API labels are errors, never
 an invitation to substitute a structural chapter, section path or book title.
 The offline site only escapes and displays this ready label; it calls no API.
 
+The article renderer groups corpus entries with identical public citation text
+and source URL into one footnote, numbered by first appearance in the article.
+Chapter, source-edition translator and the localized “our translation” label
+remain part of that identity: different visible citations or URLs stay separate.
+Each occurrence retains its own anchor and links to the shared number. A grouped
+note ends with `↩ a b c`, with one return link per occurrence; return links have
+localized accessible labels in English, Russian and Ukrainian. A single occurrence
+has one `↩` return link. Ordinary footnotes are never grouped, even when their
+text matches a corpus citation; articles without corpus entries render as before.
+Grouping changes only the public rendering: every `corpus_sources` item, marker,
+fragment range and checker verification remains independent.
+
 - `kind: quote`: `original` is a non-empty verbatim span of the canonical source
   edition, in whatever language the corpus contains. It must occur inside
   `text[char_start:char_end]` after normalization.
