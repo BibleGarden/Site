@@ -1125,13 +1125,7 @@ The refresh command alone uses the network; the build/tests remain offline.
 For a reviewed unreleased API branch, `--url http://127.0.0.1:<port>/api/rights`
 can target an isolated local server. Do not use the browser audio key, which
 is rejected by this endpoint. No missing snapshot or invalid notice is
-silently replaced. Snapshot validation mirrors the API: an explicit boolean
-`trademark_required` is mandatory; true requires a non-null EN/RU/UK trademark
-block. Generated `dist/` is committed with the refreshed snapshot.
-
-The initial seven-entry snapshot was obtained on 2026-10-18 from this route
-on an isolated server running the companion rights-registry API branch; the
-API endpoint is not assumed to be deployed yet. No production or DB changes
-are part of this change. NPU covers NT and Psalms **text**, not audio. Its
-changes notice explicitly leaves word-level verification open; see the API
-registry for the wording, sources and original Biblica notice.
+silently replaced. The API owns legal/schema validation; Site checks only the
+snapshot version and fields needed by its templates. Credits and field labels
+are localized; public-domain materials have no displayed rights holder.
+Generated `dist/` is committed with the refreshed snapshot.

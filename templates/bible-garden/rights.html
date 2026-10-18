@@ -4,19 +4,24 @@
 {% for item_id, item in rights['items'].items() if item.kind == kind %}
             <section aria-labelledby="{{ item_id | replace(':', '-') }}">
                 <h3 id="{{ item_id | replace(':', '-') }}">{{ item.title[lang] }}</h3>
-                <p>{{ item.rights_holder }}</p>
+{% if item.rights_holder %}
+                <p><strong>{{ t.rights_page.rights_holder }}</strong> {{ item.rights_holder }}</p>
+{% endif %}
+{% if item.credit %}
+                <p><strong>{{ t.rights_page.credit }}</strong> {{ item.credit[lang] }}</p>
+{% endif %}
 {% if item.copyright %}
-                <p>{{ item.copyright }}</p>
+                <p><strong>{{ t.rights_page.copyright }}</strong> {{ item.copyright }}</p>
 {% endif %}
 {% if item.license %}
-                <p><a href="{{ item.license.url }}">{{ item.license.name }}</a></p>
+                <p><strong>{{ t.rights_page.license }}</strong> <a href="{{ item.license.url }}">{{ item.license.name }}</a></p>
 {% else %}
                 <p><strong>{{ t.rights_page.public_domain }}</strong> {{ item.public_domain_basis[lang] }}</p>
 {% endif %}
-                <p>{{ item.attribution[lang] | nl2br }}</p>
+                <p><strong>{{ t.rights_page.attribution }}</strong><br>{{ item.attribution[lang] | nl2br }}</p>
                 <p><strong>{{ t.rights_page.changes }}</strong> {{ item.changes[lang] }}</p>
 {% if item.trademark %}
-                <p>{{ item.trademark[lang] }}</p>
+                <p><strong>{{ t.rights_page.trademark }}</strong> {{ item.trademark[lang] }}</p>
 {% endif %}
                 <p>{{ t.rights_page.sources }}:
 {% for source in item.sources %}

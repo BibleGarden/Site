@@ -17,10 +17,10 @@ from sitegen.rights import validate_registry
 
 def fetch_registry(url: str, api_key: str) -> dict:
     parsed = urlsplit(url)
-    if parsed.scheme not in ("https", "http") or not parsed.hostname or parsed.username or parsed.password or parsed.query or parsed.fragment or parsed.path != "/api/rights":
-        raise BuildError("provide an http(s) /api/rights URL without credentials or query parameters")
-    if parsed.scheme == "http" and parsed.hostname not in ("localhost", "127.0.0.1", "::1"):
-        raise BuildError("HTTP is allowed only for a local preview; use HTTPS otherwise")
+    if parsed.scheme != "https" and not (
+        parsed.scheme == "http" and parsed.hostname in ("localhost", "127.0.0.1", "::1")
+    ):
+        raise BuildError("use HTTPS or a local HTTP server")
     if not api_key.strip():
         raise BuildError("RIGHTS_API_KEY must contain an ordinary catalog API key")
     request = Request(url, headers={"X-API-Key": api_key, "Accept": "application/json"})

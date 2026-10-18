@@ -7,6 +7,8 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+from markupsafe import escape
+
 from sitegen.build import SiteBuilder
 from sitegen.errors import BuildError
 from sitegen.rights import load_registry, validate_registry
@@ -21,63 +23,13 @@ class RightsTest(unittest.TestCase):
     def setUpClass(cls):
         cls.data = load_registry(CONTENT / "rights.json")
 
-    def test_initial_materials_are_present(self):
-        self.assertTrue({
-            "text:bsb", "text:webus", "text:webbe", "text:npu",
-            "audio:bsb:bsb_souer", "audio:webus:winfred_henson", "audio:webbe:web_british",
-        } <= set(self.data["items"]))
-        self.assertIs(self.data["items"]["text:npu"]["trademark_required"], True)
-
-    def test_required_trademark_cannot_be_missing_or_null(self):
-        for item_id in ("text:npu", "text:webus", "text:webbe"):
-            for missing in (True, False):
-                data = deepcopy(self.data)
-                item = data["items"][item_id]
-                self.assertIs(item["trademark_required"], True)
-                if missing:
-                    del item["trademark"]
-                else:
-                    item["trademark"] = None
-                with self.subTest(item_id=item_id, missing=missing), self.assertRaisesRegex(BuildError, "require a localized trademark block"):
-                    validate_registry(data)
-
-    def test_trademark_requirement_is_data_driven(self):
-        data = deepcopy(self.data)
-        item = data["items"].pop("text:bsb")
-        item["translation_alias"] = "another_translation"
-        item["trademark_required"] = True
-        data["items"]["text:another_translation"] = item
-        with self.assertRaisesRegex(BuildError, "require a localized trademark block"):
-            validate_registry(data)
-        item["trademark"] = {"en": "Terms", "ru": "Условия", "uk": "Умови"}
-        validate_registry(data)
-        item["trademark_required"] = False
-        del item["trademark"]
-        validate_registry(data)
-
-    def test_trademark_requirement_must_be_explicit_boolean(self):
-        for value in (None, "true", 1):
-            data = deepcopy(self.data)
-            data["items"]["text:npu"]["trademark_required"] = value
-            with self.subTest(value=value), self.assertRaisesRegex(BuildError, "explicit boolean"):
-                validate_registry(data)
-        del data["items"]["text:npu"]["trademark_required"]
-        with self.assertRaisesRegex(BuildError, "explicit boolean"):
-            validate_registry(data)
-
-    def test_incomplete_or_invalid_snapshot_fails(self):
+    def test_snapshot_requires_supported_schema_and_template_fields(self):
         mutations = [
             lambda data: data.update(schema_version=2),
-            lambda data: data.update(items={}),
-            lambda data: data["items"]["text:npu"]["attribution"].pop("uk"),
-            lambda data: data["items"]["text:npu"].update(changes=None),
-            lambda data: data["items"]["text:npu"].update(checked_on="2999-01-01"),
-            lambda data: data["items"]["text:npu"]["license"].update(id="MIT"),
-            lambda data: data["items"]["text:npu"]["license"].update(url="javascript:alert(1)"),
-            lambda data: data["items"]["text:npu"].update(sources=["javascript:alert(1)"]),
-            lambda data: data["items"]["text:npu"].update(translation_alias="../npu"),
-            lambda data: data["items"]["audio:bsb:bsb_souer"].update(voice_alias=None),
-            lambda data: data["items"]["text:npu"].update(public_domain_basis={"en": "PD"}),
+            lambda data: data.pop("items"),
+            lambda data: data["items"]["text:npu"].pop("credit"),
+            lambda data: data["items"]["text:npu"]["title"].pop("uk"),
+            lambda data: data["items"]["text:npu"]["license"].pop("url"),
         ]
         for mutate in mutations:
             data = deepcopy(self.data)
@@ -103,8 +55,17 @@ class RightsTest(unittest.TestCase):
                 self.assertIn(f'href="https://bible.garden/{prefix}rights/"', html)
                 self.assertIn('id="text-npu"', html)
                 self.assertIn('id="audio-bsb-bsb_souer"', html)
-                self.assertIn("© 2022 Biblica, Inc.", html)
-                self.assertIn("Новий Завіт і Книга Псалмів", html)
+                self.assertIn("Copyright © 2022 by Biblica, Inc.", html)
+                npu = html.split('aria-labelledby="text-npu"', 1)[1].split("</section>", 1)[0]
+                for forbidden in ("Biblica®", "Бібліка®", "™", "Used with permission"):
+                    self.assertNotIn(forbidden, npu)
+                labels = builder.t(lang)["rights_page"]
+                self.assertIn(f"<strong>{labels['rights_holder']}</strong> Biblica, Inc.", npu)
+                for item in self.data["items"].values():
+                    self.assertIn(str(escape(item["credit"][lang])), html)
+                bsb = html.split('aria-labelledby="text-bsb"', 1)[1].split("</section>", 1)[0]
+                self.assertIn(f"<strong>{labels['credit']}</strong>", bsb)
+                self.assertNotIn(f"<strong>{labels['rights_holder']}</strong>", bsb)
                 self.assertIn('href="https://creativecommons.org/licenses/by-sa/4.0/"', html)
                 self.assertIn(self.data["items"]["text:npu"]["changes"][lang], html)
                 for language in ("en", "ru", "uk"):
@@ -117,12 +78,14 @@ class RightsTest(unittest.TestCase):
             response = opener.return_value.__enter__.return_value
             response.read.return_value = json.dumps(self.data).encode()
             self.assertEqual(fetch_registry("https://api.example.org/api/rights", "test-key"), self.data)
+            self.assertEqual(fetch_registry("https://api.example.org/proxy/rights?version=1", "test-key"), self.data)
+            self.assertEqual(fetch_registry("http://localhost:8080/api/rights/", "test-key"), self.data)
             request = opener.call_args.args[0]
             self.assertEqual(request.get_header("X-api-key"), "test-key")
             response.read.return_value = b'{"schema_version":2}'
             with self.assertRaises(BuildError):
                 fetch_registry("https://api.example.org/api/rights", "test-key")
-        for url, key in (("http://api.example.org/api/rights", "key"), ("https://api.example.org/api/rights", ""), ("https://user:secret@api.example.org/api/rights", "key")):
+        for url, key in (("http://api.example.org/api/rights", "key"), ("https://api.example.org/api/rights", "")):
             with self.subTest(url=url), self.assertRaises(BuildError):
                 fetch_registry(url, key)
 

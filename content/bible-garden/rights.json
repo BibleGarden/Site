@@ -13,6 +13,11 @@
       },
       "checked_on": "2026-10-18",
       "copyright": null,
+      "credit": {
+        "en": "Narrated by Bob Souer; published by Berean / BSB.",
+        "ru": "Читает Боб Суэр; издатель — Berean / BSB.",
+        "uk": "Читає Боб Суер; видавець — Berean / BSB."
+      },
       "kind": "audio",
       "license": {
         "id": "CC0-1.0",
@@ -20,7 +25,7 @@
         "url": "https://creativecommons.org/publicdomain/zero/1.0/"
       },
       "public_domain_basis": null,
-      "rights_holder": "Berean / BSB; narrator Bob Souer",
+      "rights_holder": null,
       "sources": [
         "https://bereanbible.com/audio/"
       ],
@@ -47,6 +52,11 @@
       },
       "checked_on": "2026-10-18",
       "copyright": null,
+      "credit": {
+        "en": "Audio published by PublicDomainAudioBibles.com and distributed through eBible.org.",
+        "ru": "Аудио опубликовано PublicDomainAudioBibles.com и распространяется через eBible.org.",
+        "uk": "Аудіо опубліковано PublicDomainAudioBibles.com і поширюється через eBible.org."
+      },
       "kind": "audio",
       "license": null,
       "public_domain_basis": {
@@ -54,7 +64,7 @@
         "ru": "TCOP/WCOP исходных MP3: «The text and audio are released to the public domain and can be used without restriction».",
         "uk": "TCOP/WCOP оригінальних MP3: «The text and audio are released to the public domain and can be used without restriction»."
       },
-      "rights_holder": "PublicDomainAudioBibles.com (audio source); narrator not named",
+      "rights_holder": null,
       "sources": [
         "https://ebible.org/eng-webbe/mp3/",
         "https://ebible.org/eng-webbe/mp3/eng-webbe_070_MAT_01.mp3"
@@ -82,6 +92,11 @@
       },
       "checked_on": "2026-10-18",
       "copyright": null,
+      "credit": {
+        "en": "Narrated by Winfred Hinson, also credited as Henson.",
+        "ru": "Читает Уинфред Хинсон (Hinson), также указан как Henson.",
+        "uk": "Читає Вінфред Гінсон (Hinson), також зазначений як Henson."
+      },
       "kind": "audio",
       "license": null,
       "public_domain_basis": {
@@ -89,7 +104,7 @@
         "ru": "Страница записи прямо объявляет эту запись общественным достоянием.",
         "uk": "Сторінка запису прямо оголошує цей запис суспільним надбанням."
       },
-      "rights_holder": "Winfred Hinson / Henson (narrator)",
+      "rights_holder": null,
       "sources": [
         "https://publicdomainaudiobibles.com/WEBW.html",
         "https://ebible.org/webaudio/"
@@ -117,6 +132,11 @@
       },
       "checked_on": "2026-10-18",
       "copyright": null,
+      "credit": {
+        "en": "Published by BSB Publishing, LLC.",
+        "ru": "Издатель — BSB Publishing, LLC.",
+        "uk": "Видавець — BSB Publishing, LLC."
+      },
       "kind": "text",
       "license": null,
       "public_domain_basis": {
@@ -124,7 +144,7 @@
         "ru": "Издатель передал текст BSB в общественное достояние.",
         "uk": "Видавець передав текст BSB у суспільне надбання."
       },
-      "rights_holder": "BSB Publishing, LLC",
+      "rights_holder": null,
       "sources": [
         "https://ebible.org/engbsb/copyright.htm",
         "https://berean.bible/"
@@ -141,9 +161,9 @@
     },
     "text:npu": {
       "attribution": {
-        "en": "Original edition copyright notice:\nНовий Завіт і Книга Псалмів, Бібліка® Відкрита Новий Переклад Українською™\n© 2022 Biblica, Inc.\nNew Testament and Psalms, Biblica® Open New Ukrainian Translation™\nCopyright © 2022 by Biblica, Inc.\n«Biblica» (Бібліка) є товарним знаком, зареєстрованим у бюро патентів та торгових марок США компанією «Biblica, Inc.» Використовується з дозволу.\n“Biblica” is a trademark registered in the United States Patent and Trademark Office by Biblica, Inc. Used with permission.\nThe original work by Biblica, Inc. is available for free at www.biblica.com and open.bible.\nThe New Testament and Psalms text is licensed under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0): https://creativecommons.org/licenses/by-sa/4.0/. Share adaptations under the same license and identify changes.",
-        "ru": "Уведомление об авторских правах исходного издания:\nНовий Завіт і Книга Псалмів, Бібліка® Відкрита Новий Переклад Українською™\n© 2022 Biblica, Inc.\nNew Testament and Psalms, Biblica® Open New Ukrainian Translation™\nCopyright © 2022 by Biblica, Inc.\n«Biblica» (Бібліка) є товарним знаком, зареєстрованим у бюро патентів та торгових марок США компанією «Biblica, Inc.» Використовується з дозволу.\n“Biblica” is a trademark registered in the United States Patent and Trademark Office by Biblica, Inc. Used with permission.\nThe original work by Biblica, Inc. is available for free at www.biblica.com and open.bible.\nТекст Нового Завета и Псалтири распространяется по лицензии Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0): https://creativecommons.org/licenses/by-sa/4.0/. Распространяйте переработки по той же лицензии и указывайте изменения.",
-        "uk": "Повідомлення про авторські права оригінального видання:\nНовий Завіт і Книга Псалмів, Бібліка® Відкрита Новий Переклад Українською™\n© 2022 Biblica, Inc.\nNew Testament and Psalms, Biblica® Open New Ukrainian Translation™\nCopyright © 2022 by Biblica, Inc.\n«Biblica» (Бібліка) є товарним знаком, зареєстрованим у бюро патентів та торгових марок США компанією «Biblica, Inc.» Використовується з дозволу.\n“Biblica” is a trademark registered in the United States Patent and Trademark Office by Biblica, Inc. Used with permission.\nThe original work by Biblica, Inc. is available for free at www.biblica.com and open.bible.\nТекст Нового Завіту та Книги Псалмів поширюється за ліцензією Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0): https://creativecommons.org/licenses/by-sa/4.0/. Поширюйте переробки за тією самою ліцензією та зазначайте зміни."
+        "en": "Ukrainian New Testament and Psalms, prepared for Bible Garden from the original translation by Biblica, Inc.\nCopyright © 2022 by Biblica, Inc.\nThe original work by Biblica, Inc. is available for free at www.biblica.com and open.bible.\nLicensed under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0): https://creativecommons.org/licenses/by-sa/4.0/. Share adaptations under the same license and identify changes.",
+        "ru": "Украинский Новый Завет и Псалтирь, подготовленные для Bible Garden на основе оригинального перевода Biblica, Inc.\nCopyright © 2022 by Biblica, Inc.\nThe original work by Biblica, Inc. is available for free at www.biblica.com and open.bible.\nТекст распространяется по лицензии Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0): https://creativecommons.org/licenses/by-sa/4.0/. Распространяйте переработки по той же лицензии и указывайте изменения.",
+        "uk": "Новий Завіт і Книга Псалмів українською, підготовлені для Bible Garden на основі оригінального перекладу Biblica, Inc.\nCopyright © 2022 by Biblica, Inc.\nThe original work by Biblica, Inc. is available for free at www.biblica.com and open.bible.\nТекст поширюється за ліцензією Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0): https://creativecommons.org/licenses/by-sa/4.0/. Поширюйте переробки за тією самою ліцензією та зазначайте зміни."
       },
       "changes": {
         "en": "Prepared for Bible Garden: conversion to application data and HTML formats and adjustment of red-letter markup. The stored text may contain corrections of typographical errors; a complete word-level comparison with the original edition has not been performed. This notice covers the text only, not the separate audio edition.",
@@ -152,6 +172,11 @@
       },
       "checked_on": "2026-10-18",
       "copyright": "Copyright © 2022 by Biblica, Inc.",
+      "credit": {
+        "en": "Original translation by Biblica, Inc.; prepared for Bible Garden.",
+        "ru": "Оригинальный перевод — Biblica, Inc.; подготовка для Bible Garden.",
+        "uk": "Оригінальний переклад — Biblica, Inc.; підготовка для Bible Garden."
+      },
       "kind": "text",
       "license": {
         "id": "CC-BY-SA-4.0",
@@ -171,9 +196,9 @@
         "uk": "Український Новий Завіт та Книга Псалмів — текст для Bible Garden (джерело НПУ)"
       },
       "trademark": {
-        "en": "The trademark permission quoted above belongs to the original edition. Unmodified copies may retain the Biblica trademark. Adaptations must remove the Biblica trademark, identify their changes, retain attribution to Biblica, Inc., and use the same CC BY-SA 4.0 license. Bible Garden does not present its prepared text as an official Biblica adaptation.",
-        "ru": "Разрешение на товарный знак в цитате выше относится к исходному изданию. Неизменённые копии могут сохранять знак Biblica. Переработки должны убрать знак Biblica, обозначить изменения, сохранить указание авторства Biblica, Inc. и ту же лицензию CC BY-SA 4.0. Bible Garden не представляет подготовленный текст как официальную переработку Biblica.",
-        "uk": "Дозвіл на торговельну марку в цитаті вище стосується оригінального видання. Незмінені копії можуть зберігати марку Biblica. Переробки мають прибрати марку Biblica, зазначити зміни, зберегти авторство Biblica, Inc. і ту саму ліцензію CC BY-SA 4.0. Bible Garden не представляє підготовлений текст як офіційну переробку Biblica."
+        "en": "For this prepared edition, the original publisher’s trademark branding has been removed as required for derivative works. Biblica, Inc. is identified only as the original author and copyright holder. Adaptations must identify their changes and remain under CC BY-SA 4.0. This is not an official Biblica edition.",
+        "ru": "В подготовленном издании удалено оформление с товарными знаками исходного издателя, как требуется для производных произведений. Biblica, Inc. указана только как автор оригинала и правообладатель. Переработки должны обозначать изменения и распространяться по CC BY-SA 4.0. Это не официальное издание Biblica.",
+        "uk": "У підготовленому виданні прибрано оформлення з торговельними марками оригінального видавця, як вимагається для похідних творів. Biblica, Inc. зазначена лише як автор оригіналу та правовласник. Переробки мають зазначати зміни й поширюватися за CC BY-SA 4.0. Це не офіційне видання Biblica."
       },
       "trademark_required": true,
       "translation_alias": "npu",
@@ -192,6 +217,11 @@
       },
       "checked_on": "2026-10-18",
       "copyright": null,
+      "credit": {
+        "en": "World English Bible contributors; British edition published by eBible.org.",
+        "ru": "Участники проекта World English Bible; британское издание опубликовано eBible.org.",
+        "uk": "Учасники проєкту World English Bible; британське видання опубліковано eBible.org."
+      },
       "kind": "text",
       "license": null,
       "public_domain_basis": {
@@ -199,7 +229,7 @@
         "ru": "Издатель объявляет перевод общественным достоянием и разрешает копирование, публикацию, передачу и распространение.",
         "uk": "Видавець оголошує переклад суспільним надбанням і дозволяє копіювання, публікацію, передавання та поширення."
       },
-      "rights_holder": "World English Bible contributors / eBible.org",
+      "rights_holder": null,
       "sources": [
         "https://ebible.org/eng-webbe/copyright.htm",
         "https://worldenglish.bible/"
@@ -231,6 +261,11 @@
       },
       "checked_on": "2026-10-18",
       "copyright": null,
+      "credit": {
+        "en": "World English Bible contributors; published by eBible.org.",
+        "ru": "Участники проекта World English Bible; издатель — eBible.org.",
+        "uk": "Учасники проєкту World English Bible; видавець — eBible.org."
+      },
       "kind": "text",
       "license": null,
       "public_domain_basis": {
@@ -238,7 +273,7 @@
         "ru": "Издатель объявляет перевод общественным достоянием и разрешает копирование, публикацию, передачу и распространение.",
         "uk": "Видавець оголошує переклад суспільним надбанням і дозволяє копіювання, публікацію, передавання та поширення."
       },
-      "rights_holder": "World English Bible contributors / eBible.org",
+      "rights_holder": null,
       "sources": [
         "https://ebible.org/eng-web/copyright.htm",
         "https://worldenglish.bible/"

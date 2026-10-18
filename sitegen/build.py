@@ -15,6 +15,7 @@ from .assets import version_html
 from .content import PUBLIC_ROOT_NAME, Article, StaticPage, load_articles, load_pages, load_site
 from .errors import BuildError
 from .landing_screens import load_landing_screens
+from .rights import load_registry as load_rights_registry
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 CONTENT_DIR = REPO_ROOT / "content"
@@ -114,8 +115,7 @@ class SiteBuilder:
         self.preview = preview
         self.rights = None
         if self.site.key == "bible-garden":
-            from .rights import load_registry
-            self.rights = load_registry(content_dir / "rights.json")
+            self.rights = load_rights_registry(content_dir / "rights.json")
         output_dir.mkdir(parents=True)
         for name in STATIC_FILES[self.site.key]:
             source = REPO_ROOT / "static" / self.site.key / name
