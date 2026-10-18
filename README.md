@@ -263,7 +263,7 @@ iOS-App main `4b26638`, version 1.7.
 Import it with the development machine's `cwebp 1.3.2`:
 
 ```bash
-.venv/bin/python tools/import_article_screens.py --site-config content/bible-garden/site.yaml /path/to/bible-garden-screens-v8.zip
+.venv/bin/python tools/import_article_screens.py --site-config content/bible-garden/site.yaml --archive /path/to/bible-garden-screens-v8.zip
 .venv/bin/python -m sitegen build
 .venv/bin/python -m sitegen check
 ```
@@ -290,6 +290,21 @@ accept a new archive version, update `ARCHIVE_SHA256` in `tools/import_article_s
 (and `SOURCE_PREFIX` if the archive directory changed), review its files and
 captions in `screens.yaml`, then import and commit the WebP and checksums in
 the same change.
+
+Lampada articles use the same `<!-- screen: <id> -->` markers with their own
+catalog `content/lampada/screens.yaml`. Its ids are Lampada store screenshot ids
+(`home`, `topic`, `question`, …); the importer reads the PNGs from the pinned
+Lampada-Mobile commit used for the landing (`LAMPADA_MOBILE_COMMIT` in the importer)
+and writes `static/lampada/img/article-screens/` plus `content/lampada/screens.sha256`:
+
+```bash
+.venv/bin/python tools/import_article_screens.py --site-config content/lampada/site.yaml --mobile-repo /path/to/Lampada-Mobile
+```
+
+The Lampada article page shows each screenshot inline below its heading at every
+width (no sticky phone or zoom viewer; the image opens as an ordinary link). The
+app label appears only for another app's screenshots, so Lampada frames are
+labelled on Bible Garden but not on lampada.app.
 
 Previously added article IDs are `translation-picker-english`, `reader-picker-english`,
 `classic-reading-english`, `multi-step-speed`, `multi-step-translation-english`,

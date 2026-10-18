@@ -1,10 +1,13 @@
-"""Import the accepted screenshot archive as reproducible article WebP assets."""
+"""Import accepted article screenshots as reproducible WebP assets.
+
+Bible Garden reads its pinned ZIP archive; Lampada reads PNGs from a pinned
+Lampada-Mobile commit (the store screenshots behind its landing page).
+"""
 
 from __future__ import annotations
 
 import argparse
 import hashlib
-import shutil
 import struct
 import subprocess
 import sys
@@ -16,11 +19,22 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
 from sitegen.content import load_site  # noqa: E402
-from sitegen.screens import ASSET_DIR, SOURCE_SIZES, VARIANTS, load_catalog, require_cwebp, webp_dimensions  # noqa: E402
+from sitegen.landing_screens import SCREENS as LAMPADA_STORE_SCREENS  # noqa: E402
+from sitegen.screens import ASSET_DIR, SOURCE_SIZES, VARIANTS, Screen, load_catalog, require_cwebp, webp_dimensions  # noqa: E402
 
 ARCHIVE_SHA256 = "eabbb4eb5b3bd65fb1c0bba9adc5a9cfab894f39cf3ca8e353b098cf2a322154"
 SOURCE_PREFIX = "bible-garden-screens/"
+# Same pinned commit as tools/import_landing_screens.py: article and landing frames match.
+LAMPADA_MOBILE_COMMIT = "fdceb3987d0323e161f2d944cd78ef04d33190ad"
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
+
+
+def load_catalog_for(site_config: Path):
+    if site_config.name != "site.yaml":
+        raise ValueError(f"{site_config}: expected a site.yaml path")
+    content_dir = site_config.resolve().parent
+    site = load_site(content_dir, REPO_ROOT)
+    return content_dir, site, load_catalog(content_dir / "screens.yaml", site.languages)
 
 
 def import_archive(archive: Path, site_config: Path) -> int:
@@ -29,29 +43,50 @@ def import_archive(archive: Path, site_config: Path) -> int:
     if digest != ARCHIVE_SHA256:
         raise ValueError(f"{archive}: SHA-256 differs from the accepted archive")
     require_cwebp()
-
-    if site_config.name != "site.yaml":
-        raise ValueError(f"{site_config}: expected a site.yaml path")
-    content_dir = site_config.resolve().parent
-    site = load_site(content_dir, REPO_ROOT)
-    source_root = REPO_ROOT / "static" / site.key
-    catalog = load_catalog(content_dir / "screens.yaml", site.languages)
+    content_dir, site, catalog = load_catalog_for(site_config)
     expected = {
         f"{SOURCE_PREFIX}{screen.id}.{lang}.png": (screen, lang)
         for screen in catalog.values()
         for lang in screen.captions
     }
-    with zipfile.ZipFile(archive) as source, tempfile.TemporaryDirectory() as scratch:
+    with zipfile.ZipFile(archive) as source:
         names = {name for name in source.namelist() if name.lower().endswith(".png")}
         if names != set(expected):
             missing, extra = sorted(set(expected) - names), sorted(names - set(expected))
             raise ValueError(f"{archive}: screenshot names differ: missing={missing}, extra={extra}")
+        pngs = {(screen.id, lang): (name, source.read(name)) for name, (screen, lang) in expected.items()}
+    return write_variants(content_dir, site.key, catalog, pngs)
+
+
+def import_lampada_mobile(mobile_repo: Path, site_config: Path) -> int:
+    """Lampada article screens reuse store screenshots: catalog id = landing screen id."""
+    require_cwebp()
+    content_dir, site, catalog = load_catalog_for(site_config)
+    if site.key != "lampada":
+        raise ValueError(f"{site_config}: Lampada-Mobile screenshots belong to the lampada site")
+    pngs = {}
+    for screen in catalog.values():
+        if screen.id not in LAMPADA_STORE_SCREENS:
+            raise ValueError(f"{screen.id}: not a Lampada store screenshot ({', '.join(LAMPADA_STORE_SCREENS)})")
+        number = LAMPADA_STORE_SCREENS.index(screen.id) + 1
+        for lang in screen.captions:
+            name = f"store/screenshots/iphone-6.9-{lang}-{number:02d}-{screen.id}.png"
+            data = subprocess.run(
+                ["git", "-C", str(mobile_repo), "show", f"{LAMPADA_MOBILE_COMMIT}:{name}"], capture_output=True, check=True
+            ).stdout
+            pngs[(screen.id, lang)] = (name, data)
+    return write_variants(content_dir, site.key, catalog, pngs)
+
+
+def write_variants(content_dir: Path, site_key: str, catalog: dict[str, Screen], pngs: dict[tuple[str, str], tuple[str, bytes]]) -> int:
+    source_root = REPO_ROOT / "static" / site_key
+    with tempfile.TemporaryDirectory() as scratch:
         staged = Path(scratch)
         checksums: dict[Path, str] = {}
-        for name, (screen, lang) in sorted(expected.items()):
+        for (screen_id, lang), (name, png_bytes) in sorted(pngs.items()):
+            screen = catalog[screen_id]
             png = staged / f"{screen.id}.{lang}.png"
-            with source.open(name) as input_file, png.open("wb") as output_file:
-                shutil.copyfileobj(input_file, output_file)
+            png.write_bytes(png_bytes)
             with png.open("rb") as png_file:
                 header = png_file.read(24)
             if header[:8] != PNG_SIGNATURE or header[12:16] != b"IHDR":
@@ -105,9 +140,15 @@ def import_archive(archive: Path, site_config: Path) -> int:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--site-config", type=Path, required=True, help="path to the site's content/<site>/site.yaml")
-    parser.add_argument("archive", type=Path, help="accepted screenshot ZIP archive")
+    source = parser.add_mutually_exclusive_group(required=True)
+    source.add_argument("--archive", type=Path, help="accepted Bible Garden screenshot ZIP archive")
+    source.add_argument("--mobile-repo", type=Path, help=f"Lampada-Mobile clone containing commit {LAMPADA_MOBILE_COMMIT}")
     args = parser.parse_args()
-    print(f"updated {import_archive(args.archive, args.site_config)} files")
+    if args.archive:
+        changed = import_archive(args.archive, args.site_config)
+    else:
+        changed = import_lampada_mobile(args.mobile_repo, args.site_config)
+    print(f"updated {changed} files")
 
 
 if __name__ == "__main__":

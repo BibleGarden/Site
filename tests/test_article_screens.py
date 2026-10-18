@@ -94,6 +94,16 @@ class ArticleScreensTest(unittest.TestCase):
                 self.assertIn('<noscript><img class="article-screen-noscript" src="/img/article-screens/phone/lampada-journal.', html)
             self.assertEqual((builder.site.output_dir / "img/lampada-icon-64.png").read_bytes(), (ROOT / "static/lampada/assets/lampada-icon-64.png").read_bytes())
 
+    def test_lampada_site_screens_render_inline_without_app_label(self) -> None:
+        screens = load_catalog(ROOT / "content/lampada/screens.yaml", ("en", "ru", "uk"))
+        load_checksums(ROOT / "content/lampada/screens.sha256", screens, ("en", "ru", "uk"))
+        source = ROOT / "content/lampada/articles/what-to-pray-about/ru.md"
+        marked, _, refs = annotate_screens("## Тема\n<!-- screen: question -->\n\nТекст.\n", source, "ru", screens)
+        body = render_markdown(marked, refs, "Открыть: {caption}", "", site_key="lampada")
+        figure = ET.fromstring(f"<div>{body}</div>").find("figure")
+        self.assertIsNone(figure.find("figcaption"))
+        self.assertEqual(figure.find("a").get("href"), "/img/article-screens/zoom/question.ru.webp")
+
     def test_pager_uses_unique_screens_in_article_order_and_localized_buttons(self) -> None:
         labels = {
             "en": ("Previous screen", "Next screen", "Screen {n} of 3"),

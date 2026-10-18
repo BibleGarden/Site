@@ -159,13 +159,17 @@ def check_asset(screen: Screen, lang: str, variant: str, output_dir: Path, check
 
 
 class ScreenFigures(Treeprocessor):
-    """Add the mobile link below each annotated h2; keep its id for TOC links."""
+    """Add the mobile link below each annotated h2; keep its id for TOC links.
 
-    def __init__(self, md, refs: tuple[ScreenRef, ...], open_label: str, app_label: str):
+    The app label marks screenshots of another app than the site's own (Lampada on Bible Garden).
+    """
+
+    def __init__(self, md, refs: tuple[ScreenRef, ...], open_label: str, app_label: str, site_app: str):
         super().__init__(md)
         self.refs = refs
         self.open_label = open_label
         self.app_label = app_label
+        self.site_app = site_app
 
     def run(self, root: ET.Element) -> ET.Element:
         annotated = [node for node in root if node.tag == "h2" and "data-screen" in node.attrib]
@@ -176,7 +180,7 @@ class ScreenFigures(Treeprocessor):
             if heading.get("data-screen") != ref.screen.id:
                 raise BuildError(f"{ref.source}:{ref.line}: screen marker order changed while rendering Markdown")
             figure = ET.Element("figure", {"class": "article-screen-inline"})
-            if ref.screen.app == "lampada":
+            if ref.screen.app != self.site_app:
                 if not isinstance(self.app_label, str) or not self.app_label.strip():
                     raise BuildError(f"{ref.source}: missing articles.screen_app_lampada translation")
                 label = ET.SubElement(figure, "figcaption", {"class": "article-screen-app-label"})
@@ -213,11 +217,12 @@ class ScreenFigures(Treeprocessor):
 
 
 class ScreenFigureExtension(Extension):
-    def __init__(self, refs: tuple[ScreenRef, ...], open_label: str, app_label: str):
+    def __init__(self, refs: tuple[ScreenRef, ...], open_label: str, app_label: str, site_app: str):
         super().__init__()
         self.refs = refs
         self.open_label = open_label
         self.app_label = app_label
+        self.site_app = site_app
 
     def extendMarkdown(self, md) -> None:
-        md.treeprocessors.register(ScreenFigures(md, self.refs, self.open_label, self.app_label), "screen_figures", 0)
+        md.treeprocessors.register(ScreenFigures(md, self.refs, self.open_label, self.app_label, self.site_app), "screen_figures", 0)

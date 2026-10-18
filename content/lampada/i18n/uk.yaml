@@ -104,6 +104,7 @@ articles:
   download_title: Lampada в App Store
   download_text: "Безкоштовно для iPhone. Оберіть тему й почніть першу молитву."
   download_cta: Завантажити в App Store
+  screen_open: "Відкрити знімок екрана крупніше: {caption}"
 not_found:
   title: Сторінку не знайдено
   text: "Такої сторінки немає або її перемістили."

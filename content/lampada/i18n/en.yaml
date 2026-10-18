@@ -104,6 +104,7 @@ articles:
   download_title: Lampada on the App Store
   download_text: "Free for iPhone. Choose a topic and begin your first prayer."
   download_cta: Download on the App Store
+  screen_open: "Open larger screenshot: {caption}"
 not_found:
   title: Page not found
   text: "The page you are looking for does not exist or has moved."
