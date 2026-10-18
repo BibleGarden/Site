@@ -1,5 +1,19 @@
 # Lampada store screenshots: Lampada-Mobile fdceb39 (same commit as the landing screens).
-# Screen ids are the store screenshot ids; import with tools/import_article_screens.py --mobile-repo.
+# Import with tools/import_article_screens.py --mobile-repo.
+home:
+  kind: app
+  app: lampada
+  captions:
+    en: 'Lampada home screen: the lamp and the week''s prayer dots'
+    ru: 'Главный экран Lampada: лампада и отметки молитв за неделю'
+    uk: 'Головний екран Lampada: лампада й позначки молитов за тиждень'
+topic:
+  kind: app
+  app: lampada
+  captions:
+    en: 'Before prayer: topic and duration'
+    ru: 'Экран перед молитвой: тема и длительность'
+    uk: 'Екран перед молитвою: тема і тривалість'
 question:
   kind: app
   app: lampada
@@ -7,3 +21,38 @@ question:
     en: 'Prayer in Lampada: the chosen topic and a guiding question about it'
     ru: 'Молитва в Lampada: выбранная тема и наводящий вопрос к ней'
     uk: 'Молитва в Lampada: обрана тема й навідне запитання до неї'
+answer:
+  kind: app
+  app: lampada
+  captions:
+    en: Writing an answer to the question
+    ru: Ответ на вопрос текстом
+    uk: Відповідь на запитання текстом
+audio:
+  kind: app
+  app: lampada
+  captions:
+    en: Recording a voice answer
+    ru: Запись голосового ответа
+    uk: Запис голосової відповіді
+passage:
+  kind: app
+  app: lampada
+  captions:
+    en: A Bible passage during prayer
+    ru: Отрывок Писания во время молитвы
+    uk: Уривок Писання під час молитви
+reflection:
+  kind: app
+  app: lampada
+  captions:
+    en: Closing question at the end of prayer
+    ru: Завершающий вопрос в конце молитвы
+    uk: Завершальне запитання наприкінці молитви
+history:
+  kind: app
+  app: lampada
+  captions:
+    en: Prayer journal with search
+    ru: Дневник молитв с поиском
+    uk: Щоденник молитов із пошуком

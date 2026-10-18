@@ -77,7 +77,7 @@
 
     function updateScreen() {
         scheduled = false;
-        if (!desktop.matches) return;
+        if (!desktop.matches || !images.length) return;
         const section = sectionAtReadingLine();
         if (manualSection === section) return;
         manualSection = null;

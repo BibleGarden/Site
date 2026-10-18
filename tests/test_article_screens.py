@@ -10,7 +10,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from sitegen.build import SiteBuilder, build_all
+from sitegen.build import SiteBuilder
 from sitegen.content import annotate_screens, extract_faq, parse_article, render_markdown
 from sitegen.errors import BuildError
 from sitegen.screens import Screen, check_asset, load_catalog, load_checksums
@@ -39,6 +39,47 @@ class ArticleScreensTest(unittest.TestCase):
         self.assertNotIn("article-screen-app-label", html)
         self.assertNotIn("screen:", html)
         self.assertEqual(clean, "## Выбор перевода {#translation}\n\nТекст.\n")
+
+    def test_rows_preserve_order_captions_links_and_site_sizes(self) -> None:
+        for site, ids, size in (
+            ("lampada", ["topic", "question", "reflection"], "12rem"),
+            ("bible-garden", ["home", "translation-picker", "lampada-question"], "180px"),
+        ):
+            screens = load_catalog(ROOT / f"content/{site}/screens.yaml", ("en", "ru", "uk"))
+            for lang in ("en", "ru", "uk"):
+                for count in (2, 3):
+                    with self.subTest(site=site, lang=lang, count=count):
+                        body = f"## Prayer {{#prayer .lead}}\n<!-- screen: {', '.join(ids[:count])} -->\n\nText.\n"
+                        marked, clean, refs = annotate_screens(body, SOURCE, lang, screens)
+                        html = render_markdown(marked, refs, "Open: {caption}", "Lampada", lang=lang, site_key=site)
+                        root = ET.fromstring(f"<div>{html}</div>")
+                        heading, row = list(root)[:2]
+                        self.assertEqual(heading.get("id"), "prayer")
+                        self.assertEqual(heading.get("class"), "lead")
+                        self.assertEqual(row.get("class"), "article-screen-row")
+                        self.assertNotIn("screen:", clean)
+                        self.assertEqual(len(row), count)
+                        for figure, screen_id in zip(row, ids):
+                            screen = screens[screen_id]
+                            self.assertEqual(figure.find("a").get("href"), screen.url(lang, "zoom"))
+                            image = figure.find("a/img")
+                            self.assertEqual(image.get("alt"), screen.captions[lang])
+                            self.assertEqual(image.get("sizes"), f"min({size}, calc((100vw - 64px) / 2))")
+                            self.assertEqual(figure.find("figcaption").text, screen.captions[lang])
+                            self.assertEqual(len(figure.findall("figcaption")), 1)
+                            self.assertEqual(list(figure)[0].tag, "a")
+
+    def test_invalid_row_fails_at_marker_source_line(self) -> None:
+        for ids, message in (
+            ("home, home", "duplicate screen id 'home'"),
+            ("home, missing", "unknown screen"),
+            ("home,", "expected.*<id>, <id>"),
+            (", home", "expected"),
+            ("home,, translation-picker", "expected"),
+            ("home, Home", "expected"),
+        ):
+            with self.subTest(ids=ids), self.assertRaisesRegex(BuildError, f"ru.md:13:.*{message}"):
+                annotate_screens(f"## Heading\n<!-- screen: {ids} -->\n", SOURCE, "ru", self.screens, 12)
 
     def test_catalog_app_default_and_strict_validation(self) -> None:
         self.assertEqual(self.screens["home"].app, "bible-garden")
@@ -287,17 +328,33 @@ class ArticleScreensTest(unittest.TestCase):
             with self.assertRaisesRegex(BuildError, "checksum paths differ"):
                 load_checksums(path, {"home": screen}, ("ru",))
 
-    def test_generated_phone_images_wait_for_desktop_activation(self) -> None:
+    def test_rows_omit_desktop_phone_but_single_markers_keep_it(self) -> None:
         self.assertFalse((ROOT / "dist/bible-garden/ru/articles/template-check/index.html").exists())
         with tempfile.TemporaryDirectory() as directory:
-            output = Path(directory) / "preview"
-            build_all(preview=True, output_root=output)
-            html = (output / "bible-garden/ru/articles/template-check/index.html").read_text(encoding="utf-8")
+            builder = SiteBuilder(ROOT / "content/bible-garden", Path(directory) / "preview", preview=True)
+            article = builder.articles["template-check"]["ru"]
+            self.assertTrue(article.has_screen_rows)
+            builder.build_article("template-check", "ru")
+            html = builder.output_path("ru", "articles/template-check/index.html").read_text(encoding="utf-8")
+            self.assertIn("article-screen-layout-inline", html)
+            self.assertNotIn('class="article-screen-aside"', html)
+            self.assertNotIn('class="article-screen-phone-image"', html)
+            self.assertIn('class="article-screen-dialog"', html)
+            self.assertIn('class="article-screen-row"', html)
+
+            marked, _, refs = annotate_screens("## Home\n<!-- screen: home -->\n", SOURCE, "ru", self.screens)
+            body = render_markdown(marked, refs, "Open: {caption}", lang="ru")
+            single = replace(article, screens=refs, body_html=body)
+            self.assertFalse(single.has_screen_rows)
+            builder.articles["template-check"]["ru"] = single
+            builder.build_article("template-check", "ru")
+            html = builder.output_path("ru", "articles/template-check/index.html").read_text(encoding="utf-8")
+        self.assertNotIn("article-screen-layout-inline", html)
+        self.assertIn('class="article-screen-aside"', html)
         images = re.findall(r'<img[^>]*class="article-screen-phone-image"[^>]*>', html)
-        self.assertEqual(len(images), 2)
-        for image in images:
-            self.assertIn('data-src="/img/article-screens/phone/', image)
-            self.assertNotIn(' src="', image)
+        self.assertEqual(len(images), 1)
+        self.assertIn('data-src="/img/article-screens/phone/', images[0])
+        self.assertNotIn(' src="', images[0])
         self.assertIn("<noscript><img", html)
         self.assertIn('class="article-screen-app-label" hidden', html)
 

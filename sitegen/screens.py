@@ -22,6 +22,15 @@ SOURCE_SIZES = {"app": (1320, 2868), "system": (1284, 2778)}
 SCREEN_ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 # Screenshot importers encode with this exact cwebp so committed WebP files stay reproducible.
 CWEBP_VERSION = "1.3.2"
+# Row widths match both sites' CSS: 32px page padding + 16px gap + 16px spare.
+# Keep this formula synchronized with .article-screen-row in both stylesheets.
+ROW_HALF_WIDTH = "calc((100vw - 64px) / 2)"
+IMAGE_SIZES = {
+    ("bible-garden", False): "180px",
+    ("lampada", False): "min(15rem, 66vw)",
+    ("bible-garden", True): f"min(180px, {ROW_HALF_WIDTH})",
+    ("lampada", True): f"min(12rem, {ROW_HALF_WIDTH})",
+}
 
 
 @dataclass(frozen=True)
@@ -49,6 +58,7 @@ class ScreenRef:
     lang: str
     source: Path
     line: int
+    group_size: int = 1
 
     @property
     def caption(self) -> str:
@@ -159,7 +169,7 @@ def check_asset(screen: Screen, lang: str, variant: str, output_dir: Path, check
 
 
 class ScreenFigures(Treeprocessor):
-    """Add the mobile link below each annotated h2; keep its id for TOC links.
+    """Add screenshot figures below each annotated h2; keep its id for TOC links.
 
     The app label marks screenshots of another app than the site's own (Lampada on Bible Garden).
     """
@@ -173,47 +183,62 @@ class ScreenFigures(Treeprocessor):
 
     def run(self, root: ET.Element) -> ET.Element:
         annotated = [node for node in root if node.tag == "h2" and "data-screen" in node.attrib]
-        if len(annotated) != len(self.refs):
+        groups = [heading.get("data-screen").split(",") for heading in annotated]
+        if [screen_id for group in groups for screen_id in group] != [ref.screen.id for ref in self.refs]:
             ref = self.refs[0]
             raise BuildError(f"{ref.source}:{ref.line}: screen markers did not match rendered article headings")
-        for heading, ref in zip(annotated, self.refs):
-            if heading.get("data-screen") != ref.screen.id:
-                raise BuildError(f"{ref.source}:{ref.line}: screen marker order changed while rendering Markdown")
-            figure = ET.Element("figure", {"class": "article-screen-inline"})
-            if ref.screen.app != self.site_app:
-                if not isinstance(self.app_label, str) or not self.app_label.strip():
-                    raise BuildError(f"{ref.source}: missing articles.screen_app_lampada translation")
-                label = ET.SubElement(figure, "figcaption", {"class": "article-screen-app-label"})
-                ET.SubElement(label, "img", {"src": "/img/lampada-icon-64.png", "alt": "", "width": "32", "height": "32"})
-                ET.SubElement(label, "span").text = self.app_label
-            link = ET.SubElement(
-                figure,
-                "a",
-                {
-                    "href": ref.url("zoom"),
-                    "class": "article-screen-link",
-                    "aria-label": self.open_label.format(caption=ref.caption),
-                    "data-zoom-width": str(ref.dimensions("zoom")[0]),
-                    "data-zoom-height": str(ref.dimensions("zoom")[1]),
-                },
-            )
-            width, height = ref.dimensions("mobile")
-            ET.SubElement(
-                link,
-                "img",
-                {
-                    "src": ref.url("mobile"),
-                    "srcset": f"{ref.url('mobile')} 360w, {ref.url('phone')} 480w",
-                    "sizes": "min(15rem, 66vw)" if self.site_app == "lampada" else "180px",
-                    "alt": ref.caption,
-                    "width": str(width),
-                    "height": str(height),
-                    "loading": "lazy",
-                    "decoding": "async",
-                },
-            )
-            root.insert(list(root).index(heading) + 1, figure)
+        offset = 0
+        for heading, ids in zip(annotated, groups):
+            row = ET.Element("div", {"class": "article-screen-row"}) if len(ids) > 1 else None
+            for ref in self.refs[offset:offset + len(ids)]:
+                figure = self.figure(ref, row is not None)
+                if row is not None:
+                    row.append(figure)
+                else:
+                    root.insert(list(root).index(heading) + 1, figure)
+            if row is not None:
+                root.insert(list(root).index(heading) + 1, row)
+            offset += len(ids)
         return root
+
+    def figure(self, ref: ScreenRef, in_row: bool) -> ET.Element:
+        figure = ET.Element("figure", {"class": "article-screen-inline"})
+        link = ET.SubElement(
+            figure,
+            "a",
+            {
+                "href": ref.url("zoom"),
+                "class": "article-screen-link",
+                "aria-label": self.open_label.format(caption=ref.caption),
+                "data-zoom-width": str(ref.dimensions("zoom")[0]),
+                "data-zoom-height": str(ref.dimensions("zoom")[1]),
+            },
+        )
+        width, height = ref.dimensions("mobile")
+        ET.SubElement(
+            link,
+            "img",
+            {
+                "src": ref.url("mobile"),
+                "srcset": f"{ref.url('mobile')} 360w, {ref.url('phone')} 480w",
+                "sizes": IMAGE_SIZES[self.site_app, in_row],
+                "alt": ref.caption,
+                "width": str(width),
+                "height": str(height),
+                "loading": "lazy",
+                "decoding": "async",
+            },
+        )
+        if ref.screen.app != self.site_app:
+            if not isinstance(self.app_label, str) or not self.app_label.strip():
+                raise BuildError(f"{ref.source}: missing articles.screen_app_lampada translation")
+            label = ET.Element("div" if in_row else "figcaption", {"class": "article-screen-app-label"})
+            ET.SubElement(label, "img", {"src": "/img/lampada-icon-64.png", "alt": "", "width": "32", "height": "32"})
+            ET.SubElement(label, "span").text = self.app_label
+            figure.insert(len(figure) if in_row else 0, label)
+        if in_row:
+            ET.SubElement(figure, "figcaption", {"class": "article-screen-caption"}).text = ref.caption
+        return figure
 
 
 class ScreenFigureExtension(Extension):
