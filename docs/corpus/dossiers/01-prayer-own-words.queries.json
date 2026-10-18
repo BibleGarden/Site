@@ -1,47 +1,11 @@
 [
-  {
-    "query": "молитва своими словами",
-    "limit": 12,
-    "min_score": 0.3
-  },
-  {
-    "query": "learning simple honest prayer",
-    "limit": 12,
-    "min_score": 0.3
-  },
-  {
-    "query": "parler simplement à Dieu",
-    "limit": 10,
-    "min_score": 0.3
-  },
-  {
-    "query": "Как Вы научились молиться простыми словами",
-    "book_id": 44,
-    "limit": 5,
-    "min_score": 0.3
-  },
-  {
-    "query": "молитва просто говорить Христу любовь собственный опыт",
-    "book_id": 37,
-    "limit": 5,
-    "min_score": 0.3
-  },
-  {
-    "query": "молитва своими словами молитвенное правило",
-    "language": "ru",
-    "limit": 6,
-    "min_score": 0.3
-  },
-  {
-    "query": "prayer rules simple conversation God",
-    "language": "en",
-    "limit": 6,
-    "min_score": 0.3
-  },
-  {
-    "query": "prière simplement Dieu cœur",
-    "language": "fr",
-    "limit": 6,
-    "min_score": 0.3
-  }
+  {"query": "не знал, как молиться, и начал говорить с Богом простыми словами", "limit": 10, "min_score": 0.3},
+  {"query": "first time I prayed in my own words, a turning point of my life", "limit": 10, "min_score": 0.3},
+  {"query": "молиться своими словами, как дитя отцу, без молитвослова", "limit": 10, "min_score": 0.3},
+  {"query": "je dis tout simplement au bon Dieu ce que je veux lui dire", "limit": 6, "min_score": 0.3},
+  {"query": "pregare in carcere, Dio mio, non sono io in ottima compagnia", "limit": 6, "min_score": 0.3},
+  {"query": "pregare in carcere, tornai a pregare Dio", "book_id": 54, "limit": 5, "min_score": 0.3},
+  {"query": "своими словами молиться, кроме молитвенника", "book_id": 77, "limit": 5, "min_score": 0.3},
+  {"query": "converse with God simply, as with a friend", "book_id": 46, "limit": 5, "min_score": 0.3},
+  {"query": "as a very little child I came to just tell Jesus when in trouble", "book_id": 49, "limit": 5, "min_score": 0.3}
 ]

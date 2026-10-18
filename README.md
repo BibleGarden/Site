@@ -185,9 +185,9 @@ CommonMark rules) are ignored by the FAQ parser. Links inside the site are root-
 Lampada articles can declare `corpus_sources` in front matter and attach
 `[^corpus-<id>]` footnotes to the supported text. See
 [the evidence format, checker and private review report](docs/corpus/citations.md).
-The [corpus article workflow](docs/corpus/article-workflow.md) covers research,
-Maria's approvals, writing and localisation, with agent prompts and a live-corpus
-example dossier.
+The [corpus article workflow](docs/corpus/article-workflow.md) covers the
+editorial voice, research, Maria's approval of the article plan, writing and
+localisation, with agent prompts; approved plans live in `docs/corpus/dossiers/`.
 The site build is offline; source verification is an explicit authoring step.
 
 ### Screens in articles
