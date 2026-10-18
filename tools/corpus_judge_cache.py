@@ -21,7 +21,7 @@ def digest(value):
                                      separators=(',', ':')).encode()).hexdigest()
 
 
-def judge_environment(command, *, claude_cli=False):
+def judge_environment(command):
     """Identify the executable actually selected by PATH and the bundled CLI runtime."""
     try:
         arguments = shlex.split(command)
@@ -29,10 +29,9 @@ def judge_environment(command, *, claude_cli=False):
         if executable is None:
             raise CheckError('Judge adapter executable unavailable for cache identity')
         adapter = Path(executable).resolve()
-        identity = {'adapter_path': str(adapter),
-                    'adapter_sha256': hashlib.sha256(adapter.read_bytes()).hexdigest(),
+        identity = {'adapter_sha256': hashlib.sha256(adapter.read_bytes()).hexdigest(),
                     'arguments': arguments[1:]}
-        if claude_cli:
+        if adapter.name == 'corpus_judge_claude.sh':
             cli = shutil.which('claude')
             if cli is None:
                 raise CheckError('Claude CLI unavailable for cache identity')
@@ -40,7 +39,7 @@ def judge_environment(command, *, claude_cli=False):
                                     timeout=10, check=True)
             if not result.stdout.strip():
                 raise CheckError('Claude CLI returned an empty version')
-            identity.update(claude_path=str(Path(cli).resolve()), claude_version=result.stdout.strip())
+            identity['claude_version'] = result.stdout.strip()
         return identity
     except (OSError, ValueError, subprocess.SubprocessError) as exc:
         raise CheckError('Cannot identify judge environment for cache; no fallback') from exc
@@ -78,7 +77,6 @@ class JudgeCache:
             votes = [validate_verdict(vote) for vote in entry['votes']]
         except CheckError as exc:
             raise CheckError(f'Invalid judge cache entry {path}; remove or repair it explicitly') from exc
-        self.hits += 1
         return votes
 
     def write(self, key, votes):

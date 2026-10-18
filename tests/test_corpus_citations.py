@@ -520,12 +520,14 @@ class CitationTest(unittest.TestCase):
                            "print(os.environ['FAKE_CLAUDE_OUTPUT'])\nsys.exit(int(os.getenv('FAKE_EXIT', '0')))\n")
             cli.chmod(0o755)
             env = {**os.environ, 'PATH': tmp + os.pathsep + os.environ['PATH'],
-                   'ARGS_PATH': str(args_path), 'INPUT_PATH': str(input_path), 'CORPUS_JUDGE_MODEL': 'opus'}
+                   'ARGS_PATH': str(args_path), 'INPUT_PATH': str(input_path)}
+            alias = Path(tmp) / 'judge-alias'
+            alias.symlink_to(adapter)
             payload = {'article_text': 'Молитва', 'source': 'Prayer'}
             env['FAKE_CLAUDE_OUTPUT'] = json.dumps({
                 'structured_output': {'category': 'supported', 'reason': 'Supported'},
                 'result': 'Prose [with {braces}] is not part of the structured verdict.', 'is_error': False})
-            result = subprocess.run([str(adapter)], input=json.dumps(payload), text=True, capture_output=True, env=env)
+            result = subprocess.run([str(alias)], input=json.dumps(payload), text=True, capture_output=True, env=env)
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertEqual(json.loads(result.stdout)['verdict'], 'PASS')
             self.assertEqual(json.loads(input_path.read_text()), payload)
@@ -540,10 +542,6 @@ class CitationTest(unittest.TestCase):
             self.assertFalse(ASSESSMENT_SCHEMA['additionalProperties'])
             self.assertEqual(ASSESSMENT_SCHEMA['properties']['reason']['minLength'], 1)
             self.assertEqual(set(ASSESSMENT_SCHEMA['required']), {'category', 'reason'})
-            env['CORPUS_JUDGE_MODEL'] = 'test-model'
-            result = subprocess.run([str(adapter)], input=json.dumps(payload), text=True, capture_output=True, env=env)
-            self.assertEqual(result.returncode, 0, result.stderr)
-            self.assertEqual(json.loads(args_path.read_text())[2], 'test-model')
             for reply in ('{}', 'not json', '{"is_error":true,"result":"secret"}',
                           '{"result":"not json"}', '{"result":42}'):
                 env['FAKE_CLAUDE_OUTPUT'] = reply

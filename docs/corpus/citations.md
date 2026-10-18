@@ -126,7 +126,19 @@ There are no retries, re-extraction or silent source substitutions.
 ## LLM judge adapter
 
 The default `tools/corpus_judge_claude.sh` uses the installed, authenticated
-Claude CLI: `claude -p --model opus --output-format json --tools "" --json-schema <schema>`.
+Claude CLI with Opus fixed in the adapter:
+
+```bash
+claude -p --model opus --output-format json --tools "" \
+  --safe-mode --setting-sources "" --strict-mcp-config --no-session-persistence \
+  --json-schema <schema>
+```
+
+Safe mode disables CLAUDE.md and custom skills/plugins/hooks; setting sources and
+configured MCP servers are disabled, and sessions are not persisted. Managed
+policy, inherited environment and remote provider configuration still apply;
+bump `--judge-version` when those change. Authentication remains private.
+
 The schema comes from `tools/corpus_judge.py`: category enum, a non-empty reason,
 required fields and no additional properties. The adapter reads only the envelope's
 `structured_output` and validates it with `assessment_verdict`; prose in `.result`
@@ -194,63 +206,33 @@ Adapter diagnostics stay on stderr; raw output is not echoed into reports.
 
 ## Judge verdict cache
 
-The CLI caches complete model vote sets in `~/.cache/lampada-citation-judge`
-(default, independent of the working directory). Use `--cache-dir /private/path`
-to choose another directory outside this repository. No alternative location is
-tried if the directory cannot be used. Cache files contain private explanations;
-never commit or publish them. New directories use mode 0700 and records 0600;
-writes replace records atomically (temporary file + rename). No per-key lock is
-used: concurrent complete reviews may safely replace the same record.
+The CLI stores complete PASS/FAIL/UNSTABLE vote sets in
+`~/.cache/lampada-citation-judge`; override with `--cache-dir` outside the repo.
+ERROR and partial sets are never stored. Records contain private explanations:
+do not commit or publish them. New directories/files use 0700/0600. Writes use
+a temporary file + rename, without per-key locks or alternative cache locations.
 
-The content-addressed key includes article fragment text, quote/retelling kind,
-original/translation, canonical source range text, full-book SHA-256, offsets,
-book/chunk identity and attribution metadata, the exact prompt/criteria, model,
-run count, adapter command/version, resolved executable path and SHA-256, fixed command
-arguments, bundled implementation fingerprint and `claude --version` for the
-bundled adapter. The shell fingerprint covers its fixed flags; the implementation
-fingerprint covers the generated JSON schema.
-Occurrence IDs and report-only neighbourhood size do not affect the verdict.
-Changing one fragment rechecks only that fragment; changing criteria or model
-invalidates the corresponding cached votes. `--judge-model` defaults to `opus`
-and is passed to adapters as `CORPUS_JUDGE_MODEL`; the bundled adapter uses it for
-Claude's `--model`. Custom adapters must honour that setting and bump
-`--judge-version` (default `1`) whenever their implementation, provider or hidden
-configuration changes. Bundled protocol/adapter/checker edits invalidate keys
-automatically. Reading the CLI version fails explicitly if the executable is
-missing, fails, times out or reports an empty version; no cache identity fallback
-is used. `--no-cache` does not require computing a cache identity. Custom adapters
-are fingerprinted without requiring Claude; wrapper/interpreter dependencies
-still require an explicit version bump when they change.
+Keys cover fragment text, kind, original/translation, canonical range text and
+full-book hash, offsets, book/chunk identity, attribution, exact criteria, run
+count, adapter SHA-256/arguments, bundled code/schema and Claude CLI version.
+Opus and its fixed flags are part of the adapter fingerprint. Executable paths
+are excluded so identical worktrees share votes; resolving a bundled-adapter
+symlink still includes `claude --version`. Unavailable/invalid version discovery
+is an error. Custom adapters need no Claude, but must bump `--judge-version`
+(default `1`) for changed wrapper dependencies or hidden configuration.
 
-The bundled adapter uses `--safe-mode --setting-sources "" --strict-mcp-config
---no-session-persistence`. This disables CLAUDE.md, user/project/local settings,
-custom skills/plugins/hooks and configured MCP servers without replacing runtime
-authentication. Admin-managed policy settings still apply. Inherited environment
-and remote provider configuration can affect requests; these are not completely
-isolated or automatically fingerprinted. Bump `--judge-version` when managed
-policy, provider/environment configuration or custom-adapter dependencies change.
-Do not put secrets in command arguments or version labels. The `opus` alias may
-change upstream; use a full final review.
+Each run revalidates the corpus before using cached votes. Invalid, incomplete,
+duplicate-key or corrupt records fail explicitly: repair or remove the named
+record. Reports mark `Cache: HIT`/`MISS`, retain votes/reasons and count judge
+calls and cached fragments. In-process callers opt in with a `JudgeCache`.
 
-Every run still fetches and validates current corpus chunks, canonical text and
-context before consulting the judge cache. Completed PASS, FAIL and UNSTABLE
-vote sets are reusable only with the exact configured number of valid votes.
-ERROR and partial vote sets are never stored. Corrupt, duplicate-key, mismatched
-or incomplete records produce an explicit error, not a cache miss or an automatic
-model retry. Repair or remove the named entry intentionally. Reports mark model
-fragments `Cache: HIT` or `Cache: MISS`, preserve each vote/reason and count actual
-judge calls and cached fragments. Direct in-process calls cache only when given
-an explicit `JudgeCache` instance.
-
-For a final review before merge, bypass cache reads **and writes**:
+Before merge, run a fresh review without cache reads, writes or fingerprinting:
 
 ```bash
 python tools/check_corpus_citations.py content/lampada/articles/<slug>/{ru,en,uk}.md \
   --no-cache --report /tmp/lampada-final-review.md
 ```
 
-`--no-cache` performs fresh judging even when cached entries exist or are corrupt;
-it leaves the cache untouched. It does not approve failures or retry errors.
 
 ## Offline tests
 
@@ -265,7 +247,7 @@ validation, configurable independent runs, unanimous PASS/FAIL, disagreement rep
 schema arguments, structured-output validation, duplicate-key rejection, errors
 without checker retries, and
 Lampada-only front matter.
-Cache tests cover reuse with zero calls, one edited fragment, prompt/model/run
+Cache tests cover reuse with zero calls, one edited fragment, prompt/adapter/run
 invalidation, preserved FAIL/UNSTABLE explanations, ERROR exclusion, canonical
 revalidation, corrupt/unwritable records, private paths and `--no-cache`.
 Existing CI discovers these tests without live API calls or credentials.
