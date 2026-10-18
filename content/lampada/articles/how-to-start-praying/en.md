@@ -2,7 +2,7 @@
 title: How to Start Praying in Your Own Words
 description: 'How to start praying: talk to God about what is on your heart right now, in ordinary words. No perfect formula needed. Stories of Silvio Pellico, Rosalind Goforth, Thérèse of Lisieux and Theophan the Recluse.'
 date: 2026-10-18
-draft: true
+draft: false
 corpus_sources:
 - id: pellico-arrest
   kind: retelling

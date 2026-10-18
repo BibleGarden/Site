@@ -7,3 +7,15 @@
 - [Lampada — A space for personal prayer](https://lampada.app/): English
 - [Lampada — пространство для личной молитвы](https://lampada.app/ru/): Русский
 - [Lampada — простір для особистої молитви](https://lampada.app/uk/): Українська
+
+## Articles (English)
+
+- [How to Start Praying in Your Own Words](https://lampada.app/articles/how-to-start-praying/): How to start praying: talk to God about what is on your heart right now, in ordinary words. No perfect formula needed. Stories of Silvio Pellico, Rosalind Goforth, Thérèse of Lisieux and Theophan the Recluse.
+
+## Статьи (Русский)
+
+- [Как молиться своими словами: с чего начать](https://lampada.app/ru/articles/how-to-start-praying/): Как начать молиться своими словами: говорить с Богом о том, что на сердце сейчас, обычными словами. Истории Сильвио Пеллико, Розалинд Гофорт, Терезы из Лизьё и Феофана Затворника.
+
+## Статті (Українська)
+
+- [Як молитися своїми словами: з чого почати](https://lampada.app/uk/articles/how-to-start-praying/): Як почати молитися своїми словами: говорити з Богом про те, що на серці зараз, звичайними словами. Історії Сільвіо Пелліко, Розалінд Гофорт, Терези з Лізьє і Феофана Затворника.
