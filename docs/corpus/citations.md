@@ -145,6 +145,38 @@ The article's `chapter` must match the chunk's `citation_label` (empty string
 maps to null); leaf context must return that same label. Structural `chapter`
 is never used for this comparison.
 
+## Register published usage
+
+After merging an article, the orchestrator runs:
+
+```bash
+python tools/register_corpus_usage.py --slug <slug>
+# Preview or synchronize all published articles, including removal of orphan sources:
+python tools/register_corpus_usage.py --all --dry-run
+python tools/register_corpus_usage.py --all
+```
+
+This requires channel-ai's deployed external-usage API, `CORPUS_API_KEY` and
+`CORPUS_API_URL` as above; older deployments lack these endpoints. Published
+ru/en/uk versions share `site:lampada/articles/<slug>` with the union of their
+chunk IDs. Draft versions are skipped. `--all` deletes only sources under
+`site:lampada/articles/` that have no published article, including removed,
+renamed and draft-only articles. Articles without citations send an empty set.
+
+Before any writes, every selected article is validated: its **whole-book**
+`text_sha256` must match the current canonical text and recomputed UTF-8 hash;
+the current chunk must belong to that book, contain the citation range and
+match the canonical slice. Only then is the **exact chunk text** hashed for
+PUT. Stale anchors fail explicitly and require reanchor; current chunk IDs
+are never blindly trusted. Dry-run performs the same reads and checks but
+only prints the plan. No LLM is invoked; evidence review remains a separate step.
+
+API or validation failures exit nonzero, without retries. All preflight checks
+finish before the first PUT/DELETE. Each source replacement is atomic; there
+is no transaction across sources, so a write-time failure (including HTTP 409
+on an index change) stops immediately and may leave earlier writes applied.
+Resolve the cause and explicitly run synchronization again.
+
 ## Reanchor after a corpus migration
 
 Use `tools/reanchor_corpus_sources.py` only after the maintenance window has

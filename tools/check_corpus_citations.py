@@ -43,12 +43,17 @@ class CorpusAPI:
         self.base_url = base_url.rstrip("/") + "/api/v1/channels/lampada"
         self.key = key
 
-    def request(self, path, data=None):
+    def request(self, path, data=None, *, method=None):
         request = Request(self.base_url + path,
                           data=None if data is None else json.dumps(data).encode(),
+                          method=method,
                           headers={"X-API-Key": self.key, "Content-Type": "application/json"})
         try:
             with urlopen(request, timeout=60) as response:
+                if method == "DELETE":
+                    if response.status != 204:
+                        raise CheckError('Unexpected corpus DELETE status (expected 204)')
+                    return None
                 return self.validate_response(path, json.load(response))
         except HTTPError as exc:
             detail = "; corpus changed or needs reindexing; refresh evidence" if exc.code == 409 else ""
@@ -78,7 +83,27 @@ class CorpusAPI:
             text(value)
             fields(value, {'char_start': (int,), 'char_end': (int,)})
 
-        if path == '/search/chunks':
+        def usage(value):
+            fields(value, {'source': (str,), 'chunks': (list,)})
+            source = value['source']
+            if (len(source) > 255 or not re.fullmatch(r'[a-z][a-z0-9_-]*:[A-Za-z0-9_./-]+', source)
+                    or any(part in {'', '.', '..'} for part in source.split(':', 1)[1].split('/'))):
+                raise CheckError('Unexpected corpus usage source')
+            for chunk in value['chunks']:
+                fields(chunk, {'chunk_id': (str,), 'text_sha256': (str,), 'stale': (bool,)})
+                if not re.fullmatch(r'[a-f0-9]{64}', chunk['text_sha256']):
+                    raise CheckError('Unexpected corpus fragment hash')
+
+        if path == '/external-usage':
+            if not isinstance(response, list):
+                raise CheckError('Unexpected corpus response shape')
+            for entry in response:
+                usage(entry)
+            if len({entry['source'] for entry in response}) != len(response):
+                raise CheckError('Duplicate corpus usage sources')
+        elif path.startswith('/external-usage/'):
+            usage(response)
+        elif path == '/search/chunks':
             fields(response, {'chunks': (list,)})
             for chunk in response['chunks']:
                 span(chunk)
