@@ -126,7 +126,7 @@ corpus_sources:
   source_url: "https://umilta.net/ladder.html"
 - id: "guigo-ladder"
   kind: "retelling"
-  text: "The four rungs came to him one day while he was busy at work, thinking about the spiritual labor of those who serve God: reading, meditation, prayer and contemplation. He pictured them as a ladder like Jacob’s, with its foot on the ground and its top in the clouds"
+  text: "Guigo used Jacob’s ladder to explain how reading Scripture can lead through reflection and prayer into contemplation"
   original: null
   translation: null
   chunk_id: "book-65-0004"
@@ -685,13 +685,13 @@ Near Paris, in the Russian émigré community, during Holy Week. A group of teen
 
 He had no intention of wasting time on all four Gospels: “I’ll just read the shortest one”[^corpus-antony-shortest]. That turned out to be Mark. It was slow going: the boy kept stumbling over old-fashioned turns of phrase that felt foreign to him even in the Russian translation[^corpus-antony-slow]. And somewhere between the first and third chapters he “suddenly felt that on the other side of the table where I was reading stood the living Christ”[^corpus-antony-christ].
 
-That boy grew up to be Metropolitan Anthony of Sourozh: a surgeon who took part in the French Resistance during the occupation, and later a bishop in London[^antony]. He tells the story of that evening in one of his talks, with no labels and no method. Yet this kind of encounter is exactly what lectio divina, or “divine reading,” is for. It is a way of praying with Scripture: you read a short passage slowly, stay with the word that catches you, think about what it is saying to you, answer God in your own words and then simply rest with Him in silence. The four stages of this path (reading, meditation, prayer and contemplation) were described in the twelfth century by a monk named Guigo. They are not a schedule, though. They describe how a word usually makes its way to the heart.
+That boy grew up to be Metropolitan Anthony of Sourozh: a surgeon who provided medical help to members of the French Resistance during the occupation, and later a bishop in London[^antony]. He tells the story of that evening in one of his talks, with no labels and no method. Yet this kind of encounter is exactly what lectio divina, or “divine reading,” is for. It is a way of praying with Scripture: you read a short passage slowly, stay with the word that catches you, think about what it is saying to you, answer God in your own words and then simply rest with Him in silence. The four stages of this path (reading, meditation, prayer and contemplation) were described in the twelfth century by a monk named Guigo. They are not a schedule, though. They describe how a word usually makes its way to the heart.
 
 ## Guigo’s ladder
 
 Guigo was a Carthusian, and from 1174 to 1180 he was prior of the Grande Chartreuse, the order’s mother house in France[^guigo]. He wrote his *Ladder* as a letter to a friend, Brother Gervase[^corpus-guigo-dedication]. It was this friend who had once brought him into the order, and now Guigo asks him to look over what he has written: his friend knows this way firsthand, while Guigo knows it only from books[^corpus-guigo-letter].
 
-The four rungs came to him one day while he was busy at work, thinking about the spiritual labor of those who serve God: reading, meditation, prayer and contemplation. He pictured them as a ladder like Jacob’s, with its foot on the ground and its top in the clouds[^corpus-guigo-ladder]. For Guigo, reading leads into inner work: the mind seeks out a meaning that had been hidden from it, and the heart turns to God, longing for what is good[^corpus-guigo-rungs].
+Guigo used Jacob’s ladder to explain how reading Scripture can lead through reflection and prayer into contemplation[^corpus-guigo-ladder]. In his account, reading leads into inner work: the mind seeks out a meaning that had been hidden from it, and the heart turns to God, longing for what is good[^corpus-guigo-rungs].
 
 He shows how this works with a single line: “Blessed are the pure in heart, for they will see God” (Matthew 5:8)[^mt5]. As the reader meditates on it, the words turn into a personal question: is it enough that I do no wrong, if my heart is not pure?[^corpus-guigo-chew] Out of that question grows a prayer for a pure heart, the same prayer David once prayed[^corpus-guigo-david].
 
@@ -717,7 +717,7 @@ And then there are passages that set your heart on fire, as the hearts of the tw
 
 ## When the text is silent
 
-In the mid-1960s Enzo Bianchi went to live alone near the tiny village of Bose in northern Italy. In the autumn of 1968 the first brothers and sisters joined him, Catholics and Protestants alike, and a community grew up that he led until 2017[^bianchi]. His book *Pregare la Parola* (in English, *Praying the Word*) is a plain-spoken introduction to lectio divina, yet from the start Bianchi warns that he would not want “this method to become unchangeable and rigid”[^corpus-bianchi-rigid].
+In the mid-1960s Enzo Bianchi went to live alone near the tiny village of Bose in northern Italy. In the autumn of 1968 the first brothers and sisters joined him, Catholics and Protestants alike, and a community grew up that he led until 2017[^bianchi]. His book *Pregare la Parola* is a plain-spoken introduction to lectio divina, yet from the start Bianchi warns that he would not want “this method to become unchangeable and rigid”[^corpus-bianchi-rigid].
 
 “Don’t chase quantity: a single page, a chapter, a few verses are more than enough!”[^corpus-bianchi-amount] “Read the text not once but many times, and aloud.”[^corpus-bianchi-aloud] “It is God who speaks, and reading is only a means of hearing.”[^corpus-bianchi-hear]
 
@@ -733,7 +733,7 @@ Anthony began with the first chapter of the shortest Gospel; for Hannah, a singl
 
 ## How to try it today
 
-Ask God for understanding, then take a few verses: Guigo’s line, “Blessed are the pure in heart,” or the first chapter of Mark, as Anthony did. Read the passage several times, aloud if you like. Where a word catches you, stop and repeat it, the way Hannah repeated her verse. Ask yourself: what is being said here to me? Where do I say “yes,” and where, honestly, “no”? Tell God about it [in your own words](/articles/how-to-start-praying/). Then simply stay quiet for a while, without asking for anything. And take one word with you into your day, as Elchaninov advised.
+Ask God for understanding, then take a few verses: Guigo’s line, “Blessed are the pure in heart,” or the first chapter of Mark, as Anthony did. Read the passage several times, aloud if you like. Where a word catches you, stop and repeat it, the way Hannah repeated her verse. Ask yourself: what is being said here to me? Where do I say “yes,” and where, honestly, “no”? Tell God about it [in your own words](/articles/how-to-start-praying/). Then simply stay quiet for a while, without demanding anything. And take one word with you into your day, as Elchaninov advised.
 
 How long? As long as you have. Other things get in the way more often: wanting to read a lot and quickly, expecting strong feelings, studying the text without ever answering it, and the temptation to bend it to what you want to hear. And if nothing seems to happen the first time, don’t give up.
 
@@ -756,7 +756,7 @@ It is a way of praying with Scripture: you read a short passage slowly, reflect 
 
 ### How do you do lectio divina?
 
-Take a few verses and read them slowly. Enzo Bianchi advises reading the text “not once but many times, and aloud”[^corpus-bianchi-aloud-faq]. Stop where a word catches you, ask what it is saying to you and answer God in your own words. Then stay quiet for a while without asking for anything.
+Take a few verses and read them slowly. Enzo Bianchi advises reading the text “not once but many times, and aloud”[^corpus-bianchi-aloud-faq]. Stop where a word catches you, ask what it is saying to you and answer God in your own words. Then stay quiet for a while without demanding anything.
 
 ### How long does lectio divina take?
 
@@ -770,7 +770,7 @@ The name comes from Western monasticism, but slow, prayerful reading of Scriptur
 
 A short one: a few verses or a chapter. Enzo Bianchi recommends reading one book of the Bible straight through or following the Church’s lectionary[^corpus-bianchi-rule-faq]. If you come to Scripture with a need of your own, see our article on [praying Scripture](/articles/praying-scripture/).
 
-[^antony]: [Anthony of Sourozh](https://en.wikipedia.org/wiki/Anthony_of_Sourozh) on Wikipedia: 1914–2003; grew up in Paris, where his family had settled by 1923; in 1939, before leaving for the front as a surgeon in the French Army, secretly took monastic vows; during the German occupation of France worked as a doctor and took part in the French Resistance; sent to Britain in 1948; from 1957 a bishop and from 1962 head of the Russian Orthodox Diocese of Sourozh for Great Britain and Ireland; best known as a writer and broadcaster on prayer and the Christian life.
+[^antony]: [Anthony of Sourozh](https://en.wikipedia.org/wiki/Anthony_of_Sourozh) on Wikipedia: 1914–2003; grew up in Paris, where his family had settled by 1923; in 1939, before leaving for the front as a surgeon in the French Army, secretly took monastic vows; during the German occupation of France worked as a doctor and took part in the French Resistance; sent to Britain in 1948; from 1957 a bishop and from 1962 head of the Russian Orthodox Diocese of Sourozh for Great Britain and Ireland; best known as a writer and broadcaster on prayer and the Christian life. [Антоний (Блум)](https://ru.wikipedia.org/wiki/%D0%90%D0%BD%D1%82%D0%BE%D0%BD%D0%B8%D0%B9_(%D0%91%D0%BB%D1%83%D0%BC)) on Wikipedia (in Russian): during the occupation, helped members of the Resistance as a doctor.
 [^guigo]: [Guigo II](https://en.wikipedia.org/wiki/Guigo_II) on Wikipedia: Carthusian monk and ninth prior of the Grande Chartreuse from 1174 to 1180; probably died in 1188; author of the *Scala Claustralium*.
 [^mt5]: Matthew 5:8. Berean Standard Bible (BSB), public domain.
 [^hannah]: [Hannah Whitall Smith](https://en.wikipedia.org/wiki/Hannah_Whitall_Smith) on Wikipedia: 1832–1911; born in Philadelphia into a long line of prominent Quakers; her book *The Christian’s Secret of a Happy Life* (1875) was known internationally; of her seven children, only three survived to adulthood; in 1888 the family moved to England.
