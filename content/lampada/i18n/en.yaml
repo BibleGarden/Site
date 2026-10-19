@@ -82,7 +82,7 @@ landing:
       device: "Prayers, answers and recordings are kept on your device."
       ai: "AI works only with your permission, separately for each feature. You can pray without it too."
       server: "Text you allow is processed by our server and Google Gemini. Our server keeps no archive of prayers."
-      tracking: "The app has no ads, analytics, trackers or profiles. Your PIN itself is never stored or sent."
+      tracking: "The app has no ads, analytics SDKs, trackers or profiles. Our server keeps technical request statistics. Your PIN itself is never stored or sent."
     link: "Read the privacy policy"
   articles:
     all: All articles
