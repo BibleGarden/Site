@@ -6,7 +6,7 @@ draft: true
 corpus_sources:
 - id: "muller-ill"
   kind: "retelling"
-  text: "His head has been bad for eight days, he cannot preach, and he trusts that God will soon restore him to the ministry"
+  text: "He has had a bad headache for eight days, cannot preach, and trusts that God will soon restore him to ministry"
   original: null
   translation: null
   chunk_id: "book-226-0548"
@@ -441,7 +441,7 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/molitva/molitvennyj-dnevnik-startsa-feodosija-karulskogo/"
 - id: "feodosiy-distracted"
   kind: "quote"
-  text: "At times during the prayer my mind wandered and even lost itself for a minute, but it was enclosed in the words of the prayer once again"
+  text: "During prayer my mind sometimes wandered and even drifted off for a moment, but then became focused on the words of the prayer again"
   original: "Ум в продолжение молитвы иногда рассеивался и даже на минуту забывался, но опять заключался в слова молитвы."
   translation: "ours"
   chunk_id: "book-147-0002"
@@ -531,7 +531,7 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/molitva/molitvennyj-dnevnik-startsa-feodosija-karulskogo/"
 - id: "feodosiy-doubt"
   kind: "retelling"
-  text: "But he could not trust this man as an infallible guide: his companion judged harshly and kept changing his mind, one moment urging him on to inner prayer and the next declaring him incapable of it, and he was himself a beginner at such prayer who knew it mostly from books"
+  text: "But he could not trust this man as an infallible guide: his companion judged harshly and kept changing his mind, one moment urging him on to the inward practice of the Jesus Prayer and the next declaring him incapable of it, and he was himself a beginner at such prayer who knew it mostly from books"
   original: null
   translation: null
   chunk_id: "book-147-0026"
@@ -591,7 +591,7 @@ corpus_sources:
   source_url: "https://predanie.ru/nikon-optinskiy-prepodobnyy/dnevnik-1907-1910-gg/"
 ---
 
-Bristol, January 1838. George Müller, a Protestant preacher who runs homes for orphans without ever asking anyone for money[^muller], is ill in bed. His head has been bad for eight days, he cannot preach, and he trusts that God will soon restore him to the ministry[^corpus-muller-ill]. He spends about three hours praying over two psalms, laying his requests before the Lord and asking Him to record them in heaven and answer them[^corpus-muller-psalm]. There are eight requests, and under the list he writes the date: “I have recorded these my petitions this 14th day of January, 1838, that, when God has answered them, He may get, through this, glory to His name.”[^corpus-muller-recorded]
+Bristol, January 1838. George Müller, a Protestant preacher who runs homes for orphans without asking anyone for money to support them[^muller], is ill in bed. He has had a bad headache for eight days, cannot preach, and trusts that God will soon restore him to ministry[^corpus-muller-ill]. He spends about three hours praying over two psalms, laying his requests before the Lord and asking Him to record them in heaven and answer them[^corpus-muller-psalm]. There are eight requests, and under the list he writes the date: “I have recorded these my petitions this 14th day of January, 1838, that, when God has answered them, He may get, through this, glory to His name.”[^corpus-muller-recorded]
 
 Later, while writing the second part of his book, Müller added a note to this entry in square brackets[^corpus-muller-postscript]: “petitions 4, 5, 6, 7, and 8, have been fully answered, and the other petitions, likewise, in part.”[^corpus-muller-answered]
 
@@ -635,9 +635,9 @@ A journal comes alive when you go back to it. Of the mother of Jesus the Gospel 
 
 ## Honest, not beautiful
 
-Vasily Kharitonov, the son of a peasant from Saratov, graduated from the Kazan Theological Academy and served as an inspector at the seminary in Vologda; then, in 1901, he gave it all up and left for Mount Athos. There, at Karoulia, a place of especially austere hermit life, he became Father Theodosius, a priest-monk under the strictest vows and one of the best-known confessors among the Russian monks of Athos[^feodosiy].
+Vasily Kharitonov, the son of a peasant from Saratov, graduated from the Kazan Theological Academy and served as an inspector at the seminary in Vologda; then, in 1901, he gave it all up and left for Mount Athos. There, at Karoulia, a place of especially austere hermit life, he became Father Theodosius, a priest-monk of the Great Schema and one of the best-known confessors among the Russian monks of Athos[^feodosiy].
 
-In the summer of 1937, starting on the feast of the Prophet Elijah, he takes up his labor of prayer again, and his daily rule is ten thousand Jesus Prayers[^corpus-feodosiy-rule]. That is a monastic feat, not a model for us. What we can take from him is the honesty with which he keeps his “prayer journal.” He doesn’t dress anything up: “At times during the prayer my mind wandered and even lost itself for a minute, but it was enclosed in the words of the prayer once again”[^corpus-feodosiy-distracted]. He writes down the unpleasant things too: the monk who shared his cell accused him first of being suspicious, and then of frequent outbursts of temper and impatience, and said that this was exactly why prayer would not come to him[^corpus-feodosiy-reproach]. “I fully accepted his rebuke and his advice”[^corpus-feodosiy-accept]. But he could not trust this man as an infallible guide: his companion judged harshly and kept changing his mind, one moment urging him on to inner prayer and the next declaring him incapable of it, and he was himself a beginner at such prayer who knew it mostly from books[^corpus-feodosiy-doubt].
+In the summer of 1937, starting on the feast of the Prophet Elijah, he takes up his labor of prayer again, and his daily rule is ten thousand Jesus Prayers[^corpus-feodosiy-rule]. That is a monastic feat, not a model for us. What we can take from him is the honesty with which he keeps his “prayer journal.” He doesn’t dress anything up: “During prayer my mind sometimes wandered and even drifted off for a moment, but then became focused on the words of the prayer again”[^corpus-feodosiy-distracted]. He writes down the unpleasant things too: the monk who shared his cell accused him first of being suspicious, and then of frequent outbursts of temper and impatience, and said that this was exactly why prayer would not come to him[^corpus-feodosiy-reproach]. “I fully accepted his rebuke and his advice”[^corpus-feodosiy-accept]. But he could not trust this man as an infallible guide: his companion judged harshly and kept changing his mind, one moment urging him on to the inward practice of the Jesus Prayer and the next declaring him incapable of it, and he was himself a beginner at such prayer who knew it mostly from books[^corpus-feodosiy-doubt].
 
 He did not hide his journal. One afternoon, over tea after the midday meal, the two of them read through his entries for the last three days, and his companion pointed out that he was breathing the wrong way during prayer[^corpus-feodosiy-check]. “I agreed with this”[^corpus-feodosiy-agreed].
 
@@ -659,7 +659,7 @@ Their questions make good journal prompts. Take one at a time, whichever fits to
 - What was happening with me on this same day a year ago? (Barsanuphius)
 - Where was I distracted, impatient or in the wrong? (Theodosius)
 
-Read your journal back once a week, at the end of the year or on dates that matter to you. If you have no energy, one line about the main thing is enough. And if you don’t know where to start, see our articles on [how to start praying in your own words](/articles/how-to-start-praying/) and [what to pray about](/articles/what-to-pray-about/).
+Reread your journal once a week, at the end of the year or on dates that matter to you. If you have no energy, one line about the main thing is enough. And if you don’t know where to start, see our articles on [how to start praying in your own words](/articles/how-to-start-praying/) and [what to pray about](/articles/what-to-pray-about/).
 
 ## Paper or app?
 
@@ -680,7 +680,7 @@ Müller put a date under eight requests without knowing how things would turn ou
 
 ### What should I write in a prayer journal?
 
-The date, a request, a thank-you or whatever is on your heart right now. Later, when you read it back, add what happened.
+The date, a request, a thank-you or whatever is on your heart right now. Later, when you reread it, note what happened.
 
 ### Do I need to write in my prayer journal every day?
 
@@ -696,4 +696,4 @@ Whichever you will come back to. A notebook is slower and screen-free; an app ma
 [^eugenie]: [Eugénie de Guérin](https://fr.wikipedia.org/wiki/Eug%C3%A9nie_de_Gu%C3%A9rin) on French Wikipedia: 1805–1848; born at the Château du Cayla near Albi; the journal she began in 1834 is addressed to her brother Maurice and was published after her death. [Maurice de Guérin](https://en.wikipedia.org/wiki/Maurice_de_Gu%C3%A9rin) on Wikipedia: lived in Paris after 1833; died of consumption at Andillac on 19 July 1839, aged 28.
 [^varsonofy]: [Barsanuphius of Optina](https://ru.wikipedia.org/wiki/%D0%92%D0%B0%D1%80%D1%81%D0%BE%D0%BD%D0%BE%D1%84%D0%B8%D0%B9_%D0%9E%D0%BF%D1%82%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9) on Russian Wikipedia: 1845–1913; a colonel who came to Optina in 1891 and became an elder there. [Nikon of Optina](https://ru.wikipedia.org/wiki/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BD_%D0%9E%D0%BF%D1%82%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9) on Russian Wikipedia: Nikolai Belyaev, 1888–1931; secretary to Barsanuphius from 1908; died in exile on the Pinega. Both were canonized in 2000 among the Optina elders.
 [^lk2]: Luke 2:19. Berean Standard Bible (BSB), public domain.
-[^feodosiy]: Fr Nikolai Solodov, [“Korrespondent svt. Feofana Zatvornika ieroskhimonakh Feodosii Karulskii”](https://doi.org/10.31802/GB.2023.50.3.011) (Hieroschemamonk Theodosius of Karoulia, a correspondent of St Theophan the Recluse), *Bogoslovsky Vestnik*, 2023, no. 3 (50), pp. 223–244, in Russian: Vasily Vasilyevich Kharitonov (1869–1937); graduated from the Kazan Theological Academy in 1894; inspector of the Vologda seminary from 1897 to 1901, then on Athos for the rest of his life; the prayer journal was written a few months before his death.
+[^feodosiy]: Fr Nikolai Solodov, [“Korrespondent svt. Feofana Zatvornika ieroskhimonakh Feodosii Karulskii”](https://doi.org/10.31802/GB.2023.50.3.011) (Hieroschemamonk Theodosius of Karoulia, a correspondent of St Theophan the Recluse), *Bogoslovsky Vestnik*, 2023, no. 3 (50), pp. 223–244, in Russian: Vasily Vasilyevich Kharitonov (1869–1937); the son of a peasant from Saratov province (pp. 225–226); graduated from the Kazan Theological Academy in 1894; inspector of the Vologda seminary from 1897 to 1901, then on Athos for the rest of his life; the prayer journal was written a few months before his death.
