@@ -2,7 +2,6 @@
 title: "Praying Scripture: How a Psalm Becomes Your Prayer and a Passage Your Answer"
 description: "To pray Scripture is to borrow a psalm’s words when you have none of your own, and to bring your question to the Bible by reading a whole passage rather than guessing from a random line. How to pray the Psalms, with the stories of Dietrich Bonhoeffer, Athanasius the Great, Augustine and Thomas Boston."
 date: 2026-10-19
-draft: true
 corpus_sources:
 - id: "bonhoeffer-time"
   kind: "retelling"
