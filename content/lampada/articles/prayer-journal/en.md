@@ -2,7 +2,6 @@
 title: "How to Keep a Prayer Journal: What to Write, Paper or App"
 description: "A prayer journal is a set of short notes on what you brought to God, what you asked for and what happened next. How to start one, what to write and how to read it back, with prompts and the stories of George Müller, Henry Martyn, Eugénie de Guérin, Barsanuphius of Optina and Theodosius of Karoulia."
 date: 2026-10-19
-draft: true
 corpus_sources:
 - id: "muller-ill"
   kind: "retelling"
