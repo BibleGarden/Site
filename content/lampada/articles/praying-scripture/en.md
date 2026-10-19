@@ -696,7 +696,7 @@ corpus_sources:
   source_url: "https://www.monergism.com/discourses-prayer-ebook"
 ---
 
-Berlin, May 1943. Dietrich Bonhoeffer, a Lutheran pastor, is being held in Tegel prison, awaiting trial. He could have sat out the war in safety: in 1939 he had gone to New York at the invitation of Union Theological Seminary. But after two weeks he went back to Germany, became involved with a circle working to overthrow Hitler, and in April 1943 he was arrested[^bonhoeffer].
+Berlin, May 1943. Dietrich Bonhoeffer, a Lutheran pastor, is being held in Tegel prison, awaiting trial. He could have sat out the war in safety: in 1939 he had been invited to teach in New York. But he went back to Germany, became involved with a circle working to overthrow Hitler, and in April 1943 he was arrested[^bonhoeffer].
 
 On May 15 he writes to his parents. His letters from prison would later be published as *Letters and Papers from Prison*. He tells them that he is working on a short study of how a prisoner awaiting trial experiences time[^corpus-bonhoeffer-time]. Someone who had been in the cell before him had scratched a line above the door[^corpus-bonhoeffer-door-who]: “in a hundred years it will all be over”[^corpus-bonhoeffer-door]. Then he quotes a psalm: “My days are in Your hand”[^corpus-bonhoeffer-hand] (Psalm 31:15). This, Bonhoeffer says, is Scripture’s answer “to the question that threatens to crowd out everything else here”[^corpus-bonhoeffer-answer]: “How long, O Lord?”[^corpus-bonhoeffer-howlong] (Psalm 13).
 
@@ -712,7 +712,7 @@ Then he goes through the Psalter, matching a psalm to each state of the soul. He
 
 And one more: “If persecution by your enemies drags on, do not lose heart as if the Lord had forgotten you, but call upon the Lord”[^corpus-athanasius-forgotten] with the words of the twelfth psalm[^athanasius-psalm-number], our Psalm 13. It is the same psalm that echoed in Bonhoeffer’s cell: “How long, O Lord? Will You forget me forever? How long will You hide Your face from me?” (Psalm 13:1)[^ps13]
 
-Matching a psalm to what is on your heart is not a new idea: the advice is more than sixteen centuries old. What matters in it is not the number of the psalm but the discovery that ancient words can be said about yourself.
+Matching a psalm to what is on your heart is not a new idea: the advice is more than sixteen centuries old. What matters is not the number of the psalm but discovering that you can make these ancient words your own.
 
 ## Take up and read
 
@@ -736,7 +736,7 @@ Boston followed his own advice. When a Dr. Trotter suggested that he print some 
 
 Then that same verse, 1 Samuel 2:30, “returned with a new light about it, appearing pat to my case”[^corpus-boston-pat]: suddenly it fit him exactly. Boston had looked at whom the words were spoken to: “I saw that promise particularly directed to priests in the exercise of their office”[^corpus-boston-priests]. And that is what he was: a minister wondering how to serve with his sermons. “It melted my heart, and I said I would believe it.”[^corpus-boston-melted]
 
-Notice what happened. At first the verse said nothing to him, and his ordinary reading helped but did not answer. The answer came when Boston saw to whom the words were addressed and what about. Even then he did not decide on the strength of one verse: he prayed for clear judgment and reread everything he had written down about the matter from the beginning, and the letters about it[^corpus-boston-reread]. What tipped the balance were words in one of those letters about perishing souls: for their sake, he dared not refuse the work[^corpus-boston-letter].
+Notice what happened. At first the verse said nothing to him, and his ordinary reading helped but did not answer. The answer came when Boston understood whom the words addressed and what they concerned. Even then he did not decide on the strength of one verse: he prayed for clear judgment and reread everything he had written down about the matter from the beginning, and the letters about it[^corpus-boston-reread]. What tipped the balance were words in one of those letters about perishing souls: for their sake, he dared not refuse the work[^corpus-boston-letter].
 
 ## How to pray Scripture
 
@@ -772,7 +772,7 @@ The one in which you recognize yourself. The letter of Athanasius has a whole li
 
 Choose a psalm or a passage about what is happening in your life and read it slowly, in the first person, speaking to God. Where the words match yours, stop and continue in your own. To learn how to start praying in your own words, read our article on [how to start praying](/articles/how-to-start-praying/).
 
-[^bonhoeffer]: [Dietrich Bonhoeffer](https://en.wikipedia.org/wiki/Dietrich_Bonhoeffer) on Wikipedia: Lutheran pastor and theologian; went to the United States in June 1939 at the invitation of Union Theological Seminary in New York and returned to Germany after only two weeks; from 1938 in contact with a group in the Abwehr, German military intelligence, seeking Hitler’s overthrow, and later joined the Abwehr himself; arrested on April 5, 1943, and held at Tegel Prison for a year and a half; later moved to the Gestapo headquarters on Prinz-Albrecht-Strasse; hanged at Flossenbürg concentration camp on April 9, 1945. His letters from prison were published after his death as *Letters and Papers from Prison*.
+[^bonhoeffer]: [Dietrich Bonhoeffer](https://en.wikipedia.org/wiki/Dietrich_Bonhoeffer) on Wikipedia: Lutheran pastor and theologian; in 1939 turned down an invitation to teach in New York and returned to Germany; from 1938 in contact with a group in the Abwehr, German military intelligence, seeking Hitler’s overthrow, and later joined the Abwehr himself; arrested on April 5, 1943, and held at Tegel Prison for a year and a half; later moved to the Gestapo headquarters on Prinz-Albrecht-Strasse; hanged at Flossenbürg concentration camp on April 9, 1945. His letters from prison were published after his death as *Letters and Papers from Prison*.
 [^athanasius]: [Athanasius of Alexandria](https://en.wikipedia.org/wiki/Athanasius_of_Alexandria) on Wikipedia: bishop of Alexandria from 328 to 373; spent more than 17 years in five exiles ordered by four Roman emperors.
 [^numbering]: [Psalms: Numbering](https://en.wikipedia.org/wiki/Psalms#Numbering) on Wikipedia: the numbering of the psalms differs, mostly by one, between the Hebrew text and the Greek Septuagint; Protestant translations follow the Hebrew numbering, and Eastern Orthodox translations follow the Greek. The Berean Standard Bible we quote uses the Hebrew numbering.
 [^athanasius-psalm-number]: The psalm number follows the [Russian translation of the *Letter to Marcellinus*](https://azbyka.ru/otechnik/Afanasij_Velikij/poslanie-k-markellinu-ob-istolkovanii-psalmov/) (in Russian), ch. 16, where the old man advises calling on the Lord with Psalm 12, that is, Psalm 13 in English Bibles. The German translation by J. Fisch (1875), from which we quote the letter, has the twenty-sixth psalm here (Psalm 27 in English Bibles); the old man names the twenty-sixth a little further on as well, for a different occasion.
