@@ -43,12 +43,17 @@ class CorpusAPI:
         self.base_url = base_url.rstrip("/") + "/api/v1/channels/lampada"
         self.key = key
 
-    def request(self, path, data=None):
+    def request(self, path, data=None, *, method=None):
         request = Request(self.base_url + path,
                           data=None if data is None else json.dumps(data).encode(),
+                          method=method,
                           headers={"X-API-Key": self.key, "Content-Type": "application/json"})
         try:
             with urlopen(request, timeout=60) as response:
+                if method == "DELETE":
+                    if response.status != 204:
+                        raise CheckError('Unexpected corpus DELETE status (expected 204)')
+                    return None
                 return self.validate_response(path, json.load(response))
         except HTTPError as exc:
             detail = "; corpus changed or needs reindexing; refresh evidence" if exc.code == 409 else ""
@@ -78,7 +83,27 @@ class CorpusAPI:
             text(value)
             fields(value, {'char_start': (int,), 'char_end': (int,)})
 
-        if path == '/search/chunks':
+        def usage(value):
+            fields(value, {'source': (str,), 'chunks': (list,)})
+            source = value['source']
+            if (len(source) > 255 or not re.fullmatch(r'[a-z][a-z0-9_-]*:[A-Za-z0-9_./-]+', source)
+                    or any(part in {'', '.', '..'} for part in source.split(':', 1)[1].split('/'))):
+                raise CheckError('Unexpected corpus usage source')
+            for chunk in value['chunks']:
+                fields(chunk, {'chunk_id': (str,), 'text_sha256': (str,), 'stale': (bool,)})
+                if not re.fullmatch(r'[a-f0-9]{64}', chunk['text_sha256']):
+                    raise CheckError('Unexpected corpus fragment hash')
+
+        if path == '/external-usage':
+            if not isinstance(response, list):
+                raise CheckError('Unexpected corpus response shape')
+            for entry in response:
+                usage(entry)
+            if len({entry['source'] for entry in response}) != len(response):
+                raise CheckError('Duplicate corpus usage sources')
+        elif path.startswith('/external-usage/'):
+            usage(response)
+        elif path == '/search/chunks':
             fields(response, {'chunks': (list,)})
             for chunk in response['chunks']:
                 span(chunk)
@@ -166,9 +191,13 @@ def validate_judge_workers(workers):
         raise CheckError("Judge workers must be a positive integer")
 
 
-def prepare_verification(item, api, judge, near=500, book_cache=None, *, judge_runs=DEFAULT_JUDGE_RUNS,
-                         judge_cache=None, executor, reviews):
-    validate_judge_runs(judge_runs)
+def verify_anchor(item, api, book_cache=None):
+    """Validate a canonical citation anchor and attribution, without context or LLM calls.
+
+    Return the current chunk and full book only after checking the saved book
+    hash, identity, metadata, chapter, containing range and canonical chunk slice.
+    Cache verified books by (book_id, text_sha256), as in the checker.
+    """
     hit_response = api.request("/search/chunks", {"ids": [item["chunk_id"]]})
     hits = hit_response["chunks"]
     if len(hits) != 1 or hits[0]["chunk_id"] != item["chunk_id"]:
@@ -204,6 +233,16 @@ def prepare_verification(item, api, judge, near=500, book_cache=None, *, judge_r
         raise CheckError("Chunk does not match canonical full text")
     if book_cache is not None:
         book_cache[cache_key] = book
+    return hit, book
+
+
+def prepare_verification(item, api, judge, near=500, book_cache=None, *, judge_runs=DEFAULT_JUDGE_RUNS,
+                         judge_cache=None, executor, reviews):
+    validate_judge_runs(judge_runs)
+    hit, book = verify_anchor(item, api, book_cache)
+    expected = item["text_sha256"]
+    text = book["text"]
+    start, end = item["char_start"], item["char_end"]
     # Neighbourhood is for the review report only, never matching/judging evidence.
     context = api.request("/search/context", {"book_id": item["book_id"], "char_start": start,
                           "char_end": end, "before": near, "after": near, "scope": "leaf"})
