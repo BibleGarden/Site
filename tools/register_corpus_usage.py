@@ -14,7 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from sitegen.content import _frontmatter, REQUIRED_ARTICLE_KEYS, OPTIONAL_ARTICLE_KEYS, SLUG_RE
 from sitegen.corpus import citations
 from sitegen.errors import BuildError
-from tools.check_corpus_citations import CheckError, CorpusAPI
+from tools.check_corpus_citations import CheckError, CorpusAPI, verify_anchor
 
 ARTICLES = Path(__file__).resolve().parents[1] / "content/lampada/articles"
 PREFIX = "site:lampada/articles/"
@@ -22,27 +22,11 @@ PREFIX = "site:lampada/articles/"
 
 def fragment_hash(item, api, books):
     """Prove the old book/range anchor before asserting a current fragment hash."""
-    book_id = item['book_id']
-    if book_id not in books:
-        books[book_id] = api.request(f'/books/{book_id}/text')
-    book = books[book_id]
-    text = book['text']
-    if (book['text_sha256'] != item['text_sha256']
-            or hashlib.sha256(text.encode('utf-8')).hexdigest() != item['text_sha256']):
-        raise CheckError('Article is stale: book text changed or is corrupt; reanchor required '
-                         '(tools/reanchor_corpus_sources.py)')
-    hits = api.request('/search/chunks', {'ids': [item['chunk_id']]})['chunks']
-    if len(hits) != 1 or hits[0]['chunk_id'] != item['chunk_id']:
-        raise CheckError('Chunk lookup did not return the requested chunk; reanchor required')
-    hit = hits[0]
-    if (book['book']['id'] != book_id or hit['book']['id'] != book_id
-            or hit['text_sha256'] != item['text_sha256']):
-        raise CheckError('Chunk/book identity or hash mismatch; reanchor required')
-    if not (0 <= hit['char_start'] <= item['char_start'] < item['char_end']
-            <= hit['char_end'] <= len(text)):
-        raise CheckError('Article is stale: citation range is outside current chunk; reanchor required')
-    if hit['text'] != text[hit['char_start']:hit['char_end']]:
-        raise CheckError('Chunk text does not match canonical book range')
+    try:
+        hit, _ = verify_anchor(item, api, books)
+    except CheckError as exc:
+        raise CheckError(f'Article anchor validation failed: {exc}; if stale, reanchor required '
+                         '(tools/reanchor_corpus_sources.py)') from exc
     result = hashlib.sha256(hit['text'].encode('utf-8')).hexdigest()
     if 'chunk_text_sha256' in hit and hit['chunk_text_sha256'] != result:
         raise CheckError('Chunk text hash does not match exact fragment text')

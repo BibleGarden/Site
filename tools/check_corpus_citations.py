@@ -191,9 +191,13 @@ def validate_judge_workers(workers):
         raise CheckError("Judge workers must be a positive integer")
 
 
-def prepare_verification(item, api, judge, near=500, book_cache=None, *, judge_runs=DEFAULT_JUDGE_RUNS,
-                         judge_cache=None, executor, reviews):
-    validate_judge_runs(judge_runs)
+def verify_anchor(item, api, book_cache=None):
+    """Validate a canonical citation anchor and attribution, without context or LLM calls.
+
+    Return the current chunk and full book only after checking the saved book
+    hash, identity, metadata, chapter, containing range and canonical chunk slice.
+    Cache verified books by (book_id, text_sha256), as in the checker.
+    """
     hit_response = api.request("/search/chunks", {"ids": [item["chunk_id"]]})
     hits = hit_response["chunks"]
     if len(hits) != 1 or hits[0]["chunk_id"] != item["chunk_id"]:
@@ -229,6 +233,16 @@ def prepare_verification(item, api, judge, near=500, book_cache=None, *, judge_r
         raise CheckError("Chunk does not match canonical full text")
     if book_cache is not None:
         book_cache[cache_key] = book
+    return hit, book
+
+
+def prepare_verification(item, api, judge, near=500, book_cache=None, *, judge_runs=DEFAULT_JUDGE_RUNS,
+                         judge_cache=None, executor, reviews):
+    validate_judge_runs(judge_runs)
+    hit, book = verify_anchor(item, api, book_cache)
+    expected = item["text_sha256"]
+    text = book["text"]
+    start, end = item["char_start"], item["char_end"]
     # Neighbourhood is for the review report only, never matching/judging evidence.
     context = api.request("/search/context", {"book_id": item["book_id"], "char_start": start,
                           "char_end": end, "before": near, "after": near, "scope": "leaf"})
