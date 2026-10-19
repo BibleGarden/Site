@@ -2,7 +2,6 @@
 title: "How to Do Lectio Divina: Reading Scripture Slowly as Prayer"
 description: "Lectio divina (“divine reading”) is a way of praying with Scripture: read a short passage slowly, stay with the word that catches you, consider what it is saying to you, answer God in your own words and rest with Him in silence. With the stories of Metropolitan Anthony of Sourozh, Guigo the Carthusian, Hannah Whitall Smith and Enzo Bianchi."
 date: 2026-10-19
-draft: true
 corpus_sources:
 - id: "antony-volley"
   kind: "retelling"
