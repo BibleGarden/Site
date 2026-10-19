@@ -1,0 +1,131 @@
+[
+  {
+    "query": "медленное молитвенное чтение Писания",
+    "limit": 10
+  },
+  {
+    "query": "читать Писание с молитвой медленно размышляя",
+    "limit": 10
+  },
+  {
+    "query": "чтение Священного Писания как молитва",
+    "limit": 10
+  },
+  {
+    "query": "lectio divina чтение размышление молитва созерцание",
+    "limit": 10
+  },
+  {
+    "query": "lectio divina ruminatio chewing the word",
+    "limit": 10
+  },
+  {
+    "query": "meditate on scripture slowly pray the word",
+    "limit": 10
+  },
+  {
+    "query": "how to pray with scripture verse by verse",
+    "limit": 10
+  },
+  {
+    "query": "пустынники повторяли один стих Писания молитвой",
+    "limit": 10
+  },
+  {
+    "query": "ruminer la Parole de Dieu méditation",
+    "limit": 10
+  },
+  {
+    "query": "lectio divina masticare la Parola pregare la Scrittura",
+    "limit": 10
+  },
+  {
+    "query": "rumiar la Palabra de Dios meditación lectio",
+    "limit": 10
+  },
+  {
+    "query": "Beten mit der Schrift langsam lesen nachsinnen",
+    "limit": 10
+  },
+  {
+    "query": "один стих Евангелия читать внимательно духовное чтение",
+    "limit": 10
+  },
+  {
+    "query": "сухость в молитве когда ничего не происходит чтение",
+    "limit": 10
+  },
+  {
+    "query": "не спешить в молитве медленно читать малую часть",
+    "limit": 10
+  },
+  {
+    "query": "meditation between reading scripture and prayer duty",
+    "limit": 10
+  },
+  {
+    "query": "reading a short passage and turning it into prayer",
+    "limit": 10
+  },
+  {
+    "query": "contemplation is a gift not a technique prayer",
+    "limit": 10
+  },
+  {
+    "query": "прочел Евангелие от Марка чтобы убедиться, почувствовал присутствие Христа",
+    "limit": 8
+  },
+  {
+    "query": "читайте Евангелие, отмечайте места, где сердце дрогнуло",
+    "limit": 8
+  },
+  {
+    "query": "reading the Bible slowly, one verse, it became God's word to me personally; читала Евангелие медленно",
+    "limit": 8
+  },
+  {
+    "query": "Blessed are the clean of heart for they shall see God grape chew",
+    "book_id": 65,
+    "limit": 6
+  },
+  {
+    "query": "Gervase brother letter ladder",
+    "book_id": 65,
+    "limit": 4
+  },
+  {
+    "query": "the Lord withdraws, comes and goes, the soul must not despair when sweetness is taken away",
+    "book_id": 65,
+    "limit": 3
+  },
+  {
+    "query": "созерцание не чувство восторг веры тишина после молитвы",
+    "book_id": 53,
+    "limit": 4
+  },
+  {
+    "query": "трудности сухость рассеянность при молитвенном чтении не понимаю текст молчит",
+    "book_id": 53,
+    "limit": 4
+  },
+  {
+    "query": "как читать Евангелие: отметить место, которое тронуло сердце, и жить по нему",
+    "book_id": 159,
+    "limit": 3
+  },
+  {
+    "query": "как читать Евангелие: отметить место, которое тронуло сердце, и жить по нему",
+    "book_id": 146,
+    "limit": 3
+  },
+  {
+    "query": "reading the Bible slowly, one verse, it became God's word to me personally",
+    "book_id": 239,
+    "limit": 3
+  },
+  {
+    "query": "Liebender Brief der Geliebten Wörterbuch übersetzen lesen",
+    "book_id": 316,
+    "limit": 4
+  }
+]
