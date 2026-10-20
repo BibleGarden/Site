@@ -20,7 +20,7 @@ corpus_sources:
   source_url: "https://bkv.unifr.ch/de/works/cpg-6036/versions/leben-der-vater-bkv/divisions"
 - id: "paul-only"
   kind: "retelling"
-  text: "One of them, Paul, takes on no work at all: his one occupation is unceasing prayer"
+  text: "One of them, Paul, is given over to unceasing prayer alone: he does no work, and he accepts only as much in alms as he needs to eat"
   original: null
   translation: null
   chunk_id: "book-168-0116"
@@ -63,6 +63,21 @@ corpus_sources:
   chapter: "20. Paulus von Pherme."
   translator: "R. Storf"
   source_url: "https://bkv.unifr.ch/de/works/cpg-6036/versions/leben-der-vater-bkv/divisions"
+- id: "paul-urged"
+  kind: "retelling"
+  text: "Only after much persuading does Paul say what is troubling him"
+  original: null
+  translation: null
+  chunk_id: "book-168-0116"
+  book_id: 168
+  char_start: 93459
+  char_end: 93507
+  text_sha256: "51012726e1059cfe4d1e664460ccadb2cb62dd68264bff318b920874a905c0ee"
+  author: "Палладий Еленопольский"
+  title: "Historia Lausiaca"
+  chapter: "20. Paulus von Pherme."
+  translator: "R. Storf"
+  source_url: "https://bkv.unifr.ch/de/works/cpg-6036/versions/leben-der-vater-bkv/divisions"
 - id: "paul-virgin"
   kind: "retelling"
   text: "in a certain village, a virgin has been living as an ascetic for thirty years"
@@ -80,7 +95,7 @@ corpus_sources:
   source_url: "https://bkv.unifr.ch/de/works/cpg-6036/versions/leben-der-vater-bkv/divisions"
 - id: "paul-seven"
   kind: "retelling"
-  text: "she eats only on Saturdays and Sundays and says seven hundred prayers a day"
+  text: "He has been told that she eats only on Saturdays and Sundays and says seven hundred prayers a day"
   original: null
   translation: null
   chunk_id: "book-168-0117"
@@ -140,7 +155,7 @@ corpus_sources:
   source_url: "https://predanie.ru/ilarion-alfeev-mitropolit/o-molitve-3/"
 - id: "men-rules"
   kind: "retelling"
-  text: "there is a short rule of morning and evening prayers meant for everyone, found in any prayer book. And for days of extreme fatigue or too little time there is the shortest of all, the rule of St. Seraphim of Sarov: the Lord’s Prayer three times, “Rejoice, O Virgin Theotokos” three times and the Creed once"
+  text: "In Orthodox practice, there is a short rule of morning and evening prayers meant for everyone, found in any prayer book. And for days of extreme fatigue or too little time there is the shortest of all, the rule of St. Seraphim of Sarov: the Lord’s Prayer three times, “Rejoice, O Virgin Theotokos” three times and the Creed once"
   original: null
   translation: null
   chunk_id: "book-266-0054"
@@ -184,14 +199,14 @@ corpus_sources:
   translator: null
   source_url: "https://predanie.ru/ilarion-alfeev-mitropolit/o-molitve-3/"
 - id: "ilarion-anyway"
-  kind: "retelling"
-  text: "No matter how tired he was, he had to get through them, and attention came second: even if he read them hastily, all that mattered was that the rule got read"
-  original: null
-  translation: null
+  kind: "quote"
+  text: "Whatever happens, even if you are very tired, you must read them. And even if you read them hastily and without attention, it doesn’t matter"
+  original: "Что бы ни случилось, даже если ты очень устал, ты обязан их прочитать. И если даже ты вычитаешь их поспешно и невнимательно — не важно"
+  translation: "ours"
   chunk_id: "book-207-0023"
   book_id: 207
   char_start: 18642
-  char_end: 18815
+  char_end: 18776
   text_sha256: "0b79cebd31c5614d1f28aeadb72874ae61f3878da128485724bbfc613fb1b404"
   author: "митр. Иларион (Алфеев)"
   title: "О молитве"
@@ -215,12 +230,42 @@ corpus_sources:
   source_url: "https://predanie.ru/ilarion-alfeev-mitropolit/o-molitve-3/"
 - id: "ilarion-extra"
   kind: "retelling"
-  text: "Before long, repeating the same texts every day left him cold. His soul was already well fed by the long services he attended daily, so the canons and the akathist on top of them came to feel pointless"
+  text: "Before long, repeating the same words day after day left him cold"
   original: null
   translation: null
   chunk_id: "book-207-0023"
   book_id: 207
   char_start: 18846
+  char_end: 18934
+  text_sha256: "0b79cebd31c5614d1f28aeadb72874ae61f3878da128485724bbfc613fb1b404"
+  author: "митр. Иларион (Алфеев)"
+  title: "О молитве"
+  chapter: "7. МОЛИТВЕННОЕ ПРАВИЛО"
+  translator: null
+  source_url: "https://predanie.ru/ilarion-alfeev-mitropolit/o-molitve-3/"
+- id: "ilarion-fed"
+  kind: "quote"
+  text: "fed me spiritually, filled me and gave me wings"
+  original: "духовно питали, насыщали, окрыляли"
+  translation: "ours"
+  chunk_id: "book-207-0023"
+  book_id: 207
+  char_start: 19014
+  char_end: 19048
+  text_sha256: "0b79cebd31c5614d1f28aeadb72874ae61f3878da128485724bbfc613fb1b404"
+  author: "митр. Иларион (Алфеев)"
+  title: "О молитве"
+  chapter: "7. МОЛИТВЕННОЕ ПРАВИЛО"
+  translator: null
+  source_url: "https://predanie.ru/ilarion-alfeev-mitropolit/o-molitve-3/"
+- id: "ilarion-weight"
+  kind: "retelling"
+  text: "Next to them, the three canons and the akathist came to feel like a needless extra load"
+  original: null
+  translation: null
+  chunk_id: "book-207-0023"
+  book_id: 207
+  char_start: 18935
   char_end: 19130
   text_sha256: "0b79cebd31c5614d1f28aeadb72874ae61f3878da128485724bbfc613fb1b404"
   author: "митр. Иларион (Алфеев)"
@@ -260,13 +305,28 @@ corpus_sources:
   source_url: "https://predanie.ru/ilarion-alfeev-mitropolit/o-molitve-3/"
 - id: "ilarion-choice"
   kind: "retelling"
-  text: "Whether you read all the prayers in that time or just one, or spend a whole evening on the Psalms, the Gospel or prayer in your own words, matters less"
+  text: "What you fill that time with matters less: you can read all the prayers or just one, or give a whole evening to the Gospel, the Psalms or prayer in your own words"
   original: null
   translation: null
   chunk_id: "book-207-0024"
   book_id: 207
   char_start: 19516
   char_end: 19697
+  text_sha256: "0b79cebd31c5614d1f28aeadb72874ae61f3878da128485724bbfc613fb1b404"
+  author: "митр. Иларион (Алфеев)"
+  title: "О молитве"
+  chapter: "7. МОЛИТВЕННОЕ ПРАВИЛО"
+  translator: null
+  source_url: "https://predanie.ru/ilarion-alfeev-mitropolit/o-molitve-3/"
+- id: "ilarion-suited"
+  kind: "quote"
+  text: "This advice suited me"
+  original: "Этот совет мне подошел"
+  translation: "ours"
+  chunk_id: "book-207-0024"
+  book_id: 207
+  char_start: 19827
+  char_end: 19849
   text_sha256: "0b79cebd31c5614d1f28aeadb72874ae61f3878da128485724bbfc613fb1b404"
   author: "митр. Иларион (Алфеев)"
   title: "О молитве"
@@ -290,7 +350,7 @@ corpus_sources:
   source_url: "https://predanie.ru/ilarion-alfeev-mitropolit/o-molitve-3/"
 - id: "ilarion-five"
   kind: "retelling"
-  text: "in his view, even five minutes in the morning and evening may be enough for them, as long as they pray with attention and their life matches their prayer"
+  text: "About lay people he writes with care: in his view, even five minutes in the morning and evening may be enough for them, as long as they pray with attention and their life matches their prayer"
   original: null
   translation: null
   chunk_id: "book-207-0024"
@@ -318,9 +378,24 @@ corpus_sources:
   chapter: "Письма 201–300 — 231"
   translator: null
   source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
+- id: "macarius-calm"
+  kind: "retelling"
+  text: "At Optina she had found peace and comfort"
+  original: null
+  translation: null
+  chunk_id: "book-90-0747"
+  book_id: 90
+  char_start: 582528
+  char_end: 582605
+  text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
+  author: "прп. Макарий Оптинский"
+  title: "Собрание писем… к мирским особам"
+  chapter: "Письма 201–300 — 231"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
 - id: "macarius-sorrows"
   kind: "retelling"
-  text: "As soon as she arrived, troubles were waiting for her: she had defended her husband against accusations heatedly, and not without anger"
+  text: "But at home troubles were waiting for her: she had defended her husband against accusations heatedly, and not without anger"
   original: null
   translation: null
   chunk_id: "book-90-0749"
@@ -333,9 +408,24 @@ corpus_sources:
   chapter: "Письма 201–300 — 231"
   translator: null
   source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
+- id: "macarius-scattered"
+  kind: "retelling"
+  text: "and at prayer she could not gather her scattering thoughts"
+  original: null
+  translation: null
+  chunk_id: "book-90-0749"
+  book_id: 90
+  char_start: 584199
+  char_end: 584283
+  text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
+  author: "прп. Макарий Оптинский"
+  title: "Собрание писем… к мирским особам"
+  chapter: "Письма 201–300 — 231"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
 - id: "macarius-ask"
   kind: "retelling"
-  text: "The letter says that praying at home is hard and takes effort, and asks him to assign prayers to read every day"
+  text: "to assign her prayers for every day"
   original: null
   translation: null
   chunk_id: "book-90-0750"
@@ -363,6 +453,51 @@ corpus_sources:
   chapter: "Письма 201–300 — 231"
   translator: null
   source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
+- id: "macarius-gift"
+  kind: "retelling"
+  text: "The peace she had found at the monastery, he answered, had been given to her by the Lord"
+  original: null
+  translation: null
+  chunk_id: "book-90-0747"
+  book_id: 90
+  char_start: 582528
+  char_end: 582669
+  text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
+  author: "прп. Макарий Оптинский"
+  title: "Собрание писем… к мирским особам"
+  chapter: "Письма 201–300 — 231"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
+- id: "macarius-life"
+  kind: "quote"
+  text: "but in the course of life and in dealings with people one cannot always remain in such a state of spirit"
+  original: "но на поприще жизни и в сообращении с людьми нельзя пребыть всегда в таком состоянии духа"
+  translation: "ours"
+  chunk_id: "book-90-0747"
+  book_id: 90
+  char_start: 582670
+  char_end: 582759
+  text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
+  author: "прп. Макарий Оптинский"
+  title: "Собрание писем… к мирским особам"
+  chapter: "Письма 201–300 — 231"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
+- id: "macarius-perfect"
+  kind: "quote"
+  text: "to pray without distraction is the work of the perfect"
+  original: "молиться без развлечения – есть дело совершенных"
+  translation: "ours"
+  chunk_id: "book-90-0749"
+  book_id: 90
+  char_start: 584285
+  char_end: 584333
+  text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
+  author: "прп. Макарий Оптинский"
+  title: "Собрание писем… к мирским особам"
+  chapter: "Письма 201–300 — 231"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
 - id: "macarius-unknown"
   kind: "quote"
   text: "Not knowing your home situation, your occupations and your strength, I cannot say precisely"
@@ -380,7 +515,7 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
 - id: "macarius-offer"
   kind: "retelling"
-  text: "Only then did he suggest a set of prayers, “if it suits you”: the morning and evening prayers, the canons to the Mother of God and to the Guardian Angel, akathists on Saturdays and Sundays, and on Sundays also a chapter each from the Epistles and the Gospel"
+  text: "And then, “if it suits you,” he suggested: the morning and evening prayers and, when there was time, a kathisma, one of the sections of the Psalter, or at least part of one; the canons to the Mother of God and to the Guardian Angel; akathists on Saturdays and Sundays; and on Sundays also a chapter each from the Epistles and the Gospel"
   original: null
   translation: null
   chunk_id: "book-90-0751"
@@ -423,9 +558,24 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: "https://archive.org/details/spiritualking00kinguoft"
+- id: "macarius-pharisee"
+  kind: "quote"
+  text: "not thinking, ‘I am doing well,’ as the Pharisee thought"
+  original: "не думая, что „я хорошо делаю“, как думал фарисей"
+  translation: "ours"
+  chunk_id: "book-90-0751"
+  book_id: 90
+  char_start: 585364
+  char_end: 585413
+  text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
+  author: "прп. Макарий Оптинский"
+  title: "Собрание писем… к мирским особам"
+  chapter: "Письма 201–300 — 231"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
 - id: "men-collected"
   kind: "retelling"
-  text: "Alexander Men compiled his *Practical Guide to Prayer* almost entirely from the writings of Christian teachers of East and West"
+  text: "The Russian Orthodox priest Alexander Men compiled his *Practical Guide to Prayer* almost entirely from the writings of Christian teachers of East and West"
   original: null
   translation: null
   chunk_id: "book-266-0050"
@@ -440,7 +590,7 @@ corpus_sources:
   source_url: "https://predanie.ru/men-aleksandr-protoierey/prakticheskoe-rukovodstvo-k-molitve/"
 - id: "men-time"
   kind: "retelling"
-  text: "teachers of prayer advise saying the evening prayers in a free moment before supper or even earlier, because late at night fatigue gets in the way of focus; the morning prayers are best said before you start on anything else, or, if all else fails, on your way out the door"
+  text: "say the morning prayers before you start on anything else, or, if that doesn’t work out, at least on your way out the door. Don’t put off the evening prayers until late at night, when fatigue no longer lets you focus: it is better to say them before supper or even earlier"
   original: null
   translation: null
   chunk_id: "book-266-0059"
@@ -455,7 +605,7 @@ corpus_sources:
   source_url: "https://predanie.ru/men-aleksandr-protoierey/prakticheskoe-rukovodstvo-k-molitve/"
 - id: "nikon-kozelsk"
   kind: "retelling"
-  text: "In 1944 he became rector of the Church of the Annunciation in Kozelsk, and those who knew him then remembered how incredibly emaciated he was"
+  text: "In 1944 he became rector of the Church of the Annunciation in Kozelsk and lodged with some nuns, and those who knew him then remembered how incredibly emaciated he was"
   original: null
   translation: null
   chunk_id: "book-119-0049"
@@ -498,6 +648,21 @@ corpus_sources:
   chapter: "Я искренне всегда стремился к Богу. Биография игумена Никона (Воробьева)"
   translator: null
   source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
+- id: "nikon-nuns"
+  kind: "quote"
+  text: "From the outside the nuns saw it; they are a curious lot"
+  original: "С внешней стороны это видели матушки, – они народ любопытный"
+  translation: "ours"
+  chunk_id: "book-119-0051"
+  book_id: 119
+  char_start: 46917
+  char_end: 46977
+  text_sha256: "61d2b7103c54b3791e672c69fecb8e41508413301a4a50ea2f721728eba9a2be"
+  author: "игум. Никон (Воробьёв)"
+  title: "Нам оставлено покаяние"
+  chapter: "Я искренне всегда стремился к Богу. Биография игумена Никона (Воробьева)"
+  translator: null
+  source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
 - id: "nikon-saw"
   kind: "quote"
   text: "But the Lord saw that I was doing the devil’s work, not God’s"
@@ -513,15 +678,45 @@ corpus_sources:
   chapter: "Я искренне всегда стремился к Богу. Биография игумена Никона (Воробьева)"
   translator: null
   source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
-- id: "nikon-ban"
+- id: "nikon-quarrel"
   kind: "retelling"
-  text: "A conflict broke out with Father Raphael, and Nikon was suspended from serving, then reinstated"
+  text: "There was another pastor in Kozelsk, Father Raphael, a former Optina monk who had spent twenty-one years in the camps, a kind and prayerful man. The two of them fell out, and Nikon was suspended from serving for a time"
   original: null
   translation: null
+  chunk_id: "book-119-0050"
+  book_id: 119
+  char_start: 45665
+  char_end: 46070
+  text_sha256: "61d2b7103c54b3791e672c69fecb8e41508413301a4a50ea2f721728eba9a2be"
+  author: "игум. Никон (Воробьёв)"
+  title: "Нам оставлено покаяние"
+  chapter: "Я искренне всегда стремился к Богу. Биография игумена Никона (Воробьева)"
+  translator: null
+  source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
+- id: "nikon-expelled"
+  kind: "quote"
+  text: "And far from being rewarded somehow, I was thrown out of the priesthood"
+  original: "И меня не то что как-нибудь наградили, а из священства выгнали"
+  translation: "ours"
   chunk_id: "book-119-0051"
   book_id: 119
-  char_start: 47038
-  char_end: 47279
+  char_start: 47085
+  char_end: 47147
+  text_sha256: "61d2b7103c54b3791e672c69fecb8e41508413301a4a50ea2f721728eba9a2be"
+  author: "игум. Никон (Воробьёв)"
+  title: "Нам оставлено покаяние"
+  chapter: "Я искренне всегда стремился к Богу. Биография игумена Никона (Воробьева)"
+  translator: null
+  source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
+- id: "nikon-feat"
+  kind: "quote"
+  text: "for some good deed, for my ascetic feat"
+  original: "за какое-нибудь доброделание, за подвиг свой"
+  translation: "ours"
+  chunk_id: "book-119-0051"
+  book_id: 119
+  char_start: 47318
+  char_end: 47362
   text_sha256: "61d2b7103c54b3791e672c69fecb8e41508413301a4a50ea2f721728eba9a2be"
   author: "игум. Никон (Воробьёв)"
   title: "Нам оставлено покаяние"
@@ -543,15 +738,30 @@ corpus_sources:
   chapter: "Я искренне всегда стремился к Богу. Биография игумена Никона (Воробьева)"
   translator: null
   source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
+- id: "nikon-attention"
+  kind: "quote"
+  text: "though I’m no longer young, nearly 55, I make a hundred prostrations in the evening, a hundred in the morning, and with attention!"
+  original: "хоть не молодой уже, скоро 55 лет, делаю сто поклонов вечером, сто поклонов утром – со вниманием!"
+  translation: "ours"
+  chunk_id: "book-119-0052"
+  book_id: 119
+  char_start: 47539
+  char_end: 47636
+  text_sha256: "61d2b7103c54b3791e672c69fecb8e41508413301a4a50ea2f721728eba9a2be"
+  author: "игум. Никон (Воробьёв)"
+  title: "Нам оставлено покаяние"
+  chapter: "Я искренне всегда стремился к Богу. Биография игумена Никона (Воробьева)"
+  translator: null
+  source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
 - id: "nikon-peace"
   kind: "retelling"
-  text: "Later he and Father Raphael were reconciled through letters"
+  text: "Later the suspension was lifted. Nikon also made peace with Father Raphael, by letter, and in his letter he took the blame on himself and repented"
   original: null
   translation: null
   chunk_id: "book-119-0050"
   book_id: 119
-  char_start: 46071
-  char_end: 46146
+  char_start: 46051
+  char_end: 46194
   text_sha256: "61d2b7103c54b3791e672c69fecb8e41508413301a4a50ea2f721728eba9a2be"
   author: "игум. Никон (Воробьёв)"
   title: "Нам оставлено покаяние"
@@ -575,7 +785,7 @@ corpus_sources:
   source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
 - id: "chantal-fervour"
   kind: "retelling"
-  text: "wrote to him that his great fervour had brought him to the very state she had always feared"
+  text: "what she had always feared had happened: his great fervour had worn him down"
   original: null
   translation: null
   chunk_id: "book-280-0332"
@@ -588,9 +798,39 @@ corpus_sources:
   chapter: "XCV. To M. Noël Brulart, the Commander de Sillery.[A]"
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/50592"
+- id: "chantal-coward"
+  kind: "retelling"
+  text: "But what troubled him was something else: was he indulging himself, giving in to faintheartedness?"
+  original: null
+  translation: null
+  chunk_id: "book-280-0332"
+  book_id: 280
+  char_start: 261807
+  char_end: 261926
+  text_sha256: "9c1b0d9b93f4bf6da84c45da8a00fe12a829145d79fca205efac6c252c6e383f"
+  author: "св. Иоанна Франциска де Шанталь"
+  title: "Lettres (избранное)"
+  chapter: "XCV. To M. Noël Brulart, the Commander de Sillery.[A]"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/50592"
+- id: "chantal-fears"
+  kind: "retelling"
+  text: "Chantal begged him, for God’s sake, to let go of such thoughts: all his worry that he was doing too little pleased God far less than a humble willingness to accept rest for body and soul"
+  original: null
+  translation: null
+  chunk_id: "book-280-0332"
+  book_id: 280
+  char_start: 261927
+  char_end: 262184
+  text_sha256: "9c1b0d9b93f4bf6da84c45da8a00fe12a829145d79fca205efac6c252c6e383f"
+  author: "св. Иоанна Франциска де Шанталь"
+  title: "Lettres (избранное)"
+  chapter: "XCV. To M. Noël Brulart, the Commander de Sillery.[A]"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/50592"
 - id: "chantal-heart"
   kind: "retelling"
-  text: "She reminded him that God asks only for his heart, not for great feats that strain his strength"
+  text: "God asks only for his heart, not for great feats that strain his strength"
   original: null
   translation: null
   chunk_id: "book-280-0332"
@@ -603,9 +843,39 @@ corpus_sources:
   chapter: "XCV. To M. Noël Brulart, the Commander de Sillery.[A]"
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/50592"
+- id: "chantal-delicate"
+  kind: "retelling"
+  text: "There is no point in wringing from the body what even God does not demand: it was God who gave him his frail health, and He wants it looked after"
+  original: null
+  translation: null
+  chunk_id: "book-280-0333"
+  book_id: 280
+  char_start: 262528
+  char_end: 262684
+  text_sha256: "9c1b0d9b93f4bf6da84c45da8a00fe12a829145d79fca205efac6c252c6e383f"
+  author: "св. Иоанна Франциска де Шанталь"
+  title: "Lettres (избранное)"
+  chapter: "XCV. To M. Noël Brulart, the Commander de Sillery.[A]"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/50592"
+- id: "chantal-rest"
+  kind: "retelling"
+  text: "For now God expects from him not strenuous effort of mind and will but rest; it is enough now and then, without any strain, to turn to Him with love and acceptance of His will"
+  original: null
+  translation: null
+  chunk_id: "book-280-0333"
+  book_id: 280
+  char_start: 262685
+  char_end: 262997
+  text_sha256: "9c1b0d9b93f4bf6da84c45da8a00fe12a829145d79fca205efac6c252c6e383f"
+  author: "св. Иоанна Франциска де Шанталь"
+  title: "Lettres (избранное)"
+  chapter: "XCV. To M. Noël Brulart, the Commander de Sillery.[A]"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/50592"
 - id: "chantal-hour"
   kind: "retelling"
-  text: "Of the four or five hours he spent on his knees each day, she suggested keeping one, split into four short parts: in the morning after getting up, before Mass and after it, and in the evening to look back over the day. She also told him to rest and eat well to get his strength back"
+  text: "And of the four or five hours he spent on his knees each day, one would be enough: a quarter of an hour after getting up, a quarter before Mass, a quarter after it and a short quarter in the evening to look back over the day. She also told him to rest and eat well to get his strength back"
   original: null
   translation: null
   chunk_id: "book-280-0334"
@@ -620,7 +890,7 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/50592"
 - id: "macarius-question"
   kind: "retelling"
-  text: "what if you start the rule but are too tired to finish it, or someone calls you away: may you mark the place and finish later?"
+  text: "Another lay correspondent asked him something very practical: what if you start the rule but are too tired to finish it, or someone calls you away: may you mark the place and finish later?"
   original: null
   translation: null
   chunk_id: "book-90-0818"
@@ -665,12 +935,42 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
 - id: "macarius-forty"
   kind: "retelling"
-  text: "He did not back the promise that a forty-day prayer, with its prayers and prostrations counted out, guarantees what you ask for"
+  text: "She also asked about a forty-day prayer, with its prayers and prostrations counted out: she had been told that after it you were sure to receive what you asked for"
   original: null
   translation: null
   chunk_id: "book-90-0818"
   book_id: 90
   char_start: 644108
+  char_end: 644525
+  text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
+  author: "прп. Макарий Оптинский"
+  title: "Собрание писем… к мирским особам"
+  chapter: "Письма 201–300 — 243"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
+- id: "macarius-fathers"
+  kind: "quote"
+  text: "never happened to read of this anywhere in the rules and instructions of the Fathers"
+  original: "нигде не случалось читать в отеческих правилах и наставлениях"
+  translation: "ours"
+  chunk_id: "book-90-0818"
+  book_id: 90
+  char_start: 644265
+  char_end: 644326
+  text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
+  author: "прп. Макарий Оптинский"
+  title: "Собрание писем… к мирским особам"
+  chapter: "Письма 201–300 — 243"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
+- id: "macarius-unsafe"
+  kind: "retelling"
+  text: "and he did not dare to claim anything on his own authority; to follow such advice without the support of Scripture or the Fathers was not safe"
+  original: null
+  translation: null
+  chunk_id: "book-90-0818"
+  book_id: 90
+  char_start: 644328
   char_end: 644525
   text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
   author: "прп. Макарий Оптинский"
@@ -696,7 +996,7 @@ corpus_sources:
 - id: "men-keep"
   kind: "quote"
   text: "To drop the ‘rule’ altogether is dangerous"
-  original: "Совсем опускать «правило» опасно"
+  original: "Совсем опускать „правило“ опасно"
   translation: "ours"
   chunk_id: "book-266-0054"
   book_id: 266
@@ -755,7 +1055,7 @@ corpus_sources:
   source_url: "https://ccel.org/ccel/taylor/holy_living/holy_living"
 - id: "men-slavonic"
   kind: "retelling"
-  text: "work out what the prayers mean beforehand, using a ready translation or making your own, rather than leaving them unclear"
+  text: "work out what the prayers mean before you pray, using a ready translation or putting them into your own words"
   original: null
   translation: null
   chunk_id: "book-266-0056"
@@ -800,28 +1100,13 @@ corpus_sources:
   source_url: "https://bkv.unifr.ch/de/works/cpg-6036/versions/leben-der-vater-bkv/divisions"
 - id: "men-short-faq"
   kind: "retelling"
-  text: "a short rule of morning and evening prayers can be found in any prayer book"
+  text: "In the Orthodox tradition, a short rule of morning and evening prayers can be found in any prayer book"
   original: null
   translation: null
   chunk_id: "book-266-0054"
   book_id: 266
   char_start: 44028
   char_end: 44495
-  text_sha256: "dcb052c02493ce5a6b2324978ba331d6b7efb336c772d111eeeb366024b23e10"
-  author: "прот. Александр Мень"
-  title: "Практическое руководство к молитве"
-  chapter: "Практическое руководство к молитве — I. Молитва и молитвословие — 1. Молитвословие"
-  translator: null
-  source_url: "https://predanie.ru/men-aleksandr-protoierey/prakticheskoe-rukovodstvo-k-molitve/"
-- id: "men-seraphim-faq"
-  kind: "retelling"
-  text: "On days of extreme fatigue or too little time, you can pray the rule of St. Seraphim of Sarov: the Lord’s Prayer three times, “Rejoice, O Virgin Theotokos” three times and the Creed once"
-  original: null
-  translation: null
-  chunk_id: "book-266-0054"
-  book_id: 266
-  char_start: 44513
-  char_end: 44732
   text_sha256: "dcb052c02493ce5a6b2324978ba331d6b7efb336c772d111eeeb366024b23e10"
   author: "прот. Александр Мень"
   title: "Практическое руководство к молитве"
@@ -858,11 +1143,26 @@ corpus_sources:
   chapter: "Письма игумена Никона (Воробьева) к духовным чадам — Письмо 268"
   translator: null
   source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
+- id: "men-seraphim-faq"
+  kind: "retelling"
+  text: "On days of extreme fatigue or too little time, you can pray the rule of St. Seraphim of Sarov: the Lord’s Prayer three times, “Rejoice, O Virgin Theotokos” three times and the Creed once"
+  original: null
+  translation: null
+  chunk_id: "book-266-0054"
+  book_id: 266
+  char_start: 44513
+  char_end: 44732
+  text_sha256: "dcb052c02493ce5a6b2324978ba331d6b7efb336c772d111eeeb366024b23e10"
+  author: "прот. Александр Мень"
+  title: "Практическое руководство к молитве"
+  chapter: "Практическое руководство к молитве — I. Молитва и молитвословие — 1. Молитвословие"
+  translator: null
+  source_url: "https://predanie.ru/men-aleksandr-protoierey/prakticheskoe-rukovodstvo-k-molitve/"
 ---
 
-Egypt, the fourth century. In the hills of Pherme, on the edge of the desert of Scetis, some five hundred ascetics live[^corpus-paul-pherme]. One of them, Paul, takes on no work at all: his one occupation is unceasing prayer[^corpus-paul-only]. “He had three hundred set prayers; every day he gathered exactly that many pebbles, kept them in his belt and threw one away at each prayer”[^corpus-paul-stones]. One day he goes to see the elder Macarius, known as the City-Dweller, and confesses: “Father, I am in great distress”[^corpus-paul-trouble].
+Egypt, the fourth century. In the hills of Pherme, on the edge of the desert of Scetis, some five hundred ascetics live[^corpus-paul-pherme]. One of them, Paul, is given over to unceasing prayer alone: he does no work, and he accepts only as much in alms as he needs to eat[^corpus-paul-only]. “He had three hundred set prayers; every day he gathered exactly that many pebbles, kept them in his belt and threw one away at each prayer”[^corpus-paul-stones]. One day he goes to see the elder Macarius, known as the City-Dweller, and confesses: “Father, I am in great distress”[^corpus-paul-trouble].
 
-Here is the trouble: in a certain village, a virgin has been living as an ascetic for thirty years[^corpus-paul-virgin]; she eats only on Saturdays and Sundays and says seven hundred prayers a day[^corpus-paul-seven]. “That is why I have been reproaching myself, because I can’t manage more than three hundred”[^corpus-paul-reproach].
+Only after much persuading does Paul say what is troubling him[^corpus-paul-urged]: in a certain village, a virgin has been living as an ascetic for thirty years[^corpus-paul-virgin]. He has been told that she eats only on Saturdays and Sundays and says seven hundred prayers a day[^corpus-paul-seven]. “That is why I have been reproaching myself, because I can’t manage more than three hundred”[^corpus-paul-reproach].
 
 Palladius, who had lived among the Egyptian monks himself, wrote this story down in his *Lausiac History* around 420[^palladius]. We’ll come back to Macarius’s answer at the end.
 
@@ -884,11 +1184,11 @@ Praying morning and evening is an ancient rhythm. The psalmist wrote: “Morning
 
 ## The rule that didn’t fit
 
-In his book *On Prayer*, Hilarion Alfeyev recalls that after taking monastic vows at the age of twenty, he asked an experienced spiritual father what his rule of prayer should be[^corpus-ilarion-asked], and was told: “You must read the morning and evening prayers, three canons and one akathist every day”[^corpus-ilarion-rule]. No matter how tired he was, he had to get through them, and attention came second: even if he read them hastily, all that mattered was that the rule got read[^corpus-ilarion-anyway].
+In his book *On Prayer*, Hilarion Alfeyev recalls that after taking monastic vows at the age of twenty, he asked an experienced spiritual father what his rule of prayer should be[^corpus-ilarion-asked], and was told: “You must read the morning and evening prayers, three canons and one akathist every day”[^corpus-ilarion-rule]. And then: “Whatever happens, even if you are very tired, you must read them. And even if you read them hastily and without attention, it doesn’t matter”[^corpus-ilarion-anyway].
 
-“I tried. It didn’t work”[^corpus-ilarion-tried], he writes. Before long, repeating the same texts every day left him cold. His soul was already well fed by the long services he attended daily, so the canons and the akathist on top of them came to feel pointless[^corpus-ilarion-extra].
+“I tried. It didn’t work”[^corpus-ilarion-tried], he writes. Before long, repeating the same words day after day left him cold[^corpus-ilarion-extra]. Besides, he spent hours at church services, which, he says, “fed me spiritually, filled me and gave me wings”[^corpus-ilarion-fed]. Next to them, the three canons and the akathist came to feel like a needless extra load[^corpus-ilarion-weight].
 
-Then Hilarion found different advice from Theophan the Recluse, whom we wrote about in our article on [praying in your own words](/articles/how-to-start-praying/): to measure a rule “not by the number of prayers but by the time we are ready to give to God”[^corpus-ilarion-time]. For example, half an hour in the morning and in the evening, but given wholly to God[^corpus-ilarion-halfhour]. Whether you read all the prayers in that time or just one, or spend a whole evening on the Psalms, the Gospel or prayer in your own words, matters less[^corpus-ilarion-choice].
+Then Hilarion found different advice from Theophan the Recluse, whom we wrote about in our article on [praying in your own words](/articles/how-to-start-praying/): to measure a rule “not by the number of prayers but by the time we are ready to give to God”[^corpus-ilarion-time]. For example, half an hour in the morning and in the evening, but given wholly to God[^corpus-ilarion-halfhour]. What you fill that time with matters less: you can read all the prayers or just one, or give a whole evening to the Gospel, the Psalms or prayer in your own words[^corpus-ilarion-choice]. “This advice suited me”[^corpus-ilarion-suited], Hilarion writes.
 
 He doesn’t present his way as the only one: “I don’t rule out, however, that others will find the advice my spiritual father gave me more suitable”[^corpus-ilarion-others]. About lay people he writes with care: in his view, even five minutes in the morning and evening may be enough for them, as long as they pray with attention and their life matches their prayer[^corpus-ilarion-five].
 
@@ -896,33 +1196,39 @@ He doesn’t present his way as the only one: “I don’t rule out, however, th
 
 Long before that, the same question, how much to pray, was put to Macarius, an elder of the Optina Monastery in Russia. He spent a quarter of a century there, guiding the monks and thousands of visitors together with the elder Leo, and with Ivan Kireyevsky he published translations of the Church Fathers[^macarius].
 
-Once a married couple visited him at the monastery, and after returning home the wife wrote the elder a letter[^corpus-macarius-visit]. As soon as she arrived, troubles were waiting for her: she had defended her husband against accusations heatedly, and not without anger[^corpus-macarius-sorrows]. The letter says that praying at home is hard and takes effort, and asks him to assign prayers to read every day[^corpus-macarius-ask]. Macarius was so weak that he could not write himself and dictated his reply to a brother[^corpus-macarius-dictate]. To her request he gave an honest answer: “Not knowing your home situation, your occupations and your strength, I cannot say precisely”[^corpus-macarius-unknown]. Only then did he suggest a set of prayers, “if it suits you”: the morning and evening prayers, the canons to the Mother of God and to the Guardian Angel, akathists on Saturdays and Sundays, and on Sundays also a chapter each from the Epistles and the Gospel[^corpus-macarius-offer]. That was the measure for one nineteenth-century woman, not a norm for everyone.
+Once a married couple visited him at the monastery, and after returning home the wife wrote the elder a letter[^corpus-macarius-visit]. At Optina she had found peace and comfort[^corpus-macarius-calm]. But at home troubles were waiting for her: she had defended her husband against accusations heatedly, and not without anger[^corpus-macarius-sorrows], and at prayer she could not gather her scattering thoughts[^corpus-macarius-scattered]. So she asked the elder to assign her prayers for every day[^corpus-macarius-ask].
+
+Macarius was so weak that he could not write himself and dictated his reply to a brother[^corpus-macarius-dictate]. The peace she had found at the monastery, he answered, had been given to her by the Lord[^corpus-macarius-gift], “but in the course of life and in dealings with people one cannot always remain in such a state of spirit”[^corpus-macarius-life]. And about her wandering thoughts he wrote: “to pray without distraction is the work of the perfect”[^corpus-macarius-perfect]. Only then did he turn to her request, with an honest caveat: “Not knowing your home situation, your occupations and your strength, I cannot say precisely”[^corpus-macarius-unknown]. And then, “if it suits you,” he suggested: the morning and evening prayers and, when there was time, a kathisma, one of the sections of the Psalter, or at least part of one; the canons to the Mother of God and to the Guardian Angel; akathists on Saturdays and Sundays; and on Sundays also a chapter each from the Epistles and the Gospel[^corpus-macarius-offer]. All of this she was to do humbly, “not thinking, ‘I am doing well,’ as the Pharisee thought”[^corpus-macarius-pharisee]. That was the measure for one nineteenth-century woman, not a norm for everyone.
 
 An Anglican bishop gave similar advice. Edward King, later Bishop of Lincoln[^king], wrote to a lady in 1874 that in a life in the world one can expect to bring under rule only the outward framework of the day: sleep, meals, work and prayer[^corpus-king-rule], “so as to have an average of regularity”[^corpus-king-average].
 
-The Russian Orthodox priest Alexander Men compiled his *Practical Guide to Prayer* almost entirely from the writings of Christian teachers of East and West[^corpus-men-collected]. One of their tips is very down-to-earth: teachers of prayer advise saying the evening prayers in a free moment before supper or even earlier, because late at night fatigue gets in the way of focus; the morning prayers are best said before you start on anything else, or, if all else fails, on your way out the door[^corpus-men-time].
+The Russian Orthodox priest Alexander Men compiled his *Practical Guide to Prayer* almost entirely from the writings of Christian teachers of East and West[^corpus-men-collected]. One of their tips is very down-to-earth: say the morning prayers before you start on anything else, or, if that doesn’t work out, at least on your way out the door. Don’t put off the evening prayers until late at night, when fatigue no longer lets you focus: it is better to say them before supper or even earlier[^corpus-men-time].
 
 ## When you want to do more
 
-There is an opposite trap: piling on more. Abbot Nikon (Vorobyov) knew real hardship: in 1933 he was arrested and sent to the Siberian camps[^nikon]. In 1944 he became rector of the Church of the Annunciation in Kozelsk, and those who knew him then remembered how incredibly emaciated he was[^corpus-nikon-kozelsk].
+There is another trap: piling on more and more. Abbot Nikon (Vorobyov) knew real hardship: in 1933 he was arrested and sent to the Siberian camps[^nikon]. In 1944 he became rector of the Church of the Annunciation in Kozelsk and lodged with some nuns, and those who knew him then remembered how incredibly emaciated he was[^corpus-nikon-kozelsk].
 
-Later he told the story himself: “And the better I thought I was serving, the more a high opinion of myself grew somewhere deep inside”[^corpus-nikon-opinion]. After his evening prayers he began making a hundred prostrations with the Jesus Prayer, sometimes until two in the morning, and he got up around four to make another hundred before the service[^corpus-nikon-bows]. “But the Lord saw that I was doing the devil’s work, not God’s”[^corpus-nikon-saw]. A conflict broke out with Father Raphael, and Nikon was suspended from serving, then reinstated[^corpus-nikon-ban]. Yet in Nikon’s own words, “the Lord let me understand that this was the work of demons, that it was vanity, a high opinion of myself”[^corpus-nikon-vanity]. Later he and Father Raphael were reconciled through letters[^corpus-nikon-peace].
+Later Nikon told how something else grew along with his zeal in serving: “And the better I thought I was serving, the more a high opinion of myself grew somewhere deep inside”[^corpus-nikon-opinion]. After his evening prayers he began making a hundred prostrations with the Jesus Prayer, sometimes until two in the morning, and he got up around four to make another hundred before the service[^corpus-nikon-bows]. “From the outside the nuns saw it; they are a curious lot”[^corpus-nikon-nuns], he recalled. “But the Lord saw that I was doing the devil’s work, not God’s”[^corpus-nikon-saw].
 
-The prostrations themselves are not the point: Nikon is talking about the high opinion of himself that grew alongside them. Years later he advised a spiritual daughter: “Set yourself a small rule, one within reach of your circumstances and strength”[^corpus-nikon-small].
+There was another pastor in Kozelsk, Father Raphael, a former Optina monk who had spent twenty-one years in the camps, a kind and prayerful man. The two of them fell out, and Nikon was suspended from serving for a time[^corpus-nikon-quarrel]. “And far from being rewarded somehow, I was thrown out of the priesthood”[^corpus-nikon-expelled], he said later. One might think he had suffered “for some good deed, for my ascetic feat”[^corpus-nikon-feat]. But in Nikon’s own words, “the Lord let me understand that this was the work of demons, that it was vanity, a high opinion of myself”[^corpus-nikon-vanity]. That opinion went like this: “though I’m no longer young, nearly 55, I make a hundred prostrations in the evening, a hundred in the morning, and with attention!”[^corpus-nikon-attention] Later the suspension was lifted. Nikon also made peace with Father Raphael, by letter, and in his letter he took the blame on himself and repented[^corpus-nikon-peace].
 
-Three centuries earlier, a similar letter reached Noël de Sillery, a Knight of Malta and former ambassador who renounced the world and became a priest in 1634[^sillery]. The Catholic nun Jane Frances de Chantal wrote to him that his great fervour had brought him to the very state she had always feared[^corpus-chantal-fervour]. She reminded him that God asks only for his heart, not for great feats that strain his strength[^corpus-chantal-heart]. Of the four or five hours he spent on his knees each day, she suggested keeping one, split into four short parts: in the morning after getting up, before Mass and after it, and in the evening to look back over the day. She also told him to rest and eat well to get his strength back[^corpus-chantal-hour].
+The prostrations themselves are not the point: Nikon is talking about the vanity that grew along with his zeal. Years later he advised a spiritual daughter: “Set yourself a small rule, one within reach of your circumstances and strength”[^corpus-nikon-small].
+
+Three centuries earlier, a similar letter reached Noël de Sillery, a Knight of Malta and former ambassador who renounced the world and became a priest in 1634[^sillery]. The Catholic nun Jane Frances de Chantal wrote to him that what she had always feared had happened: his great fervour had worn him down[^corpus-chantal-fervour]. But what troubled him was something else: was he indulging himself, giving in to faintheartedness?[^corpus-chantal-coward] Just like Paul with his three hundred prayers.
+
+Chantal begged him, for God’s sake, to let go of such thoughts: all his worry that he was doing too little pleased God far less than a humble willingness to accept rest for body and soul[^corpus-chantal-fears]. God asks only for his heart, not for great feats that strain his strength[^corpus-chantal-heart]. There is no point in wringing from the body what even God does not demand: it was God who gave him his frail health, and He wants it looked after[^corpus-chantal-delicate]. For now God expects from him not strenuous effort of mind and will but rest; it is enough now and then, without any strain, to turn to Him with love and acceptance of His will[^corpus-chantal-rest]. And of the four or five hours he spent on his knees each day, one would be enough: a quarter of an hour after getting up, a quarter before Mass, a quarter after it and a short quarter in the evening to look back over the day. She also told him to rest and eat well to get his strength back[^corpus-chantal-hour].
 
 ## When your rule isn’t working
 
-Another lay correspondent asked Macarius something very practical: what if you start the rule but are too tired to finish it, or someone calls you away: may you mark the place and finish later?[^corpus-macarius-question] He replied: “You may do that, or you may leave it, making up for what is lacking with humility, without being troubled that you did not complete it for some reason”[^corpus-macarius-interrupt].
+To the woman who had come home from Optina, Macarius added at the end of his letter: “if you fail to do something because of some obstacle, or even out of laziness, do not be troubled in the least, do not despond and do not lose heart”[^corpus-macarius-lazy].
 
-And to the woman who had come home from Optina he wrote: “if you fail to do something because of some obstacle, or even out of laziness, do not be troubled in the least, do not despond and do not lose heart”[^corpus-macarius-lazy]. He did not back the promise that a forty-day prayer, with its prayers and prostrations counted out, guarantees what you ask for[^corpus-macarius-forty]: the Lord told us to ask, “but He did not set a number of prayers for each matter”[^corpus-macarius-number].
+Another lay correspondent asked him something very practical: what if you start the rule but are too tired to finish it, or someone calls you away: may you mark the place and finish later?[^corpus-macarius-question] He replied: “You may do that, or you may leave it, making up for what is lacking with humility, without being troubled that you did not complete it for some reason”[^corpus-macarius-interrupt]. She also asked about a forty-day prayer, with its prayers and prostrations counted out: she had been told that after it you were sure to receive what you asked for[^corpus-macarius-forty]. Macarius admitted that he had “never happened to read of this anywhere in the rules and instructions of the Fathers”[^corpus-macarius-fathers], and he did not dare to claim anything on his own authority; to follow such advice without the support of Scripture or the Fathers was not safe[^corpus-macarius-unsafe]. The Lord told us to ask, “but He did not set a number of prayers for each matter”[^corpus-macarius-number].
 
 Alexander Men warned against the other extreme: “To drop the ‘rule’ altogether is dangerous”[^corpus-men-keep]. Tiredness and distraction, though, are in his view no reason to be troubled[^corpus-men-calm].
 
 The seventeenth-century Anglican writer Jeremy Taylor[^taylor] took a stricter view: an hour a day was not too much to give God[^corpus-taylor-hour]. Yet he divided his prayers into short portions so that readers could choose which to use[^corpus-taylor-portions].
 
-If the words have worn thin, you can do what Hilarion did: sometimes give the time of your rule to the Psalms, the Gospel or [your own words](/articles/how-to-start-praying/). Men had Church Slavonic in mind, but his advice works just as well for the old English of “thee” and “thou”: work out what the prayers mean beforehand, using a ready translation or making your own, rather than leaving them unclear[^corpus-men-slavonic].
+If the words have worn thin, you can do what Hilarion did: sometimes give the time of your rule to the Psalms, the Gospel or [your own words](/articles/how-to-start-praying/). Men had Church Slavonic in mind, but his advice works just as well for the old English of “thee” and “thou”: work out what the prayers mean before you pray, using a ready translation or putting them into your own words[^corpus-men-slavonic].
 
 A rule exists for the sake of the person. Christ said of the Sabbath: “The Sabbath was made for man, not man for the Sabbath” (Mark 2:27)[^mk2].
 
@@ -941,7 +1247,7 @@ Reminders can be set by day of the week and by hour: several times a day, and di
 
 On the home screen you’ll see a small flame and seven dots for the past week, one for each day you prayed. There is no streak counter that resets after a missed day: a missed day is simply an empty dot. Keep in mind that the dots only count prayers in the app, so a rule you pray from your book won’t light them up. Lampada has no counter for prayers or prostrations either.
 
-So what did Macarius say to Paul? “For sixty years I have said a hundred prayers every day; at the same time I earn my living with my own hands and give the brothers as much time as they need. And yet the thought that I am negligent never once occurs to me”[^corpus-paul-macarius]. And he added: “But if your conscience reproaches you even though you say three hundred prayers, it follows that you are not praying with devotion, or that you could pray more than you actually do”[^corpus-paul-answer]. What matters is not how much someone else prays, but whether you pray with attention and whether your rule fits your strength.
+So what did the Egyptian elder Macarius say to Paul? “For sixty years I have said a hundred prayers every day; at the same time I earn my living with my own hands and give the brothers as much time as they need. And yet the thought that I am negligent never once occurs to me”[^corpus-paul-macarius]. And he added: “But if your conscience reproaches you even though you say three hundred prayers, it follows that you are not praying with devotion, or that you could pray more than you actually do”[^corpus-paul-answer]. What matters is not how much someone else prays, but whether you pray with attention and whether your rule fits your strength.
 
 ## Frequently asked questions {#faq}
 

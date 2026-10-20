@@ -20,7 +20,7 @@ corpus_sources:
   source_url: "https://bkv.unifr.ch/de/works/cpg-6036/versions/leben-der-vater-bkv/divisions"
 - id: "paul-only"
   kind: "retelling"
-  text: "Один із них, Павло, не береться ні до якої праці: його єдине заняття — безперестанна молитва"
+  text: "Один із них, Павло, цілком відданий безперестанній молитві: працею себе не обтяжує, а милостині бере рівно стільки, щоб мати що їсти"
   original: null
   translation: null
   chunk_id: "book-168-0116"
@@ -63,6 +63,21 @@ corpus_sources:
   chapter: "20. Paulus von Pherme."
   translator: "R. Storf"
   source_url: "https://bkv.unifr.ch/de/works/cpg-6036/versions/leben-der-vater-bkv/divisions"
+- id: "paul-urged"
+  kind: "retelling"
+  text: "Що його тривожить, Павло розповів лише після довгих умовлянь"
+  original: null
+  translation: null
+  chunk_id: "book-168-0116"
+  book_id: 168
+  char_start: 93459
+  char_end: 93507
+  text_sha256: "51012726e1059cfe4d1e664460ccadb2cb62dd68264bff318b920874a905c0ee"
+  author: "Палладий Еленопольский"
+  title: "Historia Lausiaca"
+  chapter: "20. Paulus von Pherme."
+  translator: "R. Storf"
+  source_url: "https://bkv.unifr.ch/de/works/cpg-6036/versions/leben-der-vater-bkv/divisions"
 - id: "paul-virgin"
   kind: "retelling"
   text: "в одному селі діва вже тридцять років живе як подвижниця"
@@ -80,7 +95,7 @@ corpus_sources:
   source_url: "https://bkv.unifr.ch/de/works/cpg-6036/versions/leben-der-vater-bkv/divisions"
 - id: "paul-seven"
   kind: "retelling"
-  text: "їсть лише в суботу й неділю і щодня читає сімсот молитов"
+  text: "Йому розповіли, що вона їсть лише в суботу й неділю і щодня читає сімсот молитов"
   original: null
   translation: null
   chunk_id: "book-168-0117"
@@ -184,14 +199,14 @@ corpus_sources:
   translator: null
   source_url: "https://predanie.ru/ilarion-alfeev-mitropolit/o-molitve-3/"
 - id: "ilarion-anyway"
-  kind: "retelling"
-  text: "Пропускати не можна було за жодної втоми, а увага вважалася другорядною: нехай поспіхом, аби лише все прочитано"
-  original: null
-  translation: null
+  kind: "quote"
+  text: "Хоч би що сталося, навіть якщо ти дуже втомився, ти мусиш їх прочитати. І навіть якщо ти вичитаєш їх поспіхом і неуважно — не важливо"
+  original: "Что бы ни случилось, даже если ты очень устал, ты обязан их прочитать. И если даже ты вычитаешь их поспешно и невнимательно — не важно"
+  translation: "ours"
   chunk_id: "book-207-0023"
   book_id: 207
   char_start: 18642
-  char_end: 18815
+  char_end: 18776
   text_sha256: "0b79cebd31c5614d1f28aeadb72874ae61f3878da128485724bbfc613fb1b404"
   author: "митр. Иларион (Алфеев)"
   title: "О молитве"
@@ -215,12 +230,42 @@ corpus_sources:
   source_url: "https://predanie.ru/ilarion-alfeev-mitropolit/o-molitve-3/"
 - id: "ilarion-extra"
   kind: "retelling"
-  text: "Незабаром щоденне повторення тих самих текстів йому приїлося. Душа й так отримувала поживу на довгих щоденних службах, тож канони з акафістом понад них стали видаватися зайвими"
+  text: "Слова, які він повторював день у день, швидко приїлися"
   original: null
   translation: null
   chunk_id: "book-207-0023"
   book_id: 207
   char_start: 18846
+  char_end: 18934
+  text_sha256: "0b79cebd31c5614d1f28aeadb72874ae61f3878da128485724bbfc613fb1b404"
+  author: "митр. Иларион (Алфеев)"
+  title: "О молитве"
+  chapter: "7. МОЛИТВЕННОЕ ПРАВИЛО"
+  translator: null
+  source_url: "https://predanie.ru/ilarion-alfeev-mitropolit/o-molitve-3/"
+- id: "ilarion-fed"
+  kind: "quote"
+  text: "духовно живили, насичували, окрилювали"
+  original: "духовно питали, насыщали, окрыляли"
+  translation: "ours"
+  chunk_id: "book-207-0023"
+  book_id: 207
+  char_start: 19014
+  char_end: 19048
+  text_sha256: "0b79cebd31c5614d1f28aeadb72874ae61f3878da128485724bbfc613fb1b404"
+  author: "митр. Иларион (Алфеев)"
+  title: "О молитве"
+  chapter: "7. МОЛИТВЕННОЕ ПРАВИЛО"
+  translator: null
+  source_url: "https://predanie.ru/ilarion-alfeev-mitropolit/o-molitve-3/"
+- id: "ilarion-weight"
+  kind: "retelling"
+  text: "На цьому тлі три канони й акафіст стали здаватися йому зайвим, непотрібним додатком"
+  original: null
+  translation: null
+  chunk_id: "book-207-0023"
+  book_id: 207
+  char_start: 18935
   char_end: 19130
   text_sha256: "0b79cebd31c5614d1f28aeadb72874ae61f3878da128485724bbfc613fb1b404"
   author: "митр. Иларион (Алфеев)"
@@ -260,13 +305,28 @@ corpus_sources:
   source_url: "https://predanie.ru/ilarion-alfeev-mitropolit/o-molitve-3/"
 - id: "ilarion-choice"
   kind: "retelling"
-  text: "А заповнити цей час можна по-різному: прочитати всі молитви або лише одну, інколи провести вечір над Псалтирем чи Євангелієм або молитися власними словами, — суть не в цьому"
+  text: "А чим заповнити цей час, не так важливо: можна прочитати всі молитви, можна одну, а можна віддати цілий вечір Євангелію, Псалтирю чи власній молитві"
   original: null
   translation: null
   chunk_id: "book-207-0024"
   book_id: 207
   char_start: 19516
   char_end: 19697
+  text_sha256: "0b79cebd31c5614d1f28aeadb72874ae61f3878da128485724bbfc613fb1b404"
+  author: "митр. Иларион (Алфеев)"
+  title: "О молитве"
+  chapter: "7. МОЛИТВЕННОЕ ПРАВИЛО"
+  translator: null
+  source_url: "https://predanie.ru/ilarion-alfeev-mitropolit/o-molitve-3/"
+- id: "ilarion-suited"
+  kind: "quote"
+  text: "Ця порада мені підійшла"
+  original: "Этот совет мне подошел"
+  translation: "ours"
+  chunk_id: "book-207-0024"
+  book_id: 207
+  char_start: 19827
+  char_end: 19849
   text_sha256: "0b79cebd31c5614d1f28aeadb72874ae61f3878da128485724bbfc613fb1b404"
   author: "митр. Иларион (Алфеев)"
   title: "О молитве"
@@ -290,7 +350,7 @@ corpus_sources:
   source_url: "https://predanie.ru/ilarion-alfeev-mitropolit/o-molitve-3/"
 - id: "ilarion-five"
   kind: "retelling"
-  text: "на його думку, їм може вистачити й п’яти хвилин уранці та ввечері — якщо молитися уважно й жити відповідно до молитви"
+  text: "А про мирян пише обережно: на його думку, їм може вистачити й п’яти хвилин уранці та ввечері — якщо молитися уважно й жити відповідно до молитви"
   original: null
   translation: null
   chunk_id: "book-207-0024"
@@ -318,9 +378,24 @@ corpus_sources:
   chapter: "Письма 201–300 — 231"
   translator: null
   source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
+- id: "macarius-calm"
+  kind: "retelling"
+  text: "В Оптиній вона знайшла спокій і розраду"
+  original: null
+  translation: null
+  chunk_id: "book-90-0747"
+  book_id: 90
+  char_start: 582528
+  char_end: 582605
+  text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
+  author: "прп. Макарий Оптинский"
+  title: "Собрание писем… к мирским особам"
+  chapter: "Письма 201–300 — 231"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
 - id: "macarius-sorrows"
   kind: "retelling"
-  text: "Щойно вона приїхала, її зустріли скорботи: вона гаряче, не без гніву, захищала чоловіка від звинувачень"
+  text: "А вдома її зустріли скорботи: вона гаряче, не без гніву, захищала чоловіка від звинувачень"
   original: null
   translation: null
   chunk_id: "book-90-0749"
@@ -333,9 +408,24 @@ corpus_sources:
   chapter: "Письма 201–300 — 231"
   translator: null
   source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
+- id: "macarius-scattered"
+  kind: "retelling"
+  text: "а на молитві не могла зібрати думок, що розбігалися"
+  original: null
+  translation: null
+  chunk_id: "book-90-0749"
+  book_id: 90
+  char_start: 584199
+  char_end: 584283
+  text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
+  author: "прп. Макарий Оптинский"
+  title: "Собрание писем… к мирским особам"
+  chapter: "Письма 201–300 — 231"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
 - id: "macarius-ask"
   kind: "retelling"
-  text: "У листі сказано, що молитися вдома важко, доводиться себе примушувати, і є прохання призначити молитви на кожен день"
+  text: "призначити молитви на кожен день"
   original: null
   translation: null
   chunk_id: "book-90-0750"
@@ -363,6 +453,51 @@ corpus_sources:
   chapter: "Письма 201–300 — 231"
   translator: null
   source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
+- id: "macarius-gift"
+  kind: "retelling"
+  text: "спокій, знайдений в обителі, дав їй Господь"
+  original: null
+  translation: null
+  chunk_id: "book-90-0747"
+  book_id: 90
+  char_start: 582528
+  char_end: 582669
+  text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
+  author: "прп. Макарий Оптинский"
+  title: "Собрание писем… к мирским особам"
+  chapter: "Письма 201–300 — 231"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
+- id: "macarius-life"
+  kind: "quote"
+  text: "але на життєвій ниві й у спілкуванні з людьми неможливо завжди перебувати в такому стані духу"
+  original: "но на поприще жизни и в сообращении с людьми нельзя пребыть всегда в таком состоянии духа"
+  translation: "ours"
+  chunk_id: "book-90-0747"
+  book_id: 90
+  char_start: 582670
+  char_end: 582759
+  text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
+  author: "прп. Макарий Оптинский"
+  title: "Собрание писем… к мирским особам"
+  chapter: "Письма 201–300 — 231"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
+- id: "macarius-perfect"
+  kind: "quote"
+  text: "молитися без розсіяності — це справа досконалих"
+  original: "молиться без развлечения – есть дело совершенных"
+  translation: "ours"
+  chunk_id: "book-90-0749"
+  book_id: 90
+  char_start: 584285
+  char_end: 584333
+  text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
+  author: "прп. Макарий Оптинский"
+  title: "Собрание писем… к мирским особам"
+  chapter: "Письма 201–300 — 231"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
 - id: "macarius-unknown"
   kind: "quote"
   text: "Не знаючи ваших домашніх стосунків, занять і сил, не можу точно сказати"
@@ -380,7 +515,7 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
 - id: "macarius-offer"
   kind: "retelling"
-  text: "І лише потім запропонував набір, «якщо вам зручно»: ранкові й вечірні молитви, канони Богородиці й Ангелові-охоронцеві, у суботу й неділю — акафісти, а в неділю ще по розділу з Апостола і Євангелія"
+  text: "А тоді, «якщо вам зручно», запропонував: ранкові й вечірні молитви, а коли вистачить часу — ще кафизму, тобто розділ Псалтиря, або хоча б її частину; канони Богородиці й Ангелові-охоронцеві; у суботу й неділю — акафісти, а в неділю ще по розділу з Апостола і Євангелія"
   original: null
   translation: null
   chunk_id: "book-90-0751"
@@ -393,9 +528,24 @@ corpus_sources:
   chapter: "Письма 201–300 — 231"
   translator: null
   source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
+- id: "macarius-pharisee"
+  kind: "quote"
+  text: "не думаючи, що „я добре роблю“, як думав фарисей"
+  original: "не думая, что „я хорошо делаю“, как думал фарисей"
+  translation: "ours"
+  chunk_id: "book-90-0751"
+  book_id: 90
+  char_start: 585364
+  char_end: 585413
+  text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
+  author: "прп. Макарий Оптинский"
+  title: "Собрание писем… к мирским особам"
+  chapter: "Письма 201–300 — 231"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
 - id: "men-collected"
   kind: "retelling"
-  text: "Олександр Мень уклав свій «Практичний посібник з молитви» майже цілком із творів християнських учителів Сходу й Заходу"
+  text: "Священник Олександр Мень уклав свій «Практичний посібник з молитви» майже цілком із творів християнських учителів Сходу й Заходу"
   original: null
   translation: null
   chunk_id: "book-266-0050"
@@ -410,7 +560,7 @@ corpus_sources:
   source_url: "https://predanie.ru/men-aleksandr-protoierey/prakticheskoe-rukovodstvo-k-molitve/"
 - id: "men-time"
   kind: "retelling"
-  text: "ранкові молитви краще читати до всіх справ, а в крайньому разі — дорогою з дому; вечірні — до вечері або й раніше, бо пізно ввечері через утому важко зосередитися"
+  text: "ранкові молитви — перш ніж братися до будь-яких справ, а як не вийшло, то хоч дорогою з дому. З вечірніми не варто тягнути до ночі, коли втома вже не дає зосередитися: краще прочитати їх до вечері або й раніше"
   original: null
   translation: null
   chunk_id: "book-266-0059"
@@ -425,7 +575,7 @@ corpus_sources:
   source_url: "https://predanie.ru/men-aleksandr-protoierey/prakticheskoe-rukovodstvo-k-molitve/"
 - id: "nikon-kozelsk"
   kind: "retelling"
-  text: "1944 року він став настоятелем Благовіщенської церкви в Козельську, і ті, хто знав його тоді, згадували, що він був неймовірно виснажений"
+  text: "1944 року він став настоятелем Благовіщенської церкви в Козельську, жив на квартирі в черниць, і ті, хто знав його тоді, згадували, що він був неймовірно виснажений"
   original: null
   translation: null
   chunk_id: "book-119-0049"
@@ -468,6 +618,21 @@ corpus_sources:
   chapter: "Я искренне всегда стремился к Богу. Биография игумена Никона (Воробьева)"
   translator: null
   source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
+- id: "nikon-nuns"
+  kind: "quote"
+  text: "Ззовні це бачили черниці, — вони народ допитливий"
+  original: "С внешней стороны это видели матушки, – они народ любопытный"
+  translation: "ours"
+  chunk_id: "book-119-0051"
+  book_id: 119
+  char_start: 46917
+  char_end: 46977
+  text_sha256: "61d2b7103c54b3791e672c69fecb8e41508413301a4a50ea2f721728eba9a2be"
+  author: "игум. Никон (Воробьёв)"
+  title: "Нам оставлено покаяние"
+  chapter: "Я искренне всегда стремился к Богу. Биография игумена Никона (Воробьева)"
+  translator: null
+  source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
 - id: "nikon-saw"
   kind: "quote"
   text: "А Господь бачив, що я диявольську справу роблю, а не Божу"
@@ -483,15 +648,45 @@ corpus_sources:
   chapter: "Я искренне всегда стремился к Богу. Биография игумена Никона (Воробьева)"
   translator: null
   source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
-- id: "nikon-ban"
+- id: "nikon-quarrel"
   kind: "retelling"
-  text: "Виник конфлікт з отцем Рафаїлом, і Никону заборонили служити, а потім відновили"
+  text: "Був у Козельську й інший пастир — отець Рафаїл, колишній оптинський чернець, який провів у таборах двадцять один рік, людина добра й молитовна. Між ними сталася сварка, і Никонові на якийсь час заборонили служити"
   original: null
   translation: null
+  chunk_id: "book-119-0050"
+  book_id: 119
+  char_start: 45665
+  char_end: 46070
+  text_sha256: "61d2b7103c54b3791e672c69fecb8e41508413301a4a50ea2f721728eba9a2be"
+  author: "игум. Никон (Воробьёв)"
+  title: "Нам оставлено покаяние"
+  chapter: "Я искренне всегда стремился к Богу. Биография игумена Никона (Воробьева)"
+  translator: null
+  source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
+- id: "nikon-expelled"
+  kind: "quote"
+  text: "І мене не те що якось нагородили, а зі священства вигнали"
+  original: "И меня не то что как-нибудь наградили, а из священства выгнали"
+  translation: "ours"
   chunk_id: "book-119-0051"
   book_id: 119
-  char_start: 47038
-  char_end: 47279
+  char_start: 47085
+  char_end: 47147
+  text_sha256: "61d2b7103c54b3791e672c69fecb8e41508413301a4a50ea2f721728eba9a2be"
+  author: "игум. Никон (Воробьёв)"
+  title: "Нам оставлено покаяние"
+  chapter: "Я искренне всегда стремился к Богу. Биография игумена Никона (Воробьева)"
+  translator: null
+  source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
+- id: "nikon-feat"
+  kind: "quote"
+  text: "за якесь добродіяння, за свій подвиг"
+  original: "за какое-нибудь доброделание, за подвиг свой"
+  translation: "ours"
+  chunk_id: "book-119-0051"
+  book_id: 119
+  char_start: 47318
+  char_end: 47362
   text_sha256: "61d2b7103c54b3791e672c69fecb8e41508413301a4a50ea2f721728eba9a2be"
   author: "игум. Никон (Воробьёв)"
   title: "Нам оставлено покаяние"
@@ -513,15 +708,30 @@ corpus_sources:
   chapter: "Я искренне всегда стремился к Богу. Биография игумена Никона (Воробьева)"
   translator: null
   source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
+- id: "nikon-attention"
+  kind: "quote"
+  text: "хоч уже й не молодий, скоро 55 років, роблю сто поклонів увечері, сто поклонів уранці — з увагою!"
+  original: "хоть не молодой уже, скоро 55 лет, делаю сто поклонов вечером, сто поклонов утром – со вниманием!"
+  translation: "ours"
+  chunk_id: "book-119-0052"
+  book_id: 119
+  char_start: 47539
+  char_end: 47636
+  text_sha256: "61d2b7103c54b3791e672c69fecb8e41508413301a4a50ea2f721728eba9a2be"
+  author: "игум. Никон (Воробьёв)"
+  title: "Нам оставлено покаяние"
+  chapter: "Я искренне всегда стремился к Богу. Биография игумена Никона (Воробьева)"
+  translator: null
+  source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
 - id: "nikon-peace"
   kind: "retelling"
-  text: "Згодом вони з отцем Рафаїлом помирилися — через листи"
+  text: "Згодом заборону зняли. Помирився Никон і з отцем Рафаїлом — листовно, і в своєму листі він брав провину на себе й каявся"
   original: null
   translation: null
   chunk_id: "book-119-0050"
   book_id: 119
-  char_start: 46071
-  char_end: 46146
+  char_start: 46051
+  char_end: 46194
   text_sha256: "61d2b7103c54b3791e672c69fecb8e41508413301a4a50ea2f721728eba9a2be"
   author: "игум. Никон (Воробьёв)"
   title: "Нам оставлено покаяние"
@@ -545,7 +755,7 @@ corpus_sources:
   source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
 - id: "chantal-fervour"
   kind: "retelling"
-  text: "писала йому, що велика ревність довела його саме до того стану, якого вона завжди боялася"
+  text: "сталося те, чого вона завжди боялася, — його підкосила велика ревність"
   original: null
   translation: null
   chunk_id: "book-280-0332"
@@ -558,9 +768,39 @@ corpus_sources:
   chapter: "XCV. To M. Noël Brulart, the Commander de Sillery.[A]"
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/50592"
+- id: "chantal-coward"
+  kind: "retelling"
+  text: "Але його самого тривожило інше: чи не потурає він собі, чи не дає волі малодушності"
+  original: null
+  translation: null
+  chunk_id: "book-280-0332"
+  book_id: 280
+  char_start: 261807
+  char_end: 261926
+  text_sha256: "9c1b0d9b93f4bf6da84c45da8a00fe12a829145d79fca205efac6c252c6e383f"
+  author: "св. Иоанна Франциска де Шанталь"
+  title: "Lettres (избранное)"
+  chapter: "XCV. To M. Noël Brulart, the Commander de Sillery.[A]"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/50592"
+- id: "chantal-fears"
+  kind: "retelling"
+  text: "Шанталь просила його заради Бога облишити такі думки: усі ці тривоги, що він робить мало, Богові куди менш до вподоби, ніж смиренна згода прийняти відпочинок для тіла й душі"
+  original: null
+  translation: null
+  chunk_id: "book-280-0332"
+  book_id: 280
+  char_start: 261927
+  char_end: 262184
+  text_sha256: "9c1b0d9b93f4bf6da84c45da8a00fe12a829145d79fca205efac6c252c6e383f"
+  author: "св. Иоанна Франциска де Шанталь"
+  title: "Lettres (избранное)"
+  chapter: "XCV. To M. Noël Brulart, the Commander de Sillery.[A]"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/50592"
 - id: "chantal-heart"
   kind: "retelling"
-  text: "Вона нагадала, що Богові потрібне тільки його серце, а не великі подвиги понад силу"
+  text: "Богові потрібне тільки його серце, а не великі подвиги понад силу"
   original: null
   translation: null
   chunk_id: "book-280-0332"
@@ -573,9 +813,39 @@ corpus_sources:
   chapter: "XCV. To M. Noël Brulart, the Commander de Sillery.[A]"
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/50592"
+- id: "chantal-delicate"
+  kind: "retelling"
+  text: "Не варто вичавлювати з тіла те, чого не вимагає навіть Бог: це Він дав йому слабке здоров’я і хоче, щоб його берегли"
+  original: null
+  translation: null
+  chunk_id: "book-280-0333"
+  book_id: 280
+  char_start: 262528
+  char_end: 262684
+  text_sha256: "9c1b0d9b93f4bf6da84c45da8a00fe12a829145d79fca205efac6c252c6e383f"
+  author: "св. Иоанна Франциска де Шанталь"
+  title: "Lettres (избранное)"
+  chapter: "XCV. To M. Noël Brulart, the Commander de Sillery.[A]"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/50592"
+- id: "chantal-rest"
+  kind: "retelling"
+  text: "Зараз Бог чекає від нього не напруженої праці розуму й волі, а спокою; досить і того, щоб інколи, без жодного зусилля, звернутися до Нього з любов’ю і згодою на Його волю"
+  original: null
+  translation: null
+  chunk_id: "book-280-0333"
+  book_id: 280
+  char_start: 262685
+  char_end: 262997
+  text_sha256: "9c1b0d9b93f4bf6da84c45da8a00fe12a829145d79fca205efac6c252c6e383f"
+  author: "св. Иоанна Франциска де Шанталь"
+  title: "Lettres (избранное)"
+  chapter: "XCV. To M. Noël Brulart, the Commander de Sillery.[A]"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/50592"
 - id: "chantal-hour"
   kind: "retelling"
-  text: "Із чотирьох-п’яти годин, які він щодня проводив на колінах, вона запропонувала залишити одну, поділену на чотири короткі частини: уранці після того, як устав, перед месою і після неї, увечері — щоб переглянути день. А ще — відпочивати й добре їсти, щоб повернути сили"
+  text: "А з чотирьох-п’яти годин, які він щодня проводив на колінах, вистачить однієї: чверть години після того, як устав, чверть перед месою, чверть після неї і коротка чверть увечері, щоб переглянути день. А ще — відпочивати й добре їсти, щоб повернути сили"
   original: null
   translation: null
   chunk_id: "book-280-0334"
@@ -590,7 +860,7 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/50592"
 - id: "macarius-question"
   kind: "retelling"
-  text: "правило розпочате, а сил дочитати немає або хтось кличе; чи можна позначити місце й повернутися пізніше?"
+  text: "Інша мирянка питала його про цілком життєве: правило розпочате, а сил дочитати немає або хтось кличе; чи можна позначити місце й повернутися пізніше?"
   original: null
   translation: null
   chunk_id: "book-90-0818"
@@ -635,12 +905,42 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
 - id: "macarius-forty"
   kind: "retelling"
-  text: "Обіцянку, ніби сорокаденна молитва з підрахунком молитов і поклонів гарантує те, чого просиш, він не підтримав"
+  text: "Питала вона й про сорокаденну молитву з підрахунком молитов і поклонів: їй сказали, ніби після неї неодмінно отримаєш те, чого просиш"
   original: null
   translation: null
   chunk_id: "book-90-0818"
   book_id: 90
   char_start: 644108
+  char_end: 644525
+  text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
+  author: "прп. Макарий Оптинский"
+  title: "Собрание писем… к мирским особам"
+  chapter: "Письма 201–300 — 243"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
+- id: "macarius-fathers"
+  kind: "quote"
+  text: "ніде не траплялося читати в отцівських правилах і настановах"
+  original: "нигде не случалось читать в отеческих правилах и наставлениях"
+  translation: "ours"
+  chunk_id: "book-90-0818"
+  book_id: 90
+  char_start: 644265
+  char_end: 644326
+  text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
+  author: "прп. Макарий Оптинский"
+  title: "Собрание писем… к мирским особам"
+  chapter: "Письма 201–300 — 243"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
+- id: "macarius-unsafe"
+  kind: "retelling"
+  text: "а від себе нічого стверджувати не сміє; без опори на Святе Письмо чи отців іти за такою порадою небезпечно"
+  original: null
+  translation: null
+  chunk_id: "book-90-0818"
+  book_id: 90
+  char_start: 644328
   char_end: 644525
   text_sha256: "0ad3c3554e01e55fc66762834181e19ecf0be7390a1b0b26f86283360085f622"
   author: "прп. Макарий Оптинский"
@@ -666,7 +966,7 @@ corpus_sources:
 - id: "men-keep"
   kind: "quote"
   text: "Зовсім пропускати „правило“ небезпечно"
-  original: "Совсем опускать «правило» опасно"
+  original: "Совсем опускать „правило“ опасно"
   translation: "ours"
   chunk_id: "book-266-0054"
   book_id: 266
@@ -695,7 +995,7 @@ corpus_sources:
   source_url: "https://predanie.ru/men-aleksandr-protoierey/prakticheskoe-rukovodstvo-k-molitve/"
 - id: "men-slavonic"
   kind: "retelling"
-  text: "Мень радить не залишати молитви незрозумілими: розібрати їхній зміст заздалегідь, із готовим перекладом або зі своїм"
+  text: "розібратися в ній ще до молитви — за готовим перекладом або переклавши молитви самому"
   original: null
   translation: null
   chunk_id: "book-266-0056"
@@ -753,21 +1053,6 @@ corpus_sources:
   chapter: "Практическое руководство к молитве — I. Молитва и молитвословие — 1. Молитвословие"
   translator: null
   source_url: "https://predanie.ru/men-aleksandr-protoierey/prakticheskoe-rukovodstvo-k-molitve/"
-- id: "men-seraphim-faq"
-  kind: "retelling"
-  text: "У дні крайньої втоми чи браку часу можна читати правило Серафима Саровського: тричі «Отче наш», тричі «Богородице Діво» і один раз «Вірую»"
-  original: null
-  translation: null
-  chunk_id: "book-266-0054"
-  book_id: 266
-  char_start: 44513
-  char_end: 44732
-  text_sha256: "dcb052c02493ce5a6b2324978ba331d6b7efb336c772d111eeeb366024b23e10"
-  author: "прот. Александр Мень"
-  title: "Практическое руководство к молитве"
-  chapter: "Практическое руководство к молитве — I. Молитва и молитвословие — 1. Молитвословие"
-  translator: null
-  source_url: "https://predanie.ru/men-aleksandr-protoierey/prakticheskoe-rukovodstvo-k-molitve/"
 - id: "ilarion-five-faq"
   kind: "retelling"
   text: "Іларіон (Алфеєв) вважає, що мирянинові може вистачити й п’яти хвилин уранці та ввечері, якщо молитися уважно"
@@ -798,11 +1083,26 @@ corpus_sources:
   chapter: "Письма игумена Никона (Воробьева) к духовным чадам — Письмо 268"
   translator: null
   source_url: "https://predanie.ru/nikon-vorobev-igumen/nam-ostavleno-pokayanie/"
+- id: "men-seraphim-faq"
+  kind: "retelling"
+  text: "У дні крайньої втоми чи браку часу можна читати правило Серафима Саровського: тричі «Отче наш», тричі «Богородице Діво» і один раз «Вірую»"
+  original: null
+  translation: null
+  chunk_id: "book-266-0054"
+  book_id: 266
+  char_start: 44513
+  char_end: 44732
+  text_sha256: "dcb052c02493ce5a6b2324978ba331d6b7efb336c772d111eeeb366024b23e10"
+  author: "прот. Александр Мень"
+  title: "Практическое руководство к молитве"
+  chapter: "Практическое руководство к молитве — I. Молитва и молитвословие — 1. Молитвословие"
+  translator: null
+  source_url: "https://predanie.ru/men-aleksandr-protoierey/prakticheskoe-rukovodstvo-k-molitve/"
 ---
 
-Єгипет, IV століття. У горах Ферме, на краю Скитської пустелі, живе близько п’ятисот подвижників[^corpus-paul-pherme]. Один із них, Павло, не береться ні до якої праці: його єдине заняття — безперестанна молитва[^corpus-paul-only]. «Він мав триста визначених молитов; щодня набирав рівно стільки ж камінців, ховав їх за пояс і після кожної молитви викидав по одному»[^corpus-paul-stones]. Одного разу він приходить до старця Макарія на прізвисько Городянин і зізнається: «Отче, я у великій біді»[^corpus-paul-trouble].
+Єгипет, IV століття. У горах Ферме, на краю Скитської пустелі, живе близько п’ятисот подвижників[^corpus-paul-pherme]. Один із них, Павло, цілком відданий безперестанній молитві: працею себе не обтяжує, а милостині бере рівно стільки, щоб мати що їсти[^corpus-paul-only]. «Він мав триста визначених молитов; щодня набирав рівно стільки ж камінців, ховав їх за пояс і після кожної молитви викидав по одному»[^corpus-paul-stones]. Одного разу він приходить до старця Макарія на прізвисько Городянин і зізнається: «Отче, я у великій біді»[^corpus-paul-trouble].
 
-Біда ось у чому: в одному селі діва вже тридцять років живе як подвижниця[^corpus-paul-virgin], їсть лише в суботу й неділю і щодня читає сімсот молитов[^corpus-paul-seven]. «Тому я й картаю себе, що більше трьохсот у мене не виходить»[^corpus-paul-reproach].
+Що його тривожить, Павло розповів лише після довгих умовлянь[^corpus-paul-urged]: в одному селі діва вже тридцять років живе як подвижниця[^corpus-paul-virgin]. Йому розповіли, що вона їсть лише в суботу й неділю і щодня читає сімсот молитов[^corpus-paul-seven]. «Тому я й картаю себе, що більше трьохсот у мене не виходить»[^corpus-paul-reproach].
 
 Палладій, який сам жив серед єгипетських ченців, записав цю історію в «Лавсаїку» близько 420 року[^palladius]. Що відповів Макарій, розповімо наприкінці.
 
@@ -824,11 +1124,11 @@ corpus_sources:
 
 ## Правило, яке не підійшло
 
-У книжці «Про молитву» Іларіон (Алфеєв) згадує: прийнявши постриг у двадцять років, він запитав досвідченого духівника, яким має бути його правило[^corpus-ilarion-asked], і почув: «Ти мусиш щодня вичитувати ранкові й вечірні молитви, три канони й один акафіст»[^corpus-ilarion-rule]. Пропускати не можна було за жодної втоми, а увага вважалася другорядною: нехай поспіхом, аби лише все прочитано[^corpus-ilarion-anyway].
+У книжці «Про молитву» Іларіон (Алфеєв) згадує: прийнявши постриг у двадцять років, він запитав досвідченого духівника, яким має бути його правило[^corpus-ilarion-asked], і почув: «Ти мусиш щодня вичитувати ранкові й вечірні молитви, три канони й один акафіст»[^corpus-ilarion-rule]. І далі: «Хоч би що сталося, навіть якщо ти дуже втомився, ти мусиш їх прочитати. І навіть якщо ти вичитаєш їх поспіхом і неуважно — не важливо»[^corpus-ilarion-anyway].
 
-«Я спробував. Не вдалося»[^corpus-ilarion-tried], — пише він. Незабаром щоденне повторення тих самих текстів йому приїлося. Душа й так отримувала поживу на довгих щоденних службах, тож канони з акафістом понад них стали видаватися зайвими[^corpus-ilarion-extra].
+«Я спробував. Не вдалося»[^corpus-ilarion-tried], — пише він. Слова, які він повторював день у день, швидко приїлися[^corpus-ilarion-extra]. До того ж він годинами вистоював на богослужіннях, які його «духовно живили, насичували, окрилювали»[^corpus-ilarion-fed]. На цьому тлі три канони й акафіст стали здаватися йому зайвим, непотрібним додатком[^corpus-ilarion-weight].
 
-Тоді Іларіон знайшов іншу пораду — у Феофана Затворника, про якого ми розповідали в статті [про молитву своїми словами](/uk/articles/how-to-start-praying/): міряти правило «не кількістю молитов, а тим часом, який ми готові присвятити Богові»[^corpus-ilarion-time]. Скажімо, пів години вранці й увечері, але цілком віддані Богові[^corpus-ilarion-halfhour]. А заповнити цей час можна по-різному: прочитати всі молитви або лише одну, інколи провести вечір над Псалтирем чи Євангелієм або молитися власними словами, — суть не в цьому[^corpus-ilarion-choice].
+Тоді Іларіон знайшов іншу пораду — у Феофана Затворника, про якого ми розповідали в статті [про молитву своїми словами](/uk/articles/how-to-start-praying/): міряти правило «не кількістю молитов, а тим часом, який ми готові присвятити Богові»[^corpus-ilarion-time]. Скажімо, пів години вранці й увечері, але цілком віддані Богові[^corpus-ilarion-halfhour]. А чим заповнити цей час, не так важливо: можна прочитати всі молитви, можна одну, а можна віддати цілий вечір Євангелію, Псалтирю чи власній молитві[^corpus-ilarion-choice]. «Ця порада мені підійшла»[^corpus-ilarion-suited], — пише Іларіон.
 
 Свій шлях він не видає за єдиний: «Я, втім, не виключаю, що для інших слушнішою виявиться порада, яку я отримав від духівника»[^corpus-ilarion-others]. А про мирян пише обережно: на його думку, їм може вистачити й п’яти хвилин уранці та ввечері — якщо молитися уважно й жити відповідно до молитви[^corpus-ilarion-five].
 
@@ -836,27 +1136,33 @@ corpus_sources:
 
 Задовго до цього те саме питання — скільки молитися — ставили оптинському старцеві Макарію. Він прожив в Оптиній пустині чверть століття, разом зі старцем Левом наставляв братію і тисячі прочан, а з Іваном Кірєєвським видавав переклади святих отців[^macarius].
 
-Одного разу в його обителі побувало подружжя, а повернувшись додому, дружина написала старцеві листа[^corpus-macarius-visit]. Щойно вона приїхала, її зустріли скорботи: вона гаряче, не без гніву, захищала чоловіка від звинувачень[^corpus-macarius-sorrows]. У листі сказано, що молитися вдома важко, доводиться себе примушувати, і є прохання призначити молитви на кожен день[^corpus-macarius-ask]. Макарій був такий слабкий, що не міг писати сам і диктував відповідь братові[^corpus-macarius-dictate]. На прохання про молитви він відповів чесно: «Не знаючи ваших домашніх стосунків, занять і сил, не можу точно сказати»[^corpus-macarius-unknown]. І лише потім запропонував набір, «якщо вам зручно»: ранкові й вечірні молитви, канони Богородиці й Ангелові-охоронцеві, у суботу й неділю — акафісти, а в неділю ще по розділу з Апостола і Євангелія[^corpus-macarius-offer]. Це міра однієї жінки XIX століття, а не норма для всіх.
+Одного разу в його обителі побувало подружжя, а повернувшись додому, дружина написала старцеві листа[^corpus-macarius-visit]. В Оптиній вона знайшла спокій і розраду[^corpus-macarius-calm]. А вдома її зустріли скорботи: вона гаряче, не без гніву, захищала чоловіка від звинувачень[^corpus-macarius-sorrows], а на молитві не могла зібрати думок, що розбігалися[^corpus-macarius-scattered]. І попросила старця призначити молитви на кожен день[^corpus-macarius-ask].
 
-Священник Олександр Мень уклав свій «Практичний посібник з молитви» майже цілком із творів християнських учителів Сходу й Заходу[^corpus-men-collected]. Одна з порад там зовсім життєва: ранкові молитви краще читати до всіх справ, а в крайньому разі — дорогою з дому; вечірні — до вечері або й раніше, бо пізно ввечері через утому важко зосередитися[^corpus-men-time].
+Макарій був такий слабкий, що не міг писати сам і диктував відповідь братові[^corpus-macarius-dictate]. Він відповів: спокій, знайдений в обителі, дав їй Господь[^corpus-macarius-gift], «але на життєвій ниві й у спілкуванні з людьми неможливо завжди перебувати в такому стані духу»[^corpus-macarius-life]. А про розсіяність написав: «молитися без розсіяності — це справа досконалих»[^corpus-macarius-perfect]. Лише після цього він перейшов до її прохання й чесно застеріг: «Не знаючи ваших домашніх стосунків, занять і сил, не можу точно сказати»[^corpus-macarius-unknown]. А тоді, «якщо вам зручно», запропонував: ранкові й вечірні молитви, а коли вистачить часу — ще кафизму, тобто розділ Псалтиря, або хоча б її частину; канони Богородиці й Ангелові-охоронцеві; у суботу й неділю — акафісти, а в неділю ще по розділу з Апостола і Євангелія[^corpus-macarius-offer]. І все це виконувати зі смиренням, «не думаючи, що „я добре роблю“, як думав фарисей»[^corpus-macarius-pharisee]. Це міра однієї жінки XIX століття, а не норма для всіх.
+
+Священник Олександр Мень уклав свій «Практичний посібник з молитви» майже цілком із творів християнських учителів Сходу й Заходу[^corpus-men-collected]. Одна з порад там зовсім життєва: ранкові молитви — перш ніж братися до будь-яких справ, а як не вийшло, то хоч дорогою з дому. З вечірніми не варто тягнути до ночі, коли втома вже не дає зосередитися: краще прочитати їх до вечері або й раніше[^corpus-men-time].
 
 ## Коли хочеться більшого
 
-Буває й протилежна пастка — додавати. Ігумен Никон (Воробйов) знав, що таке справжні труднощі: 1933 року його заарештували й відправили до сибірських таборів[^nikon]. 1944 року він став настоятелем Благовіщенської церкви в Козельську, і ті, хто знав його тоді, згадували, що він був неймовірно виснажений[^corpus-nikon-kozelsk].
+Буває й інша пастка — додавати й додавати. Ігумен Никон (Воробйов) знав, що таке справжні труднощі: 1933 року його заарештували й відправили до сибірських таборів[^nikon]. 1944 року він став настоятелем Благовіщенської церкви в Козельську, жив на квартирі в черниць, і ті, хто знав його тоді, згадували, що він був неймовірно виснажений[^corpus-nikon-kozelsk].
 
-Пізніше він розповідав сам: «І що краще, як мені здавалося, я служив, то більше десь у глибині зростала висока думка про себе»[^corpus-nikon-opinion]. Після вечірніх молитов він почав класти сто земних поклонів з Ісусовою молитвою, часом до другої ночі, а вранці вставав близько четвертої, щоб до служби зробити ще сто[^corpus-nikon-bows]. «А Господь бачив, що я диявольську справу роблю, а не Божу»[^corpus-nikon-saw]. Виник конфлікт з отцем Рафаїлом, і Никону заборонили служити, а потім відновили[^corpus-nikon-ban]. Але, за словами Никона, «Господь дав зрозуміти, що тут було бісівське діяння, що було марнославство й зарозумілість»[^corpus-nikon-vanity]. Згодом вони з отцем Рафаїлом помирилися — через листи[^corpus-nikon-peace].
+Пізніше Никон розповідав, як разом із запопадливістю в служінні росло й інше: «І що краще, як мені здавалося, я служив, то більше десь у глибині зростала висока думка про себе»[^corpus-nikon-opinion]. Після вечірніх молитов він почав класти сто земних поклонів з Ісусовою молитвою, часом до другої ночі, а вранці вставав близько четвертої, щоб до служби зробити ще сто[^corpus-nikon-bows]. «Ззовні це бачили черниці, — вони народ допитливий»[^corpus-nikon-nuns], — згадував він. «А Господь бачив, що я диявольську справу роблю, а не Божу»[^corpus-nikon-saw].
 
-Поклони самі по собі тут ні до чого: Никон говорить про високу думку про себе, яка виросла поруч із ними. А духовній доньці він згодом радив: «Встановіть собі невелике, доступне за вашими обставинами й силами, правило»[^corpus-nikon-small].
+Був у Козельську й інший пастир — отець Рафаїл, колишній оптинський чернець, який провів у таборах двадцять один рік, людина добра й молитовна. Між ними сталася сварка, і Никонові на якийсь час заборонили служити[^corpus-nikon-quarrel]. «І мене не те що якось нагородили, а зі священства вигнали»[^corpus-nikon-expelled], — казав він потім. Можна було б вирішити, що він постраждав «за якесь добродіяння, за свій подвиг»[^corpus-nikon-feat]. Але, за словами Никона, «Господь дав зрозуміти, що тут було бісівське діяння, що було марнославство й зарозумілість»[^corpus-nikon-vanity]. А звучала ця зарозумілість так: «хоч уже й не молодий, скоро 55 років, роблю сто поклонів увечері, сто поклонів уранці — з увагою!»[^corpus-nikon-attention] Згодом заборону зняли. Помирився Никон і з отцем Рафаїлом — листовно, і в своєму листі він брав провину на себе й каявся[^corpus-nikon-peace].
 
-Трьома століттями раніше схожого листа отримав Ноель де Сіллері — мальтійський лицар і колишній посол, який зрікся світу й 1634 року став священником[^sillery]. Католицька черниця Жанна де Шанталь писала йому, що велика ревність довела його саме до того стану, якого вона завжди боялася[^corpus-chantal-fervour]. Вона нагадала, що Богові потрібне тільки його серце, а не великі подвиги понад силу[^corpus-chantal-heart]. Із чотирьох-п’яти годин, які він щодня проводив на колінах, вона запропонувала залишити одну, поділену на чотири короткі частини: уранці після того, як устав, перед месою і після неї, увечері — щоб переглянути день. А ще — відпочивати й добре їсти, щоб повернути сили[^corpus-chantal-hour].
+Поклони самі по собі тут ні до чого: Никон говорить про марнославство, яке росло разом із його запопадливістю. А духовній доньці він згодом радив: «Встановіть собі невелике, доступне за вашими обставинами й силами, правило»[^corpus-nikon-small].
+
+Трьома століттями раніше схожого листа отримав Ноель де Сіллері — мальтійський лицар і колишній посол, який зрікся світу й 1634 року став священником[^sillery]. Католицька черниця Жанна де Шанталь написала йому: сталося те, чого вона завжди боялася, — його підкосила велика ревність[^corpus-chantal-fervour]. Але його самого тривожило інше: чи не потурає він собі, чи не дає волі малодушності[^corpus-chantal-coward]. Зовсім як Павло з його трьомастами молитвами.
+
+Шанталь просила його заради Бога облишити такі думки: усі ці тривоги, що він робить мало, Богові куди менш до вподоби, ніж смиренна згода прийняти відпочинок для тіла й душі[^corpus-chantal-fears]. Богові потрібне тільки його серце, а не великі подвиги понад силу[^corpus-chantal-heart]. Не варто вичавлювати з тіла те, чого не вимагає навіть Бог: це Він дав йому слабке здоров’я і хоче, щоб його берегли[^corpus-chantal-delicate]. Зараз Бог чекає від нього не напруженої праці розуму й волі, а спокою; досить і того, щоб інколи, без жодного зусилля, звернутися до Нього з любов’ю і згодою на Його волю[^corpus-chantal-rest]. А з чотирьох-п’яти годин, які він щодня проводив на колінах, вистачить однієї: чверть години після того, як устав, чверть перед месою, чверть після неї і коротка чверть увечері, щоб переглянути день. А ще — відпочивати й добре їсти, щоб повернути сили[^corpus-chantal-hour].
 
 ## Якщо правило не вдається
 
-Інша мирянка питала Макарія про цілком життєве: правило розпочате, а сил дочитати немає або хтось кличе; чи можна позначити місце й повернутися пізніше?[^corpus-macarius-question] Він відповів: «Можна й так зробити, можна й залишити, доповнивши нестачу смиренням, без збентеження, що не виконала з якоїсь причини»[^corpus-macarius-interrupt].
+Тій жінці, що повернулася з Оптиної, Макарій наприкінці листа додав: «якщо ж чогось не виконаєте через якісь перешкоди або навіть через лінощі, аж ніяк не бентежтеся, не сумуйте й не занепадайте духом»[^corpus-macarius-lazy].
 
-А тій жінці, що повернулася з Оптиної, він писав: «якщо ж чогось не виконаєте через якісь перешкоди або навіть через лінощі, аж ніяк не бентежтеся, не сумуйте й не занепадайте духом»[^corpus-macarius-lazy]. Обіцянку, ніби сорокаденна молитва з підрахунком молитов і поклонів гарантує те, чого просиш, він не підтримав[^corpus-macarius-forty]: Господь велів просити, «але не сказав числа молитов про кожну справу»[^corpus-macarius-number].
+Інша мирянка питала його про цілком життєве: правило розпочате, а сил дочитати немає або хтось кличе; чи можна позначити місце й повернутися пізніше?[^corpus-macarius-question] Він відповів: «Можна й так зробити, можна й залишити, доповнивши нестачу смиренням, без збентеження, що не виконала з якоїсь причини»[^corpus-macarius-interrupt]. Питала вона й про сорокаденну молитву з підрахунком молитов і поклонів: їй сказали, ніби після неї неодмінно отримаєш те, чого просиш[^corpus-macarius-forty]. Макарій зізнався, що про таке йому «ніде не траплялося читати в отцівських правилах і настановах»[^corpus-macarius-fathers], а від себе нічого стверджувати не сміє; без опори на Святе Письмо чи отців іти за такою порадою небезпечно[^corpus-macarius-unsafe]. Господь велів просити, «але не сказав числа молитов про кожну справу»[^corpus-macarius-number].
 
-Отець Олександр Мень застерігав від іншої крайності: «Зовсім пропускати „правило“ небезпечно»[^corpus-men-keep]. А от утома й розсіяність, за його словами, — не привід для збентеження[^corpus-men-calm]. Якщо слова приїлися, можна вчинити як Іларіон: інколи віддавати час правила Псалтирю, Євангелію або [своїм словам](/uk/articles/how-to-start-praying/). Якщо незрозуміла церковнослов’янська, Мень радить не залишати молитви незрозумілими: розібрати їхній зміст заздалегідь, із готовим перекладом або зі своїм[^corpus-men-slavonic].
+Отець Олександр Мень застерігав від іншої крайності: «Зовсім пропускати „правило“ небезпечно»[^corpus-men-keep]. А от утома й розсіяність, за його словами, — не привід для збентеження[^corpus-men-calm]. Якщо слова приїлися, можна вчинити як Іларіон: інколи віддавати час правила Псалтирю, Євангелію або [своїм словам](/uk/articles/how-to-start-praying/). Якщо незрозуміла церковнослов’янська, Мень радить розібратися в ній ще до молитви — за готовим перекладом або переклавши молитви самому[^corpus-men-slavonic].
 
 Правило існує для людини. Христос сказав про суботу: «Субота створена для людини, а не людина для Суботи» (Мк 2:27)[^mk2].
 
@@ -869,13 +1175,13 @@ corpus_sources:
 
 Молитовника в [Lampada](/uk/) немає: ні ранкових і вечірніх молитов, ні канонів, ні акафістів, ні правила Серафима. Правило читайте за своєю книжкою, а застосунок допоможе з рештою.
 
-Якщо ви, як Іларіон, міряєте правило часом, виберіть тривалість молитви — від 1 до 120 хвилин — або моліться без таймера. Коли час мине, на екрані з’явиться: «Час закінчився. Можна продовжити». Після правила можна додати кілька хвилин своїми словами: назвати мету молитви одним реченням, відповісти на навідні запитання і, якщо ви дозволили надсилати тему, отримати уривок Святого Письма за її змістом. Короткий підсумок залишиться в [щоденнику](/uk/articles/prayer-journal/) на телефоні.
+Якщо ви, як Іларіон, міряєте правило часом, виберіть тривалість молитви — від 1 до 120 хвилин — або моліться без таймера. Коли час мине, на екрані з’явиться: «Час закінчився. Можна продовжити». Після правила можна додати кілька хвилин своїми словами: назвати мету молитви одним реченням, відповісти на навідні запитання і, якщо ви дозволили її надсилати, отримати уривок Святого Письма за її змістом. Короткий підсумок залишиться в [щоденнику](/uk/articles/prayer-journal/) на телефоні.
 
 Нагадування налаштовуються за днями тижня й годинами: кілька разів на день і по-різному в будні й вихідні — як «увечері, вранці й опівдні» у псалмоспівця.
 
 На головному екрані — вогник і сім крапок останнього тижня: у які дні ви молилися. Лічильника, який обнуляється після пропуску, немає: пропущений день — просто порожня крапка. Зважайте, що крапки бачать лише молитви в застосунку: правила, прочитаного за книжкою, вони не позначать. Лічильника молитов і поклонів у Lampada теж немає.
 
-То що ж Макарій відповів Павлові? «Шістдесят років я щодня читаю сто молитов, водночас власними руками заробляю собі на прожиття і приділяю братам стільки часу, скільки потрібно. І все ж мені ніколи не спадає на думку, що я недбалий»[^corpus-paul-macarius]. І додав: «Якщо ж тобі, хоч ти й читаєш триста молитов, докоряє совість, то з цього випливає, що ти молишся без належної уваги або міг би молитися більше, ніж молишся насправді»[^corpus-paul-answer]. Важливо не те, скільки молиться інший, а те, чи уважно молитеся ви і чи до снаги вам ваше правило.
+То що ж єгипетський старець Макарій відповів Павлові? «Шістдесят років я щодня читаю сто молитов, водночас власними руками заробляю собі на прожиття і приділяю братам стільки часу, скільки потрібно. І все ж мені ніколи не спадає на думку, що я недбалий»[^corpus-paul-macarius]. І додав: «Якщо ж тобі, хоч ти й читаєш триста молитов, докоряє совість, то з цього випливає, що ти молишся без належної уваги або міг би молитися більше, ніж молишся насправді»[^corpus-paul-answer]. Важливо не те, скільки молиться інший, а те, чи уважно молитеся ви і чи до снаги вам ваше правило.
 
 ## Часті запитання {#faq}
 

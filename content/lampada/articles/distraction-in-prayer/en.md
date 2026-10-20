@@ -33,21 +33,21 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: https://commons.wikimedia.org/wiki/File:Vida_de_Santa_Teresa_de_Jes%C3%BAs_(1873).pdf
-- id: teresa-force
-  kind: retelling
-  text: There were times when she could only walk into the oratory by summoning every bit of courage she had, because a heavy sadness came over her there, and it was the Lord who helped her get past it
+- id: "teresa-force"
+  kind: "retelling"
+  text: "She dreaded the oratory: as soon as she went in, sadness weighed on her, and only by calling up every ounce of courage could she make herself pray. People said she had courage to spare, though by her own account she put it to poor use. In the end it was the Lord who helped her through"
   original: null
   translation: null
-  chunk_id: book-64-0160
+  chunk_id: "book-64-0160"
   book_id: 64
   char_start: 138147
   char_end: 138528
-  text_sha256: 660a425468760bc06c833883093f458c993f18e306927eb2e0dbce2eb1b3ed3b
-  author: Santa Teresa de Jesús
-  title: Libro de la vida
+  text_sha256: "660a425468760bc06c833883093f458c993f18e306927eb2e0dbce2eb1b3ed3b"
+  author: "Santa Teresa de Jesús"
+  title: "Libro de la vida"
   chapter: null
   translator: null
-  source_url: https://commons.wikimedia.org/wiki/File:Vida_de_Santa_Teresa_de_Jes%C3%BAs_(1873).pdf
+  source_url: "https://commons.wikimedia.org/wiki/File:Vida_de_Santa_Teresa_de_Jes%C3%BAs_(1873).pdf"
 - id: teresa-quiet
   kind: quote
   text: After I had forced myself like this, I found more quiet and delight than at some times when I wanted to pray
@@ -63,21 +63,21 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: https://commons.wikimedia.org/wiki/File:Vida_de_Santa_Teresa_de_Jes%C3%BAs_(1873).pdf
-- id: teresa-book
-  kind: retelling
-  text: She believed the Lord had deliberately left her without a teacher. For eighteen years, years of great dryness when she could not meditate in prayer, she never dared to begin praying without a book, except right after Communion
+- id: "teresa-book"
+  kind: "retelling"
+  text: "Unable to meditate, she went through eighteen years of great dryness, and through all of them she never dared to start praying without a book, unless she had just received Communion"
   original: null
   translation: null
-  chunk_id: book-64-0060
+  chunk_id: "book-64-0060"
   book_id: 64
   char_start: 52794
   char_end: 53123
-  text_sha256: 660a425468760bc06c833883093f458c993f18e306927eb2e0dbce2eb1b3ed3b
-  author: Santa Teresa de Jesús
-  title: Libro de la vida
+  text_sha256: "660a425468760bc06c833883093f458c993f18e306927eb2e0dbce2eb1b3ed3b"
+  author: "Santa Teresa de Jesús"
+  title: "Libro de la vida"
   chapter: null
   translator: null
-  source_url: https://commons.wikimedia.org/wiki/File:Vida_de_Santa_Teresa_de_Jes%C3%BAs_(1873).pdf
+  source_url: "https://commons.wikimedia.org/wiki/File:Vida_de_Santa_Teresa_de_Jes%C3%BAs_(1873).pdf"
 - id: teresa-crowd
   kind: quote
   text: my soul was as afraid to be at prayer without it as if it were going out to fight a whole crowd
@@ -123,36 +123,51 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: https://commons.wikimedia.org/wiki/File:Vida_de_Santa_Teresa_de_Jes%C3%BAs_(1873).pdf
-- id: teresa-open
-  kind: retelling
-  text: Many times she simply opened the book
+- id: "teresa-gather"
+  kind: "retelling"
+  text: "Without a book, her thoughts would scatter and her soul would lose all order; the book helped her gather them little by little and lead her soul along gently, almost coaxing it"
   original: null
   translation: null
-  chunk_id: book-64-0061
+  chunk_id: "book-64-0061"
+  book_id: 64
+  char_start: 53386
+  char_end: 53559
+  text_sha256: "660a425468760bc06c833883093f458c993f18e306927eb2e0dbce2eb1b3ed3b"
+  author: "Santa Teresa de Jesús"
+  title: "Libro de la vida"
+  chapter: null
+  translator: null
+  source_url: "https://commons.wikimedia.org/wiki/File:Vida_de_Santa_Teresa_de_Jes%C3%BAs_(1873).pdf"
+- id: "teresa-open"
+  kind: "retelling"
+  text: "And many times, as soon as she opened it"
+  original: null
+  translation: null
+  chunk_id: "book-64-0061"
   book_id: 64
   char_start: 53560
   char_end: 53600
-  text_sha256: 660a425468760bc06c833883093f458c993f18e306927eb2e0dbce2eb1b3ed3b
-  author: Santa Teresa de Jesús
-  title: Libro de la vida
+  text_sha256: "660a425468760bc06c833883093f458c993f18e306927eb2e0dbce2eb1b3ed3b"
+  author: "Santa Teresa de Jesús"
+  title: "Libro de la vida"
   chapter: null
   translator: null
-  source_url: https://commons.wikimedia.org/wiki/File:Vida_de_Santa_Teresa_de_Jes%C3%BAs_(1873).pdf
-- id: teresa-enough
-  kind: quote
-  text: 'Nothing more was needed: sometimes I read a little, sometimes a lot, according to the grace the Lord gave me'
-  original: 'no era menester más: otras leia poco, otras mucho, conforme á la merced que el Señor me hacia'
-  translation: ours
-  chunk_id: book-64-0062
+  source_url: "https://commons.wikimedia.org/wiki/File:Vida_de_Santa_Teresa_de_Jes%C3%BAs_(1873).pdf"
+- id: "teresa-enough"
+  kind: "quote"
+  text: "nothing more was needed: sometimes I read a little, sometimes a lot, according to the grace the Lord gave me"
+  original: "no era menester más: otras leia poco, otras mucho, conforme á la merced que el Señor me hacia"
+  translation: "ours"
+  chunk_id: "book-64-0062"
   book_id: 64
   char_start: 54446
   char_end: 54539
-  text_sha256: 660a425468760bc06c833883093f458c993f18e306927eb2e0dbce2eb1b3ed3b
-  author: Santa Teresa de Jesús
-  title: Libro de la vida
+  text_sha256: "660a425468760bc06c833883093f458c993f18e306927eb2e0dbce2eb1b3ed3b"
+  author: "Santa Teresa de Jesús"
+  title: "Libro de la vida"
   chapter: null
   translator: null
-  source_url: https://commons.wikimedia.org/wiki/File:Vida_de_Santa_Teresa_de_Jes%C3%BAs_(1873).pdf
+  source_url: "https://commons.wikimedia.org/wiki/File:Vida_de_Santa_Teresa_de_Jes%C3%BAs_(1873).pdf"
 - id: pusey-sleep
   kind: quote
   text: I hope the distractions you speak of were rather the effect of sleepiness
@@ -183,21 +198,36 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: https://archive.org/details/spiritualletters00puseuoft
-- id: pusey-help
-  kind: retelling
-  text: Rather than resolving to concentrate harder or stopping to repent of the lapse, send up one instant, simple cry for help, “God help me!”, and plunge straight back into the words you were praying, since a two-part response is a distraction in itself
+- id: "pusey-lame"
+  kind: "retelling"
+  text: "As for the self-regarding thoughts that had flashed through her mind at the worst possible moment, he writes that she could no more have prevented them than a lame man can make himself walk"
   original: null
   translation: null
-  chunk_id: book-254-0184
+  chunk_id: "book-254-0179"
+  book_id: 254
+  char_start: 160466
+  char_end: 160769
+  text_sha256: "968bc45d4aa1d5fca8e26e7c410a2ebc864710c249184ac83779c6b37ad2a6df"
+  author: "Edward Bouverie Pusey"
+  title: "Spiritual Letters"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/spiritualletters00puseuoft"
+- id: "pusey-help"
+  kind: "retelling"
+  text: "There is no need to keep telling yourself “I must fix my mind,” or to make a separate act of contrition and then ask for help as well: such a double effort is itself a distraction. Better a single, instant, simple plea, “God help me!”, and then straight back into prayer"
+  original: null
+  translation: null
+  chunk_id: "book-254-0184"
   book_id: 254
   char_start: 165390
   char_end: 165938
-  text_sha256: 968bc45d4aa1d5fca8e26e7c410a2ebc864710c249184ac83779c6b37ad2a6df
-  author: Edward Bouverie Pusey
-  title: Spiritual Letters
+  text_sha256: "968bc45d4aa1d5fca8e26e7c410a2ebc864710c249184ac83779c6b37ad2a6df"
+  author: "Edward Bouverie Pusey"
+  title: "Spiritual Letters"
   chapter: null
   translator: null
-  source_url: https://archive.org/details/spiritualletters00puseuoft
+  source_url: "https://archive.org/details/spiritualletters00puseuoft"
 - id: pusey-infirmity
   kind: quote
   text: Involuntary distraction is infirmity, not sin.
@@ -273,21 +303,66 @@ corpus_sources:
   chapter: Письма 1–14
   translator: null
   source_url: https://azbyka.ru/otechnik/Arsenija_Sebrjakova/pisma/
-- id: arsenia-canons
-  kind: quote
-  text: Sometimes, when I am badly distracted and inattentive, I turn my attention to reading the canons to the Mother of God and to the saints, but in order to direct my attention toward prayer, not to turn it away from prayer to reading
-  original: Иногда же, при большой рассеянности и невнимании, я обращаю внимание на чтение канонов Божией Матери и святым, но с тем, чтобы направить внимание к молитве, а не с тем, чтобы от молитвы обратить его к чтению
-  translation: ours
-  chunk_id: book-66-0022
+- id: "arsenia-correct"
+  kind: "quote"
+  text: "I will set out my understanding so that you can correct it"
+  original: "выскажу свои понятия для того, чтобы вы поправили их"
+  translation: "ours"
+  chunk_id: "book-66-0021"
   book_id: 66
-  char_start: 18961
-  char_end: 19168
-  text_sha256: 9a3df65faad703ca855e120275d2c9a446b2c21129615409832bdd992fbd4d01
-  author: прп. Арсения (Себрякова), игумения
-  title: Письма к П. А. Брянчанинову и другим лицам
-  chapter: Письма 1–14
+  char_start: 17737
+  char_end: 17789
+  text_sha256: "9a3df65faad703ca855e120275d2c9a446b2c21129615409832bdd992fbd4d01"
+  author: "прп. Арсения (Себрякова), игумения"
+  title: "Письма к П. А. Брянчанинову и другим лицам"
+  chapter: "Письма 1–14"
   translator: null
-  source_url: https://azbyka.ru/otechnik/Arsenija_Sebrjakova/pisma/
+  source_url: "https://azbyka.ru/otechnik/Arsenija_Sebrjakova/pisma/"
+- id: "arsenia-rule"
+  kind: "retelling"
+  text: "At her rule of prayer, as Orthodox Christians call their regular daily prayers, she tries to keep her attention on the Jesus Prayer alone. Only sometimes, when her mind wanders badly, does she turn to the canons to the Mother of God and to the saints"
+  original: null
+  translation: null
+  chunk_id: "book-66-0022"
+  book_id: 66
+  char_start: 18880
+  char_end: 19070
+  text_sha256: "9a3df65faad703ca855e120275d2c9a446b2c21129615409832bdd992fbd4d01"
+  author: "прп. Арсения (Себрякова), игумения"
+  title: "Письма к П. А. Брянчанинову и другим лицам"
+  chapter: "Письма 1–14"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Arsenija_Sebrjakova/pisma/"
+- id: "arsenia-canons"
+  kind: "quote"
+  text: "in order to direct attention toward prayer, not to turn it away from prayer to reading"
+  original: "с тем, чтобы направить внимание к молитве, а не с тем, чтобы от молитвы обратить его к чтению"
+  translation: "ours"
+  chunk_id: "book-66-0022"
+  book_id: 66
+  char_start: 19075
+  char_end: 19168
+  text_sha256: "9a3df65faad703ca855e120275d2c9a446b2c21129615409832bdd992fbd4d01"
+  author: "прп. Арсения (Себрякова), игумения"
+  title: "Письма к П. А. Брянчанинову и другим лицам"
+  chapter: "Письма 1–14"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Arsenija_Sebrjakova/pisma/"
+- id: "arsenia-hinder"
+  kind: "quote"
+  text: "If there were less of the senses in our prayer, everything would add to it; as it is, sometimes even the canons and the church services get in its way"
+  original: "Если б в молитве нашей было меньше чувственности, то все пополняло бы ее, а то иногда мешают ей и каноны, и богослужение"
+  translation: "ours"
+  chunk_id: "book-66-0023"
+  book_id: 66
+  char_start: 19251
+  char_end: 19371
+  text_sha256: "9a3df65faad703ca855e120275d2c9a446b2c21129615409832bdd992fbd4d01"
+  author: "прп. Арсения (Себрякова), игумения"
+  title: "Письма к П. А. Брянчанинову и другим лицам"
+  chapter: "Письма 1–14"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Arsenija_Sebrjakova/pisma/"
 - id: arsenia-cell
   kind: quote
   text: we need dark cells for recollection, like mine in the garden, which I call my ‘infirmity’
@@ -318,6 +393,36 @@ corpus_sources:
   chapter: Письма 1–14
   translator: null
   source_url: https://azbyka.ru/otechnik/Arsenija_Sebrjakova/pisma/
+- id: "arsenia-learnlead"
+  kind: "retelling"
+  text: "Through the bitter circumstances of life, she writes, the Lord heals the weakness of the senses, and in them she comes to know both her own weakness and Him"
+  original: null
+  translation: null
+  chunk_id: "book-66-0023"
+  book_id: 66
+  char_start: 19773
+  char_end: 20041
+  text_sha256: "9a3df65faad703ca855e120275d2c9a446b2c21129615409832bdd992fbd4d01"
+  author: "прп. Арсения (Себрякова), игумения"
+  title: "Письма к П. А. Брянчанинову и другим лицам"
+  chapter: "Письма 1–14"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Arsenija_Sebrjakova/pisma/"
+- id: "arsenia-learn"
+  kind: "quote"
+  text: "so that I learn prayer, too, from life itself"
+  original: "так что и молитве я учусь самою жизнию"
+  translation: "ours"
+  chunk_id: "book-66-0023"
+  book_id: 66
+  char_start: 20042
+  char_end: 20080
+  text_sha256: "9a3df65faad703ca855e120275d2c9a446b2c21129615409832bdd992fbd4d01"
+  author: "прп. Арсения (Себрякова), игумения"
+  title: "Письма к П. А. Брянчанинову и другим лицам"
+  chapter: "Письма 1–14"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Arsenija_Sebrjakova/pisma/"
 - id: arsenia-scattered
   kind: quote
   text: somehow I have become very scattered and caught up in the bustle
@@ -333,6 +438,81 @@ corpus_sources:
   chapter: Письма 1–14
   translator: null
   source_url: https://azbyka.ru/otechnik/Arsenija_Sebrjakova/pisma/
+- id: "arsenia-busy"
+  kind: "retelling"
+  text: "She could not find enough free time for a proper letter about spiritual things, and it grieved her so much"
+  original: null
+  translation: null
+  chunk_id: "book-66-0043"
+  book_id: 66
+  char_start: 38317
+  char_end: 38456
+  text_sha256: "9a3df65faad703ca855e120275d2c9a446b2c21129615409832bdd992fbd4d01"
+  author: "прп. Арсения (Себрякова), игумения"
+  title: "Письма к П. А. Брянчанинову и другим лицам"
+  chapter: "Письма 1–14"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Arsenija_Sebrjakova/pisma/"
+- id: "arsenia-dream"
+  kind: "quote"
+  text: "I see in a dream that you have come, and I am complaining to you about my distracted life"
+  original: "вижу во сне, что будто бы приехали вы, и я жалуюсь вам на свою развлеченную жизнь"
+  translation: "ours"
+  chunk_id: "book-66-0043"
+  book_id: 66
+  char_start: 38479
+  char_end: 38560
+  text_sha256: "9a3df65faad703ca855e120275d2c9a446b2c21129615409832bdd992fbd4d01"
+  author: "прп. Арсения (Себрякова), игумения"
+  title: "Письма к П. А. Брянчанинову и другим лицам"
+  chapter: "Письма 1–14"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Arsenija_Sebrjakova/pisma/"
+- id: "arsenia-abyss"
+  kind: "quote"
+  text: "when thoughts are given freedom to drag one into the abyss"
+  original: "когда помыслам дана свобода увлекать в бездну"
+  translation: "ours"
+  chunk_id: "book-66-0044"
+  book_id: 66
+  char_start: 39124
+  char_end: 39169
+  text_sha256: "9a3df65faad703ca855e120275d2c9a446b2c21129615409832bdd992fbd4d01"
+  author: "прп. Арсения (Себрякова), игумения"
+  title: "Письма к П. А. Брянчанинову и другим лицам"
+  chapter: "Письма 1–14"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Arsenija_Sebrjakova/pisma/"
+- id: "arsenia-nostrength"
+  kind: "quote"
+  text: "they drag us away precisely because there is no strength, no ability to hold them"
+  original: "потому-то они увлекают, что нет сил, нет способности держать их"
+  translation: "ours"
+  chunk_id: "book-66-0044"
+  book_id: 66
+  char_start: 39187
+  char_end: 39250
+  text_sha256: "9a3df65faad703ca855e120275d2c9a446b2c21129615409832bdd992fbd4d01"
+  author: "прп. Арсения (Себрякова), игумения"
+  title: "Письма к П. А. Брянчанинову и другим лицам"
+  chapter: "Письма 1–14"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Arsenija_Sebrjakova/pisma/"
+- id: "arsenia-saviour"
+  kind: "quote"
+  text: "Not in the mind, not in the memory, not by attention, but deep in the soul the awareness comes alive that there is One who saves"
+  original: "Не в уме, не в памяти, не вниманием, а глубоко в душе оживает сознание, что есть Спасающий"
+  translation: "ours"
+  chunk_id: "book-66-0044"
+  book_id: 66
+  char_start: 39319
+  char_end: 39409
+  text_sha256: "9a3df65faad703ca855e120275d2c9a446b2c21129615409832bdd992fbd4d01"
+  author: "прп. Арсения (Себрякова), игумения"
+  title: "Письма к П. А. Брянчанинову и другим лицам"
+  chapter: "Письма 1–14"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Arsenija_Sebrjakova/pisma/"
 - id: ignatius-rule
   kind: quote
   text: to enclose the mind in the words of the prayer
@@ -408,21 +588,81 @@ corpus_sources:
   chapter: 24. О внимании в молитве
   translator: null
   source_url: https://azbyka.ru/otechnik/Ignatij_Brjanchaninov/pisma-k-raznym-litsam/
-- id: lawrence-footman
-  kind: retelling
-  text: Later he was in service as a footman to a treasurer named Fieubert, and by his own account he was so clumsy that nothing was safe in his hands
+- id: "lawrence-footman"
+  kind: "retelling"
+  text: "Later he was in service as a footman to the treasurer Fieubert and, by his own account, was a big, clumsy fellow who broke everything he touched"
   original: null
   translation: null
-  chunk_id: book-46-0005
+  chunk_id: "book-46-0005"
   book_id: 46
   char_start: 2412
   char_end: 2528
-  text_sha256: e67ff6f68b5e9b3abb03b7316cc6c088c409bff08fb1eddf8448735cb684af89
-  author: Brother Lawrence
-  title: La pratique de la présence de Dieu
-  chapter: CONVERSATIONS — FIRST CONVERSATION
+  text_sha256: "e67ff6f68b5e9b3abb03b7316cc6c088c409bff08fb1eddf8448735cb684af89"
+  author: "Brother Lawrence"
+  title: "La pratique de la présence de Dieu"
+  chapter: "CONVERSATIONS — FIRST CONVERSATION"
   translator: null
-  source_url: https://ccel.org/ccel/lawrence/practice
+  source_url: "https://ccel.org/ccel/lawrence/practice"
+- id: "lawrence-tree"
+  kind: "retelling"
+  text: "At eighteen, one winter, he saw a tree stripped of its leaves and thought how soon it would be in leaf again, then in flower and in fruit. In that moment God’s providence and power opened up to him, and that sense never left him again"
+  original: null
+  translation: null
+  chunk_id: "book-46-0005"
+  book_id: 46
+  char_start: 1890
+  char_end: 2217
+  text_sha256: "e67ff6f68b5e9b3abb03b7316cc6c088c409bff08fb1eddf8448735cb684af89"
+  author: "Brother Lawrence"
+  title: "La pratique de la présence de Dieu"
+  chapter: "CONVERSATIONS — FIRST CONVERSATION"
+  translator: null
+  source_url: "https://ccel.org/ccel/lawrence/practice"
+- id: "lawrence-cheated"
+  kind: "retelling"
+  text: "He asked to be admitted to a monastery expecting to be made to suffer there for his clumsiness and his blunders, but God, he said, disappointed him: he found nothing there but joy"
+  original: null
+  translation: null
+  chunk_id: "book-46-0006"
+  book_id: 46
+  char_start: 2530
+  char_end: 2839
+  text_sha256: "e67ff6f68b5e9b3abb03b7316cc6c088c409bff08fb1eddf8448735cb684af89"
+  author: "Brother Lawrence"
+  title: "La pratique de la présence de Dieu"
+  chapter: "CONVERSATIONS — FIRST CONVERSATION"
+  translator: null
+  source_url: "https://ccel.org/ccel/lawrence/practice"
+- id: "lawrence-kitchen-years"
+  kind: "retelling"
+  text: "He worked for fifteen years in the kitchen, a place he naturally disliked, and yet everything there came easily to him, because he had trained himself to do each task for the love of God and to ask for His grace every time"
+  original: null
+  translation: null
+  chunk_id: "book-46-0013"
+  book_id: 46
+  char_start: 8182
+  char_end: 8502
+  text_sha256: "e67ff6f68b5e9b3abb03b7316cc6c088c409bff08fb1eddf8448735cb684af89"
+  author: "Brother Lawrence"
+  title: "La pratique de la présence de Dieu"
+  chapter: "CONVERSATIONS — SECOND CONVERSATION"
+  translator: null
+  source_url: "https://ccel.org/ccel/lawrence/practice"
+- id: "lawrence-wine"
+  kind: "retelling"
+  text: "Buying wine was hardly a job for a lame brother with no head for business, yet he was once sent to Burgundy to get the monastery’s supply; on the barge he could only get around by rolling himself over the casks. He simply told God that this was His affair, and later he saw that it had all turned out as well as could be"
+  original: null
+  translation: null
+  chunk_id: "book-46-0012"
+  book_id: 46
+  char_start: 7570
+  char_end: 8029
+  text_sha256: "e67ff6f68b5e9b3abb03b7316cc6c088c409bff08fb1eddf8448735cb684af89"
+  author: "Brother Lawrence"
+  title: "La pratique de la présence de Dieu"
+  chapter: "CONVERSATIONS — SECOND CONVERSATION"
+  translator: null
+  source_url: "https://ccel.org/ccel/lawrence/practice"
 - id: lawrence-before
   kind: retelling
   text: He planned his tasks before he began, deciding what had to be done and in what order, and as he got to work he would ask God to help him remain aware of Him throughout
@@ -468,21 +708,36 @@ corpus_sources:
   chapter: CONVERSATIONS — FOURTH CONVERSATION
   translator: null
   source_url: https://ccel.org/ccel/lawrence/practice
-- id: lawrence-notalone
-  kind: retelling
-  text: 'He begins with comfort: his correspondent is far from alone in this struggle'
+- id: "lawrence-wandering"
+  kind: "retelling"
+  text: "But that peace did not come to him at once. In his early years he often spent the whole of his prayer time in a struggle: pushing stray thoughts away and then sinking back into them"
   original: null
   translation: null
-  chunk_id: book-46-0061
+  chunk_id: "book-46-0014"
+  book_id: 46
+  char_start: 9869
+  char_end: 10002
+  text_sha256: "e67ff6f68b5e9b3abb03b7316cc6c088c409bff08fb1eddf8448735cb684af89"
+  author: "Brother Lawrence"
+  title: "La pratique de la présence de Dieu"
+  chapter: "CONVERSATIONS — SECOND CONVERSATION"
+  translator: null
+  source_url: "https://ccel.org/ccel/lawrence/practice"
+- id: "lawrence-notalone"
+  kind: "retelling"
+  text: "Lawrence began with comfort: his correspondent was far from the only one who struggled with them"
+  original: null
+  translation: null
+  chunk_id: "book-46-0061"
   book_id: 46
   char_start: 45414
   char_end: 45505
-  text_sha256: e67ff6f68b5e9b3abb03b7316cc6c088c409bff08fb1eddf8448735cb684af89
-  author: Brother Lawrence
-  title: La pratique de la présence de Dieu
-  chapter: LETTERS — EIGHTH LETTER
+  text_sha256: "e67ff6f68b5e9b3abb03b7316cc6c088c409bff08fb1eddf8448735cb684af89"
+  author: "Brother Lawrence"
+  title: "La pratique de la présence de Dieu"
+  chapter: "LETTERS — EIGHTH LETTER"
   translator: null
-  source_url: https://ccel.org/ccel/lawrence/practice
+  source_url: "https://ccel.org/ccel/lawrence/practice"
 - id: lawrence-words
   kind: retelling
   text: He advises against piling up words in prayer, since a flood of words is often what sends the mind off course
@@ -558,21 +813,21 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: https://archive.org/details/spiritualletters00puseuoft
-- id: teresa-cares
-  kind: retelling
-  text: God is willing to stay even with those who are far from Him, as long as they let Him be with them for at least two hours a day, even when their minds are full of a thousand cares and worldly thoughts, as hers had been
+- id: "teresa-cares"
+  kind: "retelling"
+  text: "about God’s patience: He is willing to be even with those who are far from Him, to make them good, if only they will bear His presence for at least two hours a day, even when their heads are full of a thousand cares and worldly thoughts. That, she admits, is exactly how she herself used to pray"
   original: null
   translation: null
-  chunk_id: book-64-0158
+  chunk_id: "book-64-0158"
   book_id: 64
   char_start: 136667
   char_end: 136913
-  text_sha256: 660a425468760bc06c833883093f458c993f18e306927eb2e0dbce2eb1b3ed3b
-  author: Santa Teresa de Jesús
-  title: Libro de la vida
+  text_sha256: "660a425468760bc06c833883093f458c993f18e306927eb2e0dbce2eb1b3ed3b"
+  author: "Santa Teresa de Jesús"
+  title: "Libro de la vida"
   chapter: null
   translator: null
-  source_url: https://commons.wikimedia.org/wiki/File:Vida_de_Santa_Teresa_de_Jes%C3%BAs_(1873).pdf
+  source_url: "https://commons.wikimedia.org/wiki/File:Vida_de_Santa_Teresa_de_Jes%C3%BAs_(1873).pdf"
 - id: lawrence-roving-faq
   kind: retelling
   text: the mind is a great wanderer
@@ -688,9 +943,9 @@ If your mind wanders during prayer, you are in good company. Everyone gets distr
 
 ## Years with a book in hand
 
-In her *Life*, Teresa describes her weakness without dressing it up. There were times when she could only walk into the oratory by summoning every bit of courage she had, because a heavy sadness came over her there, and it was the Lord who helped her get past it[^corpus-teresa-force]. And she noticed something: “After I had forced myself like this, I found more quiet and delight than at some times when I wanted to pray”[^corpus-teresa-quiet].
+In her *Life*, Teresa describes her weakness without dressing it up. She dreaded the oratory: as soon as she went in, sadness weighed on her, and only by calling up every ounce of courage could she make herself pray. People said she had courage to spare, though by her own account she put it to poor use. In the end it was the Lord who helped her through[^corpus-teresa-force]. And she noticed something: “After I had forced myself like this, I found more quiet and delight than at some times when I wanted to pray”[^corpus-teresa-quiet].
 
-She believed the Lord had deliberately left her without a teacher. For eighteen years, years of great dryness when she could not meditate in prayer, she never dared to begin praying without a book, except right after Communion[^corpus-teresa-book]: “my soul was as afraid to be at prayer without it as if it were going out to fight a whole crowd”[^corpus-teresa-crowd]. The book “was like a companion or a shield”[^corpus-teresa-shield], taking the blows her many thoughts rained down on her[^corpus-teresa-blows]. Many times she simply opened the book[^corpus-teresa-open]. “Nothing more was needed: sometimes I read a little, sometimes a lot, according to the grace the Lord gave me”[^corpus-teresa-enough].
+Unable to meditate, she went through eighteen years of great dryness, and through all of them she never dared to start praying without a book, unless she had just received Communion[^corpus-teresa-book]: “my soul was as afraid to be at prayer without it as if it were going out to fight a whole crowd”[^corpus-teresa-crowd]. The book “was like a companion or a shield”[^corpus-teresa-shield], taking the blows her many thoughts rained down on her[^corpus-teresa-blows]. Without a book, her thoughts would scatter and her soul would lose all order; the book helped her gather them little by little and lead her soul along gently, almost coaxing it[^corpus-teresa-gather]. And many times, as soon as she opened it[^corpus-teresa-open], “nothing more was needed: sometimes I read a little, sometimes a lot, according to the grace the Lord gave me”[^corpus-teresa-enough].
 
 For Teresa, distraction was not a verdict on her prayer but a difficulty she lived with for years. And leaning on someone else’s words was no disgrace to her; it was a lifeline.
 
@@ -698,9 +953,9 @@ The same hour and the same weakness appear in the Gospel. In the garden of Geths
 
 ## “God help me!”
 
-For more than fifty years Edward Pusey was Professor of Hebrew at Oxford, and he was one of the leaders of the Oxford Movement in the Church of England[^pusey]. Yet the voice in his *Spiritual Letters* is not a scholar’s but a confessor’s. In 1847 a woman he guided wrote to him that her mind kept wandering when she prayed. Pusey’s first guess was the simplest one: “I hope the distractions you speak of were rather the effect of sleepiness”[^corpus-pusey-sleep]. Then he urged her to take a proper rest before Lent arrived[^corpus-pusey-rest].
+For more than fifty years Edward Pusey was Professor of Hebrew at Oxford, and he was one of the leaders of the Oxford Movement in the Church of England[^pusey]. Yet the voice in his *Spiritual Letters* is not a scholar’s but a confessor’s. In February 1847 he was answering a woman he guided; among other things, she had complained that her mind kept wandering when she prayed. Pusey’s first guess was the simplest one: “I hope the distractions you speak of were rather the effect of sleepiness”[^corpus-pusey-sleep]. Then he urged her to take a proper rest before Lent arrived[^corpus-pusey-rest]. As for the self-regarding thoughts that had flashed through her mind at the worst possible moment, he writes that she could no more have prevented them than a lame man can make himself walk[^corpus-pusey-lame].
 
-In another letter from 1847, Pusey explains what to do at the very moment you realize your thoughts have drifted. Rather than resolving to concentrate harder or stopping to repent of the lapse, send up one instant, simple cry for help, “God help me!”, and plunge straight back into the words you were praying, since a two-part response is a distraction in itself[^corpus-pusey-help]. He adds: “Involuntary distraction is infirmity, not sin.”[^corpus-pusey-infirmity]
+In another letter from 1847, Pusey explains what to do at the very moment you realize your thoughts have drifted. There is no need to keep telling yourself “I must fix my mind,” or to make a separate act of contrition and then ask for help as well: such a double effort is itself a distraction. Better a single, instant, simple plea, “God help me!”, and then straight back into prayer[^corpus-pusey-help]. He adds: “Involuntary distraction is infirmity, not sin.”[^corpus-pusey-infirmity]
 
 The rest of his advice is just as down to earth. A good thought that turns up at the wrong moment can be asked to wait its turn, or entrusted to your guardian angel to keep for you[^corpus-pusey-wait]. And when the children are pressing you to hurry, make them the subject of your prayer[^corpus-pusey-children]. “Be not anxious about many prayers, but about praying much.”[^corpus-pusey-much]
 
@@ -708,9 +963,11 @@ His “God help me!” sits well beside a line from the psalms: “Give me an un
 
 ## You don’t need a dark cell
 
-Anna Sebryakova, the daughter of a landowner from the Don Cossack lands, entered the Ust-Medveditsa convent on the Don at seventeen and was its abbess for more than forty years. In 2016 the Orthodox Church canonized Abbess Arsenia as a locally venerated saint[^arsenia]. In 1871, writing to Pyotr Brianchaninov, the brother of St Ignatius Brianchaninov[^bryanchaninov], she makes an admission you would hardly expect from an abbess: “I avoid talking about prayer, because I do not have it myself”[^corpus-arsenia-none].
+Anna Sebryakova, the daughter of a landowner from the Don Cossack lands, entered the Ust-Medveditsa convent on the Don at seventeen and was its abbess for more than forty years. In 2016 the Orthodox Church canonized Abbess Arsenia as a locally venerated saint[^arsenia]. In 1871, writing to Pyotr Brianchaninov, the brother of St Ignatius Brianchaninov[^bryanchaninov], she makes an admission you would hardly expect from an abbess: “I avoid talking about prayer, because I do not have it myself”[^corpus-arsenia-none]. And yet she answers, with a caveat: “I will set out my understanding so that you can correct it”[^corpus-arsenia-correct].
 
-Here is what she did herself, turning to canons, extended hymns used in Orthodox prayer: “Sometimes, when I am badly distracted and inattentive, I turn my attention to reading the canons to the Mother of God and to the saints, but in order to direct my attention toward prayer, not to turn it away from prayer to reading”[^corpus-arsenia-canons]. Nor does she hide what props her up: “we need dark cells for recollection, like mine in the garden, which I call my ‘infirmity’”[^corpus-arsenia-cell]. “But all these are temporary aids; nothing helps me as much as life itself”[^corpus-arsenia-life]. And that summer she laments: “somehow I have become very scattered and caught up in the bustle”[^corpus-arsenia-scattered].
+At her rule of prayer, as Orthodox Christians call their regular daily prayers, she tries to keep her attention on the Jesus Prayer alone. Only sometimes, when her mind wanders badly, does she turn to the canons to the Mother of God and to the saints[^corpus-arsenia-rule], which are long hymns used in Orthodox prayer. But she reads them, she says, “in order to direct attention toward prayer, not to turn it away from prayer to reading”[^corpus-arsenia-canons]. She admits something else, too: her prayer still depends too much on feelings and outward impressions. “If there were less of the senses in our prayer, everything would add to it; as it is, sometimes even the canons and the church services get in its way”[^corpus-arsenia-hinder], and then “we need dark cells for recollection, like mine in the garden, which I call my ‘infirmity’”[^corpus-arsenia-cell]. “But all these are temporary aids; nothing helps me as much as life itself”[^corpus-arsenia-life]. Through the bitter circumstances of life, she writes, the Lord heals the weakness of the senses, and in them she comes to know both her own weakness and Him[^corpus-arsenia-learnlead], “so that I learn prayer, too, from life itself”[^corpus-arsenia-learn].
+
+That summer Pyotr was waiting for her answers to some new questions, and she confessed: “somehow I have become very scattered and caught up in the bustle”[^corpus-arsenia-scattered]. She could not find enough free time for a proper letter about spiritual things, and it grieved her so much[^corpus-arsenia-busy] that one night, she writes, “I see in a dream that you have come, and I am complaining to you about my distracted life”[^corpus-arsenia-dream]. And what he had asked about was exactly what to occupy the mind with “when thoughts are given freedom to drag one into the abyss”[^corpus-arsenia-abyss]. She answered honestly: “they drag us away precisely because there is no strength, no ability to hold them”[^corpus-arsenia-nostrength]. In such moments, the support is not one’s own strength: “Not in the mind, not in the memory, not by attention, but deep in the soul the awareness comes alive that there is One who saves”[^corpus-arsenia-saviour].
 
 Props help, but you don’t have to wait for perfect quiet: even an abbess with a dark cell in her garden lived a busy, scattered life.
 
@@ -718,11 +975,13 @@ Her correspondent’s brother, St Ignatius Brianchaninov, a Russian bishop, give
 
 ## Brother Lawrence’s kitchen
 
-Nicolas Herman grew up in Lorraine during the Thirty Years’ War, became a soldier out of poverty and was left lame for life by a wound[^lawrence]. Later he was in service as a footman to a treasurer named Fieubert, and by his own account he was so clumsy that nothing was safe in his hands[^corpus-lawrence-footman]. At a monastery of the Discalced Carmelites in Paris he became Brother Lawrence and worked for many years as a cook. Abbé Joseph de Beaufort wrote down their conversations, and after Lawrence died they were published with his letters as *The Practice of the Presence of God*[^lawrence].
+Nicolas Herman grew up in Lorraine during the Thirty Years’ War, became a soldier out of poverty and was left lame for life by a wound[^lawrence]. At eighteen, one winter, he saw a tree stripped of its leaves and thought how soon it would be in leaf again, then in flower and in fruit. In that moment God’s providence and power opened up to him, and that sense never left him again[^corpus-lawrence-tree]. Later he was in service as a footman to the treasurer Fieubert and, by his own account, was a big, clumsy fellow who broke everything he touched[^corpus-lawrence-footman]. He asked to be admitted to a monastery expecting to be made to suffer there for his clumsiness and his blunders, but God, he said, disappointed him: he found nothing there but joy[^corpus-lawrence-cheated].
+
+So, at a monastery of the Discalced Carmelites in Paris, he became Brother Lawrence. He worked for fifteen years in the kitchen, a place he naturally disliked, and yet everything there came easily to him, because he had trained himself to do each task for the love of God and to ask for His grace every time[^corpus-lawrence-kitchen-years]. Buying wine was hardly a job for a lame brother with no head for business, yet he was once sent to Burgundy to get the monastery’s supply; on the barge he could only get around by rolling himself over the casks. He simply told God that this was His affair, and later he saw that it had all turned out as well as could be[^corpus-lawrence-wine]. Abbé Joseph de Beaufort wrote down his conversations with Lawrence, and after Lawrence died they were published with his letters as *The Practice of the Presence of God*[^lawrence].
 
 He planned his tasks before he began, deciding what had to be done and in what order, and as he got to work he would ask God to help him remain aware of Him throughout[^corpus-lawrence-before]. Afterward he looked back at how it had gone. A job done well meant thanks to God; a job done badly meant asking forgiveness and then, without losing heart, carrying on with God as if nothing had broken the thread[^corpus-lawrence-after]. He said it made no difference to him whether he was kneeling before the Blessed Sacrament or busy in the bustle of the kitchen with several people wanting something from him at once: in both places he was with God and equally at peace[^corpus-lawrence-kitchen].
 
-Someone once complained to Lawrence in a letter about wandering thoughts. He begins with comfort: his correspondent is far from alone in this struggle[^corpus-lawrence-notalone]. He advises against piling up words in prayer, since a flood of words is often what sends the mind off course[^corpus-lawrence-words]. He suggests simply standing before God and owning that you need His help, even when you have nothing to say[^corpus-lawrence-beggar]. When the mind slips away, he says, don’t get upset, because agitation only scatters it further; let your will lead it back calmly[^corpus-lawrence-back]. There is one more approach, and it concerns the rest of your day: the less you let your mind drift away from God in ordinary hours, the easier it is to gather it at prayer, and a habit of turning to Him often makes it simpler to stay focused when you pray, or at least to bring your attention back[^corpus-lawrence-day].
+But that peace did not come to him at once. In his early years he often spent the whole of his prayer time in a struggle: pushing stray thoughts away and then sinking back into them[^corpus-lawrence-wandering]. So when someone complained to him in a letter about such thoughts, Lawrence began with comfort: his correspondent was far from the only one who struggled with them[^corpus-lawrence-notalone]. He advises against piling up words in prayer, since a flood of words is often what sends the mind off course[^corpus-lawrence-words]. He suggests simply standing before God and owning that you need His help, even when you have nothing to say[^corpus-lawrence-beggar]. When the mind slips away, he says, don’t get upset, because agitation only scatters it further; let your will lead it back calmly[^corpus-lawrence-back]. There is one more approach, and it concerns the rest of your day: the less you let your mind drift away from God in ordinary hours, the easier it is to gather it at prayer, and a habit of turning to Him often makes it simpler to stay focused when you pray, or at least to bring your attention back[^corpus-lawrence-day].
 
 For Lawrence, attention in prayer is built out of the whole day.
 
@@ -741,7 +1000,7 @@ Guiding questions about your intention also bring you back to it. You can skip t
 
 What Lampada doesn’t do: there is no place to park thoughts for later, so jot that task down on paper or in your notes app. The app doesn’t notice when you get distracted and doesn’t train your attention, it won’t cure sleepiness or fatigue, and it has no ready-made prayers or canons.
 
-And in the same chapter where she remembers listening for the clock, Teresa writes that God is willing to stay even with those who are far from Him, as long as they let Him be with them for at least two hours a day, even when their minds are full of a thousand cares and worldly thoughts, as hers had been[^corpus-teresa-cares]. You don’t have to wait for your thoughts to quiet down. It is enough to come, and to keep coming back.
+And in the same chapter where she remembers listening for the clock, Teresa writes about God’s patience: He is willing to be even with those who are far from Him, to make them good, if only they will bear His presence for at least two hours a day, even when their heads are full of a thousand cares and worldly thoughts. That, she admits, is exactly how she herself used to pray[^corpus-teresa-cares]. You don’t have to wait for your thoughts to quiet down. It is enough to come, and to keep coming back.
 
 ## Frequently asked questions {#faq}
 

@@ -48,21 +48,21 @@ corpus_sources:
   chapter: "Volume 2"
   translator: null
   source_url: "https://gutenberg.org/ebooks/20379"
-- id: "muller-postscript"
-  kind: "retelling"
-  text: "Пізніше, працюючи над другою частиною книжки, Мюллер дописав до цього запису в дужках"
+- id: muller-postscript
+  kind: retelling
+  text: Пізніше Мюллер видав свій щоденник книжкою і, працюючи над її другою частиною, дописав до цього запису в дужках
   original: null
   translation: null
-  chunk_id: "book-226-0552"
+  chunk_id: book-226-0552
   book_id: 226
   char_start: 493560
   char_end: 493681
-  text_sha256: "e1ed6bbf352b7b1e52dc78dd0477a953180ad8cceaf04fea8b7f8e49632cdb04"
-  author: "George Müller"
-  title: "A Narrative of Some of the Lord's Dealings with George Müller"
-  chapter: "Volume 2"
+  text_sha256: e1ed6bbf352b7b1e52dc78dd0477a953180ad8cceaf04fea8b7f8e49632cdb04
+  author: George Müller
+  title: A Narrative of Some of the Lord's Dealings with George Müller
+  chapter: Volume 2
   translator: null
-  source_url: "https://gutenberg.org/ebooks/20379"
+  source_url: https://gutenberg.org/ebooks/20379
 - id: "muller-answered"
   kind: "quote"
   text: "прохання 4, 5, 6, 7 і 8 виконано повністю, а решту — теж, частково"
@@ -93,21 +93,21 @@ corpus_sources:
   chapter: "Volume 3"
   translator: null
   source_url: "https://gutenberg.org/ebooks/20379"
-- id: "muller-boy"
-  kind: "retelling"
-  text: "З 21 травня до вересня він щодня молився, щоб знайти майстра, який узяв би в учні хлопця з притулку: цю справу він вніс до свого списку, і у вересні місце знайшлося"
+- id: muller-boy
+  kind: retelling
+  text: 'З 21 травня до вересня він щодня молився, щоб знайти майстра, який узяв би в учні хлопця з притулку: це прохання він записав до свого списку, і у вересні місце для хлопця знайшлося'
   original: null
   translation: null
-  chunk_id: "book-226-1068"
+  chunk_id: book-226-1068
   book_id: 226
   char_start: 961012
   char_end: 961443
-  text_sha256: "e1ed6bbf352b7b1e52dc78dd0477a953180ad8cceaf04fea8b7f8e49632cdb04"
-  author: "George Müller"
-  title: "A Narrative of Some of the Lord's Dealings with George Müller"
-  chapter: "Volume 3"
+  text_sha256: e1ed6bbf352b7b1e52dc78dd0477a953180ad8cceaf04fea8b7f8e49632cdb04
+  author: George Müller
+  title: A Narrative of Some of the Lord's Dealings with George Müller
+  chapter: Volume 3
   translator: null
-  source_url: "https://gutenberg.org/ebooks/20379"
+  source_url: https://gutenberg.org/ebooks/20379
 - id: "muller-brother"
   kind: "retelling"
   text: "За брата у вірі, якого скувала тяжка душевна тривога, він почав молитися в середині червня"
@@ -123,36 +123,36 @@ corpus_sources:
   chapter: "Volume 3"
   translator: null
   source_url: "https://gutenberg.org/ebooks/20379"
-- id: "muller-year"
-  kind: "quote"
-  text: "Рік минув, а це прохання так і залишилося без відповіді. Та зрештою Бог відповів і на нього"
-  original: "The year passed away, and it was not granted. But yet at last this request also has been granted"
-  translation: "ours"
-  chunk_id: "book-226-1069"
+- id: muller-year
+  kind: quote
+  text: Рік скінчився, а це прохання так і залишилося без відповіді. Та зрештою Бог відповів і на нього
+  original: The year passed away, and it was not granted. But yet at last this request also has been granted
+  translation: ours
+  chunk_id: book-226-1069
   book_id: 226
   char_start: 962092
   char_end: 962188
-  text_sha256: "e1ed6bbf352b7b1e52dc78dd0477a953180ad8cceaf04fea8b7f8e49632cdb04"
-  author: "George Müller"
-  title: "A Narrative of Some of the Lord's Dealings with George Müller"
-  chapter: "Volume 3"
+  text_sha256: e1ed6bbf352b7b1e52dc78dd0477a953180ad8cceaf04fea8b7f8e49632cdb04
+  author: George Müller
+  title: A Narrative of Some of the Lord's Dealings with George Müller
+  chapter: Volume 3
   translator: null
-  source_url: "https://gutenberg.org/ebooks/20379"
-- id: "martyn-review"
-  kind: "retelling"
-  text: "Першого дня 1804 року він перечитує свої записи за минулий рік"
+  source_url: https://gutenberg.org/ebooks/20379
+- id: martyn-review
+  kind: retelling
+  text: Перший день 1804 року. Удень Мартін проповідує в церкві Святої Трійці — серйозно, але, як сам зазначає, майже без почуття. Потім перечитує свої записи за минулий рік
   original: null
   translation: null
-  chunk_id: "book-301-0102"
+  chunk_id: book-301-0102
   book_id: 301
   char_start: 72336
   char_end: 72508
-  text_sha256: "5779f65692ddc780de4a0158888e3223576f6778f8e9e6c187f874bd5b71812b"
-  author: "Henry Martyn (ред. S. Wilberforce)"
-  title: "Journal and Letters of the Rev. Henry Martyn"
+  text_sha256: 5779f65692ddc780de4a0158888e3223576f6778f8e9e6c187f874bd5b71812b
+  author: Henry Martyn (ред. S. Wilberforce)
+  title: Journal and Letters of the Rev. Henry Martyn
   chapter: null
   translator: null
-  source_url: "https://archive.org/details/journalandletter00martuoft"
+  source_url: https://archive.org/details/journalandletter00martuoft
 - id: "martyn-diary"
   kind: "quote"
   text: "щоденником мого життя замість запису про стан моєї душі"
@@ -198,6 +198,51 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: "https://archive.org/details/journalandletter00martuoft"
+- id: martyn-near
+  kind: retelling
+  text: Від дня рукопокладення, зізнається він, радісних хвилин у нього було мало, і в новому році він просить одного — жити зовсім близько до Бога
+  original: null
+  translation: null
+  chunk_id: book-301-0104
+  book_id: 301
+  char_start: 73051
+  char_end: 73429
+  text_sha256: 5779f65692ddc780de4a0158888e3223576f6778f8e9e6c187f874bd5b71812b
+  author: Henry Martyn (ред. S. Wilberforce)
+  title: Journal and Letters of the Rev. Henry Martyn
+  chapter: null
+  translator: null
+  source_url: https://archive.org/details/journalandletter00martuoft
+- id: martyn-fast
+  kind: retelling
+  text: він присвячує цілий день постові й молитві — таким мертвим і безплідним він себе почуває
+  original: null
+  translation: null
+  chunk_id: book-301-0105
+  book_id: 301
+  char_start: 73648
+  char_end: 73756
+  text_sha256: 5779f65692ddc780de4a0158888e3223576f6778f8e9e6c187f874bd5b71812b
+  author: Henry Martyn (ред. S. Wilberforce)
+  title: Journal and Letters of the Rev. Henry Martyn
+  chapter: null
+  translator: null
+  source_url: https://archive.org/details/journalandletter00martuoft
+- id: martyn-far
+  kind: quote
+  text: але я не міг наблизитися до Бога
+  original: but I could not get near to God
+  translation: ours
+  chunk_id: book-301-0105
+  book_id: 301
+  char_start: 73757
+  char_end: 73788
+  text_sha256: 5779f65692ddc780de4a0158888e3223576f6778f8e9e6c187f874bd5b71812b
+  author: Henry Martyn (ред. S. Wilberforce)
+  title: Journal and Letters of the Rev. Henry Martyn
+  chapter: null
+  translator: null
+  source_url: https://archive.org/details/journalandletter00martuoft
 - id: "eugenie-tables"
   kind: "quote"
   text: "Мені всюди потрібні столи й папір, бо мої думки всюди йдуть за мною і хочуть вилитися в одному місці — для тебе, мій друже"
@@ -228,21 +273,21 @@ corpus_sources:
   chapter: "AVERTISSEMENT DE L’ÉDITEUR."
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/71878"
-- id: "eugenie-week"
-  kind: "retelling"
-  text: "Якось вона сідає розібратися, що було між її душею і Богом за минулий тиждень"
+- id: eugenie-week
+  kind: retelling
+  text: Якось випадає ясний день — гарна погода тепер рідкість, і Ежені приймає її як подарунок. Увечері вона збирається до Каюзака, свого улюбленого місця прощі, а поки що сідає розібратися, що було між її душею і Богом за минулий тиждень
   original: null
   translation: null
-  chunk_id: "book-190-0149"
+  chunk_id: book-190-0149
   book_id: 190
   char_start: 138408
   char_end: 138839
-  text_sha256: "6af96c35a16a39485db48bc6e26abda1a28184b9f125c3f8c403a14eb90be769"
-  author: "Eugénie de Guérin"
-  title: "Journal"
+  text_sha256: 6af96c35a16a39485db48bc6e26abda1a28184b9f125c3f8c403a14eb90be769
+  author: Eugénie de Guérin
+  title: Journal
   chapter: null
   translator: null
-  source_url: "https://www.gutenberg.org/ebooks/71878"
+  source_url: https://www.gutenberg.org/ebooks/71878
 - id: "eugenie-relief"
   kind: "retelling"
   text: "Ділитися тим, що на серці, їй легко й солодко, і це знімає з душі смуток"
@@ -273,6 +318,51 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/71878"
+- id: eugenie-grenades
+  kind: retelling
+  text: Два гранати вона хоче послати другові Моріса — з того самого дерева, яке брат обкопував за кілька днів до смерті
+  original: null
+  translation: null
+  chunk_id: book-190-0435
+  book_id: 190
+  char_start: 405146
+  char_end: 405261
+  text_sha256: 6af96c35a16a39485db48bc6e26abda1a28184b9f125c3f8c403a14eb90be769
+  author: Eugénie de Guérin
+  title: Journal
+  chapter: null
+  translator: null
+  source_url: https://www.gutenberg.org/ebooks/71878
+- id: eugenie-last
+  kind: quote
+  text: Це було останнє, що він зробив на землі
+  original: Ce fut son dernier mouvement sur la terre
+  translation: ours
+  chunk_id: book-190-0435
+  book_id: 190
+  char_start: 405262
+  char_end: 405303
+  text_sha256: 6af96c35a16a39485db48bc6e26abda1a28184b9f125c3f8c403a14eb90be769
+  author: Eugénie de Guérin
+  title: Journal
+  chapter: null
+  translator: null
+  source_url: https://www.gutenberg.org/ebooks/71878
+- id: eugenie-paris
+  kind: retelling
+  text: Шостого жовтня, у недільний полудень, їй згадується, як рівно рік тому цієї години вона в Парижі була в його обіймах і вразилася, як він схуд і як кашляє. А тепер вона в Лантені — дощ, самотність і спогади, від яких боляче
+  original: null
+  translation: null
+  chunk_id: book-190-0435
+  book_id: 190
+  char_start: 405306
+  char_end: 405695
+  text_sha256: 6af96c35a16a39485db48bc6e26abda1a28184b9f125c3f8c403a14eb90be769
+  author: Eugénie de Guérin
+  title: Journal
+  chapter: null
+  translator: null
+  source_url: https://www.gutenberg.org/ebooks/71878
 - id: "eugenie-date"
   kind: "quote"
   text: "Сьогодні три місяці від тієї смерті, від тієї розлуки. О, скорботна дата, яку я все ж хочу записувати щоразу, як вона повертатиметься"
@@ -303,21 +393,21 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/71878"
-- id: "eugenie-continue"
-  kind: "retelling"
-  text: "Але той, хто хотів, щоб вона не кидала цих зошитів, був живий і радо її слухав, тож вона писала далі"
+- id: eugenie-continue
+  kind: retelling
+  text: Але продовжувати зошити її просила людина, яку вона називає «живим братом», — йому було радісно її чути, і вона писала далі
   original: null
   translation: null
-  chunk_id: "book-190-0437"
+  chunk_id: book-190-0437
   book_id: 190
   char_start: 407015
   char_end: 407310
-  text_sha256: "6af96c35a16a39485db48bc6e26abda1a28184b9f125c3f8c403a14eb90be769"
-  author: "Eugénie de Guérin"
-  title: "Journal"
+  text_sha256: 6af96c35a16a39485db48bc6e26abda1a28184b9f125c3f8c403a14eb90be769
+  author: Eugénie de Guérin
+  title: Journal
   chapter: null
   translator: null
-  source_url: "https://www.gutenberg.org/ebooks/71878"
+  source_url: https://www.gutenberg.org/ebooks/71878
 - id: "eugenie-for-you"
   kind: "quote"
   text: "Я писатиму для вас, як писала для нього"
@@ -333,21 +423,21 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/71878"
-- id: "nikon-read"
-  kind: "retelling"
-  text: "У вересні 1909 року старець прочитав Никонові трохи зі свого щоденника"
+- id: nikon-read
+  kind: retelling
+  text: У вересні 1909 року — Никон уже не пам'ятав точно, шістнадцятого чи сімнадцятого, — старець прочитав йому трохи зі свого щоденника
   original: null
   translation: null
-  chunk_id: "book-120-0355"
+  chunk_id: book-120-0355
   book_id: 120
   char_start: 275723
   char_end: 275816
-  text_sha256: "a4ea3508232d2f5b702572b7caae0ae0d71b1c8efdd03578569584c81a2d137d"
-  author: "прп. Никон Оптинский (Беляев)"
-  title: "Дневник. 1907–1910 гг."
-  chapter: "1909 г. — 16 или 17 сентября"
+  text_sha256: a4ea3508232d2f5b702572b7caae0ae0d71b1c8efdd03578569584c81a2d137d
+  author: прп. Никон Оптинский (Беляев)
+  title: Дневник. 1907–1910 гг.
+  chapter: 1909 г. — 16 или 17 сентября
   translator: null
-  source_url: "https://predanie.ru/nikon-optinskiy-prepodobnyy/dnevnik-1907-1910-gg/"
+  source_url: https://predanie.ru/nikon-optinskiy-prepodobnyy/dnevnik-1907-1910-gg/
 - id: "varsonofy-reread"
   kind: "quote"
   text: "Я писав тоді щодня й перечитував свій щоденник так: настає, скажімо, 20 серпня чи інше число, і я беру всі свої щоденники й читаю, що думав, і відчував, і робив цього самого числа й місяця в інші роки. Це велика справа — отак стежити…"
@@ -393,21 +483,21 @@ corpus_sources:
   chapter: "1909 г. — 16 или 17 сентября"
   translator: null
   source_url: "https://predanie.ru/nikon-optinskiy-prepodobnyy/dnevnik-1907-1910-gg/"
-- id: "nikon-told"
-  kind: "retelling"
-  text: "За кілька днів, 21 вересня, Никон розповів старцеві про цей збіг"
+- id: nikon-told
+  kind: retelling
+  text: 21 вересня Никон зайшов по благословення останнім, покаявся в деяких своїх недоглядах і розповів старцеві про цей збіг
   original: null
   translation: null
-  chunk_id: "book-120-0356"
+  chunk_id: book-120-0356
   book_id: 120
   char_start: 276679
   char_end: 277089
-  text_sha256: "a4ea3508232d2f5b702572b7caae0ae0d71b1c8efdd03578569584c81a2d137d"
-  author: "прп. Никон Оптинский (Беляев)"
-  title: "Дневник. 1907–1910 гг."
-  chapter: "1909 г. — 16 или 17 сентября"
+  text_sha256: a4ea3508232d2f5b702572b7caae0ae0d71b1c8efdd03578569584c81a2d137d
+  author: прп. Никон Оптинский (Беляев)
+  title: Дневник. 1907–1910 гг.
+  chapter: 1909 г. — 16 или 17 сентября
   translator: null
-  source_url: "https://predanie.ru/nikon-optinskiy-prepodobnyy/dnevnik-1907-1910-gg/"
+  source_url: https://predanie.ru/nikon-optinskiy-prepodobnyy/dnevnik-1907-1910-gg/
 - id: "varsonofy-seal"
   kind: "quote"
   text: "Отже, до моїх слів о. Іоанн приклав Царську печатку. Так, це велика справа!"
@@ -423,21 +513,96 @@ corpus_sources:
   chapter: "1909 г. — 16 или 17 сентября"
   translator: null
   source_url: "https://predanie.ru/nikon-optinskiy-prepodobnyy/dnevnik-1907-1910-gg/"
-- id: "feodosiy-rule"
-  kind: "retelling"
-  text: "Улітку 1937 року, від свята пророка Іллі, він знову береться за молитовний труд. Добове правило в нього — десять тисяч Ісусових молитов"
+- id: nikon-alone
+  kind: retelling
+  text: 'Никонові здалося, що він зачепив старця за живе: той підвівся, відпустив брата Никиту й залишився з Никоном сам на сам'
   original: null
   translation: null
-  chunk_id: "book-147-0002"
+  chunk_id: book-120-0356
+  book_id: 120
+  char_start: 277229
+  char_end: 277497
+  text_sha256: a4ea3508232d2f5b702572b7caae0ae0d71b1c8efdd03578569584c81a2d137d
+  author: прп. Никон Оптинский (Беляев)
+  title: Дневник. 1907–1910 гг.
+  chapter: 1909 г. — 16 или 17 сентября
+  translator: null
+  source_url: https://predanie.ru/nikon-optinskiy-prepodobnyy/dnevnik-1907-1910-gg/
+- id: varsonofy-day
+  kind: quote
+  text: Так, — сказав Батюшка, — мені хотілося провести цей день з вами
+  original: Да, — сказал Батюшка, — мне хотелось провести этот день с вами
+  translation: ours
+  chunk_id: book-120-0356
+  book_id: 120
+  char_start: 277501
+  char_end: 277563
+  text_sha256: a4ea3508232d2f5b702572b7caae0ae0d71b1c8efdd03578569584c81a2d137d
+  author: прп. Никон Оптинский (Беляев)
+  title: Дневник. 1907–1910 гг.
+  chapter: 1909 г. — 16 или 17 сентября
+  translator: null
+  source_url: https://predanie.ru/nikon-optinskiy-prepodobnyy/dnevnik-1907-1910-gg/
+- id: varsonofy-talk
+  kind: retelling
+  text: Вони проговорили з дев'ятої вечора майже до півночі
+  original: null
+  translation: null
+  chunk_id: book-120-0356
+  book_id: 120
+  char_start: 277566
+  char_end: 277629
+  text_sha256: a4ea3508232d2f5b702572b7caae0ae0d71b1c8efdd03578569584c81a2d137d
+  author: прп. Никон Оптинский (Беляев)
+  title: Дневник. 1907–1910 гг.
+  chapter: 1909 г. — 16 или 17 сентября
+  translator: null
+  source_url: https://predanie.ru/nikon-optinskiy-prepodobnyy/dnevnik-1907-1910-gg/
+- id: varsonofy-plan
+  kind: retelling
+  text: 'Старець говорив про те, що за всім нашим життям стоїть таємничий задум: усе в ньому дивовижно влаштовано, а ми цього не бачимо'
+  original: null
+  translation: null
+  chunk_id: book-120-0357
+  book_id: 120
+  char_start: 277743
+  char_end: 277872
+  text_sha256: a4ea3508232d2f5b702572b7caae0ae0d71b1c8efdd03578569584c81a2d137d
+  author: прп. Никон Оптинский (Беляев)
+  title: Дневник. 1907–1910 гг.
+  chapter: 1909 г. — 16 или 17 сентября
+  translator: null
+  source_url: https://predanie.ru/nikon-optinskiy-prepodobnyy/dnevnik-1907-1910-gg/
+- id: varsonofy-meaning
+  kind: quote
+  text: Я навіть думаю, — казав Батюшка, — що ми через те так недбало живемо й грішимо, що не розуміємо внутрішнього сенсу подій нашого життя
+  original: Я даже думаю, — говорил Батюшка, — оттого мы так нерадиво живем и грешим, что не понимаем внутреннего смысла событий нашей жизни
+  translation: ours
+  chunk_id: book-120-0357
+  book_id: 120
+  char_start: 277876
+  char_end: 278004
+  text_sha256: a4ea3508232d2f5b702572b7caae0ae0d71b1c8efdd03578569584c81a2d137d
+  author: прп. Никон Оптинский (Беляев)
+  title: Дневник. 1907–1910 гг.
+  chapter: 1909 г. — 16 или 17 сентября
+  translator: null
+  source_url: https://predanie.ru/nikon-optinskiy-prepodobnyy/dnevnik-1907-1910-gg/
+- id: feodosiy-rule
+  kind: retelling
+  text: Улітку 1937 року, від свята пророка Іллі, він знову береться за молитовний труд. Його правило — щодня десять тисяч разів повторювати Ісусову молитву
+  original: null
+  translation: null
+  chunk_id: book-147-0002
   book_id: 147
   char_start: 122
   char_end: 1092
-  text_sha256: "3e81526c7d047cd8c53ac901da40e911b47f18a0b9be868f0b455aaab3121209"
-  author: "старец Феодосий Карульский (Афон)"
-  title: "Молитвенный дневник"
-  chapter: "20 июля 1937 г."
+  text_sha256: 3e81526c7d047cd8c53ac901da40e911b47f18a0b9be868f0b455aaab3121209
+  author: старец Феодосий Карульский (Афон)
+  title: Молитвенный дневник
+  chapter: 20 июля 1937 г.
   translator: null
-  source_url: "https://azbyka.ru/otechnik/molitva/molitvennyj-dnevnik-startsa-feodosija-karulskogo/"
+  source_url: https://azbyka.ru/otechnik/molitva/molitvennyj-dnevnik-startsa-feodosija-karulskogo/
 - id: "feodosiy-distracted"
   kind: "quote"
   text: "Під час молитви ум іноді розсіювався і навіть на хвилину втрачав пильність, але знову зосереджувався на словах молитви"
@@ -453,21 +618,36 @@ corpus_sources:
   chapter: "20 июля 1937 г."
   translator: null
   source_url: "https://azbyka.ru/otechnik/molitva/molitvennyj-dnevnik-startsa-feodosija-karulskogo/"
-- id: "feodosiy-reproach"
-  kind: "retelling"
-  text: "товариш по келії дорікнув йому спершу підозріливістю, а потім і частою запальністю та нетерплячістю — і сказав, що саме через це молитва йому й не дається"
+- id: feodosiy-feast
+  kind: retelling
+  text: '5 серпня, у річницю свого постригу в схиму, після вечірні, перед вечерею, вони з товаришем читали «Добротолюбіє» — збірку чернечих повчань про молитву: від найближчого свята Феодосій мав почати «художню» молитву, особливий прийом, описаний давніми отцями, і вони взяли відповідне повчання'
   original: null
   translation: null
-  chunk_id: "book-147-0025"
+  chunk_id: book-147-0024
+  book_id: 147
+  char_start: 15791
+  char_end: 16731
+  text_sha256: 3e81526c7d047cd8c53ac901da40e911b47f18a0b9be868f0b455aaab3121209
+  author: старец Феодосий Карульский (Афон)
+  title: Молитвенный дневник
+  chapter: 5 августа (День моего пострига в схиму)
+  translator: null
+  source_url: https://azbyka.ru/otechnik/molitva/molitvennyj-dnevnik-startsa-feodosija-karulskogo/
+- id: feodosiy-reproach
+  kind: retelling
+  text: Феодосій щось зауважив під час читання, і товариш дорікнув йому спершу підозріливістю, а потім і частою запальністю та нетерплячістю — і сказав, що саме через це молитва йому й не дається
+  original: null
+  translation: null
+  chunk_id: book-147-0025
   book_id: 147
   char_start: 16732
   char_end: 17298
-  text_sha256: "3e81526c7d047cd8c53ac901da40e911b47f18a0b9be868f0b455aaab3121209"
-  author: "старец Феодосий Карульский (Афон)"
-  title: "Молитвенный дневник"
-  chapter: "5 августа (День моего пострига в схиму)"
+  text_sha256: 3e81526c7d047cd8c53ac901da40e911b47f18a0b9be868f0b455aaab3121209
+  author: старец Феодосий Карульский (Афон)
+  title: Молитвенный дневник
+  chapter: 5 августа (День моего пострига в схиму)
   translator: null
-  source_url: "https://azbyka.ru/otechnik/molitva/molitvennyj-dnevnik-startsa-feodosija-karulskogo/"
+  source_url: https://azbyka.ru/otechnik/molitva/molitvennyj-dnevnik-startsa-feodosija-karulskogo/
 - id: "feodosiy-accept"
   kind: "quote"
   text: "Я цілком приймав його докір і пораду"
@@ -528,21 +708,36 @@ corpus_sources:
   chapter: "19 сентября"
   translator: null
   source_url: "https://azbyka.ru/otechnik/molitva/molitvennyj-dnevnik-startsa-feodosija-karulskogo/"
-- id: "feodosiy-doubt"
-  kind: "retelling"
-  text: "Але довіритися йому як непомильному наставникові старець не зміг: той судив різко й мінливо — то заохочував його до умної молитви, то оголошував до неї нездатним, а сам був у цій справі новачком, який знав її більше з книжок"
+- id: feodosiy-doubt
+  kind: retelling
+  text: 'Але непомильним наставником Феодосій товариша не вважав: той і сам був новачком в умній молитві — внутрішній молитві розуму й серця — і знав її більше з книжок'
   original: null
   translation: null
-  chunk_id: "book-147-0026"
+  chunk_id: book-147-0026
   book_id: 147
   char_start: 17341
   char_end: 17985
-  text_sha256: "3e81526c7d047cd8c53ac901da40e911b47f18a0b9be868f0b455aaab3121209"
-  author: "старец Феодосий Карульский (Афон)"
-  title: "Молитвенный дневник"
-  chapter: "5 августа (День моего пострига в схиму)"
+  text_sha256: 3e81526c7d047cd8c53ac901da40e911b47f18a0b9be868f0b455aaab3121209
+  author: старец Феодосий Карульский (Афон)
+  title: Молитвенный дневник
+  chapter: 5 августа (День моего пострига в схиму)
   translator: null
-  source_url: "https://azbyka.ru/otechnik/molitva/molitvennyj-dnevnik-startsa-feodosija-karulskogo/"
+  source_url: https://azbyka.ru/otechnik/molitva/molitvennyj-dnevnik-startsa-feodosija-karulskogo/
+- id: feodosiy-simple
+  kind: quote
+  text: Отже, я залишив „художню“ молитву, як невчасну для мене, а став продовжувати, як і раніше, просту з упованням на милість Божу
+  original: Итак, я оставил “художественную” молитву, как несвоевременную для меня, а стал продолжать по-прежнему простую с упованием на милость Божию
+  translation: ours
+  chunk_id: book-147-0027
+  book_id: 147
+  char_start: 18562
+  char_end: 18700
+  text_sha256: 3e81526c7d047cd8c53ac901da40e911b47f18a0b9be868f0b455aaab3121209
+  author: старец Феодосий Карульский (Афон)
+  title: Молитвенный дневник
+  chapter: 5 августа (День моего пострига в схиму)
+  translator: null
+  source_url: https://azbyka.ru/otechnik/molitva/molitvennyj-dnevnik-startsa-feodosija-karulskogo/
 - id: "feodosiy-help"
   kind: "retelling"
   text: "так чи так треба впокоритися перед Богом і ревно просити Його допомоги"
@@ -592,7 +787,7 @@ corpus_sources:
 
 Бристоль, січень 1838 року. Протестантський проповідник Джордж Мюллер, який утримує сирітські притулки й ні в кого не просить на них грошей[^muller], лежить хворий. Уже вісім днів йому гірше, ніж за кілька попередніх тижнів, болить голова; проповідувати він не може, але вірить, що Бог незабаром поверне його до служіння[^corpus-muller-ill]. Близько трьох годин він молиться над двома псалмами й приносить Господові свої прохання[^corpus-muller-psalm]. Їх вісім, і під списком він ставить дату: «Я записав ці свої прохання сьогодні, 14 січня 1838 року, щоб, коли Бог на них відповість, через це прославилося Його ім'я»[^corpus-muller-recorded].
 
-Пізніше, працюючи над другою частиною книжки, Мюллер дописав до цього запису в дужках[^corpus-muller-postscript]: «прохання 4, 5, 6, 7 і 8 виконано повністю, а решту — теж, частково»[^corpus-muller-answered].
+Пізніше Мюллер видав свій щоденник книжкою і, працюючи над її другою частиною, дописав до цього запису в дужках[^corpus-muller-postscript]: «прохання 4, 5, 6, 7 і 8 виконано повністю, а решту — теж, частково»[^corpus-muller-answered].
 
 Це і є молитовний щоденник: короткі записи про те, з чим ви прийшли до Бога, про що просили і що сталося потім. Вести його можна в зошиті або в застосунку — важливіше писати чесно й повертатися до написаного. Труднощі на цьому шляху в усіх схожі, і п'ятеро дуже різних людей пройшли через них раніше за нас.
 
@@ -600,43 +795,45 @@ corpus_sources:
 
 Замолоду Мюллер крав у батька, пиячив і грав у карти; після молитовного зібрання 1825 року його життя змінилося, а за наступні десятиліття через його притулки пройшло понад десять тисяч сиріт[^muller]. Наприкінці 1841 року, підбиваючи підсумки, він пише: «Перечитуючи свій щоденник, я бачу, що цього року Господь дав мені багато дорогоцінних відповідей на молитву»[^corpus-muller-review].
 
-Деякі з цих відповідей легко було б забути. З 21 травня до вересня він щодня молився, щоб знайти майстра, який узяв би в учні хлопця з притулку: цю справу він вніс до свого списку, і у вересні місце знайшлося[^corpus-muller-boy]. За брата у вірі, якого скувала тяжка душевна тривога, він почав молитися в середині червня[^corpus-muller-brother]. «Рік минув, а це прохання так і залишилося без відповіді. Та зрештою Бог відповів і на нього»[^corpus-muller-year].
+Деякі з цих відповідей легко було б забути. З 21 травня до вересня він щодня молився, щоб знайти майстра, який узяв би в учні хлопця з притулку: це прохання він записав до свого списку, і у вересні місце для хлопця знайшлося[^corpus-muller-boy]. За брата у вірі, якого скувала тяжка душевна тривога, він почав молитися в середині червня[^corpus-muller-brother]. «Рік скінчився, а це прохання так і залишилося без відповіді. Та зрештою Бог відповів і на нього»[^corpus-muller-year].
 
-Без запису прохання, з яким ходиш місяцями, тихо випадає з пам'яті, а виконане — й поготів. Псалмоспівець нагадує собі: «Благослови, душе моя, Господа, і не забувай усіх добрих діянь Його!» (Пс 102:2)[^ps102]. Щоденник допомагає не забувати.
+Без запису легко забути прохання, з яким місяцями приходиш до Бога, а виконане — й поготів. Псалмоспівець нагадує собі: «Благослови, душе моя, Господа, і не забувай усіх добрих діянь Його!» (Пс 102:2)[^ps102]. Щоденник допомагає не забувати.
 
 ## Щоденник душі, а не звіт про справи
 
 Генрі Мартін закінчив Кембридж найкращим математиком свого випуску, але обрав не наукову кар'єру, а місію в Індії. Він перекладе Новий Завіт мовами урду й перською і помре у тридцять один рік у турецькому Токаті[^martyn]. А поки що він — молодий англіканський священник у Кембриджі, і його непокоїть власний щоденник.
 
-Першого дня 1804 року він перечитує свої записи за минулий рік[^corpus-martyn-review] і бачить, що останнім часом щоденник став «щоденником мого життя замість запису про стан моєї душі»[^corpus-martyn-diary]. Мартін пояснює це «почасти лінощами, почасти тим, що я приділяв надто багато часу й уваги зовнішнім, публічним обов'язкам служіння»[^corpus-martyn-cause] — і прямо називає таку поведінку помилкою[^corpus-martyn-mistake].
+Перший день 1804 року. Удень Мартін проповідує в церкві Святої Трійці — серйозно, але, як сам зазначає, майже без почуття. Потім перечитує свої записи за минулий рік[^corpus-martyn-review] і бачить, що останнім часом щоденник став «щоденником мого життя замість запису про стан моєї душі»[^corpus-martyn-diary]. Мартін пояснює це «почасти лінощами, почасти тим, що я приділяв надто багато часу й уваги зовнішнім, публічним обов'язкам служіння»[^corpus-martyn-cause] — і прямо називає таку поведінку помилкою[^corpus-martyn-mistake]. Від дня рукопокладення, зізнається він, радісних хвилин у нього було мало, і в новому році він просить одного — жити зовсім близько до Бога[^corpus-martyn-near]. Ще через два дні він присвячує цілий день постові й молитві — таким мертвим і безплідним він себе почуває[^corpus-martyn-fast]. Підсумок дня в щоденнику: «але я не міг наблизитися до Бога»[^corpus-martyn-far].
 
-У цю пастку потрапляє майже кожен: відкриваєш зошит, щоб помолитися, а записуєш, що встиг за день. Запитання Мартіна допомагає повернутися до головного: про що я сьогодні говорив з Богом і що було в мене на серці?
+У цю пастку потрапляє майже кожен: відкриваєш зошит, щоб помолитися, а записуєш, що встиг за день. Досвід Мартіна підказує запитання, яке допомагає повернутися до головного: про що я сьогодні говорив з Богом і що було в мене на серці?
 
 ## Коли ніде писати і коли болить
 
 Католичка Ежені де Ґерен жила в Кайла — відлюдному маєтку на півдні Франції. Її молодший брат Моріс поїхав до Парижа, і вона почала вести щоденник для нього[^eugenie]. Хоч би де вона була, їй потрібні були стіл і папір: «Мені всюди потрібні столи й папір, бо мої думки всюди йдуть за мною і хочуть вилитися в одному місці — для тебе, мій друже»[^corpus-eugenie-tables]. Щоденник, як напише згодом видавець, поступово став «її головною справою, таємницею і радістю її днів»[^corpus-eugenie-affair].
 
-Якось вона сідає розібратися, що було між її душею і Богом за минулий тиждень[^corpus-eugenie-week]. Ділитися тим, що на серці, їй легко й солодко, і це знімає з душі смуток[^corpus-eugenie-relief]: «Коли вода тече, вона забирає з собою піну й очищається дорогою. Моя дорога — це Бог або друг, але передусім Бог»[^corpus-eugenie-water].
+Якось випадає ясний день — гарна погода тепер рідкість, і Ежені приймає її як подарунок. Увечері вона збирається до Каюзака, свого улюбленого місця прощі, а поки що сідає розібратися, що було між її душею і Богом за минулий тиждень[^corpus-eugenie-week]. Ділитися тим, що на серці, їй легко й солодко, і це знімає з душі смуток[^corpus-eugenie-relief]: «Коли вода тече, вона забирає з собою піну й очищається дорогою. Моя дорога — це Бог або друг, але передусім Бог»[^corpus-eugenie-water].
 
-Улітку 1839 року Моріс помер[^eugenie]. Дев'ятнадцятого числа, через три місяці, Ежені записує: «Сьогодні три місяці від тієї смерті, від тієї розлуки. О, скорботна дата, яку я все ж хочу записувати щоразу, як вона повертатиметься»[^corpus-eugenie-date]. І зізнається: «Я вже збиралася покинути: надто гірко було звертатися до нього в могилу»[^corpus-eugenie-stop]. Але той, хто хотів, щоб вона не кидала цих зошитів, був живий і радо її слухав, тож вона писала далі[^corpus-eugenie-continue]: «Я писатиму для вас, як писала для нього»[^corpus-eugenie-for-you].
+Улітку 1839 року Моріс помер[^eugenie]. Настає осінь. Два гранати вона хоче послати другові Моріса — з того самого дерева, яке брат обкопував за кілька днів до смерті[^corpus-eugenie-grenades]: «Це було останнє, що він зробив на землі»[^corpus-eugenie-last]. Шостого жовтня, у недільний полудень, їй згадується, як рівно рік тому цієї години вона в Парижі була в його обіймах і вразилася, як він схуд і як кашляє. А тепер вона в Лантені — дощ, самотність і спогади, від яких боляче[^corpus-eugenie-paris]. Через три місяці після смерті Моріса, 19 жовтня, Ежені записує: «Сьогодні три місяці від тієї смерті, від тієї розлуки. О, скорботна дата, яку я все ж хочу записувати щоразу, як вона повертатиметься»[^corpus-eugenie-date]. І зізнається: «Я вже збиралася покинути: надто гірко було звертатися до нього в могилу»[^corpus-eugenie-stop]. Але продовжувати зошити її просила людина, яку вона називає «живим братом», — йому було радісно її чути, і вона писала далі[^corpus-eugenie-continue]: «Я писатиму для вас, як писала для нього»[^corpus-eugenie-for-you].
 
 Її щоденник — лист до того, хто слухає, і передусім до Бога. Тому його не треба кидати, коли тяжко: Тому, Хто слухає, можна розповісти й про втрату.
 
 ## Повернутися до того самого дня
 
-Варсонофій Оптинський — не плутати з Варсонофієм Великим, який жив у VI столітті біля Гази, — був полковником, а в сорок шість років залишив службу й пішов до православної Оптиної пустині, де став одним з її останніх великих старців. Його секретарем був молодий послушник Микола Бєляєв, майбутній преподобний Никон Оптинський, який помре на засланні 1931 року[^varsonofy]. Сцену, про яку піде мова, ми знаємо зі щоденника Никона.
+Варсонофій Оптинський був полковником, а в сорок шість років залишив службу й пішов до православної Оптиної пустині, де став одним з її останніх великих старців. Його секретар, молодий послушник Микола Бєляєв, майбутній преподобний Никон Оптинський, вів щоденник, і сцену нижче ми знаємо з нього[^varsonofy].
 
-У вересні 1909 року старець прочитав Никонові трохи зі свого щоденника[^corpus-nikon-read] і розповів, як колись його перечитував: «Я писав тоді щодня й перечитував свій щоденник так: настає, скажімо, 20 серпня чи інше число, і я беру всі свої щоденники й читаю, що думав, і відчував, і робив цього самого числа й місяця в інші роки. Це велика справа — отак стежити…»[^corpus-varsonofy-reread]
+У вересні 1909 року — Никон уже не пам'ятав точно, шістнадцятого чи сімнадцятого, — старець прочитав йому трохи зі свого щоденника[^corpus-nikon-read] і розповів, як колись його перечитував: «Я писав тоді щодня й перечитував свій щоденник так: настає, скажімо, 20 серпня чи інше число, і я беру всі свої щоденники й читаю, що думав, і відчував, і робив цього самого числа й місяця в інші роки. Це велика справа — отак стежити…»[^corpus-varsonofy-reread]
 
-Того ж дня Никонові трапилася тоненька книжечка, видана єпископом Михеєм, а в ній — слова Іоанна Кронштадтського: той намагався щодня щось записувати[^corpus-nikon-ioann] — «для того, щоб, перечитуючи свої щоденники, я міг бачити, чи йду я вперед, чи йду назад»[^corpus-ioann-forward]. За кілька днів, 21 вересня, Никон розповів старцеві про цей збіг[^corpus-nikon-told]. «Отже, до моїх слів о. Іоанн приклав Царську печатку. Так, це велика справа!»[^corpus-varsonofy-seal] — відповів Варсонофій.
+Того ж дня Никонові трапилася тоненька книжечка, видана єпископом Михеєм, а в ній — слова Іоанна Кронштадтського: той намагався щодня щось записувати[^corpus-nikon-ioann] — «для того, щоб, перечитуючи свої щоденники, я міг бачити, чи йду я вперед, чи йду назад»[^corpus-ioann-forward]. 21 вересня Никон зайшов по благословення останнім, покаявся в деяких своїх недоглядах і розповів старцеві про цей збіг[^corpus-nikon-told]. «Отже, до моїх слів о. Іоанн приклав Царську печатку. Так, це велика справа!»[^corpus-varsonofy-seal] — відповів Варсонофій. Никонові здалося, що він зачепив старця за живе: той підвівся, відпустив брата Никиту й залишився з Никоном сам на сам[^corpus-nikon-alone]. «Так, — сказав Батюшка, — мені хотілося провести цей день з вами»[^corpus-varsonofy-day]. Вони проговорили з дев'ятої вечора майже до півночі[^corpus-varsonofy-talk]. Старець говорив про те, що за всім нашим життям стоїть таємничий задум: усе в ньому дивовижно влаштовано, а ми цього не бачимо[^corpus-varsonofy-plan]. «Я навіть думаю, — казав Батюшка, — що ми через те так недбало живемо й грішимо, що не розуміємо внутрішнього сенсу подій нашого життя»[^corpus-varsonofy-meaning].
 
-Запис оживає, коли до нього повертаються. Про матір Ісуса євангеліст каже: «Марія ж зберігала всі ці слова у своєму серці та роздумувала над ними» (Лк 2:19)[^lk2]. Щоденник допомагає так само зберігати й обдумувати, а той самий день минулих років показує, що змінилося і що лишилося як було.
+Запис оживає, коли до нього повертаються. Про матір Ісуса євангеліст каже: «Марія ж зберігала всі ці слова у своєму серці та роздумувала над ними» (Лк 2:19)[^lk2]. Щоденник теж допомагає зберігати й обдумувати пережите, а записи за той самий день минулих років показують, що змінилося і що лишилося як було.
 
 ## Правда замість гарних слів
 
 Василь Харитонов, син саратовського селянина, закінчив Казанську духовну академію й був інспектором семінарії у Вологді, а 1901 року все залишив і поїхав на Афон. Там, у Карулі — місці особливо суворого пустельницького життя, — він став ієросхимонахом Феодосієм, одним із найвідоміших духівників російського Афону[^feodosiy].
 
-Улітку 1937 року, від свята пророка Іллі, він знову береться за молитовний труд. Добове правило в нього — десять тисяч Ісусових молитов[^corpus-feodosiy-rule]. Це чернечий подвиг, а не взірець для нас; взірець — чесність, з якою він веде свій «молитовний щоденник». Він нічого не прикрашає: «Під час молитви ум іноді розсіювався і навіть на хвилину втрачав пильність, але знову зосереджувався на словах молитви»[^corpus-feodosiy-distracted]. Записує й неприємне: товариш по келії дорікнув йому спершу підозріливістю, а потім і частою запальністю та нетерплячістю — і сказав, що саме через це молитва йому й не дається[^corpus-feodosiy-reproach]. «Я цілком приймав його докір і пораду»[^corpus-feodosiy-accept]. Але довіритися йому як непомильному наставникові старець не зміг: той судив різко й мінливо — то заохочував його до умної молитви, то оголошував до неї нездатним, а сам був у цій справі новачком, який знав її більше з книжок[^corpus-feodosiy-doubt].
+Улітку 1937 року, від свята пророка Іллі, він знову береться за молитовний труд. Його правило — щодня десять тисяч разів повторювати Ісусову молитву[^corpus-feodosiy-rule]. Це чернечий подвиг, а не взірець для нас; взірець — чесність, з якою він веде свій «молитовний щоденник». Він нічого не прикрашає: «Під час молитви ум іноді розсіювався і навіть на хвилину втрачав пильність, але знову зосереджувався на словах молитви»[^corpus-feodosiy-distracted].
+
+Записує він і неприємне. 5 серпня, у річницю свого постригу в схиму, після вечірні, перед вечерею, вони з товаришем читали «Добротолюбіє» — збірку чернечих повчань про молитву: від найближчого свята Феодосій мав почати «художню» молитву, особливий прийом, описаний давніми отцями, і вони взяли відповідне повчання[^corpus-feodosiy-feast]. Феодосій щось зауважив під час читання, і товариш дорікнув йому спершу підозріливістю, а потім і частою запальністю та нетерплячістю — і сказав, що саме через це молитва йому й не дається[^corpus-feodosiy-reproach]. «Я цілком приймав його докір і пораду»[^corpus-feodosiy-accept]. Але непомильним наставником Феодосій товариша не вважав: той і сам був новачком в умній молитві — внутрішній молитві розуму й серця — і знав її більше з книжок[^corpus-feodosiy-doubt]. Висновок того вечора: «Отже, я залишив „художню“ молитву, як невчасну для мене, а став продовжувати, як і раніше, просту з упованням на милість Божу»[^corpus-feodosiy-simple].
 
 Щоденника він не ховав: якось після обіду, за чаєм, вони з товаришем прочитали його записи за три останні дні, і той зауважив, що старець неправильно дихає під час молитви[^corpus-feodosiy-check]. «З цим я погодився»[^corpus-feodosiy-agreed].
 
@@ -662,16 +859,16 @@ corpus_sources:
 
 ## Папір чи застосунок
 
-У зошиті пишеш повільніше, без екрана й сповіщень, і його приємно тримати в руках. Але в ньому важко знайти запис трирічної давності, його легко загубити, і його може прочитати чужа людина. Телефон завжди з собою: у ньому є пошук за словами, можна відповідати голосом, а вхід закрити кодом. Вибирайте те, до чого ви справді повертатиметеся.
+У зошиті пишеш повільніше, без екрана й сповіщень, і його приємно тримати в руках. Але в ньому важко знайти запис трирічної давності, його легко загубити, і його може прочитати чужа людина. Телефон завжди з собою: у ньому можна шукати записи за словами, записувати голос і захистити щоденник кодом. Вибирайте те, до чого ви справді повертатиметеся.
 
 ## Щоденник у Lampada
 <!-- screen: history, audio, reflection -->
 
 Якщо вам ближчий телефон, спробуйте [Lampada](/uk/). Там кожна молитва і є записом у щоденнику: тема, навідні запитання до неї, ваші відповіді й наприкінці висновок одним реченням. Запитання допомагають почати з того, що зараз на серці, а не зі звіту про справи.
 
-У кожної молитви зберігаються дата, тема, відповіді й висновок. Пошук за словами — у темі, відповідях, висновку й розшифровці голосу — допомагає знайти записи, де згадано людину, і перечитати, як довго ви за неї молилися і що змінилося, — майже як у списку Мюллера. Дописати щось до старого запису не можна — продовженням стає нова молитва про те саме.
+У кожної молитви зберігаються дата, тема, відповіді й висновок. Пошук знаходить слова в темі, відповідях, висновку й розшифровці голосового запису. Так можна знайти молитви, де згадано людину, і побачити, як довго ви за неї молилися і що змінилося, — майже як у списку Мюллера. Дописати щось до старого запису не можна — продовженням стає нова молитва про те саме.
 
-Коли важко дібрати слова, відповідати можна голосом; розшифрувати запис у текст можна натисканням кнопки — для цього запис іде на сервер. Старі молитви можна перечитувати в стрічці з датами, а голосові відповіді — переслуховувати. Той самий день минулого року, як у Варсонофія, можна знайти, гортаючи стрічку: нагадувань «рік тому» немає. Щоденник зберігається лише на телефоні, вхід можна закрити PIN-кодом або біометрією, а окремою молитвою — поділитися текстом із тим, кому довіряєте.
+Коли важко дібрати слова, відповідати можна голосом; розшифрувати запис у текст можна натисканням кнопки — для цього запис іде на сервер. Старі молитви можна перечитувати в стрічці з датами, а голосові відповіді — переслуховувати. Щоб, як Варсонофій, повернутися до того самого дня минулого року, треба погортати стрічку: нагадувань «рік тому» немає. Щоденник зберігається лише на телефоні, вхід можна закрити PIN-кодом або біометрією, а окремою молитвою — поділитися текстом із тим, кому довіряєте.
 
 Мюллер поставив дату під вісьмома проханнями, не знаючи, чим усе скінчиться. Заради таких хвилин і варто вести щоденник: щоб одного дня повернутися до старого запису й побачити, що було далі.
 
