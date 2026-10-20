@@ -2,7 +2,6 @@
 title: "Prayer for Healing: Short Prayers for the Sick and How to Pray in Your Own Words"
 description: "A prayer for healing can be as short as “Lord, the one You love is sick,” followed by the person’s name. Tell God what is wrong and what you are asking for, and pray alongside medical treatment, not instead of it. With the stories of Elder John of Valaam, David Brainerd and Metropolitan Anthony of Sourozh, who was once a doctor."
 date: 2026-10-20
-draft: true
 corpus_sources:
 - id: "ioann-prayer-a"
   kind: "quote"
