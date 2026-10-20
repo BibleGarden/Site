@@ -4,14 +4,29 @@ description: "A thanksgiving prayer in your own words means naming something spe
 date: 2026-10-20
 corpus_sources:
 - id: "sch-tumors"
-  kind: "retelling"
-  text: "the doctors have found two tumors"
-  original: null
-  translation: null
+  kind: "quote"
+  text: "Two tumors, hundreds of ‘tests’"
+  original: "Две опухоли, сотни „тестов“"
+  translation: "ours"
   chunk_id: "book-59-1750"
   book_id: 59
   char_start: 1634222
-  char_end: 1634280
+  char_end: 1634296
+  text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
+  author: "прот. Александр Шмеман"
+  title: "Дневники 1973–1983"
+  chapter: "Тетрадь VIII ИЮНЬ 1982 – ИЮНЬ 1983"
+  translator: null
+  source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "sch-boring"
+  kind: "quote"
+  text: "Writing about it is boring and long-winded"
+  original: "Писать об этом скучно и длинно"
+  translation: "ours"
+  chunk_id: "book-59-1751"
+  book_id: 59
+  char_start: 1634298
+  char_end: 1634328
   text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
   author: "прот. Александр Шмеман"
   title: "Дневники 1973–1983"
@@ -33,15 +48,45 @@ corpus_sources:
   chapter: "Тетрадь VIII ИЮНЬ 1982 – ИЮНЬ 1983"
   translator: null
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
-- id: "sch-sun"
+- id: "sch-view"
   kind: "quote"
-  text: "And the sun, sun every day. Love and worry all around."
-  original: "И солнце, каждый день солнце. Кругом любовь и волнения."
+  text: "Outside the window, an amazing view of New York"
+  original: "За окном – удивительный вид на Нью-Йорк"
   translation: "ours"
   chunk_id: "book-59-1751"
   book_id: 59
-  char_start: 1634844
+  char_start: 1634763
+  char_end: 1634802
+  text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
+  author: "прот. Александр Шмеман"
+  title: "Дневники 1973–1983"
+  chapter: "Тетрадь VIII ИЮНЬ 1982 – ИЮНЬ 1983"
+  translator: null
+  source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "sch-sun"
+  kind: "quote"
+  text: "Water, skyscrapers. And the sun, sun every day. Love and worry all around."
+  original: "Вода, небоскребы. И солнце, каждый день солнце. Кругом любовь и волнения."
+  translation: "ours"
+  chunk_id: "book-59-1751"
+  book_id: 59
+  char_start: 1634826
   char_end: 1634899
+  text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
+  author: "прот. Александр Шмеман"
+  title: "Дневники 1973–1983"
+  chapter: "Тетрадь VIII ИЮНЬ 1982 – ИЮНЬ 1983"
+  translator: null
+  source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "sch-wait"
+  kind: "quote"
+  text: "I sit in a sunlit hospital room, waiting for something to happen – for a decision about treatment…"
+  original: "Сижу в залитой солнцем палате и жду у моря погоды – решения о лечении…"
+  translation: "ours"
+  chunk_id: "book-59-1751"
+  book_id: 59
+  char_start: 1635133
+  char_end: 1635204
   text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
   author: "прот. Александр Шмеман"
   title: "Дневники 1973–1983"
@@ -50,7 +95,7 @@ corpus_sources:
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
 - id: "sch-calls-kids"
   kind: "retelling"
-  text: "notes the phone calls from his family and the loved ones at his side"
+  text: "In the same entry he notes the phone calls of the day before and the loved ones at his side"
   original: null
   translation: null
   chunk_id: "book-59-1752"
@@ -78,6 +123,21 @@ corpus_sources:
   chapter: "Тетрадь VIII ИЮНЬ 1982 – ИЮНЬ 1983"
   translator: null
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "fraser-prisoner"
+  kind: "retelling"
+  text: "remembers him as a man once jailed on the Bass Rock for Christ’s sake"
+  original: null
+  translation: null
+  chunk_id: "book-48-0070"
+  book_id: 48
+  char_start: 55038
+  char_end: 55112
+  text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
+  author: "David M’Intyre (David MacIntyre)"
+  title: "The Hidden Life of Prayer"
+  chapter: "4.  The Engagement: Worship — (a) Acknowledge Daily Mercies"
+  translator: null
+  source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "fraser-resolved"
   kind: "quote"
   text: "search out and record the loving-kindnesses of God"
@@ -108,14 +168,29 @@ corpus_sources:
   chapter: "4.  The Engagement: Worship — (a) Acknowledge Daily Mercies"
   translator: null
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
-- id: "fraser-wells"
-  kind: "quote"
-  text: "what wells of water have mine eyes been opened to see, which before were hid"
-  original: "what wells of water have mine eyes been opened to see, which before were hid"
+- id: "fraser-love"
+  kind: "retelling"
+  text: "It made him sure of God’s love and moved him to love God in return"
+  original: null
   translation: null
   chunk_id: "book-48-0070"
   book_id: 48
-  char_start: 55499
+  char_start: 55401
+  char_end: 55495
+  text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
+  author: "David M’Intyre (David MacIntyre)"
+  title: "The Hidden Life of Prayer"
+  chapter: "4.  The Engagement: Worship — (a) Acknowledge Daily Mercies"
+  translator: null
+  source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
+- id: "fraser-wells"
+  kind: "quote"
+  text: "Oh…what wells of water have mine eyes been opened to see, which before were hid"
+  original: "Oh…what wells of water have mine eyes been opened to see, which before were hid"
+  translation: null
+  chunk_id: "book-48-0070"
+  book_id: 48
+  char_start: 55496
   char_end: 55575
   text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
   author: "David M’Intyre (David MacIntyre)"
@@ -140,7 +215,7 @@ corpus_sources:
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "asbury-ill"
   kind: "retelling"
-  text: "he was so ill that he hardly preached, and when he did step in to preach for someone else, he had to go straight to bed afterward"
+  text: "For several days he had hardly preached at all. One day he felt a little better. Captain Webb, who was due to preach, was kept away, and Asbury went in his place so that the people wouldn’t go home empty-handed. After the sermon he felt so ill that he had to go straight to bed"
   original: null
   translation: null
   chunk_id: "book-225-0405"
@@ -153,15 +228,60 @@ corpus_sources:
   chapter: "Chapter 3"
   translator: null
   source_url: "https://wesley.nnu.edu/other-theologians/francis-asbury/"
-- id: "asbury-die"
+- id: "asbury-tried"
   kind: "retelling"
-  text: "did not expect to live long"
+  text: "On Sunday, April 3, still far from well, he tried to preach"
   original: null
   translation: null
   chunk_id: "book-225-0405"
   book_id: 225
-  char_start: 359242
-  char_end: 359307
+  char_start: 359966
+  char_end: 360035
+  text_sha256: "834630d45eb8a37b02e180882faeaf9dfecd78f60e94e5265f941d45836c84ca"
+  author: "Francis Asbury"
+  title: "The Journal and Letters of Francis Asbury, Vols. I–II"
+  chapter: "Chapter 3"
+  translator: null
+  source_url: "https://wesley.nnu.edu/other-theologians/francis-asbury/"
+- id: "asbury-silent"
+  kind: "quote"
+  text: "How difficult it is for a man who longs for the salvation of souls to be silent!"
+  original: "How difficult it is for a man who longs for the salvation of souls to be silent!"
+  translation: null
+  chunk_id: "book-225-0405"
+  book_id: 225
+  char_start: 360036
+  char_end: 360116
+  text_sha256: "834630d45eb8a37b02e180882faeaf9dfecd78f60e94e5265f941d45836c84ca"
+  author: "Francis Asbury"
+  title: "The Journal and Letters of Francis Asbury, Vols. I–II"
+  chapter: "Chapter 3"
+  translator: null
+  source_url: "https://wesley.nnu.edu/other-theologians/francis-asbury/"
+- id: "asbury-die"
+  kind: "retelling"
+  text: "he was so ill and weak that he no longer expected to live long, nor did he wish to"
+  original: null
+  translation: null
+  chunk_id: "book-225-0405"
+  book_id: 225
+  char_start: 359155
+  char_end: 359333
+  text_sha256: "834630d45eb8a37b02e180882faeaf9dfecd78f60e94e5265f941d45836c84ca"
+  author: "Francis Asbury"
+  title: "The Journal and Letters of Francis Asbury, Vols. I–II"
+  chapter: "Chapter 3"
+  translator: null
+  source_url: "https://wesley.nnu.edu/other-theologians/francis-asbury/"
+- id: "asbury-will"
+  kind: "quote"
+  text: "But, come life or come death, let the will of the Lord be done!"
+  original: "But, come life or come death, let the will of the Lord be done !"
+  translation: null
+  chunk_id: "book-225-0405"
+  book_id: 225
+  char_start: 359334
+  char_end: 359398
   text_sha256: "834630d45eb8a37b02e180882faeaf9dfecd78f60e94e5265f941d45836c84ca"
   author: "Francis Asbury"
   title: "The Journal and Letters of Francis Asbury, Vols. I–II"
@@ -215,7 +335,7 @@ corpus_sources:
   source_url: "https://wesley.nnu.edu/other-theologians/francis-asbury/"
 - id: "asbury-fever"
   kind: "retelling"
-  text: "writes that severe chills and fevers are tormenting him day and night"
+  text: "he writes that severe chills and fevers are tormenting him day and night"
   original: null
   translation: null
   chunk_id: "book-225-0406"
@@ -228,9 +348,39 @@ corpus_sources:
   chapter: "Chapter 3"
   translator: null
   source_url: "https://wesley.nnu.edu/other-theologians/francis-asbury/"
+- id: "newton-visit"
+  kind: "retelling"
+  text: "Newton wrote it just after coming back from a hospital where he had been to see a sick woman he knew"
+  original: null
+  translation: null
+  chunk_id: "book-304-0979"
+  book_id: 304
+  char_start: 743177
+  char_end: 743449
+  text_sha256: "f3cacdf102c7482ab2127cbd91ea8d1e2a0f90d03a2f49a3b47781b2e4e14b57"
+  author: "John Newton"
+  title: "Cardiphonia: or, The Utterance of the Heart, in the course of a real correspondence"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/cardiphoniaorthe00newtuoft"
+- id: "newton-walls"
+  kind: "quote"
+  text: "My spirits always sink when I am within these mournful walls"
+  original: "My spirits always sink when I am within these mournful walls"
+  translation: null
+  chunk_id: "book-304-0979"
+  book_id: 304
+  char_start: 743450
+  char_end: 743510
+  text_sha256: "f3cacdf102c7482ab2127cbd91ea8d1e2a0f90d03a2f49a3b47781b2e4e14b57"
+  author: "John Newton"
+  title: "Cardiphonia: or, The Utterance of the Heart, in the course of a real correspondence"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/cardiphoniaorthe00newtuoft"
 - id: "newton-eyes"
   kind: "retelling"
-  text: "someone who was having trouble with their eyes"
+  text: "to a friend who was suffering with his eyes and his back"
   original: null
   translation: null
   chunk_id: "book-304-0979"
@@ -245,7 +395,7 @@ corpus_sources:
   source_url: "https://archive.org/details/cardiphoniaorthe00newtuoft"
 - id: "newton-op"
   kind: "retelling"
-  text: "exactly a year before, he had been operated on, and he thanks God that he agreed to the surgery and came through it well"
+  text: "that exactly a year before, he had been under the surgeon’s knife, and he thanks God that he agreed to the operation and came through it safely"
   original: null
   translation: null
   chunk_id: "book-304-0980"
@@ -273,9 +423,24 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: "https://archive.org/details/cardiphoniaorthe00newtuoft"
+- id: "newton-hairs"
+  kind: "retelling"
+  text: "they outnumber the hairs on his head"
+  original: null
+  translation: null
+  chunk_id: "book-304-0980"
+  book_id: 304
+  char_start: 744468
+  char_end: 744508
+  text_sha256: "f3cacdf102c7482ab2127cbd91ea8d1e2a0f90d03a2f49a3b47781b2e4e14b57"
+  author: "John Newton"
+  title: "Cardiphonia: or, The Utterance of the Heart, in the course of a real correspondence"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/cardiphoniaorthe00newtuoft"
 - id: "newton-cold"
   kind: "quote"
-  text: "And, yet, alas ! how cold, insensible, and ungrateful !"
+  text: "And, yet, alas! how cold, insensible, and ungrateful!"
   original: "And, yet, alas ! how cold, insensible, and ungrateful !"
   translation: null
   chunk_id: "book-304-0980"
@@ -290,13 +455,43 @@ corpus_sources:
   source_url: "https://archive.org/details/cardiphoniaorthe00newtuoft"
 - id: "newton-complain"
   kind: "quote"
-  text: "I could make as many complaints as you ; but I find no good by complaining, except to Him who is able to help me."
+  text: "I could make as many complaints as you; but I find no good by complaining, except to Him who is able to help me."
   original: "I could make as many complaints as you ; but I find no good by complaining, except to Him who is able to help me."
   translation: null
   chunk_id: "book-304-0980"
   book_id: 304
   char_start: 744566
   char_end: 744679
+  text_sha256: "f3cacdf102c7482ab2127cbd91ea8d1e2a0f90d03a2f49a3b47781b2e4e14b57"
+  author: "John Newton"
+  title: "Cardiphonia: or, The Utterance of the Heart, in the course of a real correspondence"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/cardiphoniaorthe00newtuoft"
+- id: "newton-save"
+  kind: "retelling"
+  text: "the Saviour, who is able to help and to save completely"
+  original: null
+  translation: null
+  chunk_id: "book-304-0981"
+  book_id: 304
+  char_start: 744850
+  char_end: 744894
+  text_sha256: "f3cacdf102c7482ab2127cbd91ea8d1e2a0f90d03a2f49a3b47781b2e4e14b57"
+  author: "John Newton"
+  title: "Cardiphonia: or, The Utterance of the Heart, in the course of a real correspondence"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/cardiphoniaorthe00newtuoft"
+- id: "newton-anchor"
+  kind: "quote"
+  text: "there I desire to cast anchor, and wish you to do so likewise"
+  original: "there I desire to cast anchor, and wish you to do so likewise"
+  translation: null
+  chunk_id: "book-304-0981"
+  book_id: 304
+  char_start: 744897
+  char_end: 744959
   text_sha256: "f3cacdf102c7482ab2127cbd91ea8d1e2a0f90d03a2f49a3b47781b2e4e14b57"
   author: "John Newton"
   title: "Cardiphonia: or, The Utterance of the Heart, in the course of a real correspondence"
@@ -335,7 +530,7 @@ corpus_sources:
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
 - id: "sch-calls"
   kind: "retelling"
-  text: "within three hours of getting home, the phone had already rung about ten times"
+  text: "within three hours of their getting home, the phone had already rung about ten times"
   original: null
   translation: null
   chunk_id: "book-59-0882"
@@ -348,15 +543,45 @@ corpus_sources:
   chapter: "Тетрадь IV МАЙ 1976 – МАЙ 1977"
   translator: null
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
-- id: "sch-walk"
+- id: "sch-daughter"
   kind: "retelling"
-  text: "how they walked home through the snowdrifts after Forgiveness Vespers"
+  text: "his daughter Anya"
   original: null
   translation: null
+  chunk_id: "book-59-0015"
+  book_id: 59
+  char_start: 13072
+  char_end: 13105
+  text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
+  author: "прот. Александр Шмеман"
+  title: "Дневники 1973–1983"
+  chapter: "ПРЕДИСЛОВИЕ"
+  translator: null
+  source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "sch-anya"
+  kind: "quote"
+  text: "in the coziness and light of her family, her home"
+  original: "в уюте, свете ее семьи, ее дома"
+  translation: "ours"
+  chunk_id: "book-59-0883"
+  book_id: 59
+  char_start: 825036
+  char_end: 825067
+  text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
+  author: "прот. Александр Шмеман"
+  title: "Дневники 1973–1983"
+  chapter: "Тетрадь IV МАЙ 1976 – МАЙ 1977"
+  translator: null
+  source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "sch-walk"
+  kind: "quote"
+  text: "after Forgiveness Vespers we walked home through the snowdrifts"
+  original: "после прощеной вечерни мы шли через сугробы домой"
+  translation: "ours"
   chunk_id: "book-59-0884"
   book_id: 59
-  char_start: 825337
-  char_end: 825391
+  char_start: 825341
+  char_end: 825390
   text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
   author: "прот. Александр Шмеман"
   title: "Дневники 1973–1983"
@@ -410,13 +635,13 @@ corpus_sources:
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
 - id: "sch-silence"
   kind: "quote"
-  text: "Eight months — I haven’t written a word here."
-  original: "Восемь месяцев – не писал сюда ни слова."
+  text: "Eight months – I haven’t written a word here. And not because there was nothing to say: never, perhaps, have there been so many thoughts, and questions, and impressions."
+  original: "Восемь месяцев – не писал сюда ни слова. И не потому, что нечего было сказать: никогда, пожалуй, не было столько мыслей, и вопросов, и впечатлений."
   translation: "ours"
   chunk_id: "book-59-1752"
   book_id: 59
   char_start: 1635636
-  char_end: 1635676
+  char_end: 1635783
   text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
   author: "прот. Александр Шмеман"
   title: "Дневники 1973–1983"
@@ -425,23 +650,53 @@ corpus_sources:
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
 - id: "sch-height"
   kind: "quote"
-  text: "I was afraid of the height to which my illness had lifted me"
-  original: "боялся той высоты, на которую подняла меня моя болезнь"
+  text: "I kept being afraid of the height to which my illness had lifted me, afraid of ‘falling out’ of it"
+  original: "все боялся той высоты, на которую подняла меня моя болезнь, боялся „выпасть“ из нее"
   translation: "ours"
   chunk_id: "book-59-1752"
   book_id: 59
-  char_start: 1635811
-  char_end: 1635865
+  char_start: 1635807
+  char_end: 1635890
   text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
   author: "прот. Александр Шмеман"
   title: "Дневники 1973–1983"
   chapter: "Тетрадь VIII ИЮНЬ 1982 – ИЮНЬ 1983"
   translator: null
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "sch-l"
+  kind: "quote"
+  text: "An active presence – L. I think that if she had not been with me, there would not have been these – mostly peaceful and deep – eight months."
+  original: "Присутствие активное – Л. Я думаю, не будь ее со мною, не было бы этих – в основном мирных и глубоких – восьми месяцев."
+  translation: "ours"
+  chunk_id: "book-59-1752"
+  book_id: 59
+  char_start: 1636127
+  char_end: 1636246
+  text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
+  author: "прот. Александр Шмеман"
+  title: "Дневники 1973–1983"
+  chapter: "Тетрадь VIII ИЮНЬ 1982 – ИЮНЬ 1983"
+  translator: null
+  source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "sch-wife"
+  kind: "retelling"
+  text: "Lyana was his name in the diary for his wife, Ulyana Sergeevna"
+  original: null
+  translation: null
+  chunk_id: "book-59-0014"
+  book_id: 59
+  char_start: 12900
+  char_end: 13021
+  text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
+  author: "прот. Александр Шмеман"
+  title: "Дневники 1973–1983"
+  chapter: "ПРЕДИСЛОВИЕ"
+  translator: null
+  source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
 - id: "sch-list"
   kind: "quote"
   text: "Three visits from Andrei. Three visits from Serge. Visits from the Tkachuks… What happiness all of this was!"
-  original: "Три приезда Андрея.\n\nТри приезда Сережи.\n\nПриезды Ткачуков…\n\nКакое все это было счастье!"
+  original: "Три приезда Андрея. Три приезда Сережи. Приезды Ткачуков… Какое все это было счастье!"
   translation: "ours"
   chunk_id: "book-59-1753"
   book_id: 59
@@ -451,6 +706,21 @@ corpus_sources:
   author: "прот. Александр Шмеман"
   title: "Дневники 1973–1983"
   chapter: "Тетрадь VIII ИЮНЬ 1982 – ИЮНЬ 1983"
+  translator: null
+  source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "sch-family"
+  kind: "retelling"
+  text: "Andrei was his brother, and Serge his son"
+  original: null
+  translation: null
+  chunk_id: "book-59-0015"
+  book_id: 59
+  char_start: 13072
+  char_end: 13210
+  text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
+  author: "прот. Александр Шмеман"
+  title: "Дневники 1973–1983"
+  chapter: "ПРЕДИСЛОВИЕ"
   translator: null
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
 - id: "sch-death"
@@ -470,7 +740,7 @@ corpus_sources:
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
 - id: "asbury-faq"
   kind: "retelling"
-  text: "gave thanks for the friends who looked after him"
+  text: "When he was ill, Asbury gave thanks for the friends who looked after him"
   original: null
   translation: null
   chunk_id: "book-225-0406"
@@ -560,7 +830,7 @@ corpus_sources:
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 ---
 
-Autumn 1982, New York. Father Alexander Schmemann, an Orthodox priest, is lying in a hospital bed: the doctors have found two tumors[^corpus-sch-tumors]. For thirty years he had spoken about faith on Radio Liberty, and for twenty he had led St. Vladimir’s Seminary[^schmemann]. Now the entries in his diary are short: “Letters, flowers, a sense of something undeserved…”[^corpus-sch-letters] A week later: “And the sun, sun every day. Love and worry all around.”[^corpus-sch-sun] The next day he notes the phone calls from his family and the loved ones at his side[^corpus-sch-calls-kids], and writes two words: “Almost happiness.”[^corpus-sch-almost]
+Autumn 1982, New York. Father Alexander Schmemann, an Orthodox priest who for thirty years had spoken about faith on Radio Liberty and for twenty had led St. Vladimir’s Seminary[^schmemann], is lying in a hospital bed and writing in his diary: “Two tumors, hundreds of ‘tests’.”[^corpus-sch-tumors] And straight after: “Writing about it is boring and long-winded.”[^corpus-sch-boring] Other things he writes about gladly: “Letters, flowers, a sense of something undeserved…”[^corpus-sch-letters] A week later: “Outside the window, an amazing view of New York.”[^corpus-sch-view] “Water, skyscrapers. And the sun, sun every day. Love and worry all around.”[^corpus-sch-sun] The next day: “I sit in a sunlit hospital room, waiting for something to happen – for a decision about treatment…”[^corpus-sch-wait] In the same entry he notes the phone calls of the day before and the loved ones at his side[^corpus-sch-calls-kids], and he writes two words: “Almost happiness.”[^corpus-sch-almost]
 
 That “almost” is where the honesty lies. Schmemann doesn’t pretend his illness is a joy. But he notices the letters, the sun in the window, the people around him, and he names them.
 
@@ -568,39 +838,39 @@ That is what a thanksgiving prayer in [your own words](/articles/how-to-start-pr
 
 ## Seeing what was there all along
 
-In 1677 the Scottish Presbyterian preacher James Fraser of Brea was sent to the Bass Rock, a crag out at sea where prisoners were held, for preaching at banned gatherings. He spent about two and a half years there and later saw the inside of two more prisons[^fraser]. The Scottish pastor David MacIntyre tells in *The Hidden Life of Prayer* how Fraser once resolved to “search out and record the loving-kindnesses of God”[^corpus-fraser-resolved].
+In 1677 the Scottish Presbyterian preacher James Fraser of Brea was sent to the Bass Rock, a crag out at sea where prisoners were held, for preaching at banned gatherings. He spent about two and a half years there and later saw the inside of two more prisons[^fraser]. The Scottish pastor David MacIntyre, in *The Hidden Life of Prayer*, remembers him as a man once jailed on the Bass Rock for Christ’s sake[^corpus-fraser-prisoner] and tells how Fraser resolved to “search out and record the loving-kindnesses of God”[^corpus-fraser-resolved]. MacIntyre doesn’t say exactly when.
 
-Fraser himself described what came of it: “The calling to mind and seriously meditating on the Lord’s dealings with me as to soul and body, His manifold mercies, has done me very much good”[^corpus-fraser-calling]. And then: “what wells of water have mine eyes been opened to see, which before were hid”[^corpus-fraser-wells]. “Scarce anything hath done me more good than this”[^corpus-fraser-scarce].
+Fraser himself described what came of it: “The calling to mind and seriously meditating on the Lord’s dealings with me as to soul and body, His manifold mercies, has done me very much good”[^corpus-fraser-calling]. It made him sure of God’s love and moved him to love God in return[^corpus-fraser-love]. “Oh…what wells of water have mine eyes been opened to see, which before were hid”[^corpus-fraser-wells]. “Scarce anything hath done me more good than this”[^corpus-fraser-scarce].
 
 Those wells had been in his life all along; he just hadn’t seen them. Here gratitude begins not with a feeling but with attention. And attention can be practiced: stop and ask yourself what good there was today.
 
 ## Thanking God for people
 
-Francis Asbury was twenty-six when he sailed from England to America in 1771 to preach. He went on to become one of the first Methodist bishops there and spent the rest of his life on horseback, averaging some six thousand miles a year[^asbury]. In the spring of 1774, in Maryland, he was so ill that he hardly preached, and when he did step in to preach for someone else, he had to go straight to bed afterward[^corpus-asbury-ill]. He did not expect to live long[^corpus-asbury-die].
+Francis Asbury was twenty-six when he sailed from England to America in 1771 to preach. He went on to become one of the first Methodist bishops there and spent the rest of his life on horseback, averaging some six thousand miles a year[^asbury]. In the spring of 1774, in Maryland, he was so ill and weak that he no longer expected to live long, nor did he wish to[^corpus-asbury-die]: “But, come life or come death, let the will of the Lord be done!”[^corpus-asbury-will] For several days he had hardly preached at all. One day he felt a little better. Captain Webb, who was due to preach, was kept away, and Asbury went in his place so that the people wouldn’t go home empty-handed. After the sermon he felt so ill that he had to go straight to bed[^corpus-asbury-ill].
 
-Then, on Sunday, April 3, he wrote in his journal: “Gratitude urges me to acknowledge the providence of God, and the kindness of my friends”[^corpus-asbury-gratitude]. The people who had borne the brunt of looking after him had shown, in his words, “remarkable care, tenderness, and concern”[^corpus-asbury-care]. And then came a prayer in a single sentence: “May the Lord reward their work and labour of love!”[^corpus-asbury-prayer] Three days later he writes that severe chills and fevers are tormenting him day and night[^corpus-asbury-fever]. His thanks didn’t wait until he was well.
+On Sunday, April 3, still far from well, he tried to preach[^corpus-asbury-tried]: “How difficult it is for a man who longs for the salvation of souls to be silent!”[^corpus-asbury-silent] And in the same entry: “Gratitude urges me to acknowledge the providence of God, and the kindness of my friends”[^corpus-asbury-gratitude]. The people who had borne the brunt of looking after him had shown, in his words, “remarkable care, tenderness, and concern”[^corpus-asbury-care]. And then came a prayer in a single sentence: “May the Lord reward their work and labour of love!”[^corpus-asbury-prayer] Three days later he writes that severe chills and fevers are tormenting him day and night[^corpus-asbury-fever]. His thanks didn’t wait until he was well.
 
 This may be the simplest prayer of thanks there is: name the people who were kind to you and ask God to bless them. And then thank them, too.
 
 ## When you don’t feel thankful
 
-As a young man John Newton was a captain of slave ships; after his conversion he became an Anglican clergyman and wrote the hymn “Amazing Grace”[^newton]. In October 1777 he wrote to someone who was having trouble with their eyes[^corpus-newton-eyes]. The letter later appeared in his collection *Cardiphonia*. Newton recalls that exactly a year before, he had been operated on, and he thanks God that he agreed to the surgery and came through it well[^corpus-newton-op]. “In short, I have so many reasons for thankfulness, that I cannot count them.”[^corpus-newton-count] And in the next breath: “And, yet, alas ! how cold, insensible, and ungrateful !”[^corpus-newton-cold]
+As a young man John Newton was a captain of slave ships; after his conversion he became an Anglican clergyman and wrote the hymn “Amazing Grace”[^newton]. His collection of letters, *Cardiphonia*, includes one dated October 10, 1777. Newton wrote it just after coming back from a hospital where he had been to see a sick woman he knew[^corpus-newton-visit]. “My spirits always sink when I am within these mournful walls,”[^corpus-newton-walls] he confides to a friend who was suffering with his eyes and his back[^corpus-newton-eyes]. Newton recalls that exactly a year before, he had been under the surgeon’s knife, and he thanks God that he agreed to the operation and came through it safely[^corpus-newton-op]. “In short, I have so many reasons for thankfulness, that I cannot count them.”[^corpus-newton-count] He adds that they outnumber the hairs on his head[^corpus-newton-hairs]. And in the next breath he admits that he doesn’t feel thankful at all: “And, yet, alas! how cold, insensible, and ungrateful!”[^corpus-newton-cold]
 
-Newton doesn’t pretend his heart is full of gratitude. He sees reasons to give thanks and admits honestly that his heart stays silent. He makes another confession, too: “I could make as many complaints as you ; but I find no good by complaining, except to Him who is able to help me.”[^corpus-newton-complain] Complaining to God is no enemy of gratitude; it is part of the same conversation.
+Newton doesn’t pretend his heart is full of gratitude. He makes another confession, too: “I could make as many complaints as you; but I find no good by complaining, except to Him who is able to help me.”[^corpus-newton-complain] Complaining to God is no enemy of gratitude; it is part of the same conversation.
 
-Newton closes the letter with words from a psalm: “Hope in God, for you shall yet praise Him.”[^corpus-newton-psalm] In the Berean Standard Bible the whole verse reads: “Why are you downcast, O my soul? Why the unease within me? Put your hope in God, for I will yet praise Him for the salvation of His presence” (Psalm 42:5)[^ps42]. The psalmist doesn’t say the gloom has lifted. He talks to it and promises praise in the future tense. You can pray like that too.
+Near the end of the letter Newton, the old sailor, speaks of the Saviour, who is able to help and to save completely[^corpus-newton-save], and adds: “there I desire to cast anchor, and wish you to do so likewise”[^corpus-newton-anchor]. The last line of the letter is from a psalm: “Hope in God, for you shall yet praise Him.”[^corpus-newton-psalm] In the Berean Standard Bible the whole verse reads: “Why are you downcast, O my soul? Why the unease within me? Put your hope in God, for I will yet praise Him for the salvation of His presence” (Psalm 42:5)[^ps42]. The psalmist doesn’t say the gloom has lifted. He speaks to his own soul and promises that he will yet praise God. You can pray like that too.
 
 ## The gifts of an ordinary day
 
-Long before his illness, in February 1977, in the first days of Lent, Schmemann wrote in his diary: “How passionately I long for silence, for recollection, for inner peace.”[^corpus-sch-quiet] Yet within three hours of getting home, the phone had already rung about ten times[^corpus-sch-calls]. In the next entry he remembers how they walked home through the snowdrifts after Forgiveness Vespers[^corpus-sch-walk]: “All of it together: the snow lit by the scattered streetlamps, the lit windows of the house, little Alexandra like a little ball on that snow.”[^corpus-sch-snow] “All these are God’s gifts,”[^corpus-sch-gifts] he writes. And he adds: “None of this is God; all of it is from Him and therefore about Him.”[^corpus-sch-notgod]
+Long before his illness, in February 1977, in the first days of Lent, Schmemann wrote in his diary: “How passionately I long for silence, for recollection, for inner peace.”[^corpus-sch-quiet] Yet within three hours of their getting home, the phone had already rung about ten times[^corpus-sch-calls]. The next day he looks back on where they had been: a day and a half with his daughter Anya[^corpus-sch-daughter], “in the coziness and light of her family, her home”[^corpus-sch-anya], and how “after Forgiveness Vespers we walked home through the snowdrifts”[^corpus-sch-walk] (Forgiveness Vespers is the evening service with the rite of forgiveness before Lent): “All of it together: the snow lit by the scattered streetlamps, the lit windows of the house, little Alexandra like a little ball on that snow.”[^corpus-sch-snow] “All these are God’s gifts,”[^corpus-sch-gifts] he writes. And he adds: “None of this is God; all of it is from Him and therefore about Him.”[^corpus-sch-notgod]
 
 A prayer of thanks doesn’t need anything grand. Snow, light in the windows, a child nearby: that is already reason enough to speak to the One they come from.
 
 ## How to thank God in your own words
 
-- **Name one or two specific things**, not just “thanks for everything.” A few questions can help: Who was kind to me today? What ordinary thing turned out to be a gift: sunlight, a phone call, a warm cup of tea? What did I take for granted only yesterday?
+- **Name something specific**, not just “thanks for everything.” A few questions can help: Who was kind to me today? What ordinary thing turned out to be a gift: sunlight, a phone call, a warm cup of tea? What did I take for granted only yesterday?
 - **Start with people**, as Asbury did: “Thank you for N. Reward them for their kindness.” The person you prayed for might like to hear your thanks, too.
-- **If it hurts, talk about the pain first.** You don’t have to thank God for the trouble itself. You may find something to be thankful for in the middle of it, or today you may only bring your complaint to the One who can help.
+- **If it hurts, talk about the pain first.** You don’t have to thank God for the trouble itself. You may find something to be thankful for even in the middle of it, or today you may only bring your complaint to the One who can help.
 - **If you don’t feel grateful, say that too.** Newton had more reasons than he could count, and his heart still felt cold. And if right now there is more anxiety than gratitude, read our article on [prayer for anxiety](/articles/prayer-for-anxiety/).
 - **Now and then, write down the good you notice**, as Fraser did, and later try coming back to those notes. We explain how to keep them in our article on the [prayer journal](/articles/prayer-journal/). If thanksgiving is just one of the things you pray about, see [what to pray about](/articles/what-to-pray-about/).
 
@@ -615,7 +885,7 @@ You can try this today in [Lampada](/). Before you pray, you name your prayer’
 
 At the end you can write a takeaway of a line or two. The prayer is saved in the journal on your phone, and keyword search will help you later find the prayers where you gave thanks and remember what you thanked God for. You can set a prayer reminder for the days and time you choose. There is no gratitude list or counter in the app and no ready-made prayers: the words stay yours.
 
-Schmemann made his last diary entry on June 1, 1983: “Eight months — I haven’t written a word here.”[^corpus-sch-silence] Fear had kept him from writing. He wrote of it: “I was afraid of the height to which my illness had lifted me”[^corpus-sch-height]. And he ended the entry with a list: “Three visits from Andrei. Three visits from Serge. Visits from the Tkachuks… What happiness all of this was!”[^corpus-sch-list] His son Serge writes in the preface to the diaries that six months later, on December 13, 1983, Father Alexander died at home, surrounded by those closest to him[^corpus-sch-death]. Listing who came and marveling at it: that, too, is thanking God in your own words.
+Schmemann made his last diary entry on June 1, 1983: “Eight months – I haven’t written a word here. And not because there was nothing to say: never, perhaps, have there been so many thoughts, and questions, and impressions.”[^corpus-sch-silence] He had kept silent because “I kept being afraid of the height to which my illness had lifted me, afraid of ‘falling out’ of it”[^corpus-sch-height]. Then he writes about the person closest to him: “An active presence – L. I think that if she had not been with me, there would not have been these – mostly peaceful and deep – eight months.”[^corpus-sch-l] Lyana was his name in the diary for his wife, Ulyana Sergeevna[^corpus-sch-wife]. And he ended the entry with a list: “Three visits from Andrei. Three visits from Serge. Visits from the Tkachuks… What happiness all of this was!”[^corpus-sch-list] Andrei was his brother, and Serge his son[^corpus-sch-family]. In the preface to the diaries Serge would write that six months later, on December 13, 1983, Father Alexander died at home, surrounded by those closest to him[^corpus-sch-death]. Listing who came and marveling at it: that, too, is thanking God in your own words.
 
 ## Frequently asked questions {#faq}
 

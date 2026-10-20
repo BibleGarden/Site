@@ -93,9 +93,99 @@ corpus_sources:
   chapter: "CHAPTER I — THE POWER OF PRAYER"
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/26744"
+- id: "taylor-finished"
+  kind: "retelling"
+  text: "А сын тем временем читал брошюрку, и его зацепили слова «совершённое дело Христа». Почему автор сказал именно «совершённое»? И тут ему вспомнились слова Иисуса на кресте: «Совершилось»"
+  original: null
+  translation: null
+  chunk_id: "book-164-0014"
+  book_id: 164
+  char_start: 10248
+  char_end: 10625
+  text_sha256: "0b7de0530f47af14dcc85388778116fea1b7d101211e53dd489a0f78d9c4de0d"
+  author: "J. Hudson Taylor"
+  title: "A Retrospect"
+  chapter: "CHAPTER I — THE POWER OF PRAYER"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/26744"
+- id: "taylor-paid"
+  kind: "retelling"
+  text: "Ответ пришёл сам: Христос умер за грехи всего мира, и долг за них уже заплачен"
+  original: null
+  translation: null
+  chunk_id: "book-164-0015"
+  book_id: 164
+  char_start: 10626
+  char_end: 10852
+  text_sha256: "0b7de0530f47af14dcc85388778116fea1b7d101211e53dd489a0f78d9c4de0d"
+  author: "J. Hudson Taylor"
+  title: "A Retrospect"
+  chapter: "CHAPTER I — THE POWER OF PRAYER"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/26744"
+- id: "taylor-left"
+  kind: "quote"
+  text: "Если всё дело совершено и весь долг уплачен, что же остаётся сделать мне?"
+  original: "If the whole work was finished and the whole debt paid, what is there left for me to do?"
+  translation: "ours"
+  chunk_id: "book-164-0015"
+  book_id: 164
+  char_start: 10877
+  char_end: 10965
+  text_sha256: "0b7de0530f47af14dcc85388778116fea1b7d101211e53dd489a0f78d9c4de0d"
+  author: "J. Hudson Taylor"
+  title: "A Retrospect"
+  chapter: "CHAPTER I — THE POWER OF PRAYER"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/26744"
+- id: "taylor-knees"
+  kind: "retelling"
+  text: "И его залила радость: Святой Дух, пишет он, озарил его душу, и стало ясно, что делать самому ничего не нужно — остаётся лишь принять Спасителя и, преклонив колени, славить Его вовеки"
+  original: null
+  translation: null
+  chunk_id: "book-164-0015"
+  book_id: 164
+  char_start: 10967
+  char_end: 11218
+  text_sha256: "0b7de0530f47af14dcc85388778116fea1b7d101211e53dd489a0f78d9c4de0d"
+  author: "J. Hudson Taylor"
+  title: "A Retrospect"
+  chapter: "CHAPTER I — THE POWER OF PRAYER"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/26744"
+- id: "taylor-warehouse"
+  kind: "quote"
+  text: "Так, пока моя дорогая мать славила Бога на коленях у себя в комнате, я славил Его в старом складе, куда ушёл один, чтобы на досуге почитать эту книжечку"
+  original: "Thus while my dear mother was praising God on her knees in her chamber, I was praising Him in the old warehouse to which I had gone alone to read at my leisure this little book."
+  translation: "ours"
+  chunk_id: "book-164-0015"
+  book_id: 164
+  char_start: 11219
+  char_end: 11396
+  text_sha256: "0b7de0530f47af14dcc85388778116fea1b7d101211e53dd489a0f78d9c4de0d"
+  author: "J. Hudson Taylor"
+  title: "A Retrospect"
+  chapter: "CHAPTER I — THE POWER OF PRAYER"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/26744"
+- id: "taylor-confidante"
+  kind: "retelling"
+  text: "Только через несколько дней он решился открыться сестре, да и то взяв с неё слово никому не рассказывать"
+  original: null
+  translation: null
+  chunk_id: "book-164-0015"
+  book_id: 164
+  char_start: 11398
+  char_end: 11561
+  text_sha256: "0b7de0530f47af14dcc85388778116fea1b7d101211e53dd489a0f78d9c4de0d"
+  author: "J. Hudson Taylor"
+  title: "A Retrospect"
+  chapter: "CHAPTER I — THE POWER OF PRAYER"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/26744"
 - id: "taylor-meet"
   kind: "retelling"
-  text: "Через две недели мать вернулась, и сын первым встретил её у двери со своей радостной новостью"
+  text: "Через две недели мать вернулась, и сын первым встретил её у двери: ему не терпелось поделиться радостной новостью"
   original: null
   translation: null
   chunk_id: "book-164-0016"
@@ -117,6 +207,36 @@ corpus_sources:
   book_id: 164
   char_start: 11799
   char_end: 11893
+  text_sha256: "0b7de0530f47af14dcc85388778116fea1b7d101211e53dd489a0f78d9c4de0d"
+  author: "J. Hudson Taylor"
+  title: "A Retrospect"
+  chapter: "CHAPTER I — THE POWER OF PRAYER"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/26744"
+- id: "taylor-amelia"
+  kind: "quote"
+  text: "Неужели Амелия нарушила обещание? Она сказала, что никому не скажет"
+  original: "has Amelia broken her promise? She said she would tell no one."
+  translation: "ours"
+  chunk_id: "book-164-0016"
+  book_id: 164
+  char_start: 11924
+  char_end: 11986
+  text_sha256: "0b7de0530f47af14dcc85388778116fea1b7d101211e53dd489a0f78d9c4de0d"
+  author: "J. Hudson Taylor"
+  title: "A Retrospect"
+  chapter: "CHAPTER I — THE POWER OF PRAYER"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/26744"
+- id: "taylor-notfrom"
+  kind: "retelling"
+  text: "Но мать заверила его, что узнала эту новость не от людей"
+  original: null
+  translation: null
+  chunk_id: "book-164-0016"
+  book_id: 164
+  char_start: 11988
+  char_end: 12051
   text_sha256: "0b7de0530f47af14dcc85388778116fea1b7d101211e53dd489a0f78d9c4de0d"
   author: "J. Hudson Taylor"
   title: "A Retrospect"
@@ -147,6 +267,21 @@ corpus_sources:
   book_id: 164
   char_start: 12498
   char_end: 12593
+  text_sha256: "0b7de0530f47af14dcc85388778116fea1b7d101211e53dd489a0f78d9c4de0d"
+  author: "J. Hudson Taylor"
+  title: "A Retrospect"
+  chapter: "CHAPTER I — THE POWER OF PRAYER"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/26744"
+- id: "taylor-month"
+  kind: "retelling"
+  text: "Ровно через месяц после этой записи он и обратился"
+  original: null
+  translation: null
+  chunk_id: "book-164-0017"
+  book_id: 164
+  char_start: 12595
+  char_end: 12674
   text_sha256: "0b7de0530f47af14dcc85388778116fea1b7d101211e53dd489a0f78d9c4de0d"
   author: "J. Hudson Taylor"
   title: "A Retrospect"
@@ -215,13 +350,28 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/26744"
 - id: "taylor-daily"
   kind: "retelling"
-  text: "Так повторялось изо дня в день: Тейлор много раз в день просил Бога спасти этого человека, после перевязки говорил несколько слов, а тот отворачивался"
+  text: "Так продолжалось день за днём: Тейлор много раз на дню просил Бога спасти этого человека, после перевязки говорил несколько слов о вере, а больной отворачивался"
   original: null
   translation: null
   chunk_id: "book-164-0080"
   book_id: 164
   char_start: 61973
   char_end: 62329
+  text_sha256: "0b7de0530f47af14dcc85388778116fea1b7d101211e53dd489a0f78d9c4de0d"
+  author: "J. Hudson Taylor"
+  title: "A Retrospect"
+  chapter: "CHAPTER VII — MIGHTY TO SAVE"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/26744"
+- id: "taylor-sank"
+  kind: "retelling"
+  text: "Со временем у Тейлора опустились руки: ему казалось, что он не только не помогает, но, может быть, ещё больше ожесточает старика"
+  original: null
+  translation: null
+  chunk_id: "book-164-0080"
+  book_id: 164
+  char_start: 62331
+  char_end: 62492
   text_sha256: "0b7de0530f47af14dcc85388778116fea1b7d101211e53dd489a0f78d9c4de0d"
   author: "J. Hudson Taylor"
   title: "A Retrospect"
@@ -290,7 +440,7 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/26744"
 - id: "taylor-hardness"
   kind: "quote"
-  text: "Быть может, порой, пока мы жалуемся на жёсткость сердец тех, кому стараемся помочь, истинная причина нашей неудачи — жёсткость наших собственных сердец и то, как слабо мы сознаём торжественную реальность вечного"
+  text: "Быть может, порой, пока мы жалуемся на жёсткость сердец тех, кому стараемся помочь, истинная причина нашей неудачи — жёсткость наших собственных сердец и то, как слабо мы осознаём реальность и серьёзность того, что касается вечности"
   original: "Sometimes it may be that while we are complaining of the hardness of the hearts of those we are seeking to benefit, the hardness of our own hearts, and our own feeble apprehension of the solemn reality of eternal things, may be the true cause of our want of success."
   translation: "ours"
   chunk_id: "book-164-0083"
@@ -348,6 +498,96 @@ corpus_sources:
   chapter: "Часть 3. 1904–1907 годы"
   translator: null
   source_url: "https://azbyka.ru/otechnik/Ioann_Kronshtadtskij/dnevnik/"
+- id: "ioann-cool"
+  kind: "retelling"
+  text: "Чуть раньше он благодарит Бога, что избавил его от тяжёлого смущения: узнав, сколько заплатили спутнику за поездку с ним, он было охладел к этому человеку"
+  original: null
+  translation: null
+  chunk_id: "book-104-0754"
+  book_id: 104
+  char_start: 673804
+  char_end: 674029
+  text_sha256: "b406f4016a095fa659984a32233275fb85de3ea94c5124722c6f710550e22e17"
+  author: "св. прав. Иоанн Кронштадтский"
+  title: "Дневники (полное издание, т. I–XXVI)"
+  chapter: "Часть 3. 1904–1907 годы"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Ioann_Kronshtadtskij/dnevnik/"
+- id: "ioann-weigh"
+  kind: "retelling"
+  text: "но потом прикинул, сколько сам получает даром от других"
+  original: null
+  translation: null
+  chunk_id: "book-104-0755"
+  book_id: 104
+  char_start: 674030
+  char_end: 674193
+  text_sha256: "b406f4016a095fa659984a32233275fb85de3ea94c5124722c6f710550e22e17"
+  author: "св. прав. Иоанн Кронштадтский"
+  title: "Дневники (полное издание, т. I–XXVI)"
+  chapter: "Часть 3. 1904–1907 годы"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Ioann_Kronshtadtskij/dnevnik/"
+- id: "ioann-liking"
+  kind: "quote"
+  text: "неприязнь преложил на приязнь к нему"
+  original: "неприязнь преложил на приязнь к нему"
+  translation: null
+  chunk_id: "book-104-0755"
+  book_id: 104
+  char_start: 674225
+  char_end: 674261
+  text_sha256: "b406f4016a095fa659984a32233275fb85de3ea94c5124722c6f710550e22e17"
+  author: "св. прав. Иоанн Кронштадтский"
+  title: "Дневники (полное издание, т. I–XXVI)"
+  chapter: "Часть 3. 1904–1907 годы"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Ioann_Kronshtadtskij/dnevnik/"
+- id: "ioann-church"
+  kind: "quote"
+  text: "неприязнь невольную ко встречающимся по дороге и в храме"
+  original: "неприязнь невольную ко встречающимся по дороге и в храме"
+  translation: null
+  chunk_id: "book-104-0756"
+  book_id: 104
+  char_start: 675356
+  char_end: 675412
+  text_sha256: "b406f4016a095fa659984a32233275fb85de3ea94c5124722c6f710550e22e17"
+  author: "св. прав. Иоанн Кронштадтский"
+  title: "Дневники (полное издание, т. I–XXVI)"
+  chapter: "Часть 3. 1904–1907 годы"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Ioann_Kronshtadtskij/dnevnik/"
+- id: "ioann-secret"
+  kind: "retelling"
+  text: "и, никому не показывая, просит Бога переменить его собственное сердце"
+  original: null
+  translation: null
+  chunk_id: "book-104-0756"
+  book_id: 104
+  char_start: 675414
+  char_end: 675530
+  text_sha256: "b406f4016a095fa659984a32233275fb85de3ea94c5124722c6f710550e22e17"
+  author: "св. прав. Иоанн Кронштадтский"
+  title: "Дневники (полное издание, т. I–XXVI)"
+  chapter: "Часть 3. 1904–1907 годы"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Ioann_Kronshtadtskij/dnevnik/"
+- id: "ioann-changed"
+  kind: "quote"
+  text: "дивно изменил состояние духа"
+  original: "дивно изменил состояние духа"
+  translation: null
+  chunk_id: "book-104-0756"
+  book_id: 104
+  char_start: 675541
+  char_end: 675569
+  text_sha256: "b406f4016a095fa659984a32233275fb85de3ea94c5124722c6f710550e22e17"
+  author: "св. прав. Иоанн Кронштадтский"
+  title: "Дневники (полное издание, т. I–XXVI)"
+  chapter: "Часть 3. 1904–1907 годы"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Ioann_Kronshtadtskij/dnevnik/"
 - id: "ambrose-guilt"
   kind: "retelling"
   text: "Она винит себя, что не сумела его воспитать, и признаётся: в горе ей иногда казалось, что смерть была бы для сына лучше такой жизни"
@@ -357,6 +597,21 @@ corpus_sources:
   book_id: 40
   char_start: 410939
   char_end: 411569
+  text_sha256: "b7ce9190b33f8705e4bfd8ac8e047be6abf9aa14b54ca1f30b23b124f4a823de"
+  author: "прп. Амвросий Оптинский"
+  title: "Письма к мирским особам"
+  chapter: "191. МАТЕРИ, СКОРБЯЩЕЙ О НЕВЕРИИ СЫНА. О ГОВЕНИИ"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Amvrosij_Optinskij/perepiska-s-mirskimi-litsami/"
+- id: "ambrose-beggar"
+  kind: "retelling"
+  text: "Как-то раз она подала нищему милостыню и попросила помолиться о здравии сына, а тот стал молиться о его упокоении — и мать смутилась"
+  original: null
+  translation: null
+  chunk_id: "book-40-0529"
+  book_id: 40
+  char_start: 410599
+  char_end: 410719
   text_sha256: "b7ce9190b33f8705e4bfd8ac8e047be6abf9aa14b54ca1f30b23b124f4a823de"
   author: "прп. Амвросий Оптинский"
   title: "Письма к мирским особам"
@@ -387,6 +642,51 @@ corpus_sources:
   book_id: 40
   char_start: 414172
   char_end: 414223
+  text_sha256: "b7ce9190b33f8705e4bfd8ac8e047be6abf9aa14b54ca1f30b23b124f4a823de"
+  author: "прп. Амвросий Оптинский"
+  title: "Письма к мирским особам"
+  chapter: "191. МАТЕРИ, СКОРБЯЩЕЙ О НЕВЕРИИ СЫНА. О ГОВЕНИИ"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Amvrosij_Optinskij/perepiska-s-mirskimi-litsami/"
+- id: "ambrose-ill"
+  kind: "retelling"
+  text: "Старец просит прощения, что так долго молчал: её письмо пришло ещё в конце августа, он не раз садился за ответ, но сначала не давали посетители, а потом больше месяца он болел и до сих пор очень слаб"
+  original: null
+  translation: null
+  chunk_id: "book-40-0529"
+  book_id: 40
+  char_start: 409958
+  char_end: 410457
+  text_sha256: "b7ce9190b33f8705e4bfd8ac8e047be6abf9aa14b54ca1f30b23b124f4a823de"
+  author: "прп. Амвросий Оптинский"
+  title: "Письма к мирским особам"
+  chapter: "191. МАТЕРИ, СКОРБЯЩЕЙ О НЕВЕРИИ СЫНА. О ГОВЕНИИ"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Amvrosij_Optinskij/perepiska-s-mirskimi-litsami/"
+- id: "ambrose-howican"
+  kind: "quote"
+  text: "с помощью Божией напишу, сколько могу и как умею"
+  original: "с помощью Божией напишу, сколько могу и как умею"
+  translation: null
+  chunk_id: "book-40-0529"
+  book_id: 40
+  char_start: 410548
+  char_end: 410596
+  text_sha256: "b7ce9190b33f8705e4bfd8ac8e047be6abf9aa14b54ca1f30b23b124f4a823de"
+  author: "прп. Амвросий Оптинский"
+  title: "Письма к мирским особам"
+  chapter: "191. МАТЕРИ, СКОРБЯЩЕЙ О НЕВЕРИИ СЫНА. О ГОВЕНИИ"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Amvrosij_Optinskij/perepiska-s-mirskimi-litsami/"
+- id: "ambrose-beggar-answer"
+  kind: "retelling"
+  text: "Смущаться ошибкой нищего, отвечает старец, не нужно: ничего худого для сына из неё выйти не может"
+  original: null
+  translation: null
+  chunk_id: "book-40-0530"
+  book_id: 40
+  char_start: 410740
+  char_end: 410837
   text_sha256: "b7ce9190b33f8705e4bfd8ac8e047be6abf9aa14b54ca1f30b23b124f4a823de"
   author: "прп. Амвросий Оптинский"
   title: "Письма к мирским особам"
@@ -438,6 +738,21 @@ corpus_sources:
   chapter: "191. МАТЕРИ, СКОРБЯЩЕЙ О НЕВЕРИИ СЫНА. О ГОВЕНИИ"
   translator: null
   source_url: "https://azbyka.ru/otechnik/Amvrosij_Optinskij/perepiska-s-mirskimi-litsami/"
+- id: "ambrose-augustine"
+  kind: "quote"
+  text: "Велика сила матерней молитвы. Вспомните, из какой глубины зла извлекла блаженного Августина молитва благочестивой его матери"
+  original: "Велика сила матерней молитвы. Вспомните, из какой глубины зла извлекла блаженного Августина молитва благочестивой его матери"
+  translation: null
+  chunk_id: "book-40-0532"
+  book_id: 40
+  char_start: 412732
+  char_end: 412856
+  text_sha256: "b7ce9190b33f8705e4bfd8ac8e047be6abf9aa14b54ca1f30b23b124f4a823de"
+  author: "прп. Амвросий Оптинский"
+  title: "Письма к мирским особам"
+  chapter: "191. МАТЕРИ, СКОРБЯЩЕЙ О НЕВЕРИИ СЫНА. О ГОВЕНИИ"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Amvrosij_Optinskij/perepiska-s-mirskimi-litsami/"
 - id: "ambrose-self"
   kind: "quote"
   text: "А молясь за сына, молитесь и о себе"
@@ -455,12 +770,27 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/Amvrosij_Optinskij/perepiska-s-mirskimi-litsami/"
 - id: "wheaton-boy"
   kind: "retelling"
-  text: "В 1898 году в одной городской тюрьме ей запомнился юноша, приговорённый к смерти. Наведя справки, она узнала, что его даже не обвиняли в убийстве и смерти он не заслуживал"
+  text: "В 1898 году она приехала в городскую тюрьму, где четверо ждали казни. Она провела службу и поговорила с каждым смертником, и особенно ей запомнился один юноша"
   original: null
   translation: null
   chunk_id: "book-255-0519"
   book_id: 255
   char_start: 426174
+  char_end: 426540
+  text_sha256: "7a0cb9dd31d21240c059d8cc7290dfb0387b75a12f6607c074f102f9249d369e"
+  author: "Elizabeth Ryder Wheaton"
+  title: "Prisons and Prayer; Or, a Labor of Love"
+  chapter: "CHAPTER XIV. — Gone Home from the Scaffold. — INTERCEDED FOR THE LIFE OF A BOY."
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/41720"
+- id: "wheaton-inquiry"
+  kind: "retelling"
+  text: "Потом она уехала в другие штаты, но мальчик не шёл у неё из головы. Наведя справки, она узнала, что его даже не обвиняли в убийстве и смерти он не заслуживал"
+  original: null
+  translation: null
+  chunk_id: "book-255-0519"
+  book_id: 255
+  char_start: 426619
   char_end: 426810
   text_sha256: "7a0cb9dd31d21240c059d8cc7290dfb0387b75a12f6607c074f102f9249d369e"
   author: "Elizabeth Ryder Wheaton"
@@ -485,7 +815,7 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/41720"
 - id: "wheaton-governor"
   kind: "retelling"
-  text: "поехала в столицу штата к губернатору и попросила заменить казнь пожизненным заключением"
+  text: "вернувшись, поехала в столицу штата к губернатору и попросила заменить казнь пожизненным заключением"
   original: null
   translation: null
   chunk_id: "book-255-0519"
@@ -513,6 +843,21 @@ corpus_sources:
   chapter: "CHAPTER XIV. — Gone Home from the Scaffold. — INTERCEDED FOR THE LIFE OF A BOY."
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/41720"
+- id: "wheaton-sheriff"
+  kind: "quote"
+  text: "Зато помощник шерифа был очень зол на губернатора за это помилование!"
+  original: "Yet the Deputy Sheriff was very angry at the Governor for granting the commutation!"
+  translation: "ours"
+  chunk_id: "book-255-0520"
+  book_id: 255
+  char_start: 427151
+  char_end: 427234
+  text_sha256: "7a0cb9dd31d21240c059d8cc7290dfb0387b75a12f6607c074f102f9249d369e"
+  author: "Elizabeth Ryder Wheaton"
+  title: "Prisons and Prayer; Or, a Labor of Love"
+  chapter: "CHAPTER XIV. — Gone Home from the Scaffold. — INTERCEDED FOR THE LIFE OF A BOY."
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/41720"
 - id: "wheaton-kneel"
   kind: "quote"
   text: "мы втроём опустились на колени и молились в маленькой камере смертников"
@@ -530,13 +875,43 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/41720"
 - id: "wheaton-hands"
   kind: "quote"
-  text: "Стоя на коленях между моими мальчиками и держа каждого за руку, мы отдали себя благословенному Спасителю"
+  text: "Я стояла на коленях между моими мальчиками, держа каждого за руку, и мы отдали себя благословенному Спасителю"
   original: "Kneeling between my boys, clasping each by the hand, we gave ourselves to the blessed Savior"
   translation: "ours"
   chunk_id: "book-255-0521"
   book_id: 255
   char_start: 427547
   char_end: 427639
+  text_sha256: "7a0cb9dd31d21240c059d8cc7290dfb0387b75a12f6607c074f102f9249d369e"
+  author: "Elizabeth Ryder Wheaton"
+  title: "Prisons and Prayer; Or, a Labor of Love"
+  chapter: "CHAPTER XIV. — Gone Home from the Scaffold. — WENT TO THE SCAFFOLD SINGING."
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/41720"
+- id: "wheaton-hush"
+  kind: "quote"
+  text: "Торжественная тишина наполнила камеру"
+  original: "A solemn hush filled the little cell"
+  translation: "ours"
+  chunk_id: "book-255-0522"
+  book_id: 255
+  char_start: 428376
+  char_end: 428412
+  text_sha256: "7a0cb9dd31d21240c059d8cc7290dfb0387b75a12f6607c074f102f9249d369e"
+  author: "Elizabeth Ryder Wheaton"
+  title: "Prisons and Prayer; Or, a Labor of Love"
+  chapter: "CHAPTER XIV. — Gone Home from the Scaffold. — WENT TO THE SCAFFOLD SINGING."
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/41720"
+- id: "wheaton-night"
+  kind: "quote"
+  text: "Всю ночь перед казнью они пели гимны и молились. Есть они отказались, предпочитая петь и молиться до последнего"
+  original: "They sang hymns and prayed all night before the execution. They refused to eat, preferring to sing and pray till the last"
+  translation: "ours"
+  chunk_id: "book-255-0522"
+  book_id: 255
+  char_start: 428575
+  char_end: 428696
   text_sha256: "7a0cb9dd31d21240c059d8cc7290dfb0387b75a12f6607c074f102f9249d369e"
   author: "Elizabeth Ryder Wheaton"
   title: "Prisons and Prayer; Or, a Labor of Love"
@@ -695,7 +1070,7 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/11553"
 - id: "hall-prayer"
   kind: "retelling"
-  text: "Дома брата ждал рассказ больной женщины из его общины. Она много молилась о его безопасности, а однажды — особенно горячо, будто просила спасти его от большой беды. Оказалось, это было то самое время"
+  text: "Одна больная женщина из общины брата всё это время молилась, чтобы с ним ничего не случилось, а в один из дней — особенно горячо, будто просила избавить его от большой беды. Она сама рассказала брату об этом, когда тот вернулся домой. Сверили время — совпало"
   original: null
   translation: null
   chunk_id: "book-286-0359"
@@ -723,27 +1098,12 @@ corpus_sources:
   chapter: "Answers To Prayer — Rescued In Peril."
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/11553"
-- id: "hall-organist"
-  kind: "retelling"
-  text: "друзья тяжелобольного органиста собрались специально молиться о его жизни и на следующий день тот начал поправляться"
-  original: null
-  translation: null
-  chunk_id: "book-286-0357"
-  book_id: 286
-  char_start: 269856
-  char_end: 270190
-  text_sha256: "259acb0fdc82c2b58156759c3e4e019752a41d276fb4ca2188160731489439e4"
-  author: "D. W. Whittle (ред.)"
-  title: "The Wonders of Prayer"
-  chapter: "Answers To Prayer — Recovery From Dangerous Illness."
-  translator: null
-  source_url: "https://www.gutenberg.org/ebooks/11553"
 ---
 Молиться за другого — значит назвать его перед Богом и попросить для него добра. Иногда это легче сказать, чем сделать.
 
 Альпы, массив Монте-Роза. Лондонский проповедник Ньюмен Холл[^hall] вместе с братом поднимается на одну из здешних вершин[^corpus-hall-climb]. У самого верха их накрывает густой туман. В нём не видно, что дальше уже не склон, а снежный карниз, нависший над пропастью глубиной в несколько тысяч футов. Проводники останавливаются, а брат, уверенный, что подъём продолжается, шагает вперёд[^corpus-hall-cornice]. Раздаётся крик. Снег уже уходит у него из-под ног, когда один из проводников, рискуя сорваться сам, бросается следом, ловит его за пальто и вытягивает на твёрдое место[^corpus-hall-guide].
 
-Дома брата ждал рассказ больной женщины из его общины. Она много молилась о его безопасности, а однажды — особенно горячо, будто просила спасти его от большой беды. Оказалось, это было то самое время[^corpus-hall-prayer]. В сборнике «Чудеса молитвы», составленном Д. У. Уиттлом, приведён рассказ Холла; он был уверен, что брат спасся в ответ на её молитву[^corpus-hall-answer]. Там же Холл передаёт рассказ о том, как друзья тяжелобольного органиста собрались специально молиться о его жизни и на следующий день тот начал поправляться[^corpus-hall-organist].
+Потом выяснилось удивительное. Одна больная женщина из общины брата всё это время молилась, чтобы с ним ничего не случилось, а в один из дней — особенно горячо, будто просила избавить его от большой беды. Она сама рассказала брату об этом, когда тот вернулся домой. Сверили время — совпало[^corpus-hall-prayer]. В сборнике «Чудеса молитвы», составленном Д. У. Уиттлом, приведён рассказ Холла; он был уверен, что брат спасся в ответ на её молитву[^corpus-hall-answer].
 
 Чуда вместо людей здесь нет: молилась больная женщина далеко от гор, а за пальто схватил проводник. Но за человека можно молиться издалека, даже когда руку ему протянет кто-то другой.
 
@@ -759,37 +1119,41 @@ corpus_sources:
 
 В те же часы его мать была за семьдесят-восемьдесят миль от дома[^corpus-taylor-miles]. После обеда она встала из-за стола с острым желанием молиться об обращении сына[^corpus-taylor-table]. «Она ушла к себе, повернула ключ в двери и решила не сходить с места, пока её молитвы не будут услышаны»[^corpus-taylor-door]. Она молилась час за часом, пока не почувствовала, что просить больше не может, и начала благодарить: Дух Божий, как она верила, дал ей понять, что сын уже обращён[^corpus-taylor-praise].
 
-Через две недели мать вернулась, и сын первым встретил её у двери со своей радостной новостью[^corpus-taylor-meet]. Она обняла его: «Я знаю, мой мальчик; я уже две недели радуюсь вести, которую ты хочешь мне рассказать»[^corpus-taylor-know].
+А сын тем временем читал брошюрку, и его зацепили слова «совершённое дело Христа». Почему автор сказал именно «совершённое»? И тут ему вспомнились слова Иисуса на кресте: «Совершилось»[^corpus-taylor-finished]. Ответ пришёл сам: Христос умер за грехи всего мира, и долг за них уже заплачен[^corpus-taylor-paid]. А следом — новый вопрос: «Если всё дело совершено и весь долг уплачен, что же остаётся сделать мне?»[^corpus-taylor-left] И его залила радость: Святой Дух, пишет он, озарил его душу, и стало ясно, что делать самому ничего не нужно — остаётся лишь принять Спасителя и, преклонив колени, славить Его вовеки[^corpus-taylor-knees]. «Так, пока моя дорогая мать славила Бога на коленях у себя в комнате, я славил Его в старом складе, куда ушёл один, чтобы на досуге почитать эту книжечку»[^corpus-taylor-warehouse]. Только через несколько дней он решился открыться сестре, да и то взяв с неё слово никому не рассказывать[^corpus-taylor-confidante].
 
-И это было ещё не всё. Однажды он по ошибке раскрыл чужую записную книжку: она ничем не отличалась от его собственной[^corpus-taylor-pocketbook]. Это был дневник сестры. Она записала, что будет «каждый день отдаваться молитве, пока Бог не ответит обращением её брата»[^corpus-taylor-sister].
+Через две недели мать вернулась, и сын первым встретил её у двери: ему не терпелось поделиться радостной новостью[^corpus-taylor-meet]. Она обняла его: «Я знаю, мой мальчик; я уже две недели радуюсь вести, которую ты хочешь мне рассказать»[^corpus-taylor-know]. Он удивился: «Неужели Амелия нарушила обещание? Она сказала, что никому не скажет»[^corpus-taylor-amelia]. Но мать заверила его, что узнала эту новость не от людей[^corpus-taylor-notfrom].
+
+И это было ещё не всё. Однажды он по ошибке раскрыл чужую записную книжку: она ничем не отличалась от его собственной[^corpus-taylor-pocketbook]. Это был дневник сестры. Она записала, что будет «каждый день отдаваться молитве, пока Бог не ответит обращением её брата»[^corpus-taylor-sister]. Ровно через месяц после этой записи он и обратился[^corpus-taylor-month].
 
 Парня звали Хадсон Тейлор. Позже этот евангельский миссионер основал Китайскую внутреннюю миссию и полвека жизни отдал Китаю[^taylor]. Прежде чем молиться за других, он узнал, что за него самого молились, а он и не подозревал.
 
-## Спиной к стене
+## Спиной ко мне
 
 Перед самым отъездом в Китай Тейлору выпало ежедневно ухаживать за стариком, у которого от старческой гангрены гнила нога. Христиане, в чьём доме тот жил, рассказали, что их жилец открыто называет себя атеистом и о вере слышать не хочет[^corpus-taylor-atheist]. Чтеца Писания, которого к нему позвали без спроса, он в ярости выгнал, а приходскому священнику плюнул в лицо[^corpus-taylor-vicar].
 
-Тейлор много молился о нём, но первые два-три дня ничего не говорил о вере, а только лечил, стараясь облегчить боль. Когда больной начал благодарить, Тейлор с дрожью в сердце заговорил о Божьей милости[^corpus-taylor-first-days] — и тот «повернулся в постели спиной ко мне и не сказал ни слова»[^corpus-taylor-back]. Так повторялось изо дня в день: Тейлор много раз в день просил Бога спасти этого человека, после перевязки говорил несколько слов, а тот отворачивался[^corpus-taylor-daily]. Однажды, перевязав рану и вымыв руки, он не вернулся к кровати, а остановился у двери с мыслью: «Ефрем прилепился к идолам; оставь его»[^corpus-taylor-ephraim].
+Тейлор много молился о нём, но первые два-три дня ничего не говорил о вере, а только лечил, стараясь облегчить боль. Когда больной начал благодарить, Тейлор с дрожью в сердце заговорил о Божьей милости[^corpus-taylor-first-days] — и тот, вспоминает Тейлор, «повернулся в постели спиной ко мне и не сказал ни слова»[^corpus-taylor-back]. Так продолжалось день за днём: Тейлор много раз на дню просил Бога спасти этого человека, после перевязки говорил несколько слов о вере, а больной отворачивался[^corpus-taylor-daily]. Со временем у Тейлора опустились руки: ему казалось, что он не только не помогает, но, может быть, ещё больше ожесточает старика[^corpus-taylor-sank]. Однажды, перевязав рану и вымыв руки, он не вернулся к кровати, а остановился у двери. В голове звучали слова пророка Осии об упрямом Израиле: «Ефрем прилепился к идолам; оставь его»[^corpus-taylor-ephraim].
 
 Больной удивлённо посмотрел ему вслед: прежде тот всегда подходил к кровати. Тейлор не выдержал: со слезами пересёк комнату и стал просить позволить ему помолиться вместе[^corpus-taylor-tears]. Старик не отвернулся: «Если вам от этого станет легче — давайте»[^corpus-taylor-relief]. Через несколько дней, по свидетельству Тейлора, тот принял Христа[^corpus-taylor-accepted].
 
-Вывод Тейлор делает не о больном, а о себе: «Быть может, порой, пока мы жалуемся на жёсткость сердец тех, кому стараемся помочь, истинная причина нашей неудачи — жёсткость наших собственных сердец и то, как слабо мы сознаём торжественную реальность вечного»[^corpus-taylor-hardness]. Заметьте и другое: молитва шла рядом с перевязками, а не вместо них. И молиться вместе с человеком Тейлор стал, только когда тот согласился.
+Вывод Тейлор делает не о больном, а о себе: «Быть может, порой, пока мы жалуемся на жёсткость сердец тех, кому стараемся помочь, истинная причина нашей неудачи — жёсткость наших собственных сердец и то, как слабо мы осознаём реальность и серьёзность того, что касается вечности»[^corpus-taylor-hardness]. Заметьте и другое: молитва шла рядом с перевязками, а не вместо них. И молиться вместе с человеком Тейлор стал, только когда тот согласился.
 
 ## Когда молиться не хочется
 
 Православного священника Иоанна Кронштадтского при жизни знала вся Россия: его встречали многотысячные толпы и почитали как молитвенника[^ioann]. А в дневнике, который он вёл для себя, — обычный задетый человек: «Слышу, старец Гефсиманского скита, что близ Сергиевой Лавры, отец Варнава недоброжелательно обо мне отозвался. Что я ему сделал? Нужно помолиться, чтобы Господь примирил наши сердца»[^corpus-ioann-varnava][^varnava].
 
-Он просит не «вразуми Варнаву», а примирить сердца — оба, и своё тоже. Чем это кончилось, дневник не говорит.
+Он просит не «вразуми Варнаву», а примирить сердца — оба, и своё тоже.
 
 Сразу следом — другая запись. К нему пришла жена человека, который раньше служил у него секретарём, и наговорила грубостей — после всей помощи, которую он оказывал их семье[^corpus-ioann-secretary]. «Признаться, я не выдержал и резко попросил ее оставить мой дом»[^corpus-ioann-door].
+
+Чем кончилось с Варнавой и с этой женщиной, дневник не говорит. Но на соседних страницах видно, что Иоанн делал со своим сердцем. Чуть раньше он благодарит Бога, что избавил его от тяжёлого смущения: узнав, сколько заплатили спутнику за поездку с ним, он было охладел к этому человеку[^corpus-ioann-cool], но потом прикинул, сколько сам получает даром от других[^corpus-ioann-weigh], — и «неприязнь преложил на приязнь к нему»[^corpus-ioann-liking]. А в следующей записи, придя в церковь, он ощущает «неприязнь невольную ко встречающимся по дороге и в храме»[^corpus-ioann-church] и, никому не показывая, просит Бога переменить его собственное сердце[^corpus-ioann-secret] — и замечает, что Господь «дивно изменил состояние духа»[^corpus-ioann-changed].
 
 Иисус сказал: «любите своих врагов и молитесь за тех, кто преследует вас» (Мф 5:44)[^mt5]. Дневник Иоанна показывает, как это выглядит у живого человека: молитва за обидчика начинается с честной обиды и с просьбы о собственном сердце.
 
 ## Когда человек далеко
 
-К старцу Амвросию в Оптину пустынь ездили за советом, а кто не мог приехать — писал ему; Достоевский сделал его прообразом старца Зосимы[^ambrose]. Однажды старцу пришло письмо от матери, сын которой отошёл от веры. Она винит себя, что не сумела его воспитать, и признаётся: в горе ей иногда казалось, что смерть была бы для сына лучше такой жизни[^corpus-ambrose-guilt]. И спрашивает, стоит ли писать ему в Москву, не зная точного адреса, и какие найти слова, чтобы до него достучаться[^corpus-ambrose-write].
+К старцу Амвросию в Оптину пустынь ездили за советом, а кто не мог приехать — писал ему; Достоевский сделал его прообразом старца Зосимы[^ambrose]. Однажды старцу пришло письмо от матери, сын которой отошёл от веры. Как-то раз она подала нищему милостыню и попросила помолиться о здравии сына, а тот стал молиться о его упокоении — и мать смутилась[^corpus-ambrose-beggar]. Она винит себя, что не сумела его воспитать, и признаётся: в горе ей иногда казалось, что смерть была бы для сына лучше такой жизни[^corpus-ambrose-guilt]. И спрашивает, стоит ли писать ему в Москву, не зная точного адреса, и какие найти слова, чтобы до него достучаться[^corpus-ambrose-write].
 
-Ответ датирован 22 ноября 1869 года[^corpus-ambrose-date]. Амвросий не советует ей винить во всём только себя: «всякий человек одарен свободной волей и сам за себя более и должен будет отвечать пред Богом»[^corpus-ambrose-freewill]. А на главный вопрос, как написать, старец отвечает: «Но сперва, повторяю, нужно вам узнать, где он находится в настоящее время и в каком положении»[^corpus-ambrose-where]. И дальше: «вам должно теперь не столько заботиться вразумлять его, но более молиться за него, чтобы Сам Господь, имиже весть судьбами, вразумил его»[^corpus-ambrose-pray] — то есть теми путями, какие знает Он Сам. И ещё: «А молясь за сына, молитесь и о себе»[^corpus-ambrose-self].
+Ответ датирован 22 ноября 1869 года[^corpus-ambrose-date]. Старец просит прощения, что так долго молчал: её письмо пришло ещё в конце августа, он не раз садился за ответ, но сначала не давали посетители, а потом больше месяца он болел и до сих пор очень слаб[^corpus-ambrose-ill]. И всё же обещает: «с помощью Божией напишу, сколько могу и как умею»[^corpus-ambrose-howican]. Смущаться ошибкой нищего, отвечает старец, не нужно: ничего худого для сына из неё выйти не может[^corpus-ambrose-beggar-answer]. И винить во всём только себя Амвросий ей не советует: «всякий человек одарен свободной волей и сам за себя более и должен будет отвечать пред Богом»[^corpus-ambrose-freewill]. Написать сыну можно. «Но сперва, повторяю, нужно вам узнать, где он находится в настоящее время и в каком положении»[^corpus-ambrose-where]. И дальше: «вам должно теперь не столько заботиться вразумлять его, но более молиться за него, чтобы Сам Господь, имиже весть судьбами, вразумил его»[^corpus-ambrose-pray] — то есть теми путями, какие знает Он Сам. «Велика сила матерней молитвы. Вспомните, из какой глубины зла извлекла блаженного Августина молитва благочестивой его матери»[^corpus-ambrose-augustine]. И ещё: «А молясь за сына, молитесь и о себе»[^corpus-ambrose-self].
 
 Чем кончилась эта история, мы не знаем. Остался совет: меньше своего сценария, больше доверия.
 
@@ -797,9 +1161,9 @@ corpus_sources:
 
 ## Молитва и дело
 
-Элизабет Уитон называли «мамой Уитон»; больше двадцати лет она ездила по тюрьмам с Евангелием[^wheaton]. В 1898 году в одной городской тюрьме ей запомнился юноша, приговорённый к смерти. Наведя справки, она узнала, что его даже не обвиняли в убийстве и смерти он не заслуживал[^corpus-wheaton-boy]. «Я молила Бога: если закон не находит в нём ничего, достойного смерти, пусть приговор смягчат и бедный мальчик будет жить»[^corpus-wheaton-plead]. Молитвой она не ограничилась и поехала в столицу штата к губернатору и попросила заменить казнь пожизненным заключением[^corpus-wheaton-governor]. Просьбу удовлетворили, и юноше сохранили жизнь[^corpus-wheaton-granted].
+Элизабет Уитон называли «мамой Уитон»; больше двадцати лет она ездила по тюрьмам с Евангелием[^wheaton]. В 1898 году она приехала в городскую тюрьму, где четверо ждали казни. Она провела службу и поговорила с каждым смертником, и особенно ей запомнился один юноша[^corpus-wheaton-boy]. Потом она уехала в другие штаты, но мальчик не шёл у неё из головы. Наведя справки, она узнала, что его даже не обвиняли в убийстве и смерти он не заслуживал[^corpus-wheaton-inquiry]. «Я молила Бога: если закон не находит в нём ничего, достойного смерти, пусть приговор смягчат и бедный мальчик будет жить»[^corpus-wheaton-plead]. Молитвой она не ограничилась: вернувшись, поехала в столицу штата к губернатору и попросила заменить казнь пожизненным заключением[^corpus-wheaton-governor]. Просьбу удовлетворили, и юноше сохранили жизнь[^corpus-wheaton-granted]. «Зато помощник шерифа был очень зол на губернатора за это помилование!»[^corpus-wheaton-sheriff] — добавляет она.
 
-В 1899 году она пришла к двоим осуждённым накануне их казни, говорила с ними, пела их любимые гимны, а потом «мы втроём опустились на колени и молились в маленькой камере смертников»[^corpus-wheaton-kneel]. «Стоя на коленях между моими мальчиками и держа каждого за руку, мы отдали себя благословенному Спасителю»[^corpus-wheaton-hands]. Осуждённые всю ночь пели и молились, а затем «пошли на эшафот с пением, славя Бога»[^corpus-wheaton-singing]. Здесь в её рассказе нет ни губернатора, ни помилования.
+В 1899 году она пришла к двоим осуждённым накануне их казни, говорила с ними, пела их любимые гимны, а потом «мы втроём опустились на колени и молились в маленькой камере смертников»[^corpus-wheaton-kneel]. «Я стояла на коленях между моими мальчиками, держа каждого за руку, и мы отдали себя благословенному Спасителю»[^corpus-wheaton-hands]. «Торжественная тишина наполнила камеру»[^corpus-wheaton-hush]. «Всю ночь перед казнью они пели гимны и молились. Есть они отказались, предпочитая петь и молиться до последнего»[^corpus-wheaton-night] — и «пошли на эшафот с пением, славя Бога»[^corpus-wheaton-singing]. Здесь в её рассказе нет ни губернатора, ни помилования.
 
 Молитва и дело у неё шли вместе. Но молитва — не рычаг, которым можно повернуть любое решение. Иногда весь ответ в том, что в последнюю ночь человек не один.
 
@@ -807,16 +1171,16 @@ corpus_sources:
 
 Если не знаете, как живёт человек, сначала узнайте — с этого начинал Амвросий. Просите о добре для него, а не о своём плане. А если не понимаете, чего просить, вспомните американского проповедника С. Д. Гордона: в «Тихих беседах о молитве» он признаётся, что часто не знает всех обстоятельств человека[^corpus-gordon-facts], и тогда молится так: «Благословенный Дух, молись во мне той молитвой, которой Ты молишься за этого человека»[^corpus-gordon-spirit].
 
-Включите в молитву себя: «примири наши сердца». За того, кто ранил, начните с одной честной фразы; если завтра снова сорвётесь — Иоанн Кронштадтский срывался тоже. Но молитва за обидчика не отменяет границ, защиты и права обратиться за помощью — к близким, к священнику, к специалисту, а если вам угрожают — в полицию.
+Включите в молитву себя: «примири наши сердца». Если молитесь за того, кто вас ранил, начните с одной честной фразы; если завтра снова сорвётесь — Иоанн Кронштадтский срывался тоже. Но молитва за обидчика не отменяет границ, защиты и права обратиться за помощью — к близким, к священнику, к специалисту, а если вам угрожают — в полицию.
 
 Если можете помочь делом — помогите. Предложите помолиться вместе и дождитесь согласия.
 
 ## Возвращаться к человеку
 <!-- screen: topic, passage, history -->
 
-В [Lampada](/ru/) тема молитвы — одна фраза своими словами, и ею может стать человек: «За маму перед операцией», «За Андрея, с которым мы поссорились». На наводящие вопросы можно отвечать текстом или голосом, а ИИ можно не включать вовсе. Если вы разрешили отправлять тему, Lampada подберёт стихи Писания по смыслу и постарается найти места о Божьей заботе о том, за кого вы молитесь; их можно послушать в чтении диктора и сохранить в избранное.
+В [Lampada](/ru/) цель молитвы — одна фраза своими словами, и ею может стать человек: «За маму перед операцией», «За Андрея, с которым мы поссорились». На наводящие вопросы можно отвечать текстом или голосом, а ИИ можно не включать вовсе. Если вы разрешили её отправлять, Lampada подберёт стихи Писания по смыслу и постарается найти места о Божьей заботе о том, за кого вы молитесь; их можно послушать в чтении диктора и сохранить в избранное.
 
-В конце вы записываете итог в одну-две строки. Дневник хранится только на вашем телефоне, а поиск идёт по темам, ответам и итогам: введите имя так, как записали его, — поиск найдёт записи, где оно есть в теме, ответах или итоге, и вы увидите, когда и о чём просили. Это и есть записная книжка сестры Тейлора. Запись можно отправить кнопкой «Поделиться», но говорить ли человеку о молитве — решать вам.
+В конце вы записываете итог в одну-две строки. Дневник хранится только на вашем телефоне. Чтобы увидеть, когда и о чём вы просили за человека, введите его имя так, как записали его: поиск найдёт это имя в целях молитвы, ответах и итогах. Так дневник становится вашей записной книжкой — как у сестры Тейлора. Запись можно отправить кнопкой «Поделиться», но говорить ли человеку о молитве — решать вам.
 
 Чего в Lampada нет: помянника — отдельного списка людей, — отметки «ответ пришёл», общих молитвенных просьб и сообщества, где можно попросить других помолиться. Постоянный список имён удобнее вести в [тетради](/ru/articles/prayer-journal/).
 

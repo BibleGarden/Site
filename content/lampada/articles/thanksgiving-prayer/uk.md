@@ -4,14 +4,29 @@ description: "Молитва подяки своїми словами — це �
 date: 2026-10-20
 corpus_sources:
 - id: "sch-tumors"
-  kind: "retelling"
-  text: "лікарі знайшли в нього дві пухлини"
-  original: null
-  translation: null
+  kind: "quote"
+  text: "Дві пухлини, сотні „тестів“"
+  original: "Две опухоли, сотни „тестов“"
+  translation: "ours"
   chunk_id: "book-59-1750"
   book_id: 59
   char_start: 1634222
-  char_end: 1634280
+  char_end: 1634296
+  text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
+  author: "прот. Александр Шмеман"
+  title: "Дневники 1973–1983"
+  chapter: "Тетрадь VIII ИЮНЬ 1982 – ИЮНЬ 1983"
+  translator: null
+  source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "sch-boring"
+  kind: "quote"
+  text: "Писати про це нудно й довго"
+  original: "Писать об этом скучно и длинно"
+  translation: "ours"
+  chunk_id: "book-59-1751"
+  book_id: 59
+  char_start: 1634298
+  char_end: 1634328
   text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
   author: "прот. Александр Шмеман"
   title: "Дневники 1973–1983"
@@ -33,15 +48,45 @@ corpus_sources:
   chapter: "Тетрадь VIII ИЮНЬ 1982 – ИЮНЬ 1983"
   translator: null
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
-- id: "sch-sun"
+- id: "sch-view"
   kind: "quote"
-  text: "І сонце, щодня сонце. Довкола любов і хвилювання."
-  original: "И солнце, каждый день солнце. Кругом любовь и волнения."
+  text: "За вікном – дивовижний краєвид на Нью-Йорк"
+  original: "За окном – удивительный вид на Нью-Йорк"
   translation: "ours"
   chunk_id: "book-59-1751"
   book_id: 59
-  char_start: 1634844
+  char_start: 1634763
+  char_end: 1634802
+  text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
+  author: "прот. Александр Шмеман"
+  title: "Дневники 1973–1983"
+  chapter: "Тетрадь VIII ИЮНЬ 1982 – ИЮНЬ 1983"
+  translator: null
+  source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "sch-sun"
+  kind: "quote"
+  text: "Вода, хмарочоси. І сонце, щодня сонце. Довкола любов і хвилювання."
+  original: "Вода, небоскребы. И солнце, каждый день солнце. Кругом любовь и волнения."
+  translation: "ours"
+  chunk_id: "book-59-1751"
+  book_id: 59
+  char_start: 1634826
   char_end: 1634899
+  text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
+  author: "прот. Александр Шмеман"
+  title: "Дневники 1973–1983"
+  chapter: "Тетрадь VIII ИЮНЬ 1982 – ИЮНЬ 1983"
+  translator: null
+  source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "sch-wait"
+  kind: "quote"
+  text: "Сиджу в залитій сонцем палаті й чекаю, що буде, – рішення про лікування…"
+  original: "Сижу в залитой солнцем палате и жду у моря погоды – решения о лечении…"
+  translation: "ours"
+  chunk_id: "book-59-1751"
+  book_id: 59
+  char_start: 1635133
+  char_end: 1635204
   text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
   author: "прот. Александр Шмеман"
   title: "Дневники 1973–1983"
@@ -50,7 +95,7 @@ corpus_sources:
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
 - id: "sch-calls-kids"
   kind: "retelling"
-  text: "згадує дзвінки від рідних і те, що поруч були близькі"
+  text: "Тут же він зазначає, що вчора йому дзвонили, а поруч були найрідніші"
   original: null
   translation: null
   chunk_id: "book-59-1752"
@@ -78,6 +123,21 @@ corpus_sources:
   chapter: "Тетрадь VIII ИЮНЬ 1982 – ИЮНЬ 1983"
   translator: null
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "fraser-prisoner"
+  kind: "retelling"
+  text: "згадує його як в’язня за Христа на Басс-Році"
+  original: null
+  translation: null
+  chunk_id: "book-48-0070"
+  book_id: 48
+  char_start: 55038
+  char_end: 55112
+  text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
+  author: "David M’Intyre (David MacIntyre)"
+  title: "The Hidden Life of Prayer"
+  chapter: "4.  The Engagement: Worship — (a) Acknowledge Daily Mercies"
+  translator: null
+  source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "fraser-resolved"
   kind: "quote"
   text: "шукати й записувати вияви Божої любові"
@@ -108,14 +168,29 @@ corpus_sources:
   chapter: "4.  The Engagement: Worship — (a) Acknowledge Daily Mercies"
   translator: null
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
+- id: "fraser-love"
+  kind: "retelling"
+  text: "Від цього він утвердився в певності, що Бог його любить, і сам полюбив Його"
+  original: null
+  translation: null
+  chunk_id: "book-48-0070"
+  book_id: 48
+  char_start: 55401
+  char_end: 55495
+  text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
+  author: "David M’Intyre (David MacIntyre)"
+  title: "The Hidden Life of Prayer"
+  chapter: "4.  The Engagement: Worship — (a) Acknowledge Daily Mercies"
+  translator: null
+  source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "fraser-wells"
   kind: "quote"
-  text: "які джерела води відкрилися моїм очам, що раніше були приховані"
-  original: "what wells of water have mine eyes been opened to see, which before were hid"
+  text: "О… які джерела води відкрилися моїм очам, що раніше були приховані"
+  original: "Oh…what wells of water have mine eyes been opened to see, which before were hid"
   translation: "ours"
   chunk_id: "book-48-0070"
   book_id: 48
-  char_start: 55499
+  char_start: 55496
   char_end: 55575
   text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
   author: "David M’Intyre (David MacIntyre)"
@@ -140,7 +215,7 @@ corpus_sources:
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "asbury-ill"
   kind: "retelling"
-  text: "хворів так, що майже не проповідував, а коли все ж вийшов проповідувати замість іншого, одразу після цього зліг"
+  text: "Хвороба кілька днів майже не давала йому проповідувати, але того дня трохи відпустила. Капітан Вебб, який мав проповідувати, не зміг прийти, і Есбері, щоб люди не пішли ні з чим, вирушив замість нього. Після проповіді йому стало так зле, що довелося одразу лягти в ліжко"
   original: null
   translation: null
   chunk_id: "book-225-0405"
@@ -153,15 +228,60 @@ corpus_sources:
   chapter: "Chapter 3"
   translator: null
   source_url: "https://wesley.nnu.edu/other-theologians/francis-asbury/"
-- id: "asbury-die"
+- id: "asbury-tried"
   kind: "retelling"
-  text: "уже не сподівався довго прожити"
+  text: "У неділю, 3 квітня, ще зовсім хворий, він спробував проповідувати"
   original: null
   translation: null
   chunk_id: "book-225-0405"
   book_id: 225
-  char_start: 359242
-  char_end: 359307
+  char_start: 359966
+  char_end: 360035
+  text_sha256: "834630d45eb8a37b02e180882faeaf9dfecd78f60e94e5265f941d45836c84ca"
+  author: "Francis Asbury"
+  title: "The Journal and Letters of Francis Asbury, Vols. I–II"
+  chapter: "Chapter 3"
+  translator: null
+  source_url: "https://wesley.nnu.edu/other-theologians/francis-asbury/"
+- id: "asbury-silent"
+  kind: "quote"
+  text: "Як важко мовчати тому, хто прагне спасіння душ!"
+  original: "How difficult it is for a man who longs for the salvation of souls to be silent!"
+  translation: "ours"
+  chunk_id: "book-225-0405"
+  book_id: 225
+  char_start: 360036
+  char_end: 360116
+  text_sha256: "834630d45eb8a37b02e180882faeaf9dfecd78f60e94e5265f941d45836c84ca"
+  author: "Francis Asbury"
+  title: "The Journal and Letters of Francis Asbury, Vols. I–II"
+  chapter: "Chapter 3"
+  translator: null
+  source_url: "https://wesley.nnu.edu/other-theologians/francis-asbury/"
+- id: "asbury-die"
+  kind: "retelling"
+  text: "він так тяжко хворів, що вже не сподівався довго прожити, та й не прагнув цього"
+  original: null
+  translation: null
+  chunk_id: "book-225-0405"
+  book_id: 225
+  char_start: 359155
+  char_end: 359333
+  text_sha256: "834630d45eb8a37b02e180882faeaf9dfecd78f60e94e5265f941d45836c84ca"
+  author: "Francis Asbury"
+  title: "The Journal and Letters of Francis Asbury, Vols. I–II"
+  chapter: "Chapter 3"
+  translator: null
+  source_url: "https://wesley.nnu.edu/other-theologians/francis-asbury/"
+- id: "asbury-will"
+  kind: "quote"
+  text: "Та хай буде життя чи смерть, хай буде воля Господня!"
+  original: "But, come life or come death, let the will of the Lord be done !"
+  translation: "ours"
+  chunk_id: "book-225-0405"
+  book_id: 225
+  char_start: 359334
+  char_end: 359398
   text_sha256: "834630d45eb8a37b02e180882faeaf9dfecd78f60e94e5265f941d45836c84ca"
   author: "Francis Asbury"
   title: "The Journal and Letters of Francis Asbury, Vols. I–II"
@@ -228,9 +348,39 @@ corpus_sources:
   chapter: "Chapter 3"
   translator: null
   source_url: "https://wesley.nnu.edu/other-theologians/francis-asbury/"
+- id: "newton-visit"
+  kind: "retelling"
+  text: "Ньютон пише його, щойно повернувшись із лікарні, де провідував хвору знайому"
+  original: null
+  translation: null
+  chunk_id: "book-304-0979"
+  book_id: 304
+  char_start: 743177
+  char_end: 743449
+  text_sha256: "f3cacdf102c7482ab2127cbd91ea8d1e2a0f90d03a2f49a3b47781b2e4e14b57"
+  author: "John Newton"
+  title: "Cardiphonia: or, The Utterance of the Heart, in the course of a real correspondence"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/cardiphoniaorthe00newtuoft"
+- id: "newton-walls"
+  kind: "quote"
+  text: "У цих сумних стінах у мене завжди падає дух"
+  original: "My spirits always sink when I am within these mournful walls"
+  translation: "ours"
+  chunk_id: "book-304-0979"
+  book_id: 304
+  char_start: 743450
+  char_end: 743510
+  text_sha256: "f3cacdf102c7482ab2127cbd91ea8d1e2a0f90d03a2f49a3b47781b2e4e14b57"
+  author: "John Newton"
+  title: "Cardiphonia: or, The Utterance of the Heart, in the course of a real correspondence"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/cardiphoniaorthe00newtuoft"
 - id: "newton-eyes"
   kind: "retelling"
-  text: "людині, яка має проблеми з очима"
+  text: "другові, у якого болять очі й спина"
   original: null
   translation: null
   chunk_id: "book-304-0979"
@@ -245,7 +395,7 @@ corpus_sources:
   source_url: "https://archive.org/details/cardiphoniaorthe00newtuoft"
 - id: "newton-op"
   kind: "retelling"
-  text: "рівно рік тому його оперували, і він дякує Богові, що зважився на операцію і щасливо її переніс"
+  text: "що рівно рік тому лежав під ножем хірурга, і дякує Богові, що зважився на операцію і щасливо її переніс"
   original: null
   translation: null
   chunk_id: "book-304-0980"
@@ -273,6 +423,21 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: "https://archive.org/details/cardiphoniaorthe00newtuoft"
+- id: "newton-hairs"
+  kind: "retelling"
+  text: "їх більше, ніж волосин на голові"
+  original: null
+  translation: null
+  chunk_id: "book-304-0980"
+  book_id: 304
+  char_start: 744468
+  char_end: 744508
+  text_sha256: "f3cacdf102c7482ab2127cbd91ea8d1e2a0f90d03a2f49a3b47781b2e4e14b57"
+  author: "John Newton"
+  title: "Cardiphonia: or, The Utterance of the Heart, in the course of a real correspondence"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/cardiphoniaorthe00newtuoft"
 - id: "newton-cold"
   kind: "quote"
   text: "І все ж, на жаль, — яка холодність, нечутливість і невдячність!"
@@ -290,7 +455,7 @@ corpus_sources:
   source_url: "https://archive.org/details/cardiphoniaorthe00newtuoft"
 - id: "newton-complain"
   kind: "quote"
-  text: "Я міг би скаржитися не менше за вас; але не бачу користі в скаргах, хіба що скаржитися Тому, Хто може мені допомогти"
+  text: "Я міг би скаржитися не менше за вас; але не бачу користі в скаргах, хіба що скаржитися Тому, Хто може мені допомогти."
   original: "I could make as many complaints as you ; but I find no good by complaining, except to Him who is able to help me."
   translation: "ours"
   chunk_id: "book-304-0980"
@@ -303,9 +468,39 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: "https://archive.org/details/cardiphoniaorthe00newtuoft"
+- id: "newton-save"
+  kind: "retelling"
+  text: "про Спасителя, Який може допомогти й спасти до кінця"
+  original: null
+  translation: null
+  chunk_id: "book-304-0981"
+  book_id: 304
+  char_start: 744850
+  char_end: 744894
+  text_sha256: "f3cacdf102c7482ab2127cbd91ea8d1e2a0f90d03a2f49a3b47781b2e4e14b57"
+  author: "John Newton"
+  title: "Cardiphonia: or, The Utterance of the Heart, in the course of a real correspondence"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/cardiphoniaorthe00newtuoft"
+- id: "newton-anchor"
+  kind: "quote"
+  text: "там я хочу кинути якір — і вам бажаю того ж"
+  original: "there I desire to cast anchor, and wish you to do so likewise"
+  translation: "ours"
+  chunk_id: "book-304-0981"
+  book_id: 304
+  char_start: 744897
+  char_end: 744959
+  text_sha256: "f3cacdf102c7482ab2127cbd91ea8d1e2a0f90d03a2f49a3b47781b2e4e14b57"
+  author: "John Newton"
+  title: "Cardiphonia: or, The Utterance of the Heart, in the course of a real correspondence"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/cardiphoniaorthe00newtuoft"
 - id: "newton-psalm"
   kind: "quote"
-  text: "Сподівайся на Бога, бо ти ще славитимеш Його"
+  text: "Сподівайся на Бога, бо ти ще славитимеш Його."
   original: "Hope in God, for you shall yet praise Him."
   translation: "ours"
   chunk_id: "book-304-0981"
@@ -335,7 +530,7 @@ corpus_sources:
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
 - id: "sch-calls"
   kind: "retelling"
-  text: "не минуло й трьох годин після повернення, як телефон дзвонив уже разів десять"
+  text: "не минуло й трьох годин після повернення додому, як телефон дзвонив уже разів десять"
   original: null
   translation: null
   chunk_id: "book-59-0882"
@@ -348,15 +543,45 @@ corpus_sources:
   chapter: "Тетрадь IV МАЙ 1976 – МАЙ 1977"
   translator: null
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
-- id: "sch-walk"
+- id: "sch-daughter"
   kind: "retelling"
-  text: "як після прощеної вечірні вони йшли додому через замети"
+  text: "доньки Ані"
   original: null
   translation: null
+  chunk_id: "book-59-0015"
+  book_id: 59
+  char_start: 13072
+  char_end: 13105
+  text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
+  author: "прот. Александр Шмеман"
+  title: "Дневники 1973–1983"
+  chapter: "ПРЕДИСЛОВИЕ"
+  translator: null
+  source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "sch-anya"
+  kind: "quote"
+  text: "у затишку, світлі її родини, її дому"
+  original: "в уюте, свете ее семьи, ее дома"
+  translation: "ours"
+  chunk_id: "book-59-0883"
+  book_id: 59
+  char_start: 825036
+  char_end: 825067
+  text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
+  author: "прот. Александр Шмеман"
+  title: "Дневники 1973–1983"
+  chapter: "Тетрадь IV МАЙ 1976 – МАЙ 1977"
+  translator: null
+  source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "sch-walk"
+  kind: "quote"
+  text: "після прощеної вечірні ми йшли через замети додому"
+  original: "после прощеной вечерни мы шли через сугробы домой"
+  translation: "ours"
   chunk_id: "book-59-0884"
   book_id: 59
-  char_start: 825337
-  char_end: 825391
+  char_start: 825341
+  char_end: 825390
   text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
   author: "прот. Александр Шмеман"
   title: "Дневники 1973–1983"
@@ -410,13 +635,13 @@ corpus_sources:
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
 - id: "sch-silence"
   kind: "quote"
-  text: "Вісім місяців – не писав сюди ані слова."
-  original: "Восемь месяцев – не писал сюда ни слова."
+  text: "Вісім місяців – не писав сюди ані слова. І не тому, що не було чого сказати: ніколи, мабуть, не було стільки думок, і запитань, і вражень."
+  original: "Восемь месяцев – не писал сюда ни слова. И не потому, что нечего было сказать: никогда, пожалуй, не было столько мыслей, и вопросов, и впечатлений."
   translation: "ours"
   chunk_id: "book-59-1752"
   book_id: 59
   char_start: 1635636
-  char_end: 1635676
+  char_end: 1635783
   text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
   author: "прот. Александр Шмеман"
   title: "Дневники 1973–1983"
@@ -425,23 +650,53 @@ corpus_sources:
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
 - id: "sch-height"
   kind: "quote"
-  text: "Боявся тієї висоти, на яку підняла мене моя хвороба"
-  original: "боялся той высоты, на которую подняла меня моя болезнь"
+  text: "весь час боявся тієї висоти, на яку підняла мене моя хвороба, боявся „випасти“ з неї"
+  original: "все боялся той высоты, на которую подняла меня моя болезнь, боялся „выпасть“ из нее"
   translation: "ours"
   chunk_id: "book-59-1752"
   book_id: 59
-  char_start: 1635811
-  char_end: 1635865
+  char_start: 1635807
+  char_end: 1635890
   text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
   author: "прот. Александр Шмеман"
   title: "Дневники 1973–1983"
   chapter: "Тетрадь VIII ИЮНЬ 1982 – ИЮНЬ 1983"
   translator: null
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "sch-l"
+  kind: "quote"
+  text: "Присутність активна – Л. Я думаю, якби не вона зі мною, не було б цих – здебільшого мирних і глибоких – восьми місяців."
+  original: "Присутствие активное – Л. Я думаю, не будь ее со мною, не было бы этих – в основном мирных и глубоких – восьми месяцев."
+  translation: "ours"
+  chunk_id: "book-59-1752"
+  book_id: 59
+  char_start: 1636127
+  char_end: 1636246
+  text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
+  author: "прот. Александр Шмеман"
+  title: "Дневники 1973–1983"
+  chapter: "Тетрадь VIII ИЮНЬ 1982 – ИЮНЬ 1983"
+  translator: null
+  source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "sch-wife"
+  kind: "retelling"
+  text: "Льяною він називав у щоденнику дружину, Ульяну Сергіївну"
+  original: null
+  translation: null
+  chunk_id: "book-59-0014"
+  book_id: 59
+  char_start: 12900
+  char_end: 13021
+  text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
+  author: "прот. Александр Шмеман"
+  title: "Дневники 1973–1983"
+  chapter: "ПРЕДИСЛОВИЕ"
+  translator: null
+  source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
 - id: "sch-list"
   kind: "quote"
   text: "Три приїзди Андрія. Три приїзди Сергія. Приїзди Ткачуків… Яке це все було щастя!"
-  original: "Три приезда Андрея.\n\nТри приезда Сережи.\n\nПриезды Ткачуков…\n\nКакое все это было счастье!"
+  original: "Три приезда Андрея. Три приезда Сережи. Приезды Ткачуков… Какое все это было счастье!"
   translation: "ours"
   chunk_id: "book-59-1753"
   book_id: 59
@@ -451,6 +706,21 @@ corpus_sources:
   author: "прот. Александр Шмеман"
   title: "Дневники 1973–1983"
   chapter: "Тетрадь VIII ИЮНЬ 1982 – ИЮНЬ 1983"
+  translator: null
+  source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
+- id: "sch-family"
+  kind: "retelling"
+  text: "Андрій — його брат, Сергій — син"
+  original: null
+  translation: null
+  chunk_id: "book-59-0015"
+  book_id: 59
+  char_start: 13072
+  char_end: 13210
+  text_sha256: "f587507f762e339936c0b528722bbd2964d7eed0416253d8a7f420dfb181060d"
+  author: "прот. Александр Шмеман"
+  title: "Дневники 1973–1983"
+  chapter: "ПРЕДИСЛОВИЕ"
   translator: null
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
 - id: "sch-death"
@@ -560,7 +830,7 @@ corpus_sources:
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 ---
 
-Осінь 1982 року, Нью-Йорк. Протоієрей Олександр Шмеман лежить у лікарні: лікарі знайшли в нього дві пухлини[^corpus-sch-tumors]. Тридцять років він говорив про віру на «Радіо Свобода», а Свято-Володимирську семінарію очолював двадцять років[^schmemann]. Тепер він пише в щоденнику коротко: «Листи, квіти, відчуття чогось незаслуженого…»[^corpus-sch-letters] Ще за тиждень: «І сонце, щодня сонце. Довкола любов і хвилювання.»[^corpus-sch-sun] Наступного дня він згадує дзвінки від рідних і те, що поруч були близькі[^corpus-sch-calls-kids], і записує два слова: «Майже щастя.»[^corpus-sch-almost]
+Осінь 1982 року, Нью-Йорк. Протоієрей Олександр Шмеман, який тридцять років говорив про віру на «Радіо Свобода» і двадцять років очолював Свято-Володимирську семінарію[^schmemann], лежить у лікарні й записує в щоденнику: «Дві пухлини, сотні „тестів“»[^corpus-sch-tumors]. І тут же: «Писати про це нудно й довго»[^corpus-sch-boring]. Зате про інше — охоче: «Листи, квіти, відчуття чогось незаслуженого…»[^corpus-sch-letters] За тиждень: «За вікном – дивовижний краєвид на Нью-Йорк»[^corpus-sch-view]. «Вода, хмарочоси. І сонце, щодня сонце. Довкола любов і хвилювання.»[^corpus-sch-sun] Наступного дня: «Сиджу в залитій сонцем палаті й чекаю, що буде, – рішення про лікування…»[^corpus-sch-wait] Тут же він зазначає, що вчора йому дзвонили, а поруч були найрідніші[^corpus-sch-calls-kids], — і записує два слова: «Майже щастя.»[^corpus-sch-almost]
 
 У цьому «майже» — уся чесність. Шмеман не вдає, що хвороба — це радість. Але він помічає листи, сонце у вікні, людей поруч — і називає їх.
 
@@ -568,39 +838,39 @@ corpus_sources:
 
 ## Побачити те, чого не помічав
 
-1677 року шотландського пресвітеріанського проповідника Джеймса Фрейзера з Бреа за проповіді на заборонених зібраннях відправили на Басс-Рок — скелю посеред моря, де тримали в’язнів. Там він провів близько двох з половиною років, а згодом побував ще у двох в’язницях[^fraser]. Шотландський пастор Девід Макінтайр у книжці «Потаємне життя молитви» розповідає, що якось Фрейзер вирішив «шукати й записувати вияви Божої любові»[^corpus-fraser-resolved].
+1677 року шотландського пресвітеріанського проповідника Джеймса Фрейзера з Бреа за проповіді на заборонених зібраннях відправили на Басс-Рок — скелю посеред моря, де тримали в’язнів. Там він провів близько двох з половиною років, а згодом побував ще у двох в’язницях[^fraser]. Шотландський пастор Девід Макінтайр у книжці «Потаємне життя молитви» згадує його як в’язня за Христа на Басс-Році[^corpus-fraser-prisoner] і розповідає, що Фрейзер вирішив «шукати й записувати вияви Божої любові»[^corpus-fraser-resolved]. Коли саме, Макінтайр не каже.
 
-Що з цього вийшло, Фрейзер описав сам: «Спогади й серйозні роздуми про те, як Господь діяв у моєму житті — у справах душі й тіла, — про Його численні милості принесли мені дуже багато добра»[^corpus-fraser-calling]. І далі: «які джерела води відкрилися моїм очам, що раніше були приховані»[^corpus-fraser-wells]. «Навряд чи щось принесло мені більше користі, ніж це»[^corpus-fraser-scarce].
+Що з цього вийшло, Фрейзер описав сам: «Спогади й серйозні роздуми про те, як Господь діяв у моєму житті — у справах душі й тіла, — про Його численні милості принесли мені дуже багато добра»[^corpus-fraser-calling]. Від цього він утвердився в певності, що Бог його любить, і сам полюбив Його[^corpus-fraser-love]. «О… які джерела води відкрилися моїм очам, що раніше були приховані»[^corpus-fraser-wells]. «Навряд чи щось принесло мені більше користі, ніж це»[^corpus-fraser-scarce].
 
 Ці джерела були в його житті й раніше — він їх просто не бачив. Вдячність тут починається не з почуття, а з уваги. А увагу можна тренувати: зупинитися й запитати себе, що доброго було сьогодні.
 
 ## Дякувати за людей
 
-Френсісу Есбері було двадцять шість, коли 1771 року він вирушив з Англії до Америки проповідувати. Згодом він став одним із перших методистських єпископів там і все життя їздив верхи — в середньому по шість тисяч миль на рік[^asbury]. Навесні 1774 року в Меріленді він хворів так, що майже не проповідував, а коли все ж вийшов проповідувати замість іншого, одразу після цього зліг[^corpus-asbury-ill]. Він уже не сподівався довго прожити[^corpus-asbury-die].
+Френсісу Есбері було двадцять шість, коли 1771 року він вирушив з Англії до Америки проповідувати. Згодом він став одним із перших методистських єпископів там і все життя їздив верхи — в середньому по шість тисяч миль на рік[^asbury]. Навесні 1774 року в Меріленді він так тяжко хворів, що вже не сподівався довго прожити, та й не прагнув цього[^corpus-asbury-die]: «Та хай буде життя чи смерть, хай буде воля Господня!»[^corpus-asbury-will] Хвороба кілька днів майже не давала йому проповідувати, але того дня трохи відпустила. Капітан Вебб, який мав проповідувати, не зміг прийти, і Есбері, щоб люди не пішли ні з чим, вирушив замість нього. Після проповіді йому стало так зле, що довелося одразу лягти в ліжко[^corpus-asbury-ill].
 
-І в неділю, 3 квітня, записує в щоденнику: «Вдячність спонукає мене визнати Боже провидіння і доброту моїх друзів»[^corpus-asbury-gratitude]. Люди, на яких лягли головні клопоти про нього, виявили, за його словами, «незвичайну турботу, ніжність і співчуття»[^corpus-asbury-care]. І одразу — молитва в одне речення: «Хай Господь винагородить їхню працю і діло любові!»[^corpus-asbury-prayer] Через три дні він пише, що вдень і вночі його мучать сильні дрижаки й гарячка[^corpus-asbury-fever]. Вдячність не стала чекати одужання.
+У неділю, 3 квітня, ще зовсім хворий, він спробував проповідувати[^corpus-asbury-tried]: «Як важко мовчати тому, хто прагне спасіння душ!»[^corpus-asbury-silent] І в тому ж записі: «Вдячність спонукає мене визнати Боже провидіння і доброту моїх друзів»[^corpus-asbury-gratitude]. Люди, на яких лягли головні клопоти про нього, виявили, за його словами, «незвичайну турботу, ніжність і співчуття»[^corpus-asbury-care]. І одразу — молитва в одне речення: «Хай Господь винагородить їхню працю і діло любові!»[^corpus-asbury-prayer] Через три дні він пише, що вдень і вночі його мучать сильні дрижаки й гарячка[^corpus-asbury-fever]. Вдячність не стала чекати одужання.
 
 Мабуть, це найпростіша молитва подяки: назвати людей, які були до вас добрі, і попросити для них добра в Бога. А потім подякувати й їм самим.
 
 ## Коли вдячності не відчуваєш
 
-Джон Ньютон замолоду був капітаном невільницьких суден, а після навернення став англіканським священником і написав гімн «Amazing Grace»[^newton]. У жовтні 1777 року він пише листа людині, яка має проблеми з очима[^corpus-newton-eyes]. Цей лист увійшов до збірки «Кардифонія». Ньютон згадує: рівно рік тому його оперували, і він дякує Богові, що зважився на операцію і щасливо її переніс[^corpus-newton-op]. «Словом, причин для вдячності в мене стільки, що я не можу їх злічити»[^corpus-newton-count]. І тут же: «І все ж, на жаль, — яка холодність, нечутливість і невдячність!»[^corpus-newton-cold]
+Джон Ньютон замолоду був капітаном невільницьких суден, а після навернення став англіканським священником і написав гімн «Amazing Grace»[^newton]. У збірці його листів «Кардифонія» є лист від 10 жовтня 1777 року. Ньютон пише його, щойно повернувшись із лікарні, де провідував хвору знайому[^corpus-newton-visit]. «У цих сумних стінах у мене завжди падає дух»[^corpus-newton-walls], — зізнається він другові, у якого болять очі й спина[^corpus-newton-eyes]. Ньютон згадує, що рівно рік тому лежав під ножем хірурга, і дякує Богові, що зважився на операцію і щасливо її переніс[^corpus-newton-op]. «Словом, причин для вдячності в мене стільки, що я не можу їх злічити»[^corpus-newton-count] — їх більше, ніж волосин на голові[^corpus-newton-hairs]. Але тут же зізнається, що сам вдячності не відчуває: «І все ж, на жаль, — яка холодність, нечутливість і невдячність!»[^corpus-newton-cold]
 
-Ньютон не вдає, ніби його серце сповнене вдячності. Він бачить причини дякувати й чесно визнає, що серце мовчить. І ще одне зізнання: «Я міг би скаржитися не менше за вас; але не бачу користі в скаргах, хіба що скаржитися Тому, Хто може мені допомогти»[^corpus-newton-complain]. Скарга Богові вдячності не ворог — вона теж частина розмови.
+Ньютон не вдає, ніби його серце палає вдячністю. І ще одне зізнання: «Я міг би скаржитися не менше за вас; але не бачу користі в скаргах, хіба що скаржитися Тому, Хто може мені допомогти.»[^corpus-newton-complain] Скарга Богові вдячності не ворог — вона теж частина розмови.
 
-Лист Ньютон завершує словами псалма: «Сподівайся на Бога, бо ти ще славитимеш Його»[^corpus-newton-psalm]. У Новому перекладі українською цей вірш звучить так: «Чому ти сумуєш, душе моя, і чому журишся в мені? Сподівайся на Бога, адже я ще прославлятиму Його – мого Спасителя!» (Пс 41:6)[^ps41]. Псалмоспівець не каже, що смуток минув. Він розмовляє з ним — і обіцяє хвалу в майбутньому часі. Так теж можна молитися.
+Наприкінці листа Ньютон, колишній моряк, говорить про Спасителя, Який може допомогти й спасти до кінця[^corpus-newton-save], і додає: «там я хочу кинути якір — і вам бажаю того ж»[^corpus-newton-anchor]. А останній рядок листа — слова псалма: «Сподівайся на Бога, бо ти ще славитимеш Його.»[^corpus-newton-psalm] У Новому перекладі українською цей вірш звучить так: «Чому ти сумуєш, душе моя, і чому журишся в мені? Сподівайся на Бога, адже я ще прославлятиму Його – мого Спасителя!» (Пс 41:6)[^ps41]. Псалмоспівець не каже, що смуток минув. Він звертається до власної душі й обіцяє, що ще славитиме Бога. Так теж можна молитися.
 
 ## Дарунки звичайного дня
 
-Задовго до хвороби, у лютому 1977 року, в перші дні Великого посту, Шмеман пише в щоденнику: «Як пристрасно хочеться тиші, зосередженості, внутрішнього миру.»[^corpus-sch-quiet] Та не минуло й трьох годин після повернення, як телефон дзвонив уже разів десять[^corpus-sch-calls]. У наступному записі він згадує, як після прощеної вечірні вони йшли додому через замети[^corpus-sch-walk]: «Усе разом: сніг, освітлений поодинокими ліхтарями, освітлені вікна дому, маленька Олександра, як кулька, на цьому снігу.»[^corpus-sch-snow] «Усе це дарунки Божі»[^corpus-sch-gifts], — пише він. І уточнює: «Ніщо з цього не Бог, усе це від Нього і тому про Нього.»[^corpus-sch-notgod]
+Задовго до хвороби, у лютому 1977 року, в перші дні Великого посту, Шмеман пише в щоденнику: «Як пристрасно хочеться тиші, зосередженості, внутрішнього миру.»[^corpus-sch-quiet] Та не минуло й трьох годин після повернення додому, як телефон дзвонив уже разів десять[^corpus-sch-calls]. Наступного дня він згадує, звідки повернувся, — півтора дня в доньки Ані[^corpus-sch-daughter] — «у затишку, світлі її родини, її дому»[^corpus-sch-anya] — і те, як «після прощеної вечірні ми йшли через замети додому»[^corpus-sch-walk] (прощена вечірня — вечірня служба з чином прощення перед Великим постом): «Усе разом: сніг, освітлений поодинокими ліхтарями, освітлені вікна дому, маленька Олександра, як кулька, на цьому снігу.»[^corpus-sch-snow] «Усе це дарунки Божі»[^corpus-sch-gifts], — пише він. І уточнює: «Ніщо з цього не Бог, усе це від Нього і тому про Нього.»[^corpus-sch-notgod]
 
 Для молитви подяки не потрібно нічого великого. Сніг, світло у вікнах, дитина поруч — уже привід заговорити з Тим, від Кого все це.
 
 ## Як подякувати Богові своїми словами
 
-- **Назвіть одну-дві конкретні речі**, а не «дякую за все». Допомагають запитання: хто сьогодні був до мене добрий? Що звичайне виявилося подарунком — світло, дзвінок, теплий чай? Що ще вчора здавалося само собою зрозумілим?
+- **Назвіть щось конкретне**, а не «дякую за все». Допомагають запитання: хто сьогодні був до мене добрий? Що звичайне виявилося подарунком — світло, дзвінок, теплий чай? Що ще вчора здавалося само собою зрозумілим?
 - **Почніть із людей**, як Есбері: «Дякую за Н. Винагороди його за доброту». Той, за кого ви помолилися, може й сам почути ваше «дякую».
-- **Якщо болить, скажіть спершу про біль.** Дякувати за біду не потрібно. Можна знайти, за що дякувати посеред неї, — а можна сьогодні тільки поскаржитися Тому, Хто може допомогти.
+- **Якщо болить, скажіть спершу про біль.** Дякувати за біду не потрібно. Можна знайти, за що дякувати навіть посеред біди, — а можна сьогодні тільки поскаржитися Тому, Хто може допомогти.
 - **Якщо вдячності немає, скажіть і це.** У Ньютона причин було не злічити, а серце лишалося холодним. А якщо зараз більше тривоги, ніж вдячності, прочитайте [про молитву в тривозі](/uk/articles/prayer-for-anxiety/).
 - **Іноді записуйте помічене добро**, як Фрейзер, а згодом спробуйте повернутися до цих записів. Як вести такі записи, ми розповіли в статті [про молитовний щоденник](/uk/articles/prayer-journal/). Якщо вдячність — лише одна з тем вашої молитви, загляньте в статтю [про що молитися](/uk/articles/what-to-pray-about/).
 
@@ -615,7 +885,7 @@ corpus_sources:
 
 Наприкінці можна записати підсумок в один-два рядки. Молитва збережеться в щоденнику на телефоні, а пошук за словами допоможе згодом знайти свої подяки й згадати, за що ви дякували. Нагадування про молитву можна поставити на вибрані дні й час. Списку чи лічильника подяк і готових текстів молитов у застосунку немає — слова лишаються вашими.
 
-Останній запис у щоденнику Шмеман зробив 1 червня 1983 року: «Вісім місяців – не писав сюди ані слова.»[^corpus-sch-silence] Писати не давав страх. Він зізнавався: «Боявся тієї висоти, на яку підняла мене моя хвороба»[^corpus-sch-height]. А закінчив запис переліком: «Три приїзди Андрія. Три приїзди Сергія. Приїзди Ткачуків… Яке це все було щастя!»[^corpus-sch-list] Його син Сергій пише в передмові до «Щоденників»: через пів року, 13 грудня 1983 року, отець Олександр помер удома, серед близьких[^corpus-sch-death]. Перелічити, хто приїздив, і здивуватися — це теж подяка Богові своїми словами.
+Останній запис у щоденнику Шмеман зробив 1 червня 1983 року: «Вісім місяців – не писав сюди ані слова. І не тому, що не було чого сказати: ніколи, мабуть, не було стільки думок, і запитань, і вражень.»[^corpus-sch-silence] Мовчав він тому, що «весь час боявся тієї висоти, на яку підняла мене моя хвороба, боявся „випасти“ з неї»[^corpus-sch-height]. Далі — про найближчу людину: «Присутність активна – Л. Я думаю, якби не вона зі мною, не було б цих – здебільшого мирних і глибоких – восьми місяців.»[^corpus-sch-l] Льяною він називав у щоденнику дружину, Ульяну Сергіївну[^corpus-sch-wife]. А закінчив запис переліком: «Три приїзди Андрія. Три приїзди Сергія. Приїзди Ткачуків… Яке це все було щастя!»[^corpus-sch-list] Андрій — його брат, Сергій — син[^corpus-sch-family]. У передмові до «Щоденників» Сергій напише: через пів року, 13 грудня 1983 року, отець Олександр помер удома, серед близьких[^corpus-sch-death]. Перелічити, хто приїздив, і здивуватися — це теж подяка Богові своїми словами.
 
 ## Часті запитання {#faq}
 

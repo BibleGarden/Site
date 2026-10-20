@@ -108,6 +108,96 @@ corpus_sources:
   chapter: null
   translator: "А. Б. Григорьев"
   source_url: "https://predanie.ru/dietrich-bonhoeffer/sleduya-hristu-soprotivlenie-i-pokornost/"
+- id: bonhoeffer-wedding
+  kind: retelling
+  text: 'There is a wedding in the family, and he will not be there: by the time his letter arrives, the celebration will be over, and with it, he admits, his longing to be there will ease a little'
+  original: null
+  translation: null
+  chunk_id: book-58-0073
+  book_id: 58
+  char_start: 66686
+  char_end: 67120
+  text_sha256: 618693e17178c0e3c595fca7ef6ebad531b6c21208418dd2d27df53aa0a260b8
+  author: Dietrich Bonhoeffer
+  title: Widerstand und Ergebung
+  chapter: null
+  translator: А. Б. Григорьев
+  source_url: https://predanie.ru/dietrich-bonhoeffer/sleduya-hristu-soprotivlenie-i-pokornost/
+- id: bonhoeffer-see
+  kind: quote
+  text: Oh, if only we could see each other or talk, even for a minute!
+  original: Ах, если бы хоть на минутку можно было повидаться или поговорить!
+  translation: ours
+  chunk_id: book-58-0074
+  book_id: 58
+  char_start: 67597
+  char_end: 67663
+  text_sha256: 618693e17178c0e3c595fca7ef6ebad531b6c21208418dd2d27df53aa0a260b8
+  author: Dietrich Bonhoeffer
+  title: Widerstand und Ergebung
+  chapter: null
+  translator: А. Б. Григорьев
+  source_url: https://predanie.ru/dietrich-bonhoeffer/sleduya-hristu-soprotivlenie-i-pokornost/
+- id: bonhoeffer-days
+  kind: retelling
+  text: He writes, reads, thinks and paces his cell; really, he says, he would be living much the same way outside
+  original: null
+  translation: null
+  chunk_id: book-58-0075
+  book_id: 58
+  char_start: 67780
+  char_end: 67938
+  text_sha256: 618693e17178c0e3c595fca7ef6ebad531b6c21208418dd2d27df53aa0a260b8
+  author: Dietrich Bonhoeffer
+  title: Widerstand und Ergebung
+  chapter: null
+  translator: А. Б. Григорьев
+  source_url: https://predanie.ru/dietrich-bonhoeffer/sleduya-hristu-soprotivlenie-i-pokornost/
+- id: bonhoeffer-bear
+  kind: quote
+  text: not like a polar bear rubbing its sides bloody against the walls of its cage
+  original: не как белый медведь, стирающий до крови бока о стены клетки
+  translation: ours
+  chunk_id: book-58-0075
+  book_id: 58
+  char_start: 67939
+  char_end: 67999
+  text_sha256: 618693e17178c0e3c595fca7ef6ebad531b6c21208418dd2d27df53aa0a260b8
+  author: Dietrich Bonhoeffer
+  title: Widerstand und Ergebung
+  chapter: null
+  translator: А. Б. Григорьев
+  source_url: https://predanie.ru/dietrich-bonhoeffer/sleduya-hristu-soprotivlenie-i-pokornost/
+- id: bonhoeffer-temptation
+  kind: retelling
+  text: Yet sometimes his calm vanishes on its own, for no visible reason, and the heart becomes, in the words of the prophet Jeremiah
+  original: null
+  translation: null
+  chunk_id: book-58-0075
+  book_id: 58
+  char_start: 68340
+  char_end: 68534
+  text_sha256: 618693e17178c0e3c595fca7ef6ebad531b6c21208418dd2d27df53aa0a260b8
+  author: Dietrich Bonhoeffer
+  title: Widerstand und Ergebung
+  chapter: null
+  translator: А. Б. Григорьев
+  source_url: https://predanie.ru/dietrich-bonhoeffer/sleduya-hristu-soprotivlenie-i-pokornost/
+- id: bonhoeffer-heart
+  kind: quote
+  text: stubborn and faint-hearted
+  original: упрямым и робким
+  translation: ours
+  chunk_id: book-58-0075
+  book_id: 58
+  char_start: 68535
+  char_end: 68551
+  text_sha256: 618693e17178c0e3c595fca7ef6ebad531b6c21208418dd2d27df53aa0a260b8
+  author: Dietrich Bonhoeffer
+  title: Widerstand und Ergebung
+  chapter: null
+  translator: А. Б. Григорьев
+  source_url: https://predanie.ru/dietrich-bonhoeffer/sleduya-hristu-soprotivlenie-i-pokornost/
 - id: "bonhoeffer-hand-end"
   kind: "quote"
   text: "My days are in Your hand"
@@ -123,21 +213,21 @@ corpus_sources:
   chapter: null
   translator: "А. Б. Григорьев"
   source_url: "https://predanie.ru/dietrich-bonhoeffer/sleduya-hristu-soprotivlenie-i-pokornost/"
-- id: "athanasius-marcellinus"
-  kind: "retelling"
-  text: "after recovering from an illness, was studying the whole of Scripture, the Psalms above all, and trying to find the hidden meaning of each psalm"
+- id: athanasius-marcellinus
+  kind: retelling
+  text: 'His friend Marcellinus had just got back on his feet after an illness, though the trial in which he had already endured a great deal was not yet over. The messenger who brought his letter told Athanasius how Marcellinus was spending his days: he was reading all of Scripture, but the Psalms with particular care, trying to find the hidden meaning of each psalm'
   original: null
   translation: null
-  chunk_id: "book-72-0001"
+  chunk_id: book-72-0001
   book_id: 72
-  char_start: 346
+  char_start: 96
   char_end: 702
-  text_sha256: "07ca6f2436c3036ec6291fe26bb7b0f8313ecde5e6b21ad698de18ee2317267d"
-  author: "Athanasius von Alexandrien"
-  title: "Epistula ad Marcellinum de interpretatione Psalmorum"
+  text_sha256: 07ca6f2436c3036ec6291fe26bb7b0f8313ecde5e6b21ad698de18ee2317267d
+  author: Athanasius von Alexandrien
+  title: Epistula ad Marcellinum de interpretatione Psalmorum
   chapter: null
-  translator: "J. Fisch"
-  source_url: "https://bkv.unifr.ch/de/works/cpg-2097/versions/des-hl-athanasius-brief-an-marcellinus-uber-die-erklarung-der-psalmen-bkv/divisions"
+  translator: J. Fisch
+  source_url: https://bkv.unifr.ch/de/works/cpg-2097/versions/des-hl-athanasius-brief-an-marcellinus-uber-die-erklarung-der-psalmen-bkv/divisions
 - id: "athanasius-elder"
   kind: "retelling"
   text: "he passes on what a vigorous old man told him about the Psalter, with the book in his hand"
@@ -168,6 +258,21 @@ corpus_sources:
   chapter: null
   translator: "J. Fisch"
   source_url: "https://bkv.unifr.ch/de/works/cpg-2097/versions/des-hl-athanasius-brief-an-marcellinus-uber-die-erklarung-der-psalmen-bkv/divisions"
+- id: athanasius-hearer
+  kind: quote
+  text: For even someone who hears them read takes in the song as though it were being sung about him.
+  original: Denn auch wer sie vorlesen hört, nimmt den Gesang so auf, als würde er über ihn selbst vorgetragen
+  translation: ours
+  chunk_id: book-72-0030
+  book_id: 72
+  char_start: 20395
+  char_end: 20493
+  text_sha256: 07ca6f2436c3036ec6291fe26bb7b0f8313ecde5e6b21ad698de18ee2317267d
+  author: Athanasius von Alexandrien
+  title: Epistula ad Marcellinum de interpretatione Psalmorum
+  chapter: null
+  translator: J. Fisch
+  source_url: https://bkv.unifr.ch/de/works/cpg-2097/versions/des-hl-athanasius-brief-an-marcellinus-uber-die-erklarung-der-psalmen-bkv/divisions
 - id: "athanasius-own"
   kind: "quote"
   text: "If someone, for example, sings the third psalm and looks at his own troubles as he does so, he takes the words of that psalm as his own words"
@@ -183,21 +288,6 @@ corpus_sources:
   chapter: null
   translator: "J. Fisch"
   source_url: "https://bkv.unifr.ch/de/works/cpg-2097/versions/des-hl-athanasius-brief-an-marcellinus-uber-die-erklarung-der-psalmen-bkv/divisions"
-- id: "athanasius-ps10"
-  kind: "quote"
-  text: "If anyone wants to throw you into confusion and frighten you, put your trust in the Lord and sing the tenth"
-  original: "Und wenn Jemand Dich in Verwirrung bringen und erschrecken will, so setze Du Dein Vertrauen auf den Herrn und singe den zehnten."
-  translation: "ours"
-  chunk_id: "book-72-0042"
-  book_id: 72
-  char_start: 30560
-  char_end: 30688
-  text_sha256: "07ca6f2436c3036ec6291fe26bb7b0f8313ecde5e6b21ad698de18ee2317267d"
-  author: "Athanasius von Alexandrien"
-  title: "Epistula ad Marcellinum de interpretatione Psalmorum"
-  chapter: null
-  translator: "J. Fisch"
-  source_url: "https://bkv.unifr.ch/de/works/cpg-2097/versions/des-hl-athanasius-brief-an-marcellinus-uber-die-erklarung-der-psalmen-bkv/divisions"
 - id: "athanasius-ps22"
   kind: "quote"
   text: "If you see that the Lord is shepherding you and leading you well, rejoice and sing the twenty-second about it as well"
@@ -207,21 +297,6 @@ corpus_sources:
   book_id: 72
   char_start: 32041
   char_end: 32161
-  text_sha256: "07ca6f2436c3036ec6291fe26bb7b0f8313ecde5e6b21ad698de18ee2317267d"
-  author: "Athanasius von Alexandrien"
-  title: "Epistula ad Marcellinum de interpretatione Psalmorum"
-  chapter: null
-  translator: "J. Fisch"
-  source_url: "https://bkv.unifr.ch/de/works/cpg-2097/versions/des-hl-athanasius-brief-an-marcellinus-uber-die-erklarung-der-psalmen-bkv/divisions"
-- id: "athanasius-ps19"
-  kind: "quote"
-  text: "If you see people in distress, comfort them, pray for them and speak to them the words of the nineteenth psalm"
-  original: "Siehst Du Bedrängte, so tröste sie, bete für sie und sprich zu ihnen die Worte im neunzehnten Psalm."
-  translation: "ours"
-  chunk_id: "book-72-0044"
-  book_id: 72
-  char_start: 31940
-  char_end: 32040
   text_sha256: "07ca6f2436c3036ec6291fe26bb7b0f8313ecde5e6b21ad698de18ee2317267d"
   author: "Athanasius von Alexandrien"
   title: "Epistula ad Marcellinum de interpretatione Psalmorum"
@@ -513,21 +588,21 @@ corpus_sources:
   chapter: "Of the Spirit's Help in Prayer"
   translator: null
   source_url: "https://www.monergism.com/discourses-prayer-ebook"
-- id: "boston-notes"
-  kind: "retelling"
-  text: "suggested that he print some of his sermons, Boston left him his old notes on man’s fourfold state"
+- id: boston-notes
+  kind: retelling
+  text: It all began with a walk in the country, when Dr. Trotter unexpectedly suggested that Boston should publish his sermons. Boston happened to have some old notes on him, including the sermons on man’s fourfold state, and handed them over to the doctor
   original: null
   translation: null
-  chunk_id: "book-345-0689"
+  chunk_id: book-345-0689
   book_id: 345
   char_start: 618347
   char_end: 618912
-  text_sha256: "d7a82ba76abf2758e5af36716e5c32db457c1f676c5385a6c32d196b7b347a9a"
-  author: "Thomas Boston"
-  title: "Memoirs of the Life, Times, and Writings of the Rev. Thomas Boston"
+  text_sha256: d7a82ba76abf2758e5af36716e5c32db457c1f676c5385a6c32d196b7b347a9a
+  author: Thomas Boston
+  title: Memoirs of the Life, Times, and Writings of the Rev. Thomas Boston
   chapter: null
   translator: null
-  source_url: "https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston"
+  source_url: https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston
 - id: "boston-notes-pressed"
   kind: "retelling"
   text: "After reading them, the doctor and a Mr. Willis wrote to him insisting that he take up the work"
@@ -558,6 +633,21 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: "https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston"
+- id: boston-examine
+  kind: retelling
+  text: 'he examined whether his motives were pure: was he after gain, or a reputation? To make the book useful he was willing to lose money on it. About fame he was honest: he could not claim to be free of vanity altogether, but before God he could say that what moved him was not a reputation for himself but the glory of God'
+  original: null
+  translation: null
+  chunk_id: book-345-0703
+  book_id: 345
+  char_start: 630230
+  char_end: 630809
+  text_sha256: d7a82ba76abf2758e5af36716e5c32db457c1f676c5385a6c32d196b7b347a9a
+  author: Thomas Boston
+  title: Memoirs of the Life, Times, and Writings of the Rev. Thomas Boston
+  chapter: null
+  translator: null
+  source_url: https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston
 - id: "boston-honour"
   kind: "quote"
   text: "Him that honoureth me I will honour"
@@ -648,36 +738,81 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: "https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston"
-- id: "boston-reread"
-  kind: "retelling"
-  text: "reread everything he had written down about the matter from the beginning, and the letters about it"
+- id: boston-child
+  kind: quote
+  text: If I had had the word a-framing for my case, I would have desired no more in the matter secured to me, than walking before the Lord, as a child before his father
+  original: If I had had the word a-framing for my case, I would have desired no more in the matter secured to me, than walking before the Lord, as a child before his father
+  translation: null
+  chunk_id: book-345-0705
+  book_id: 345
+  char_start: 632419
+  char_end: 632580
+  text_sha256: d7a82ba76abf2758e5af36716e5c32db457c1f676c5385a6c32d196b7b347a9a
+  author: Thomas Boston
+  title: Memoirs of the Life, Times, and Writings of the Rev. Thomas Boston
+  chapter: null
+  translator: null
+  source_url: https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston
+- id: boston-reread
+  kind: retelling
+  text: After praying for clear judgment, he reread everything he had written down about the matter from the beginning, and the letters about it
   original: null
   translation: null
-  chunk_id: "book-345-0705"
+  chunk_id: book-345-0705
   book_id: 345
   char_start: 632594
   char_end: 632893
-  text_sha256: "d7a82ba76abf2758e5af36716e5c32db457c1f676c5385a6c32d196b7b347a9a"
-  author: "Thomas Boston"
-  title: "Memoirs of the Life, Times, and Writings of the Rev. Thomas Boston"
+  text_sha256: d7a82ba76abf2758e5af36716e5c32db457c1f676c5385a6c32d196b7b347a9a
+  author: Thomas Boston
+  title: Memoirs of the Life, Times, and Writings of the Rev. Thomas Boston
   chapter: null
   translator: null
-  source_url: "https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston"
-- id: "boston-letter"
-  kind: "retelling"
-  text: "What tipped the balance were words in one of those letters about perishing souls: for their sake, he dared not refuse the work"
+  source_url: https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston
+- id: boston-colden
+  kind: retelling
+  text: Last came a letter from a Mr. Colden, which closed by urging him to be guided by duty and by the salvation of perishing souls
   original: null
   translation: null
-  chunk_id: "book-345-0706"
+  chunk_id: book-345-0706
   book_id: 345
-  char_start: 632932
-  char_end: 633250
-  text_sha256: "d7a82ba76abf2758e5af36716e5c32db457c1f676c5385a6c32d196b7b347a9a"
-  author: "Thomas Boston"
-  title: "Memoirs of the Life, Times, and Writings of the Rev. Thomas Boston"
+  char_start: 632898
+  char_end: 633069
+  text_sha256: d7a82ba76abf2758e5af36716e5c32db457c1f676c5385a6c32d196b7b347a9a
+  author: Thomas Boston
+  title: Memoirs of the Life, Times, and Writings of the Rev. Thomas Boston
   chapter: null
   translator: null
-  source_url: "https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston"
+  source_url: https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston
+- id: boston-fool
+  kind: quote
+  text: That word, “perishing souls,” nailed my heart; and it burst out and answered, “Then let me be a fool for perishing souls.”
+  original: That word, "perishing souls," nailed my heart; and it burst out and answered, "Then let me be a fool for perishing souls."
+  translation: null
+  chunk_id: book-345-0706
+  book_id: 345
+  char_start: 633071
+  char_end: 633193
+  text_sha256: d7a82ba76abf2758e5af36716e5c32db457c1f676c5385a6c32d196b7b347a9a
+  author: Thomas Boston
+  title: Memoirs of the Life, Times, and Writings of the Rev. Thomas Boston
+  chapter: null
+  translator: null
+  source_url: https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston
+- id: boston-letter
+  kind: retelling
+  text: Now, he writes, he had no right to turn the work down, whatever it might cost him, for the sake of those perishing souls
+  original: null
+  translation: null
+  chunk_id: book-345-0706
+  book_id: 345
+  char_start: 633194
+  char_end: 633273
+  text_sha256: d7a82ba76abf2758e5af36716e5c32db457c1f676c5385a6c32d196b7b347a9a
+  author: Thomas Boston
+  title: Memoirs of the Life, Times, and Writings of the Rev. Thomas Boston
+  chapter: null
+  translator: null
+  source_url: https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston
 - id: "boston-fortune-faq"
   kind: "retelling"
   text: "called it dangerous to open the Bible at random and read your situation in the first word you see: that turns it into a fortune-telling book"
@@ -697,17 +832,19 @@ corpus_sources:
 
 Berlin, May 1943. Dietrich Bonhoeffer, a Lutheran pastor, is being held in Tegel prison, awaiting trial. He could have sat out the war in safety: in 1939 he had been invited to teach in New York. But he went back to Germany, became involved with a circle working to overthrow Hitler, and in April 1943 he was arrested[^bonhoeffer].
 
-On May 15 he writes to his parents. His letters from prison would later be published as *Letters and Papers from Prison*. He tells them that he is working on a short study of how a prisoner awaiting trial experiences time[^corpus-bonhoeffer-time]. Someone who had been in the cell before him had scratched a line above the door[^corpus-bonhoeffer-door-who]: “in a hundred years it will all be over”[^corpus-bonhoeffer-door]. Then he quotes a psalm: “My days are in Your hand”[^corpus-bonhoeffer-hand] (Psalm 31:15). This, Bonhoeffer says, is Scripture’s answer “to the question that threatens to crowd out everything else here”[^corpus-bonhoeffer-answer]: “How long, O Lord?”[^corpus-bonhoeffer-howlong] (Psalm 13).
+On May 15 he writes to his parents. His letters from prison would later be published as *Letters and Papers from Prison*. There is a wedding in the family, and he will not be there: by the time his letter arrives, the celebration will be over, and with it, he admits, his longing to be there will ease a little[^corpus-bonhoeffer-wedding]. “Oh, if only we could see each other or talk, even for a minute!”[^corpus-bonhoeffer-see] He writes, reads, thinks and paces his cell; really, he says, he would be living much the same way outside[^corpus-bonhoeffer-days]. And he paces “not like a polar bear rubbing its sides bloody against the walls of its cage”[^corpus-bonhoeffer-bear]. Yet sometimes his calm vanishes on its own, for no visible reason, and the heart becomes, in the words of the prophet Jeremiah[^corpus-bonhoeffer-temptation], “stubborn and faint-hearted”[^corpus-bonhoeffer-heart].
 
-That is what praying Scripture looks like. When you have no words of your own, you can take the words of a psalm and say them to God as your own. And when you come to the Bible with a question, look for the answer not in a random line but in a passage read as a whole: who is speaking, to whom, and about what. Bonhoeffer’s answer did not come by chance either. In the same letter he admits that the Psalter is perhaps the book he knows and loves best of all, and he has read it every day for many years[^corpus-bonhoeffer-psalter].
+He also tells them that he is working on a short study of how a prisoner awaiting trial experiences time[^corpus-bonhoeffer-time]. Someone who had been in the cell before him had scratched a line above the door[^corpus-bonhoeffer-door-who]: “in a hundred years it will all be over”[^corpus-bonhoeffer-door]. Further on in the letter Bonhoeffer quotes a psalm: “My days are in Your hand”[^corpus-bonhoeffer-hand] (Psalm 31:15). This, he says, is Scripture’s answer “to the question that threatens to crowd out everything else here”[^corpus-bonhoeffer-answer]: “How long, O Lord?”[^corpus-bonhoeffer-howlong] (Psalm 13).
+
+That is what praying Scripture looks like. When you have no words of your own, you can take the words of a psalm and say them to God as your own. And when you come to the Bible with a question, look for the answer not in a random line but in a passage read as a whole: who is speaking, to whom, and about what. Bonhoeffer’s answer did not come by chance. In the same letter he admits that the Psalter is perhaps the book he knows and loves best of all, and he has read it every day for many years[^corpus-bonhoeffer-psalter].
 
 ## The Psalms as a mirror
 
-Athanasius the Great was bishop of Alexandria for almost half a century and spent more than seventeen years in five exiles, ordered by four emperors[^athanasius]. He once learned that his friend Marcellinus, after recovering from an illness, was studying the whole of Scripture, the Psalms above all, and trying to find the hidden meaning of each psalm[^corpus-athanasius-marcellinus]. Athanasius wrote back with his *Letter to Marcellinus on the Interpretation of the Psalms*. Most of the letter, though, is not in his own voice: he passes on what a vigorous old man told him about the Psalter, with the book in his hand[^corpus-athanasius-elder].
+Athanasius the Great was bishop of Alexandria for almost half a century and spent more than seventeen years in five exiles, ordered by four emperors[^athanasius]. His friend Marcellinus had just got back on his feet after an illness, though the trial in which he had already endured a great deal was not yet over. The messenger who brought his letter told Athanasius how Marcellinus was spending his days: he was reading all of Scripture, but the Psalms with particular care, trying to find the hidden meaning of each psalm[^corpus-athanasius-marcellinus]. Athanasius wrote back with his *Letter to Marcellinus on the Interpretation of the Psalms*. In it he passes on what a vigorous old man told him about the Psalter, with the book in his hand[^corpus-athanasius-elder].
 
-The old man believed that for anyone who sings them, the psalms are like a mirror: looking into them, a person recognizes what is stirring in their own soul[^corpus-athanasius-mirror]. “If someone, for example, sings the third psalm and looks at his own troubles as he does so, he takes the words of that psalm as his own words”[^corpus-athanasius-own].
+The old man believed that for anyone who sings them, the psalms are like a mirror: looking into them, a person recognizes what is stirring in their own soul[^corpus-athanasius-mirror]. “For even someone who hears them read takes in the song as though it were being sung about him.”[^corpus-athanasius-hearer] And: “If someone, for example, sings the third psalm and looks at his own troubles as he does so, he takes the words of that psalm as his own words”[^corpus-athanasius-own].
 
-Then he goes through the Psalter, matching a psalm to each state of the soul. He counts the psalms as the Greek Bible does, so his numbers usually run one lower than in an English Bible[^numbering]; the English numbers follow in parentheses. “If anyone wants to throw you into confusion and frighten you, put your trust in the Lord and sing the tenth”[^corpus-athanasius-ps10] (Psalm 11). “If you see that the Lord is shepherding you and leading you well, rejoice and sing the twenty-second about it as well”[^corpus-athanasius-ps22] (Psalm 23, “The Lord is my shepherd”). “If you see people in distress, comfort them, pray for them and speak to them the words of the nineteenth psalm”[^corpus-athanasius-ps19] (Psalm 20). “If you have sinned, and you are ashamed, and you repent and long to obtain mercy, you will find words of confession and remorse in the fiftieth”[^corpus-athanasius-ps50] (Psalm 51).
+Then he goes through the Psalter, matching a psalm to each state of the soul. He counts the psalms as the Greek Bible does, so his numbers usually run one lower than in an English Bible[^numbering]; the English numbers follow in parentheses. For example: “If you see that the Lord is shepherding you and leading you well, rejoice and sing the twenty-second about it as well”[^corpus-athanasius-ps22] (Psalm 23, “The Lord is my shepherd”). Or: “If you have sinned, and you are ashamed, and you repent and long to obtain mercy, you will find words of confession and remorse in the fiftieth”[^corpus-athanasius-ps50] (Psalm 51).
 
 And one more: “If persecution by your enemies drags on, do not lose heart as if the Lord had forgotten you, but call upon the Lord”[^corpus-athanasius-forgotten] with the words of the twelfth psalm[^athanasius-psalm-number], our Psalm 13. It is the same psalm that echoed in Bonhoeffer’s cell: “How long, O Lord? Will You forget me forever? How long will You hide Your face from me?” (Psalm 13:1)[^ps13]
 
@@ -715,11 +852,11 @@ Matching a psalm to what is on your heart is not a new idea: the advice is more 
 
 ## Take up and read
 
-The best-known story of Scripture answering a prayer took place in Milan in the late summer of 386, and Augustine tells it himself in his *Confessions*. He is thirty-one and teaches rhetoric. Behind him are years among the Manichaeans; ahead of him are baptism and his life as bishop of Hippo[^augustine]. He knows he has to change his life, and he keeps putting it off.
+In the summer of 386, in Milan, came what is perhaps the best-known moment of Scripture answering a prayer. Augustine tells the story himself in his *Confessions*. He is thirty-one and teaches rhetoric. Behind him are years among the Manichaeans; ahead of him are baptism and his life as bishop of Hippo[^augustine]. He knows he has to change his life, and he keeps putting it off.
 
 In a garden, without knowing how, he ends up on the ground under a fig tree, weeping freely[^corpus-augustine-fig]. And he cries out to God: “How long, how long? Tomorrow and tomorrow? Why not now? Why not this very hour make an end to my uncleanness?”[^corpus-augustine-howlong] It is the same question the psalmist asked, and Bonhoeffer after him.
 
-Suddenly a child’s voice drifts over from the house next door, a boy’s or a girl’s, he never could tell, chanting the same words again and again[^corpus-augustine-voice]: “Pick it up, read it; pick it up, read it.”[^corpus-augustine-tolle] These are the famous words *tolle, lege*. He takes it as a command from God to open the book and read the first passage he comes to[^corpus-augustine-command]. He remembers how Antony once came into church while the Gospel was being read and took the words as if they were meant for him personally[^corpus-augustine-antony]. Augustine grabs the volume of Paul’s letters he had left there, opens it and reads silently where his eyes first land: a call to give up revelry and drunkenness, debauchery and envy, and to put on the Lord Jesus Christ (Romans 13:13–14)[^corpus-augustine-romans]. “I wanted to read no further, nor did I need to.”[^corpus-augustine-no-further]
+Suddenly a child’s voice drifts over from the house next door, a boy’s or a girl’s, he never could tell, chanting the same words again and again[^corpus-augustine-voice]: “Pick it up, read it; pick it up, read it.”[^corpus-augustine-tolle] These are the famous words *tolle, lege*. He takes it as a command from God to open the book and read the first passage he comes to[^corpus-augustine-command]. He remembers Antony the Great, the Egyptian hermit: Antony once came into church while the Gospel was being read and took the words as if they were meant for him personally[^corpus-augustine-antony]. Augustine grabs the volume of Paul’s letters he had left there, opens it and reads silently where his eyes first land: a call to give up revelry and drunkenness, debauchery and envy, and to put on the Lord Jesus Christ (Romans 13:13–14)[^corpus-augustine-romans]. “I wanted to read no further, nor did I need to.”[^corpus-augustine-no-further]
 
 His friend Alypius asked to see what he had read, and, in Augustine’s words, “he looked on even further than I had read. I had not known what followed.”[^corpus-augustine-alypius] What followed was a call to welcome the one who is weak in faith (Romans 14:1). Alypius took these words for himself[^corpus-augustine-alypius-applied].
 
@@ -731,11 +868,15 @@ Thomas Boston was a Presbyterian minister in Ettrick, a rural parish in the sout
 
 As a rule, he says, the Spirit brings a person to the right word in other ways: through a sermon, or while reading Scripture with the family or alone[^corpus-boston-ordinary]. And any verse that comes to mind, Boston advises, should be tested: how does it agree with the rest of Scripture in its sense and purpose? After all, when the devil tempted Christ, he too quoted a psalm, only against its true meaning (Matthew 4:6)[^corpus-boston-scope].
 
-Boston followed his own advice. When a Dr. Trotter suggested that he print some of his sermons, Boston left him his old notes on man’s fourfold state[^corpus-boston-notes]. After reading them, the doctor and a Mr. Willis wrote to him insisting that he take up the work[^corpus-boston-notes-pressed]. On January 16, 1712, he wrote in the diary that later became part of his *Memoirs*: “I spent most of this day in prayer and meditation, for light in this matter”[^corpus-boston-light]. A few days later, on January 22, a verse came to him, “Him that honoureth me I will honour”[^corpus-boston-honour], but, he writes, “I saw little to my purpose in that word”[^corpus-boston-little]. In his regular daily reading he came to a psalm that was useful to him but did not seem to speak to his question[^corpus-boston-psalm].
+Boston followed his own advice. It all began with a walk in the country, when Dr. Trotter unexpectedly suggested that Boston should publish his sermons. Boston happened to have some old notes on him, including the sermons on man’s fourfold state, and handed them over to the doctor[^corpus-boston-notes]. After reading them, the doctor and a Mr. Willis wrote to him insisting that he take up the work[^corpus-boston-notes-pressed]. On January 16, 1712, he wrote in the diary that later became part of his *Memoirs*: “I spent most of this day in prayer and meditation, for light in this matter”[^corpus-boston-light]. On January 22, toward evening, he examined whether his motives were pure: was he after gain, or a reputation? To make the book useful he was willing to lose money on it. About fame he was honest: he could not claim to be free of vanity altogether, but before God he could say that what moved him was not a reputation for himself but the glory of God[^corpus-boston-examine]. It was then that a verse came to him, “Him that honoureth me I will honour”[^corpus-boston-honour], but, he writes, “I saw little to my purpose in that word”[^corpus-boston-little]. In his regular daily reading he came to a psalm that was useful to him but did not seem to speak to his question[^corpus-boston-psalm].
 
-Then that same verse, 1 Samuel 2:30, “returned with a new light about it, appearing pat to my case”[^corpus-boston-pat]: suddenly it fit him exactly. Boston had looked at whom the words were spoken to: “I saw that promise particularly directed to priests in the exercise of their office”[^corpus-boston-priests]. And that is what he was: a minister wondering how to serve with his sermons. “It melted my heart, and I said I would believe it.”[^corpus-boston-melted]
+Later, Boston writes, that same verse, 1 Samuel 2:30, “returned with a new light about it, appearing pat to my case”[^corpus-boston-pat]: suddenly it fit him exactly. Boston had looked at whom the words were spoken to: “I saw that promise particularly directed to priests in the exercise of their office”[^corpus-boston-priests]. And that is what he was: a minister wondering how to serve with his sermons. “It melted my heart, and I said I would believe it.”[^corpus-boston-melted] For Boston, the promise of walking before God as a child before a father was enough. Even if he could have written a promise for his own situation, he would have asked for nothing more: “If I had had the word a-framing for my case, I would have desired no more in the matter secured to me, than walking before the Lord, as a child before his father”[^corpus-boston-child].
 
-Notice what happened. At first the verse said nothing to him, and his ordinary reading helped but did not answer. The answer came when Boston understood whom the words addressed and what they concerned. Even then he did not decide on the strength of one verse: he prayed for clear judgment and reread everything he had written down about the matter from the beginning, and the letters about it[^corpus-boston-reread]. What tipped the balance were words in one of those letters about perishing souls: for their sake, he dared not refuse the work[^corpus-boston-letter].
+Notice what happened. At first the verse said nothing to him. His ordinary reading did him good but did not answer his question. The answer came when Boston understood whom the words addressed and what they concerned. Even then he did not decide on the strength of one verse. After praying for clear judgment, he reread everything he had written down about the matter from the beginning, and the letters about it[^corpus-boston-reread]. Last came a letter from a Mr. Colden, which closed by urging him to be guided by duty and by the salvation of perishing souls[^corpus-boston-colden]. Boston writes:
+
+> That word, “perishing souls,” nailed my heart; and it burst out and answered, “Then let me be a fool for perishing souls.”[^corpus-boston-fool]
+
+Now, he writes, he had no right to turn the work down, whatever it might cost him, for the sake of those perishing souls[^corpus-boston-letter].
 
 ## How to pray Scripture
 
@@ -749,7 +890,7 @@ These stories add up to a simple practice.
 ## A passage for your prayer in Lampada
 <!-- screen: topic, passage, history -->
 
-[Lampada](/) can help you find a passage for your prayer without guessing. Before you pray, you name your topic, for example, “I’m afraid of making the wrong decision.” If you have allowed the app in its settings to send your topic to the server, the Passage tab will find a passage that fits its meaning, not one that simply shares a word with it or one picked at random. If you have allowed your answers too, it takes into account what you have already said in your prayer. If the passage doesn’t fit, the Next passage arrow shows you another, and you can go back to earlier ones.
+[Lampada](/) can help you find a passage for your prayer without guessing. Before you pray, you name your topic, for example, “I’m afraid of making the wrong decision.” If you have allowed the app in its settings to send your topic to the server, the Passage tab will find a passage that fits its meaning, not one that simply shares a word with it or one picked at random. If you have allowed your answers too, the app takes into account what you have already said in your prayer. If the passage doesn’t fit, the Next passage arrow shows you another, and you can go back to earlier ones.
 
 The card shows the key verses. Tap it to open the whole passage: the surrounding verses appear paler, so you can see what comes before and after, as Boston advised. You can listen to the passage read by a human narrator, with the verse being read underlined in the text. If something speaks to you, tap Save: the passage stays in your journal next to this prayer and in Saved passages.
 
@@ -765,7 +906,7 @@ Not as a way to learn God’s will. Thomas Boston called it dangerous to open th
 
 ### Which psalm should I read when life is hard?
 
-The one in which you recognize yourself. The letter of Athanasius has a whole list: for example, after a sin, the fiftieth by his count[^corpus-athanasius-ps50-faq], which is Psalm 51 in English Bibles, and when it feels as if God has forgotten you, Psalm 13 (see above). Read a few and stay with the one whose words match yours.
+The one in which you recognize yourself. The letter of Athanasius has a whole list: for example, after a sin, the fiftieth by his count[^corpus-athanasius-ps50-faq], which is Psalm 51 in English Bibles, and when it feels as if God has forgotten you, Psalm 13 (see above). You can read several in a row and stay with the one closest to how you feel.
 
 ### How do I pray Scripture?
 
