@@ -2,7 +2,6 @@
 title: "Prayer for Anxiety: A Short Prayer, Psalm 23 and How to Pray When You’re Anxious"
 description: "A short prayer for anxiety can be as simple as “Lord, have mercy” or a line from a psalm; Psalm 23 is printed here in full. When borrowed words don’t fit, tell God exactly what you are afraid of. With the stories of Anthony of Optina, Julian of Norwich, Hudson Taylor and Elder Thaddeus of Vitovnica."
 date: 2026-10-20
-draft: true
 corpus_sources:
 - id: "antony-war"
   kind: "retelling"
