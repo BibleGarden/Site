@@ -396,7 +396,7 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/Makarij_Optinskij/pisma-k-mirskim-osobam/"
 - id: "king-rule"
   kind: "retelling"
-  text: "In December 1874, writing from Oxford, Edward King answered a lady who wanted a rule of life. For someone living in the world, he said, a rule can cover only the broad frame of the day: when to go to bed and get up, meals, work, and prayer both alone and in church"
+  text: "wrote to a lady in 1874 that in a life in the world one can expect to bring under rule only the outward framework of the day: sleep, meals, work and prayer"
   original: null
   translation: null
   chunk_id: "book-238-0123"
@@ -725,28 +725,13 @@ corpus_sources:
   translator: null
   source_url: "https://predanie.ru/men-aleksandr-protoierey/prakticheskoe-rukovodstvo-k-molitve/"
 - id: "taylor-hour"
-  kind: "quote"
-  text: "by affording to God one hour in twenty-four thou mayest have the comforts and rewards of devotion"
-  original: "by affording to God one hour in twenty-four thou mayest have the comforts and rewards of devotion"
+  kind: "retelling"
+  text: "took a stricter view: an hour a day was not too much to give God"
+  original: null
   translation: null
   chunk_id: "book-140-0232"
   book_id: 140
   char_start: 189141
-  char_end: 189504
-  text_sha256: "11980fbff2fa85c58cc9eaca58126eb6647f3342aedd24a7ec46b2eaa2e8012f"
-  author: "Jeremy Taylor"
-  title: "The Rule and Exercises of Holy Living"
-  chapter: "Chapter 1. Consideration of the General Instruments and Means Serving a Holy LIfe, by Way of Introduction. — Prayers and Devotions. — Ejaculations and short Meditations to be used in the night, when we awake."
-  translator: null
-  source_url: "https://ccel.org/ccel/taylor/holy_living/holy_living"
-- id: "taylor-busy"
-  kind: "quote"
-  text: "But he that thinks this is too much, either is very busy in the world, or very careless of heaven"
-  original: "But he that thinks this is too much, either is very busy in the world, or very careless of heaven"
-  translation: null
-  chunk_id: "book-140-0232"
-  book_id: 140
-  char_start: 189505
   char_end: 189603
   text_sha256: "11980fbff2fa85c58cc9eaca58126eb6647f3342aedd24a7ec46b2eaa2e8012f"
   author: "Jeremy Taylor"
@@ -756,7 +741,7 @@ corpus_sources:
   source_url: "https://ccel.org/ccel/taylor/holy_living/holy_living"
 - id: "taylor-portions"
   kind: "retelling"
-  text: "he split the prayers in his book into smaller portions so that each reader could choose which ones to use, and how many"
+  text: "Yet he divided his prayers into short portions so that readers could choose which to use"
   original: null
   translation: null
   chunk_id: "book-140-0232"
@@ -892,7 +877,7 @@ The Lord’s Prayer is the prayer Christ Himself taught His disciples (Matthew 6
 
 “Rejoice, O Virgin Theotokos” is built on the words with which the archangel Gabriel and Elizabeth greeted Mary (Luke 1:28, 42). In the West, a close relative of this prayer is known as the Hail Mary[^theotokos]:
 
-> Rejoice, O Virgin Theotokos, Mary full of grace, the Lord is with thee. Blessed art thou amongst women, and blessed is the fruit of thy womb, for thou hast borne the Saviour of our souls.
+> Rejoice, O Virgin Theotokos, Mary full of grace, the Lord is with you. Blessed are you among women, and blessed is the fruit of your womb, for you have given birth to the Saviour of our souls.
 
 The Creed is longer; you will find it in any prayer book.
 
@@ -914,7 +899,7 @@ Long before that, the same question, how much to pray, was put to Macarius, an e
 
 Once a married couple visited him at the monastery, and after returning home the wife wrote the elder a letter[^corpus-macarius-visit]. As soon as she arrived, troubles were waiting for her: she had defended her husband against accusations heatedly, and not without anger[^corpus-macarius-sorrows]. The letter says that praying at home is hard and takes effort, and asks him to assign prayers to read every day[^corpus-macarius-ask]. Macarius was so weak that he could not write himself and dictated his reply to a brother[^corpus-macarius-dictate]. To her request he gave an honest answer: “Not knowing your home situation, your occupations and your strength, I cannot say precisely”[^corpus-macarius-unknown]. Only then did he suggest a set of prayers, “if it suits you”: the morning and evening prayers, the canons to the Mother of God and to the Guardian Angel, akathists on Saturdays and Sundays, and on Sundays also a chapter each from the Epistles and the Gospel[^corpus-macarius-offer]. That was the measure for one nineteenth-century woman, not a norm for everyone.
 
-An Anglican bishop gave similar advice in his own way. In December 1874, writing from Oxford, Edward King answered a lady who wanted a rule of life. For someone living in the world, he said, a rule can cover only the broad frame of the day: when to go to bed and get up, meals, work, and prayer both alone and in church[^corpus-king-rule]. In most circumstances these can be settled “so as to have an average of regularity”[^corpus-king-average]. King later became Bishop of Lincoln[^king].
+An Anglican bishop gave similar advice. Edward King, later Bishop of Lincoln[^king], wrote to a lady in 1874 that in a life in the world one can expect to bring under rule only the outward framework of the day: sleep, meals, work and prayer[^corpus-king-rule], “so as to have an average of regularity”[^corpus-king-average].
 
 The Russian Orthodox priest Alexander Men compiled his *Practical Guide to Prayer* almost entirely from the writings of Christian teachers of East and West[^corpus-men-collected]. One of their tips is very down-to-earth: teachers of prayer advise saying the evening prayers in a free moment before supper or even earlier, because late at night fatigue gets in the way of focus; the morning prayers are best said before you start on anything else, or, if all else fails, on your way out the door[^corpus-men-time].
 
@@ -926,7 +911,7 @@ Later he told the story himself: “And the better I thought I was serving, the 
 
 The prostrations themselves are not the point: Nikon is talking about the high opinion of himself that grew alongside them. Years later he advised a spiritual daughter: “Set yourself a small rule, one within reach of your circumstances and strength”[^corpus-nikon-small].
 
-Three centuries earlier, a similar letter reached Noël de Sillery, a Knight of Malta and former ambassador who had renounced the world and became a priest in 1634[^sillery]. The Catholic nun Jane Frances de Chantal wrote to him that his great fervour had brought him to the very state she had always feared[^corpus-chantal-fervour]. She reminded him that God asks only for his heart, not for great feats that strain his strength[^corpus-chantal-heart]. Of the four or five hours he spent on his knees each day, she suggested keeping one, split into four short parts: in the morning after getting up, before Mass and after it, and in the evening to look back over the day. She also told him to rest and eat well to get his strength back[^corpus-chantal-hour].
+Three centuries earlier, a similar letter reached Noël de Sillery, a Knight of Malta and former ambassador who renounced the world and became a priest in 1634[^sillery]. The Catholic nun Jane Frances de Chantal wrote to him that his great fervour had brought him to the very state she had always feared[^corpus-chantal-fervour]. She reminded him that God asks only for his heart, not for great feats that strain his strength[^corpus-chantal-heart]. Of the four or five hours he spent on his knees each day, she suggested keeping one, split into four short parts: in the morning after getting up, before Mass and after it, and in the evening to look back over the day. She also told him to rest and eat well to get his strength back[^corpus-chantal-hour].
 
 ## When your rule isn’t working
 
@@ -936,7 +921,7 @@ And to the woman who had come home from Optina he wrote: “if you fail to do so
 
 Alexander Men warned against the other extreme: “To drop the ‘rule’ altogether is dangerous”[^corpus-men-keep]. Tiredness and distraction, though, are in his view no reason to be troubled[^corpus-men-calm].
 
-Jeremy Taylor, an Anglican priest imprisoned during the English Civil War, whose *Holy Living* (1650) became a classic of English devotion[^taylor], was stricter still. He promised that “by affording to God one hour in twenty-four thou mayest have the comforts and rewards of devotion”[^corpus-taylor-hour], and added: “But he that thinks this is too much, either is very busy in the world, or very careless of heaven”[^corpus-taylor-busy]. Even so, he split the prayers in his book into smaller portions so that each reader could choose which ones to use, and how many[^corpus-taylor-portions].
+The seventeenth-century Anglican writer Jeremy Taylor[^taylor] took a stricter view: an hour a day was not too much to give God[^corpus-taylor-hour]. Yet he divided his prayers into short portions so that readers could choose which to use[^corpus-taylor-portions].
 
 If the words have worn thin, you can do what Hilarion did: sometimes give the time of your rule to the Psalms, the Gospel or [your own words](/articles/how-to-start-praying/). Men had Church Slavonic in mind, but his advice works just as well for the old English of “thee” and “thou”: work out what the prayers mean beforehand, using a ready translation or making your own, rather than leaving them unclear[^corpus-men-slavonic].
 
@@ -973,14 +958,14 @@ Hilarion Alfeyev believes that five minutes in the morning and evening may be en
 
 In Anglican churches, the Daily Office is the daily round of Morning and Evening Prayer, usually following the *Book of Common Prayer*. Clergy and lay people alike can lead it[^office].
 
-[^palladius]: [Palladius of Galatia](https://en.wikipedia.org/wiki/Palladius_of_Galatia) on Wikipedia: born in 363 or 364; took up monastic life in 386 or soon after and travelled to Egypt to meet the Desert Fathers; in 400 ordained bishop of Helenopolis in Bithynia; wrote the *Lausiac History* in 419–420 for Lausus, chamberlain at the court of Theodosius II.
-[^office]: [Daily Office (Anglican)](https://en.wikipedia.org/wiki/Daily_Office_(Anglican)) on Wikipedia: the traditional daily services of Morning Prayer and Evening Prayer, which usually follow the *Book of Common Prayer*; either clergy or laity can lead them, and devout lay Anglicans often make them part of their spiritual practice. [Liturgy of the Hours](https://en.wikipedia.org/wiki/Liturgy_of_the_Hours) on Wikipedia: a set of Catholic prayers comprising the canonical hours, also called the Divine Office.
+[^palladius]: [Palladius of Galatia](https://en.wikipedia.org/wiki/Palladius_of_Galatia) on Wikipedia: travelled to Egypt to meet the Desert Fathers; wrote the *Lausiac History* in 419–420.
+[^office]: On Anglican Morning and Evening Prayer, see [Daily Office (Anglican)](https://en.wikipedia.org/wiki/Daily_Office_(Anglican)) on Wikipedia; on Catholic practice, see [Liturgy of the Hours](https://en.wikipedia.org/wiki/Liturgy_of_the_Hours).
 [^mt6]: Matthew 6:9–13. Berean Standard Bible (BSB), public domain.
-[^theotokos]: Text as given in the [Hail Mary](https://en.wikipedia.org/wiki/Hail_Mary) article on Wikipedia (section “Byzantine Christian use”, with the alternative opening “Rejoice, O Virgin Theotokos”). The same article explains that the prayer begins with the greetings of the angel Gabriel and of Elizabeth from the Gospel of Luke, and that the Byzantine form is similar to the first part of the Latin Hail Mary. An ancient liturgical text, public domain.
+[^theotokos]: Our translation of the traditional Church Slavonic prayer; the source text is public domain. On its Gospel sources and its relation to the Latin Hail Mary, see [Hail Mary](https://en.wikipedia.org/wiki/Hail_Mary) on Wikipedia.
 [^ps55]: Psalm 55:17 (Psalm 54:18 in the Greek and Slavonic numbering used in Orthodox prayer books). Berean Standard Bible (BSB), public domain.
-[^macarius]: [Макарий Оптинский](https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D0%BA%D0%B0%D1%80%D0%B8%D0%B9_%D0%9E%D0%BF%D1%82%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9) on Wikipedia (in Russian): 1788–1860; at Optina Monastery from 1834; together with the elder Leo guided the spiritual life of the monks and many thousands of people; thanks to him, manuscripts collected at Optina and the translations of the Church Fathers made by Paisius Velichkovsky were published, with much help from his spiritual children Ivan and Natalia Kireyevsky.
-[^king]: [Edward King (bishop of Lincoln)](https://en.wikipedia.org/wiki/Edward_King_(bishop_of_Lincoln)) on Wikipedia: 1829–1910; Regius Professor of Pastoral Theology at the University of Oxford from 1873 to 1885; Bishop of Lincoln in the Church of England from 1885 to 1910.
-[^nikon]: [Никон (Воробьёв)](https://ru.wikipedia.org/wiki/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BD_(%D0%92%D0%BE%D1%80%D0%BE%D0%B1%D1%8C%D1%91%D0%B2)) on Wikipedia (in Russian): 1894–1963; arrested on 5 April 1933 and sentenced to five years in the Siberian camps, released in 1937; rector of the Church of the Annunciation in Kozelsk from 1944 to 1948.
-[^sillery]: [Noël Brûlart de Sillery](https://en.wikipedia.org/wiki/No%C3%ABl_Br%C3%BBlart_de_Sillery) on Wikipedia: 1577–1640; joined the Knights of Malta at a young age; ambassador to the Spanish court in 1614 and to Rome in 1622; in 1626, moved by the words of Vincent de Paul, vowed to reform his life; renounced the world and became a priest in 1634.
-[^taylor]: [Jeremy Taylor](https://en.wikipedia.org/wiki/Jeremy_Taylor) on Wikipedia: 1613–1667; cleric of the Church of England and chaplain to King Charles I; after the parliamentary victory in the Civil War he was briefly imprisoned several times; *The Rule and Exercises of Holy Living* (1650) is a manual of Christian practice that has kept its place with devout readers; after the Restoration he became Bishop of Down and Connor.
+[^macarius]: [Макарий Оптинский](https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D0%BA%D0%B0%D1%80%D0%B8%D0%B9_%D0%9E%D0%BF%D1%82%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9) on Wikipedia (in Russian): at Optina Monastery from 1834 until his death in 1860; with the elder Leo guided the monks and many thousands of people; with help from Ivan and Natalia Kireyevsky, published the translations of the Church Fathers made by Paisius Velichkovsky.
+[^king]: [Edward King (bishop of Lincoln)](https://en.wikipedia.org/wiki/Edward_King_(bishop_of_Lincoln)) on Wikipedia: Bishop of Lincoln in the Church of England from 1885 to 1910.
+[^nikon]: [Никон (Воробьёв)](https://ru.wikipedia.org/wiki/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BD_(%D0%92%D0%BE%D1%80%D0%BE%D0%B1%D1%8C%D1%91%D0%B2)) on Wikipedia (in Russian): arrested in 1933 and sentenced to five years in the Siberian camps; rector of the Church of the Annunciation in Kozelsk from 1944.
+[^sillery]: [Noël Brûlart de Sillery](https://en.wikipedia.org/wiki/No%C3%ABl_Br%C3%BBlart_de_Sillery) on Wikipedia: Knight of Malta; ambassador to Spain in 1614 and to Rome in 1622; renounced the world and became a priest in 1634.
+[^taylor]: [Jeremy Taylor](https://en.wikipedia.org/wiki/Jeremy_Taylor) on Wikipedia: 1613–1667; cleric of the Church of England; author of *The Rule and Exercises of Holy Living* (1650).
 [^mk2]: Mark 2:27. Berean Standard Bible (BSB), public domain.
