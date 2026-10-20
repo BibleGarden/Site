@@ -246,32 +246,6 @@ reanchoring alone is not an evidence verdict. Rebuild the relevant draft with
 `python -m sitegen preview`, then restart its preview service. Commit anchor
 changes in the corresponding content branch; `.preview/` output is ignored.
 
-### Book 48 outline repair — 2026-10-20
-
-The Chapel Library PDF of David M’Intyre's *The Hidden Life of Prayer*
-omitted `Notes` from its outline. Endnotes inherited chapter 8's final
-subsection, `Extension of the Kingdom`. Adding the existing heading `Notes`
-to the PDF outline and reindexing only book 48 corrected that locator.
-Authenticated book-text, chunk and context API checks confirmed 175 indexed
-chunks and `Notes` for notes 14 (`book-48-0160`) and 17 (`book-48-0162`).
-The canonical text SHA-256 remains
-`1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55`.
-
-The standard reanchor report and apply commands validated all 37 sources in
-each published `thanksgiving-prayer/{ru,en,uk}.md`, with no anchor changes.
-Their book 48 references still resolve to `book-48-0070`, before the new
-section boundary. The `daily-prayer-habit` draft remains for its author to
-reanchor. Private source/index snapshots and migration reports are retained
-on berlin-vm-maria in `/root/backups/book48-labels-20261020/` (0700/0600).
-
-The subsequent citation review identified two unrelated ambiguities in the
-published article. The Russian Newton quotation now preserves the original's
-subjectless exclamation; the Ukrainian account names `отець Олександр` to
-distinguish the priest's title from the word for a parent. Their corpus
-anchors and original source text are unchanged. Both review reports are
-retained with the backup. The cache-enabled checker passed all 111 sources
-after these edits (exit 0, six judge calls and 86 cached fragments).
-
 ## LLM judge adapter
 
 The default `tools/corpus_judge_claude.sh` uses the installed, authenticated
