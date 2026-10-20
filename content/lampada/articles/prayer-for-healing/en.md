@@ -81,7 +81,7 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/11553"
 - id: "mother-weed"
   kind: "retelling"
-  text: "Then the doctor jumped up and told them to look in the yard for a poisonous weed. It was there, and he changed the treatment on the spot"
+  text: "Then the doctor jumped up and told them to check whether jimson weed was growing in the yard. They found the poisonous plant there, and he switched to different remedies at once"
   original: null
   translation: null
   chunk_id: "book-286-0223"
@@ -96,7 +96,7 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/11553"
 - id: "mother-seeds"
   kind: "retelling"
-  text: "the medicine brought out enough of them to kill a grown man"
+  text: "so many seeds of the poisonous plant that they could have killed an adult"
   original: null
   translation: null
   chunk_id: "book-286-0224"
@@ -741,7 +741,7 @@ Many churches also pray for the sick by name at their services. You can ask your
 
 An anonymous story in *The Wonders of Prayer* begins with a small child in convulsions. The doctor tried every remedy that was usual at the time, and nothing helped; at last he walked away from the bed and sat down by the window[^corpus-mother-scene]. “He seemed, to the agonized mother, to have abandoned her darling.”[^corpus-mother-abandoned] “For herself, she could do nothing but pray; and even her prayer was but an inarticulate and unvoiced cry for help.”[^corpus-mother-cry]
 
-Then the doctor jumped up and told them to look in the yard for a poisonous weed. It was there, and he changed the treatment on the spot[^corpus-mother-weed]. The seeds were the cause: the medicine brought out enough of them to kill a grown man[^corpus-mother-seeds]. Later the doctor said that in those five minutes by the window every similar case from his twenty-five years of practice had come back to him[^corpus-mother-doctor], and one of them pointed to the real cause of the convulsions, which until then had been hidden[^corpus-mother-cause]. “And the child was saved.”[^corpus-mother-saved] The book reprints it from a correspondent of a Christian weekly who knew the mother; no names are given. Not every night like that one ends this way. But a cry without words is a real prayer too.
+Then the doctor jumped up and told them to check whether jimson weed was growing in the yard. They found the poisonous plant there, and he switched to different remedies at once[^corpus-mother-weed]. The new medicine flushed out of the child so many seeds of the poisonous plant that they could have killed an adult[^corpus-mother-seeds]. Later the doctor said that in those five minutes by the window, every similar case from his twenty-five years of practice had come back to him[^corpus-mother-doctor], and one of them pointed to the real cause of the convulsions, which until then had been hidden[^corpus-mother-cause]. “And the child was saved.”[^corpus-mother-saved] The book reprints it from a correspondent of a Christian weekly who knew the mother; no names are given. Not every night like that one ends this way. But a cry without words is a real prayer too.
 
 ## A sick man writes to a sick woman
 
