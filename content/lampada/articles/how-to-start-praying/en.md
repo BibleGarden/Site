@@ -381,7 +381,7 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/26033"
 - id: "therese-dream"
   kind: "retelling"
-  text: "One Lent a novice came to Thérèse, radiant. She had dreamed that she was trying to talk her sister, a very worldly young woman, into leaving the vanities of the world behind, and now the novice wondered whether God might want her to bring that soul to Him. Should she write to her sister at Easter? Thérèse simply said that she could ask permission."
+  text: "One Lent a novice came to Thérèse, radiant. She had dreamed that she was trying to talk her sister, a very worldly young woman, into leaving the vanities of the world behind, and now the novice wondered whether God might want her to bring that soul to Him. Should she write to her sister at Easter, tell her about the dream and say that Jesus was calling her to dedicate her life to Him? Thérèse simply said that she could ask permission."
   original: null
   translation: null
   chunk_id: "book-47-0399"
@@ -471,7 +471,7 @@ corpus_sources:
   source_url: "https://fr.wikisource.org/wiki/Histoire_d%E2%80%99une_%C3%A2me"
 - id: "therese-books"
   kind: "retelling"
-  text: "There are so many lovely prayers in books, each more beautiful than the last, that she could never recite them all and would never know which to choose. Hunting for them simply gives her a headache, so she doesn’t try, although she gladly recites the Church’s daily Office"
+  text: "There are so many lovely prayers in books, each more beautiful than the last, that she could never recite them all and would never know which to choose. Hunting for them simply gives her a headache, so she doesn’t try, although she gladly recites the Divine Office"
   original: null
   translation: null
   chunk_id: "book-47-0401"
@@ -531,7 +531,7 @@ corpus_sources:
   source_url: "https://fr.wikisource.org/wiki/Histoire_d%E2%80%99une_%C3%A2me"
 - id: "feofan-world"
   kind: "retelling"
-  text: "who lived in the world, amid a great many social ties"
+  text: "a layman with many social commitments"
   original: null
   translation: null
   chunk_id: "book-77-0079"
@@ -546,7 +546,7 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/Feofan_Zatvornik/pisma-o-molitve/"
 - id: "feofan-estate"
   kind: "retelling"
-  text: "This correspondent had just got rid of the burden of running an estate, and Theophan writes that the proof it was the right step can be felt within"
+  text: "freed himself from the burden of managing an estate. Theophan pointed to the change he felt within himself as evidence that he had made the right choice"
   original: null
   translation: null
   chunk_id: "book-77-0078"
@@ -1011,9 +1011,9 @@ This is her testimony, not a promise that every pain will vanish after a prayer.
 
 Thérèse Martin entered the Carmelite convent in Lisieux at fifteen and died there of tuberculosis at twenty-four. Her notebooks, published after her death as *The Story of a Soul*, became one of the most widely read spiritual books of the twentieth century, and the Catholic Church declared her a saint.
 
-One Lent a novice came to Thérèse, radiant. She had dreamed that she was trying to talk her sister, a very worldly young woman, into leaving the vanities of the world behind, and now the novice wondered whether God might want her to bring that soul to Him. Should she write to her sister at Easter? Thérèse simply said that she could ask permission.[^corpus-therese-dream] But Lent still had a long way to run, and the prioress was taken aback by such haste. Her reply: a Carmelite wins souls by praying for them more than by writing to them[^corpus-therese-letters]. “We must get to work: let’s pray hard,”[^corpus-therese-work] Thérèse told the novice. And their prayer for the sister was answered: “By the end of Lent, one more soul was consecrating herself to Jesus! It was a true miracle of grace, a miracle won by the fervor of a humble novice!”[^corpus-therese-answered]
+One Lent a novice came to Thérèse, radiant. She had dreamed that she was trying to talk her sister, a very worldly young woman, into leaving the vanities of the world behind, and now the novice wondered whether God might want her to bring that soul to Him. Should she write to her sister at Easter, tell her about the dream and say that Jesus was calling her to dedicate her life to Him? Thérèse simply said that she could ask permission.[^corpus-therese-dream] But Lent still had a long way to run, and the prioress was taken aback by such haste. Her reply: a Carmelite wins souls by praying for them more than by writing to them[^corpus-therese-letters]. “We must get to work: let’s pray hard,”[^corpus-therese-work] Thérèse told the novice. And their prayer for the sister was answered: “By the end of Lent, one more soul was consecrating herself to Jesus! It was a true miracle of grace, a miracle won by the fervor of a humble novice!”[^corpus-therese-answered]
 
-“How great, then, is the power of prayer!”[^corpus-therese-power] Thérèse writes. Yet she adds that she would be in a sorry state if God heard only polished prayers taken from a book and written for a particular occasion. No such formula is needed for a prayer to be answered[^corpus-therese-formula]. There are so many lovely prayers in books, each more beautiful than the last, that she could never recite them all and would never know which to choose. Hunting for them simply gives her a headache, so she doesn’t try, although she gladly recites the Church’s daily Office[^corpus-therese-books]. For her own prayer she has another way: “I do as children do who cannot read. I simply tell God what I want to say to Him, and He always understands me.”[^corpus-therese-children]
+“How great, then, is the power of prayer!”[^corpus-therese-power] Thérèse writes. Yet she adds that she would be in a sorry state if God heard only polished prayers taken from a book and written for a particular occasion. No such formula is needed for a prayer to be answered[^corpus-therese-formula]. There are so many lovely prayers in books, each more beautiful than the last, that she could never recite them all and would never know which to choose. Hunting for them simply gives her a headache, so she doesn’t try, although she gladly recites the Divine Office[^corpus-therese-books], the Church’s daily cycle of psalms and prayers. For her own prayer she has another way: “I do as children do who cannot read. I simply tell God what I want to say to Him, and He always understands me.”[^corpus-therese-children]
 
 “For me, prayer is an upward surge of the heart; it is a simple look turned toward heaven; it is a cry of gratitude and love, in the midst of trial as well as in joy.”[^corpus-therese-elan] That doesn’t mean she throws written prayers away. On dry days her lifeline is the Our Father or the Hail Mary. When her mind is so parched that not one good thought will surface, she prays one of them as unhurriedly as she can, and she needs nothing more: that prayer by itself fills her with joy and nourishes her soul[^corpus-therese-pater]. For Thérèse, her own words and the Church’s words are not rivals: when one fails her, the other carries her.
 
@@ -1021,7 +1021,7 @@ One Lent a novice came to Thérèse, radiant. She had dreamed that she was tryin
 
 Theophan the Recluse was a Russian Orthodox bishop. At fifty-one he gave up his diocese and settled at the Vysha Hermitage, and he spent the last twenty-two years of his life there in seclusion, from 1872 until his death in 1894. The mail brought him twenty to forty letters a day, and he answered every one[^feofan].
 
-His *Letters on Prayer* include one to a man who lived in the world, amid a great many social ties[^corpus-feofan-world]. This correspondent had just got rid of the burden of running an estate, and Theophan writes that the proof it was the right step can be felt within[^corpus-feofan-estate]: “the soul has, as it were, been given little wings.”[^corpus-feofan-wings] The same man confesses, clearly worried: “I no longer pray as well using prayer books.”[^corpus-feofan-worry] Theophan answers: “That is no loss.”[^corpus-feofan-no-harm] He even adds: “You need never take a prayer book in your hands at all.”[^corpus-feofan-never] Then he explains with an unexpected comparison: “Prayer books are just like phrasebooks, French ones for example.”[^corpus-feofan-phrasebook] In other words, ready-made texts are something to lean on while you learn. Once the soul can turn to God by itself, the book can be set aside[^corpus-feofan-until].
+His *Letters on Prayer* include one to a layman with many social commitments[^corpus-feofan-world]. The man had recently freed himself from the burden of managing an estate. Theophan pointed to the change he felt within himself as evidence that he had made the right choice[^corpus-feofan-estate]: “the soul has, as it were, been given little wings.”[^corpus-feofan-wings] The same man confesses, clearly worried: “I no longer pray as well using prayer books.”[^corpus-feofan-worry] Theophan answers: “That is no loss.”[^corpus-feofan-no-harm] He even adds: “You need never take a prayer book in your hands at all.”[^corpus-feofan-never] Then he explains with an unexpected comparison: “Prayer books are just like phrasebooks, French ones for example.”[^corpus-feofan-phrasebook] In other words, ready-made texts are something to lean on while you learn. Once the soul can turn to God by itself, the book can be set aside[^corpus-feofan-until].
 
 The same letter has an image that echoes Thérèse’s words: “Children come up to their father or mother and say nothing; they just keep hovering around them, because it is sweet for them to be near them.”[^corpus-feofan-children]
 
