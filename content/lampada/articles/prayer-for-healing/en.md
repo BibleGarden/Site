@@ -561,7 +561,7 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/65066"
 - id: "brainerd-eager"
   kind: "retelling"
-  text: "When he came round, he reproached himself for having been in such a hurry to die"
+  text: "When he rallied, he reproached himself for having been in such a hurry to die"
   original: null
   translation: null
   chunk_id: "book-93-0664"
@@ -740,10 +740,10 @@ corpus_sources:
   translator: null
   source_url: "https://www.mitras.ru/molitva/a_main.htm"
 - id: "antony-boring"
-  kind: "quote"
-  text: "How boring!"
-  original: "Какая скука!"
-  translation: "ours"
+  kind: "retelling"
+  text: "it was all terribly boring"
+  original: null
+  translation: null
   chunk_id: "book-159-0606"
   book_id: 159
   char_start: 543669
@@ -756,7 +756,7 @@ corpus_sources:
   source_url: "https://www.mitras.ru/molitva/a_main.htm"
 - id: "antony-bed"
   kind: "retelling"
-  text: "he complained to Anthony: there was still so much he had to do, and here he was, confined to bed"
+  text: "there was still so much he wanted to do, yet he was confined to bed"
   original: null
   translation: null
   chunk_id: "book-159-0606"
@@ -785,10 +785,10 @@ corpus_sources:
   translator: null
   source_url: "https://www.mitras.ru/molitva/a_main.htm"
 - id: "antony-dontknow"
-  kind: "quote"
-  text: "Yes, but I don’t know what it means to ‘be’!"
-  original: "Да, но я не знаю, что значит \"быть\"!"
-  translation: "ours"
+  kind: "retelling"
+  text: "he did not know what it meant to “be”"
+  original: null
+  translation: null
   chunk_id: "book-159-0606"
   book_id: 159
   char_start: 543941
@@ -906,8 +906,8 @@ corpus_sources:
   source_url: "https://www.monergism.com/only-prayer-meeting-ebook"
 - id: "spurgeon-quiet"
   kind: "quote"
-  text: "your souls in quietness, beloved friends"
-  original: "your souls in quietness, beloved friends"
+  text: "POSSESS your souls in quietness, beloved friends"
+  original: "POSSESS your souls in quietness, beloved friends"
   translation: null
   chunk_id: "book-194-0354"
   book_id: 194
@@ -1074,7 +1074,7 @@ David Brainerd, a missionary to Native Americans in New Jersey, was gravely ill 
 
 The preacher Jonathan Edwards, in whose house Brainerd spent his last months, later published his diary as *The Life of David Brainerd* and described how he prayed: “not with florid expressions, or a studied eloquence”[^corpus-brainerd-florid]; his words seemed to come “from the fulness of his heart”[^corpus-brainerd-heart]. And one petition was nearly always part of his prayer: “that we might not outlive our usefulness”[^corpus-brainerd-usefulness].
 
-Toward the end of September[^corpus-brainerd-sept] everyone, Brainerd included, thought he was dying, and he seemed glad that death was near. He could hardly speak, only move his lips, and someone sitting close by heard him calling on Christ to come quickly[^corpus-brainerd-speechless]: “O why is his chariot so long in coming?”[^corpus-brainerd-chariot] When he came round, he reproached himself for having been in such a hurry to die[^corpus-brainerd-eager]. Asked whether he had heard the prayer he had requested[^corpus-brainerd-asked], he said, Edwards records, that “he heard every word, and had an uncommon sense of the things that were uttered in that prayer, and that every word reached his heart”[^corpus-brainerd-heard]. In his last days he wrote that God had allowed him “to labor much for him in things both of a public and private nature, and perhaps to do more good than I should have done if I had been well”[^corpus-brainerd-good].
+Toward the end of September[^corpus-brainerd-sept] everyone, Brainerd included, thought he was dying, and he seemed glad that death was near. He could hardly speak, only move his lips, and someone sitting close by heard him calling on Christ to come quickly[^corpus-brainerd-speechless]: “O why is his chariot so long in coming?”[^corpus-brainerd-chariot] When he rallied, he reproached himself for having been in such a hurry to die[^corpus-brainerd-eager]. Asked whether he had heard the prayer he had requested[^corpus-brainerd-asked], he said, Edwards records, that “he heard every word, and had an uncommon sense of the things that were uttered in that prayer, and that every word reached his heart”[^corpus-brainerd-heard]. In his last days he wrote that God had allowed him “to labor much for him in things both of a public and private nature, and perhaps to do more good than I should have done if I had been well”[^corpus-brainerd-good].
 
 One day Edwards’s daughter Jerusha[^brainerd], who did most of the nursing, came into the room, and Brainerd gave her a warm look and said[^corpus-brainerd-jerusha]: “Dear Jerusha, are you willing to part with me?”[^corpus-brainerd-part] Then he said he was ready to let all his friends go, even his brother John, whom he loved more than anyone alive, because he had placed them all in God’s hands[^corpus-brainerd-willing]. “Though, if I thought I should not see you, and be happy with you in another world, I could not bear to part with you. But we shall spend an happy eternity together!”[^corpus-brainerd-eternity]
 
@@ -1086,15 +1086,15 @@ Brainerd’s joy at approaching death was his own path, not a measure for someon
 
 Metropolitan Anthony of Sourozh, the Russian Orthodox bishop in London, worked as a doctor for fifteen years before he became a priest[^corpus-antony-doctor]. At one of his talks on prayer, someone asked him point-blank: “I don’t understand how to pray for the sick. If illness is given by God, then how can we pray for Him to take it away?”[^corpus-antony-question] He answered with a story.
 
-The warden of his church went into the hospital with jaundice; he did not yet know that he had cancer[^corpus-antony-warden]. “How boring!”[^corpus-antony-boring] he complained to Anthony: there was still so much he had to do, and here he was, confined to bed[^corpus-antony-bed]. Anthony reminded him how often he had said he wished he could stop time and simply be, instead of always doing; now that had happened to him[^corpus-antony-be]. “Yes, but I don’t know what it means to ‘be’!”[^corpus-antony-dontknow] the warden replied.
+The warden of his church went into the hospital with jaundice; he did not yet know that he had cancer[^corpus-antony-warden]. He complained to Anthony that it was all terribly boring[^corpus-antony-boring]: there was still so much he wanted to do, yet he was confined to bed[^corpus-antony-bed]. Anthony reminded him how often he had said he wished he could stop time and simply be, instead of always doing; now that had happened to him[^corpus-antony-be]. The warden admitted that he did not know what it meant to “be”[^corpus-antony-dontknow].
 
-Anthony told him that people fall ill and die not only from physical causes but from moral ones too. The body was for the doctors to look after, but anger, bitterness and everything else that eats away at the soul were his own to deal with, because feelings like these can kill as well[^corpus-antony-doctors]. And the man had lived a hard life, including four years on Solovki[^corpus-antony-solovki], the islands where one of the first Soviet prison camps was set up. For months the two of them talked about how he related to himself and to other people, starting with those closest to him, until one day the weight of his past simply fell away[^corpus-antony-layers]. At the end he lay in bed, so thin he seemed transparent, his eyes shining, and he marveled that his body was nearly dead and yet he had never felt so alive[^corpus-antony-alive]. Anthony could not take the cancer away, but he watched the man open up inwardly and become free[^corpus-antony-cancer].
+Anthony told him that people fall ill and die not only from physical causes but from moral ones too. The body was for the doctors to look after, but anger, bitterness and everything else that eats away at the soul were his own to deal with, because feelings like these can kill as well[^corpus-antony-doctors]. And the man had lived a hard life, including four years on Solovki[^corpus-antony-solovki], a Soviet prison camp on islands in the White Sea. For months the two of them talked about how he related to himself and to other people, starting with those closest to him, until one day the weight of his past simply fell away[^corpus-antony-layers]. At the end he lay in bed, so thin he seemed transparent, his eyes shining, and he marveled that his body was nearly dead and yet he had never felt so alive[^corpus-antony-alive]. Anthony could not take the cancer away, but he watched the man open up inwardly and become free[^corpus-antony-cancer].
 
-Often, Anthony observes, a sick person wants only to recover and go back to the life they had before, but healing is wider than that: it is a wholeness from which a completely new life can begin[^corpus-antony-heal]. This does not mean that illness is a reproach to the sick or a punishment from God. Nor is it a reason to stop praying for health. But you can pray for someone who is ill in a wider way than for their test results.
+Often, Anthony observes, a sick person wants only to recover and go back to the life they had before, but healing is wider than that: it is a wholeness from which a completely new life can begin[^corpus-antony-heal]. This does not mean that sick people are to blame for their illness or that God is punishing them. Nor is it a reason to stop asking for recovery. But prayer for someone who is ill can reach beyond their test results.
 
 ## Not “a lack of faith”
 
-The London Baptist preacher Charles Spurgeon describes one such moment in his book *Only a Prayer Meeting!* A prayer meeting was interrupted by a cry of pain from someone in the congregation[^corpus-spurgeon-cry]. Spurgeon did not pretend that nothing had happened. “Possess your souls in quietness, beloved friends,”[^corpus-spurgeon-quiet] he began, and then he admitted: “I seemed to hear a voice in that sorrowful cry of our friend, and it bade me have pity upon the many whose life is one long agony”[^corpus-spurgeon-voice]. Then he told them about a woman in his congregation who had frequent attacks but loved the meetings so much that all he asked was that she sit by the door, since an attack could come on at any moment[^corpus-spurgeon-door]. “Have sympathy with all the sick, but especially with those who might be spoken of in the words applied to Lazarus”[^corpus-spurgeon-sympathy], he said, and quoted the sisters’ message: “Lord, he whom Thou lovest is sick.”[^corpus-spurgeon-lazarus] Spurgeon echoes John 11:3 in the language of the King James Version. Loved, and sick.
+The London Baptist preacher Charles Spurgeon describes one such moment in his book *Only a Prayer Meeting!* A prayer meeting was interrupted by a cry of pain from someone in the congregation[^corpus-spurgeon-cry]. Spurgeon did not pretend that nothing had happened. “POSSESS your souls in quietness, beloved friends,”[^corpus-spurgeon-quiet] he began, and then he admitted: “I seemed to hear a voice in that sorrowful cry of our friend, and it bade me have pity upon the many whose life is one long agony”[^corpus-spurgeon-voice]. Then he told them about a woman in his congregation who had frequent attacks but loved the meetings so much that all he asked was that she sit by the door, since an attack could come on at any moment[^corpus-spurgeon-door]. “Have sympathy with all the sick, but especially with those who might be spoken of in the words applied to Lazarus”[^corpus-spurgeon-sympathy], he said, and quoted the sisters’ message: “Lord, he whom Thou lovest is sick.”[^corpus-spurgeon-lazarus] Spurgeon echoes John 11:3 in the language of the King James Version. Loved, and sick.
 
 The apostle James writes that “the prayer offered in faith will restore the one who is sick” (James 5:15)[^jas5]. But these words must never be turned into an accusation against the sick person or the people praying for them: if recovery doesn’t come, that does not prove a lack of faith. Even the apostle Paul writes of one of his companions: “Trophimus I left sick in Miletus” (2 Timothy 4:20)[^tim]. Illness is not a verdict on anyone’s faith or a grade for your prayer.
 
