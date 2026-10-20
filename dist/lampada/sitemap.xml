@@ -163,6 +163,30 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lampada.app/articles/prayer-journal/"/>
   </url>
   <url>
+    <loc>https://lampada.app/articles/prayer-rule/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lampada.app/articles/prayer-rule/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lampada.app/ru/articles/prayer-rule/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://lampada.app/uk/articles/prayer-rule/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lampada.app/articles/prayer-rule/"/>
+  </url>
+  <url>
+    <loc>https://lampada.app/ru/articles/prayer-rule/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lampada.app/articles/prayer-rule/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lampada.app/ru/articles/prayer-rule/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://lampada.app/uk/articles/prayer-rule/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lampada.app/articles/prayer-rule/"/>
+  </url>
+  <url>
+    <loc>https://lampada.app/uk/articles/prayer-rule/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lampada.app/articles/prayer-rule/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lampada.app/ru/articles/prayer-rule/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://lampada.app/uk/articles/prayer-rule/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lampada.app/articles/prayer-rule/"/>
+  </url>
+  <url>
     <loc>https://lampada.app/articles/praying-for-others/</loc>
     <lastmod>2026-10-20</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://lampada.app/articles/praying-for-others/"/>
