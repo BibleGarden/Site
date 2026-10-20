@@ -264,6 +264,14 @@ section boundary. The `daily-prayer-habit` draft remains for its author to
 reanchor. Private source/index snapshots and migration reports are retained
 on berlin-vm-maria in `/root/backups/book48-labels-20261020/` (0700/0600).
 
+The subsequent citation review identified two unrelated ambiguities in the
+published article. The Russian Newton quotation now preserves the original's
+subjectless exclamation; the Ukrainian account names `отець Олександр` to
+distinguish the priest's title from the word for a parent. Their corpus
+anchors and original source text are unchanged. Both review reports are
+retained with the backup. The cache-enabled checker passed all 111 sources
+after these edits (exit 0, six judge calls and 86 cached fragments).
+
 ## LLM judge adapter
 
 The default `tools/corpus_judge_claude.sh` uses the installed, authenticated
