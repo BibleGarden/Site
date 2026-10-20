@@ -124,6 +124,36 @@ corpus_sources:
   chapter: "Introduction"
   translator: null
   source_url: "https://www.monergism.com/thethreshold/sdg/ryle/A%20Call%20to%20Prayer%20-%20J.%20C.%20Ryle.pdf"
+- id: "paton-sanctuary"
+  kind: "retelling"
+  text: "Каморку он называет святилищем их домика: там отец молился за детей, как когда-то первосвященник за завесой во Святом святых"
+  original: null
+  translation: null
+  chunk_id: "book-48-0161"
+  book_id: 48
+  char_start: 129579
+  char_end: 129966
+  text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
+  author: "David M’Intyre (David MacIntyre)"
+  title: "The Hidden Life of Prayer"
+  chapter: "Notes"
+  translator: null
+  source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
+- id: "paton-voice"
+  kind: "quote"
+  text: "трогательные отголоски дрожащего голоса, молившего словно о жизни"
+  original: "the pathetic echoes of a trembling voice, pleading as for life"
+  translation: "ours"
+  chunk_id: "book-48-0161"
+  book_id: 48
+  char_start: 129989
+  char_end: 130051
+  text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
+  author: "David M’Intyre (David MacIntyre)"
+  title: "The Hidden Life of Prayer"
+  chapter: "Notes"
+  translator: null
+  source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "paton-light"
   kind: "quote"
   text: "Посторонние могли и не знать, но мы-то знали, откуда этот счастливый свет, словно от новорождённой улыбки, всегда разгоравшийся на лице отца"
@@ -163,6 +193,21 @@ corpus_sources:
   book_id: 298
   char_start: 165915
   char_end: 166161
+  text_sha256: "2171e067aa1f33e2b8f694f2378ee7e8679c50b8fd8c1eefcbdbc026d53fd06d"
+  author: "Andrew A. Bonar (ред. Marjory Bonar)"
+  title: "Diary and Letters"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/andrewabonarddd00bonagoog"
+- id: "bonar-light"
+  kind: "quote"
+  text: "как свет, озаряющий в летнюю пору хмурый край: всё и правда видится иначе"
+  original: "is like light shining upon a gloomy country in summer time; it makes things loo'k different indeed"
+  translation: "ours"
+  chunk_id: "book-298-0207"
+  book_id: 298
+  char_start: 166229
+  char_end: 166327
   text_sha256: "2171e067aa1f33e2b8f694f2378ee7e8679c50b8fd8c1eefcbdbc026d53fd06d"
   author: "Andrew A. Bonar (ред. Marjory Bonar)"
   title: "Diary and Letters"
@@ -214,15 +259,45 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: "https://archive.org/details/andrewabonarddd00bonagoog"
+- id: "bonar-ride"
+  kind: "retelling"
+  text: "Летом 1843 года Бонар проповедует дважды в Тилинге и вечером в Ньютайле, а домой едет верхом уже ночью, молясь и славя Бога по дороге. На следующий день он записывает: завтра ему вести причастие под открытым небом, в горной долине Гленши, а эту ночь он отдаёт молитве"
+  original: null
+  translation: null
+  chunk_id: "book-298-0244"
+  book_id: 298
+  char_start: 199172
+  char_end: 200056
+  text_sha256: "2171e067aa1f33e2b8f694f2378ee7e8679c50b8fd8c1eefcbdbc026d53fd06d"
+  author: "Andrew A. Bonar (ред. Marjory Bonar)"
+  title: "Diary and Letters"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/andrewabonarddd00bonagoog"
 - id: "bonar-prayerless"
   kind: "retelling"
-  text: "он называет нехватку молитвы одним из главных своих грехов упущения"
+  text: "Тут он и видит ясно: нехватка молитвы — один из главных его грехов упущения"
   original: null
   translation: null
   chunk_id: "book-298-0245"
   book_id: 298
   char_start: 200153
   char_end: 200215
+  text_sha256: "2171e067aa1f33e2b8f694f2378ee7e8679c50b8fd8c1eefcbdbc026d53fd06d"
+  author: "Andrew A. Bonar (ред. Marjory Bonar)"
+  title: "Diary and Letters"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/andrewabonarddd00bonagoog"
+- id: "bonar-short"
+  kind: "quote"
+  text: "Я слишком краток, прошу слишком мало"
+  original: "I am too short, ask too little"
+  translation: "ours"
+  chunk_id: "book-298-0245"
+  book_id: 298
+  char_start: 200216
+  char_end: 200246
   text_sha256: "2171e067aa1f33e2b8f694f2378ee7e8679c50b8fd8c1eefcbdbc026d53fd06d"
   author: "Andrew A. Bonar (ред. Marjory Bonar)"
   title: "Diary and Letters"
@@ -238,6 +313,21 @@ corpus_sources:
   book_id: 298
   char_start: 200330
   char_end: 200429
+  text_sha256: "2171e067aa1f33e2b8f694f2378ee7e8679c50b8fd8c1eefcbdbc026d53fd06d"
+  author: "Andrew A. Bonar (ред. Marjory Bonar)"
+  title: "Diary and Letters"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/andrewabonarddd00bonagoog"
+- id: "bonar-bitter"
+  kind: "retelling"
+  text: "проповедь, кажется, не оставляет в людях никакого следа, и от этого на душе у него часто безнадёжная печаль"
+  original: null
+  translation: null
+  chunk_id: "book-298-0382"
+  book_id: 298
+  char_start: 315006
+  char_end: 315143
   text_sha256: "2171e067aa1f33e2b8f694f2378ee7e8679c50b8fd8c1eefcbdbc026d53fd06d"
   author: "Andrew A. Bonar (ред. Marjory Bonar)"
   title: "Diary and Letters"
@@ -379,6 +469,51 @@ corpus_sources:
   chapter: "Introduction"
   translator: null
   source_url: "https://www.monergism.com/thethreshold/sdg/ryle/A%20Call%20to%20Prayer%20-%20J.%20C.%20Ryle.pdf"
+- id: "taisia-ryasa"
+  kind: "retelling"
+  text: "получила чётки — знак непрестанной молитвы: это было на Пасху, когда игуменья облачила её в рясу"
+  original: null
+  translation: null
+  chunk_id: "book-185-0146"
+  book_id: 185
+  char_start: 117999
+  char_end: 118149
+  text_sha256: "ff5e967721afabaa27c8da8a9d952d78b3b630f2ae7ec336b01b80511d6d21db"
+  author: "игумения Таисия (Солопова)"
+  title: "Записки игумении Таисии"
+  chapter: "Глава XII"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Taisija_Solopova/zapiski-igumenii-taisii/"
+- id: "taisia-cross"
+  kind: "retelling"
+  text: "Радость была неземная, но старица Глафира предупредила: вместе с монашеской одеждой она берёт на себя и монашеский крест. Тогда Таисия не поняла этих слов"
+  original: null
+  translation: null
+  chunk_id: "book-185-0146"
+  book_id: 185
+  char_start: 118150
+  char_end: 118842
+  text_sha256: "ff5e967721afabaa27c8da8a9d952d78b3b630f2ae7ec336b01b80511d6d21db"
+  author: "игумения Таисия (Солопова)"
+  title: "Записки игумении Таисии"
+  chapter: "Глава XII"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Taisija_Solopova/zapiski-igumenii-taisii/"
+- id: "taisia-eyes"
+  kind: "quote"
+  text: "Но жизнь сама собой скоро открыла мне глаза и показала этот крест во всей его тяжести"
+  original: "Но жизнь сама собой скоро открыла мне глаза и показала этот крест во всей его тяжести"
+  translation: null
+  chunk_id: "book-185-0147"
+  book_id: 185
+  char_start: 118843
+  char_end: 118928
+  text_sha256: "ff5e967721afabaa27c8da8a9d952d78b3b630f2ae7ec336b01b80511d6d21db"
+  author: "игумения Таисия (Солопова)"
+  title: "Записки игумении Таисии"
+  chapter: "Глава XII"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Taisija_Solopova/zapiski-igumenii-taisii/"
 - id: "taisia-dishes"
   kind: "retelling"
   text: "Неделю она дежурила на мойке после трапезы сестёр, по две сотни тарелок"
@@ -409,15 +544,75 @@ corpus_sources:
   chapter: "Глава XII"
   translator: null
   source_url: "https://azbyka.ru/otechnik/Taisija_Solopova/zapiski-igumenii-taisii/"
-- id: "taisia-field"
+- id: "taisia-skin"
+  kind: "quote"
+  text: "долго не могла я приняться ни за какую работу, потому что кожа лепестками сходила с рук"
+  original: "долго не могла я приняться ни за какую работу, потому что кожа лепестками сходила с рук"
+  translation: null
+  chunk_id: "book-185-0148"
+  book_id: 185
+  char_start: 120112
+  char_end: 120199
+  text_sha256: "ff5e967721afabaa27c8da8a9d952d78b3b630f2ae7ec336b01b80511d6d21db"
+  author: "игумения Таисия (Солопова)"
+  title: "Записки игумении Таисии"
+  chapter: "Глава XII"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Taisija_Solopova/zapiski-igumenii-taisii/"
+- id: "taisia-pain"
   kind: "retelling"
-  text: "Она полола и поливала огороды, ходила на сенокос и на жатву"
+  text: "Пожалуешься на боль — засмеют"
   original: null
   translation: null
   chunk_id: "book-185-0148"
   book_id: 185
-  char_start: 120475
+  char_start: 120232
+  char_end: 120326
+  text_sha256: "ff5e967721afabaa27c8da8a9d952d78b3b630f2ae7ec336b01b80511d6d21db"
+  author: "игумения Таисия (Солопова)"
+  title: "Записки игумении Таисии"
+  chapter: "Глава XII"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Taisija_Solopova/zapiski-igumenii-taisii/"
+- id: "taisia-mock"
+  kind: "quote"
+  text: "вот так послушница-труженица, посуды не вымыть!"
+  original: "вот так послушница-труженица, посуды не вымыть!"
+  translation: null
+  chunk_id: "book-185-0148"
+  book_id: 185
+  char_start: 120329
+  char_end: 120376
+  text_sha256: "ff5e967721afabaa27c8da8a9d952d78b3b630f2ae7ec336b01b80511d6d21db"
+  author: "игумения Таисия (Солопова)"
+  title: "Записки игумении Таисии"
+  chapter: "Глава XII"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Taisija_Solopova/zapiski-igumenii-taisii/"
+- id: "taisia-field"
+  kind: "retelling"
+  text: "Первое лето, как всякая новоначальная, она ходила и на полевые работы — на огороды, сенокос и жатву"
+  original: null
+  translation: null
+  chunk_id: "book-185-0148"
+  book_id: 185
+  char_start: 120378
   char_end: 120552
+  text_sha256: "ff5e967721afabaa27c8da8a9d952d78b3b630f2ae7ec336b01b80511d6d21db"
+  author: "игумения Таисия (Солопова)"
+  title: "Записки игумении Таисии"
+  chapter: "Глава XII"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Taisija_Solopova/zapiski-igumenii-taisii/"
+- id: "taisia-badly"
+  kind: "quote"
+  text: "Само собой разумеется, что работала я очень плохо"
+  original: "Само собой разумеется, что работала я очень плохо"
+  translation: null
+  chunk_id: "book-185-0149"
+  book_id: 185
+  char_start: 120578
+  char_end: 120627
   text_sha256: "ff5e967721afabaa27c8da8a9d952d78b3b630f2ae7ec336b01b80511d6d21db"
   author: "игумения Таисия (Солопова)"
   title: "Записки игумении Таисии"
@@ -426,7 +621,7 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/Taisija_Solopova/zapiski-igumenii-taisii/"
 - id: "taisia-samovar"
   kind: "retelling"
-  text: "Работала почти до вечерни, а потом ставила самовар старице и соседке по келье"
+  text: "Но работала почти до вечерни, а потом ещё ставила самовар старице и соседке по келье"
   original: null
   translation: null
   chunk_id: "book-185-0149"
@@ -454,9 +649,39 @@ corpus_sources:
   chapter: "Глава XII"
   translator: null
   source_url: "https://azbyka.ru/otechnik/Taisija_Solopova/zapiski-igumenii-taisii/"
+- id: "taisia-elder"
+  kind: "retelling"
+  text: "своему старцу, архимандриту Лаврентию"
+  original: null
+  translation: null
+  chunk_id: "book-185-0227"
+  book_id: 185
+  char_start: 187365
+  char_end: 187455
+  text_sha256: "ff5e967721afabaa27c8da8a9d952d78b3b630f2ae7ec336b01b80511d6d21db"
+  author: "игумения Таисия (Солопова)"
+  title: "Записки игумении Таисии"
+  chapter: "Глава XX"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Taisija_Solopova/zapiski-igumenii-taisii/"
+- id: "taisia-letters"
+  kind: "retelling"
+  text: "но письма до него не доходили"
+  original: null
+  translation: null
+  chunk_id: "book-185-0150"
+  book_id: 185
+  char_start: 122020
+  char_end: 122152
+  text_sha256: "ff5e967721afabaa27c8da8a9d952d78b3b630f2ae7ec336b01b80511d6d21db"
+  author: "игумения Таисия (Солопова)"
+  title: "Записки игумении Таисии"
+  chapter: "Глава XII"
+  translator: null
+  source_url: "https://azbyka.ru/otechnik/Taisija_Solopova/zapiski-igumenii-taisii/"
 - id: "taisia-daily"
   kind: "retelling"
-  text: "каждый вечер она шла на вечерню и оставалась на монашеское правило из трёх канонов, акафиста и помянника"
+  text: "к вечерне она ходила каждый день, к пяти часам, а потом не уходила, пока читали монашеское правило: три канона, акафист, помянник"
   original: null
   translation: null
   chunk_id: "book-185-0149"
@@ -538,6 +763,21 @@ corpus_sources:
   book_id: 153
   char_start: 3570830
   char_end: 3571085
+  text_sha256: "a45872cccf9c11603d47638bb1e220bab61d31e89855a85227037ea97f46603d"
+  author: "Rachele Guardini (письма); Vincenzo Carbone (биография и издание)"
+  title: "Una contemplativa nella vita attiva. Madre Rachele Guardini. Volumi I–VI"
+  chapter: null
+  translator: null
+  source_url: "https://www.intratext.com/IXT/ITA1005/"
+- id: "guardini-sheet"
+  kind: "retelling"
+  text: "Взамен Гуардини уже выслала Летиции другую, из общины, а маме советует напомнить, что одну простыню Летиция сама отдала какой-то бедной женщине и оставила в Триесте: может, тогда и счёт сойдётся"
+  original: null
+  translation: null
+  chunk_id: "book-153-4571"
+  book_id: 153
+  char_start: 3572909
+  char_end: 3573126
   text_sha256: "a45872cccf9c11603d47638bb1e220bab61d31e89855a85227037ea97f46603d"
   author: "Rachele Guardini (письма); Vincenzo Carbone (биография и издание)"
   title: "Una contemplativa nella vita attiva. Madre Rachele Guardini. Volumi I–VI"
@@ -718,19 +958,19 @@ corpus_sources:
 
 ## Дверь после еды
 
-Слов отцовской молитвы Патон не пересказывает. Зато помнит его лицо: «Посторонние могли и не знать, но мы-то знали, откуда этот счастливый свет, словно от новорождённой улыбки, всегда разгоравшийся на лице отца»[^corpus-paton-light]. Много лет спустя Патон писал: «Никогда — ни в храме, ни в соборе, ни в горах, ни в долине — не надеюсь я ощутить, что Господь Бог ближе, что Он зримее ходит и говорит с людьми, чем под той скромной крышей из соломы и дубовых плетней»[^corpus-paton-roof].
+Слов отцовской молитвы Патон не пересказывает. Каморку он называет святилищем их домика: там отец молился за детей, как когда-то первосвященник за завесой во Святом святых[^corpus-paton-sanctuary]. Лишь иногда из-за двери доносились «трогательные отголоски дрожащего голоса, молившего словно о жизни»[^corpus-paton-voice]. И дети видели лицо отца: «Посторонние могли и не знать, но мы-то знали, откуда этот счастливый свет, словно от новорождённой улыбки, всегда разгоравшийся на лице отца»[^corpus-paton-light]. Много лет спустя Патон писал: «Никогда — ни в храме, ни в соборе, ни в горах, ни в долине — не надеюсь я ощутить, что Господь Бог ближе, что Он зримее ходит и говорит с людьми, чем под той скромной крышей из соломы и дубовых плетней»[^corpus-paton-roof].
 
-Эти воспоминания привёл шотландский проповедник Дэвид Макинтайр в книге «Сокровенная жизнь молитвы». Слова «режим» в этих воспоминаниях нет. Есть дверь, которую отец закрывал после еды, — повод, который приходил сам.
+Эти воспоминания привёл шотландский проповедник Дэвид Макинтайр в книге «Сокровенная жизнь молитвы». Держалось всё на двери, которую отец закрывал после еды, — на поводе, который приходил сам.
 
 ## «Одно мешало за другим»
 
 Эндрю Бонар полвека служил пастором в Шотландии — сначала в деревенском приходе Коллес, потом в Глазго — и всю жизнь вёл дневник[^bonar]. Он был другом Роберта Макчейна, о котором мы рассказывали в статье [о чём молиться](/ru/articles/what-to-pray-about/). Дневник Бонара хорош тем, что в нём нет образцового подвижника.
 
-Зимой 1841 года он замечает за собой непривычную тревогу и разбросанность — и находит причину: всё время уходило на людей и дела, а побыть с Богом по-настоящему, подолгу, не удавалось[^corpus-bonar-cause]. «Я хотел молиться и был к этому расположен, но молился мало: одно мешало за другим»[^corpus-bonar-interrupt]. И вот итог: «от этого душа моя поникла»[^corpus-bonar-low]. Бонар решает, что не успокоится, пока не дойдёт хотя бы до двух часов чистой молитвы в день[^corpus-bonar-two-hours].
+Зимой 1841 года он замечает за собой непривычную тревогу и разбросанность — и находит причину: всё время уходило на людей и дела, а побыть с Богом по-настоящему, подолгу, не удавалось[^corpus-bonar-cause]. А ведь близость к Богу, пишет он, — «как свет, озаряющий в летнюю пору хмурый край: всё и правда видится иначе»[^corpus-bonar-light]. «Я хотел молиться и был к этому расположен, но молился мало: одно мешало за другим»[^corpus-bonar-interrupt]. И вот итог: «от этого душа моя поникла»[^corpus-bonar-low]. Бонар решает, что не успокоится, пока не дойдёт хотя бы до двух часов чистой молитвы в день[^corpus-bonar-two-hours].
 
-Через два года он называет нехватку молитвы одним из главных своих грехов упущения[^corpus-bonar-prayerless] и ставит себе правило проще: «Я должен также противиться искушению что-либо делать или читать, прежде чем найду Бога наедине»[^corpus-bonar-first]. Так поступал и Христос перед днём, полным людей: накануне вечером у дверей дома собрался весь город (Мк 1:33), а наутро — «Утром, встав задолго до рассвета, Иисус ушел из того дома, удалился в уединенное место и там молился» (Мк 1:35)[^mk1].
+Летом 1843 года Бонар проповедует дважды в Тилинге и вечером в Ньютайле, а домой едет верхом уже ночью, молясь и славя Бога по дороге. На следующий день он записывает: завтра ему вести причастие под открытым небом, в горной долине Гленши, а эту ночь он отдаёт молитве[^corpus-bonar-ride]. Тут он и видит ясно: нехватка молитвы — один из главных его грехов упущения[^corpus-bonar-prayerless]. «Я слишком краток, прошу слишком мало»[^corpus-bonar-short], — пишет он о своих молитвах. И ставит себе правило проще прежнего: «Я должен также противиться искушению что-либо делать или читать, прежде чем найду Бога наедине»[^corpus-bonar-first]. Так поступал и Христос перед днём, полным людей: накануне вечером у дверей дома собрался весь город (Мк 1:33), а наутро — «Утром, встав задолго до рассвета, Иисус ушел из того дома, удалился в уединенное место и там молился» (Мк 1:35)[^mk1].
 
-Позже Бонар пробует другое: «Я стараюсь в эти дни поддерживать молитву каждый час, останавливая своё занятие, каким бы оно ни было, чтобы немного помолиться»[^corpus-bonar-hourly].
+Спустя годы, всё ещё в деревенском Коллесе, Бонару горько: проповедь, кажется, не оставляет в людях никакого следа, и от этого на душе у него часто безнадёжная печаль[^corpus-bonar-bitter]. Тогда он пробует другое: «Я стараюсь в эти дни поддерживать молитву каждый час, останавливая своё занятие, каким бы оно ни было, чтобы немного помолиться»[^corpus-bonar-hourly].
 
 А в 1884 году[^bonar-1884], уже пожилым пастором, он записывает, что накануне так и не помолился подолгу, и винит в этом собственное лукавое сердце и сатану[^corpus-bonar-saw]. Мешали не развлечения: «сатана, словно чибис, уводил меня от настоящей цели (молитвы и общения с Богом), то и дело подсказывая что-нибудь о другой части моей работы или о том, что надо проверить в лекции, проповеди и т. п.»[^corpus-bonar-lapwing]. «Так лучшие часы вчерашнего дня были в значительной мере потеряны»[^corpus-bonar-lost]. И просит Бога вернуть ему годы, которые поела саранча[^corpus-bonar-locust] (Иоил 2:25).
 
@@ -744,17 +984,19 @@ corpus_sources:
 
 ## Вечер: где положить день
 
-Будущая игуменья Таисия (Солопова) ушла в монастырь совсем молодой, вскоре после Павловского института в Петербурге[^taisia]. В «Записках» она вспоминает первое лето послушницей. Неделю она дежурила на мойке после трапезы сестёр, по две сотни тарелок[^corpus-taisia-dishes], а потом «не находила покоя рукам, до крови изъеденным горячим щелоком»[^corpus-taisia-hands]. Она полола и поливала огороды, ходила на сенокос и на жатву[^corpus-taisia-field]. Работала почти до вечерни, а потом ставила самовар старице и соседке по келье[^corpus-taisia-samovar]. Соседка видела в ней соперницу, и Таисию мучила тоска по матери[^corpus-taisia-lonely].
+Будущая игуменья Таисия (Солопова) ушла в монастырь совсем молодой, вскоре после Павловского института в Петербурге[^taisia]. В «Записках» она вспоминает, как получила чётки — знак непрестанной молитвы: это было на Пасху, когда игуменья облачила её в рясу[^corpus-taisia-ryasa]. Радость была неземная, но старица Глафира предупредила: вместе с монашеской одеждой она берёт на себя и монашеский крест. Тогда Таисия не поняла этих слов[^corpus-taisia-cross]. «Но жизнь сама собой скоро открыла мне глаза и показала этот крест во всей его тяжести»[^corpus-taisia-eyes].
 
-И всё же каждый вечер она шла на вечерню и оставалась на монашеское правило из трёх канонов, акафиста и помянника[^corpus-taisia-daily], «хотя это было обязательным только для монахинь, а не для новоначальных»[^corpus-taisia-optional]. Почему? «Мне было легче в церкви, как, бывало, выплачешь в молитве пред Богом все свое горюшко, а его было немало»[^corpus-taisia-tears].
+Неделю она дежурила на мойке после трапезы сестёр, по две сотни тарелок[^corpus-taisia-dishes], а потом «не находила покоя рукам, до крови изъеденным горячим щелоком»[^corpus-taisia-hands]: «долго не могла я приняться ни за какую работу, потому что кожа лепестками сходила с рук»[^corpus-taisia-skin]. Пожалуешься на боль — засмеют[^corpus-taisia-pain]: «вот так послушница-труженица, посуды не вымыть!»[^corpus-taisia-mock] Первое лето, как всякая новоначальная, она ходила и на полевые работы — на огороды, сенокос и жатву[^corpus-taisia-field]. «Само собой разумеется, что работала я очень плохо»[^corpus-taisia-badly], — признаётся она. Но работала почти до вечерни, а потом ещё ставила самовар старице и соседке по келье[^corpus-taisia-samovar]. Соседка видела в ней соперницу, и Таисию мучила тоска по матери[^corpus-taisia-lonely]. Она писала обо всём своему старцу, архимандриту Лаврентию[^corpus-taisia-elder], но письма до него не доходили[^corpus-taisia-letters].
+
+И всё же к вечерне она ходила каждый день, к пяти часам, а потом не уходила, пока читали монашеское правило: три канона, акафист, помянник[^corpus-taisia-daily], «хотя это было обязательным только для монахинь, а не для новоначальных»[^corpus-taisia-optional]. Почему? «Мне было легче в церкви, как, бывало, выплачешь в молитве пред Богом все свое горюшко, а его было немало»[^corpus-taisia-tears].
 
 Каноны после вечерни — монастырский устав, а не совет мирянину. Но то, что держало Таисию, знакомо каждому: вечерняя молитва — место, где можно положить тяжёлый день. Не отчитываться, а отдать его Богу как есть.
 
 ## Если пропустили
 
-Католическая монахиня Рахиль Гуардини руководила в Венеции домом сестёр-учительниц святой Доротеи[^corpus-guardini-bio]. Но в письме, которое 25 марта 1845 года она отправила в Риву Летиции Альнайдер[^corpus-guardini-date], она прежде всего тревожится о девушке. Гуардини рада, что та снова в объятиях матери, и признаётся, что боялась, не попала ли девушка на пароходе в бурю[^corpus-guardini-home].
+Католическая монахиня Рахиль Гуардини руководила в Венеции домом сестёр-учительниц святой Доротеи[^corpus-guardini-bio]. Но в письме, которое 25 марта 1845 года она отправила в Риву Летиции Альнайдер[^corpus-guardini-date], она прежде всего тревожится о девушке. Гуардини рада, что та снова в объятиях матери, и признаётся, что боялась, не попала ли девушка на пароходе в бурю[^corpus-guardini-home]. А в конце, между делом, — про пропавшую простыню. Взамен Гуардини уже выслала Летиции другую, из общины, а маме советует напомнить, что одну простыню Летиция сама отдала какой-то бедной женщине и оставила в Триесте: может, тогда и счёт сойдётся[^corpus-guardini-sheet].
 
-Дальше — о том, как не растерять дома то, что было начато. «Больше всего мне хочется, чтобы вы упражнялись в утреннем приношении своих дел»[^corpus-guardini-offer]. «Ради Бога, моя Летиция, не выходите из своей комнаты, не сделав этого; и помните ту четверть часа размышления, что вы мне обещали; а потом со святой радостью исполняйте свои обязанности»[^corpus-guardini-room]. И главное: «Раз в неделю перечитывайте решения, которые записали в порыве усердия, чтобы суметь их исполнить; если же по какой-то причине вы какое-то из них не исполнили, постарайтесь не поддаваться досаде, а смиренно попросите прощения у нашего доброго Бога и снова ободритесь»[^corpus-guardini-weekly].
+Остальное письмо — о том, как не растерять дома то, что было начато. «Больше всего мне хочется, чтобы вы упражнялись в утреннем приношении своих дел»[^corpus-guardini-offer]. «Ради Бога, моя Летиция, не выходите из своей комнаты, не сделав этого; и помните ту четверть часа размышления, что вы мне обещали; а потом со святой радостью исполняйте свои обязанности»[^corpus-guardini-room]. И главное: «Раз в неделю перечитывайте решения, которые записали в порыве усердия, чтобы суметь их исполнить; если же по какой-то причине вы какое-то из них не исполнили, постарайтесь не поддаваться досаде, а смиренно попросите прощения у нашего доброго Бога и снова ободритесь»[^corpus-guardini-weekly].
 
 Гуардини не обещает, что всё будет исполняться без сбоев. Пропуск у неё — часть пути: раз в неделю посмотреть, что получилось, без досады попросить прощения и начать снова. Если перерыв затянулся на месяцы или годы, начните так же — с малого, как в первый раз; об этом статья [как начать молиться](/ru/articles/how-to-start-praying/). А если молиться вы садитесь, но мысли разбегаются, — [о рассеянности в молитве](/ru/articles/distraction-in-prayer/).
 
