@@ -7,7 +7,7 @@ Hear», uk — по ru. Запросы: en quiet time with god, how to hear god,
 breath prayer, listening prayer; ru тихое время с богом, христианская медитация; uk тихий час
 з Богом. Перелинковка: #1 `how-to-start-praying` (хаб), №5 `lectio-divina` (тишина — четвёртая
 ступень, там — через текст), №4 `praying-scripture`, №7 `distraction-in-prayer` (когда в
-тишине лезут мысли — после мержа №7), №3 `prayer-journal`. Статус: **ждёт утверждения.**
+тишине лезут мысли — после мержа №7), №3 `prayer-journal`. Статус: **утверждён оркестратором 2026-10-20.**
 Кандидатов подобрал Codex (2026-10-20); исследователь (Claude Opus) сверил их по живому
 корпусу 2026-10-20 (318 книг `indexed`) и добрал пробелы. Запросы —
 [11-silence-listening.queries.json](11-silence-listening.queries.json).
