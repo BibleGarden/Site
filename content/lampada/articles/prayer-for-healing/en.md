@@ -36,12 +36,12 @@ corpus_sources:
   source_url: "https://predanie.ru/ioann-alekseev-shiigumen/pisma-valaamskogo-starca/"
 - id: "mother-scene"
   kind: "retelling"
-  text: "The doctor tried every remedy that was usual at the time, and nothing helped; at last he walked away from the bed and sat down by the window"
+  text: "Cold on the head, warmth on the feet, rubbing of the arms and legs: the doctor tried everything doctors then knew, and none of it helped. The child stayed stiff as a board and seemed about to die. In the end the doctor walked away from the bed and sat looking out of the window"
   original: null
   translation: null
   chunk_id: "book-286-0223"
   book_id: 286
-  char_start: 167300
+  char_start: 167392
   char_end: 167737
   text_sha256: "259acb0fdc82c2b58156759c3e4e019752a41d276fb4ca2188160731489439e4"
   author: "D. W. Whittle (ред.)"
@@ -214,14 +214,29 @@ corpus_sources:
   chapter: "Письмо 70"
   translator: null
   source_url: "https://predanie.ru/ioann-alekseev-shiigumen/pisma-valaamskogo-starca/"
+- id: "ioann-baby"
+  kind: "quote"
+  text: "You should see how I get up in the morning, like an infant just learning to walk; then I get going and walk about"
+  original: "Ты посмотрела бы, как я утром встаю, точно младенец, который только что учится ходить, потом раскачаюсь и хожу"
+  translation: "ours"
+  chunk_id: "book-252-0135"
+  book_id: 252
+  char_start: 101011
+  char_end: 101121
+  text_sha256: "fe6f3ee2138eb68bf2fc1edc9fd62d455d2d46cd178d7e63358bb578dc5f3b31"
+  author: "прп. Иоанн Валаамский (Алексеев)"
+  title: "Письма валаамского старца"
+  chapter: "Письмо 70"
+  translator: null
+  source_url: "https://predanie.ru/ioann-alekseev-shiigumen/pisma-valaamskogo-starca/"
 - id: "ioann-morning"
   kind: "retelling"
-  text: "In the mornings he gets up like a toddler learning to walk, and at services he more and more often has to sit"
+  text: "These days he spends more and more of each service sitting down, but he still goes to every one, although celebrating the services himself has become hard"
   original: null
   translation: null
   chunk_id: "book-252-0135"
   book_id: 252
-  char_start: 101011
+  char_start: 101123
   char_end: 101269
   text_sha256: "fe6f3ee2138eb68bf2fc1edc9fd62d455d2d46cd178d7e63358bb578dc5f3b31"
   author: "прп. Иоанн Валаамский (Алексеев)"
@@ -244,6 +259,21 @@ corpus_sources:
   chapter: "Письмо 70"
   translator: null
   source_url: "https://predanie.ru/ioann-alekseev-shiigumen/pisma-valaamskogo-starca/"
+- id: "ioann-grave"
+  kind: "retelling"
+  text: "Perhaps, he writes, she will come to see them in the summer, and they can talk about what matters most; and if he has died by then, she should visit his grave and pray for him"
+  original: null
+  translation: null
+  chunk_id: "book-252-0136"
+  book_id: 252
+  char_start: 101499
+  char_end: 101644
+  text_sha256: "fe6f3ee2138eb68bf2fc1edc9fd62d455d2d46cd178d7e63358bb578dc5f3b31"
+  author: "прп. Иоанн Валаамский (Алексеев)"
+  title: "Письма валаамского старца"
+  chapter: "Письмо 70"
+  translator: null
+  source_url: "https://predanie.ru/ioann-alekseev-shiigumen/pisma-valaamskogo-starca/"
 - id: "ioann-failed"
   kind: "retelling"
   text: "The big operation has worn her body down, and the doctors here on earth, she tells him, have not helped her"
@@ -253,6 +283,36 @@ corpus_sources:
   book_id: 252
   char_start: 103802
   char_end: 104218
+  text_sha256: "fe6f3ee2138eb68bf2fc1edc9fd62d455d2d46cd178d7e63358bb578dc5f3b31"
+  author: "прп. Иоанн Валаамский (Алексеев)"
+  title: "Письма валаамского старца"
+  chapter: "Письмо 73"
+  translator: null
+  source_url: "https://predanie.ru/ioann-alekseev-shiigumen/pisma-valaamskogo-starca/"
+- id: "ioann-birds"
+  kind: "retelling"
+  text: "The elder asks her not to despair: if the Lord takes care even of the birds"
+  original: null
+  translation: null
+  chunk_id: "book-252-0140"
+  book_id: 252
+  char_start: 103892
+  char_end: 104079
+  text_sha256: "fe6f3ee2138eb68bf2fc1edc9fd62d455d2d46cd178d7e63358bb578dc5f3b31"
+  author: "прп. Иоанн Валаамский (Алексеев)"
+  title: "Письма валаамского старца"
+  chapter: "Письмо 73"
+  translator: null
+  source_url: "https://predanie.ru/ioann-alekseev-shiigumen/pisma-valaamskogo-starca/"
+- id: "ioann-forgotten"
+  kind: "quote"
+  text: "then have you really been forgotten by Him?"
+  original: "так неужели ты забыта у него?"
+  translation: "ours"
+  chunk_id: "book-252-0140"
+  book_id: 252
+  char_start: 104082
+  char_end: 104111
   text_sha256: "fe6f3ee2138eb68bf2fc1edc9fd62d455d2d46cd178d7e63358bb578dc5f3b31"
   author: "прп. Иоанн Валаамский (Алексеев)"
   title: "Письма валаамского старца"
@@ -319,15 +379,75 @@ corpus_sources:
   chapter: "Письмо 96"
   translator: null
   source_url: "https://predanie.ru/ioann-alekseev-shiigumen/pisma-valaamskogo-starca/"
+- id: "brainerd-pain"
+  kind: "retelling"
+  text: "At the end of March he was seized by pain so violent that it seemed only a miracle could keep him alive another day"
+  original: null
+  translation: null
+  chunk_id: "book-93-0600"
+  book_id: 93
+  char_start: 522229
+  char_end: 522447
+  text_sha256: "7d223f8b088bb22baff37bbf2ab31cd008894d0de59b8b8dc788df7502b3e23e"
+  author: "David Brainerd"
+  title: "The Life of David Brainerd, chiefly extracted from his Diary"
+  chapter: "CHAPTER IX."
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/65066"
+- id: "brainerd-means"
+  kind: "quote"
+  text: "but it pleased God to bless means for the abatement of my distress"
+  original: "but it pleased God to bless means for the abatement of my distress"
+  translation: null
+  chunk_id: "book-93-0600"
+  book_id: 93
+  char_start: 522539
+  char_end: 522605
+  text_sha256: "7d223f8b088bb22baff37bbf2ab31cd008894d0de59b8b8dc788df7502b3e23e"
+  author: "David Brainerd"
+  title: "The Life of David Brainerd, chiefly extracted from his Diary"
+  chapter: "CHAPTER IX."
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/65066"
+- id: "brainerd-cheerful"
+  kind: "retelling"
+  text: "he seemed to have rallied: he could manage twenty-five miles on horseback in a day, and his spirits were good, yet his tuberculosis had already gone too far to be cured"
+  original: null
+  translation: null
+  chunk_id: "book-93-0610"
+  book_id: 93
+  char_start: 530545
+  char_end: 530902
+  text_sha256: "7d223f8b088bb22baff37bbf2ab31cd008894d0de59b8b8dc788df7502b3e23e"
+  author: "David Brainerd"
+  title: "The Life of David Brainerd, chiefly extracted from his Diary"
+  chapter: "CHAPTER IX."
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/65066"
 - id: "brainerd-mather"
   kind: "retelling"
-  text: "There a physician, Dr. Mather, was blunt with him: the signs pointed to advanced tuberculosis, and he could offer no hope of recovery"
+  text: "Dr. Mather was blunt with him: the signs pointed to advanced tuberculosis, and he could offer no hope of recovery"
   original: null
   translation: null
   chunk_id: "book-93-0614"
   book_id: 93
   char_start: 533669
   char_end: 533897
+  text_sha256: "7d223f8b088bb22baff37bbf2ab31cd008894d0de59b8b8dc788df7502b3e23e"
+  author: "David Brainerd"
+  title: "The Life of David Brainerd, chiefly extracted from his Diary"
+  chapter: "CHAPTER IX."
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/65066"
+- id: "brainerd-calm"
+  kind: "retelling"
+  text: "Brainerd took the verdict without the slightest alarm; his good humor, his calm and his easy, pleasant talk stayed exactly as they had been"
+  original: null
+  translation: null
+  chunk_id: "book-93-0614"
+  book_id: 93
+  char_start: 533898
+  char_end: 534096
   text_sha256: "7d223f8b088bb22baff37bbf2ab31cd008894d0de59b8b8dc788df7502b3e23e"
   author: "David Brainerd"
   title: "The Life of David Brainerd, chiefly extracted from his Diary"
@@ -394,30 +514,15 @@ corpus_sources:
   chapter: "CHAPTER IX."
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/65066"
-- id: "brainerd-pain"
+- id: "brainerd-sept"
   kind: "retelling"
-  text: "At the end of March he was seized by pain so violent that it seemed only a miracle could keep him alive another day"
+  text: "Toward the end of September"
   original: null
   translation: null
-  chunk_id: "book-93-0600"
+  chunk_id: "book-93-0663"
   book_id: 93
-  char_start: 522229
-  char_end: 522447
-  text_sha256: "7d223f8b088bb22baff37bbf2ab31cd008894d0de59b8b8dc788df7502b3e23e"
-  author: "David Brainerd"
-  title: "The Life of David Brainerd, chiefly extracted from his Diary"
-  chapter: "CHAPTER IX."
-  translator: null
-  source_url: "https://www.gutenberg.org/ebooks/65066"
-- id: "brainerd-means"
-  kind: "quote"
-  text: "but it pleased God to bless means for the abatement of my distress"
-  original: "but it pleased God to bless means for the abatement of my distress"
-  translation: null
-  chunk_id: "book-93-0600"
-  book_id: 93
-  char_start: 522539
-  char_end: 522605
+  char_start: 577642
+  char_end: 577818
   text_sha256: "7d223f8b088bb22baff37bbf2ab31cd008894d0de59b8b8dc788df7502b3e23e"
   author: "David Brainerd"
   title: "The Life of David Brainerd, chiefly extracted from his Diary"
@@ -426,13 +531,43 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/65066"
 - id: "brainerd-speechless"
   kind: "retelling"
-  text: "Near the end he could barely speak"
+  text: "everyone, Brainerd included, thought he was dying, and he seemed glad that death was near. He could hardly speak, only move his lips, and someone sitting close by heard him calling on Christ to come quickly"
   original: null
   translation: null
   chunk_id: "book-93-0664"
   book_id: 93
   char_start: 578064
-  char_end: 578234
+  char_end: 578373
+  text_sha256: "7d223f8b088bb22baff37bbf2ab31cd008894d0de59b8b8dc788df7502b3e23e"
+  author: "David Brainerd"
+  title: "The Life of David Brainerd, chiefly extracted from his Diary"
+  chapter: "CHAPTER IX."
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/65066"
+- id: "brainerd-chariot"
+  kind: "quote"
+  text: "O why is his chariot so long in coming?"
+  original: "O why is his chariot so long in coming?"
+  translation: null
+  chunk_id: "book-93-0664"
+  book_id: 93
+  char_start: 578374
+  char_end: 578413
+  text_sha256: "7d223f8b088bb22baff37bbf2ab31cd008894d0de59b8b8dc788df7502b3e23e"
+  author: "David Brainerd"
+  title: "The Life of David Brainerd, chiefly extracted from his Diary"
+  chapter: "CHAPTER IX."
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/65066"
+- id: "brainerd-eager"
+  kind: "retelling"
+  text: "When he came round, he reproached himself for having been in such a hurry to die"
+  original: null
+  translation: null
+  chunk_id: "book-93-0664"
+  book_id: 93
+  char_start: 578415
+  char_end: 578488
   text_sha256: "7d223f8b088bb22baff37bbf2ab31cd008894d0de59b8b8dc788df7502b3e23e"
   author: "David Brainerd"
   title: "The Life of David Brainerd, chiefly extracted from his Diary"
@@ -441,13 +576,13 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/65066"
 - id: "brainerd-asked"
   kind: "retelling"
-  text: "at his request someone prayed with him"
+  text: "Asked whether he had heard the prayer he had requested"
   original: null
   translation: null
   chunk_id: "book-93-0665"
   book_id: 93
-  char_start: 578835
-  char_end: 578884
+  char_start: 578802
+  char_end: 578885
   text_sha256: "7d223f8b088bb22baff37bbf2ab31cd008894d0de59b8b8dc788df7502b3e23e"
   author: "David Brainerd"
   title: "The Life of David Brainerd, chiefly extracted from his Diary"
@@ -486,28 +621,73 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/65066"
 - id: "brainerd-jerusha"
   kind: "retelling"
-  text: "Most of the nursing was done by Jerusha"
+  text: "who did most of the nursing, came into the room, and Brainerd gave her a warm look and said"
   original: null
   translation: null
   chunk_id: "book-93-0670"
   book_id: 93
-  char_start: 582642
-  char_end: 582687
+  char_start: 582639
+  char_end: 582752
   text_sha256: "7d223f8b088bb22baff37bbf2ab31cd008894d0de59b8b8dc788df7502b3e23e"
   author: "David Brainerd"
   title: "The Life of David Brainerd, chiefly extracted from his Diary"
   chapter: "CHAPTER IX."
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/65066"
-- id: "brainerd-glad"
+- id: "brainerd-part"
+  kind: "quote"
+  text: "Dear Jerusha, are you willing to part with me?"
+  original: "Dear Jerusha, are you willing to part with me?"
+  translation: null
+  chunk_id: "book-93-0670"
+  book_id: 93
+  char_start: 582754
+  char_end: 582800
+  text_sha256: "7d223f8b088bb22baff37bbf2ab31cd008894d0de59b8b8dc788df7502b3e23e"
+  author: "David Brainerd"
+  title: "The Life of David Brainerd, chiefly extracted from his Diary"
+  chapter: "CHAPTER IX."
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/65066"
+- id: "brainerd-willing"
   kind: "retelling"
-  text: "Brainerd, it seems, was glad to see death coming close"
+  text: "Then he said he was ready to let all his friends go, even his brother John, whom he loved more than anyone alive, because he had placed them all in God’s hands"
   original: null
   translation: null
-  chunk_id: "book-93-0664"
+  chunk_id: "book-93-0670"
   book_id: 93
-  char_start: 578146
-  char_end: 578209
+  char_start: 582803
+  char_end: 583059
+  text_sha256: "7d223f8b088bb22baff37bbf2ab31cd008894d0de59b8b8dc788df7502b3e23e"
+  author: "David Brainerd"
+  title: "The Life of David Brainerd, chiefly extracted from his Diary"
+  chapter: "CHAPTER IX."
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/65066"
+- id: "brainerd-eternity"
+  kind: "quote"
+  text: "Though, if I thought I should not see you, and be happy with you in another world, I could not bear to part with you. But we shall spend an happy eternity together!"
+  original: "Though, if I thought I should not see you, and be happy with you in another world, I could not bear to part with you. But we shall spend an happy eternity together!"
+  translation: null
+  chunk_id: "book-93-0670"
+  book_id: 93
+  char_start: 583060
+  char_end: 583224
+  text_sha256: "7d223f8b088bb22baff37bbf2ab31cd008894d0de59b8b8dc788df7502b3e23e"
+  author: "David Brainerd"
+  title: "The Life of David Brainerd, chiefly extracted from his Diary"
+  chapter: "CHAPTER IX."
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/65066"
+- id: "brainerd-patience"
+  kind: "retelling"
+  text: "the pain in his chest kept growing, until even one more minute of it seemed more than he could bear. What he feared most was dishonoring God by losing patience, so he asked the people around him to keep praying for him: that God would hold him up and grant him patience"
+  original: null
+  translation: null
+  chunk_id: "book-93-0672"
+  book_id: 93
+  char_start: 584393
+  char_end: 584939
   text_sha256: "7d223f8b088bb22baff37bbf2ab31cd008894d0de59b8b8dc788df7502b3e23e"
   author: "David Brainerd"
   title: "The Life of David Brainerd, chiefly extracted from his Diary"
@@ -546,13 +726,73 @@ corpus_sources:
   source_url: "https://www.mitras.ru/molitva/a_main.htm"
 - id: "antony-warden"
   kind: "retelling"
-  text: "The warden of his church fell ill with cancer"
+  text: "The warden of his church went into the hospital with jaundice; he did not yet know that he had cancer"
   original: null
   translation: null
   chunk_id: "book-159-0606"
   book_id: 159
   char_start: 543505
-  char_end: 543560
+  char_end: 543652
+  text_sha256: "83e63f694b31eb7a816c140a8081a5d65b628a89f654b330002436c84dfac89b"
+  author: "митр. Антоний Сурожский"
+  title: "Может ли еще молиться современный человек"
+  chapter: "Митрополит Сурожский Антоний. ОТВЕТЫ НА ВОПРОСЫ"
+  translator: null
+  source_url: "https://www.mitras.ru/molitva/a_main.htm"
+- id: "antony-boring"
+  kind: "quote"
+  text: "How boring!"
+  original: "Какая скука!"
+  translation: "ours"
+  chunk_id: "book-159-0606"
+  book_id: 159
+  char_start: 543669
+  char_end: 543681
+  text_sha256: "83e63f694b31eb7a816c140a8081a5d65b628a89f654b330002436c84dfac89b"
+  author: "митр. Антоний Сурожский"
+  title: "Может ли еще молиться современный человек"
+  chapter: "Митрополит Сурожский Антоний. ОТВЕТЫ НА ВОПРОСЫ"
+  translator: null
+  source_url: "https://www.mitras.ru/molitva/a_main.htm"
+- id: "antony-bed"
+  kind: "retelling"
+  text: "he complained to Anthony: there was still so much he had to do, and here he was, confined to bed"
+  original: null
+  translation: null
+  chunk_id: "book-159-0606"
+  book_id: 159
+  char_start: 543653
+  char_end: 543756
+  text_sha256: "83e63f694b31eb7a816c140a8081a5d65b628a89f654b330002436c84dfac89b"
+  author: "митр. Антоний Сурожский"
+  title: "Может ли еще молиться современный человек"
+  chapter: "Митрополит Сурожский Антоний. ОТВЕТЫ НА ВОПРОСЫ"
+  translator: null
+  source_url: "https://www.mitras.ru/molitva/a_main.htm"
+- id: "antony-be"
+  kind: "retelling"
+  text: "Anthony reminded him how often he had said he wished he could stop time and simply be, instead of always doing; now that had happened to him"
+  original: null
+  translation: null
+  chunk_id: "book-159-0606"
+  book_id: 159
+  char_start: 543758
+  char_end: 543917
+  text_sha256: "83e63f694b31eb7a816c140a8081a5d65b628a89f654b330002436c84dfac89b"
+  author: "митр. Антоний Сурожский"
+  title: "Может ли еще молиться современный человек"
+  chapter: "Митрополит Сурожский Антоний. ОТВЕТЫ НА ВОПРОСЫ"
+  translator: null
+  source_url: "https://www.mitras.ru/molitva/a_main.htm"
+- id: "antony-dontknow"
+  kind: "quote"
+  text: "Yes, but I don’t know what it means to ‘be’!"
+  original: "Да, но я не знаю, что значит \"быть\"!"
+  translation: "ours"
+  chunk_id: "book-159-0606"
+  book_id: 159
+  char_start: 543941
+  char_end: 543977
   text_sha256: "83e63f694b31eb7a816c140a8081a5d65b628a89f654b330002436c84dfac89b"
   author: "митр. Антоний Сурожский"
   title: "Может ли еще молиться современный человек"
@@ -561,13 +801,43 @@ corpus_sources:
   source_url: "https://www.mitras.ru/molitva/a_main.htm"
 - id: "antony-doctors"
   kind: "retelling"
-  text: "Anthony left the treatment of the body to the doctors and helped the man work through the heavy feelings that can also destroy a person"
+  text: "Anthony told him that people fall ill and die not only from physical causes but from moral ones too. The body was for the doctors to look after, but anger, bitterness and everything else that eats away at the soul were his own to deal with, because feelings like these can kill as well"
   original: null
   translation: null
   chunk_id: "book-159-0607"
   book_id: 159
-  char_start: 544192
-  char_end: 544793
+  char_start: 544104
+  char_end: 544371
+  text_sha256: "83e63f694b31eb7a816c140a8081a5d65b628a89f654b330002436c84dfac89b"
+  author: "митр. Антоний Сурожский"
+  title: "Может ли еще молиться современный человек"
+  chapter: "Митрополит Сурожский Антоний. ОТВЕТЫ НА ВОПРОСЫ"
+  translator: null
+  source_url: "https://www.mitras.ru/molitva/a_main.htm"
+- id: "antony-solovki"
+  kind: "retelling"
+  text: "And the man had lived a hard life, including four years on Solovki"
+  original: null
+  translation: null
+  chunk_id: "book-159-0607"
+  book_id: 159
+  char_start: 544372
+  char_end: 544458
+  text_sha256: "83e63f694b31eb7a816c140a8081a5d65b628a89f654b330002436c84dfac89b"
+  author: "митр. Антоний Сурожский"
+  title: "Может ли еще молиться современный человек"
+  chapter: "Митрополит Сурожский Антоний. ОТВЕТЫ НА ВОПРОСЫ"
+  translator: null
+  source_url: "https://www.mitras.ru/molitva/a_main.htm"
+- id: "antony-layers"
+  kind: "retelling"
+  text: "For months the two of them talked about how he related to himself and to other people, starting with those closest to him, until one day the weight of his past simply fell away"
+  original: null
+  translation: null
+  chunk_id: "book-159-0607"
+  book_id: 159
+  char_start: 544459
+  char_end: 544890
   text_sha256: "83e63f694b31eb7a816c140a8081a5d65b628a89f654b330002436c84dfac89b"
   author: "митр. Антоний Сурожский"
   title: "Может ли еще молиться современный человек"
@@ -576,7 +846,7 @@ corpus_sources:
   source_url: "https://www.mitras.ru/molitva/a_main.htm"
 - id: "antony-alive"
   kind: "retelling"
-  text: "Later, very weak, the man said he was amazed: his body was almost dead, and yet he had never felt so alive"
+  text: "At the end he lay in bed, so thin he seemed transparent, his eyes shining, and he marveled that his body was nearly dead and yet he had never felt so alive"
   original: null
   translation: null
   chunk_id: "book-159-0608"
@@ -591,7 +861,7 @@ corpus_sources:
   source_url: "https://www.mitras.ru/molitva/a_main.htm"
 - id: "antony-cancer"
   kind: "retelling"
-  text: "Anthony could not cure him of cancer, but he watched the man open up inwardly and become free"
+  text: "Anthony could not take the cancer away, but he watched the man open up inwardly and become free"
   original: null
   translation: null
   chunk_id: "book-159-0608"
@@ -619,15 +889,60 @@ corpus_sources:
   chapter: "Митрополит Сурожский Антоний. ОТВЕТЫ НА ВОПРОСЫ"
   translator: null
   source_url: "https://www.mitras.ru/molitva/a_main.htm"
+- id: "spurgeon-cry"
+  kind: "retelling"
+  text: "A prayer meeting was interrupted by a cry of pain from someone in the congregation"
+  original: null
+  translation: null
+  chunk_id: "book-194-0354"
+  book_id: 194
+  char_start: 308193
+  char_end: 309037
+  text_sha256: "42506b7c9bf7d919239140a54efef9e1c7422310c12c372af879ec18de6dac2f"
+  author: "C. H. Spurgeon"
+  title: "Only a Prayer Meeting!"
+  chapter: "An Interruption Improved"
+  translator: null
+  source_url: "https://www.monergism.com/only-prayer-meeting-ebook"
+- id: "spurgeon-quiet"
+  kind: "quote"
+  text: "your souls in quietness, beloved friends"
+  original: "your souls in quietness, beloved friends"
+  translation: null
+  chunk_id: "book-194-0354"
+  book_id: 194
+  char_start: 308193
+  char_end: 308241
+  text_sha256: "42506b7c9bf7d919239140a54efef9e1c7422310c12c372af879ec18de6dac2f"
+  author: "C. H. Spurgeon"
+  title: "Only a Prayer Meeting!"
+  chapter: "An Interruption Improved"
+  translator: null
+  source_url: "https://www.monergism.com/only-prayer-meeting-ebook"
+- id: "spurgeon-voice"
+  kind: "quote"
+  text: "I seemed to hear a voice in that sorrowful cry of our friend, and it bade me have pity upon the many whose life is one long agony"
+  original: "I seemed to hear a voice in that sorrowful cry of our friend, and it bade me have pity upon the many whose life is one long agony"
+  translation: null
+  chunk_id: "book-194-0354"
+  book_id: 194
+  char_start: 308586
+  char_end: 308715
+  text_sha256: "42506b7c9bf7d919239140a54efef9e1c7422310c12c372af879ec18de6dac2f"
+  author: "C. H. Spurgeon"
+  title: "Only a Prayer Meeting!"
+  chapter: "An Interruption Improved"
+  translator: null
+  source_url: "https://www.monergism.com/only-prayer-meeting-ebook"
 - id: "spurgeon-door"
   kind: "retelling"
-  text: "She never missed a meeting, and all he asked of her was to sit by the door, since an attack could come on at any moment"
+  text: "a woman in his congregation who had frequent attacks but loved the meetings so much that all he asked was that she sit by the door, since an attack could come on at any moment"
   original: null
   translation: null
   chunk_id: "book-194-0356"
   book_id: 194
   char_start: 310565
-  char_end: 310794
+  char_end: 310726
   text_sha256: "42506b7c9bf7d919239140a54efef9e1c7422310c12c372af879ec18de6dac2f"
   author: "C. H. Spurgeon"
   title: "Only a Prayer Meeting!"
@@ -739,39 +1054,49 @@ Many churches also pray for the sick by name at their services. You can ask your
 
 ## When there are no words
 
-An anonymous story in *The Wonders of Prayer* begins with a small child in convulsions. The doctor tried every remedy that was usual at the time, and nothing helped; at last he walked away from the bed and sat down by the window[^corpus-mother-scene]. “He seemed, to the agonized mother, to have abandoned her darling.”[^corpus-mother-abandoned] “For herself, she could do nothing but pray; and even her prayer was but an inarticulate and unvoiced cry for help.”[^corpus-mother-cry]
+An anonymous story in *The Wonders of Prayer* begins with a small child in convulsions[^miracles]. Cold on the head, warmth on the feet, rubbing of the arms and legs: the doctor tried everything doctors then knew, and none of it helped. The child stayed stiff as a board and seemed about to die. In the end the doctor walked away from the bed and sat looking out of the window[^corpus-mother-scene]. “He seemed, to the agonized mother, to have abandoned her darling.”[^corpus-mother-abandoned] “For herself, she could do nothing but pray; and even her prayer was but an inarticulate and unvoiced cry for help.”[^corpus-mother-cry]
 
-Then the doctor jumped up and told them to check whether jimson weed was growing in the yard. They found the poisonous plant there, and he switched to different remedies at once[^corpus-mother-weed]. The new medicine flushed out of the child so many seeds of the poisonous plant that they could have killed an adult[^corpus-mother-seeds]. Later the doctor said that in those five minutes by the window, every similar case from his twenty-five years of practice had come back to him[^corpus-mother-doctor], and one of them pointed to the real cause of the convulsions, which until then had been hidden[^corpus-mother-cause]. “And the child was saved.”[^corpus-mother-saved] The book reprints it from a correspondent of a Christian weekly who knew the mother; no names are given. Not every night like that one ends this way. But a cry without words is a real prayer too.
+Then the doctor jumped up and told them to check whether jimson weed was growing in the yard. They found the poisonous plant there, and he switched to different remedies at once[^corpus-mother-weed]. The new medicine flushed out of the child so many seeds of the poisonous plant that they could have killed an adult[^corpus-mother-seeds]. Later the doctor said that in those five minutes by the window, every similar case from his twenty-five years of practice had come back to him[^corpus-mother-doctor], and one of them pointed to the real cause of the convulsions, which until then had been hidden[^corpus-mother-cause]. “And the child was saved.”[^corpus-mother-saved] It doesn’t always turn out this way. But a prayer without words is a real prayer too.
 
 ## A sick man writes to a sick woman
 
-Elder John of Valaam, born Ivan Alekseev, entered Valaam Monastery, on an island in Lake Ladoga, at sixteen. For ten years he was abbot of a monastery in Pechenga, in the far north, and in 1940 he and the other monks moved to Finland, to New Valaam[^ioann]. There, as a very old man, he answered letters, and some of the people who wrote to him were sick. His replies were later collected in the book *Letters of a Valaam Elder*.
+In February 1953 the Orthodox elder John of Valaam answers a letter from a woman who has had a serious operation. He is nearly eighty, he has lived in a monastery since he was sixteen, and he is spending his last years at New Valaam, in Finland[^ioann]. His replies will later be collected in the book *Letters of a Valaam Elder*. He begins with the good news: thank God, she has come through the surgery safely, even though she is still in a bad way[^corpus-ioann-op]. What is she to do? His answer is patience: to bear it and give herself over to the will of God[^corpus-ioann-patience]. Then he suggests that they pray together in the words quoted above: the Lord knows our weakness, sorrows and needs, and we ourselves don’t know what is good for us[^corpus-ioann-prayer-ref].
 
-In February 1953 he answers a woman who has just had a serious operation. He begins with the good news: thank God, she has come through the surgery safely, even though she is still in a bad way[^corpus-ioann-op]. What is she to do? His answer is patience: to bear it and give herself over to the will of God[^corpus-ioann-patience]. Then he suggests that they pray together in the words quoted above: the Lord knows our weakness, sorrows and needs, and we ourselves don’t know what is good for us[^corpus-ioann-prayer-ref].
+In the same letter he writes about himself: “my legs have given out, both of them ache”[^corpus-ioann-legs]. “You should see how I get up in the morning, like an infant just learning to walk; then I get going and walk about”[^corpus-ioann-baby]. These days he spends more and more of each service sitting down, but he still goes to every one, although celebrating the services himself has become hard[^corpus-ioann-morning]. And he passes on to her what the holy fathers taught: even when need makes you pray sitting down, the Lord accepts an attentive prayer, while a distracted one He does not heed, even if you stand[^corpus-ioann-sitting]. Perhaps, he writes, she will come to see them in the summer, and they can talk about what matters most; and if he has died by then, she should visit his grave and pray for him[^corpus-ioann-grave]. This is not a healthy man writing to a sick woman, but one sick person writing to another.
 
-In the same letter he writes about himself: “my legs have given out, both of them ache”[^corpus-ioann-legs]. In the mornings he gets up like a toddler learning to walk, and at services he more and more often has to sit[^corpus-ioann-morning]. And he passes on to her what the holy fathers taught: even when need makes you pray sitting down, the Lord accepts an attentive prayer, while a distracted one He does not heed, even if you stand[^corpus-ioann-sitting]. This is not a healthy man writing to a sick woman, but one sick person writing to another.
-
-In January 1954 she is ill again. The big operation has worn her body down, and the doctors here on earth, she tells him, have not helped her[^corpus-ioann-failed]. The elder replies: “I advise you now to turn to the heavenly Physician of our souls and bodies, to the Lord.”[^corpus-ioann-heavenly] He tells her to ask her spiritual father to give her the anointing of the sick and Holy Communion[^corpus-ioann-unction]. This is what the apostle James advises: “Is any one of you sick? He should call the elders of the church to pray over him and anoint him with oil in the name of the Lord” (James 5:14)[^jas5]. The elder promises no recovery. His letter ends with a blessing: “May the Lord be the protector of your soul and body.”[^corpus-ioann-blessing] We don’t know how her illness ended.
+In January 1954 she is ill again and losing heart. The big operation has worn her body down, and the doctors here on earth, she tells him, have not helped her[^corpus-ioann-failed]. The elder asks her not to despair: if the Lord takes care even of the birds[^corpus-ioann-birds], “then have you really been forgotten by Him?”[^corpus-ioann-forgotten] And he goes on: “I advise you now to turn to the heavenly Physician of our souls and bodies, to the Lord.”[^corpus-ioann-heavenly] He tells her to ask her spiritual father to give her the anointing of the sick and Holy Communion[^corpus-ioann-unction]. This is what the apostle James advises: “Is any one of you sick? He should call the elders of the church to pray over him and anoint him with oil in the name of the Lord” (James 5:14)[^jas5]. The elder promises no recovery. His letter ends with a blessing: “May the Lord be the protector of your soul and body.”[^corpus-ioann-blessing] We don’t know how her illness ended.
 
 A year later, in January 1955, the elder himself was the patient. He wrote: “I lay in the hospital for 11 days; they helped me very much, for the Lord heals through doctors; and the Lord created the physician, says Holy Scripture”[^corpus-ioann-hospital]. A monk who had spent his whole life in prayer did not see the doctor as God’s rival.
 
 ## When the doctors tell the truth
 
-David Brainerd was expelled from Yale for a careless remark about a tutor. This young Protestant from New England then became a missionary to Native Americans in New Jersey, and at twenty-nine, gravely ill, he came to Northampton, Massachusetts, to stay with the preacher Jonathan Edwards[^brainerd]. There a physician, Dr. Mather, was blunt with him: the signs pointed to advanced tuberculosis, and he could offer no hope of recovery[^corpus-brainerd-mather]. The doctors’ advice was to keep riding his horse, because in their view nothing would do more to lengthen his life[^corpus-brainerd-riding].
+David Brainerd, a missionary to Native Americans in New Jersey, was gravely ill by the age of twenty-nine[^brainerd]. At the end of March he was seized by pain so violent that it seemed only a miracle could keep him alive another day[^corpus-brainerd-pain], “but it pleased God to bless means for the abatement of my distress”[^corpus-brainerd-means]. He saw whatever eased his pain as the way God helped him. When he reached Northampton, Massachusetts, at the end of May, he seemed to have rallied: he could manage twenty-five miles on horseback in a day, and his spirits were good, yet his tuberculosis had already gone too far to be cured[^corpus-brainerd-cheerful]. Dr. Mather was blunt with him: the signs pointed to advanced tuberculosis, and he could offer no hope of recovery[^corpus-brainerd-mather]. Brainerd took the verdict without the slightest alarm; his good humor, his calm and his easy, pleasant talk stayed exactly as they had been[^corpus-brainerd-calm]. The doctors’ advice was to keep riding his horse, because in their view nothing would do more to lengthen his life[^corpus-brainerd-riding].
 
-Edwards, in whose house Brainerd spent his last months, later published his diary as *The Life of David Brainerd* and described how he prayed: “not with florid expressions, or a studied eloquence”[^corpus-brainerd-florid]; his words seemed to come “from the fulness of his heart”[^corpus-brainerd-heart]. And one petition was nearly always part of his prayer: “that we might not outlive our usefulness”[^corpus-brainerd-usefulness].
+The preacher Jonathan Edwards, in whose house Brainerd spent his last months, later published his diary as *The Life of David Brainerd* and described how he prayed: “not with florid expressions, or a studied eloquence”[^corpus-brainerd-florid]; his words seemed to come “from the fulness of his heart”[^corpus-brainerd-heart]. And one petition was nearly always part of his prayer: “that we might not outlive our usefulness”[^corpus-brainerd-usefulness].
 
-Brainerd’s diary is honest. At the end of March he was seized by pain so violent that it seemed only a miracle could keep him alive another day[^corpus-brainerd-pain], “but it pleased God to bless means for the abatement of my distress”[^corpus-brainerd-means]. He saw whatever eased his pain as the way God helped him. Near the end he could barely speak[^corpus-brainerd-speechless], and at his request someone prayed with him[^corpus-brainerd-asked]. When he was asked whether he had heard that prayer, Edwards records, he said that “he heard every word, and had an uncommon sense of the things that were uttered in that prayer, and that every word reached his heart”[^corpus-brainerd-heard]. Shortly before his death he wrote that God had allowed him “to labor much for him in things both of a public and private nature, and perhaps to do more good than I should have done if I had been well”[^corpus-brainerd-good]. Most of the nursing was done by Jerusha[^corpus-brainerd-jerusha], Edwards’s daughter. Brainerd died on October 9, 1747, and a few months later Jerusha died too[^brainerd].
+Toward the end of September[^corpus-brainerd-sept] everyone, Brainerd included, thought he was dying, and he seemed glad that death was near. He could hardly speak, only move his lips, and someone sitting close by heard him calling on Christ to come quickly[^corpus-brainerd-speechless]: “O why is his chariot so long in coming?”[^corpus-brainerd-chariot] When he came round, he reproached himself for having been in such a hurry to die[^corpus-brainerd-eager]. Asked whether he had heard the prayer he had requested[^corpus-brainerd-asked], he said, Edwards records, that “he heard every word, and had an uncommon sense of the things that were uttered in that prayer, and that every word reached his heart”[^corpus-brainerd-heard]. In his last days he wrote that God had allowed him “to labor much for him in things both of a public and private nature, and perhaps to do more good than I should have done if I had been well”[^corpus-brainerd-good].
 
-Brainerd, it seems, was glad to see death coming close[^corpus-brainerd-glad]. That was his own path, not a measure for someone who is praying for the life of a person they love. But he left two things for everyone: simple words from the heart, and asking others to pray with you when your own strength is gone. The apostle James says the same: “Therefore confess your sins to each other and pray for each other so that you may be healed. The prayer of a righteous man has great power to prevail” (James 5:16)[^jas5].
+One day Edwards’s daughter Jerusha[^brainerd], who did most of the nursing, came into the room, and Brainerd gave her a warm look and said[^corpus-brainerd-jerusha]: “Dear Jerusha, are you willing to part with me?”[^corpus-brainerd-part] Then he said he was ready to let all his friends go, even his brother John, whom he loved more than anyone alive, because he had placed them all in God’s hands[^corpus-brainerd-willing]. “Though, if I thought I should not see you, and be happy with you in another world, I could not bear to part with you. But we shall spend an happy eternity together!”[^corpus-brainerd-eternity]
+
+On his last evening the pain in his chest kept growing, until even one more minute of it seemed more than he could bear. What he feared most was dishonoring God by losing patience, so he asked the people around him to keep praying for him: that God would hold him up and grant him patience[^corpus-brainerd-patience]. Brainerd died on October 9, 1747, and a few months later Jerusha died too[^brainerd].
+
+Brainerd’s joy at approaching death was his own path, not a measure for someone who is praying for the life of a person they love. But he left two things for everyone: simple words from the heart, and asking others to pray for you when your own strength is gone. And at that point he asked them to pray not for his recovery but for patience. The apostle James says the same: “Therefore confess your sins to each other and pray for each other so that you may be healed. The prayer of a righteous man has great power to prevail” (James 5:16)[^jas5].
 
 ## Getting well and being healed
 
-Metropolitan Anthony of Sourozh, the Russian Orthodox bishop in London, worked as a doctor for fifteen years before he became a priest[^corpus-antony-doctor]. At one of his talks on prayer, someone asked him point-blank: “I don’t understand how to pray for the sick. If illness is given by God, then how can we pray for Him to take it away?”[^corpus-antony-question] He answered with a story. The warden of his church fell ill with cancer[^corpus-antony-warden]. Anthony left the treatment of the body to the doctors and helped the man work through the heavy feelings that can also destroy a person[^corpus-antony-doctors]. This was help for one particular man, not a reproach to the sick: illness in itself is no sign of God’s punishment. Later, very weak, the man said he was amazed: his body was almost dead, and yet he had never felt so alive[^corpus-antony-alive]. Anthony could not cure him of cancer, but he watched the man open up inwardly and become free[^corpus-antony-cancer]. Often, Anthony observes, a sick person wants only to recover and go back to the life they had before, but healing is wider than that: it is a wholeness from which a completely new life can begin[^corpus-antony-heal]. That is no reason to stop praying for health. But you can pray for someone who is ill in a wider way than for their test results.
+Metropolitan Anthony of Sourozh, the Russian Orthodox bishop in London, worked as a doctor for fifteen years before he became a priest[^corpus-antony-doctor]. At one of his talks on prayer, someone asked him point-blank: “I don’t understand how to pray for the sick. If illness is given by God, then how can we pray for Him to take it away?”[^corpus-antony-question] He answered with a story.
+
+The warden of his church went into the hospital with jaundice; he did not yet know that he had cancer[^corpus-antony-warden]. “How boring!”[^corpus-antony-boring] he complained to Anthony: there was still so much he had to do, and here he was, confined to bed[^corpus-antony-bed]. Anthony reminded him how often he had said he wished he could stop time and simply be, instead of always doing; now that had happened to him[^corpus-antony-be]. “Yes, but I don’t know what it means to ‘be’!”[^corpus-antony-dontknow] the warden replied.
+
+Anthony told him that people fall ill and die not only from physical causes but from moral ones too. The body was for the doctors to look after, but anger, bitterness and everything else that eats away at the soul were his own to deal with, because feelings like these can kill as well[^corpus-antony-doctors]. And the man had lived a hard life, including four years on Solovki[^corpus-antony-solovki], the islands where one of the first Soviet prison camps was set up. For months the two of them talked about how he related to himself and to other people, starting with those closest to him, until one day the weight of his past simply fell away[^corpus-antony-layers]. At the end he lay in bed, so thin he seemed transparent, his eyes shining, and he marveled that his body was nearly dead and yet he had never felt so alive[^corpus-antony-alive]. Anthony could not take the cancer away, but he watched the man open up inwardly and become free[^corpus-antony-cancer].
+
+Often, Anthony observes, a sick person wants only to recover and go back to the life they had before, but healing is wider than that: it is a wholeness from which a completely new life can begin[^corpus-antony-heal]. This does not mean that illness is a reproach to the sick or a punishment from God. Nor is it a reason to stop praying for health. But you can pray for someone who is ill in a wider way than for their test results.
 
 ## Not “a lack of faith”
 
-In one of the talks collected in *Only a Prayer Meeting!*, the London Baptist preacher Charles Spurgeon spoke about a woman in his congregation who had frequent attacks of illness. She never missed a meeting, and all he asked of her was to sit by the door, since an attack could come on at any moment[^corpus-spurgeon-door]. He urged his listeners: “Have sympathy with all the sick, but especially with those who might be spoken of in the words applied to Lazarus”[^corpus-spurgeon-sympathy], and quoted the sisters’ message: “Lord, he whom Thou lovest is sick.”[^corpus-spurgeon-lazarus] Spurgeon echoes John 11:3 in the language of the King James Version. Loved, and sick. The apostle James writes that “the prayer offered in faith will restore the one who is sick” (James 5:15)[^jas5]. But these words must never be turned into an accusation against the sick person or the people praying for them: if recovery doesn’t come, that does not prove a lack of faith. Even the apostle Paul writes of one of his companions: “Trophimus I left sick in Miletus” (2 Timothy 4:20)[^tim]. Illness is not a verdict on anyone’s faith or a grade for your prayer.
+The London Baptist preacher Charles Spurgeon describes one such moment in his book *Only a Prayer Meeting!* A prayer meeting was interrupted by a cry of pain from someone in the congregation[^corpus-spurgeon-cry]. Spurgeon did not pretend that nothing had happened. “Possess your souls in quietness, beloved friends,”[^corpus-spurgeon-quiet] he began, and then he admitted: “I seemed to hear a voice in that sorrowful cry of our friend, and it bade me have pity upon the many whose life is one long agony”[^corpus-spurgeon-voice]. Then he told them about a woman in his congregation who had frequent attacks but loved the meetings so much that all he asked was that she sit by the door, since an attack could come on at any moment[^corpus-spurgeon-door]. “Have sympathy with all the sick, but especially with those who might be spoken of in the words applied to Lazarus”[^corpus-spurgeon-sympathy], he said, and quoted the sisters’ message: “Lord, he whom Thou lovest is sick.”[^corpus-spurgeon-lazarus] Spurgeon echoes John 11:3 in the language of the King James Version. Loved, and sick.
+
+The apostle James writes that “the prayer offered in faith will restore the one who is sick” (James 5:15)[^jas5]. But these words must never be turned into an accusation against the sick person or the people praying for them: if recovery doesn’t come, that does not prove a lack of faith. Even the apostle Paul writes of one of his companions: “Trophimus I left sick in Miletus” (2 Timothy 4:20)[^tim]. Illness is not a verdict on anyone’s faith or a grade for your prayer.
 
 ## How to pray for healing in your own words
 
@@ -816,5 +1141,6 @@ The shortest is “Lord, the one You love is sick” (John 11:3)[^jn11]. For pra
 [^jn11]: John 11:3. Berean Standard Bible (BSB), public domain.
 [^jas5]: James 5:14–16. Berean Standard Bible (BSB), public domain.
 [^tim]: 2 Timothy 4:20. Berean Standard Bible (BSB), public domain.
+[^miracles]: The collection was published in 1885; the story was told by a correspondent of *The Illustrated Christian Weekly* who knew the mother.
 [^ioann]: [Преподобный старец Иоанн Валаамский (Алексеев)](https://azbyka.ru/otechnik/Ioann_Valaamskij/) on Azbuka Very (in Russian): Ivan Alekseevich Alekseev, 1873–1958; at Valaam from 1889; abbot of the Trifon-Pechenga Monastery in 1921–1931; in 1933 took the great schema with the name John; in 1940 the monks were evacuated to Finland, to New Valaam; glorified as a saint by the Patriarchate of Constantinople in 2018. See also [John of Valamo](https://en.wikipedia.org/wiki/John_of_Valamo) on Wikipedia.
 [^brainerd]: [David Brainerd](https://en.wikipedia.org/wiki/David_Brainerd) on Wikipedia: 1718–1747; expelled from Yale College in 1742 for a sharp remark about a tutor; a missionary to Native Americans in New Jersey; in 1747, ill with tuberculosis, came to Jonathan Edwards in Northampton and died in his house on October 9, 1747; Edwards’s daughter Jerusha, who had nursed him, died in February 1748. Edwards published his diary in 1749.
