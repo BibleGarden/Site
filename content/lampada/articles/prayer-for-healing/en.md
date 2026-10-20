@@ -94,15 +94,45 @@ corpus_sources:
   chapter: "Answers To Prayer — Prayer Found The Remedy For The Disease."
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/11553"
+- id: "mother-seeds"
+  kind: "retelling"
+  text: "the medicine brought out enough of them to kill a grown man"
+  original: null
+  translation: null
+  chunk_id: "book-286-0224"
+  book_id: 286
+  char_start: 168120
+  char_end: 168215
+  text_sha256: "259acb0fdc82c2b58156759c3e4e019752a41d276fb4ca2188160731489439e4"
+  author: "D. W. Whittle (ред.)"
+  title: "The Wonders of Prayer"
+  chapter: "Answers To Prayer — Prayer Found The Remedy For The Disease."
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/11553"
 - id: "mother-doctor"
-  kind: "quote"
-  text: "The physician subsequently said that he thought that in that five minutes every kindred case he had ever known in a quarter century's practice passed before his mind."
-  original: "The physician subsequently said that he thought that in that five minutes every kindred case he had ever known in a quarter century's practice passed before his mind."
+  kind: "retelling"
+  text: "every similar case from his twenty-five years of practice had come back to him"
+  original: null
   translation: null
   chunk_id: "book-286-0224"
   book_id: 286
   char_start: 168216
   char_end: 168382
+  text_sha256: "259acb0fdc82c2b58156759c3e4e019752a41d276fb4ca2188160731489439e4"
+  author: "D. W. Whittle (ред.)"
+  title: "The Wonders of Prayer"
+  chapter: "Answers To Prayer — Prayer Found The Remedy For The Disease."
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/11553"
+- id: "mother-cause"
+  kind: "retelling"
+  text: "and one of them pointed to the real cause of the convulsions, which until then had been hidden"
+  original: null
+  translation: null
+  chunk_id: "book-286-0224"
+  book_id: 286
+  char_start: 168383
+  char_end: 168505
   text_sha256: "259acb0fdc82c2b58156759c3e4e019752a41d276fb4ca2188160731489439e4"
   author: "D. W. Whittle (ред.)"
   title: "The Wonders of Prayer"
@@ -709,9 +739,9 @@ Many churches also pray for the sick by name at their services. You can ask your
 
 ## When there are no words
 
-An anonymous story in *The Wonders of Prayer*, a collection published in 1885, begins with a small child in convulsions. The doctor tried every remedy that was usual at the time, and nothing helped; at last he walked away from the bed and sat down by the window[^corpus-mother-scene]. “He seemed, to the agonized mother, to have abandoned her darling.”[^corpus-mother-abandoned] “For herself, she could do nothing but pray; and even her prayer was but an inarticulate and unvoiced cry for help.”[^corpus-mother-cry]
+An anonymous story in *The Wonders of Prayer* begins with a small child in convulsions. The doctor tried every remedy that was usual at the time, and nothing helped; at last he walked away from the bed and sat down by the window[^corpus-mother-scene]. “He seemed, to the agonized mother, to have abandoned her darling.”[^corpus-mother-abandoned] “For herself, she could do nothing but pray; and even her prayer was but an inarticulate and unvoiced cry for help.”[^corpus-mother-cry]
 
-Then the doctor jumped up and told them to look in the yard for a poisonous weed. It was there, and he changed the treatment on the spot[^corpus-mother-weed]. “The physician subsequently said that he thought that in that five minutes every kindred case he had ever known in a quarter century's practice passed before his mind.”[^corpus-mother-doctor] “And the child was saved.”[^corpus-mother-saved] The book reprints it from a correspondent of a Christian weekly who knew the mother; no names are given. Not every night like that one ends this way. But a cry without words is a real prayer too.
+Then the doctor jumped up and told them to look in the yard for a poisonous weed. It was there, and he changed the treatment on the spot[^corpus-mother-weed]. The seeds were the cause: the medicine brought out enough of them to kill a grown man[^corpus-mother-seeds]. Later the doctor said that in those five minutes by the window every similar case from his twenty-five years of practice had come back to him[^corpus-mother-doctor], and one of them pointed to the real cause of the convulsions, which until then had been hidden[^corpus-mother-cause]. “And the child was saved.”[^corpus-mother-saved] The book reprints it from a correspondent of a Christian weekly who knew the mother; no names are given. Not every night like that one ends this way. But a cry without words is a real prayer too.
 
 ## A sick man writes to a sick woman
 
@@ -731,7 +761,7 @@ David Brainerd was expelled from Yale for a careless remark about a tutor. This 
 
 Edwards, in whose house Brainerd spent his last months, later published his diary as *The Life of David Brainerd* and described how he prayed: “not with florid expressions, or a studied eloquence”[^corpus-brainerd-florid]; his words seemed to come “from the fulness of his heart”[^corpus-brainerd-heart]. And one petition was nearly always part of his prayer: “that we might not outlive our usefulness”[^corpus-brainerd-usefulness].
 
-Brainerd’s diary is honest. At the end of March he was seized by pain so violent that it seemed only a miracle could keep him alive another day[^corpus-brainerd-pain], “but it pleased God to bless means for the abatement of my distress”[^corpus-brainerd-means]. Near the end he could barely speak[^corpus-brainerd-speechless], and at his request someone prayed with him[^corpus-brainerd-asked]. When he was asked whether he had heard that prayer, Edwards records, he said that “he heard every word, and had an uncommon sense of the things that were uttered in that prayer, and that every word reached his heart”[^corpus-brainerd-heard]. Shortly before his death he wrote that God had allowed him “to labor much for him in things both of a public and private nature, and perhaps to do more good than I should have done if I had been well”[^corpus-brainerd-good]. Most of the nursing was done by Jerusha[^corpus-brainerd-jerusha], Edwards’s daughter. Brainerd died on October 9, 1747, and a few months later Jerusha died too[^brainerd].
+Brainerd’s diary is honest. At the end of March he was seized by pain so violent that it seemed only a miracle could keep him alive another day[^corpus-brainerd-pain], “but it pleased God to bless means for the abatement of my distress”[^corpus-brainerd-means]. He saw whatever eased his pain as the way God helped him. Near the end he could barely speak[^corpus-brainerd-speechless], and at his request someone prayed with him[^corpus-brainerd-asked]. When he was asked whether he had heard that prayer, Edwards records, he said that “he heard every word, and had an uncommon sense of the things that were uttered in that prayer, and that every word reached his heart”[^corpus-brainerd-heard]. Shortly before his death he wrote that God had allowed him “to labor much for him in things both of a public and private nature, and perhaps to do more good than I should have done if I had been well”[^corpus-brainerd-good]. Most of the nursing was done by Jerusha[^corpus-brainerd-jerusha], Edwards’s daughter. Brainerd died on October 9, 1747, and a few months later Jerusha died too[^brainerd].
 
 Brainerd, it seems, was glad to see death coming close[^corpus-brainerd-glad]. That was his own path, not a measure for someone who is praying for the life of a person they love. But he left two things for everyone: simple words from the heart, and asking others to pray with you when your own strength is gone. The apostle James says the same: “Therefore confess your sins to each other and pray for each other so that you may be healed. The prayer of a righteous man has great power to prevail” (James 5:16)[^jas5].
 
@@ -741,7 +771,7 @@ Metropolitan Anthony of Sourozh, the Russian Orthodox bishop in London, worked a
 
 ## Not “a lack of faith”
 
-In one of the talks collected in *Only a Prayer Meeting!*, the London Baptist preacher Charles Spurgeon spoke about a woman in his congregation who had frequent attacks of illness. She never missed a meeting, and all he asked of her was to sit by the door, since an attack could come on at any moment[^corpus-spurgeon-door]. He urged his listeners: “Have sympathy with all the sick, but especially with those who might be spoken of in the words applied to Lazarus”[^corpus-spurgeon-sympathy], and quoted the sisters’ message: “Lord, he whom Thou lovest is sick.”[^corpus-spurgeon-lazarus] That is John 11:3 in the King James Version. Loved, and sick. The apostle James writes that “the prayer offered in faith will restore the one who is sick” (James 5:15)[^jas5]. But these words must never be turned into an accusation against the sick person or the people praying for them: if recovery doesn’t come, that does not prove a lack of faith. Even the apostle Paul writes of one of his companions: “Trophimus I left sick in Miletus” (2 Timothy 4:20)[^tim]. Illness is not a verdict on anyone’s faith or a grade for your prayer.
+In one of the talks collected in *Only a Prayer Meeting!*, the London Baptist preacher Charles Spurgeon spoke about a woman in his congregation who had frequent attacks of illness. She never missed a meeting, and all he asked of her was to sit by the door, since an attack could come on at any moment[^corpus-spurgeon-door]. He urged his listeners: “Have sympathy with all the sick, but especially with those who might be spoken of in the words applied to Lazarus”[^corpus-spurgeon-sympathy], and quoted the sisters’ message: “Lord, he whom Thou lovest is sick.”[^corpus-spurgeon-lazarus] Spurgeon echoes John 11:3 in the language of the King James Version. Loved, and sick. The apostle James writes that “the prayer offered in faith will restore the one who is sick” (James 5:15)[^jas5]. But these words must never be turned into an accusation against the sick person or the people praying for them: if recovery doesn’t come, that does not prove a lack of faith. Even the apostle Paul writes of one of his companions: “Trophimus I left sick in Miletus” (2 Timothy 4:20)[^tim]. Illness is not a verdict on anyone’s faith or a grade for your prayer.
 
 ## How to pray for healing in your own words
 
@@ -749,7 +779,7 @@ In one of the talks collected in *Only a Prayer Meeting!*, the London Baptist pr
 - **Be specific**: ask for recovery, for an accurate diagnosis and clear thinking for the doctors, for strength for the person who is ill and for those who care for them.
 - **If you have no words**, a cry without words is enough, like that mother’s, or “Lord, have mercy.”
 - **You can pray sitting or lying down.** Elder John prayed sitting.
-- **If you can’t pray on your own, ask others** to pray with you or for you, and in your church, your pastor or priest. We wrote about how to pray for another person in our article on [praying for others](/articles/praying-for-others/), and if fear for someone you love won’t let go, see our article on [prayer for anxiety](/articles/prayer-for-anxiety/).
+- **If you can’t pray on your own, ask someone** to pray with you or for you. You can also ask your pastor or priest. We wrote about how to pray for another person in our article on [praying for others](/articles/praying-for-others/), and if fear for someone you love won’t let go, see our article on [prayer for anxiety](/articles/prayer-for-anxiety/).
 - **When things get better, give thanks.** Our article on [thanksgiving prayer](/articles/thanksgiving-prayer/) is about exactly that.
 
 Prayer is no substitute for medical treatment, and it does not guarantee recovery. Don’t delay or stop treatment in the hope of a miracle, and don’t stop taking medication without talking to a doctor. If someone is seriously unwell right now, call your local emergency number first; you can pray while help is on the way. And illness is not a punishment for anyone’s lack of faith.
