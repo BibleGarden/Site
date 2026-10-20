@@ -231,7 +231,7 @@ corpus_sources:
   source_url: "https://wesley.nnu.edu/other-theologians/francis-asbury/"
 - id: "newton-eyes"
   kind: "retelling"
-  text: "a correspondent with bad eyes"
+  text: "someone who was having trouble with their eyes"
   original: null
   translation: null
   chunk_id: "book-304-0979"
@@ -426,7 +426,7 @@ corpus_sources:
   source_url: "https://predanie.ru/shmeman-aleksandr-protoierey/dnevniki/"
 - id: "sch-height"
   kind: "quote"
-  text: "was afraid of the height to which my illness had lifted me"
+  text: "I was afraid of the height to which my illness had lifted me"
   original: "боялся той высоты, на которую подняла меня моя болезнь"
   translation: "ours"
   chunk_id: "book-59-1752"
@@ -585,9 +585,9 @@ This may be the simplest prayer of thanks there is: name the people who were kin
 
 ## When you don’t feel thankful
 
-As a young man John Newton was a captain of slave ships; after his conversion he became an Anglican clergyman and wrote the hymn “Amazing Grace”[^newton]. In October 1777 he wrote to a correspondent with bad eyes[^corpus-newton-eyes]. The letter later appeared in his collection *Cardiphonia*. Newton recalls that exactly a year before, he had been operated on, and he thanks God that he agreed to the surgery and came through it well[^corpus-newton-op]. “In short, I have so many reasons for thankfulness, that I cannot count them.”[^corpus-newton-count] And in the next breath: “And, yet, alas ! how cold, insensible, and ungrateful !”[^corpus-newton-cold]
+As a young man John Newton was a captain of slave ships; after his conversion he became an Anglican clergyman and wrote the hymn “Amazing Grace”[^newton]. In October 1777 he wrote to someone who was having trouble with their eyes[^corpus-newton-eyes]. The letter later appeared in his collection *Cardiphonia*. Newton recalls that exactly a year before, he had been operated on, and he thanks God that he agreed to the surgery and came through it well[^corpus-newton-op]. “In short, I have so many reasons for thankfulness, that I cannot count them.”[^corpus-newton-count] And in the next breath: “And, yet, alas ! how cold, insensible, and ungrateful !”[^corpus-newton-cold]
 
-Newton doesn’t pretend to a burning heart. He sees reasons to give thanks and admits honestly that his heart stays silent. He makes another confession, too: “I could make as many complaints as you ; but I find no good by complaining, except to Him who is able to help me.”[^corpus-newton-complain] Complaining to God is no enemy of gratitude; it is part of the same conversation.
+Newton doesn’t pretend his heart is full of gratitude. He sees reasons to give thanks and admits honestly that his heart stays silent. He makes another confession, too: “I could make as many complaints as you ; but I find no good by complaining, except to Him who is able to help me.”[^corpus-newton-complain] Complaining to God is no enemy of gratitude; it is part of the same conversation.
 
 Newton closes the letter with words from a psalm: “Hope in God, for you shall yet praise Him.”[^corpus-newton-psalm] In the Berean Standard Bible the whole verse reads: “Why are you downcast, O my soul? Why the unease within me? Put your hope in God, for I will yet praise Him for the salvation of His presence” (Psalm 42:5)[^ps42]. The psalmist doesn’t say the gloom has lifted. He talks to it and promises praise in the future tense. You can pray like that too.
 
@@ -607,16 +607,16 @@ A prayer of thanks doesn’t need anything grand. Snow, light in the windows, a 
 
 For example: “Lord, thank you for Mom’s call today and that my back hurt less. Work was hard, You know that; please help me. And thank you for being with me.”
 
-Gratitude is not a duty to shine. It shouldn’t drown out pain, your own or anyone else’s: “others have it worse” is poor comfort. And it is no substitute for help, a doctor or rest.
+Being grateful doesn’t mean you have to seem cheerful. Gratitude shouldn’t drown out pain, your own or anyone else’s: “others have it worse” is poor comfort. And it is no substitute for help, a doctor or rest.
 
 ## A prayer of thanks with Lampada
 <!-- screen: topic, reflection, history -->
 
 You can try this today in [Lampada](/). Before you pray, you name your prayer’s topic in one sentence: one of the examples is “Thank God,” or you can write your own, such as “Thank you for this day” or “Thanks for my mom.” You can turn the timer off. The guiding questions are only prompts: you can skip them, and you can answer by typing or by voice. If you have allowed the app to send your topic, the Passage tab will show a passage of Scripture that fits its meaning.
 
-At the end you can write a takeaway of a line or two. The prayer is saved in the journal on your phone, and keyword search will help you find your thanksgivings later and remember what you thanked God for. You can set a prayer reminder for the days and time you choose. There is no gratitude list or counter in the app and no ready-made prayers: the words stay yours.
+At the end you can write a takeaway of a line or two. The prayer is saved in the journal on your phone, and keyword search will help you later find the prayers where you gave thanks and remember what you thanked God for. You can set a prayer reminder for the days and time you choose. There is no gratitude list or counter in the app and no ready-made prayers: the words stay yours.
 
-Schmemann made his last diary entry on June 1, 1983: “Eight months — I haven’t written a word here.”[^corpus-sch-silence] Fear had kept him from writing: he “was afraid of the height to which my illness had lifted me”[^corpus-sch-height]. And he ended the entry with a list: “Three visits from Andrei. Three visits from Serge. Visits from the Tkachuks… What happiness all of this was!”[^corpus-sch-list] His son Serge writes in the preface to the diaries that six months later, on December 13, 1983, Father Alexander died at home, surrounded by those closest to him[^corpus-sch-death]. Listing who came and marveling at it: that, too, is thanking God in your own words.
+Schmemann made his last diary entry on June 1, 1983: “Eight months — I haven’t written a word here.”[^corpus-sch-silence] Fear had kept him from writing. He wrote of it: “I was afraid of the height to which my illness had lifted me”[^corpus-sch-height]. And he ended the entry with a list: “Three visits from Andrei. Three visits from Serge. Visits from the Tkachuks… What happiness all of this was!”[^corpus-sch-list] His son Serge writes in the preface to the diaries that six months later, on December 13, 1983, Father Alexander died at home, surrounded by those closest to him[^corpus-sch-death]. Listing who came and marveling at it: that, too, is thanking God in your own words.
 
 ## Frequently asked questions {#faq}
 
