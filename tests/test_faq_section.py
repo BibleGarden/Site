@@ -2,10 +2,13 @@
 
 from __future__ import annotations
 
+from datetime import date
+from types import SimpleNamespace
 import unittest
 from xml.etree import ElementTree as ET
 
-from sitegen.content import render_markdown
+from sitegen.build import Page, SiteBuilder
+from sitegen.content import Article, extract_faq, faq_answer_text, render_markdown
 
 BODY = """Intro[^note].
 
@@ -48,6 +51,43 @@ class FaqSectionTest(unittest.TestCase):
 
     def test_body_without_faq_is_unchanged(self) -> None:
         self.assertNotIn("<section", render_markdown("## Heading\n\nText.\n", lang="en"))
+
+    def test_rendered_footnote_references_are_omitted(self) -> None:
+        for reference in (
+            '<sup><a class="footnote-ref">1</a></sup>',
+            '<a class="footnote-ref">1</a>',
+            '<sup>[<a class="extra footnote-ref"><span>1</span></a>]</sup>',
+        ):
+            with self.subTest(reference=reference):
+                self.assertEqual(faq_answer_text(f"Answer{reference}. Next.", lang="en"), "Answer. Next.")
+        self.assertEqual(faq_answer_text('x<sup>2</sup> and [link](/page/).', lang="en"), "x2 and link.")
+
+    def test_json_ld_answer_omits_markdown_footnote_marker(self) -> None:
+        faq = extract_faq(
+            "## Questions {#faq}\n\n### Question?\n\nAnswer with *emphasis*[^source].\n",
+            source=__file__,
+            lang="en",
+        )
+        article = Article(
+            slug="fixture", lang="en", title="Fixture", description="Test", date=date(2026, 10, 20),
+            updated=None, draft=False, image=None, body_html="", faq=faq, screens=(),
+        )
+        builder = SiteBuilder.__new__(SiteBuilder)
+        builder.site = SimpleNamespace(
+            base_url="https://example.test",
+            name="Example",
+            config={"logo": "/logo.png"},
+            author=SimpleNamespace(json_ld=lambda site, lang: {"@type": "Organization", "name": "Example"}),
+            url=lambda lang, path="": f"https://example.test/{path}",
+        )
+        builder.t = lambda lang: {"articles": {"breadcrumb_home": "Home", "section_title": "Articles"}}
+        schema = builder.article_json_ld(
+            article,
+            Page("en", "en", "Fixture", "Test", {"en": "https://example.test/articles/fixture/"}, "https://example.test/logo.png"),
+        )
+        answer = schema[-1]["mainEntity"][0]["acceptedAnswer"]["text"]
+        self.assertEqual(answer, "Answer with emphasis.")
+        self.assertNotIn("[^", answer)
 
 
 if __name__ == "__main__":

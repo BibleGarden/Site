@@ -6,6 +6,7 @@ import datetime as dt
 import re
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
@@ -31,6 +32,7 @@ FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---\n(.*)\Z", re.DOTALL)
 FAQ_HEADING_RE = re.compile(r"^## .*\{#faq\}\s*$")
 H2_RE = re.compile(r"^## ")
 H3_RE = re.compile(r"^### (.+?)\s*$")
+FOOTNOTE_REFERENCE_RE = re.compile(r"\[\^[^\]\n]+\]")
 SCREEN_MARKER_RE = re.compile(r"^<!-- screen: ([a-z0-9]+(?:-[a-z0-9]+)*(?:, *[a-z0-9]+(?:-[a-z0-9]+)*)*) -->$")
 SCREEN_INTENT_RE = re.compile(r"<!--\s*(?:scre+n|sreen|screan)s?\b", re.IGNORECASE)
 HTML_COMMENT_LINE_RE = re.compile(r"^\s*(?:>\s*)*<!--")
@@ -123,7 +125,7 @@ class Site:
 @dataclass(frozen=True)
 class FaqItem:
     question: str
-    answer_html: str
+    answer_text: str
 
 
 @dataclass(frozen=True)
@@ -517,6 +519,57 @@ def render_markdown(
     return markdown.markdown(text, extensions=extensions, extension_configs=MARKDOWN_EXTENSION_CONFIGS)
 
 
+class _PlainText(HTMLParser):
+    """Collect rendered Markdown as whitespace-normalized plain text."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.parts: list[str] = []
+        self.sup_starts: list[int] = []
+        self.skipped_tag: str | None = None
+        self.skipped_depth = 0
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if self.skipped_tag is not None:
+            if tag == self.skipped_tag:
+                self.skipped_depth += 1
+            return
+        if tag == "sup":
+            self.sup_starts.append(len(self.parts))
+        if tag == "a" and "footnote-ref" in (dict(attrs).get("class") or "").split():
+            self.skipped_tag = "sup" if self.sup_starts else "a"
+            self.skipped_depth = 1
+            if self.sup_starts:
+                del self.parts[self.sup_starts[-1]:]
+            return
+        if tag in {"br", "li", "p", "pre", "blockquote"}:
+            self.parts.append(" ")
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == self.skipped_tag:
+            self.skipped_depth -= 1
+            if self.skipped_depth:
+                return
+            self.skipped_tag = None
+        if tag == "sup" and self.skipped_tag is None and self.sup_starts:
+            self.sup_starts.pop()
+
+    def handle_data(self, data: str) -> None:
+        if self.skipped_tag is None:
+            self.parts.append(data)
+
+    def text(self) -> str:
+        return re.sub(r"\s+", " ", "".join(self.parts)).strip()
+
+
+def faq_answer_text(answer: str, *, lang: str) -> str:
+    """Render a FAQ answer as the plain text required by FAQPage JSON-LD."""
+    parser = _PlainText()
+    parser.feed(render_markdown(FOOTNOTE_REFERENCE_RE.sub("", answer), lang=lang))
+    parser.close()
+    return parser.text()
+
+
 def extract_faq(body: str, source: Path, *, lang: str) -> tuple[FaqItem, ...]:
     """Collect '### question' / answer pairs from the '## ... {#faq}' section, if present."""
     lines = body.splitlines()
@@ -541,7 +594,7 @@ def extract_faq(body: str, source: Path, *, lang: str) -> tuple[FaqItem, ...]:
         answer_text = "\n".join(answer).strip()
         if not answer_text:
             raise BuildError(f"{source}: FAQ question '{question}' has no answer")
-        items.append(FaqItem(question=question, answer_html=render_markdown(answer_text, lang=lang)))
+        items.append(FaqItem(question=question, answer_text=faq_answer_text(answer_text, lang=lang)))
 
     for index in range(starts[0] + 1, end):
         match = heading(index, H3_RE)
