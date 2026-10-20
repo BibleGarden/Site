@@ -739,74 +739,14 @@ corpus_sources:
   chapter: "1. Principali dati biografici."
   translator: null
   source_url: "https://www.intratext.com/IXT/ITA1005/"
-- id: "guardini-date"
+- id: "guardini-room"
   kind: "retelling"
-  text: "25 марта 1845 года она отправила в Риву Летиции Альнайдер"
+  text: "В письме к Летиции она советует каждое утро, прежде чем выйти из комнаты, отдавать Богу дела наступающего дня"
   original: null
   translation: null
-  chunk_id: "book-153-4572"
-  book_id: 153
-  char_start: 3573267
-  char_end: 3573361
-  text_sha256: "a45872cccf9c11603d47638bb1e220bab61d31e89855a85227037ea97f46603d"
-  author: "Rachele Guardini (письма); Vincenzo Carbone (биография и издание)"
-  title: "Una contemplativa nella vita attiva. Madre Rachele Guardini. Volumi I–VI"
-  chapter: null
-  translator: null
-  source_url: "https://www.intratext.com/IXT/ITA1005/"
-- id: "guardini-home"
-  kind: "retelling"
-  text: "Гуардини рада, что та снова в объятиях матери, и признаётся, что боялась, не попала ли девушка на пароходе в бурю"
-  original: null
-  translation: null
-  chunk_id: "book-153-4569"
-  book_id: 153
-  char_start: 3570830
-  char_end: 3571085
-  text_sha256: "a45872cccf9c11603d47638bb1e220bab61d31e89855a85227037ea97f46603d"
-  author: "Rachele Guardini (письма); Vincenzo Carbone (биография и издание)"
-  title: "Una contemplativa nella vita attiva. Madre Rachele Guardini. Volumi I–VI"
-  chapter: null
-  translator: null
-  source_url: "https://www.intratext.com/IXT/ITA1005/"
-- id: "guardini-sheet"
-  kind: "retelling"
-  text: "Когда Летиция недосчиталась простыни, Гуардини велела выдать ей другую, из общины, а маме советует напомнить, что одну простыню Летиция сама отдала какой-то бедной женщине и оставила в Триесте: может, тогда и счёт сойдётся"
-  original: null
-  translation: null
-  chunk_id: "book-153-4571"
-  book_id: 153
-  char_start: 3572909
-  char_end: 3573126
-  text_sha256: "a45872cccf9c11603d47638bb1e220bab61d31e89855a85227037ea97f46603d"
-  author: "Rachele Guardini (письма); Vincenzo Carbone (биография и издание)"
-  title: "Una contemplativa nella vita attiva. Madre Rachele Guardini. Volumi I–VI"
-  chapter: null
-  translator: null
-  source_url: "https://www.intratext.com/IXT/ITA1005/"
-- id: "guardini-offer"
-  kind: "quote"
-  text: "Больше всего мне хочется, чтобы вы упражнялись в утреннем приношении своих дел"
-  original: "Quello, che sopra tutto mi preme ch’esercitiate, è l’offerta delle azioni la mattina."
-  translation: "ours"
   chunk_id: "book-153-4570"
   book_id: 153
   char_start: 3571742
-  char_end: 3571827
-  text_sha256: "a45872cccf9c11603d47638bb1e220bab61d31e89855a85227037ea97f46603d"
-  author: "Rachele Guardini (письма); Vincenzo Carbone (биография и издание)"
-  title: "Una contemplativa nella vita attiva. Madre Rachele Guardini. Volumi I–VI"
-  chapter: null
-  translator: null
-  source_url: "https://www.intratext.com/IXT/ITA1005/"
-- id: "guardini-room"
-  kind: "quote"
-  text: "Ради Бога, моя Летиция, не выходите из своей комнаты, не сделав этого; и помните ту четверть часа размышления, что вы мне обещали; а потом со святой радостью исполняйте свои обязанности"
-  original: "Per carità, mia Letizia, non sortite dalla vostra stanza senza questo aver fatto, anzi ricordatevi quel quarto d’ora di meditazione che mi prometteste; poi con santa allegrezza esaurite i vostri doveri."
-  translation: "ours"
-  chunk_id: "book-153-4570"
-  book_id: 153
-  char_start: 3571828
   char_end: 3572030
   text_sha256: "a45872cccf9c11603d47638bb1e220bab61d31e89855a85227037ea97f46603d"
   author: "Rachele Guardini (письма); Vincenzo Carbone (биография и издание)"
@@ -994,11 +934,9 @@ corpus_sources:
 
 ## Если пропустили
 
-Католическая монахиня Рахиль Гуардини руководила в Венеции домом сестёр-учительниц святой Доротеи[^corpus-guardini-bio]. Но в письме, которое 25 марта 1845 года она отправила в Риву Летиции Альнайдер[^corpus-guardini-date], она прежде всего тревожится о девушке. Гуардини рада, что та снова в объятиях матери, и признаётся, что боялась, не попала ли девушка на пароходе в бурю[^corpus-guardini-home]. А в конце, между делом, — про пропавшую простыню. Когда Летиция недосчиталась простыни, Гуардини велела выдать ей другую, из общины, а маме советует напомнить, что одну простыню Летиция сама отдала какой-то бедной женщине и оставила в Триесте: может, тогда и счёт сойдётся[^corpus-guardini-sheet].
+Католическая монахиня Рахиль Гуардини руководила в Венеции домом сестёр-учительниц святой Доротеи[^corpus-guardini-bio]. В письме к Летиции она советует каждое утро, прежде чем выйти из комнаты, отдавать Богу дела наступающего дня[^corpus-guardini-room]. А на случай сбоев пишет: «Раз в неделю перечитывайте решения, которые записали в порыве усердия, чтобы суметь их исполнить; если же по какой-то причине вы какое-то из них не исполнили, постарайтесь не поддаваться досаде, а смиренно попросите прощения у нашего доброго Бога и снова ободритесь»[^corpus-guardini-weekly].
 
-Остальное письмо — о том, как не растерять дома то, что было начато. «Больше всего мне хочется, чтобы вы упражнялись в утреннем приношении своих дел»[^corpus-guardini-offer]. «Ради Бога, моя Летиция, не выходите из своей комнаты, не сделав этого; и помните ту четверть часа размышления, что вы мне обещали; а потом со святой радостью исполняйте свои обязанности»[^corpus-guardini-room]. И главное: «Раз в неделю перечитывайте решения, которые записали в порыве усердия, чтобы суметь их исполнить; если же по какой-то причине вы какое-то из них не исполнили, постарайтесь не поддаваться досаде, а смиренно попросите прощения у нашего доброго Бога и снова ободритесь»[^corpus-guardini-weekly].
-
-Гуардини не обещает, что всё будет исполняться без сбоев. Пропуск у неё — часть пути: раз в неделю посмотреть, что получилось, без досады попросить прощения и начать снова. Если перерыв затянулся на месяцы или годы, начните так же — с малого, как в первый раз; об этом статья [как начать молиться](/ru/articles/how-to-start-praying/). А если молиться вы садитесь, но мысли разбегаются, — [о рассеянности в молитве](/ru/articles/distraction-in-prayer/).
+Пропуск у Гуардини — часть пути: без досады попросить прощения и начать снова. Если перерыв затянулся на месяцы или годы, начните так же — с малого, как в первый раз; об этом статья [как начать молиться](/ru/articles/how-to-start-praying/). А если молиться вы садитесь, но мысли разбегаются, — [о рассеянности в молитве](/ru/articles/distraction-in-prayer/).
 
 ## С чего начать завтра
 
