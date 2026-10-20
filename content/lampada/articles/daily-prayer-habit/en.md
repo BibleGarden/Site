@@ -1,6 +1,6 @@
 ---
 title: 'Daily Prayer Routine: When to Pray, How Long and How to Make It a Habit'
-description: 'To build a daily prayer routine, tie prayer to something that already happens every day: waking up, meals, the commute, bedtime. Start with a measure you can keep even on a bad day, and after a missed day come back without beating yourself up. How long to pray and how to pray in the morning, with the stories of John Paton’s father, Andrew Bonar, Abbess Taisia and Rachele Guardini.'
+description: 'To build a daily prayer routine, tie prayer to something that already happens every day: waking up, meals, the commute, bedtime. Start with a few minutes you can set aside even on a difficult day, and after a missed day come back without beating yourself up. How long to pray and how to pray in the morning, with the stories of John Paton’s father, Andrew Bonar, Abbess Taisia and Rachele Guardini.'
 date: 2026-10-20
 draft: true
 corpus_sources:
@@ -409,6 +409,21 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: "https://archive.org/details/andrewabonarddd00bonagoog"
+- id: "wesley-notebook"
+  kind: "retelling"
+  text: "took a small notebook with him wherever he travelled"
+  original: null
+  translation: null
+  chunk_id: "book-48-0162"
+  book_id: 48
+  char_start: 131162
+  char_end: 131297
+  text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
+  author: "David M’Intyre (David MacIntyre)"
+  title: "The Hidden Life of Prayer"
+  chapter: "Notes"
+  translator: null
+  source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "wesley-two"
   kind: "quote"
   text: "On the front page of each successive copy of this memorandum book he always recorded a resolution to spend two hours daily in private prayer, no evasion or proviso being admitted."
@@ -486,7 +501,7 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/Taisija_Solopova/zapiski-igumenii-taisii/"
 - id: "taisia-cross"
   kind: "retelling"
-  text: "Her joy was not of this earth, but her elder, Mother Glafira, warned her that with the monastic habit she was also taking up the monastic cross. At the time, Taisia did not understand what those words meant"
+  text: "Her joy was not of this earth, but Mother Glafira, the older nun guiding her spiritual life, warned her that with the monastic habit she was also taking up the monastic cross. At the time, Taisia did not understand what those words meant"
   original: null
   translation: null
   chunk_id: "book-185-0146"
@@ -621,7 +636,7 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/Taisija_Solopova/zapiski-igumenii-taisii/"
 - id: "taisia-samovar"
   kind: "retelling"
-  text: "Yet she worked almost until Vespers, and then she still had to get the samovar going for her elder and the girl who shared her cell"
+  text: "Yet she worked almost until Vespers, the evening service, and then she still had to get the samovar going for her mentor and her cellmate"
   original: null
   translation: null
   chunk_id: "book-185-0149"
@@ -636,7 +651,7 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/Taisija_Solopova/zapiski-igumenii-taisii/"
 - id: "taisia-lonely"
   kind: "retelling"
-  text: "Her cellmate saw her as a rival, and Taisia was tormented by longing for her mother"
+  text: "The cellmate saw her as a rival, and Taisia was tormented by longing for her mother"
   original: null
   translation: null
   chunk_id: "book-185-0150"
@@ -696,7 +711,7 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/Taisija_Solopova/zapiski-igumenii-taisii/"
 - id: "taisia-optional"
   kind: "quote"
-  text: "even though this was obligatory only for nuns, not for beginners"
+  text: "even though this was obligatory only for nuns, not for novices"
   original: "хотя это было обязательным только для монахинь, а не для новоначальных"
   translation: "ours"
   chunk_id: "book-185-0149"
@@ -711,7 +726,7 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/Taisija_Solopova/zapiski-igumenii-taisii/"
 - id: "taisia-tears"
   kind: "quote"
-  text: "It was easier for me in church, where I would weep out all my sorrow before God in prayer, and I had no little of it"
+  text: "I found relief in church, where I would pour out all my sorrow before God in tears—and I had plenty of sorrow"
   original: "Мне было легче в церкви, как, бывало, выплачешь в молитве пред Богом все свое горюшко, а его было немало"
   translation: "ours"
   chunk_id: "book-185-0149"
@@ -894,7 +909,7 @@ Scotland, the first half of the nineteenth century. The house has two rooms, and
 
 This is how John G. Paton, who grew up to become a missionary in the New Hebrides, remembered his childhood[^paton]. In the son’s memory, his father’s prayer is tied to something that came round every day: meals.
 
-That already holds the answer to how to pray every day. A daily prayer habit needs its own place in the day, a cue that will come anyway: waking up, breakfast, the commute, bedtime. It needs a measure that will hold even on a bad day, and a few minutes is enough to start. And it needs permission to fail: a missed day is a reason to come back tomorrow, not to give up. The Anglican bishop J. C. Ryle advised giving prayer its own place in the day, just as meals, sleep and work have theirs, and picking the hours for yourself[^corpus-ryle-allot][^ryle]. And he added: “At the very least, speak with God in the morning, before you speak with the world: and speak with God at night, after you have done with the world.”[^corpus-ryle-least]
+That already holds the answer to how to pray every day. A daily prayer habit needs its own place in the day, a cue that will come anyway: waking up, breakfast, the commute, bedtime. Start with a few minutes you can set aside even on a difficult day. And give yourself permission to fail: a missed day is a reason to come back tomorrow, not to give up. The Anglican bishop J. C. Ryle advised giving prayer its own place in the day, just as meals, sleep and work have theirs, and picking the hours for yourself[^corpus-ryle-allot][^ryle]. And he added: “At the very least, speak with God in the morning, before you speak with the world: and speak with God at night, after you have done with the world.”[^corpus-ryle-least]
 
 ## A door closed after meals
 
@@ -918,19 +933,19 @@ Bonar never formed the habit once and for all. He came back to it again and agai
 
 ## How long should you pray?
 
-Bonar longed for two hours a day. MacIntyre writes of the notebooks John Wesley, the founder of Methodism, kept on his travels: “On the front page of each successive copy of this memorandum book he always recorded a resolution to spend two hours daily in private prayer, no evasion or proviso being admitted.”[^corpus-wesley-two] Having given this example, he adds a caveat straight away: “Perhaps such a rule may seem to some to be rigid even to formality.”[^corpus-macintyre-rigid] Nobody should treat someone else’s habit as a rule for themselves, he says, but everyone should make sure there is proper room in life for being with God[^corpus-macintyre-bound].
+Bonar longed for two hours a day. John Wesley, the founder of Methodism, took a small notebook with him wherever he travelled[^corpus-wesley-notebook]. MacIntyre writes: “On the front page of each successive copy of this memorandum book he always recorded a resolution to spend two hours daily in private prayer, no evasion or proviso being admitted.”[^corpus-wesley-two] Having given this example, he adds a caveat straight away: “Perhaps such a rule may seem to some to be rigid even to formality.”[^corpus-macintyre-rigid] Nobody should treat someone else’s habit as a rule for themselves, he says, but everyone should make sure there is proper room in life for being with God[^corpus-macintyre-bound].
 
-Ryle thought the same: “I do not maintain that prayers should always be of the same length; but I do say, let no excuse make you give up prayer.”[^corpus-ryle-length] Someone else’s two hours are not your yardstick. Better a modest measure you can keep on a tired day too: five minutes, a quarter of an hour. You can add more later, when prayer itself asks for more. If you keep a rule of prayer and wonder what to read in that time, see our article on the [rule of prayer](/articles/prayer-rule/).
+Ryle thought the same: “I do not maintain that prayers should always be of the same length; but I do say, let no excuse make you give up prayer.”[^corpus-ryle-length] Someone else’s two hours are not your yardstick. Better a modest amount of time you can keep up even on a tired day: five minutes, a quarter of an hour. You can add more later, when prayer itself asks for more. If you keep a rule of prayer and wonder what to read in that time, see our article on the [rule of prayer](/articles/prayer-rule/).
 
 ## Evening: a place to lay down the day
 
-Taisia (Solopova), who would later become an abbess, entered a convent very young, soon after finishing at the Pavlovsky Institute, a school for girls of the nobility in St Petersburg[^taisia]. In her memoirs she recalls how she received a prayer rope, the sign of unceasing prayer: it was at Easter, when the abbess clothed her in the monastic robe[^corpus-taisia-ryasa]. Her joy was not of this earth, but her elder, Mother Glafira, warned her that with the monastic habit she was also taking up the monastic cross. At the time, Taisia did not understand what those words meant[^corpus-taisia-cross]. “But life itself soon opened my eyes and showed me that cross in all its weight.”[^corpus-taisia-eyes]
+Taisia (Solopova), who would later become an abbess, entered a convent very young, soon after finishing at the Pavlovsky Institute, a school for girls of the nobility in St Petersburg[^taisia]. In her memoirs she recalls how she received a prayer rope, the sign of unceasing prayer: it was at Easter, when the abbess clothed her in the monastic robe[^corpus-taisia-ryasa]. Her joy was not of this earth, but Mother Glafira, the older nun guiding her spiritual life, warned her that with the monastic habit she was also taking up the monastic cross. At the time, Taisia did not understand what those words meant[^corpus-taisia-cross]. “But life itself soon opened my eyes and showed me that cross in all its weight.”[^corpus-taisia-eyes]
 
-For a week she was on duty washing up after the sisters’ meals, as many as two hundred plates at a time[^corpus-taisia-dishes]. Afterwards, she writes, “I could find no relief for my hands, eaten away by the hot lye until they bled”[^corpus-taisia-hands], and “for a long time I could not take up any work at all, because the skin came off my hands in petals”[^corpus-taisia-skin]. Complain of the pain, and you would be laughed at[^corpus-taisia-pain]: “Some hard-working novice, can’t even wash the dishes!”[^corpus-taisia-mock] Her first summer, like every newcomer, she also went out to work in the fields: the vegetable gardens, haymaking and the harvest[^corpus-taisia-field]. “It goes without saying that I worked very badly,”[^corpus-taisia-badly] she admits. Yet she worked almost until Vespers, and then she still had to get the samovar going for her elder and the girl who shared her cell[^corpus-taisia-samovar]. Her cellmate saw her as a rival, and Taisia was tormented by longing for her mother[^corpus-taisia-lonely]. She wrote about everything to her spiritual father, Archimandrite Lavrenty[^corpus-taisia-elder], but her letters never reached him[^corpus-taisia-letters].
+For a week she was on duty washing up after the sisters’ meals, as many as two hundred plates at a time[^corpus-taisia-dishes]. Afterwards, she writes, “I could find no relief for my hands, eaten away by the hot lye until they bled”[^corpus-taisia-hands], and “for a long time I could not take up any work at all, because the skin came off my hands in petals”[^corpus-taisia-skin]. Complain of the pain, and you would be laughed at[^corpus-taisia-pain]: “Some hard-working novice, can’t even wash the dishes!”[^corpus-taisia-mock] Her first summer, like every newcomer, she also went out to work in the fields: the vegetable gardens, haymaking and the harvest[^corpus-taisia-field]. “It goes without saying that I worked very badly,”[^corpus-taisia-badly] she admits. Yet she worked almost until Vespers, the evening service, and then she still had to get the samovar going for her mentor and her cellmate[^corpus-taisia-samovar]. The cellmate saw her as a rival, and Taisia was tormented by longing for her mother[^corpus-taisia-lonely]. She wrote about everything to her spiritual father, Archimandrite Lavrenty[^corpus-taisia-elder], but her letters never reached him[^corpus-taisia-letters].
 
-Yet one thing she kept up. The monastic rule of three canons, an akathist and the commemoration of names was read after Vespers, and every day she came to the five o’clock service and stayed on for it[^corpus-taisia-daily], “even though this was obligatory only for nuns, not for beginners”[^corpus-taisia-optional]. Why? “It was easier for me in church, where I would weep out all my sorrow before God in prayer, and I had no little of it.”[^corpus-taisia-tears]
+Yet one thing she kept up. The monastic rule of three canons, an akathist and the commemoration of names was read after Vespers, and every day she came to the five o’clock service and stayed on for it[^corpus-taisia-daily], “even though this was obligatory only for nuns, not for novices”[^corpus-taisia-optional]. Why? “I found relief in church, where I would pour out all my sorrow before God in tears—and I had plenty of sorrow.”[^corpus-taisia-tears]
 
-Canons and akathists are long Orthodox hymns, and reading them after Vespers is a monastery’s rule, not advice for lay people. But what kept Taisia going is familiar to everyone: evening prayer is a place where you can lay down a hard day. Not to report on it, but to hand it over to God just as it is.
+Canons and akathists are forms of Orthodox hymnody. Here, they belonged to the convent’s prayer rule; they are not advice for lay people. But what kept Taisia going is familiar to everyone: evening prayer is a place where you can lay down a hard day. Not to report on it, but to hand it over to God just as it is.
 
 ## If you miss a day
 
@@ -940,7 +955,7 @@ For Guardini, a lapse is part of the road: ask forgiveness without annoyance and
 
 ## Where to start tomorrow
 
-Choose a cue that will happen no matter what: the first cup of coffee, the drive to work, a minute after lunch, switching off the light at bedtime. Pick a measure that will hold even on a bad day. A morning prayer routine doesn’t have to mean getting up in the dark: if your mornings belong to the children or an early shift, your time comes later. Guard it not only from trivia but from useful work too, as Bonar had to learn. In the evening, don’t report on your day; give it to God. Once a week, take a calm look at how it’s going and adjust your measure.
+Choose a cue that will happen no matter what: the first cup of coffee, the drive to work, a minute after lunch, switching off the light at bedtime. Set aside a few minutes you can manage even on a difficult day. A morning prayer routine doesn’t have to mean getting up in the dark: if your mornings belong to the children or an early shift, your time comes later. Guard it not only from trivia but from useful work too, as Bonar had to learn. In the evening, don’t report on your day; give it to God. Once a week, review how it’s going and adjust how much time you set aside.
 
 ## Your prayer habit and Lampada
 <!-- screen: home, topic, reflection -->
@@ -961,7 +976,7 @@ Before you reach for your work or your phone. Bonar wrote to himself: “I must 
 
 ### How long should I pray?
 
-There is no set amount. Ryle didn’t require prayers to be the same length every day; what mattered was never letting anything make you abandon prayer[^corpus-ryle-length-faq]. MacIntyre warned against copying someone else’s routine as a rule, but insisted that everyone make room for time with God[^corpus-macintyre-bound-faq]. Start with a measure that will hold even on a bad day.
+There is no set amount. Ryle didn’t require prayers to be the same length every day; what mattered was never letting anything make you abandon prayer[^corpus-ryle-length-faq]. MacIntyre warned against copying someone else’s routine as a rule, but insisted that everyone make room for time with God[^corpus-macintyre-bound-faq]. Start with a few minutes you can set aside even on a difficult day.
 
 ### What if I miss a day?
 
@@ -972,5 +987,5 @@ Come back tomorrow, without beating yourself up. Rachele Guardini advised reread
 [^bonar]: [Andrew Bonar](https://en.wikipedia.org/wiki/Andrew_Bonar) on Wikipedia: 1810–1892; minister at Collace, Perthshire, from 1838 to 1856, then at Finnieston Church in Glasgow until his death; in the Free Church of Scotland from 1843; in 1839 travelled to Palestine with Robert Murray M’Cheyne and later wrote his biography.
 [^bonar-1884]: The year of the entry comes from the running head of the page in the 1894 edition of *Diary and Letters*; the day of the week and the date are damaged in the scanned text.
 [^mk1]: Mark 1:35. Berean Standard Bible (BSB), public domain.
-[^taisia]: [Таисия (Солопова)](https://ru.wikipedia.org/wiki/%D0%A2%D0%B0%D0%B8%D1%81%D0%B8%D1%8F_(%D0%A1%D0%BE%D0%BB%D0%BE%D0%BF%D0%BE%D0%B2%D0%B0)) on Wikipedia (in Russian): 1842–1915; born Maria Solopova; graduated from the Pavlovsky Institute in St Petersburg in 1861; from 1881 head of the Leushino community, which became a convent; a spiritual daughter of John of Kronstadt.
+[^taisia]: [Taisia (Solopova)](https://ru.wikipedia.org/wiki/%D0%A2%D0%B0%D0%B8%D1%81%D0%B8%D1%8F_(%D0%A1%D0%BE%D0%BB%D0%BE%D0%BF%D0%BE%D0%B2%D0%B0)) on Wikipedia (in Russian): 1842–1915; born Maria Solopova; graduated from the Pavlovsky Institute in St Petersburg in 1861; from 1881 head of the Leushino community, which became a convent; a spiritual daughter of John of Kronstadt.
 [^ps5]: Psalm 5:3 (Psalm 5:4 in Russian and Ukrainian Bibles, which count the psalm’s title as a verse). Berean Standard Bible (BSB), public domain.
