@@ -6,13 +6,133 @@ draft: false
 corpus_sources:
 - id: pellico-arrest
   kind: retelling
-  text: 13 октября 1820 года его арестовали в Милане и заперли в тюрьме Санта-Маргерита
+  text: "В пятницу, 13 октября 1820 года, в три часа дня, его арестовали в Милане и отвели в тюрьму Санта-Маргерита"
   original: null
   translation: null
   chunk_id: "book-54-0001"
   book_id: 54
   char_start: 1006
-  char_end: 1671
+  char_end: 1113
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo Primo."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-supper
+  kind: retelling
+  text: "В девять вечера надзиратель взял у него на хранение часы и деньги и учтиво пожелал доброй ночи. Пеллико попросил поесть: он в тот день не обедал. Надзиратель пообещал принести еду из трактира по соседству и расхвалил тамошнее вино"
+  original: null
+  translation: null
+  chunk_id: "book-54-0001"
+  book_id: 54
+  char_start: 1362
+  char_end: 1850
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo Primo."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-wine
+  kind: retelling
+  text: "а услышав, что узник вина не пьёт, испугался"
+  original: null
+  translation: null
+  chunk_id: "book-54-0002"
+  book_id: 54
+  char_start: 1852
+  char_end: 2051
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo Primo."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-solitude
+  kind: "quote"
+  text: "Жаль мне вас: одиночество будет вам вдвое тяжелее"
+  original: "M’incresce per lei; patirà al doppio la solitudine"
+  translation: "ours"
+  chunk_id: "book-54-0002"
+  book_id: 54
+  char_start: 2052
+  char_end: 2102
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo Primo."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-yard
+  kind: retelling
+  text: "Окно камеры выходило во двор"
+  original: null
+  translation: null
+  chunk_id: "book-54-0002"
+  book_id: 54
+  char_start: 2267
+  char_end: 2319
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo Primo."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-prisons
+  kind: "quote"
+  text: "Тюрьмы здесь, тюрьмы там, тюрьмы сверху, тюрьмы напротив"
+  original: "Carceri di qua, carceri di là, carceri di sopra, carceri dirimpetto"
+  translation: "ours"
+  chunk_id: "book-54-0002"
+  book_id: 54
+  char_start: 2320
+  char_end: 2387
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo Primo."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-window
+  kind: retelling
+  text: "Где-то исступлённо пели узники, взад-вперёд ходили тюремщики, а Пеллико всё стоял у окна и слушал"
+  original: null
+  translation: null
+  chunk_id: "book-54-0002"
+  book_id: 54
+  char_start: 2389
+  char_end: 2534
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo Primo."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-family
+  kind: retelling
+  text: "Он пытался ободрить себя мыслью, что всё на свете быстро проходит, но вспомнил отца и мать, братьев и сестёр, и рассуждения больше не помогали"
+  original: null
+  translation: null
+  chunk_id: "book-54-0004"
+  book_id: 54
+  char_start: 3549
+  char_end: 3825
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo Primo."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-tears
+  kind: "quote"
+  text: "Я расчувствовался и заплакал, как ребёнок"
+  original: "M’intenerii, e piansi come un fanciullo"
+  translation: "ours"
+  chunk_id: "book-54-0004"
+  book_id: 54
+  char_start: 3786
+  char_end: 3825
   text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
@@ -21,13 +141,28 @@ corpus_sources:
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-cell
   kind: retelling
-  text: Когда допросы закончились, на него всей тяжестью навалилось одиночество, а из книг остались Библия, Данте и несколько романов из библиотеки надзирателя
+  text: "Допросы кончились, заняться стало нечем, и тут одиночество придавило Пеллико всей тяжестью. Книг было немного — Библия, Данте да несколько романов, которые надзиратель предложил из своей библиотеки, — но он был так взволнован, что не мог читать ничего"
   original: null
   translation: null
   chunk_id: "book-54-0019"
   book_id: 54
   char_start: 15331
-  char_end: 15666
+  char_end: 15746
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo VI."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-dante
+  kind: retelling
+  text: "Даже Данте, по песни которого он заучивал каждый день, шёл механически: губы повторяли стихи, а голова была занята своим делом. Только Библия порой его удерживала — книга, которую он любил всегда, даже когда считал себя неверующим, а теперь чтил больше прежнего. Но и над ней он часто ловил себя на том, что читает, ничего не понимая: мысли были далеко"
+  original: null
+  translation: null
+  chunk_id: "book-54-0019"
+  book_id: 54
+  char_start: 15747
+  char_end: 16242
   text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
@@ -36,13 +171,13 @@ corpus_sources:
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-bible
   kind: retelling
-  text: Библию Пеллико очень любил даже в годы, когда считал себя неверующим, и теперь, когда прочее чтение не шло, его внимание иногда удерживали только отдельные её страницы
+  text: "Лишь со временем он научился вникать в Библию глубже"
   original: null
   translation: null
-  chunk_id: "book-54-0019"
+  chunk_id: "book-54-0020"
   book_id: 54
-  char_start: 15905
-  char_end: 16144
+  char_start: 16243
+  char_end: 16329
   text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
@@ -51,7 +186,7 @@ corpus_sources:
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-pagans
   kind: retelling
-  text: 'Однажды Пеллико поставил себе цель: пусть каждой его мыслью движет желание покориться Божьей воле. Повод дало прочитанное: молиться надо непрестанно, и дело тут не в многословии, а в простом поклонении Богу и словом, и делом'
+  text: "Однажды он прочитал, что молиться надо непрестанно и что дело тут не в многословии, а в простом поклонении Богу и словом, и делом. Тогда Пеллико поставил себе цель: пусть каждой его мыслью движет желание покориться Божьей воле"
   original: null
   translation: null
   chunk_id: "book-54-0020"
@@ -66,7 +201,7 @@ corpus_sources:
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-formulas
   kind: retelling
-  text: Готовых молитв Пеллико читал немного. Не из презрения — он считал их очень полезными. Просто сам, по его признанию, не мог прочесть много подряд и не отвлечься так, что забывал, к Кому обращается
+  text: "Готовых молитв Пеллико читал немного. Не из презрения — он считал их очень полезными. Но, по его признанию, стоило ему прочесть много молитв подряд, как мысли разбегались и он забывал, к Кому обращается"
   original: null
   translation: null
   chunk_id: "book-54-0021"
@@ -118,6 +253,51 @@ corpus_sources:
   book_id: 54
   char_start: 17898
   char_end: 17990
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo VI."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-kin
+  kind: retelling
+  text: "О родных он молился горячо, иногда со слезами"
+  original: null
+  translation: null
+  chunk_id: "book-54-0022"
+  book_id: 54
+  char_start: 18347
+  char_end: 18451
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo VI."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-sweet
+  kind: "quote"
+  text: "но и сами слёзы были смешаны со сладостью"
+  original: "ma le lagrime stesse erano miste di dolcezza"
+  translation: "ours"
+  chunk_id: "book-54-0022"
+  book_id: 54
+  char_start: 18407
+  char_end: 18451
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo VI."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-faith
+  kind: retelling
+  text: "Он твёрдо верил, что Бог поддержит и их, и его, и, как напишет потом, не ошибся"
+  original: null
+  translation: null
+  chunk_id: "book-54-0022"
+  book_id: 54
+  char_start: 18452
+  char_end: 18526
   text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
@@ -199,15 +379,105 @@ corpus_sources:
   chapter: "II. EARLY LESSONS IN THE LIFE OF FAITH"
   translator: null
   source_url: https://www.gutenberg.org/ebooks/26033
+- id: therese-dream
+  kind: retelling
+  text: "Однажды в Великий пост к Терезе прибежала сияющая послушница. Ей приснилось, что она уговаривает свою сестру, очень светскую девушку, оставить мирскую суету, и теперь послушнице казалось, что Бог, может быть, хочет, чтобы она привела к Нему эту душу. Не написать ли сестре к Пасхе?"
+  original: null
+  translation: null
+  chunk_id: "book-47-0399"
+  book_id: 47
+  char_start: 359115
+  char_end: 359890
+  text_sha256: "10b2975a3d23b3516ae56a2ffa86d1574841fce7aafaf334d5bf39c5dd18e2f0"
+  author: Sœur Thérèse de l’Enfant Jésus
+  title: Histoire d'une âme
+  chapter: "CHAPITRE X Nouvelles lumières sur la charité. — Le petit pinceau : sa manière de peindre dans les âmes. — Une prière exaucée. — Les miettes qui tombent de la table des enfants. — Le bon Samaritain. — Dix minutes plus précieuses que mille ans des joies de la terre."
+  translator: null
+  source_url: https://fr.wikisource.org/wiki/Histoire_d%E2%80%99une_%C3%A2me
+- id: therese-letters
+  kind: retelling
+  text: "Но пост ещё не кончился, и настоятельница, удивлённая такой поспешностью, рассудила иначе: души кармелитки спасают не столько письмами, сколько молитвой"
+  original: null
+  translation: null
+  chunk_id: "book-47-0400"
+  book_id: 47
+  char_start: 359892
+  char_end: 360204
+  text_sha256: "10b2975a3d23b3516ae56a2ffa86d1574841fce7aafaf334d5bf39c5dd18e2f0"
+  author: Sœur Thérèse de l’Enfant Jésus
+  title: Histoire d'une âme
+  chapter: "CHAPITRE X Nouvelles lumières sur la charité. — Le petit pinceau : sa manière de peindre dans les âmes. — Une prière exaucée. — Les miettes qui tombent de la table des enfants. — Le bon Samaritain. — Dix minutes plus précieuses que mille ans des joies de la terre."
+  translator: null
+  source_url: https://fr.wikisource.org/wiki/Histoire_d%E2%80%99une_%C3%A2me
+- id: therese-work
+  kind: "quote"
+  text: "Примемся за дело — будем много молиться"
+  original: "Il faut nous mettre à l’œuvre, prions beaucoup"
+  translation: "ours"
+  chunk_id: "book-47-0400"
+  book_id: 47
+  char_start: 360205
+  char_end: 360251
+  text_sha256: "10b2975a3d23b3516ae56a2ffa86d1574841fce7aafaf334d5bf39c5dd18e2f0"
+  author: Sœur Thérèse de l’Enfant Jésus
+  title: Histoire d'une âme
+  chapter: "CHAPITRE X Nouvelles lumières sur la charité. — Le petit pinceau : sa manière de peindre dans les âmes. — Une prière exaucée. — Les miettes qui tombent de la table des enfants. — Le bon Samaritain. — Dix minutes plus précieuses que mille ans des joies de la terre."
+  translator: null
+  source_url: https://fr.wikisource.org/wiki/Histoire_d%E2%80%99une_%C3%A2me
+- id: therese-answered
+  kind: "quote"
+  text: "К концу поста ещё одна душа посвятила себя Иисусу! Это было настоящее чудо благодати — чудо, которого добилась горячность смиренной послушницы!"
+  original: "À la fin du carême, une âme de plus se consacrait à Jésus ! C’était un véritable miracle de la grâce : miracle obtenu par la ferveur d’une humble novice !"
+  translation: "ours"
+  chunk_id: "book-47-0400"
+  book_id: 47
+  char_start: 360351
+  char_end: 360505
+  text_sha256: "10b2975a3d23b3516ae56a2ffa86d1574841fce7aafaf334d5bf39c5dd18e2f0"
+  author: Sœur Thérèse de l’Enfant Jésus
+  title: Histoire d'une âme
+  chapter: "CHAPITRE X Nouvelles lumières sur la charité. — Le petit pinceau : sa manière de peindre dans les âmes. — Une prière exaucée. — Les miettes qui tombent de la table des enfants. — Le bon Samaritain. — Dix minutes plus précieuses que mille ans des joies de la terre."
+  translator: null
+  source_url: https://fr.wikisource.org/wiki/Histoire_d%E2%80%99une_%C3%A2me
+- id: therese-power
+  kind: "quote"
+  text: "Как же велика сила молитвы!"
+  original: "Qu’elle est donc grande la puissance de la prière !"
+  translation: "ours"
+  chunk_id: "book-47-0400"
+  book_id: 47
+  char_start: 360507
+  char_end: 360558
+  text_sha256: "10b2975a3d23b3516ae56a2ffa86d1574841fce7aafaf334d5bf39c5dd18e2f0"
+  author: Sœur Thérèse de l’Enfant Jésus
+  title: Histoire d'une âme
+  chapter: "CHAPITRE X Nouvelles lumières sur la charité. — Le petit pinceau : sa manière de peindre dans les âmes. — Une prière exaucée. — Les miettes qui tombent de la table des enfants. — Le bon Samaritain. — Dix minutes plus précieuses que mille ans des joies de la terre."
+  translator: null
+  source_url: https://fr.wikisource.org/wiki/Histoire_d%E2%80%99une_%C3%A2me
+- id: therese-formula
+  kind: retelling
+  text: "При этом ей не нужны книжные формулы, сочинённые для особого случая: если бы Бог слышал только их, Терезе, по её словам, оставалось бы лишь пожалеть себя"
+  original: null
+  translation: null
+  chunk_id: "book-47-0400"
+  book_id: 47
+  char_start: 360559
+  char_end: 360828
+  text_sha256: "10b2975a3d23b3516ae56a2ffa86d1574841fce7aafaf334d5bf39c5dd18e2f0"
+  author: Sœur Thérèse de l’Enfant Jésus
+  title: Histoire d'une âme
+  chapter: "CHAPITRE X Nouvelles lumières sur la charité. — Le petit pinceau : sa manière de peindre dans les âmes. — Une prière exaucée. — Les miettes qui tombent de la table des enfants. — Le bon Samaritain. — Dix minutes plus précieuses que mille ans des joies de la terre."
+  translator: null
+  source_url: https://fr.wikisource.org/wiki/Histoire_d%E2%80%99une_%C3%A2me
 - id: therese-books
   kind: retelling
-  text: Выбрать подходящую молитву среди множества прекрасных для неё мука до головной боли, так что по книгам она их не ищет, хотя ежедневную церковную службу читает с радостью
+  text: "Красивых молитв в книгах столько, и одна лучше другой, что прочесть все невозможно, а выбрать не получается, — у неё от этого просто болит голова, и искать их она не берётся. Ежедневную церковную службу она при этом читает с радостью"
   original: null
   translation: null
   chunk_id: "book-47-0401"
   book_id: 47
   char_start: 360830
-  char_end: 361121
+  char_end: 361191
   text_sha256: "10b2975a3d23b3516ae56a2ffa86d1574841fce7aafaf334d5bf39c5dd18e2f0"
   author: Sœur Thérèse de l’Enfant Jésus
   title: Histoire d'une âme
@@ -229,9 +499,24 @@ corpus_sources:
   chapter: "CHAPITRE X Nouvelles lumières sur la charité. — Le petit pinceau : sa manière de peindre dans les âmes. — Une prière exaucée. — Les miettes qui tombent de la table des enfants. — Le bon Samaritain. — Dix minutes plus précieuses que mille ans des joies de la terre."
   translator: null
   source_url: https://fr.wikisource.org/wiki/Histoire_d%E2%80%99une_%C3%A2me
+- id: therese-elan
+  kind: "quote"
+  text: "Для меня молитва — это порыв сердца, это простой взгляд, обращённый к небу, это крик благодарности и любви и среди испытаний, и среди радости"
+  original: "Pour moi, la prière c’est un élan du cœur, c’est un simple regard jeté vers le ciel, c’est un cri de reconnaissance et d’amour au milieu de l’épreuve comme au sein de la joie"
+  translation: "ours"
+  chunk_id: "book-47-0401"
+  book_id: 47
+  char_start: 361330
+  char_end: 361504
+  text_sha256: "10b2975a3d23b3516ae56a2ffa86d1574841fce7aafaf334d5bf39c5dd18e2f0"
+  author: Sœur Thérèse de l’Enfant Jésus
+  title: Histoire d'une âme
+  chapter: "CHAPITRE X Nouvelles lumières sur la charité. — Le petit pinceau : sa manière de peindre dans les âmes. — Une prière exaucée. — Les miettes qui tombent de la table des enfants. — Le bon Samaritain. — Dix minutes plus précieuses que mille ans des joies de la terre."
+  translator: null
+  source_url: https://fr.wikisource.org/wiki/Histoire_d%E2%80%99une_%C3%A2me
 - id: therese-pater
   kind: retelling
-  text: 'Когда на душе сухо и в голове пусто, её выручают «Отче наш» и «Радуйся, Мария»: она проговаривает их совсем медленно, и больше ничего не нужно — эти две молитвы её радуют и кормят душу'
+  text: "Её выручают «Отче наш» и «Радуйся, Мария» — в те дни, когда на душе такая сушь, что ни одной доброй мысли не выжать. Она проговаривает их очень медленно, и этих двух молитв ей хватает: они радуют её и питают душу"
   original: null
   translation: null
   chunk_id: "book-47-0402"
@@ -244,6 +529,51 @@ corpus_sources:
   chapter: "CHAPITRE X Nouvelles lumières sur la charité. — Le petit pinceau : sa manière de peindre dans les âmes. — Une prière exaucée. — Les miettes qui tombent de la table des enfants. — Le bon Samaritain. — Dix minutes plus précieuses que mille ans des joies de la terre."
   translator: null
   source_url: https://fr.wikisource.org/wiki/Histoire_d%E2%80%99une_%C3%A2me
+- id: feofan-world
+  kind: retelling
+  text: "жил в миру, среди множества светских знакомств"
+  original: null
+  translation: null
+  chunk_id: "book-77-0079"
+  book_id: 77
+  char_start: 66833
+  char_end: 67000
+  text_sha256: "40a8ca4a2f7ea44825b74a93bb9045adaa498b44f68617387daaf05e313a7d03"
+  author: свт. Феофан Затворник
+  title: Письма о молитве
+  chapter: 14 (256)
+  translator: null
+  source_url: https://azbyka.ru/otechnik/Feofan_Zatvornik/pisma-o-molitve/
+- id: feofan-estate
+  kind: retelling
+  text: "Этот человек только что сбыл с рук хлопоты по имению, и Феофан пишет, что верность такого решения тот видит в себе самом"
+  original: null
+  translation: null
+  chunk_id: "book-77-0078"
+  book_id: 77
+  char_start: 65640
+  char_end: 66016
+  text_sha256: "40a8ca4a2f7ea44825b74a93bb9045adaa498b44f68617387daaf05e313a7d03"
+  author: свт. Феофан Затворник
+  title: Письма о молитве
+  chapter: 14 (256)
+  translator: null
+  source_url: https://azbyka.ru/otechnik/Feofan_Zatvornik/pisma-o-molitve/
+- id: feofan-wings
+  kind: quote
+  text: "душа будто крылышки получила"
+  original: "душа будто крылышки получила"
+  translation: null
+  chunk_id: "book-77-0078"
+  book_id: 77
+  char_start: 65988
+  char_end: 66016
+  text_sha256: "40a8ca4a2f7ea44825b74a93bb9045adaa498b44f68617387daaf05e313a7d03"
+  author: свт. Феофан Затворник
+  title: Письма о молитве
+  chapter: 14 (256)
+  translator: null
+  source_url: https://azbyka.ru/otechnik/Feofan_Zatvornik/pisma-o-molitve/
 - id: feofan-worry
   kind: quote
   text: Я стал хуже молиться по молитвенникам
@@ -261,13 +591,28 @@ corpus_sources:
   source_url: https://azbyka.ru/otechnik/Feofan_Zatvornik/pisma-o-molitve/
 - id: feofan-no-harm
   kind: quote
-  text: Это не ущерб
-  original: Это не ущерб
+  text: "Это не ущерб"
+  original: "Это не ущерб"
   translation: null
   chunk_id: "book-77-0081"
   book_id: 77
   char_start: 69105
   char_end: 69117
+  text_sha256: "40a8ca4a2f7ea44825b74a93bb9045adaa498b44f68617387daaf05e313a7d03"
+  author: свт. Феофан Затворник
+  title: Письма о молитве
+  chapter: 14 (256)
+  translator: null
+  source_url: https://azbyka.ru/otechnik/Feofan_Zatvornik/pisma-o-molitve/
+- id: feofan-never
+  kind: quote
+  text: "Хоть никогда не берите в руки молитвенника"
+  original: "Хоть никогда не берите в руки молитвенника"
+  translation: null
+  chunk_id: "book-77-0082"
+  book_id: 77
+  char_start: 69119
+  char_end: 69161
   text_sha256: "40a8ca4a2f7ea44825b74a93bb9045adaa498b44f68617387daaf05e313a7d03"
   author: свт. Феофан Затворник
   title: Письма о молитве
@@ -304,6 +649,21 @@ corpus_sources:
   chapter: 14 (256)
   translator: null
   source_url: https://azbyka.ru/otechnik/Feofan_Zatvornik/pisma-o-molitve/
+- id: feofan-children
+  kind: quote
+  text: "Дети подходят к отцу или матери и ничего не говорят, только увиваются около их, – оттого, что им сладко быть при них"
+  original: "Дети подходят к отцу или матери и ничего не говорят, только увиваются около их, – оттого, что им сладко быть при них"
+  translation: null
+  chunk_id: "book-77-0079"
+  book_id: 77
+  char_start: 66630
+  char_end: 66746
+  text_sha256: "40a8ca4a2f7ea44825b74a93bb9045adaa498b44f68617387daaf05e313a7d03"
+  author: свт. Феофан Затворник
+  title: Письма о молитве
+  chapter: 14 (256)
+  translator: null
+  source_url: https://azbyka.ru/otechnik/Feofan_Zatvornik/pisma-o-molitve/
 - id: feofan-sloth
   kind: retelling
   text: 'Ему Феофан разрешает молиться без книги, когда молитва сама просится из сердца, и сразу предостерегает: только бы за этим не пряталась лень'
@@ -313,6 +673,21 @@ corpus_sources:
   book_id: 77
   char_start: 69798
   char_end: 69948
+  text_sha256: "40a8ca4a2f7ea44825b74a93bb9045adaa498b44f68617387daaf05e313a7d03"
+  author: свт. Феофан Затворник
+  title: Письма о молитве
+  chapter: 14 (256)
+  translator: null
+  source_url: https://azbyka.ru/otechnik/Feofan_Zatvornik/pisma-o-molitve/
+- id: feofan-enemy
+  kind: quote
+  text: "тотчас враг подойдет и будто за руку начнет тянуть от моления"
+  original: "тотчас враг подойдет и будто за руку начнет тянуть от моления"
+  translation: null
+  chunk_id: "book-77-0082"
+  book_id: 77
+  char_start: 69953
+  char_end: 70014
   text_sha256: "40a8ca4a2f7ea44825b74a93bb9045adaa498b44f68617387daaf05e313a7d03"
   author: свт. Феофан Затворник
   title: Письма о молитве
@@ -336,7 +711,7 @@ corpus_sources:
   source_url: https://azbyka.ru/otechnik/Feofan_Zatvornik/pisma-o-molitve/
 - id: pellico-terror
   kind: retelling
-  text: 'Однажды он проснулся от того, что его душат: шею туго стягивал его собственный платок, завязанный на несколько узлов, а как он это сделал, Пеллико не помнил'
+  text: "Однажды он проснулся от того, что его душат: шею туго стягивал его собственный платок, завязанный на несколько узлов, а как он его завязал, Пеллико не помнил"
   original: null
   translation: null
   chunk_id: "book-54-0179"
@@ -351,7 +726,7 @@ corpus_sources:
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-abandoned
   kind: retelling
-  text: Днём он шутил с товарищами и тюремщиками, но с закатом его начинало трясти, и в конце концов им овладела страшная мысль, что Бог оставил его навсегда
+  text: "Днём он шутил с товарищами и тюремщиками, но с закатом его начинало трясти. Попросить другую камеру он так и не решился: боялся, что его поднимут на смех. В конце концов им овладела страшная мысль, что Бог оставил его навсегда"
   original: null
   translation: null
   chunk_id: "book-54-0180"
@@ -364,15 +739,30 @@ corpus_sources:
   chapter: "Capo XLVI."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-relief
+  kind: retelling
+  text: "Однажды утром, после кофе, его скрутили рвота и колики — он даже решил, что отравлен, — а в полдень он заснул и спокойно проспал до вечера. Проснулся он в непривычной тишине и решил не ложиться: на ногах легче будет встретить привычные ночные ужасы. Но они так и не пришли"
+  original: null
+  translation: null
+  chunk_id: "book-54-0182"
+  book_id: 54
+  char_start: 149649
+  char_end: 150063
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo XLVI."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-doubt
   kind: retelling
-  text: Несколько дней он сопротивлялся доводам против Бога, а потом сдался и вслед за злыми атеистами стал говорить, что религия только ослабляет ум. Позже он сам спрашивал, достаточно ли назвать всё это болезнью или Бог так смирял его гордость
+  text: "Несколько дней он сопротивлялся доводам против Бога, а потом сдался и стал повторять то, что слышал от озлобленных атеистов: религия только ослабляет ум. Но Бог избавил его от этого, когда он меньше всего ждал"
   original: null
   translation: null
   chunk_id: "book-54-0181"
   book_id: 54
   char_start: 148647
-  char_end: 149573
+  char_end: 149647
   text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
   author: Silvio Pellico
   title: Le mie prigioni
@@ -381,7 +771,7 @@ corpus_sources:
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-return
   kind: retelling
-  text: Когда это прошло, он, переполненный благодарностью, упал на колени, просил у Бога прощения за эти дни — и так и заснул, стоя на коленях и опираясь на стул
+  text: "Переполненный благодарностью, он упал на колени, просил у Бога прощения за дни, когда отрекался от Него, — и так и заснул, стоя на коленях и опираясь на стул"
   original: null
   translation: null
   chunk_id: "book-54-0182"
@@ -501,7 +891,7 @@ corpus_sources:
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-sentence
   kind: retelling
-  text: 'Сначала прозвучало: смертная казнь, и по толпе прошёл ропот жалости. Потом чтение продолжилось: пятнадцать лет каторжной тюрьмы'
+  text: "Сначала прозвучало «приговорены к смерти», и по толпе прошёл ропот жалости. Все снова затихли, чтобы дослушать, и услышали: вместо казни — каторжная тюрьма, Пеллико — на пятнадцать лет"
   original: null
   translation: null
   chunk_id: "book-54-0212"
@@ -546,19 +936,25 @@ corpus_sources:
   source_url: https://www.gutenberg.org/ebooks/26033
 ---
 
-Сильвио Пеллико был известным итальянским драматургом, и австрийская полиция подозревала его в связях с тайным обществом карбонариев[^pellico]. 13 октября 1820 года его арестовали в Милане и заперли в тюрьме Санта-Маргерита[^corpus-pellico-arrest]. Когда допросы закончились, на него всей тяжестью навалилось одиночество, а из книг остались Библия, Данте и несколько романов из библиотеки надзирателя[^corpus-pellico-cell]. В этой камере Пеллико и научился молиться так, как, может быть, хотите научиться вы, — своими словами.
+Сильвио Пеллико был известным итальянским драматургом, и австрийская полиция подозревала его в связях с тайным обществом карбонариев[^pellico]. В пятницу, 13 октября 1820 года, в три часа дня, его арестовали в Милане и отвели в тюрьму Санта-Маргерита[^corpus-pellico-arrest]. В девять вечера надзиратель взял у него на хранение часы и деньги и учтиво пожелал доброй ночи. Пеллико попросил поесть: он в тот день не обедал. Надзиратель пообещал принести еду из трактира по соседству и расхвалил тамошнее вино[^corpus-pellico-supper], а услышав, что узник вина не пьёт, испугался[^corpus-pellico-wine]: «Жаль мне вас: одиночество будет вам вдвое тяжелее»[^corpus-pellico-solitude].
+
+Окно камеры выходило во двор[^corpus-pellico-yard]: «Тюрьмы здесь, тюрьмы там, тюрьмы сверху, тюрьмы напротив»[^corpus-pellico-prisons]. Где-то исступлённо пели узники, взад-вперёд ходили тюремщики, а Пеллико всё стоял у окна и слушал[^corpus-pellico-window]. Он пытался ободрить себя мыслью, что всё на свете быстро проходит, но вспомнил отца и мать, братьев и сестёр, и рассуждения больше не помогали[^corpus-pellico-family]: «Я расчувствовался и заплакал, как ребёнок»[^corpus-pellico-tears]. В этой камере Пеллико и научился молиться своими словами — может быть, этому хотите научиться и вы.
 
 Если коротко, начать просто: говорите с Богом о том, что у вас на сердце прямо сейчас, теми словами, какие есть. Красивые формулы не обязательны, а готовые молитвы — хорошая опора в дни, когда свои слова не идут. Так к молитве приходили очень разные люди: итальянский узник-католик, канадская миссионерка-пресвитерианка, французская монахиня-кармелитка и русский православный епископ-затворник. Вот их истории.
 
 ## «Разве я не в отличной компании?»
 
-Библию Пеллико очень любил даже в годы, когда считал себя неверующим, и теперь, когда прочее чтение не шло, его внимание иногда удерживали только отдельные её страницы[^corpus-pellico-bible]. Однажды Пеллико поставил себе цель: пусть каждой его мыслью движет желание покориться Божьей воле. Повод дало прочитанное: молиться надо непрестанно, и дело тут не в многословии, а в простом поклонении Богу и словом, и делом[^corpus-pellico-pagans]. Прочитанное им — отголосок слов Иисуса из Нагорной проповеди: «Молясь же, не твердите пустых слов, как язычники, которые думают, что в многословии своем будут услышаны. Не уподобляйтесь им, ибо знает Отец ваш, в чем нуждаетесь вы, прежде чем сами Его попросите» (Мф 6:7–8)[^mt6].
+Допросы кончились, заняться стало нечем, и тут одиночество придавило Пеллико всей тяжестью. Книг было немного — Библия, Данте да несколько романов, которые надзиратель предложил из своей библиотеки, — но он был так взволнован, что не мог читать ничего[^corpus-pellico-cell]. Даже Данте, по песни которого он заучивал каждый день, шёл механически: губы повторяли стихи, а голова была занята своим делом. Только Библия порой его удерживала — книга, которую он любил всегда, даже когда считал себя неверующим, а теперь чтил больше прежнего. Но и над ней он часто ловил себя на том, что читает, ничего не понимая: мысли были далеко[^corpus-pellico-dante]. Лишь со временем он научился вникать в Библию глубже[^corpus-pellico-bible].
 
-Готовых молитв Пеллико читал немного. Не из презрения — он считал их очень полезными. Просто сам, по его признанию, не мог прочесть много подряд и не отвлечься так, что забывал, к Кому обращается[^corpus-pellico-formulas]. Вместо этого он старался весь день помнить, что Бог рядом, и одиночество пугало его всё меньше[^corpus-pellico-presence]. «Разве я не в отличной компании?»[^corpus-pellico-company] — повторял он себе, успокаивался и даже начинал напевать и насвистывать[^corpus-pellico-whistle].
+Однажды он прочитал, что молиться надо непрестанно и что дело тут не в многословии, а в простом поклонении Богу и словом, и делом. Тогда Пеллико поставил себе цель: пусть каждой его мыслью движет желание покориться Божьей воле[^corpus-pellico-pagans]. Прочитанная им мысль — отголосок слов Иисуса из Нагорной проповеди: «Молясь же, не твердите пустых слов, как язычники, которые думают, что в многословии своем будут услышаны. Не уподобляйтесь им, ибо знает Отец ваш, в чем нуждаетесь вы, прежде чем сами Его попросите» (Мф 6:7–8)[^mt6].
+
+Готовых молитв Пеллико читал немного. Не из презрения — он считал их очень полезными. Но, по его признанию, стоило ему прочесть много молитв подряд, как мысли разбегались и он забывал, к Кому обращается[^corpus-pellico-formulas]. Вместо этого он старался весь день помнить, что Бог рядом, и одиночество пугало его всё меньше[^corpus-pellico-presence]. «Разве я не в отличной компании?»[^corpus-pellico-company] — повторял он себе, успокаивался и даже начинал напевать и насвистывать[^corpus-pellico-whistle].
+
+О родных он молился горячо, иногда со слезами[^corpus-pellico-kin], — «но и сами слёзы были смешаны со сладостью»[^corpus-pellico-sweet]. Он твёрдо верил, что Бог поддержит и их, и его, и, как напишет потом, не ошибся[^corpus-pellico-faith].
 
 ## Девочка с зубной болью
 
-Пресвитерианская миссионерка Розалинд Гофорт почти полвека прослужила в Китае. Летом 1900 года они с мужем бежали через полстраны от восставших ихэтуаней; из одиннадцати её детей пятеро умерли маленькими[^goforth]. В 1921 году она выпустила книгу «Откуда я знаю, что Бог отвечает на молитву» — свидетельство длиною в жизнь. Рассказывая о своей жизни, она начинает с детства.
+Пресвитерианская миссионерка Розалинд Гофорт почти полвека прослужила в Китае. Из одиннадцати её детей пятеро умерли маленькими. Летом 1900 года они с мужем бежали через полстраны от восставших ихэтуаней[^goforth]. В 1921 году она выпустила книгу «Откуда я знаю, что Бог отвечает на молитву» — свидетельство длиною в жизнь. Рассказывая о своей жизни, она начинает с детства.
 
 С самого раннего детства Розалинд привыкла в любой беде просто рассказывать обо всём Иисусу[^corpus-goforth-tell]. Однажды, когда ей было шесть или семь лет, во время игры в саду у неё страшно разболелся зуб. Она прибежала к маме, но ничего не помогало[^corpus-goforth-pain]. И тогда, уткнувшись маме в грудь, девочка про себя сказала: «Господи Иисусе, если Ты уберёшь эту зубную боль прямо сейчас, сейчас же, я три года буду Твоей девочкой»[^corpus-goforth-prayer].
 
@@ -570,27 +966,31 @@ corpus_sources:
 
 Тереза Мартен ушла в монастырь кармелиток в Лизьё пятнадцатилетней и умерла там от туберкулёза в двадцать четыре года. Её записки, изданные после смерти как «История одной души», стали одной из самых читаемых духовных книг XX века, а саму Терезу Католическая церковь причислила к святым.
 
-В этих записках есть очень честное признание. Выбрать подходящую молитву среди множества прекрасных для неё мука до головной боли, так что по книгам она их не ищет, хотя ежедневную церковную службу читает с радостью[^corpus-therese-books]. Поэтому она пишет: «Я поступаю как дети, которые не умеют читать: просто говорю Богу то, что хочу Ему сказать, и Он всегда меня понимает»[^corpus-therese-children].
+Однажды в Великий пост к Терезе прибежала сияющая послушница. Ей приснилось, что она уговаривает свою сестру, очень светскую девушку, оставить мирскую суету, и теперь послушнице казалось, что Бог, может быть, хочет, чтобы она привела к Нему эту душу. Не написать ли сестре к Пасхе?[^corpus-therese-dream] Но пост ещё не кончился, и настоятельница, удивлённая такой поспешностью, рассудила иначе: души кармелитки спасают не столько письмами, сколько молитвой[^corpus-therese-letters]. «Примемся за дело — будем много молиться»[^corpus-therese-work], — сказала Тереза послушнице. И вот: «К концу поста ещё одна душа посвятила себя Иисусу! Это было настоящее чудо благодати — чудо, которого добилась горячность смиренной послушницы!»[^corpus-therese-answered]
 
-Готовые молитвы она при этом не отбрасывает. Когда на душе сухо и в голове пусто, её выручают «Отче наш» и «Радуйся, Мария»: она проговаривает их совсем медленно, и больше ничего не нужно — эти две молитвы её радуют и кормят душу[^corpus-therese-pater]. Свои слова и чужие у неё не соперничают: когда нет одних, выручают другие.
+«Как же велика сила молитвы!»[^corpus-therese-power] — пишет Тереза. При этом ей не нужны книжные формулы, сочинённые для особого случая: если бы Бог слышал только их, Терезе, по её словам, оставалось бы лишь пожалеть себя[^corpus-therese-formula]. Красивых молитв в книгах столько, и одна лучше другой, что прочесть все невозможно, а выбрать не получается, — у неё от этого просто болит голова, и искать их она не берётся. Ежедневную церковную службу она при этом читает с радостью[^corpus-therese-books]. А для своей молитвы у неё другой способ: «Я поступаю как дети, которые не умеют читать: просто говорю Богу то, что хочу Ему сказать, и Он всегда меня понимает»[^corpus-therese-children].
+
+«Для меня молитва — это порыв сердца, это простой взгляд, обращённый к небу, это крик благодарности и любви и среди испытаний, и среди радости»[^corpus-therese-elan]. Готовые молитвы Тереза при этом не отбрасывает. Её выручают «Отче наш» и «Радуйся, Мария» — в те дни, когда на душе такая сушь, что ни одной доброй мысли не выжать. Она проговаривает их очень медленно, и этих двух молитв ей хватает: они радуют её и питают душу[^corpus-therese-pater]. Свои слова и чужие у неё не соперничают: когда нет одних, выручают другие.
 
 ## Молитвослов как разговорник
 
 Феофан Затворник в пятьдесят один год оставил епископскую кафедру и поселился в Вышенской пустыни, а последние двадцать два года жизни, с 1872 года до смерти в 1894-м, провёл там в затворе. Почта приносила ему по двадцать–сорок писем в день, и он отвечал на каждое[^feofan].
 
-В его «Письмах о молитве» есть ответ человеку, который встревоженно признался: «Я стал хуже молиться по молитвенникам»[^corpus-feofan-worry]. Феофан ответил: «Это не ущерб»[^corpus-feofan-no-harm]. И объяснил неожиданным сравнением: «Молитвенники – то же, что разговоры, например, французские»[^corpus-feofan-phrasebook]. «Разговорами» тогда называли разговорники с готовыми фразами для путешественников. Иными словами, готовые тексты — опора на время учёбы. Когда душа научится обращаться к Богу сама, без книги можно обойтись[^corpus-feofan-until].
+Среди его «Писем о молитве» есть письмо человеку, который жил в миру, среди множества светских знакомств[^corpus-feofan-world]. Этот человек только что сбыл с рук хлопоты по имению, и Феофан пишет, что верность такого решения тот видит в себе самом[^corpus-feofan-estate]: «душа будто крылышки получила»[^corpus-feofan-wings]. А ещё корреспондент признаётся: «Я стал хуже молиться по молитвенникам»[^corpus-feofan-worry]. Феофан отвечает: «Это не ущерб»[^corpus-feofan-no-harm] — и даже: «Хоть никогда не берите в руки молитвенника»[^corpus-feofan-never]. И объясняет неожиданным сравнением: «Молитвенники – то же, что разговоры, например, французские»[^corpus-feofan-phrasebook]. «Разговорами» тогда называли разговорники с готовыми фразами для путешественников. Иными словами, готовые тексты — опора на время учёбы. Когда душа научится обращаться к Богу сама, без книги можно обойтись[^corpus-feofan-until].
 
-Важно, кому это написано: человеку, который уже привык молиться по молитвеннику. Ему Феофан разрешает молиться без книги, когда молитва сама просится из сердца, и сразу предостерегает: только бы за этим не пряталась лень[^corpus-feofan-sloth]. А когда своя молитва не идёт, советует начинать с печатных молитв, чтобы её пробудить, и знать несколько молитв и псалмов наизусть[^corpus-feofan-printed].
+В том же письме есть образ, который перекликается со словами Терезы: «Дети подходят к отцу или матери и ничего не говорят, только увиваются около их, – оттого, что им сладко быть при них»[^corpus-feofan-children].
 
-Наш совет — от себя, а не от Феофана — тем, кто молится по правилу: свои слова не вместо правила, а вместе с ним. Как подобрать посильное правило, мы разбираем в статье [о молитвенном правиле](/ru/articles/prayer-rule/).
+Важно, кому это написано: человеку, который уже привык молиться по молитвеннику. Ему Феофан разрешает молиться без книги, когда молитва сама просится из сердца, и сразу предостерегает: только бы за этим не пряталась лень[^corpus-feofan-sloth]. Иначе, пишет он, «тотчас враг подойдет и будто за руку начнет тянуть от моления»[^corpus-feofan-enemy]. А когда своя молитва не идёт, советует начинать с печатных молитв, чтобы её пробудить, и знать несколько молитв и псалмов наизусть[^corpus-feofan-printed].
+
+Тем, кто молится по правилу — постоянному набору ежедневных молитв, — мы советуем от себя, а не от имени Феофана: добавлять свои слова к правилу, а не ставить их вместо него. Как подобрать посильное правило, мы разбираем в статье [о молитвенном правиле](/ru/articles/prayer-rule/).
 
 ## Когда молитва не идёт
 
-Молитва Пеллико тоже не была ровной. Его стали мучить ночные кошмары. Однажды он проснулся от того, что его душат: шею туго стягивал его собственный платок, завязанный на несколько узлов, а как он это сделал, Пеллико не помнил[^corpus-pellico-terror]. Днём он шутил с товарищами и тюремщиками, но с закатом его начинало трясти, и в конце концов им овладела страшная мысль, что Бог оставил его навсегда[^corpus-pellico-abandoned]. Несколько дней он сопротивлялся доводам против Бога, а потом сдался и вслед за злыми атеистами стал говорить, что религия только ослабляет ум. Позже он сам спрашивал, достаточно ли назвать всё это болезнью или Бог так смирял его гордость[^corpus-pellico-doubt]. Когда это прошло, он, переполненный благодарностью, упал на колени, просил у Бога прощения за эти дни — и так и заснул, стоя на коленях и опираясь на стул[^corpus-pellico-return].
+И у Пеллико молитва шла не всегда. Его стали мучить ночные кошмары. Однажды он проснулся от того, что его душат: шею туго стягивал его собственный платок, завязанный на несколько узлов, а как он его завязал, Пеллико не помнил[^corpus-pellico-terror]. Днём он шутил с товарищами и тюремщиками, но с закатом его начинало трясти. Попросить другую камеру он так и не решился: боялся, что его поднимут на смех. В конце концов им овладела страшная мысль, что Бог оставил его навсегда[^corpus-pellico-abandoned]. Несколько дней он сопротивлялся доводам против Бога, а потом сдался и стал повторять то, что слышал от озлобленных атеистов: религия только ослабляет ум. Но Бог избавил его от этого, когда он меньше всего ждал[^corpus-pellico-doubt]. Однажды утром, после кофе, его скрутили рвота и колики — он даже решил, что отравлен, — а в полдень он заснул и спокойно проспал до вечера. Проснулся он в непривычной тишине и решил не ложиться: на ногах легче будет встретить привычные ночные ужасы. Но они так и не пришли[^corpus-pellico-relief]. Переполненный благодарностью, он упал на колени, просил у Бога прощения за дни, когда отрекался от Него, — и так и заснул, стоя на коленях и опираясь на стул[^corpus-pellico-return].
 
 Самое трудное было впереди. Узнав свою участь, Пеллико первым делом сел писать отцу: ему хотелось, чтобы страшную новость родные узнали от него самого[^corpus-pellico-letter]. Ночью он не мог уснуть и думал о старых родителях: выдержат ли они такой удар[^corpus-pellico-night]. Думал и о судье, который, как ему казалось, торжествовал[^corpus-pellico-judge]. Ночь он провёл как в аду: простить не смог, да и не захотел, — ненависть была ему слаще[^corpus-pellico-hate]. «Утром я не молился»[^corpus-pellico-no-prayer], — признаётся он. И дальше: «Мне было горько, что я не могу молиться; но где царит гордыня, там не найти другого бога, кроме самого себя»[^corpus-pellico-pride].
 
-Потом его вывели на помост посреди площади у Дворца дожей, перед огромной толпой[^corpus-pellico-scaffold]. Сначала прозвучало: смертная казнь, и по толпе прошёл ропот жалости. Потом чтение продолжилось: пятнадцать лет каторжной тюрьмы[^corpus-pellico-sentence].
+Потом его вывели на помост посреди площади у Дворца дожей, перед огромной толпой[^corpus-pellico-scaffold]. Сначала прозвучало «приговорены к смерти», и по толпе прошёл ропот жалости. Все снова затихли, чтобы дослушать, и услышали: вместо казни — каторжная тюрьма, Пеллико — на пятнадцать лет[^corpus-pellico-sentence].
 
 Пеллико не прячет этой ночи и не делает из неё красивой морали. Но его честность подсказывает полезный вопрос: если молитва вдруг не идёт, что я сейчас прячу от Бога? Обиду, злость, гордость можно назвать вслух — это тоже молитва своими словами.
 
@@ -598,7 +998,7 @@ corpus_sources:
 
 ## С чего начать сегодня
 
-- **Начните с того, что сейчас на сердце или болит.** Одной фразы достаточно — как у маленькой Розалинд.
+- **Начните с того, что у вас на сердце, — хотя бы с того, что болит.** Одной фразы достаточно — как у маленькой Розалинд.
 - **Говорите обычными словами.** Тереза из Лизьё не искала красивых молитв и была уверена, что Бог её понимает.
 - **Если слова не идут, опирайтесь на готовое.** Медленно прочитайте «Отче наш» или псалом и продолжите своими словами — так советовал Феофан и так делала Тереза.
 - **Назовите то, что мешает.** Обида и гордость отняли у Пеллико молитву; сказать о них Богу — уже начало разговора.
@@ -607,7 +1007,7 @@ corpus_sources:
 ## Опора для своих слов
 <!-- screen: question, passage, reflection -->
 
-Если хочется опоры, попробуйте [Lampada](/ru/). Это приложение для молитвы своими словами: вы выбираете тему и время, а когда слова заканчиваются, Lampada задаёт наводящий вопрос и подбирает отрывки из Писания по смыслу молитвы. В конце можно записать главный вывод в дневник — он хранится только на вашем телефоне. Сама молитва остаётся вашей: говорите вы.
+Если хочется опоры, попробуйте [Lampada](/ru/). Это приложение для молитвы своими словами: вы выбираете тему и время, а когда слова заканчиваются, Lampada задаёт наводящий вопрос и подбирает отрывки из Писания по смыслу молитвы. В конце можно записать главный вывод в дневник; дневник хранится только на вашем телефоне. Сама молитва остаётся вашей: говорите вы.
 
 Пеллико провёл в тюрьмах почти десять лет и потом написал о них книгу «Мои темницы»[^pellico]. Но фраза, которую он сказал себе в первой камере, подходит каждому, кто впервые решается заговорить с Богом: «Разве я не в отличной компании?»[^corpus-pellico-company-end]
 
@@ -615,7 +1015,7 @@ corpus_sources:
 
 ### Нужно ли знать молитвы наизусть, чтобы начать?
 
-Нет, говорить с Богом можно своими словами. Но несколько молитв и псалмов наизусть пригодятся в дни, когда своих слов нет, — об этом выше, в истории Феофана Затворника.
+Нет, говорить с Богом можно своими словами. Но полезно знать наизусть несколько молитв и псалмов: они выручат в дни, когда своих слов нет, — об этом выше, в истории Феофана Затворника.
 
 ### Можно ли молиться про себя, не вслух?
 

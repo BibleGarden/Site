@@ -5,7 +5,7 @@ date: 2026-10-20
 corpus_sources:
 - id: "rogers-rule"
   kind: "retelling"
-  text: "прочла в благочестивой книге, что на суде дела каждого взвесят: если добрых больше, чем дурных, путь в рай открыт, а если наоборот — жди осуждения, и решила честно проверить себя этим правилом"
+  text: "прочла в благочестивой книге, что на суде дела каждого взвесят: если добрых больше, чем дурных, путь в рай открыт, а если наоборот — жди осуждения. Она решила честно проверить себя этим правилом"
   original: null
   translation: null
   chunk_id: "book-139-0023"
@@ -20,13 +20,13 @@ corpus_sources:
   source_url: "https://archive.org/details/accountofexperie00roge"
 - id: "rogers-daybook"
   kind: "quote"
-  text: "Поэтому я завела маленькую тетрадку, куда записывала каждый добрый и дурной поступок"
-  original: "I therefore made a little day-book, in which I put down every good and bad action"
+  text: "Поэтому я завела маленькую тетрадку, куда с великой искренностью записывала каждый добрый и дурной поступок, и при этом молилась Богу, чтобы Он показал мне, на пути ли я в рай или нет"
+  original: "I therefore made a little day-book, in which I put down every good and bad action, with great sincerity ; at the same time praying to God to shew me if I was in the way to heaven or not."
   translation: "ours"
   chunk_id: "book-139-0024"
   book_id: 139
   char_start: 21286
-  char_end: 21382
+  char_end: 21511
   text_sha256: "57a3b3ce9054457b524ca1ddcaf65c65c84f587aafb43c1abf1d203e9792a62d"
   author: "Hester Ann Rogers"
   title: "An Account of the Experience of Mrs. H. A. Rogers"
@@ -42,6 +42,21 @@ corpus_sources:
   book_id: 139
   char_start: 21883
   char_end: 22454
+  text_sha256: "57a3b3ce9054457b524ca1ddcaf65c65c84f587aafb43c1abf1d203e9792a62d"
+  author: "Hester Ann Rogers"
+  title: "An Account of the Experience of Mrs. H. A. Rogers"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/accountofexperie00roge"
+- id: "rogers-went-on"
+  kind: "retelling"
+  text: "Но она снова обещала себе стать лучше и продолжала вести счёт"
+  original: null
+  translation: null
+  chunk_id: "book-139-0025"
+  book_id: 139
+  char_start: 22456
+  char_end: 22538
   text_sha256: "57a3b3ce9054457b524ca1ddcaf65c65c84f587aafb43c1abf1d203e9792a62d"
   author: "Hester Ann Rogers"
   title: "An Account of the Experience of Mrs. H. A. Rogers"
@@ -72,6 +87,51 @@ corpus_sources:
   book_id: 139
   char_start: 22694
   char_end: 22778
+  text_sha256: "57a3b3ce9054457b524ca1ddcaf65c65c84f587aafb43c1abf1d203e9792a62d"
+  author: "Hester Ann Rogers"
+  title: "An Account of the Experience of Mrs. H. A. Rogers"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/accountofexperie00roge"
+- id: "rogers-cry"
+  kind: "quote"
+  text: "Что мне делать? О, научи меня, помоги мне, иначе я погибла!"
+  original: "What shall I do ? O teach me, O help me, or I am lost!"
+  translation: "ours"
+  chunk_id: "book-139-0060"
+  book_id: 139
+  char_start: 53089
+  char_end: 53157
+  text_sha256: "57a3b3ce9054457b524ca1ddcaf65c65c84f587aafb43c1abf1d203e9792a62d"
+  author: "Hester Ann Rogers"
+  title: "An Account of the Experience of Mrs. H. A. Rogers"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/accountofexperie00roge"
+- id: "rogers-care"
+  kind: "retelling"
+  text: "И тогда ей на сердце пришли слова: всякую заботу можно возложить на Бога, потому что Он печётся о нас"
+  original: null
+  translation: null
+  chunk_id: "book-139-0060"
+  book_id: 139
+  char_start: 53160
+  char_end: 53301
+  text_sha256: "57a3b3ce9054457b524ca1ddcaf65c65c84f587aafb43c1abf1d203e9792a62d"
+  author: "Hester Ann Rogers"
+  title: "An Account of the Experience of Mrs. H. A. Rogers"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/accountofexperie00roge"
+- id: "rogers-dost"
+  kind: "quote"
+  text: "Господи, неужели Ты печёшься обо мне!"
+  original: "Lord, dost thou care for me !"
+  translation: "ours"
+  chunk_id: "book-139-0060"
+  book_id: 139
+  char_start: 53303
+  char_end: 53349
   text_sha256: "57a3b3ce9054457b524ca1ddcaf65c65c84f587aafb43c1abf1d203e9792a62d"
   author: "Hester Ann Rogers"
   title: "An Account of the Experience of Mrs. H. A. Rogers"
@@ -155,7 +215,7 @@ corpus_sources:
   source_url: "https://ccel.org/ccel/ignatius/exercises"
 - id: "ignatius-particular"
   kind: "retelling"
-  text: "Но и этот счёт стоит внутри молитвы: после обеда он просил у Бога благодати вспомнить, сколько раз оступился, и исправиться, а посчитав, заново решал исправляться до следующего разбора"
+  text: "Днём, после обеда, нужно сначала попросить у Бога благодати вспомнить, сколько раз впал именно в этот недостаток, и исправиться; потом пройти время с утра час за часом и поставить на линии по точке за каждый такой случай, а в конце заново решиться на исправление до следующего разбора"
   original: null
   translation: null
   chunk_id: "book-38-0041"
@@ -170,7 +230,7 @@ corpus_sources:
   source_url: "https://ccel.org/ccel/ignatius/exercises"
 - id: "ignatius-dots"
   kind: "retelling"
-  text: "В «частном экзамене», упражнении против одного выбранного недостатка, после ужина он снова проходил время час за часом и ставил на линии столько точек, сколько раз этот недостаток повторился"
+  text: "После ужина — второй такой разбор, на второй линии"
   original: null
   translation: null
   chunk_id: "book-38-0042"
@@ -183,9 +243,24 @@ corpus_sources:
   chapter: "FIRST WEEK — PARTICULAR AND DAILY EXAMEN"
   translator: "Elder Mullan"
   source_url: "https://ccel.org/ccel/ignatius/exercises"
+- id: "rogers-hope"
+  kind: "retelling"
+  text: "А Хестер проверяла себя по чужому правилу: хотела по перевесу добрых поступков понять, есть ли у неё надежда на спасение"
+  original: null
+  translation: null
+  chunk_id: "book-139-0023"
+  book_id: 139
+  char_start: 20774
+  char_end: 21284
+  text_sha256: "57a3b3ce9054457b524ca1ddcaf65c65c84f587aafb43c1abf1d203e9792a62d"
+  author: "Hester Ann Rogers"
+  title: "An Account of the Experience of Mrs. H. A. Rogers"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/accountofexperie00roge"
 - id: "dorotheus-evening"
   kind: "retelling"
-  text: "Он передаёт правило, которое оставили отцы: дважды в сутки подводить итог — перед сном оглянуться на минувший день, на рассвете на минувшую ночь — и в том, что найдёшь, просить у Бога прощения"
+  text: "Он передаёт правило, которое оставили отцы: дважды в сутки подводить итог — вечером оглянуться на минувший день, утром — на минувшую ночь, а в чём согрешил, в том каяться перед Богом"
   original: null
   translation: null
   chunk_id: "book-211-0226"
@@ -200,7 +275,7 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/Dorofej/dushepoleznye-pouchenija-i-poslanija/"
 - id: "dorotheus-questions"
   kind: "retelling"
-  text: "Вопросы у него удивительно бытовые: не задел ли я брата, не осудил ли его, увидев за работой, не роптал ли на келаря, который мне отказал, не ворчал ли из-за невкусной еды"
+  text: "Вопросы у него удивительно бытовые: не задел ли я брата, не осудил ли его, увидев за работой, не роптал ли на келаря — монаха, ведавшего припасами, — когда тот мне отказал, не ворчал ли из-за невкусной еды"
   original: null
   translation: null
   chunk_id: "book-211-0227"
@@ -290,13 +365,28 @@ corpus_sources:
   source_url: "https://fr.wikisource.org/wiki/L%E2%80%99Art_d%E2%80%99utiliser_ses_fautes,_d%E2%80%99apr%C3%A8s_Saint_Fran%C3%A7ois_de_Sales"
 - id: "sales-encore"
   kind: "quote"
-  text: "Но, дорогая дочь моя, к чему относится это „всё ещё“?"
-  original: "Mais, ma chère fille, cet encore à quoi se rapporte-t-il ?"
+  text: "Но, дорогая дочь моя, к чему относится это „всё ещё“? Много ли вы уже одолели таких врагов?"
+  original: "Mais, ma chère fille, cet encore à quoi se rapporte-t-il ? En avez-vous déjà beaucoup gâté, de ces ennemis-là ?"
   translation: "ours"
   chunk_id: "book-235-0010"
   book_id: 235
   char_start: 8469
-  char_end: 8527
+  char_end: 8580
+  text_sha256: "505c297a5df66b554ea1eec62a3e02b179ce4ed717deb2a5ac1d7fd6324d875b"
+  author: "Joseph Tissot"
+  title: "L'Art d'utiliser ses fautes, d'après Saint François de Sales"
+  chapter: "PREMIÈRE PARTIE CHAPITRE PREMIER ne pas s’étonner de ses fautes"
+  translator: null
+  source_url: "https://fr.wikisource.org/wiki/L%E2%80%99Art_d%E2%80%99utiliser_ses_fautes,_d%E2%80%99apr%C3%A8s_Saint_Fran%C3%A7ois_de_Sales"
+- id: "sales-small"
+  kind: "quote"
+  text: "Довольствуйтесь тем, что время от времени одерживаете маленькую победу над своей страстью-врагом"
+  original: "Contentez-vous de gagner de temps en temps quelque petit avantage sur votre passion ennemie."
+  translation: "ours"
+  chunk_id: "book-235-0010"
+  book_id: 235
+  char_start: 8721
+  char_end: 8813
   text_sha256: "505c297a5df66b554ea1eec62a3e02b179ce4ed717deb2a5ac1d7fd6324d875b"
   author: "Joseph Tissot"
   title: "L'Art d'utiliser ses fautes, d'après Saint François de Sales"
@@ -305,13 +395,13 @@ corpus_sources:
   source_url: "https://fr.wikisource.org/wiki/L%E2%80%99Art_d%E2%80%99utiliser_ses_fautes,_d%E2%80%99apr%C3%A8s_Saint_Fran%C3%A7ois_de_Sales"
 - id: "sales-chicks"
   kind: "quote"
-  text: "мы — маленькие цыплята, у которых ещё нет крыльев"
-  original: "nous sommes de petits poussins qui n’avons pas encore nos ailes"
+  text: "Мы не можем ходить, не касаясь земли. Не надо на ней лежать и валяться, но и думать о полёте не надо: ведь мы — маленькие цыплята, у которых ещё нет крыльев"
+  original: "Nous ne pouvons marcher sans toucher terre. Il ne faut pas s’y coucher ni s’y vautrer ; mais il ne faut-pas penser voler ; car nous sommes de petits poussins qui n’avons pas encore nos ailes."
   translation: "ours"
   chunk_id: "book-235-0010"
   book_id: 235
-  char_start: 9007
-  char_end: 9070
+  char_start: 8880
+  char_end: 9071
   text_sha256: "505c297a5df66b554ea1eec62a3e02b179ce4ed717deb2a5ac1d7fd6324d875b"
   author: "Joseph Tissot"
   title: "L'Art d'utiliser ses fautes, d'après Saint François de Sales"
@@ -333,15 +423,45 @@ corpus_sources:
   chapter: "A JOURNAL OF THE LIFE AND TRAVELS OF JOHN WOOLMAN, In the Service of the Gospel — CHAPTER X"
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/37311"
-- id: "woolman-leave"
+- id: "woolman-board"
   kind: "retelling"
-  text: "Каюту они осмотрели, но сели внизу, на сундук, рядом с матросами. Там, обратившись мыслью ко Христу, Вулман почувствовал, что его собственная воля уступает, и, хотя владелец звал их наверх, с лёгким сердцем ушёл с корабля, так и не взяв места"
+  text: "Осмотрев просторную каюту, друзья спустились вниз и устроились на сундуке посреди суетившихся матросов; туда же к ним пришёл владелец судна"
   original: null
   translation: null
   chunk_id: "book-69-0367"
   book_id: 69
   char_start: 285681
-  char_end: 286203
+  char_end: 285884
+  text_sha256: "cbb7e4ce65b0e38e139ec07a09426cb7fa4ffc557e5d468b4f8e84664960077a"
+  author: "John Woolman"
+  title: "The Journal, with Other Writings"
+  chapter: "A JOURNAL OF THE LIFE AND TRAVELS OF JOHN WOOLMAN, In the Service of the Gospel — CHAPTER X"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/37311"
+- id: "woolman-contrite"
+  kind: "quote"
+  text: "Мои мысли обратились ко Христу, небесному Советнику; я почувствовал, что моя собственная воля покорилась, и сердце моё сокрушилось перед Ним"
+  original: "Here my Mind was turned toward Christ, the heavenly Counsellor; and I feeling, at this Time, my own Will subjected, my Heart was contrite before him."
+  translation: "ours"
+  chunk_id: "book-69-0367"
+  book_id: 69
+  char_start: 285886
+  char_end: 286035
+  text_sha256: "cbb7e4ce65b0e38e139ec07a09426cb7fa4ffc557e5d468b4f8e84664960077a"
+  author: "John Woolman"
+  title: "The Journal, with Other Writings"
+  chapter: "A JOURNAL OF THE LIFE AND TRAVELS OF JOHN WOOLMAN, In the Service of the Gospel — CHAPTER X"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/37311"
+- id: "woolman-leave"
+  kind: "retelling"
+  text: "Владелец предложил перейти в каюту, где поспокойнее, но Вулман с лёгким сердцем ушёл с корабля, так и не договорившись о месте"
+  original: null
+  translation: null
+  chunk_id: "book-69-0367"
+  book_id: 69
+  char_start: 286037
+  char_end: 286350
   text_sha256: "cbb7e4ce65b0e38e139ec07a09426cb7fa4ffc557e5d468b4f8e84664960077a"
   author: "John Woolman"
   title: "The Journal, with Other Writings"
@@ -393,6 +513,81 @@ corpus_sources:
   chapter: "A JOURNAL OF THE LIFE AND TRAVELS OF JOHN WOOLMAN, In the Service of the Gospel — CHAPTER X"
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/37311"
+- id: "woolman-family"
+  kind: "retelling"
+  text: "Дома он пробыл пару дней и ранним утром простился с семьёй, ощущая, как смиряет его Божья рука. В Филадельфии друзья беспокоились: место, где ему предстояло жить на корабле, было уж очень неуютным"
+  original: null
+  translation: null
+  chunk_id: "book-69-0369"
+  book_id: 69
+  char_start: 287049
+  char_end: 287395
+  text_sha256: "cbb7e4ce65b0e38e139ec07a09426cb7fa4ffc557e5d468b4f8e84664960077a"
+  author: "John Woolman"
+  title: "The Journal, with Other Writings"
+  chapter: "A JOURNAL OF THE LIFE AND TRAVELS OF JOHN WOOLMAN, In the Service of the Gospel — CHAPTER X"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/37311"
+- id: "woolman-boarded"
+  kind: "retelling"
+  text: "1 мая 1772 года он поднялся на борт"
+  original: null
+  translation: null
+  chunk_id: "book-69-0370"
+  book_id: 69
+  char_start: 287752
+  char_end: 287809
+  text_sha256: "cbb7e4ce65b0e38e139ec07a09426cb7fa4ffc557e5d468b4f8e84664960077a"
+  author: "John Woolman"
+  title: "The Journal, with Other Writings"
+  chapter: "A JOURNAL OF THE LIFE AND TRAVELS OF JOHN WOOLMAN, In the Service of the Gospel — CHAPTER X"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/37311"
+- id: "woolman-deck"
+  kind: "quote"
+  text: "Когда я сел один на скамью на палубе, я ощутил убедительное свидетельство того, что поступаю не по своей воле, а под властью Креста Христова"
+  original: "as I sat down alone, on a Seat on the Deck, I felt a satisfactory Evidence that my Proceedings were not in my own Will, but under the Power of the Cross of Christ."
+  translation: "ours"
+  chunk_id: "book-69-0370"
+  book_id: 69
+  char_start: 287815
+  char_end: 287978
+  text_sha256: "cbb7e4ce65b0e38e139ec07a09426cb7fa4ffc557e5d468b4f8e84664960077a"
+  author: "John Woolman"
+  title: "The Journal, with Other Writings"
+  chapter: "A JOURNAL OF THE LIFE AND TRAVELS OF JOHN WOOLMAN, In the Service of the Gospel — CHAPTER X"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/37311"
+- id: "woolman-sea"
+  kind: "retelling"
+  text: "С тех пор почти всё время штормило, пассажиров то и дело укачивало, а его, по милости Небесного Отца, морская болезнь обошла"
+  original: null
+  translation: null
+  chunk_id: "book-69-0370"
+  book_id: 69
+  char_start: 287980
+  char_end: 288307
+  text_sha256: "cbb7e4ce65b0e38e139ec07a09426cb7fa4ffc557e5d468b4f8e84664960077a"
+  author: "John Woolman"
+  title: "The Journal, with Other Writings"
+  chapter: "A JOURNAL OF THE LIFE AND TRAVELS OF JOHN WOOLMAN, In the Service of the Gospel — CHAPTER X"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/37311"
+- id: "woolman-kind"
+  kind: "quote"
+  text: "мои скорби теперь иного рода"
+  original: "my Afflictions now being of another Kind"
+  translation: "ours"
+  chunk_id: "book-69-0370"
+  book_id: 69
+  char_start: 288308
+  char_end: 288348
+  text_sha256: "cbb7e4ce65b0e38e139ec07a09426cb7fa4ffc557e5d468b4f8e84664960077a"
+  author: "John Woolman"
+  title: "The Journal, with Other Writings"
+  chapter: "A JOURNAL OF THE LIFE AND TRAVELS OF JOHN WOOLMAN, In the Service of the Gospel — CHAPTER X"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/37311"
 - id: "woolman-quiet"
   kind: "quote"
   text: "у меня сегодня есть большая причина для благодарности: я по-прежнему чувствую покой ума"
@@ -423,6 +618,36 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: "https://archive.org/details/accountofexperie00roge"
+- id: "rogers-fear"
+  kind: "retelling"
+  text: "Но Господь ответил ей: не бойся, только веруй"
+  original: null
+  translation: null
+  chunk_id: "book-139-0061"
+  book_id: 139
+  char_start: 54180
+  char_end: 54236
+  text_sha256: "57a3b3ce9054457b524ca1ddcaf65c65c84f587aafb43c1abf1d203e9792a62d"
+  author: "Hester Ann Rogers"
+  title: "An Account of the Experience of Mrs. H. A. Rogers"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/accountofexperie00roge"
+- id: "rogers-liberty"
+  kind: "retelling"
+  text: "Она решилась доверить Христу всё своё спасение — и в тот же миг оковы спали, душа вышла на свободу"
+  original: null
+  translation: null
+  chunk_id: "book-139-0063"
+  book_id: 139
+  char_start: 55546
+  char_end: 55954
+  text_sha256: "57a3b3ce9054457b524ca1ddcaf65c65c84f587aafb43c1abf1d203e9792a62d"
+  author: "Hester Ann Rogers"
+  title: "An Account of the Experience of Mrs. H. A. Rogers"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/accountofexperie00roge"
 - id: "rogers-gone"
   kind: "quote"
   text: "Мои грехи ушли; на душе было счастье"
@@ -432,6 +657,36 @@ corpus_sources:
   book_id: 139
   char_start: 56704
   char_end: 56749
+  text_sha256: "57a3b3ce9054457b524ca1ddcaf65c65c84f587aafb43c1abf1d203e9792a62d"
+  author: "Hester Ann Rogers"
+  title: "An Account of the Experience of Mrs. H. A. Rogers"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/accountofexperie00roge"
+- id: "rogers-tears"
+  kind: "retelling"
+  text: "и по щекам текли слёзы радости"
+  original: null
+  translation: null
+  chunk_id: "book-139-0064"
+  book_id: 139
+  char_start: 57055
+  char_end: 57100
+  text_sha256: "57a3b3ce9054457b524ca1ddcaf65c65c84f587aafb43c1abf1d203e9792a62d"
+  author: "Hester Ann Rogers"
+  title: "An Account of the Experience of Mrs. H. A. Rogers"
+  chapter: null
+  translator: null
+  source_url: "https://archive.org/details/accountofexperie00roge"
+- id: "rogers-mother"
+  kind: "retelling"
+  text: "Мать поразилась тому, как переменилось её лицо; слушая дочь, она заплакала вместе с ней, но почти ничего не сказала — так была изумлена"
+  original: null
+  translation: null
+  chunk_id: "book-139-0065"
+  book_id: 139
+  char_start: 57103
+  char_end: 57798
   text_sha256: "57a3b3ce9054457b524ca1ddcaf65c65c84f587aafb43c1abf1d203e9792a62d"
   author: "Hester Ann Rogers"
   title: "An Account of the Experience of Mrs. H. A. Rogers"
@@ -485,7 +740,7 @@ corpus_sources:
   source_url: "https://fr.wikisource.org/wiki/L%E2%80%99Art_d%E2%80%99utiliser_ses_fautes,_d%E2%80%99apr%C3%A8s_Saint_Fran%C3%A7ois_de_Sales"
 ---
 
-Англия, около 1770 года. Девочка-подросток из городка Маклсфилд прочла в благочестивой книге, что на суде дела каждого взвесят: если добрых больше, чем дурных, путь в рай открыт, а если наоборот — жди осуждения, и решила честно проверить себя этим правилом[^corpus-rogers-rule]. «Поэтому я завела маленькую тетрадку, куда записывала каждый добрый и дурной поступок»[^corpus-rogers-daybook]. Однажды на танцах она достала из кармана платок, а с ним выпала и тетрадка: «её нашли, и над ней смеялась вся компания»[^corpus-rogers-dance]. От стыда она бросила свой метод[^corpus-rogers-quit]. Девочку звали Хестер Энн Роу; позже, уже как Хестер Роджерс, она станет известной методистской писательницей[^rogers].
+Англия, около 1770 года. Девочка-подросток из городка Маклсфилд прочла в благочестивой книге, что на суде дела каждого взвесят: если добрых больше, чем дурных, путь в рай открыт, а если наоборот — жди осуждения. Она решила честно проверить себя этим правилом[^corpus-rogers-rule]. «Поэтому я завела маленькую тетрадку, куда с великой искренностью записывала каждый добрый и дурной поступок, и при этом молилась Богу, чтобы Он показал мне, на пути ли я в рай или нет»[^corpus-rogers-daybook]. В зачёт шли и послушание старшим, и молитвы, и службы. Ради лишнего доброго дела она порой пропускала игры и праздники, оставаясь дома читать матери, а то и целыми днями постилась — и всё равно дурное перевешивало[^corpus-rogers-swell]. Но она снова обещала себе стать лучше и продолжала вести счёт[^corpus-rogers-went-on] — пока однажды на танцах не достала из кармана платок, а с ним не выпала и тетрадка: «её нашли, и над ней смеялась вся компания»[^corpus-rogers-dance]. От стыда она бросила свой метод[^corpus-rogers-quit]. Девочку звали Хестер Энн Роу; позже, уже как Хестер Роджерс, она станет известной методистской писательницей[^rogers].
 
 **Examen** (по-латыни буквально «стрелка весов», а отсюда «испытание»)[^examen-word] — короткая молитва, в которой человек вместе с Богом оглядывается на прожитый день. Её описал Игнатий Лойола в «Духовных упражнениях»; по-русски чаще говорят «испытание совести». Хватит нескольких минут: ирландские иезуиты на своём сайте Sacred Space говорят о пяти-десяти[^sacred-space]. Это не исповедь: исповедь — таинство, перед которым католики тоже испытывают совесть, а examen — ежедневная личная молитва[^examination]. И не дневник: записывать ничего не обязательно.
 
@@ -493,48 +748,52 @@ corpus_sources:
 
 ## Раненый, который прислушался к своим мыслям
 
-В мае 1521 года ядро раздробило ногу баскскому дворянину Иньиго Лойоле при обороне Памплоны. Выздоравливал он долго; рыцарских романов в замке не нашлось, и ему принесли жизнь Христа и жития святых. Он заметил, что мечты о славе оставляют после себя пустоту, а мысли о святых — радость и мир. Позже вместе с шестью товарищами он основал орден иезуитов[^ignatius]. Общество Иисуса стало крупнейшим мужским католическим орденом; иезуиты известны школами и университетами, а с XVI века — миссиями по всему миру[^jesuits]. Examen Игнатий сделал для своих братьев обязательным дважды в день, в полдень и вечером, и иезуиты молятся так до сих пор[^sacred-space-jesuits].
+В мае 1521 года при обороне Памплоны ядро раздробило ногу баскскому дворянину Иньиго Лойоле — будущему Игнатию. Выздоравливал он долго; рыцарских романов в замке не нашлось, и ему принесли жизнь Христа и жития святых. Он заметил, что мечты о славе оставляют после себя пустоту, а мысли о святых — радость и мир[^ignatius]. Так он научился прислушиваться к следу, который оставляют в душе мысли, — examen и есть такое прислушивание, только ко всему дню.
+
+Позже вместе с шестью товарищами Игнатий основал орден иезуитов — Общество Иисуса. Со временем Общество стало крупнейшим мужским католическим орденом; иезуиты известны школами и университетами, а с XVI века — миссиями по всему миру[^jesuits]. Examen Игнатий сделал для своих братьев обязательным дважды в день, в полдень и вечером, и иезуиты молятся так до сих пор[^sacred-space-jesuits].
 
 В «Духовных упражнениях» Игнатий начинает общий экзамен совести не с грехов. «Первый пункт — возблагодарить Бога, Господа нашего, за полученные благодеяния»[^corpus-ignatius-thanks]. Только потом — «просить благодати познать свои грехи и изгнать их»[^corpus-ignatius-grace]. Свет здесь просят у Бога, а не добывают самоедством. Так молился и псалмопевец: «Испытай меня, Боже, и узнай побуждения сердца моего, проверь меня, Господи, и узнай помыслы мои. Посмотри, не иду ли я путем пагубным, и направь меня на путь вечный» (Пс 138:23–24)[^ps138].
 
 Третий пункт — «потребовать у своей души отчёта с того часа, как мы встали, до нынешнего экзамена, час за часом или отрезок за отрезком»[^corpus-ignatius-account]: о мыслях, о словах, о делах. Четвёртый — «просить у Бога, Господа нашего, прощения за проступки»[^corpus-ignatius-pardon]. Пятый — «с Его благодатью решиться на исправление»[^corpus-ignatius-amend]. И «Отче наш».
 
-Считать Игнатий тоже умел. В «частном экзамене», упражнении против одного выбранного недостатка, после ужина он снова проходил время час за часом и ставил на линии столько точек, сколько раз этот недостаток повторился[^corpus-ignatius-dots]. Но и этот счёт стоит внутри молитвы: после обеда он просил у Бога благодати вспомнить, сколько раз оступился, и исправиться, а посчитав, заново решал исправляться до следующего разбора[^corpus-ignatius-particular]. Общий же экзамен Игнатий начинал с благодарности. Хестер надеялась другого: по перевесу добрых поступков понять, есть ли у неё надежда на спасение. В зачёт шли и послушание старшим, и молитвы, и службы. Ради лишнего доброго дела она порой пропускала игры и праздники, оставаясь дома читать матери, а то и целыми днями постилась — и всё равно дурное перевешивало[^corpus-rogers-swell].
+Считать Игнатий тоже умел. Против одного выбранного недостатка у него есть «частный экзамен». Днём, после обеда, нужно сначала попросить у Бога благодати вспомнить, сколько раз впал именно в этот недостаток, и исправиться; потом пройти время с утра час за часом и поставить на линии по точке за каждый такой случай, а в конце заново решиться на исправление до следующего разбора[^corpus-ignatius-particular]. После ужина — второй такой разбор, на второй линии[^corpus-ignatius-dots]. Счёт здесь — часть молитвы, а общий экзамен Игнатий начинал с благодарности. А Хестер проверяла себя по чужому правилу: хотела по перевесу добрых поступков понять, есть ли у неё надежда на спасение[^corpus-rogers-hope].
 
 ## Вопросы аввы Дорофея
 
-Задолго до Игнатия, в VI веке, в монастыре близ Газы жил авва Дорофей. Его наставления повлияли на монахов и Востока, и Запада[^dorotheus]. Он передаёт правило, которое оставили отцы: дважды в сутки подводить итог — перед сном оглянуться на минувший день, на рассвете на минувшую ночь — и в том, что найдёшь, просить у Бога прощения[^corpus-dorotheus-evening]. Вопросы у него удивительно бытовые: не задел ли я брата, не осудил ли его, увидев за работой, не роптал ли на келаря, который мне отказал, не ворчал ли из-за невкусной еды[^corpus-dorotheus-questions].
+Задолго до Игнатия, в VI веке, в монастыре близ Газы жил авва Дорофей. Его наставления повлияли на монахов и Востока, и Запада[^dorotheus]. Он передаёт правило, которое оставили отцы: дважды в сутки подводить итог — вечером оглянуться на минувший день, утром — на минувшую ночь, а в чём согрешил, в том каяться перед Богом[^corpus-dorotheus-evening]. Вопросы у него удивительно бытовые: не задел ли я брата, не осудил ли его, увидев за работой, не роптал ли на келаря — монаха, ведавшего припасами, — когда тот мне отказал, не ворчал ли из-за невкусной еды[^corpus-dorotheus-questions].
 
 Себя он не выгораживает. Вскоре после тяжёлой болезни его поставили принимать в монастыре странников: вечерами сидел с гостями, потом служил погонщикам верблюдов, а ночью его будили снова[^corpus-dorotheus-guests]. Монах, отвечавший за подъём на ночную службу, приходил его поднимать, а он, обессиленный, бормотал в полусне, что сейчас придёт, — и снова проваливался в сон, а потом мучился, что опоздал. Выход он нашёл простой: попросил одного брата поднимать его, а другого — следить, чтобы он не клевал носом в храме. Этих двоих он чтил как людей, через которых Бог вёл его ко спасению[^corpus-dorotheus-brothers]. Его разбор кончился не самобичеванием, а просьбой о помощи.
 
-Перемены Дорофей обещает медленные: кто так проверяет себя, кается и старается исправиться, тот вместо девяти проступков сделает восемь — понемногу, с Божьей помощью[^corpus-dorotheus-nine].
+Быстрых перемен Дорофей не обещает: кто так проверяет себя, кается и старается исправиться, тот вместо девяти проступков сделает восемь — понемногу, с Божьей помощью[^corpus-dorotheus-nine].
 
 ## «Бедное моё сердце»
 
-Что делать, если на четвёртом шаге вспомнилось плохое? Франциск Сальский, епископ Женевы и автор «Введения в благочестивую жизнь»[^sales], советовал не ругать себя. Его письма и книги цитирует французский священник Жозеф Тиссо в книге «Искусство извлекать пользу из своих падений». Сальский предостерегает от жестокой брани на собственное сердце[^corpus-sales-shame]. А надо так: «Ну что ж, бедное моё сердце, вот мы и упали в ту самую яму, которой так твёрдо решили избежать. Ах! встанем и уйдём из неё навсегда»[^corpus-sales-heart]. Женщине, которая жаловалась, что всё ещё болезненно переносит обиды, он отвечал: «Но, дорогая дочь моя, к чему относится это „всё ещё“?»[^corpus-sales-encore] И напоминал: «мы — маленькие цыплята, у которых ещё нет крыльев»[^corpus-sales-chicks].
+Что делать, если при разборе дня вспомнилось плохое? Франциск Сальский, епископ Женевы и автор «Введения в благочестивую жизнь»[^sales], советовал не ругать себя. Его письма и книги цитирует французский священник Жозеф Тиссо в книге «Искусство извлекать пользу из своих падений». Сальский предостерегает от жестокой брани на собственное сердце[^corpus-sales-shame]. А надо так: «Ну что ж, бедное моё сердце, вот мы и упали в ту самую яму, которой так твёрдо решили избежать. Ах! встанем и уйдём из неё навсегда»[^corpus-sales-heart]. Женщине, которая жаловалась, что всё ещё болезненно переносит обиды, он отвечал: «Но, дорогая дочь моя, к чему относится это „всё ещё“? Много ли вы уже одолели таких врагов?»[^corpus-sales-encore] И советовал: «Довольствуйтесь тем, что время от времени одерживаете маленькую победу над своей страстью-врагом»[^corpus-sales-small]. И ещё: «Мы не можем ходить, не касаясь земли. Не надо на ней лежать и валяться, но и думать о полёте не надо: ведь мы — маленькие цыплята, у которых ещё нет крыльев»[^corpus-sales-chicks].
 
 ## Ночь Джона Вулмана
 
-Вечерний взгляд обращён не только назад. Джон Вулман — квакер и портной из Нью-Джерси, одним из первых выступивший против рабства[^woolman]. Весной 1772 года он искал корабль в Англию. Его друг взял место в каюте, а Вулмана, как он пишет в «Дневнике», «тянуло» вниз, в общий отсек под палубой того же судна[^corpus-woolman-draught]. Каюту они осмотрели, но сели внизу, на сундук, рядом с матросами. Там, обратившись мыслью ко Христу, Вулман почувствовал, что его собственная воля уступает, и, хотя владелец звал их наверх, с лёгким сердцем ушёл с корабля, так и не взяв места[^corpus-woolman-leave].
+Вечерний взгляд обращён не только назад. Джон Вулман — квакер и портной из Нью-Джерси, одним из первых выступивший против рабства[^woolman]. Весной 1772 года он искал корабль в Англию. Его друг взял место в каюте, а Вулмана, как он пишет в «Дневнике», «тянуло» вниз, в общий отсек под палубой того же судна[^corpus-woolman-draught]. Осмотрев просторную каюту, друзья спустились вниз и устроились на сундуке посреди суетившихся матросов; туда же к ним пришёл владелец судна[^corpus-woolman-board]. «Мои мысли обратились ко Христу, небесному Советнику; я почувствовал, что моя собственная воля покорилась, и сердце моё сокрушилось перед Ним»[^corpus-woolman-contrite]. Владелец предложил перейти в каюту, где поспокойнее, но Вулман с лёгким сердцем ушёл с корабля, так и не договорившись о месте[^corpus-woolman-leave].
 
-Ночью, вспоминает он, «мой ум был в глубоком внутреннем борении перед Господом; Его помогающая рука явилась мне, пока я спал той ночью, и Его любовь укрепила моё сердце»[^corpus-woolman-night]. Утром он пришёл к владельцу корабля и открыл ему, что совесть не позволяет ему ехать в каюте[^corpus-woolman-owner]. После этого он купил место внизу, в общем отсеке[^corpus-woolman-agreed]. Через неделю, уже в море, записал: «у меня сегодня есть большая причина для благодарности: я по-прежнему чувствую покой ума»[^corpus-woolman-quiet].
+Ночью, вспоминает он, «мой ум был в глубоком внутреннем борении перед Господом; Его помогающая рука явилась мне, пока я спал той ночью, и Его любовь укрепила моё сердце»[^corpus-woolman-night]. Утром он пришёл к владельцу корабля и открыл ему, что совесть не позволяет ему ехать в каюте[^corpus-woolman-owner]. После этого он купил место внизу, в общем отсеке[^corpus-woolman-agreed]. Дома он пробыл пару дней и ранним утром простился с семьёй, ощущая, как смиряет его Божья рука. В Филадельфии друзья беспокоились: место, где ему предстояло жить на корабле, было уж очень неуютным[^corpus-woolman-family]. 1 мая 1772 года он поднялся на борт[^corpus-woolman-boarded]. «Когда я сел один на скамью на палубе, я ощутил убедительное свидетельство того, что поступаю не по своей воле, а под властью Креста Христова»[^corpus-woolman-deck]. С тех пор почти всё время штормило, пассажиров то и дело укачивало, а его, по милости Небесного Отца, морская болезнь обошла[^corpus-woolman-sea]: «мои скорби теперь иного рода»[^corpus-woolman-kind]. В тот же день он записал: «у меня сегодня есть большая причина для благодарности: я по-прежнему чувствую покой ума»[^corpus-woolman-quiet].
 
-Это не examen и не разбор всего дня: Вулман рассказывает о ночном борении перед конкретным решением. Но движение похожее: заметить, где на душе нет покоя, принести это Богу и наутро сделать шаг. Почему его смущала каюта, в этих строках Вулман не объясняет. Осенью того же года он заболел в Англии оспой и умер в Йорке[^woolman-death].
+Это не examen и не разбор всего дня: Вулман рассказывает о ночном борении перед конкретным решением. Но движение похожее: заметить, где на душе нет покоя, принести это Богу и наутро сделать шаг. Чем именно смущала его каюта, в этих строках Вулман не объясняет. Осенью того же года он заболел в Англии оспой и умер в Йорке[^woolman-death].
 
 ## Как попробовать сегодня
 
-Вечером, хоть на пять минут, вспомните одно конкретное, за что хочется сказать спасибо. Попросите: «Покажи мне этот день». Пройдите его по людям и моментам: кого я задел или осудил, как спрашивал Дорофей, а где был покой и где тяжесть, как у Вулмана. О плохом говорите с собой как Сальский, а не как прокурор, и просите прощения. Выберите один маленький шаг на завтра; иногда это просьба о помощи, как у Дорофея. Закончите «Отче наш» или своими словами.
+Вечером, хоть на пять минут, вспомните одно конкретное, за что хочется сказать спасибо. Попросите: «Покажи мне этот день». Вспомните людей и события дня. Спросите себя, как Дорофей: кого я задел или осудил? И, как Вулман: где на душе был покой, а где тяжесть? О плохом говорите с собой как Сальский, а не как прокурор, и просите прощения. Выберите один маленький шаг на завтра; иногда это просьба о помощи, как у Дорофея. Закончите «Отче наш» или своими словами.
 
 Записывать не обязательно. Если хочется, хватит одной строки, а как вести записи и перечитывать их, рассказано в статье [«Молитвенный дневник»](/ru/articles/prayer-journal/). У православных похожее движение есть в вечерних молитвах — «Исповедание грехов повседневное»[^prayerbook]. Ловушки две: превратить вечер в бухгалтерию, как Хестер, или в бессонный допрос себя. Если разбор дня каждый раз приносит тревогу, сократите его до благодарности и доверия и поговорите со священником или пастором. Если тревога навязчивая, обратитесь к специалисту.
 
 ## Вечер в Lampada
 <!-- screen: topic, reflection, history -->
 
-В [Lampada](/ru/) нет режима examen и пяти шагов, но вечерний разговор с Богом в ней начать можно. Цель молитвы вы формулируете сами, например «Оглянуться на сегодняшний день». Можно молиться без таймера. Наводящие вопросы строятся по цели и вашим ответам, их можно пропускать и отвечать текстом или голосом. Стихи Писания подбираются по смыслу. Напоминание можно поставить на вечер в нужные дни.
+В [Lampada](/ru/) нет режима examen и пяти шагов, но вечерний разговор с Богом в ней начать можно. Цель молитвы вы формулируете сами, например «Оглянуться на сегодняшний день». Можно молиться без таймера. Наводящие вопросы зависят от цели и ваших ответов; отвечать на них можно текстом или голосом, а можно и пропустить. Стихи Писания подбираются по смыслу. Напоминание можно поставить на вечер в нужные дни.
 
-В конце приложение задаёт один итоговый вопрос: что главного было в этой молитве, с чем хочется обратиться к Богу. По желанию можно записать итог в одну-две строки. Записи хранятся в дневнике на устройстве, по ним работает поиск. Но это не examen: итоговый вопрос касается этой молитвы, а не всего дня. Нет ни списка благодарностей, ни подсчёта недостатков. Вопросы приложения — подсказки для размышления, а не духовное руководство. Lampada даёт время и место для вечера, а пройти его вы можете по-своему — хоть по Игнатию, хоть по Дорофею.
+В конце приложение задаёт один итоговый вопрос: что главного было в этой молитве, с чем хочется обратиться к Богу. По желанию можно записать итог в одну-две строки. Записи хранятся в дневнике на устройстве, по ним работает поиск. Но это не examen: итоговый вопрос касается этой молитвы, а не всего дня. Нет ни списка благодарностей, ни подсчёта недостатков. Вопросы приложения — подсказки для размышления, а не духовное руководство. Lampada помогает выделить время для вечерней молитвы, а оглянуться на день вы можете по-своему — хоть по Игнатию, хоть по Дорофею.
 
-Хестер свой выход нашла не в новой тетрадке. Осенью 1774 года, после проповеди методиста, к ней пришло прощение как дар[^rogers-1774], и она сначала не могла поверить: «Не слишком ли это лёгкий путь?»[^corpus-rogers-easy] А потом записала: «Мои грехи ушли; на душе было счастье»[^corpus-rogers-gone]. Вечер нужен не для того, чтобы свести баланс, а чтобы отдать день Богу и лечь спать: «Ложусь и сплю я спокойно, ибо Ты, и никто иной, Господи, даешь мне жить в безопасности» (Пс 4:9)[^ps4].
+Хестер свой выход нашла не в новой тетрадке. Осенью 1774 года, после проповеди методиста[^rogers-1774], она в отчаянии взывала: «Что мне делать? О, научи меня, помоги мне, иначе я погибла!»[^corpus-rogers-cry] И тогда ей на сердце пришли слова: всякую заботу можно возложить на Бога, потому что Он печётся о нас[^corpus-rogers-care]. «Господи, неужели Ты печёшься обо мне!»[^corpus-rogers-dost] — и следом сомнение: «Не слишком ли это лёгкий путь?»[^corpus-rogers-easy] Но Господь ответил ей: не бойся, только веруй[^corpus-rogers-fear]. Она решилась доверить Христу всё своё спасение — и в тот же миг оковы спали, душа вышла на свободу[^corpus-rogers-liberty]. «Мои грехи ушли; на душе было счастье»[^corpus-rogers-gone], — записала она, и по щекам текли слёзы радости[^corpus-rogers-tears]. Мать поразилась тому, как переменилось её лицо; слушая дочь, она заплакала вместе с ней, но почти ничего не сказала — так была изумлена[^corpus-rogers-mother].
+
+Вечер нужен не для того, чтобы свести баланс, а чтобы отдать день Богу и лечь спать: «Ложусь и сплю я спокойно, ибо Ты, и никто иной, Господи, даешь мне жить в безопасности» (Пс 4:9)[^ps4].
 
 ## Частые вопросы {#faq}
 

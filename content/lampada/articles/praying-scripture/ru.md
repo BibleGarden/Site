@@ -108,6 +108,96 @@ corpus_sources:
   chapter: null
   translator: "А. Б. Григорьев"
   source_url: "https://predanie.ru/dietrich-bonhoeffer/sleduya-hristu-soprotivlenie-i-pokornost/"
+- id: bonhoeffer-wedding
+  kind: "retelling"
+  text: "У близких свадьба, а его там не будет: пока письмо дойдёт, торжество успеет отзвучать, и вместе с ним, признаётся он, немного утихнет его желание там побывать"
+  original: null
+  translation: null
+  chunk_id: "book-58-0073"
+  book_id: 58
+  char_start: 66686
+  char_end: 67120
+  text_sha256: "618693e17178c0e3c595fca7ef6ebad531b6c21208418dd2d27df53aa0a260b8"
+  author: "Dietrich Bonhoeffer"
+  title: "Widerstand und Ergebung"
+  chapter: null
+  translator: "А. Б. Григорьев"
+  source_url: "https://predanie.ru/dietrich-bonhoeffer/sleduya-hristu-soprotivlenie-i-pokornost/"
+- id: bonhoeffer-see
+  kind: "quote"
+  text: "Ах, если бы хоть на минутку можно было повидаться или поговорить!"
+  original: "Ах, если бы хоть на минутку можно было повидаться или поговорить!"
+  translation: null
+  chunk_id: "book-58-0074"
+  book_id: 58
+  char_start: 67597
+  char_end: 67663
+  text_sha256: "618693e17178c0e3c595fca7ef6ebad531b6c21208418dd2d27df53aa0a260b8"
+  author: "Dietrich Bonhoeffer"
+  title: "Widerstand und Ergebung"
+  chapter: null
+  translator: "А. Б. Григорьев"
+  source_url: "https://predanie.ru/dietrich-bonhoeffer/sleduya-hristu-soprotivlenie-i-pokornost/"
+- id: bonhoeffer-days
+  kind: "retelling"
+  text: "Он пишет, читает, думает, меряет шагами камеру — в сущности, говорит он, так же он жил бы и на воле"
+  original: null
+  translation: null
+  chunk_id: "book-58-0075"
+  book_id: 58
+  char_start: 67780
+  char_end: 67938
+  text_sha256: "618693e17178c0e3c595fca7ef6ebad531b6c21208418dd2d27df53aa0a260b8"
+  author: "Dietrich Bonhoeffer"
+  title: "Widerstand und Ergebung"
+  chapter: null
+  translator: "А. Б. Григорьев"
+  source_url: "https://predanie.ru/dietrich-bonhoeffer/sleduya-hristu-soprotivlenie-i-pokornost/"
+- id: bonhoeffer-bear
+  kind: "quote"
+  text: "не как белый медведь, стирающий до крови бока о стены клетки"
+  original: "не как белый медведь, стирающий до крови бока о стены клетки"
+  translation: null
+  chunk_id: "book-58-0075"
+  book_id: 58
+  char_start: 67939
+  char_end: 67999
+  text_sha256: "618693e17178c0e3c595fca7ef6ebad531b6c21208418dd2d27df53aa0a260b8"
+  author: "Dietrich Bonhoeffer"
+  title: "Widerstand und Ergebung"
+  chapter: null
+  translator: "А. Б. Григорьев"
+  source_url: "https://predanie.ru/dietrich-bonhoeffer/sleduya-hristu-soprotivlenie-i-pokornost/"
+- id: bonhoeffer-temptation
+  kind: "retelling"
+  text: "Но покой иногда исчезает сам собой, без всякой видимой причины, — и сердце становится, как сказано у пророка Иеремии"
+  original: null
+  translation: null
+  chunk_id: "book-58-0075"
+  book_id: 58
+  char_start: 68340
+  char_end: 68534
+  text_sha256: "618693e17178c0e3c595fca7ef6ebad531b6c21208418dd2d27df53aa0a260b8"
+  author: "Dietrich Bonhoeffer"
+  title: "Widerstand und Ergebung"
+  chapter: null
+  translator: "А. Б. Григорьев"
+  source_url: "https://predanie.ru/dietrich-bonhoeffer/sleduya-hristu-soprotivlenie-i-pokornost/"
+- id: bonhoeffer-heart
+  kind: "quote"
+  text: "упрямым и робким"
+  original: "упрямым и робким"
+  translation: null
+  chunk_id: "book-58-0075"
+  book_id: 58
+  char_start: 68535
+  char_end: 68551
+  text_sha256: "618693e17178c0e3c595fca7ef6ebad531b6c21208418dd2d27df53aa0a260b8"
+  author: "Dietrich Bonhoeffer"
+  title: "Widerstand und Ergebung"
+  chapter: null
+  translator: "А. Б. Григорьев"
+  source_url: "https://predanie.ru/dietrich-bonhoeffer/sleduya-hristu-soprotivlenie-i-pokornost/"
 - id: "bonhoeffer-hand-end"
   kind: "quote"
   text: "В Твоей руке дни мои"
@@ -125,12 +215,12 @@ corpus_sources:
   source_url: "https://predanie.ru/dietrich-bonhoeffer/sleduya-hristu-soprotivlenie-i-pokornost/"
 - id: "athanasius-marcellinus"
   kind: "retelling"
-  text: "оправившись от болезни, читает всё Писание, но больше всего Псалтирь, и в каждом псалме ищет его скрытый смысл"
+  text: "Маркеллин, друг Афанасия, только что поднялся после болезни, а испытание, в котором он уже многое вытерпел, ещё не кончилось. Гонец, принёсший от него письмо, рассказал Афанасию, чем Маркеллин теперь живёт: читает всё Писание, но с особым усердием — Псалтирь, стараясь в каждом псалме найти скрытый смысл"
   original: null
   translation: null
   chunk_id: "book-72-0001"
   book_id: 72
-  char_start: 346
+  char_start: 96
   char_end: 702
   text_sha256: "07ca6f2436c3036ec6291fe26bb7b0f8313ecde5e6b21ad698de18ee2317267d"
   author: "Athanasius von Alexandrien"
@@ -140,7 +230,7 @@ corpus_sources:
   source_url: "https://bkv.unifr.ch/de/works/cpg-2097/versions/des-hl-athanasius-brief-an-marcellinus-uber-die-erklarung-der-psalmen-bkv/divisions"
 - id: "athanasius-elder"
   kind: "retelling"
-  text: "он пересказывает Маркеллину беседу с одним бодрым старцем, который рассуждал о Псалтири, держа её в руках"
+  text: "Афанасий пересказывает Маркеллину беседу с одним бодрым старцем, который рассуждал о Псалтири, держа её в руках"
   original: null
   translation: null
   chunk_id: "book-72-0001"
@@ -168,6 +258,21 @@ corpus_sources:
   chapter: null
   translator: "J. Fisch"
   source_url: "https://bkv.unifr.ch/de/works/cpg-2097/versions/des-hl-athanasius-brief-an-marcellinus-uber-die-erklarung-der-psalmen-bkv/divisions"
+- id: athanasius-hearer
+  kind: "quote"
+  text: "Ведь и тот, кто слышит, как их читают, принимает эту песнь так, будто она поётся о нём самом"
+  original: "Denn auch wer sie vorlesen hört, nimmt den Gesang so auf, als würde er über ihn selbst vorgetragen"
+  translation: "ours"
+  chunk_id: "book-72-0030"
+  book_id: 72
+  char_start: 20395
+  char_end: 20493
+  text_sha256: "07ca6f2436c3036ec6291fe26bb7b0f8313ecde5e6b21ad698de18ee2317267d"
+  author: "Athanasius von Alexandrien"
+  title: "Epistula ad Marcellinum de interpretatione Psalmorum"
+  chapter: null
+  translator: "J. Fisch"
+  source_url: "https://bkv.unifr.ch/de/works/cpg-2097/versions/des-hl-athanasius-brief-an-marcellinus-uber-die-erklarung-der-psalmen-bkv/divisions"
 - id: "athanasius-own"
   kind: "quote"
   text: "Если кто-нибудь, например, поёт третий псалом и при этом смотрит на собственные беды, он принимает слова этого псалма за свои"
@@ -183,21 +288,6 @@ corpus_sources:
   chapter: null
   translator: "J. Fisch"
   source_url: "https://bkv.unifr.ch/de/works/cpg-2097/versions/des-hl-athanasius-brief-an-marcellinus-uber-die-erklarung-der-psalmen-bkv/divisions"
-- id: "athanasius-ps10"
-  kind: "quote"
-  text: "Если кто-то хочет смутить и напугать тебя, положись на Господа и пой десятый"
-  original: "Und wenn Jemand Dich in Verwirrung bringen und erschrecken will, so setze Du Dein Vertrauen auf den Herrn und singe den zehnten."
-  translation: "ours"
-  chunk_id: "book-72-0042"
-  book_id: 72
-  char_start: 30560
-  char_end: 30688
-  text_sha256: "07ca6f2436c3036ec6291fe26bb7b0f8313ecde5e6b21ad698de18ee2317267d"
-  author: "Athanasius von Alexandrien"
-  title: "Epistula ad Marcellinum de interpretatione Psalmorum"
-  chapter: null
-  translator: "J. Fisch"
-  source_url: "https://bkv.unifr.ch/de/works/cpg-2097/versions/des-hl-athanasius-brief-an-marcellinus-uber-die-erklarung-der-psalmen-bkv/divisions"
 - id: "athanasius-ps22"
   kind: "quote"
   text: "Видишь, что Господь пасёт тебя и хорошо ведёт, — радуйся и пой об этом двадцать второй"
@@ -207,21 +297,6 @@ corpus_sources:
   book_id: 72
   char_start: 32041
   char_end: 32161
-  text_sha256: "07ca6f2436c3036ec6291fe26bb7b0f8313ecde5e6b21ad698de18ee2317267d"
-  author: "Athanasius von Alexandrien"
-  title: "Epistula ad Marcellinum de interpretatione Psalmorum"
-  chapter: null
-  translator: "J. Fisch"
-  source_url: "https://bkv.unifr.ch/de/works/cpg-2097/versions/des-hl-athanasius-brief-an-marcellinus-uber-die-erklarung-der-psalmen-bkv/divisions"
-- id: "athanasius-ps19"
-  kind: "quote"
-  text: "Видишь тех, кто в беде, — утешай их, молись за них и говори им слова девятнадцатого псалма"
-  original: "Siehst Du Bedrängte, so tröste sie, bete für sie und sprich zu ihnen die Worte im neunzehnten Psalm."
-  translation: "ours"
-  chunk_id: "book-72-0044"
-  book_id: 72
-  char_start: 31940
-  char_end: 32040
   text_sha256: "07ca6f2436c3036ec6291fe26bb7b0f8313ecde5e6b21ad698de18ee2317267d"
   author: "Athanasius von Alexandrien"
   title: "Epistula ad Marcellinum de interpretatione Psalmorum"
@@ -305,7 +380,7 @@ corpus_sources:
   source_url: "https://ccel.org/ccel/augustine/confessions"
 - id: "augustine-voice"
   kind: "retelling"
-  text: "Вдруг из соседнего дома доносится детский голос — Августин так и не понял, мальчик это или девочка, — который нараспев повторяет одно и то же"
+  text: "Вдруг из соседнего дома доносится детский голос — то ли мальчика, то ли девочки, Августин так и не понял. Голос нараспев повторяет одно и то же"
   original: null
   translation: null
   chunk_id: "book-39-0420"
@@ -485,7 +560,7 @@ corpus_sources:
   source_url: "https://www.monergism.com/discourses-prayer-ebook"
 - id: "boston-ordinary"
   kind: "retelling"
-  text: "Дух сводит человека с нужным словом другими путями: на проповеди, при чтении Писания в семье или наедине"
+  text: "Дух помогает человеку услышать нужное слово другими путями: на проповеди, при чтении Писания в семье или наедине"
   original: null
   translation: null
   chunk_id: "book-326-0090"
@@ -515,7 +590,7 @@ corpus_sources:
   source_url: "https://www.monergism.com/discourses-prayer-ebook"
 - id: "boston-notes"
   kind: "retelling"
-  text: "предложил ему напечатать какие-нибудь проповеди, и Бостон оставил ему старые записи о четырёх состояниях человека"
+  text: "Всё началось на прогулке: доктор Троттер вывел Бостона в поле и неожиданно предложил напечатать его проповеди. Бостон как раз захватил с собой старые записи — среди них и проповеди о четырёх состояниях человека — и оставил их доктору"
   original: null
   translation: null
   chunk_id: "book-345-0689"
@@ -530,7 +605,7 @@ corpus_sources:
   source_url: "https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston"
 - id: "boston-notes-pressed"
   kind: "retelling"
-  text: "Прочитав их, доктор и мистер Уиллис прислали настойчивые письма: пора браться за эту работу"
+  text: "Прочитав их, доктор и мистер Уиллис прислали настойчивые письма: пора браться за работу"
   original: null
   translation: null
   chunk_id: "book-345-0690"
@@ -552,6 +627,21 @@ corpus_sources:
   book_id: 345
   char_start: 626326
   char_end: 626401
+  text_sha256: "d7a82ba76abf2758e5af36716e5c32db457c1f676c5385a6c32d196b7b347a9a"
+  author: "Thomas Boston"
+  title: "Memoirs of the Life, Times, and Writings of the Rev. Thomas Boston"
+  chapter: null
+  translator: null
+  source_url: "https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston"
+- id: boston-examine
+  kind: "retelling"
+  text: "он проверяет себя: не ради ли выгоды или имени взялся бы он за это дело? Выгода его не манит, а насчёт имени он честен: перед судом закона он не посмел бы назвать себя невиновным, но перед судом Евангелия может сослаться на Бога — движет им не собственное имя, а честь Божья"
+  original: null
+  translation: null
+  chunk_id: "book-345-0703"
+  book_id: 345
+  char_start: 630230
+  char_end: 630809
   text_sha256: "d7a82ba76abf2758e5af36716e5c32db457c1f676c5385a6c32d196b7b347a9a"
   author: "Thomas Boston"
   title: "Memoirs of the Life, Times, and Writings of the Rev. Thomas Boston"
@@ -648,9 +738,24 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: "https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston"
+- id: boston-child
+  kind: "quote"
+  text: "Если бы я сам составлял слово для своего случая, я не пожелал бы для себя в этом деле ничего большего, чем ходить пред Господом, как дитя перед отцом"
+  original: "If I had had the word a-framing for my case, I would have desired no more in the matter secured to me, than walking before the Lord, as a child before his father"
+  translation: "ours"
+  chunk_id: "book-345-0705"
+  book_id: 345
+  char_start: 632419
+  char_end: 632580
+  text_sha256: "d7a82ba76abf2758e5af36716e5c32db457c1f676c5385a6c32d196b7b347a9a"
+  author: "Thomas Boston"
+  title: "Memoirs of the Life, Times, and Writings of the Rev. Thomas Boston"
+  chapter: null
+  translator: null
+  source_url: "https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston"
 - id: "boston-reread"
   kind: "retelling"
-  text: "перечитал всё, что записывал об этом деле с самого начала, и письма о нём"
+  text: "Помолившись о ясном суждении, он перечитал всё, что записывал об этом деле с самого начала, и письма о нём"
   original: null
   translation: null
   chunk_id: "book-345-0705"
@@ -663,15 +768,45 @@ corpus_sources:
   chapter: null
   translator: null
   source_url: "https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston"
-- id: "boston-letter"
+- id: boston-colden
   kind: "retelling"
-  text: "А решающими стали слова в одном из писем о погибающих душах: ради них он не смеет не взяться за эту работу"
+  text: "Последним шло одно из писем, и под конец там стояло: пусть вами движут долг и спасение погибающих душ"
   original: null
   translation: null
   chunk_id: "book-345-0706"
   book_id: 345
-  char_start: 632932
-  char_end: 633250
+  char_start: 632898
+  char_end: 633069
+  text_sha256: "d7a82ba76abf2758e5af36716e5c32db457c1f676c5385a6c32d196b7b347a9a"
+  author: "Thomas Boston"
+  title: "Memoirs of the Life, Times, and Writings of the Rev. Thomas Boston"
+  chapter: null
+  translator: null
+  source_url: "https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston"
+- id: boston-fool
+  kind: "quote"
+  text: "Это слово, „погибающие души“, пригвоздило моё сердце, и оно вырвалось и ответило: „Тогда пусть я буду глупцом ради погибающих душ“"
+  original: "That word, \"perishing souls,\" nailed my heart; and it burst out and answered, \"Then let me be a fool for perishing souls.\""
+  translation: "ours"
+  chunk_id: "book-345-0706"
+  book_id: 345
+  char_start: 633071
+  char_end: 633193
+  text_sha256: "d7a82ba76abf2758e5af36716e5c32db457c1f676c5385a6c32d196b7b347a9a"
+  author: "Thomas Boston"
+  title: "Memoirs of the Life, Times, and Writings of the Rev. Thomas Boston"
+  chapter: null
+  translator: null
+  source_url: "https://www.monergism.com/memoirs-life-times-and-writings-rev-thomas-boston"
+- id: "boston-letter"
+  kind: "retelling"
+  text: "Теперь, пишет он, ради погибающих душ он не вправе отказаться от этой работы, что бы с ним ни случилось"
+  original: null
+  translation: null
+  chunk_id: "book-345-0706"
+  book_id: 345
+  char_start: 633194
+  char_end: 633273
   text_sha256: "d7a82ba76abf2758e5af36716e5c32db457c1f676c5385a6c32d196b7b347a9a"
   author: "Thomas Boston"
   title: "Memoirs of the Life, Times, and Writings of the Rev. Thomas Boston"
@@ -697,17 +832,19 @@ corpus_sources:
 
 Берлин, май 1943 года. В следственной тюрьме Тегель сидит лютеранский пастор Дитрих Бонхёффер. Войну он мог переждать в безопасности: в 1939 году ему предлагали преподавать в Нью-Йорке. Но он вернулся в Германию, оказался среди тех, кто готовил заговор против Гитлера, и в апреле 1943-го был арестован[^bonhoeffer].
 
-Пятнадцатого мая он пишет родителям — эти письма потом войдут в книгу «Сопротивление и покорность». Рассказывает, что пишет небольшую работу о том, как ощущает время человек, сидящий под следствием[^corpus-bonhoeffer-time]. Над дверью камеры осталась надпись одного из прежних заключённых[^corpus-bonhoeffer-door-who]: «через сто лет все кончится»[^corpus-bonhoeffer-door]. И дальше: «В Твоей руке дни мои»[^corpus-bonhoeffer-hand] (Пс 30, 16) — по словам Бонхёффера, это ответ Писания «на вопрос, угрожающий здесь вытеснить все остальное»[^corpus-bonhoeffer-answer]: «Доколе, Господи?»[^corpus-bonhoeffer-howlong] (Пс 12).
+Пятнадцатого мая он пишет родителям — эти письма потом войдут в книгу «Сопротивление и покорность». У близких свадьба, а его там не будет: пока письмо дойдёт, торжество успеет отзвучать, и вместе с ним, признаётся он, немного утихнет его желание там побывать[^corpus-bonhoeffer-wedding]. «Ах, если бы хоть на минутку можно было повидаться или поговорить!»[^corpus-bonhoeffer-see] Он пишет, читает, думает, меряет шагами камеру — в сущности, говорит он, так же он жил бы и на воле[^corpus-bonhoeffer-days]. И шагает он совсем «не как белый медведь, стирающий до крови бока о стены клетки»[^corpus-bonhoeffer-bear]. Но покой иногда исчезает сам собой, без всякой видимой причины, — и сердце становится, как сказано у пророка Иеремии[^corpus-bonhoeffer-temptation], «упрямым и робким»[^corpus-bonhoeffer-heart].
+
+А ещё он пишет небольшую работу о том, как ощущает время человек, сидящий под следствием[^corpus-bonhoeffer-time]. Над дверью камеры осталась надпись одного из прежних заключённых[^corpus-bonhoeffer-door-who]: «через сто лет все кончится»[^corpus-bonhoeffer-door]. Дальше в письме Бонхёффер приводит слова псалма: «В Твоей руке дни мои»[^corpus-bonhoeffer-hand] (Пс 30, 16) — по его словам, это ответ Писания «на вопрос, угрожающий здесь вытеснить все остальное»[^corpus-bonhoeffer-answer]: «Доколе, Господи?»[^corpus-bonhoeffer-howlong] (Пс 12).
 
 Так и выглядит молитва с Писанием. Когда своих слов нет, можно взять слова псалма и сказать их Богу от себя. А когда приходишь к Библии со своим вопросом, ответ стоит искать не в случайной строке, а в отрывке, прочитанном целиком: кто говорит, кому и о чём. Ответ Бонхёффера тоже не пришёл случайно: в том же письме он признаётся, что Псалтирь для него — книга, которую он, пожалуй, знает и любит больше всех: он читает её ежедневно уже много лет[^corpus-bonhoeffer-psalter].
 
 ## Псалтирь как зеркало
 
-Афанасий Великий почти полвека был епископом Александрии и провёл больше семнадцати лет в пяти изгнаниях — его гнали четыре императора[^athanasius]. Однажды он узнал, что его друг Маркеллин, оправившись от болезни, читает всё Писание, но больше всего Псалтирь, и в каждом псалме ищет его скрытый смысл[^corpus-athanasius-marcellinus]. Афанасий ответил ему «Посланием к Маркеллину об истолковании псалмов». Говорит в нём, правда, не столько он сам: он пересказывает Маркеллину беседу с одним бодрым старцем, который рассуждал о Псалтири, держа её в руках[^corpus-athanasius-elder].
+Афанасий Великий почти полвека был епископом Александрии и провёл больше семнадцати лет в пяти изгнаниях — его гнали четыре императора[^athanasius]. Маркеллин, друг Афанасия, только что поднялся после болезни, а испытание, в котором он уже многое вытерпел, ещё не кончилось. Гонец, принёсший от него письмо, рассказал Афанасию, чем Маркеллин теперь живёт: читает всё Писание, но с особым усердием — Псалтирь, стараясь в каждом псалме найти скрытый смысл[^corpus-athanasius-marcellinus]. Афанасий ответил ему «Посланием к Маркеллину об истолковании псалмов». В нём Афанасий пересказывает Маркеллину беседу с одним бодрым старцем, который рассуждал о Псалтири, держа её в руках[^corpus-athanasius-elder].
 
-Старец считал, что псалмы для того, кто их поёт, — словно зеркало: глядя в них, человек узнаёт, что происходит в его собственной душе[^corpus-athanasius-mirror]. «Если кто-нибудь, например, поёт третий псалом и при этом смотрит на собственные беды, он принимает слова этого псалма за свои»[^corpus-athanasius-own].
+Старец считал, что псалмы для того, кто их поёт, — словно зеркало: глядя в них, человек узнаёт, что происходит в его собственной душе[^corpus-athanasius-mirror]. «Ведь и тот, кто слышит, как их читают, принимает эту песнь так, будто она поётся о нём самом»[^corpus-athanasius-hearer]. И дальше: «Если кто-нибудь, например, поёт третий псалом и при этом смотрит на собственные беды, он принимает слова этого псалма за свои»[^corpus-athanasius-own].
 
-И старец идёт по Псалтири, подбирая псалом к каждому состоянию души. «Если кто-то хочет смутить и напугать тебя, положись на Господа и пой десятый»[^corpus-athanasius-ps10]. «Видишь, что Господь пасёт тебя и хорошо ведёт, — радуйся и пой об этом двадцать второй»[^corpus-athanasius-ps22]. «Видишь тех, кто в беде, — утешай их, молись за них и говори им слова девятнадцатого псалма»[^corpus-athanasius-ps19]. «Согрешил, стыдишься, каешься и хочешь получить милость — слова исповеди и раскаяния найдёшь в пятидесятом»[^corpus-athanasius-ps50].
+И старец идёт по Псалтири, подбирая псалом к каждому состоянию души. Например: «Видишь, что Господь пасёт тебя и хорошо ведёт, — радуйся и пой об этом двадцать второй»[^corpus-athanasius-ps22]. Или: «Согрешил, стыдишься, каешься и хочешь получить милость — слова исповеди и раскаяния найдёшь в пятидесятом»[^corpus-athanasius-ps50].
 
 И ещё: «Если гонение от врагов затянулось, не падай духом, будто Господь тебя забыл, а призывай Господа»[^corpus-athanasius-forgotten] — словами двенадцатого псалма[^ps12-athanasius]. Того самого, что звучал в камере Бонхёффера: «Доколе, Господи? Неужели навеки забыт я Тобой? Доколе будешь скрывать лицо Свое от меня?» (Пс 12:2)[^ps12]
 
@@ -715,27 +852,27 @@ corpus_sources:
 
 ## «Возьми, читай»
 
-Самый известный случай, когда Писание ответило на молитву, произошёл летом 386 года в Милане, и рассказал о нём сам Августин в «Исповеди». Августину тридцать один год, он преподаёт риторику, за плечами годы у манихеев, впереди — крещение и служение епископа в Гиппоне[^augustine]. Он знает, что должен изменить жизнь, и всё не может решиться.
+Летом 386 года в Милане случилось, пожалуй, самое известное событие, когда Писание ответило на молитву. Рассказал о нём сам Августин в «Исповеди». Августину тридцать один год, он преподаёт риторику, за плечами годы у манихеев, впереди — крещение и служение епископа в Гиппоне[^augustine]. Он знает, что должен изменить жизнь, и всё не может решиться.
 
 В саду, сам не помня как, он оказывается на земле под смоковницей, весь в слезах[^corpus-augustine-fig]. И кричит Богу: «Доколе, доколе? Завтра да завтра? Почему не сейчас? Почему не в этот самый час положить конец моей нечистоте?»[^corpus-augustine-howlong] Тот же вопрос, что у псалмопевца и у Бонхёффера.
 
-Вдруг из соседнего дома доносится детский голос — Августин так и не понял, мальчик это или девочка, — который нараспев повторяет одно и то же[^corpus-augustine-voice]: «Возьми, читай; возьми, читай»[^corpus-augustine-tolle]. Он решает, что это Божье повеление открыть книгу и прочесть первое место, которое попадётся на глаза[^corpus-augustine-command]. Ему вспоминается Антоний: тот однажды вошёл в церковь, когда читали Евангелие, и принял прочитанное так, словно оно было сказано ему самому[^corpus-augustine-antony]. Августин хватает послания Павла, открывает и молча читает место, на которое первым упал взгляд: призыв жить не в пирах и пьянстве, не в распутстве и зависти, а облечься в Господа Иисуса Христа (Рим 13:13–14)[^corpus-augustine-romans]. «Дальше читать я не захотел, да и не было нужды»[^corpus-augustine-no-further].
+Вдруг из соседнего дома доносится детский голос — то ли мальчика, то ли девочки, Августин так и не понял. Голос нараспев повторяет одно и то же[^corpus-augustine-voice]: «Возьми, читай; возьми, читай»[^corpus-augustine-tolle]. Он решает, что это Божье повеление открыть книгу и прочесть первое место, которое попадётся на глаза[^corpus-augustine-command]. Ему вспоминается Антоний: тот однажды вошёл в церковь, когда читали Евангелие, и принял прочитанное так, словно оно было сказано ему самому[^corpus-augustine-antony]. Августин хватает послания Павла, открывает и молча читает место, на которое первым упал взгляд: призыв жить не в пирах и пьянстве, не в распутстве и зависти, а облечься в Господа Иисуса Христа (Рим 13:13–14)[^corpus-augustine-romans]. «Дальше читать я не захотел, да и не было нужды»[^corpus-augustine-no-further].
 
-Друг Августина Алипий попросил показать, что тот прочёл, и, по словам Августина, «заглянул дальше, чем прочёл я. Я не знал, что там следовало»[^corpus-augustine-alypius]. А следовало: принимайте немощного в вере (Рим 14:1). Эти слова Алипий отнёс к себе[^corpus-augustine-alypius-applied].
+Алипий, друг Августина, попросил показать ему прочитанное и, как вспоминает Августин, «заглянул дальше, чем прочёл я. Я не знал, что там следовало»[^corpus-augustine-alypius]. А следовало: принимайте немощного в вере (Рим 14:1). Эти слова Алипий отнёс к себе[^corpus-augustine-alypius-applied].
 
 Эту историю часто приводят как пример того, что Библию можно открывать наугад. Но присмотритесь. Ответ пришёл не вместо молитвы, а посреди долгой борьбы и слёз. Антоний ничего не открывал наугад: он услышал Евангелие на обычном чтении в церкви. А Алипий свой ответ нашёл в продолжении того же отрывка. Случай Августина — исключение, а не метод.
 
 ## Не гадальная книга
 
-Шотландский пресвитерианский пастор Томас Бостон служил в сельском приходе Эттрик на юге Шотландии, похоронил шестерых из десяти своих детей, а его книга о четырёх состояниях человеческой природы стала классикой шотландского благочестия[^boston]. К Писанию он подходил трезво. «Я считаю опасным делать из Библии гадальную книгу»[^corpus-boston-fortune], — писал он в «Беседах о молитве». Некоторые в искушении открывают Библию, чтобы по первому попавшемуся слову понять, что с ними происходит[^corpus-boston-first-word]. «Это недозволенный и опасный обычай»[^corpus-boston-unwarrantable], — пишет Бостон, хотя и допускает, что «милостивый Бог может иногда снизойти и обыграть дьявола его же оружием»[^corpus-boston-outshoot].
+Пресвитерианский пастор Томас Бостон служил в сельском приходе Эттрик на юге Шотландии. Он похоронил шестерых из десяти своих детей, а его книга о четырёх состояниях человеческой природы стала классикой шотландского благочестия[^boston]. К Писанию он подходил трезво. «Я считаю опасным делать из Библии гадальную книгу»[^corpus-boston-fortune], — писал он в «Беседах о молитве». Некоторые в искушении открывают Библию, чтобы по первому попавшемуся слову понять, что с ними происходит[^corpus-boston-first-word]. «Это недозволенный и опасный обычай»[^corpus-boston-unwarrantable], — пишет Бостон, хотя и допускает, что «милостивый Бог может иногда снизойти и обыграть дьявола его же оружием»[^corpus-boston-outshoot].
 
-Обычно, по его опыту, Дух сводит человека с нужным словом другими путями: на проповеди, при чтении Писания в семье или наедине[^corpus-boston-ordinary]. А любое место, пришедшее на ум, Бостон советует проверять: как оно согласуется с остальным Писанием по смыслу и цели. Ведь и дьявол, искушая Христа, привёл слова псалма — только против их настоящего смысла (Мф 4:6)[^corpus-boston-scope].
+Обычно, по его опыту, Дух помогает человеку услышать нужное слово другими путями: на проповеди, при чтении Писания в семье или наедине[^corpus-boston-ordinary]. А любое место, пришедшее на ум, Бостон советует проверять: как оно согласуется с остальным Писанием по смыслу и цели. Ведь и дьявол, искушая Христа, привёл слова псалма — только против их настоящего смысла (Мф 4:6)[^corpus-boston-scope].
 
-Сам он так и поступал. Доктор Троттер предложил ему напечатать какие-нибудь проповеди, и Бостон оставил ему старые записи о четырёх состояниях человека[^corpus-boston-notes]. Прочитав их, доктор и мистер Уиллис прислали настойчивые письма: пора браться за эту работу[^corpus-boston-notes-pressed]. 16 января 1712 года он записывает в дневнике, который потом вошёл в его «Воспоминания»: «Большую часть этого дня я провёл в молитве и размышлении, прося света в этом деле»[^corpus-boston-light]. Через несколько дней, 22 января, ему приходит на ум стих «Чтущих Меня Я почту»[^corpus-boston-honour], но, пишет он, «я мало что увидел в этом слове для своего дела»[^corpus-boston-little]. В обычном ежедневном чтении ему попадается псалом: место полезное, но на его вопрос, кажется, не отвечает[^corpus-boston-psalm].
+Сам он так и поступал. Всё началось на прогулке: доктор Троттер вывел Бостона в поле и неожиданно предложил напечатать его проповеди. Бостон как раз захватил с собой старые записи — среди них и проповеди о четырёх состояниях человека — и оставил их доктору[^corpus-boston-notes]. Прочитав их, доктор и мистер Уиллис прислали настойчивые письма: пора браться за работу[^corpus-boston-notes-pressed]. 16 января 1712 года Бостон записывает в дневнике, который потом вошёл в его «Воспоминания»: «Большую часть этого дня я провёл в молитве и размышлении, прося света в этом деле»[^corpus-boston-light]. 22 января, к концу дня, он проверяет себя: не ради ли выгоды или имени взялся бы он за это дело? Выгода его не манит, а насчёт имени он честен: перед судом закона он не посмел бы назвать себя невиновным, но перед судом Евангелия может сослаться на Бога — движет им не собственное имя, а честь Божья[^corpus-boston-examine]. Тогда ему и приходит на ум стих «Чтущих Меня Я почту»[^corpus-boston-honour], но, пишет он, «я мало что увидел в этом слове для своего дела»[^corpus-boston-little]. В обычном ежедневном чтении ему попадается псалом: место полезное, но на его вопрос, кажется, не отвечает[^corpus-boston-psalm].
 
-А потом те же слова из Первой книги Царств (1 Цар 2:30) «вернулись ко мне в новом свете и оказались прямо про меня»[^corpus-boston-pat]. Бостон посмотрел, кому они сказаны: «Я увидел, что это обещание обращено именно к священникам, исполняющим своё служение»[^corpus-boston-priests]. А он и был пастором, который думал, как послужить своим словом. «Это тронуло моё сердце, и я сказал, что буду этому верить»[^corpus-boston-melted].
+Позже, пишет Бостон, те же слова из Первой книги Царств (1 Цар 2:30) «вернулись ко мне в новом свете и оказались прямо про меня»[^corpus-boston-pat]. Бостон посмотрел, кому они сказаны: «Я увидел, что это обещание обращено именно к священникам, исполняющим своё служение»[^corpus-boston-priests]. А он и был пастором, который думал, как послужить своим словом. «Это тронуло моё сердце, и я сказал, что буду этому верить»[^corpus-boston-melted]. И добавил: «Если бы я сам составлял слово для своего случая, я не пожелал бы для себя в этом деле ничего большего, чем ходить пред Господом, как дитя перед отцом»[^corpus-boston-child].
 
-Заметьте: стих сначала молчал, а обычное чтение помогло, но не ответило. Ответ пришёл, когда Бостон увидел, кому и о чём сказано. И даже тогда он не стал решать по одной строке: в тот же день он перечитал всё, что записывал об этом деле с самого начала, и письма о нём[^corpus-boston-reread]. А решающими стали слова в одном из писем о погибающих душах: ради них он не смеет не взяться за эту работу[^corpus-boston-letter].
+Заметьте: стих сначала молчал. Обычное чтение пошло на пользу, но на вопрос Бостона не ответило. Ответ пришёл, когда Бостон увидел, кому и о чём сказано. И даже тогда он не стал решать по одной строке. Помолившись о ясном суждении, он перечитал всё, что записывал об этом деле с самого начала, и письма о нём[^corpus-boston-reread]. Последним шло одно из писем, и под конец там стояло: пусть вами движут долг и спасение погибающих душ[^corpus-boston-colden]. «Это слово, „погибающие души“, пригвоздило моё сердце, и оно вырвалось и ответило: „Тогда пусть я буду глупцом ради погибающих душ“»[^corpus-boston-fool]. Теперь, пишет он, ради погибающих душ он не вправе отказаться от этой работы, что бы с ним ни случилось[^corpus-boston-letter].
 
 ## Как молиться с Писанием
 
@@ -749,7 +886,7 @@ corpus_sources:
 ## Отрывок к молитве в Lampada
 <!-- screen: topic, passage, history -->
 
-Подобрать отрывок к своей молитве, не гадая, помогает [Lampada](/ru/). Перед молитвой вы называете её тему — например, «Боюсь ошибиться с решением». Если в настройках вы разрешили отправлять тему на сервер, на вкладке «Цитата» приложение подберёт отрывок по её смыслу — не по совпадению слов и не наугад. Если разрешили и ответы, оно учтёт то, что вы уже сказали в молитве. Не подошёл отрывок — стрелка «Следующий отрывок» покажет другой, а к прежним можно вернуться.
+Подобрать отрывок к своей молитве, не гадая, помогает [Lampada](/ru/). Перед молитвой вы называете её тему — например, «Боюсь ошибиться с решением». Если в настройках вы разрешили отправлять тему на сервер, на вкладке «Цитата» приложение подберёт отрывок по её смыслу — не по совпадению слов и не наугад. Если вы разрешили отправлять и ответы, приложение учтёт то, что вы уже сказали в молитве. Не подошёл отрывок — стрелка «Следующий отрывок» покажет другой, а к прежним можно вернуться.
 
 На карточке видны ключевые стихи. Нажмите на неё — откроется весь отрывок, и соседние стихи в нём будут бледнее: видно, что сказано до и после, как советовал Бостон. Отрывок можно послушать в живом чтении диктора; стих, который звучит, подчёркнут в тексте. То, что отозвалось, сохраните кнопкой «В избранное»: отрывок останется в дневнике рядом с этой молитвой и в «Сохранённых цитатах».
 
@@ -765,7 +902,7 @@ corpus_sources:
 
 ### Какой псалом читать, когда тяжело?
 
-Тот, в котором вы узнаёте себя. В письме Афанасия Великого есть целый перечень: например, после греха — пятидесятый[^corpus-athanasius-ps50-faq], а когда кажется, что Бог забыл, — двенадцатый (об этом выше). Прочитайте несколько и остановитесь на том, где слова совпадают с вашими.
+Тот, в котором вы узнаёте себя. В письме Афанасия Великого есть целый перечень: например, после греха — пятидесятый[^corpus-athanasius-ps50-faq], а когда кажется, что Бог забыл, — двенадцатый (об этом выше). Можно прочитать несколько подряд и остановиться на том, что ближе всего к вашему состоянию.
 
 ### Как молиться словами Писания?
 
