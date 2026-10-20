@@ -1,6 +1,6 @@
 ---
 title: "Praying for Others: How to Pray for Someone"
-description: "Praying for others (intercessory prayer) means bringing a real person to God: you say their name, tell Him honestly how they are doing and ask for their good without dictating how He should give it. With the stories of Hudson Taylor, John of Kronstadt, Ambrose of Optina and Elizabeth Wheaton."
+description: "Praying for others (intercessory prayer) means bringing a real person to God: you say their name, tell Him honestly how they are doing and ask Him to help them without dictating how. With the stories of Hudson Taylor, John of Kronstadt, Ambrose of Optina and Elizabeth Wheaton."
 date: 2026-10-20
 draft: true
 corpus_sources:
@@ -36,7 +36,7 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/26744"
 - id: "taylor-miles"
   kind: "retelling"
-  text: "At those same hours his mother was seventy or eighty miles from home"
+  text: "Meanwhile his mother was seventy or eighty miles away from him, and he had no idea what was happening in her heart"
   original: null
   translation: null
   chunk_id: "book-164-0013"
@@ -124,9 +124,24 @@ corpus_sources:
   chapter: "CHAPTER I — THE POWER OF PRAYER"
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/26744"
+- id: "taylor-confidante"
+  kind: "retelling"
+  text: "a few days earlier he had worked up the courage to share his joy with her, but only after she promised to tell no one"
+  original: null
+  translation: null
+  chunk_id: "book-164-0015"
+  book_id: 164
+  char_start: 11398
+  char_end: 11561
+  text_sha256: "0b7de0530f47af14dcc85388778116fea1b7d101211e53dd489a0f78d9c4de0d"
+  author: "J. Hudson Taylor"
+  title: "A Retrospect"
+  chapter: "CHAPTER I — THE POWER OF PRAYER"
+  translator: null
+  source_url: "https://www.gutenberg.org/ebooks/26744"
 - id: "taylor-amelia"
   kind: "retelling"
-  text: "Surprised, he asked whether Amelia had broken her promise to keep quiet, but his mother said that no human being had told her"
+  text: "Surprised, he asked whether Amelia had broken her word, but his mother said that no human being had told her"
   original: null
   translation: null
   chunk_id: "book-164-0016"
@@ -320,9 +335,9 @@ corpus_sources:
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/26744"
 - id: "taylor-hardness"
-  kind: "quote"
-  text: "Sometimes it may be that while we are complaining of the hardness of the hearts of those we are seeking to benefit, the hardness of our own hearts, and our own feeble apprehension of the solemn reality of eternal things, may be the true cause of our want of success."
-  original: "Sometimes it may be that while we are complaining of the hardness of the hearts of those we are seeking to benefit, the hardness of our own hearts, and our own feeble apprehension of the solemn reality of eternal things, may be the true cause of our want of success."
+  kind: "retelling"
+  text: "Sometimes, he wondered, the real obstacle lies with those who are trying to help: their own hard hearts, and how little they grasp the reality of eternal things"
+  original: null
   translation: null
   chunk_id: "book-164-0083"
   book_id: 164
@@ -710,13 +725,13 @@ corpus_sources:
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/26744"
 ---
-Praying for someone means naming them before God and asking Him for their good. Sometimes that is easier said than done.
+Praying for someone means naming them before God and asking Him to help them. Sometimes that is easier said than done.
 
 England, the middle of the nineteenth century. His mother was away from home, and her son had a free day. By his own later account he was about fifteen; that afternoon he went through his father’s books, looking for something to fill the empty hours[^corpus-taylor-holiday][^taylor-age]. Nothing appealed to him, so he pulled a gospel tract out of a basket and told himself: “There will be a story at the commencement, and a sermon or moral at the close: I will take the former and leave the latter for those who like it.”[^corpus-taylor-tract]
 
-At those same hours his mother was seventy or eighty miles from home[^corpus-taylor-miles]. That afternoon she got up from the table longing to pray for her son to come to faith[^corpus-taylor-table]. “She went to her room and turned the key in the door, resolved not to leave that spot until her prayers were answered.”[^corpus-taylor-door] She prayed for hours, until she could ask no longer and began to thank God instead: His Spirit, she believed, had shown her that her son was already converted[^corpus-taylor-praise].
+Meanwhile his mother was seventy or eighty miles away from him, and he had no idea what was happening in her heart[^corpus-taylor-miles]. That afternoon she got up from the table longing to pray for her son to come to faith[^corpus-taylor-table]. “She went to her room and turned the key in the door, resolved not to leave that spot until her prayers were answered.”[^corpus-taylor-door] She prayed for hours, until she could ask no longer and began to thank God instead: His Spirit, she believed, had shown her that her son was already converted[^corpus-taylor-praise].
 
-When his mother returned two weeks later, her son was first at the door to meet her and tell her his good news[^corpus-taylor-meet]. She held him close: “I know, my boy; I have been rejoicing for a fortnight in the glad tidings you have to tell me.”[^corpus-taylor-know] Surprised, he asked whether Amelia had broken her promise to keep quiet, but his mother said that no human being had told her[^corpus-taylor-amelia].
+When his mother returned two weeks later, her son was first at the door to meet her and tell her his good news[^corpus-taylor-meet]. She held him close: “I know, my boy; I have been rejoicing for a fortnight in the glad tidings you have to tell me.”[^corpus-taylor-know] He thought at once of his sister Amelia: a few days earlier he had worked up the courage to share his joy with her, but only after she promised to tell no one[^corpus-taylor-confidante]. Surprised, he asked whether Amelia had broken her word, but his mother said that no human being had told her[^corpus-taylor-amelia].
 
 And that was not all. Some time later he opened a little notebook by mistake, taking it for his own, since the two looked exactly alike[^corpus-taylor-pocketbook]. It was his sister’s diary. She had written that “she would give herself daily to prayer until God should answer in the conversion of her brother”[^corpus-taylor-sister].
 
@@ -724,7 +739,7 @@ The boy’s name was Hudson Taylor. He grew up to be an evangelical missionary, 
 
 ## What is intercessory prayer?
 
-Praying for others, which Christians call intercessory prayer, means bringing to God not yourself but another person: their name, their situation and your worry for them. Starting is simple. Say the person’s name. Tell God honestly how things are for them right now and what worries you. Ask Him for their good, whether that is health, peace, reconciliation, protection or faith, and don’t dictate to Him how it should happen.
+Praying for others, which Christians call intercessory prayer, means bringing to God not yourself but another person: their name, their situation and your worry for them. Starting is simple. Say the person’s name. Tell God honestly how things are for them right now and what worries you. Ask God to give them what they need, whether health, peace, reconciliation, protection or faith, and don’t dictate to Him how it should happen.
 
 Our article on [what to pray about](/articles/what-to-pray-about/) treats praying for others as one topic among several. This one is about how to pray for a particular person, especially when it is hard: when they turn away, when they hurt you, or when they have dropped out of sight.
 
@@ -736,7 +751,7 @@ Taylor prayed a great deal for him, but for the first two or three days said not
 
 The patient looked at him in surprise: for the first time Taylor was about to leave without a word. And Taylor could not bear it. In tears, he crossed the room and pleaded with the man to let him pray with him[^corpus-taylor-tears]. The old man did not turn away: “If it will be a relief to you, do.”[^corpus-taylor-relief] Within days, Taylor tells us, the man accepted Christ[^corpus-taylor-accepted].
 
-Taylor draws a conclusion, not about the patient, but about himself: “Sometimes it may be that while we are complaining of the hardness of the hearts of those we are seeking to benefit, the hardness of our own hearts, and our own feeble apprehension of the solemn reality of eternal things, may be the true cause of our want of success.”[^corpus-taylor-hardness] Notice something else, too. The prayer went along with the bandages, not instead of them. And Taylor prayed with the man only once the man agreed.
+Taylor’s conclusion is not about the patient but about himself. Sometimes, he wondered, the real obstacle lies with those who are trying to help: their own hard hearts, and how little they grasp the reality of eternal things[^corpus-taylor-hardness]. Notice something else, too. The prayer went along with the bandages, not instead of them. And Taylor prayed with the man only once the man agreed.
 
 ## When you’d rather not pray for them
 
