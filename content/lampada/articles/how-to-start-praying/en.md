@@ -582,7 +582,7 @@ His *Letters on Prayer* include a reply to someone who confessed, clearly worrie
 
 It matters who this was written to: someone already used to praying from a prayer book. Theophan tells him he may pray without the book whenever prayer is alive in his heart, and in the same breath warns him not to let laziness hide behind it[^corpus-feofan-sloth]. And when his own prayer will not come, Theophan advises starting with printed prayers to stir it up, and knowing a few prayers and psalms by heart[^corpus-feofan-printed].
 
-Our own advice, not Theophan’s, for anyone who prays with a prayer rule or a prayer book, whether Orthodox, Catholic or Anglican: your own words don’t replace those prayers, they come alongside them.
+Our own advice, not Theophan’s, for anyone who prays with a prayer rule or a prayer book, whether Orthodox, Catholic or Anglican: your own words don’t replace those prayers, they come alongside them. For how to choose a rule that fits your life, see our article on the [rule of prayer](/articles/prayer-rule/).
 
 ## When prayer won’t come
 

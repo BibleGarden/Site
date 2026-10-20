@@ -2,7 +2,6 @@
 title: "Rule of Prayer: What It Is, How to Choose Your Own and What to Do When It Isn’t Working"
 description: "A rule of prayer is the set of prayers you say every day, usually in the morning and evening. A short rule for beginners and lay people, St. Seraphim’s rule with the texts of the prayers, the Daily Office, and how to find a measure that fits your life. With the stories of Hilarion Alfeyev, Macarius of Optina, Abbot Nikon Vorobyov and the desert monk Paul."
 date: 2026-10-20
-draft: true
 corpus_sources:
 - id: "paul-pherme"
   kind: "retelling"
