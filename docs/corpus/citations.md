@@ -63,7 +63,9 @@ The offline site only escapes and displays this ready label; it calls no API.
   translator; `text` must equal `original` after normalization. A translation
   from another edition needs its own indexed source and reference.
 - `translation: null`: no article-side translation; `text` must equal `original`
-  after normalization. `translator` still describes the source edition, never
+  after normalization. Legacy source spacing immediately before `!`, `?`, `;`
+  or `:` and just inside guillemets is ignored; words and their order are not.
+  `translator` still describes the source edition, never
   our editorial team or an invented translator.
 - `kind: retelling`: `original` and `translation` must both be null. The LLM
   checks the article's own wording against the exact referenced source range.

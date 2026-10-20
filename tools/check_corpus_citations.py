@@ -32,6 +32,11 @@ from tools.corpus_judge_cache import DEFAULT_CACHE_DIR, JudgeCache, digest, judg
 
 def normalize(text):
     text = unicodedata.normalize("NFC", text)
+    # Older editions often insert spacing before terminal punctuation and inside
+    # guillemets. Treat only those printing artifacts as equivalent.
+    text = re.sub(r"\s+([!?;:])", r"\1", text)
+    text = re.sub(r"«\s+", "«", text)
+    text = re.sub(r"\s+»", "»", text)
     text = text.translate(str.maketrans({c: '"' for c in '«»„“”'} | {c: "'" for c in '‘’‚'}))
     return " ".join(text.split())
 
