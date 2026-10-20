@@ -6,7 +6,7 @@ draft: true
 corpus_sources:
 - id: "woman-age"
   kind: "retelling"
-  text: "Soon after his ordination, a young priest was sent to serve in an old people’s home. After his very first service there, a woman of a hundred and one came up to him and asked for advice"
+  text: "Newly ordained, a priest began serving in a home for older people. After his first service, a 101-year-old woman asked his advice"
   original: null
   translation: null
   chunk_id: "book-146-0092"
@@ -36,7 +36,7 @@ corpus_sources:
   source_url: "https://www.mitras.ru/be/a_main.htm"
 - id: "woman-blurt"
   kind: "retelling"
-  text: "He tried pointing her to someone seasoned in prayer, but in her long life she had worn out every expert, to no avail. That was exactly why she had come to a novice: he likely knew nothing, so a useful word might slip out of him by chance"
+  text: "She had exhausted every expert. Perhaps this novice, who knew so little, might say something useful by accident"
   original: null
   translation: null
   chunk_id: "book-146-0092"
@@ -66,7 +66,7 @@ corpus_sources:
   source_url: "https://www.mitras.ru/be/a_main.htm"
 - id: "woman-room"
   kind: "retelling"
-  text: "She was to sit where she could see the icons with the lamp burning before them, the window open to the summer air and the photographs of the people she loved, but first, in the morning, she was to tidy her room"
+  text: "First she was to tidy her room, then sit facing the icons and their burning lamp, the open window and photographs of loved ones"
   original: null
   translation: null
   chunk_id: "book-146-0093"
@@ -96,7 +96,7 @@ corpus_sources:
   source_url: "https://www.mitras.ru/be/a_main.htm"
 - id: "fox-trees"
   kind: "retelling"
-  text: "For him it was nothing unusual to sit with his Bible inside a hollow tree until dark, and the same went for long fasts and days of wandering alone"
+  text: "He fasted, wandered alone and sat with his Bible in hollow trees until dark"
   original: null
   translation: null
   chunk_id: "book-270-0101"
@@ -111,7 +111,7 @@ corpus_sources:
   source_url: "https://ccel.org/ccel/fox_g/autobio/autobio"
 - id: "fox-none"
   kind: "retelling"
-  text: "Neither the clergy, nor the preachers of the breakaway congregations, nor the people with the greatest reputation for experience had anything that met him where he was, so he turned away from them all"
+  text: "Neither clergy nor dissenting preachers nor experienced believers could help him, so he turned away from them all"
   original: null
   translation: null
   chunk_id: "book-270-0104"
@@ -261,7 +261,7 @@ corpus_sources:
   source_url: "https://ccel.org/ccel/fox_g/autobio/autobio"
 - id: "nikifor-life"
   kind: "retelling"
-  text: "He had once been a shop assistant in a haberdashery, then became the owner himself and lived in wealth, but, by his own account, badly. His wife died early; he parted with his money, lived for a long time at New Athos and finally went off into the wilderness"
+  text: "Once a shop assistant and then a wealthy owner, he had, by his own account, lived badly. After his wife died, he parted with his money, spent years at New Athos and became a hermit"
   original: null
   translation: null
   chunk_id: "book-277-0076"
@@ -276,7 +276,7 @@ corpus_sources:
   source_url: "https://predanie.ru/svencickiy-valentin-pavlovich-prot/grazhdane-neba-moe-puteshestvie-k-pustynnikam-kavkazskih-gor/"
 - id: "nikifor-ten"
   kind: "quote"
-  text: "I prayed the wrong way. Ten years I lived, and it was all wrong"
+  text: "I prayed the wrong way. For ten years I went on like that, getting it wrong"
   original: "Не так молился. Десять лет жил — и все не так"
   translation: "ours"
   chunk_id: "book-277-0077"
@@ -291,7 +291,7 @@ corpus_sources:
   source_url: "https://predanie.ru/svencickiy-valentin-pavlovich-prot/grazhdane-neba-moe-puteshestvie-k-pustynnikam-kavkazskih-gor/"
 - id: "nikifor-images"
   kind: "retelling"
-  text: "In prayer he saw Christ in the sky and bowed down, sure it was the Lord; it was a demon. Each time his tired mind tried to turn away, the demon showed him a new picture, a whole host of angels, and his curiosity was hooked again"
+  text: "In prayer he pictured Christ in the sky and bowed before the image. He later understood this as a demon’s deception. Whenever his mind tired, another vision appeared, a whole host of angels, which he also put down to the demon, and curiosity drew him back"
   original: null
   translation: null
   chunk_id: "book-277-0077"
@@ -621,9 +621,9 @@ corpus_sources:
   source_url: "https://ccel.org/ccel/philip_allan/pilgrim.html"
 ---
 
-Soon after his ordination, a young priest was sent to serve in an old people’s home. After his very first service there, a woman of a hundred and one came up to him and asked for advice[^corpus-woman-age]: “For many, many years I have been saying the Jesus Prayer constantly, and I have never once felt the presence of God.”[^corpus-woman-never] He tried pointing her to someone seasoned in prayer, but in her long life she had worn out every expert, to no avail. That was exactly why she had come to a novice: he likely knew nothing, so a useful word might slip out of him by chance[^corpus-woman-blurt].
+Newly ordained, a priest began serving in a home for older people. After his first service, a 101-year-old woman asked his advice[^corpus-woman-age]: “For many, many years I have been saying the Jesus Prayer constantly, and I have never once felt the presence of God.”[^corpus-woman-never] She had exhausted every expert. Perhaps this novice, who knew so little, might say something useful by accident[^corpus-woman-blurt].
 
-So he said to her: “What do you think: when is God supposed to get a word in, or make His presence felt, if you are talking all the time?”[^corpus-woman-talk] The advice that followed was strange. She was to sit where she could see the icons with the lamp burning before them, the window open to the summer air and the photographs of the people she loved, but first, in the morning, she was to tidy her room[^corpus-woman-room]. Then she was to take up her needles and wool: “knit in silence before the face of God, and don’t you dare say a single prayer; just sit quietly and knit.”[^corpus-woman-knit]
+So he said to her: “What do you think: when is God supposed to get a word in, or make His presence felt, if you are talking all the time?”[^corpus-woman-talk] The advice that followed was strange. First she was to tidy her room, then sit facing the icons and their burning lamp, the open window and photographs of loved ones[^corpus-woman-room]. Then she was to take up her needles and wool: “knit in silence before the face of God, and don’t you dare say a single prayer; just sit quietly and knit.”[^corpus-woman-knit]
 
 That priest was the future Metropolitan Anthony of Sourozh, a doctor who later spent many years as a bishop in London[^antony]. He tells the story himself in one of his books, in a chapter on prayer. We’ll come back to how it ended.
 
@@ -631,7 +631,7 @@ Quiet time with God is time alone with Him in which you don’t only talk but al
 
 ## A voice that said what was already written
 
-England, the 1640s. George Fox, a former shoemaker’s apprentice, left home at nineteen to look for God[^fox]. For him it was nothing unusual to sit with his Bible inside a hollow tree until dark, and the same went for long fasts and days of wandering alone[^corpus-fox-trees]. Neither the clergy, nor the preachers of the breakaway congregations, nor the people with the greatest reputation for experience had anything that met him where he was, so he turned away from them all[^corpus-fox-none]. And when there was nothing left to hope for from people, he heard a voice: “There is one, even Christ Jesus, that can speak to thy condition”[^corpus-fox-voice]; “and when I heard it, my heart did leap for joy.”[^corpus-fox-joy]
+England, the 1640s. George Fox, a former shoemaker’s apprentice, left home at nineteen to look for God[^fox]. He fasted, wandered alone and sat with his Bible in hollow trees until dark[^corpus-fox-trees]. Neither clergy nor dissenting preachers nor experienced believers could help him, so he turned away from them all[^corpus-fox-none]. And when there was nothing left to hope for from people, he heard a voice: “There is one, even Christ Jesus, that can speak to thy condition”[^corpus-fox-voice]; “and when I heard it, my heart did leap for joy.”[^corpus-fox-joy]
 
 Later, when Fox was already preaching, he was sitting by the fire one morning. Temptation settled over him like a heavy cloud, with a thought that kept pressing in: everything simply happens of itself, by nature[^corpus-fox-cloud]. Outwardly nothing showed; he stayed silent, and the household had no idea what he was going through[^corpus-fox-still]. Then came the turn he describes:
 
@@ -643,9 +643,9 @@ Notice what came to him in the silence. Not a secret revelation, but the first l
 
 ## Ten years of getting it wrong
 
-In 1915 the writer Valentin Sventsitsky, who later became a priest, published a book about his journey to the hermits of the Caucasus mountains, *Citizens of Heaven*[^svenc]. In it there is a night in a forest clearing and a long story told by old Father Nikifor. He had once been a shop assistant in a haberdashery, then became the owner himself and lived in wealth, but, by his own account, badly. His wife died early; he parted with his money, lived for a long time at New Athos and finally went off into the wilderness[^corpus-nikifor-life].
+In a 1915 book whose title translates as *Citizens of Heaven*, the writer and future priest Valentin Sventsitsky recounts visiting hermits in the Caucasus[^svenc]. One night in a forest clearing, old Father Nikifor told his story. Once a shop assistant and then a wealthy owner, he had, by his own account, lived badly. After his wife died, he parted with his money, spent years at New Athos and became a hermit[^corpus-nikifor-life].
 
-And there he nearly lost his mind. “I prayed the wrong way. Ten years I lived, and it was all wrong.”[^corpus-nikifor-ten] In prayer he saw Christ in the sky and bowed down, sure it was the Lord; it was a demon. Each time his tired mind tried to turn away, the demon showed him a new picture, a whole host of angels, and his curiosity was hooked again[^corpus-nikifor-images]. He had been warned: “The brethren told me: you mustn’t pray like that. Those words pierced my heart like a spear; I’d get angry and walk away. And again I’d pray my own way.”[^corpus-nikifor-brethren] In the end he told one of the monks, “Today or tomorrow I’ll go out of my mind.”[^corpus-nikifor-mad] The “demon” is Nikifor’s own explanation, not a diagnosis.
+And there he nearly lost his mind. “I prayed the wrong way. For ten years I went on like that, getting it wrong.”[^corpus-nikifor-ten] In prayer he pictured Christ in the sky and bowed before the image. He later understood this as a demon’s deception. Whenever his mind tired, another vision appeared, a whole host of angels, which he also put down to the demon, and curiosity drew him back[^corpus-nikifor-images]. He had been warned: “The brethren told me: you mustn’t pray like that. Those words pierced my heart like a spear; I’d get angry and walk away. And again I’d pray my own way.”[^corpus-nikifor-brethren] In the end he told one of the monks, “Today or tomorrow I’ll go out of my mind.”[^corpus-nikifor-mad] The “demon” is Nikifor’s own explanation, not a diagnosis.
 
 In silence, God is not the only one who speaks. Our imagination speaks too, and so do our wishes and fears. Nikifor’s trouble wasn’t that he made mistakes: everyone does. It was that for ten years he wouldn’t let anyone correct him.
 
@@ -671,7 +671,7 @@ What sets all this apart from secular meditation is the goal. The point is not t
 
 ## How to try it today
 
-Start the way the old woman did: clear away what you don’t need, put your phone aside, sit somewhere quiet. Read a few verses of Scripture. There is more about slow reading in our article on [lectio divina](/articles/lectio-divina/), and about turning verses into your own prayer in [Praying Scripture](/articles/praying-scripture/). Tell God [in your own words](/articles/how-to-start-praying/) what you have come with. Then fall silent and ask for nothing: no feelings, no answer. When thoughts crowd in, come back with a short word or the Jesus Prayer, and let your breathing stay calm, without exercises. Finish with words: thanks, a request, the Lord’s Prayer. Take as much time as you have.
+Clear away distractions, put your phone aside and sit somewhere quiet. Read a few Scripture verses; see [lectio divina](/articles/lectio-divina/) and [Praying Scripture](/articles/praying-scripture/). Tell God [in your own words](/articles/how-to-start-praying/) what is on your mind. Then fall silent without demanding feelings or answers. When distracted, return with a short word or the Jesus Prayer. Breathe naturally, without exercises. Close with thanks, a request or the Lord’s Prayer. Take whatever time you have.
 
 If a thought comes in the silence that seems to be “from God,” don’t rush. Check it against Scripture, tell someone you trust and wait.
 
@@ -702,7 +702,7 @@ A lack of special feelings doesn’t make your prayer a failure. You can close i
 
 [^antony]: [Anthony of Sourozh](https://en.wikipedia.org/wiki/Anthony_of_Sourozh) on Wikipedia: 1914–2003; worked as a doctor; sent to Britain in 1948; from 1962 head of the Russian Orthodox Diocese of Sourozh for Great Britain and Ireland. More about him in our article on [lectio divina](/articles/lectio-divina/).
 [^fox]: [George Fox](https://en.wikipedia.org/wiki/George_Fox) on Wikipedia: 1624–1691; apprenticed to a shoemaker and grazier; in September 1643, at about 19, left his relatives; one of the founders of the Religious Society of Friends (Quakers); first imprisoned in Nottingham in 1649.
-[^svenc]: [Свенцицкий, Валентин Павлович](https://ru.wikipedia.org/wiki/%D0%A1%D0%B2%D0%B5%D0%BD%D1%86%D0%B8%D1%86%D0%BA%D0%B8%D0%B9,_%D0%92%D0%B0%D0%BB%D0%B5%D0%BD%D1%82%D0%B8%D0%BD_%D0%9F%D0%B0%D0%B2%D0%BB%D0%BE%D0%B2%D0%B8%D1%87) on Wikipedia (in Russian): 1881–1931; ordained a priest in 1917; arrested in 1928 and exiled; died in Kansk; *Citizens of Heaven: My Journey to the Hermits of the Caucasus Mountains* (Граждане неба. Моё путешествие к пустынникам Кавказских гор) was published in Petrograd in 1915.
+[^svenc]: [Свенцицкий, Валентин Павлович](https://ru.wikipedia.org/wiki/%D0%A1%D0%B2%D0%B5%D0%BD%D1%86%D0%B8%D1%86%D0%BA%D0%B8%D0%B9,_%D0%92%D0%B0%D0%BB%D0%B5%D0%BD%D1%82%D0%B8%D0%BD_%D0%9F%D0%B0%D0%B2%D0%BB%D0%BE%D0%B2%D0%B8%D1%87) on Wikipedia (in Russian): 1881–1931; ordained a priest in 1917; arrested in 1928 and exiled; died in Kansk; *Grazhdane neba* (Граждане неба; ‘Citizens of Heaven’), Petrograd, 1915.
 [^meyer]: [F. B. Meyer](https://en.wikipedia.org/wiki/F._B._Meyer) on Wikipedia: 1847–1929; English Baptist pastor and evangelist who served in London; a friend of D. L. Moody.
 [^1jn]: 1 John 4:1. Berean Standard Bible (BSB), public domain.
 [^centering]: [Centering prayer](https://en.wikipedia.org/wiki/Centering_prayer) on Wikipedia: developed in the 1970s by the Trappist monks William Meninger, Basil Pennington and Thomas Keating at St. Joseph’s Abbey in Spencer, Massachusetts, drawing on the fourteenth-century *Cloud of Unknowing*; the “sacred word” can be “God,” “Jesus,” “Love,” “Peace” and the like, and you return to it when your attention wanders.
