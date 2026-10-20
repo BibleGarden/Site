@@ -259,6 +259,30 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lampada.app/articles/praying-scripture/"/>
   </url>
   <url>
+    <loc>https://lampada.app/articles/thanksgiving-prayer/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lampada.app/articles/thanksgiving-prayer/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lampada.app/ru/articles/thanksgiving-prayer/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://lampada.app/uk/articles/thanksgiving-prayer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lampada.app/articles/thanksgiving-prayer/"/>
+  </url>
+  <url>
+    <loc>https://lampada.app/ru/articles/thanksgiving-prayer/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lampada.app/articles/thanksgiving-prayer/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lampada.app/ru/articles/thanksgiving-prayer/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://lampada.app/uk/articles/thanksgiving-prayer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lampada.app/articles/thanksgiving-prayer/"/>
+  </url>
+  <url>
+    <loc>https://lampada.app/uk/articles/thanksgiving-prayer/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lampada.app/articles/thanksgiving-prayer/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lampada.app/ru/articles/thanksgiving-prayer/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://lampada.app/uk/articles/thanksgiving-prayer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lampada.app/articles/thanksgiving-prayer/"/>
+  </url>
+  <url>
     <loc>https://lampada.app/articles/what-to-pray-about/</loc>
     <lastmod>2026-10-18</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://lampada.app/articles/what-to-pray-about/"/>
