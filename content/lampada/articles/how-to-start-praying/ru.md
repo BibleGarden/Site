@@ -784,9 +784,99 @@ corpus_sources:
   chapter: "Capo XLVI."
   translator: null
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-summoned
+  kind: retelling
+  text: "21 февраля 1822 года его привели к судьям"
+  original: null
+  translation: null
+  chunk_id: "book-54-0203"
+  book_id: 54
+  char_start: 167223
+  char_end: 167460
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo LI."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-verdict
+  kind: retelling
+  text: "Сначала прочли приговор — смертная казнь, а затем указ императора: казнь заменена пятнадцатью годами каторжной тюрьмы в крепости Шпильберг"
+  original: null
+  translation: null
+  chunk_id: "book-54-0204"
+  book_id: 54
+  char_start: 167462
+  char_end: 167818
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo LI."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-will
+  kind: quote
+  text: "Да будет воля Божья!"
+  original: "Sia fatta là volontà di Dio!"
+  translation: ours
+  chunk_id: "book-54-0204"
+  book_id: 54
+  char_start: 167833
+  char_end: 167861
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo LI."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-intent
+  kind: retelling
+  text: "Он и правда хотел принять этот страшный удар по-христиански, ни на кого не держа зла"
+  original: null
+  translation: null
+  chunk_id: "book-54-0204"
+  book_id: 54
+  char_start: 167865
+  char_end: 168001
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo LI."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-smile
+  kind: retelling
+  text: "Но в глазах одного из судей, который на процессе всегда казался ему враждебным, Пеллико почудилась злорадная усмешка, и терпение, за которое его ещё хвалили, он втайне уже потерял"
+  original: null
+  translation: null
+  chunk_id: "book-54-0205"
+  book_id: 54
+  char_start: 168324
+  char_end: 168821
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo LI."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
+- id: pellico-public
+  kind: retelling
+  text: "Теперь приговор, как и предупреждал следователь, предстояло объявить ещё и публично — такова была неизбежная формальность"
+  original: null
+  translation: null
+  chunk_id: "book-54-0205"
+  book_id: 54
+  char_start: 168823
+  char_end: 168943
+  text_sha256: "d1d0e2c275fb51e7136dec3452daf2ee18665d801828d2ba12e6d0e7b18f8440"
+  author: Silvio Pellico
+  title: Le mie prigioni
+  chapter: "Capo LI."
+  translator: null
+  source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-letter
   kind: retelling
-  text: 'Узнав свою участь, Пеллико первым делом сел писать отцу: ему хотелось, чтобы страшную новость родные узнали от него самого'
+  text: 'первым делом он сел писать отцу: ему хотелось, чтобы страшную новость родные узнали от него самого'
   original: null
   translation: null
   chunk_id: "book-54-0206"
@@ -801,7 +891,7 @@ corpus_sources:
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-night
   kind: retelling
-  text: 'Ночью он не мог уснуть и думал о старых родителях: выдержат ли они такой удар'
+  text: 'Ночью он не мог уснуть и думал о старых родителях: выдержат ли они такое горе'
   original: null
   translation: null
   chunk_id: "book-54-0207"
@@ -816,7 +906,7 @@ corpus_sources:
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-judge
   kind: retelling
-  text: Думал и о судье, который, как ему казалось, торжествовал
+  text: Думал и о той усмешке судьи, что ему почудилась
   original: null
   translation: null
   chunk_id: book-54-0207
@@ -876,7 +966,7 @@ corpus_sources:
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-scaffold
   kind: retelling
-  text: Потом его вывели на помост посреди площади у Дворца дожей, перед огромной толпой
+  text: Его вывели на помост посреди площади у Дворца дожей, перед огромной толпой
   original: null
   translation: null
   chunk_id: "book-54-0211"
@@ -891,7 +981,7 @@ corpus_sources:
   source_url: https://it.wikisource.org/wiki/Le_mie_prigioni
 - id: pellico-sentence
   kind: retelling
-  text: "Сначала прозвучало «приговорены к смерти», и по толпе прошёл ропот жалости. Все снова затихли, чтобы дослушать, и услышали: вместо казни — каторжная тюрьма, Пеллико — на пятнадцать лет"
+  text: "Когда прозвучало «приговорены к смерти», по толпе прошёл ропот жалости. Все снова затихли, чтобы дослушать, и снова зашумели при словах о каторжной тюрьме"
   original: null
   translation: null
   chunk_id: "book-54-0212"
@@ -954,7 +1044,7 @@ corpus_sources:
 
 ## Девочка с зубной болью
 
-Пресвитерианская миссионерка Розалинд Гофорт почти полвека прослужила в Китае. Из одиннадцати её детей пятеро умерли маленькими. Летом 1900 года они с мужем бежали через полстраны от восставших ихэтуаней[^goforth]. В 1921 году она выпустила книгу «Откуда я знаю, что Бог отвечает на молитву» — свидетельство длиною в жизнь. Рассказывая о своей жизни, она начинает с детства.
+Пресвитерианская миссионерка Розалинд Гофорт почти полвека прослужила в Китае[^goforth]. В 1921 году она выпустила книгу «Откуда я знаю, что Бог отвечает на молитву» — свидетельство длиною в жизнь. Рассказывая о своей жизни, она начинает с детства.
 
 С самого раннего детства Розалинд привыкла в любой беде просто рассказывать обо всём Иисусу[^corpus-goforth-tell]. Однажды, когда ей было шесть или семь лет, во время игры в саду у неё страшно разболелся зуб. Она прибежала к маме, но ничего не помогало[^corpus-goforth-pain]. И тогда, уткнувшись маме в грудь, девочка про себя сказала: «Господи Иисусе, если Ты уберёшь эту зубную боль прямо сейчас, сейчас же, я три года буду Твоей девочкой»[^corpus-goforth-prayer].
 
@@ -988,9 +1078,9 @@ corpus_sources:
 
 И у Пеллико молитва шла не всегда. Его стали мучить ночные кошмары. Однажды он проснулся от того, что его душат: шею туго стягивал его собственный платок, завязанный на несколько узлов, а как он его завязал, Пеллико не помнил[^corpus-pellico-terror]. Днём он шутил с товарищами и тюремщиками, но с закатом его начинало трясти. Попросить другую камеру он так и не решился: боялся, что его поднимут на смех. В конце концов им овладела страшная мысль, что Бог оставил его навсегда[^corpus-pellico-abandoned]. Несколько дней он сопротивлялся доводам против Бога, а потом сдался и стал повторять то, что слышал от озлобленных атеистов: религия только ослабляет ум. Но Бог избавил его от этого, когда он меньше всего ждал[^corpus-pellico-doubt]. Однажды утром после кофе его скрутило так, что он решил, будто отравлен; обессилев, он тихо проспал с полудня до вечера. Покой, с которым он проснулся, удивил его самого. Ложиться снова он не стал: на ногах, думал он, легче выдержать привычные ночные страхи. А страхи так и не пришли[^corpus-pellico-relief]. Переполненный благодарностью, он упал на колени, просил у Бога прощения за дни, когда отрекался от Него, — и так и заснул, стоя на коленях и опираясь на стул[^corpus-pellico-return].
 
-Самое трудное было впереди. Узнав свою участь, Пеллико первым делом сел писать отцу: ему хотелось, чтобы страшную новость родные узнали от него самого[^corpus-pellico-letter]. Ночью он не мог уснуть и думал о старых родителях: выдержат ли они такой удар[^corpus-pellico-night]. Думал и о судье, который, как ему казалось, торжествовал[^corpus-pellico-judge]. Ночь он провёл как в аду: простить не смог, да и не захотел, — ненависть была ему слаще[^corpus-pellico-hate]. «Утром я не молился»[^corpus-pellico-no-prayer], — признаётся он. И дальше: «Мне было горько, что я не могу молиться; но где царит гордыня, там не найти другого бога, кроме самого себя»[^corpus-pellico-pride].
+Самое трудное было впереди. 21 февраля 1822 года его привели к судьям[^corpus-pellico-summoned]. Сначала прочли приговор — смертная казнь, а затем указ императора: казнь заменена пятнадцатью годами каторжной тюрьмы в крепости Шпильберг[^corpus-pellico-verdict]. «Да будет воля Божья!»[^corpus-pellico-will] — ответил он. Он и правда хотел принять этот страшный удар по-христиански, ни на кого не держа зла[^corpus-pellico-intent]. Но в глазах одного из судей, который на процессе всегда казался ему враждебным, Пеллико почудилась злорадная усмешка, и терпение, за которое его ещё хвалили, он втайне уже потерял[^corpus-pellico-smile]. Вернувшись в камеру, первым делом он сел писать отцу: ему хотелось, чтобы страшную новость родные узнали от него самого[^corpus-pellico-letter]. Ночью он не мог уснуть и думал о старых родителях: выдержат ли они такое горе[^corpus-pellico-night]. Думал и о той усмешке судьи, что ему почудилась[^corpus-pellico-judge]. Ночь он провёл как в аду: простить не смог, да и не захотел, — ненависть была ему слаще[^corpus-pellico-hate]. «Утром я не молился»[^corpus-pellico-no-prayer], — признаётся он. И дальше: «Мне было горько, что я не могу молиться; но где царит гордыня, там не найти другого бога, кроме самого себя»[^corpus-pellico-pride].
 
-Потом его вывели на помост посреди площади у Дворца дожей, перед огромной толпой[^corpus-pellico-scaffold]. Сначала прозвучало «приговорены к смерти», и по толпе прошёл ропот жалости. Все снова затихли, чтобы дослушать, и услышали: вместо казни — каторжная тюрьма, Пеллико — на пятнадцать лет[^corpus-pellico-sentence].
+Теперь приговор, как и предупреждал следователь, предстояло объявить ещё и публично — такова была неизбежная формальность[^corpus-pellico-public]. Его вывели на помост посреди площади у Дворца дожей, перед огромной толпой[^corpus-pellico-scaffold]. Когда прозвучало «приговорены к смерти», по толпе прошёл ропот жалости. Все снова затихли, чтобы дослушать, и снова зашумели при словах о каторжной тюрьме[^corpus-pellico-sentence].
 
 Пеллико не прячет этой ночи и не делает из неё красивой морали. Но его честность подсказывает полезный вопрос: если молитва вдруг не идёт, что я сейчас прячу от Бога? Обиду, злость, гордость можно назвать вслух — это тоже молитва своими словами.
 
@@ -1028,5 +1118,5 @@ corpus_sources:
 [^mt6]: Мф 6:7–8. Перевод под ред. М. П. и М. М. Кулаковых, © Институт перевода Библии им. М. П. Кулакова в Заокском.
 [^rom8]: Рим 8:26. Перевод под ред. М. П. и М. М. Кулаковых, © Институт перевода Библии им. М. П. Кулакова в Заокском.
 [^pellico]: [Сильвио Пеллико](https://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D0%BB%D0%BB%D0%B8%D0%BA%D0%BE,_%D0%A1%D0%B8%D0%BB%D1%8C%D0%B2%D0%B8%D0%BE) — Википедия: автор трагедии «Франческа да Римини»; помилован и освобождён в 1830 году; «Мои темницы» вышли в 1832 году.
-[^goforth]: [Jonathan Goforth](https://en.wikipedia.org/wiki/Jonathan_Goforth) и [Rosalind Goforth](https://en.wikipedia.org/wiki/Rosalind_Goforth) — Википедия (англ.): миссия в Китае с 1888 по 1935 год, бегство во время восстания ихэтуаней, одиннадцать детей.
+[^goforth]: [Jonathan Goforth](https://en.wikipedia.org/wiki/Jonathan_Goforth) и [Rosalind Goforth](https://en.wikipedia.org/wiki/Rosalind_Goforth) — Википедия (англ.): миссия в Китае с 1888 по 1935 год.
 [^feofan]: [Феофан Затворник](https://ru.wikipedia.org/wiki/%D0%A4%D0%B5%D0%BE%D1%84%D0%B0%D0%BD_%D0%97%D0%B0%D1%82%D0%B2%D0%BE%D1%80%D0%BD%D0%B8%D0%BA) — Википедия: на покое с 1866 года, в затворе с 1872 года, умер в 1894 году.
