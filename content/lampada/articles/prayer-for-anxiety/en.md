@@ -66,7 +66,7 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/Antonij_Optinskij/pisma/"
 - id: "antony-sores"
   kind: "quote"
-  text: "For 25 years I have carried sores on my legs"
+  text: "I have had sores on my legs for 25 years"
   original: "25 лет ношу язвы на своих ногах"
   translation: "ours"
   chunk_id: "book-115-0349"
@@ -351,7 +351,7 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/26744"
 - id: "faddey-childhood"
   kind: "retelling"
-  text: "Thaddeus was born premature, right at a fair, and lost his mother early; he was brought up by stepmothers and beaten at home so badly that more than once he ran off with nothing but a piece of bread. Later his lungs failed, the doctors gave him five years at most, and he decided to give those years to God and went to a monastery"
+  text: "Thaddeus was born premature, right at a fair, and lost his mother early; he was brought up by stepmothers and beaten at home so badly that more than once he ran off with nothing but a piece of bread. Later he developed a lung disease; the doctors gave him five years at most, and he decided to give those years to God and went to a monastery"
   original: null
   translation: null
   chunk_id: "book-44-0055"
@@ -628,7 +628,7 @@ Psalm 23 speaks of fear and of God being near. Here it is in full, in the Berean
 
 Anthony’s own psalm was Psalm 27. In a letter from 1831, again about unsettling rumors, he first remarks that “not every rumor should be believed, least of all those that trouble us”[^corpus-antony-rumors]. Then he advises his correspondent “at every anxious imagining, to read through Psalm 26 of David before God, to the end”[^corpus-antony-imagination]. Before God and to the end: not skimming it, but saying it to Him.
 
-This was not advice from someone with an easy life. For fourteen years Anthony led the Optina skete, then a monastery in Maloyaroslavets, and illness more than once made him ask to be relieved of his post[^antony]. “For 25 years I have carried sores on my legs”[^corpus-antony-sores], he writes in another letter, and in the same breath he is grateful that he has “both doctors and medicines”[^corpus-antony-doctors].
+This was not advice from someone with an easy life. For fourteen years Anthony led the Optina skete, then a monastery in Maloyaroslavets, and illness more than once made him ask to be relieved of his post[^antony]. “I have had sores on my legs for 25 years”[^corpus-antony-sores], he writes in another letter, and in the same breath he is grateful that he has “both doctors and medicines”[^corpus-antony-doctors].
 
 Many people also turn to Psalm 91, which begins: “He who dwells in the shelter of the Most High will abide in the shadow of the Almighty. I will say to the Lord, ‘You are my refuge and my fortress, my God, in whom I trust’” (Psalm 91:1–2)[^ps91]. To find a psalm that matches what is on your heart right now, see our article on [praying Scripture](/articles/praying-scripture/).
 
@@ -652,7 +652,7 @@ There are no fine phrases in this prayer. Taylor named exactly what he was afrai
 
 ## When the anxiety doesn’t go away
 
-It was different for Elder Thaddeus of Vitovnica. In the late twentieth century pilgrims came in great numbers to this Serbian archimandrite[^thaddeus], but his life had begun hard. The compiler of a book about him tells how Thaddeus was born premature, right at a fair, and lost his mother early; he was brought up by stepmothers and beaten at home so badly that more than once he ran off with nothing but a piece of bread. Later his lungs failed, the doctors gave him five years at most, and he decided to give those years to God and went to a monastery[^corpus-faddey-childhood].
+It was different for Elder Thaddeus of Vitovnica. In the late twentieth century pilgrims came in great numbers to this Serbian archimandrite[^thaddeus], but his life had begun hard. The compiler of a book about him tells how Thaddeus was born premature, right at a fair, and lost his mother early; he was brought up by stepmothers and beaten at home so badly that more than once he ran off with nothing but a piece of bread. Later he developed a lung disease; the doctors gave him five years at most, and he decided to give those years to God and went to a monastery[^corpus-faddey-childhood].
 
 There his spiritual father, Father Ambrose, told him: “Whatever you do, keep saying within yourself without ceasing: ‘Jesus, Son of God, have mercy on me!’”[^corpus-faddey-prayer] In time Thaddeus felt the prayer entering his heart along with the air he breathed[^corpus-faddey-breath]. And then: “But then my spiritual father died, and for many years I lived in terrible anguish of soul. Grief was tearing my soul apart. The fear I had picked up as a child tormented me again”[^corpus-faddey-torment].
 
@@ -664,7 +664,7 @@ Prayer did not work like a pill, and that was not Thaddeus’s fault. Even after
 
 - **Choose one short phrase**, “Lord, have mercy,” the Jesus Prayer or a line from a psalm, and come back to it whenever the fear rises. That is how Thaddeus prayed.
 - **Read the psalm before God, all the way to the end**, as Anthony advised.
-- **If borrowed words don’t fit, use your own** to say exactly what you are afraid of. Then say, separately, what here depends on you and what you are handing over to God: “Lord, I’m afraid that… I will do what is mine to do. The rest I leave with You.” You can write it down, as Taylor did in the margin of his Bible, for example in a [prayer journal](/articles/prayer-journal/).
+- **If borrowed words don’t fit, use your own** to say exactly what you are afraid of. Then say, separately, what here depends on you and what you are handing over to God: “Lord, I’m afraid that… I will do what is mine to do. The rest I leave with You.” Taylor wrote his request for fellow workers in the margin of his Bible. You too can write down your prayer, for example in a [prayer journal](/articles/prayer-journal/).
 - **If you don’t feel better, don’t blame yourself.** A sudden fright, Julian says, is not a sin. Music, a walk or a talk with someone close is no betrayal of prayer: Thaddeus found comfort in his accordion.
 
 If anxiety lasts for weeks, keeps you from sleeping or working, or comes as panic attacks, that is a reason to see a doctor or a mental health professional. Prayer is no substitute for treatment and does not promise results. Getting treatment is not a sin. Ambrose of Optina was once asked whether, in ordinary illnesses, it was a sin to use simple remedies instead of always waiting for a miraculous cure[^corpus-ambrose-question]. He replied: “There is no sin in this at all, for everything is from the Lord God, both the remedies and the doctors themselves”[^corpus-ambrose-doctors]. If you are having thoughts of ending your life, tell someone close to you right away and call your local emergency number or a crisis line.
