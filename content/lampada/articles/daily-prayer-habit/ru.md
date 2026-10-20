@@ -16,7 +16,7 @@ corpus_sources:
   text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
   author: "David M’Intyre (David MacIntyre)"
   title: "The Hidden Life of Prayer"
-  chapter: "8.  The Open Recompense — Extension of the Kingdom"
+  chapter: "Notes"
   translator: null
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "paton-door"
@@ -24,14 +24,14 @@ corpus_sources:
   text: "Отец семейства уходит туда и закрывает за собой дверь"
   original: null
   translation: null
-  chunk_id: "book-48-0160"
+  chunk_id: "book-48-0161"
   book_id: 48
   char_start: 129686
   char_end: 129729
   text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
   author: "David M’Intyre (David MacIntyre)"
   title: "The Hidden Life of Prayer"
-  chapter: "8.  The Open Recompense — Extension of the Kingdom"
+  chapter: "Notes"
   translator: null
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "paton-meal"
@@ -39,14 +39,14 @@ corpus_sources:
   text: "каждый день, много раз в день, обычно после еды"
   original: "daily, and many times a day, generally after each meal"
   translation: "ours"
-  chunk_id: "book-48-0160"
+  chunk_id: "book-48-0161"
   book_id: 48
   char_start: 129630
   char_end: 129684
   text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
   author: "David M’Intyre (David MacIntyre)"
   title: "The Hidden Life of Prayer"
-  chapter: "8.  The Open Recompense — Extension of the Kingdom"
+  chapter: "Notes"
   translator: null
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "paton-sacred"
@@ -54,14 +54,14 @@ corpus_sources:
   text: "это было слишком свято, чтобы о нём говорить"
   original: "for the thing was too sacred to be talked about"
   translation: "ours"
-  chunk_id: "book-48-0160"
+  chunk_id: "book-48-0161"
   book_id: 48
   char_start: 129799
   char_end: 129846
   text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
   author: "David M’Intyre (David MacIntyre)"
   title: "The Hidden Life of Prayer"
-  chapter: "8.  The Open Recompense — Extension of the Kingdom"
+  chapter: "Notes"
   translator: null
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "paton-prayed"
@@ -69,14 +69,14 @@ corpus_sources:
   text: "Но дети и без слов понимают, что за дверью молятся за них"
   original: null
   translation: null
-  chunk_id: "book-48-0160"
+  chunk_id: "book-48-0161"
   book_id: 48
   char_start: 129735
   char_end: 129896
   text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
   author: "David M’Intyre (David MacIntyre)"
   title: "The Hidden Life of Prayer"
-  chapter: "8.  The Open Recompense — Extension of the Kingdom"
+  chapter: "Notes"
   translator: null
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "paton-tiptoe"
@@ -84,14 +84,14 @@ corpus_sources:
   text: "и учатся проходить мимо на цыпочках"
   original: null
   translation: null
-  chunk_id: "book-48-0160"
+  chunk_id: "book-48-0161"
   book_id: 48
   char_start: 130057
   char_end: 130144
   text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
   author: "David M’Intyre (David MacIntyre)"
   title: "The Hidden Life of Prayer"
-  chapter: "8.  The Open Recompense — Extension of the Kingdom"
+  chapter: "Notes"
   translator: null
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "ryle-allot"
@@ -136,7 +136,7 @@ corpus_sources:
   text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
   author: "David M’Intyre (David MacIntyre)"
   title: "The Hidden Life of Prayer"
-  chapter: "8.  The Open Recompense — Extension of the Kingdom"
+  chapter: "Notes"
   translator: null
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "paton-roof"
@@ -144,14 +144,14 @@ corpus_sources:
   text: "Никогда — ни в храме, ни в соборе, ни в горах, ни в долине — не надеюсь я ощутить, что Господь Бог ближе, что Он зримее ходит и говорит с людьми, чем под той скромной крышей из соломы и дубовых плетней"
   original: "Never, in temple or cathedral, in mountain or in glen, can I hope to feel that the Lord God is more near, more visibly walking and talking with men, than under that humble cottage roof of thatch and oaken wattles."
   translation: "ours"
-  chunk_id: "book-48-0161"
+  chunk_id: "book-48-0162"
   book_id: 48
   char_start: 130378
   char_end: 130591
   text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
   author: "David M’Intyre (David MacIntyre)"
   title: "The Hidden Life of Prayer"
-  chapter: "8.  The Open Recompense — Extension of the Kingdom"
+  chapter: "Notes"
   translator: null
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "bonar-cause"
@@ -324,14 +324,14 @@ corpus_sources:
   text: "На первой странице каждой новой такой записной книжки он неизменно записывал решение ежедневно по два часа молиться наедине, не допуская никаких увёрток и оговорок"
   original: "On the front page of each successive copy of this memorandum book he always recorded a resolution to spend two hours daily in private prayer, no evasion or proviso being admitted."
   translation: "ours"
-  chunk_id: "book-48-0162"
+  chunk_id: "book-48-0163"
   book_id: 48
   char_start: 131298
   char_end: 131477
   text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
   author: "David M’Intyre (David MacIntyre)"
   title: "The Hidden Life of Prayer"
-  chapter: "8.  The Open Recompense — Extension of the Kingdom"
+  chapter: "Notes"
   translator: null
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "macintyre-rigid"
@@ -339,14 +339,14 @@ corpus_sources:
   text: "Возможно, кому-то такое правило покажется жёстким до формальности"
   original: "Perhaps such a rule may seem to some to be rigid even to formality."
   translation: "ours"
-  chunk_id: "book-48-0162"
+  chunk_id: "book-48-0163"
   book_id: 48
   char_start: 131478
   char_end: 131545
   text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
   author: "David M’Intyre (David MacIntyre)"
   title: "The Hidden Life of Prayer"
-  chapter: "8.  The Open Recompense — Extension of the Kingdom"
+  chapter: "Notes"
   translator: null
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "macintyre-bound"
@@ -354,14 +354,14 @@ corpus_sources:
   text: "Пусть никто не связывает себя чужой практикой, но пусть каждый непременно отведёт время для общения с Богом"
   original: "Let no one he bound by another’s practice; but in every case let due provision be made for intercourse with God."
   translation: "ours"
-  chunk_id: "book-48-0162"
+  chunk_id: "book-48-0163"
   book_id: 48
   char_start: 131546
   char_end: 131658
   text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
   author: "David M’Intyre (David MacIntyre)"
   title: "The Hidden Life of Prayer"
-  chapter: "8.  The Open Recompense — Extension of the Kingdom"
+  chapter: "Notes"
   translator: null
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "ryle-length"
@@ -605,18 +605,18 @@ corpus_sources:
   translator: null
   source_url: "https://www.monergism.com/thethreshold/sdg/ryle/A%20Call%20to%20Prayer%20-%20J.%20C.%20Ryle.pdf"
 - id: "paton-meal-faq"
-  kind: "retelling"
-  text: "Отец Джона Патона уходил молиться после еды"
-  original: null
-  translation: null
-  chunk_id: "book-48-0160"
+  kind: "quote"
+  text: "каждый день, много раз в день, обычно после еды"
+  original: "daily, and many times a day, generally after each meal"
+  translation: "ours"
+  chunk_id: "book-48-0161"
   book_id: 48
-  char_start: 129191
-  char_end: 129896
+  char_start: 129630
+  char_end: 129684
   text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
   author: "David M’Intyre (David MacIntyre)"
   title: "The Hidden Life of Prayer"
-  chapter: "8.  The Open Recompense — Extension of the Kingdom"
+  chapter: "Notes"
   translator: null
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "ryle-allot-faq"
@@ -684,14 +684,14 @@ corpus_sources:
   text: "Макинтайр советовал не связывать себя чужой практикой, но непременно отводить время для Бога"
   original: null
   translation: null
-  chunk_id: "book-48-0162"
+  chunk_id: "book-48-0163"
   book_id: 48
   char_start: 131546
   char_end: 131658
   text_sha256: "1ba06d431b63ec415aa42244757b0487d839c3a0c86be6e85c51f20ed1302f55"
   author: "David M’Intyre (David MacIntyre)"
   title: "The Hidden Life of Prayer"
-  chapter: "8.  The Open Recompense — Extension of the Kingdom"
+  chapter: "Notes"
   translator: null
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "guardini-weekly-faq"
@@ -773,7 +773,7 @@ corpus_sources:
 
 ### Как молиться каждый день?
 
-Привяжите молитву к тому, что и так повторяется. Отец Джона Патона уходил молиться после еды[^corpus-paton-meal-faq], а Райл советовал отводить на молитву время, как на еду и сон, и выбирать часы самому[^corpus-ryle-allot-faq]. Начните с малого и возвращайтесь после пропусков.
+Привяжите молитву к тому, что и так повторяется. Отец Джона Патона уходил молиться «каждый день, много раз в день, обычно после еды»[^corpus-paton-meal-faq], а Райл советовал отводить на молитву время, как на еду и сон, и выбирать часы самому[^corpus-ryle-allot-faq]. Начните с малого и возвращайтесь после пропусков.
 
 ### Как молиться утром?
 
