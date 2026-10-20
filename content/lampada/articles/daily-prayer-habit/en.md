@@ -2,7 +2,6 @@
 title: 'Daily Prayer Routine: When to Pray, How Long and How to Make It a Habit'
 description: 'To build a daily prayer routine, tie prayer to something that already happens every day: waking up, meals, the commute, bedtime. Start with a few minutes you can set aside even on a difficult day, and after a missed day come back without beating yourself up. How long to pray and how to pray in the morning, with the stories of John Paton’s father, Andrew Bonar, Abbess Taisia and Rachele Guardini.'
 date: 2026-10-20
-draft: true
 corpus_sources:
 - id: "paton-closet"
   kind: "retelling"
