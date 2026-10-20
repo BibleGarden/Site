@@ -365,7 +365,7 @@ class SiteBuilder:
                         {
                             "@type": "Question",
                             "name": item.question,
-                            "acceptedAnswer": {"@type": "Answer", "text": item.answer_html},
+                            "acceptedAnswer": {"@type": "Answer", "text": item.answer_text},
                         }
                         for item in article.faq
                     ],

@@ -6,6 +6,7 @@ import datetime as dt
 import re
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
@@ -31,6 +32,7 @@ FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---\n(.*)\Z", re.DOTALL)
 FAQ_HEADING_RE = re.compile(r"^## .*\{#faq\}\s*$")
 H2_RE = re.compile(r"^## ")
 H3_RE = re.compile(r"^### (.+?)\s*$")
+FOOTNOTE_REFERENCE_RE = re.compile(r"\[\^[^\]\n]+\]")
 SCREEN_MARKER_RE = re.compile(r"^<!-- screen: ([a-z0-9]+(?:-[a-z0-9]+)*(?:, *[a-z0-9]+(?:-[a-z0-9]+)*)*) -->$")
 SCREEN_INTENT_RE = re.compile(r"<!--\s*(?:scre+n|sreen|screan)s?\b", re.IGNORECASE)
 HTML_COMMENT_LINE_RE = re.compile(r"^\s*(?:>\s*)*<!--")
@@ -123,7 +125,7 @@ class Site:
 @dataclass(frozen=True)
 class FaqItem:
     question: str
-    answer_html: str
+    answer_text: str
 
 
 @dataclass(frozen=True)
@@ -517,6 +519,32 @@ def render_markdown(
     return markdown.markdown(text, extensions=extensions, extension_configs=MARKDOWN_EXTENSION_CONFIGS)
 
 
+class _PlainText(HTMLParser):
+    """Collect rendered Markdown as whitespace-normalized plain text."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.parts: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag in {"br", "li", "p", "pre", "blockquote"}:
+            self.parts.append(" ")
+
+    def handle_data(self, data: str) -> None:
+        self.parts.append(data)
+
+    def text(self) -> str:
+        return re.sub(r"\s+", " ", "".join(self.parts)).strip()
+
+
+def faq_answer_text(answer: str, *, lang: str) -> str:
+    """Render a FAQ answer as the plain text required by FAQPage JSON-LD."""
+    parser = _PlainText()
+    parser.feed(render_markdown(FOOTNOTE_REFERENCE_RE.sub("", answer), lang=lang))
+    parser.close()
+    return parser.text()
+
+
 def extract_faq(body: str, source: Path, *, lang: str) -> tuple[FaqItem, ...]:
     """Collect '### question' / answer pairs from the '## ... {#faq}' section, if present."""
     lines = body.splitlines()
@@ -541,7 +569,7 @@ def extract_faq(body: str, source: Path, *, lang: str) -> tuple[FaqItem, ...]:
         answer_text = "\n".join(answer).strip()
         if not answer_text:
             raise BuildError(f"{source}: FAQ question '{question}' has no answer")
-        items.append(FaqItem(question=question, answer_html=render_markdown(answer_text, lang=lang)))
+        items.append(FaqItem(question=question, answer_text=faq_answer_text(answer_text, lang=lang)))
 
     for index in range(starts[0] + 1, end):
         match = heading(index, H3_RE)
