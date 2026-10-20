@@ -1,0 +1,19 @@
+[
+  {"query": "каждый вечер испытывать себя, как провёл день, и каяться", "limit": 12},
+  {"query": "вечером перед сном вспоминаю прошедший день и благодарю Бога", "limit": 12},
+  {"query": "записывала добрые и дурные дела, чтобы узнать, спасусь ли", "limit": 12},
+  {"query": "examen of conscience five points give thanks ask grace account of the day", "limit": 12},
+  {"query": "every night before sleep I looked back over the day and thanked God", "limit": 12},
+  {"query": "kept an account of every good and bad action in a little book", "limit": 12},
+  {"query": "went to bed with my mind under exercise before the Lord, in the morning", "limit": 12},
+  {"query": "examen de conscience le soir sans trouble ni découragement, doucement", "limit": 12},
+  {"query": "examen de conciencia por la noche dar gracias pedir perdón enmienda", "limit": 12},
+  {"query": "esame di coscienza la sera ringraziare la giornata", "limit": 12},
+  {"query": "Gewissenserforschung am Abend Rückblick auf den Tag Dank", "limit": 12},
+  {"query": "scrupulous anxious self-examination counting faults discouragement", "limit": 12},
+  {"query": "Eh bien mon pauvre cœur nous voilà tombés relevons-nous", "limit": 8, "book_id": 235},
+  {"query": "general examen method five points", "limit": 6, "book_id": 38},
+  {"query": "странноприимец канонарх будил на бдение упросил двух братий", "limit": 6, "book_id": 211},
+  {"query": "day-book good and bad actions dance ashamed", "limit": 6, "book_id": 139},
+  {"query": "steerage cabin scruple night exercise morning owner", "limit": 6, "book_id": 69}
+]
