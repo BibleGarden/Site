@@ -2,7 +2,6 @@
 title: "Praying for Others: How to Pray for Someone"
 description: "Praying for others (intercessory prayer) means bringing a real person to God: you say their name, tell Him honestly how they are doing and ask Him to help them without dictating how. With the stories of Hudson Taylor, John of Kronstadt, Ambrose of Optina and Elizabeth Wheaton."
 date: 2026-10-20
-draft: true
 corpus_sources:
 - id: "taylor-holiday"
   kind: "retelling"
