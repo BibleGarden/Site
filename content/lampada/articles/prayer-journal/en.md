@@ -275,7 +275,7 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/71878"
 - id: eugenie-week
   kind: retelling
-  text: Fine days are rare by now, so when one comes, Eugénie welcomes it as a blessing. That evening she will go to Cahuzac, the pilgrimage she loves best; until then she takes stock of how things have stood between her soul and God these last eight days
+  text: Fine days are rare by now, so when one comes, Eugénie welcomes it as a blessing. That evening she will go to Cahuzac, her favorite place of pilgrimage; until then she takes stock of how things have stood between her soul and God these last eight days
   original: null
   translation: null
   chunk_id: book-190-0149
@@ -620,7 +620,7 @@ corpus_sources:
   source_url: "https://azbyka.ru/otechnik/molitva/molitvennyj-dnevnik-startsa-feodosija-karulskogo/"
 - id: feodosiy-feast
   kind: retelling
-  text: 'On August 5, the anniversary of his tonsure into the Great Schema, after vespers and before supper, he and his companion were reading the *Philokalia*, a collection of monastic teaching on prayer: from the next feast day Theodosius was to begin the “artful” prayer, a particular method described by the ancient fathers, and they had picked out the passage that dealt with it'
+  text: 'On August 5, the anniversary of his tonsure into the Great Schema, after vespers and before supper, he and his companion were reading the *Philokalia*, a collection of monastic teaching on prayer: from the next feast day Theodosius was to begin using a particular prayer technique described by the ancient fathers, and they had picked out the passage that dealt with it'
   original: null
   translation: null
   chunk_id: book-147-0024
@@ -725,7 +725,7 @@ corpus_sources:
   source_url: https://azbyka.ru/otechnik/molitva/molitvennyj-dnevnik-startsa-feodosija-karulskogo/
 - id: feodosiy-simple
   kind: quote
-  text: And so I gave up the ‘artful’ prayer as untimely for me, and went on as before with the simple one, trusting in God’s mercy
+  text: And so I gave up that prayer technique as untimely for me, and went on as before with simple prayer, trusting in God’s mercy
   original: Итак, я оставил “художественную” молитву, как несвоевременную для меня, а стал продолжать по-прежнему простую с упованием на милость Божию
   translation: ours
   chunk_id: book-147-0027
@@ -811,7 +811,7 @@ Almost everyone falls into this trap: you open the notebook to pray and end up w
 
 Eugénie de Guérin, a Catholic, lived at Le Cayla, a secluded country house in the south of France. When her younger brother Maurice left for Paris, she began keeping a journal for him[^eugenie]. Wherever she went, she needed something to write on: “I need tables and paper everywhere, because my thoughts follow me everywhere and want to pour themselves out in one place, for you, my friend”[^corpus-eugenie-tables]. Little by little, as her editor would later put it, the journal became “her chief occupation, the secret and the joy of her days”[^corpus-eugenie-affair].
 
-Fine days are rare by now, so when one comes, Eugénie welcomes it as a blessing. That evening she will go to Cahuzac, the pilgrimage she loves best; until then she takes stock of how things have stood between her soul and God these last eight days[^corpus-eugenie-week]. Sharing what is on her heart is sweet and comes easily to her, and it lifts the sadness from her soul[^corpus-eugenie-relief]: “When water runs, it carries the foam away with it and grows clear along the way. My way is God, or a friend, but God above all”[^corpus-eugenie-water].
+Fine days are rare by now, so when one comes, Eugénie welcomes it as a blessing. That evening she will go to Cahuzac, her favorite place of pilgrimage; until then she takes stock of how things have stood between her soul and God these last eight days[^corpus-eugenie-week]. Sharing what is on her heart is sweet and comes easily to her, and it lifts the sadness from her soul[^corpus-eugenie-relief]: “When water runs, it carries the foam away with it and grows clear along the way. My way is God, or a friend, but God above all”[^corpus-eugenie-water].
 
 In the summer of 1839 Maurice died[^eugenie]. Autumn comes. She wants to send two pomegranates to Maurice’s friend, from the very tree whose roots her brother had been digging around a few days before he died[^corpus-eugenie-grenades]: “It was the last thing he did on earth”[^corpus-eugenie-last]. On October 6, at noon on a Sunday, she remembers how exactly a year earlier, at that very hour, she had been in his arms in Paris, shocked at how thin he was and how he coughed. Now she is at Lentin, with rain, loneliness and memories that hurt[^corpus-eugenie-paris]. On October 19, three months after Maurice’s death, Eugénie writes: “Three months today since that death, that parting. Oh, the sorrowful date, which I still want to write down every time it comes round”[^corpus-eugenie-date]. And she admits: “I was about to stop; it was too bitter to talk to him in his grave”[^corpus-eugenie-stop]. But someone she calls her “living brother” had asked her to keep up these notebooks, and he was glad to hear from her, so she went on[^corpus-eugenie-continue]: “I will write for you as I wrote for him”[^corpus-eugenie-for-you].
 
@@ -833,7 +833,7 @@ Vasily Kharitonov, the son of a peasant from Saratov, graduated from the Kazan T
 
 In the summer of 1937, starting on the feast of the Prophet Elijah, he takes up his labor of prayer again. His rule is to say the Jesus Prayer ten thousand times a day[^corpus-feodosiy-rule]. That is a monastic feat, not a model for us. What we can take from him is the honesty with which he keeps his “prayer journal.” He doesn’t dress anything up: “During prayer my mind sometimes wandered and even drifted off for a moment, but then became focused on the words of the prayer again”[^corpus-feodosiy-distracted].
 
-He writes down the unpleasant things too. On August 5, the anniversary of his tonsure into the Great Schema, after vespers and before supper, he and his companion were reading the *Philokalia*, a collection of monastic teaching on prayer: from the next feast day Theodosius was to begin the “artful” prayer, a particular method described by the ancient fathers, and they had picked out the passage that dealt with it[^corpus-feodosiy-feast]. Theodosius remarked on something as they read, and his companion reproached him, first for being suspicious, and then for his frequent outbursts of temper and impatience, and said that this was exactly why prayer would not come to him[^corpus-feodosiy-reproach]. “I fully accepted his rebuke and his advice”[^corpus-feodosiy-accept]. But Theodosius did not take him for an infallible guide: his companion was a beginner himself at the prayer of the mind, the inward prayer of mind and heart, and knew it mostly from books[^corpus-feodosiy-doubt]. The evening ended with a decision: “And so I gave up the ‘artful’ prayer as untimely for me, and went on as before with the simple one, trusting in God’s mercy”[^corpus-feodosiy-simple].
+He writes down the unpleasant things too. On August 5, the anniversary of his tonsure into the Great Schema, after vespers and before supper, he and his companion were reading the *Philokalia*, a collection of monastic teaching on prayer: from the next feast day Theodosius was to begin using a particular prayer technique described by the ancient fathers, and they had picked out the passage that dealt with it[^corpus-feodosiy-feast]. Theodosius remarked on something as they read, and his companion reproached him, first for being suspicious, and then for his frequent outbursts of temper and impatience, and said that this was exactly why prayer would not come to him[^corpus-feodosiy-reproach]. “I fully accepted his rebuke and his advice”[^corpus-feodosiy-accept]. But Theodosius did not take him for an infallible guide: his companion was a beginner himself at the prayer of the mind, the inward prayer of mind and heart, and knew it mostly from books[^corpus-feodosiy-doubt]. The evening ended with a decision: “And so I gave up that prayer technique as untimely for me, and went on as before with simple prayer, trusting in God’s mercy”[^corpus-feodosiy-simple].
 
 He did not hide his journal. One afternoon, over tea after the midday meal, the two of them read through his entries for the last three days, and his companion pointed out that he was breathing the wrong way during prayer[^corpus-feodosiy-check]. “I agreed with this”[^corpus-feodosiy-agreed].
 

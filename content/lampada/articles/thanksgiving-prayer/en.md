@@ -215,7 +215,7 @@ corpus_sources:
   source_url: "https://www.chapellibrary.org/pdf/books/hlop.pdf"
 - id: "asbury-ill"
   kind: "retelling"
-  text: "For several days he had hardly preached at all. But one day Captain Webb, who was due to preach, was kept away, and Asbury went in his place so that the people wouldn’t go home empty-handed. After the sermon he felt so ill that he had to go straight to bed"
+  text: "For several days he had hardly preached at all. One day he felt a little better. Captain Webb, who was due to preach, was kept away, and Asbury went in his place so that the people wouldn’t go home empty-handed. After the sermon he felt so ill that he had to go straight to bed"
   original: null
   translation: null
   chunk_id: "book-225-0405"
@@ -846,7 +846,7 @@ Those wells had been in his life all along; he just hadn’t seen them. Here gra
 
 ## Thanking God for people
 
-Francis Asbury was twenty-six when he sailed from England to America in 1771 to preach. He went on to become one of the first Methodist bishops there and spent the rest of his life on horseback, averaging some six thousand miles a year[^asbury]. In the spring of 1774, in Maryland, he was so ill and weak that he no longer expected to live long, nor did he wish to[^corpus-asbury-die]: “But, come life or come death, let the will of the Lord be done!”[^corpus-asbury-will] For several days he had hardly preached at all. But one day Captain Webb, who was due to preach, was kept away, and Asbury went in his place so that the people wouldn’t go home empty-handed. After the sermon he felt so ill that he had to go straight to bed[^corpus-asbury-ill].
+Francis Asbury was twenty-six when he sailed from England to America in 1771 to preach. He went on to become one of the first Methodist bishops there and spent the rest of his life on horseback, averaging some six thousand miles a year[^asbury]. In the spring of 1774, in Maryland, he was so ill and weak that he no longer expected to live long, nor did he wish to[^corpus-asbury-die]: “But, come life or come death, let the will of the Lord be done!”[^corpus-asbury-will] For several days he had hardly preached at all. One day he felt a little better. Captain Webb, who was due to preach, was kept away, and Asbury went in his place so that the people wouldn’t go home empty-handed. After the sermon he felt so ill that he had to go straight to bed[^corpus-asbury-ill].
 
 On Sunday, April 3, still far from well, he tried to preach[^corpus-asbury-tried]: “How difficult it is for a man who longs for the salvation of souls to be silent!”[^corpus-asbury-silent] And in the same entry: “Gratitude urges me to acknowledge the providence of God, and the kindness of my friends”[^corpus-asbury-gratitude]. The people who had borne the brunt of looking after him had shown, in his words, “remarkable care, tenderness, and concern”[^corpus-asbury-care]. And then came a prayer in a single sentence: “May the Lord reward their work and labour of love!”[^corpus-asbury-prayer] Three days later he writes that severe chills and fevers are tormenting him day and night[^corpus-asbury-fever]. His thanks didn’t wait until he was well.
 
@@ -862,7 +862,7 @@ Near the end of the letter Newton, the old sailor, speaks of the Saviour, who is
 
 ## The gifts of an ordinary day
 
-Long before his illness, in February 1977, in the first days of Lent, Schmemann wrote in his diary: “How passionately I long for silence, for recollection, for inner peace.”[^corpus-sch-quiet] Yet within three hours of their getting home, the phone had already rung about ten times[^corpus-sch-calls]. The next day he looks back on where they had been: a day and a half with his daughter Anya[^corpus-sch-daughter], “in the coziness and light of her family, her home”[^corpus-sch-anya], and how “after Forgiveness Vespers we walked home through the snowdrifts”[^corpus-sch-walk]: “All of it together: the snow lit by the scattered streetlamps, the lit windows of the house, little Alexandra like a little ball on that snow.”[^corpus-sch-snow] “All these are God’s gifts,”[^corpus-sch-gifts] he writes. And he adds: “None of this is God; all of it is from Him and therefore about Him.”[^corpus-sch-notgod]
+Long before his illness, in February 1977, in the first days of Lent, Schmemann wrote in his diary: “How passionately I long for silence, for recollection, for inner peace.”[^corpus-sch-quiet] Yet within three hours of their getting home, the phone had already rung about ten times[^corpus-sch-calls]. The next day he looks back on where they had been: a day and a half with his daughter Anya[^corpus-sch-daughter], “in the coziness and light of her family, her home”[^corpus-sch-anya], and how “after Forgiveness Vespers we walked home through the snowdrifts”[^corpus-sch-walk] (Forgiveness Vespers is the evening service with the rite of forgiveness before Lent): “All of it together: the snow lit by the scattered streetlamps, the lit windows of the house, little Alexandra like a little ball on that snow.”[^corpus-sch-snow] “All these are God’s gifts,”[^corpus-sch-gifts] he writes. And he adds: “None of this is God; all of it is from Him and therefore about Him.”[^corpus-sch-notgod]
 
 A prayer of thanks doesn’t need anything grand. Snow, light in the windows, a child nearby: that is already reason enough to speak to the One they come from.
 

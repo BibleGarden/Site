@@ -230,7 +230,7 @@ corpus_sources:
   source_url: "https://predanie.ru/ilarion-alfeev-mitropolit/o-molitve-3/"
 - id: "ilarion-extra"
   kind: "retelling"
-  text: "Before long, repeating the same words day after day left him cold"
+  text: "He describes how quickly the daily repetition of a fixed set of prayers can become tiresome"
   original: null
   translation: null
   chunk_id: "book-207-0023"
@@ -560,7 +560,7 @@ corpus_sources:
   source_url: "https://archive.org/details/spiritualking00kinguoft"
 - id: "macarius-pharisee"
   kind: "quote"
-  text: "not thinking, ‘I am doing well,’ as the Pharisee thought"
+  text: "not thinking, ‘I am doing right,’ as the Pharisee thought"
   original: "не думая, что „я хорошо делаю“, как думал фарисей"
   translation: "ours"
   chunk_id: "book-90-0751"
@@ -1184,9 +1184,9 @@ Praying morning and evening is an ancient rhythm. The psalmist wrote: “Morning
 
 ## The rule that didn’t fit
 
-In his book *On Prayer*, Hilarion Alfeyev recalls that after taking monastic vows at the age of twenty, he asked an experienced spiritual father what his rule of prayer should be[^corpus-ilarion-asked], and was told: “You must read the morning and evening prayers, three canons and one akathist every day”[^corpus-ilarion-rule]. And then: “Whatever happens, even if you are very tired, you must read them. And even if you read them hastily and without attention, it doesn’t matter”[^corpus-ilarion-anyway].
+In his book *On Prayer*, Hilarion Alfeyev recalls that after taking monastic vows at the age of twenty, he asked an experienced spiritual father what his rule of prayer should be[^corpus-ilarion-asked], and was told: “You must read the morning and evening prayers, three canons and one akathist every day”[^corpus-ilarion-rule]. Canons and akathists are types of devotional hymns used in Orthodox worship. The spiritual father continued: “Whatever happens, even if you are very tired, you must read them. And even if you read them hastily and without attention, it doesn’t matter”[^corpus-ilarion-anyway].
 
-“I tried. It didn’t work”[^corpus-ilarion-tried], he writes. Before long, repeating the same words day after day left him cold[^corpus-ilarion-extra]. Besides, he spent hours at church services, which, he says, “fed me spiritually, filled me and gave me wings”[^corpus-ilarion-fed]. Next to them, the three canons and the akathist came to feel like a needless extra load[^corpus-ilarion-weight].
+“I tried. It didn’t work”[^corpus-ilarion-tried], he writes. He describes how quickly the daily repetition of a fixed set of prayers can become tiresome[^corpus-ilarion-extra]. Besides, he spent hours at church services, which, he says, “fed me spiritually, filled me and gave me wings”[^corpus-ilarion-fed]. Next to them, the three canons and the akathist came to feel like a needless extra load[^corpus-ilarion-weight].
 
 Then Hilarion found different advice from Theophan the Recluse, whom we wrote about in our article on [praying in your own words](/articles/how-to-start-praying/): to measure a rule “not by the number of prayers but by the time we are ready to give to God”[^corpus-ilarion-time]. For example, half an hour in the morning and in the evening, but given wholly to God[^corpus-ilarion-halfhour]. What you fill that time with matters less: you can read all the prayers or just one, or give a whole evening to the Gospel, the Psalms or prayer in your own words[^corpus-ilarion-choice]. “This advice suited me”[^corpus-ilarion-suited], Hilarion writes.
 
@@ -1198,7 +1198,7 @@ Long before that, the same question, how much to pray, was put to Macarius, an e
 
 Once a married couple visited him at the monastery, and after returning home the wife wrote the elder a letter[^corpus-macarius-visit]. At Optina she had found peace and comfort[^corpus-macarius-calm]. But at home troubles were waiting for her: she had defended her husband against accusations heatedly, and not without anger[^corpus-macarius-sorrows], and at prayer she could not gather her scattering thoughts[^corpus-macarius-scattered]. So she asked the elder to assign her prayers for every day[^corpus-macarius-ask].
 
-Macarius was so weak that he could not write himself and dictated his reply to a brother[^corpus-macarius-dictate]. The peace she had found at the monastery, he answered, had been given to her by the Lord[^corpus-macarius-gift], “but in the course of life and in dealings with people one cannot always remain in such a state of spirit”[^corpus-macarius-life]. And about her wandering thoughts he wrote: “to pray without distraction is the work of the perfect”[^corpus-macarius-perfect]. Only then did he turn to her request, with an honest caveat: “Not knowing your home situation, your occupations and your strength, I cannot say precisely”[^corpus-macarius-unknown]. And then, “if it suits you,” he suggested: the morning and evening prayers and, when there was time, a kathisma, one of the sections of the Psalter, or at least part of one; the canons to the Mother of God and to the Guardian Angel; akathists on Saturdays and Sundays; and on Sundays also a chapter each from the Epistles and the Gospel[^corpus-macarius-offer]. All of this she was to do humbly, “not thinking, ‘I am doing well,’ as the Pharisee thought”[^corpus-macarius-pharisee]. That was the measure for one nineteenth-century woman, not a norm for everyone.
+Macarius was so weak that he could not write himself and dictated his reply to a brother[^corpus-macarius-dictate]. The peace she had found at the monastery, he answered, had been given to her by the Lord[^corpus-macarius-gift], “but in the course of life and in dealings with people one cannot always remain in such a state of spirit”[^corpus-macarius-life]. And about her wandering thoughts he wrote: “to pray without distraction is the work of the perfect”[^corpus-macarius-perfect]. Only then did he turn to her request, with an honest caveat: “Not knowing your home situation, your occupations and your strength, I cannot say precisely”[^corpus-macarius-unknown]. And then, “if it suits you,” he suggested: the morning and evening prayers and, when there was time, a kathisma, one of the sections of the Psalter, or at least part of one; the canons to the Mother of God and to the Guardian Angel; akathists on Saturdays and Sundays; and on Sundays also a chapter each from the Epistles and the Gospel[^corpus-macarius-offer]. All of this she was to do humbly, “not thinking, ‘I am doing right,’ as the Pharisee thought”[^corpus-macarius-pharisee]. That was the measure for one nineteenth-century woman, not a norm for everyone.
 
 An Anglican bishop gave similar advice. Edward King, later Bishop of Lincoln[^king], wrote to a lady in 1874 that in a life in the world one can expect to bring under rule only the outward framework of the day: sleep, meals, work and prayer[^corpus-king-rule], “so as to have an average of regularity”[^corpus-king-average].
 

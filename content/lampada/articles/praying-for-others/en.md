@@ -439,9 +439,9 @@ corpus_sources:
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/26744"
 - id: "taylor-hardness"
-  kind: "retelling"
-  text: "Sometimes, he wondered, the real obstacle lies with those who are trying to help: their own hard hearts, and how little they grasp the reality of eternal things"
-  original: null
+  kind: "quote"
+  text: "Sometimes it may be that while we are complaining of the hardness of the hearts of those we are seeking to benefit, the hardness of our own hearts, and our own feeble apprehension of the solemn reality of eternal things, may be the true cause of our want of success."
+  original: "Sometimes it may be that while we are complaining of the hardness of the hearts of those we are seeking to benefit, the hardness of our own hearts, and our own feeble apprehension of the solemn reality of eternal things, may be the true cause of our want of success."
   translation: null
   chunk_id: "book-164-0083"
   book_id: 164
@@ -1135,7 +1135,7 @@ Taylor prayed a great deal for him, but for the first two or three days said not
 
 The patient watched him go in surprise: until then Taylor had always come over to the bed before he left. Taylor could not bear it. In tears, he crossed the room and pleaded with the man to let him pray with him[^corpus-taylor-tears]. The old man did not turn away: “If it will be a relief to you, do.”[^corpus-taylor-relief] Within days, Taylor tells us, the man accepted Christ[^corpus-taylor-accepted].
 
-Taylor’s conclusion is not about the patient but about himself. Sometimes, he wondered, the real obstacle lies with those who are trying to help: their own hard hearts, and how little they grasp the reality of eternal things[^corpus-taylor-hardness]. Notice something else, too. The prayer went along with the bandages, not instead of them. And Taylor prayed with the man only once the man agreed.
+Taylor’s conclusion is not about the patient but about himself. “Sometimes it may be that while we are complaining of the hardness of the hearts of those we are seeking to benefit, the hardness of our own hearts, and our own feeble apprehension of the solemn reality of eternal things, may be the true cause of our want of success.”[^corpus-taylor-hardness] Notice something else, too. The prayer went along with the bandages, not instead of them. And Taylor prayed with the man only once the man agreed.
 
 ## When you’d rather not pray for them
 

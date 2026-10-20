@@ -215,7 +215,7 @@ corpus_sources:
   source_url: "https://ccel.org/ccel/ignatius/exercises"
 - id: "ignatius-particular"
   kind: "retelling"
-  text: "At midday, after the meal, you first ask God for the grace to remember how many times you have fallen into that particular fault, and to amend; then you go back over the time since rising, hour by hour, and put a dot on a line for each such lapse, and finally you resolve afresh to amend until the next examen"
+  text: "The record is a line of dots, one for each recurrence of the chosen fault since getting up. For this review after dinner, Ignatius joins a careful look back over each part of the day so far with prayer: ask God to help you recognise the failures and change, and commit to resisting the fault until the next review"
   original: null
   translation: null
   chunk_id: "book-38-0041"
@@ -380,7 +380,7 @@ corpus_sources:
   source_url: "https://fr.wikisource.org/wiki/L%E2%80%99Art_d%E2%80%99utiliser_ses_fautes,_d%E2%80%99apr%C3%A8s_Saint_Fran%C3%A7ois_de_Sales"
 - id: "sales-small"
   kind: "quote"
-  text: "Be content to win some small advantage over your enemy passion from time to time"
+  text: "Be content to win, from time to time, some small advantage over the passion you are struggling against"
   original: "Contentez-vous de gagner de temps en temps quelque petit avantage sur votre passion ennemie."
   translation: "ours"
   chunk_id: "book-235-0010"
@@ -425,7 +425,7 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/37311"
 - id: "woolman-board"
   kind: "retelling"
-  text: "The two friends looked over the roomy cabin, then went down to the steerage and sat on a chest while the sailors bustled about them; the owner of the ship came down and joined them there"
+  text: "On this visit, Woolman met the ship’s owner in the steerage, amid the sailors at work. He had also been into the spacious cabin"
   original: null
   translation: null
   chunk_id: "book-69-0367"
@@ -560,7 +560,7 @@ corpus_sources:
   source_url: "https://www.gutenberg.org/ebooks/37311"
 - id: "woolman-sea"
   kind: "retelling"
-  text: "the weather had been rough almost the whole time since he came on board and the passengers were seasick off and on, but by the tender mercies of his heavenly Father he had been spared seasickness"
+  text: "he thanks his heavenly Father for keeping him free of seasickness. Other passengers had suffered bouts of it during a voyage marked mostly by bad weather since his arrival on board"
   original: null
   translation: null
   chunk_id: "book-69-0370"
@@ -620,7 +620,7 @@ corpus_sources:
   source_url: "https://archive.org/details/accountofexperie00roge"
 - id: "rogers-fear"
   kind: "retelling"
-  text: "But the Lord answered her: fear not, only believe"
+  text: "But she felt the Lord bring the words “Fear not, only believe” home to her heart"
   original: null
   translation: null
   chunk_id: "book-139-0061"
@@ -635,7 +635,7 @@ corpus_sources:
   source_url: "https://archive.org/details/accountofexperie00roge"
 - id: "rogers-liberty"
   kind: "retelling"
-  text: "She ventured her whole salvation on Christ, and in that moment her fetters were broken and her soul was set free"
+  text: "She describes a sudden freedom as she placed herself entirely in Christ’s care, trusting him alone to save her"
   original: null
   translation: null
   chunk_id: "book-139-0063"
@@ -762,7 +762,7 @@ In the *Spiritual Exercises* the general examen of conscience does not start wit
 
 Then the Our Father. Notice that light is something you ask God for, not something you wring out of yourself by self-reproach. The psalmist prayed the same way: “Search me, O God, and know my heart; test me and know my concerns. See if there is any offensive way in me; lead me in the way everlasting” (Psalm 139:23–24)[^ps139].
 
-Ignatius could count, too. Against one chosen fault he has a “particular examen”. At midday, after the meal, you first ask God for the grace to remember how many times you have fallen into that particular fault, and to amend; then you go back over the time since rising, hour by hour, and put a dot on a line for each such lapse, and finally you resolve afresh to amend until the next examen[^corpus-ignatius-particular]. After supper comes a second examen of the same kind, on a second line[^corpus-ignatius-dots]. Here counting is part of prayer, and Ignatius began the general examen with gratitude. Hester, by contrast, was testing herself by someone else’s rule: she hoped to tell from the balance of her good deeds whether there was any hope of salvation for her[^corpus-rogers-hope].
+Ignatius could count, too. Against one chosen fault he has a “particular examen”. The record is a line of dots, one for each recurrence of the chosen fault since getting up. For this review after dinner, Ignatius joins a careful look back over each part of the day so far with prayer: ask God to help you recognise the failures and change, and commit to resisting the fault until the next review[^corpus-ignatius-particular]. After supper comes a second examen of the same kind, on a second line[^corpus-ignatius-dots]. Here counting is part of prayer, and Ignatius began the general examen with gratitude. Hester, by contrast, was testing herself by someone else’s rule: she hoped to tell from the balance of her good deeds whether there was any hope of salvation for her[^corpus-rogers-hope].
 
 ## Abba Dorotheus’s questions
 
@@ -774,13 +774,13 @@ Dorotheus promises slow change: whoever examines himself like this, repents and 
 
 ## “My poor heart”
 
-What if, looking back over the day, you remember something bad? Francis de Sales, bishop of Geneva and author of the *Introduction to the Devout Life*[^sales], advised against scolding yourself. A French priest, Joseph Tissot, gathered passages from his letters and books into a short volume on how to make good use of our faults. De Sales warns against harshly berating your own heart[^corpus-sales-shame]. Instead, speak like this: “Well, my poor heart, here we are, fallen into the very pit we had so firmly resolved to escape. Ah! let us get up and leave it for good”[^corpus-sales-heart]. To a woman who complained that she still took slights painfully, he replied: “But, my dear daughter, what does this ‘still’ refer to? Have you already beaten many such enemies?”[^corpus-sales-encore] And he advised: “Be content to win some small advantage over your enemy passion from time to time”[^corpus-sales-small]. And again: “We cannot walk without touching the ground. We must not lie down and wallow in it, but neither must we think of flying, for we are little chicks that don’t yet have our wings”[^corpus-sales-chicks].
+What if, looking back over the day, you remember something bad? Francis de Sales, bishop of Geneva and author of the *Introduction to the Devout Life*[^sales], advised against scolding yourself. A French priest, Joseph Tissot, gathered passages from his letters and books into a short volume on how to make good use of our faults. De Sales warns against harshly berating your own heart[^corpus-sales-shame]. Instead, speak like this: “Well, my poor heart, here we are, fallen into the very pit we had so firmly resolved to escape. Ah! let us get up and leave it for good”[^corpus-sales-heart]. To a woman who complained that she still took slights painfully, he replied: “But, my dear daughter, what does this ‘still’ refer to? Have you already beaten many such enemies?”[^corpus-sales-encore] And he advised: “Be content to win, from time to time, some small advantage over the passion you are struggling against”[^corpus-sales-small]. And again: “We cannot walk without touching the ground. We must not lie down and wallow in it, but neither must we think of flying, for we are little chicks that don’t yet have our wings”[^corpus-sales-chicks].
 
 ## John Woolman’s night
 
-Looking back in the evening is not only about the past. John Woolman was a Quaker and a tailor from New Jersey, one of the first to speak out against slavery[^woolman]. In the spring of 1772 he was looking for a passage to England. As he tells it in his *Journal*, his friend had taken a place in the cabin of a ship bound for London, while Woolman felt drawn toward the steerage of the same ship[^corpus-woolman-draught], the cramped common quarters below deck. The two friends looked over the roomy cabin, then went down to the steerage and sat on a chest while the sailors bustled about them; the owner of the ship came down and joined them there[^corpus-woolman-board]. “Here my Mind was turned toward Christ, the heavenly Counsellor; and I feeling, at this Time, my own Will subjected, my Heart was contrite before him.”[^corpus-woolman-contrite] The owner suggested moving to the cabin, where it was quieter, but Woolman left the ship with an easy mind, without agreeing on a passage[^corpus-woolman-leave].
+Looking back in the evening is not only about the past. John Woolman was a Quaker and a tailor from New Jersey, one of the first to speak out against slavery[^woolman]. In the spring of 1772 he was looking for a passage to England. As he tells it in his *Journal*, his friend had taken a place in the cabin of a ship bound for London, while Woolman felt drawn toward the steerage of the same ship[^corpus-woolman-draught], the cramped common quarters below deck. On this visit, Woolman met the ship’s owner in the steerage, amid the sailors at work. He had also been into the spacious cabin[^corpus-woolman-board]. “Here my Mind was turned toward Christ, the heavenly Counsellor; and I feeling, at this Time, my own Will subjected, my Heart was contrite before him.”[^corpus-woolman-contrite] The owner suggested moving to the cabin, where it was quieter, but Woolman left the ship with an easy mind, without agreeing on a passage[^corpus-woolman-leave].
 
-That night, he recalls, “my Mind was under a deep Exercise before the Lord; whose helping Hand was manifested to me as I slept that Night, and his Love strengthened my Heart”[^corpus-woolman-night]. In the morning he went to the owner and told him of the scruple of conscience that kept him from traveling in the cabin[^corpus-woolman-owner]. Why the cabin troubled him, Woolman doesn’t say in these lines. Then he booked a passage in the steerage[^corpus-woolman-agreed]. After that he went home for a couple of days, and early one morning he said goodbye to his family, feeling the humbling hand of God upon him. In Philadelphia his friends were worried for him: the part of the ship where he was to lodge was a miserable place[^corpus-woolman-family]. On May 1, 1772, he went on board[^corpus-woolman-boarded]: “as I sat down alone, on a Seat on the Deck, I felt a satisfactory Evidence that my Proceedings were not in my own Will, but under the Power of the Cross of Christ.”[^corpus-woolman-deck] In his entry for May 7 he notes that the weather had been rough almost the whole time since he came on board and the passengers were seasick off and on, but by the tender mercies of his heavenly Father he had been spared seasickness[^corpus-woolman-sea], “my Afflictions now being of another Kind”[^corpus-woolman-kind]. In the same entry: “I have, this Day, great Cause to be thankful, in that I remain to feel Quietness of Mind”[^corpus-woolman-quiet].
+That night, he recalls, “my Mind was under a deep Exercise before the Lord; whose helping Hand was manifested to me as I slept that Night, and his Love strengthened my Heart”[^corpus-woolman-night]. In the morning he went to the owner and told him of the scruple of conscience that kept him from traveling in the cabin[^corpus-woolman-owner]. Why the cabin troubled him, Woolman doesn’t say in these lines. Then he booked a passage in the steerage[^corpus-woolman-agreed]. After that he went home for a couple of days, and early one morning he said goodbye to his family, feeling the humbling hand of God upon him. In Philadelphia his friends were worried for him: the part of the ship where he was to lodge was a miserable place[^corpus-woolman-family]. On May 1, 1772, he went on board[^corpus-woolman-boarded]: “as I sat down alone, on a Seat on the Deck, I felt a satisfactory Evidence that my Proceedings were not in my own Will, but under the Power of the Cross of Christ.”[^corpus-woolman-deck] In his entry for May 7 he thanks his heavenly Father for keeping him free of seasickness. Other passengers had suffered bouts of it during a voyage marked mostly by bad weather since his arrival on board[^corpus-woolman-sea]. He adds: “my Afflictions now being of another Kind”[^corpus-woolman-kind]. In the same entry: “I have, this Day, great Cause to be thankful, in that I remain to feel Quietness of Mind”[^corpus-woolman-quiet].
 
 This isn’t the examen, and it isn’t a review of a whole day: Woolman is describing a night of wrestling before one particular decision. But the movement is similar: notice where your soul has no peace, bring it to God, and take a step in the morning. That autumn he fell ill with smallpox in England and died in York[^woolman-death].
 
@@ -797,7 +797,7 @@ You don’t have to write anything down. If you’d like to, one line is enough;
 
 At the end the app asks one closing question: what mattered most in this prayer, or what you want to bring to God. If you like, you can write a takeaway of a line or two. Your prayers are kept in a journal on your device, and you can search them. But this is not the examen: the closing question is about this prayer, not your whole day. There is no gratitude list and no tally of faults. The app’s questions are prompts for reflection, not spiritual direction. Lampada helps you set aside time for evening prayer; how you look back on the day is up to you, whether with Ignatius or with Dorotheus.
 
-Hester did not find her way out in a new day-book. In the autumn of 1774, after hearing a Methodist preacher[^rogers-1774], she cried out in despair: “What shall I do? O teach me, O help me, or I am lost!”[^corpus-rogers-cry] Then words came to her heart: she could cast all her care on God, because He cares for her[^corpus-rogers-care]. “Lord, dost thou care for me!”[^corpus-rogers-dost] she answered, and then came a doubt: “Is it not too easy a way?”[^corpus-rogers-easy] But the Lord answered her: fear not, only believe[^corpus-rogers-fear]. She ventured her whole salvation on Christ, and in that moment her fetters were broken and her soul was set free[^corpus-rogers-liberty]. “My sins were gone; my soul was happy”[^corpus-rogers-gone], she wrote, and tears of joy ran down her cheeks[^corpus-rogers-tears]. Her mother was astonished at the change in her face; as she listened to her daughter she wept with her, but said very little, she was so amazed[^corpus-rogers-mother].
+Hester did not find her way out in a new day-book. In the autumn of 1774, after hearing a Methodist preacher[^rogers-1774], she cried out in despair: “What shall I do? O teach me, O help me, or I am lost!”[^corpus-rogers-cry] Then words came to her heart: she could cast all her care on God, because He cares for her[^corpus-rogers-care]. “Lord, dost thou care for me!”[^corpus-rogers-dost] she answered, and then came a doubt: “Is it not too easy a way?”[^corpus-rogers-easy] But she felt the Lord bring the words “Fear not, only believe” home to her heart[^corpus-rogers-fear]. She describes a sudden freedom as she placed herself entirely in Christ’s care, trusting him alone to save her[^corpus-rogers-liberty]. “My sins were gone; my soul was happy”[^corpus-rogers-gone], she wrote, and tears of joy ran down her cheeks[^corpus-rogers-tears]. Her mother was astonished at the change in her face; as she listened to her daughter she wept with her, but said very little, she was so amazed[^corpus-rogers-mother].
 
 The evening is not for balancing the books but for handing the day over to God and going to sleep: “I will lie down and sleep in peace, for You alone, O Lord, make me dwell in safety” (Psalm 4:8)[^ps4].
 
