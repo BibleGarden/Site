@@ -2,7 +2,6 @@
 title: "Thanksgiving Prayer in Your Own Words: How to Thank God, Even When It’s Hard"
 description: "A thanksgiving prayer in your own words means naming something specific for God: a person, a day, light in a window. A prayer of thanks needs no special words and no joy on demand; you can thank God even in the middle of pain. With the stories of Alexander Schmemann, James Fraser of Brea, Francis Asbury and John Newton."
 date: 2026-10-20
-draft: true
 corpus_sources:
 - id: "sch-tumors"
   kind: "retelling"
