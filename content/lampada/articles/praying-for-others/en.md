@@ -649,9 +649,9 @@ corpus_sources:
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/26744"
 - id: "hall-climb"
-  kind: "quote"
-  text: "With my brother I was once climbing the Cirrha di Jazze, one of the mountains in the chain of Mount Rosa."
-  original: "With my brother I was once climbing the Cirrha di Jazze, one of the mountains in the chain of Mount Rosa."
+  kind: "retelling"
+  text: "was climbing one of its peaks with his brother"
+  original: null
   translation: null
   chunk_id: "book-286-0359"
   book_id: 286
@@ -664,9 +664,9 @@ corpus_sources:
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/11553"
 - id: "hall-cornice"
-  kind: "quote"
-  text: "When nearly at the top, we entered a dense fog. Presently our guides faced right about and grounded their axes on the frozen snowed slope. My brother, seeing the slope still beyond, and not knowing it was merely the cornice overhanging a precipice of several thousand feet, rushed onward."
-  original: "When nearly at the top, we entered a dense fog. Presently our guides faced right about and grounded their axes on the frozen snowed slope. My brother, seeing the slope still beyond, and not knowing it was merely the cornice overhanging a precipice of several thousand feet, rushed onward."
+  kind: "retelling"
+  text: "Near the summit, thick fog hid a snow cornice hanging over a precipice thousands of feet deep. The guides stopped, but his brother, thinking the slope went on, rushed ahead"
+  original: null
   translation: null
   chunk_id: "book-286-0359"
   book_id: 286
@@ -679,9 +679,9 @@ corpus_sources:
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/11553"
 - id: "hall-guide"
-  kind: "quote"
-  text: "I shall never forget their cry of agonized warning. He stood a moment on the very summit, and then, the snow yielding, he began to fall through. One of the guides, at great risk, had rushed after him, and seizing him by the coat, drew him down to a place of safety."
-  original: "I shall never forget their cry of agonized warning. He stood a moment on the very summit, and then, the snow yielding, he began to fall through. One of the guides, at great risk, had rushed after him, and seizing him by the coat, drew him down to a place of safety."
+  kind: "retelling"
+  text: "The guides cried out. As the snow gave way beneath him, one of them, risking his own life, ran after him, grabbed him by the coat and pulled him back to safety"
+  original: null
   translation: null
   chunk_id: "book-286-0359"
   book_id: 286
@@ -694,9 +694,9 @@ corpus_sources:
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/11553"
 - id: "hall-prayer"
-  kind: "quote"
-  text: "On his return home, an invalid member of his congregation told him that she had been much in prayer for his safety, and mentioned a special time when she was particularly earnest, as if imploring deliverance from some great peril. The times corresponded."
-  original: "On his return home, an invalid member of his congregation told him that she had been much in prayer for his safety, and mentioned a special time when she was particularly earnest, as if imploring deliverance from some great peril. The times corresponded."
+  kind: "retelling"
+  text: "When the brother got home, a sick woman from his congregation had news for him. She had been praying hard that he would come back safely, and once she had prayed with such urgency that it felt like pleading for his rescue from some great danger. The timing, it turned out, matched"
+  original: null
   translation: null
   chunk_id: "book-286-0359"
   book_id: 286
@@ -709,9 +709,9 @@ corpus_sources:
   translator: null
   source_url: "https://www.gutenberg.org/ebooks/11553"
 - id: "hall-answer"
-  kind: "quote"
-  text: "His life was saved in answer to her prayer."
-  original: "His life was saved in answer to her prayer."
+  kind: "retelling"
+  text: "had escaped death in answer to her prayer"
+  original: null
   translation: null
   chunk_id: "book-286-0360"
   book_id: 286
@@ -741,13 +741,11 @@ corpus_sources:
 ---
 Praying for someone means naming them before God and asking Him to help them. Sometimes that is easier said than done.
 
-The Alps, the Monte Rosa massif. This is how Newman Hall, a London preacher[^hall], remembered one climb:
+The Alps, the Monte Rosa massif. The London preacher Newman Hall[^hall] was climbing one of its peaks with his brother[^corpus-hall-climb]. Near the summit, thick fog hid a snow cornice hanging over a precipice thousands of feet deep. The guides stopped, but his brother, thinking the slope went on, rushed ahead[^corpus-hall-cornice]. The guides cried out. As the snow gave way beneath him, one of them, risking his own life, ran after him, grabbed him by the coat and pulled him back to safety[^corpus-hall-guide].
 
-> With my brother I was once climbing the Cirrha di Jazze, one of the mountains in the chain of Mount Rosa.[^corpus-hall-climb] When nearly at the top, we entered a dense fog. Presently our guides faced right about and grounded their axes on the frozen snowed slope. My brother, seeing the slope still beyond, and not knowing it was merely the cornice overhanging a precipice of several thousand feet, rushed onward.[^corpus-hall-cornice] I shall never forget their cry of agonized warning. He stood a moment on the very summit, and then, the snow yielding, he began to fall through. One of the guides, at great risk, had rushed after him, and seizing him by the coat, drew him down to a place of safety.[^corpus-hall-guide]
+When the brother got home, a sick woman from his congregation had news for him. She had been praying hard that he would come back safely, and once she had prayed with such urgency that it felt like pleading for his rescue from some great danger. The timing, it turned out, matched[^corpus-hall-prayer]. Hall’s account appears in *The Wonders of Prayer*, a collection compiled by D. W. Whittle, and Hall was sure that his brother had escaped death in answer to her prayer[^corpus-hall-answer]. In the same book Hall passes on another story: the friends of an organist who was gravely ill met specially to pray that he would live, and the very next day he started to get better[^corpus-hall-organist].
 
-Back home, the brother heard something he had not expected: “On his return home, an invalid member of his congregation told him that she had been much in prayer for his safety, and mentioned a special time when she was particularly earnest, as if imploring deliverance from some great peril. The times corresponded.”[^corpus-hall-prayer] Hall’s account appears in *The Wonders of Prayer*, a collection compiled by D. W. Whittle, and Hall was sure what it meant: “His life was saved in answer to her prayer.”[^corpus-hall-answer] In the same book Hall passes on another story: the friends of an organist who was gravely ill met specially to pray that he would live, and the very next day he started to get better[^corpus-hall-organist].
-
-No miracle stands in for people here: the one praying was a sick woman far from the mountains, and it was a guide who grabbed the coat. But you can pray for someone from far away, even when the hand that reaches them belongs to someone else.
+Prayer did not replace human help: a sick woman prayed far from the mountains, while a guide grabbed his coat. But you can pray for someone from far away, even when the hand that reaches them belongs to someone else.
 
 ## What is intercessory prayer?
 
