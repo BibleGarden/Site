@@ -2,7 +2,6 @@
 title: "Quiet Time with God: How to Listen in Silence — and Test What You Hear"
 description: "Quiet time with God is time alone with Him when you don’t only talk but also fall silent. “Hearing God” usually means noticing His presence, recalling a word of Scripture or seeing the truth about yourself rather than hearing a voice, and anything you “hear” is tested by Scripture, other people and time. Stories of Metropolitan Anthony of Sourozh, George Fox and the hermit Nikifor, and what contemplative, centering and breath prayer are."
 date: 2026-10-20
-draft: true
 corpus_sources:
 - id: "woman-age"
   kind: "retelling"
