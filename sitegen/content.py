@@ -525,13 +525,38 @@ class _PlainText(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
         self.parts: list[str] = []
+        self.sup_starts: list[int] = []
+        self.skipped_tag: str | None = None
+        self.skipped_depth = 0
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if self.skipped_tag is not None:
+            if tag == self.skipped_tag:
+                self.skipped_depth += 1
+            return
+        if tag == "sup":
+            self.sup_starts.append(len(self.parts))
+        if tag == "a" and "footnote-ref" in (dict(attrs).get("class") or "").split():
+            self.skipped_tag = "sup" if self.sup_starts else "a"
+            self.skipped_depth = 1
+            if self.sup_starts:
+                del self.parts[self.sup_starts[-1]:]
+            return
         if tag in {"br", "li", "p", "pre", "blockquote"}:
             self.parts.append(" ")
 
+    def handle_endtag(self, tag: str) -> None:
+        if tag == self.skipped_tag:
+            self.skipped_depth -= 1
+            if self.skipped_depth:
+                return
+            self.skipped_tag = None
+        if tag == "sup" and self.skipped_tag is None and self.sup_starts:
+            self.sup_starts.pop()
+
     def handle_data(self, data: str) -> None:
-        self.parts.append(data)
+        if self.skipped_tag is None:
+            self.parts.append(data)
 
     def text(self) -> str:
         return re.sub(r"\s+", " ", "".join(self.parts)).strip()

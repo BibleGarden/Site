@@ -8,7 +8,7 @@ import unittest
 from xml.etree import ElementTree as ET
 
 from sitegen.build import Page, SiteBuilder
-from sitegen.content import Article, extract_faq, render_markdown
+from sitegen.content import Article, extract_faq, faq_answer_text, render_markdown
 
 BODY = """Intro[^note].
 
@@ -51,6 +51,16 @@ class FaqSectionTest(unittest.TestCase):
 
     def test_body_without_faq_is_unchanged(self) -> None:
         self.assertNotIn("<section", render_markdown("## Heading\n\nText.\n", lang="en"))
+
+    def test_rendered_footnote_references_are_omitted(self) -> None:
+        for reference in (
+            '<sup><a class="footnote-ref">1</a></sup>',
+            '<a class="footnote-ref">1</a>',
+            '<sup>[<a class="extra footnote-ref"><span>1</span></a>]</sup>',
+        ):
+            with self.subTest(reference=reference):
+                self.assertEqual(faq_answer_text(f"Answer{reference}. Next.", lang="en"), "Answer. Next.")
+        self.assertEqual(faq_answer_text('x<sup>2</sup> and [link](/page/).', lang="en"), "x2 and link.")
 
     def test_json_ld_answer_omits_markdown_footnote_marker(self) -> None:
         faq = extract_faq(
