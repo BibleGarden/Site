@@ -2,7 +2,6 @@
 title: 'How to Focus During Prayer: What to Do When Your Mind Wanders'
 description: Everyone gets distracted during prayer, even the saints. Don’t scold yourself; calmly come back with a short “Lord, help me,” familiar words of Scripture and fewer words of your own. The stories of Teresa of Ávila, Edward Pusey, Abbess Arsenia and Brother Lawrence.
 date: 2026-10-20
-draft: true
 corpus_sources:
 - id: teresa-clock
   kind: quote
