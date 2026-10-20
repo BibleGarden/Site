@@ -127,6 +127,17 @@ class CitationTest(unittest.TestCase):
         self.api.context.update(char_start=0, char_end=len(source), text=source, text_sha256=source_hash)
         self.assertEqual(verify(self.item, self.api, self.judge)[0], 'PASS')
 
+    def test_mixed_quote_styles_and_old_spacing_are_verbatim(self):
+        source = '« Priez ! »'
+        source_hash = hashlib.sha256(source.encode()).hexdigest()
+        self.item.update(char_start=0, char_end=len(source), text_sha256=source_hash,
+                         text='“ Priez ! ”', original=source, translation=None)
+        self.api.hit.update(char_start=0, char_end=len(source), text=source, text_sha256=source_hash)
+        self.api.book.update(text=source, text_sha256=source_hash)
+        self.api.context.update(char_start=0, char_end=len(source), text=source, text_sha256=source_hash)
+        self.assertEqual(normalize(source), '"Priez!"')
+        self.assertEqual(verify(self.item, self.api, self.judge)[0], 'PASS')
+
     def test_old_typography_spacing_does_not_hide_changed_words(self):
         source = 'Pray with love and care !'
         source_hash = hashlib.sha256(source.encode()).hexdigest()
