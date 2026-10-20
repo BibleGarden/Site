@@ -137,7 +137,7 @@ practice». Только для вопроса «а если хочу час».
 | Гуардини | book-153-4569, 4570, 4571 | 153 | — (`chapter: null`) | пересмотр раз в неделю; «не поддавайся досаде»; утро до выхода из комнаты; «четверть часа» | it, оригинал, перевод наш; письмо №1072, 25.III.1845 |
 | Таисия | book-185-0148, 0149 | 185 | Глава XII | щёлок, сенокос; правило не обязательно; «выплачешь… горюшко» | ru, ОД; монастырская сцена |
 | Райл | book-256-0050, 0051, 0052 | 256 | Introduction | «allot time to prayer»; «at the very least»; «fire on the altar… never completely going out» | en, ОД |
-| Бонар | book-298-0734 | 298 | — (`chapter: null`) | «the best hours of yesterday were in a great measure lost» | en, ОД; OCR-дата не цитировать; 1884 по колонтитулу |
+| Бонар | book-298-0207, 0208 (1841), 0245 (1843), 0382 (1856), 0734 (1884) | 298 | — (`chapter: null`) | «the best hours of yesterday were in a great measure lost» | en, ОД; OCR-дата не цитировать; 1884 по колонтитулу |
 
 Писание (`cep_public.translation_verses`, 2026-10-20): bti/bsb/npu 41:1:35; bti/npu 19:5:4,
 bsb 19:5:3; запасной bti/npu 42:5:16. Проблемы корпуса для владельца (в Site не исправлять):
