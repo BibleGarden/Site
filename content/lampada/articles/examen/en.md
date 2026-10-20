@@ -2,7 +2,6 @@
 title: "The Examen Prayer: A Gentle Way to Look Back on Your Day with God"
 description: "The examen is a short prayer in which you look back over your day with God: you give thanks, ask for light, go back over the day, ask forgiveness and, with God’s grace, resolve to do better. Ignatius of Loyola’s five steps, how to pray the examen tonight, and the stories of Hester Ann Rogers, Dorotheus of Gaza and John Woolman."
 date: 2026-10-20
-draft: true
 corpus_sources:
 - id: "rogers-rule"
   kind: "retelling"
