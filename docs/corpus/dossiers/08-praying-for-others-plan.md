@@ -3,7 +3,7 @@
 Тема №19 (P2) контент-плана, восьмая статья цикла [12.8](https://app.clickup.com/t/123pfqn37ty).
 Slug `praying-for-others`. Перелинковка: #1 (хаб), #2 (`what-to-pray-about`: там молитва
 за других — одна из тем, здесь — как именно), #3 (`prayer-journal`), #5 (`lectio-divina`).
-Статус: **ждёт утверждения оркестратором.** Кандидатов подобрал Codex (2026-10-20),
+Статус: **утверждён оркестратором 2026-10-20 оркестратором.** Кандидатов подобрал Codex (2026-10-20),
 исследователь (Claude Opus) проверил их по контексту глав и добрал пробелы; корпус lampada
 на 2026-10-20 — 318 книг `indexed`. Запросы — [08-praying-for-others.queries.json](08-praying-for-others.queries.json).
 Запросы темы: intercessory prayer, how to pray for someone, praying for others;
