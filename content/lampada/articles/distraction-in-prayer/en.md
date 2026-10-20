@@ -21,7 +21,7 @@ corpus_sources:
   source_url: https://commons.wikimedia.org/wiki/File:Vida_de_Santa_Teresa_de_Jes%C3%BAs_(1873).pdf
 - id: teresa-penance
   kind: quote
-  text: Many a time there was no heavy penance, I think, that I would not have taken on more gladly than settling down to pray
+  text: Many times, I think, I would have undertaken any severe penance more gladly than settled down to pray
   original: hartas veces no sé qué penitencia grave se me pusiera delante, que no la acometiera de mijor gana que recogerme á tener oración.
   translation: ours
   chunk_id: book-64-0159
@@ -366,7 +366,7 @@ corpus_sources:
   source_url: https://azbyka.ru/otechnik/Ignatij_Brjanchaninov/pisma-k-raznym-litsam/
 - id: ignatius-aloud
   kind: quote
-  text: 'When you are alone, pray somewhat aloud, so that you hear yourself: this helps attention'
+  text: 'When you are alone, pray aloud enough to hear yourself: this helps you pay attention'
   original: 'Когда находишься один, – молись несколько вслух, чтобы слышать самому себя: это способствует к вниманию'
   translation: ours
   chunk_id: book-160-0055
@@ -681,7 +681,7 @@ corpus_sources:
   source_url: https://azbyka.ru/otechnik/Arsenija_Sebrjakova/pisma/
 ---
 
-Ávila, the Convent of the Incarnation. A nun spends the hour of prayer she has set herself waiting, not for God, but for the clock to strike. Years later she will admit: “Very often, and for some years, I cared more about wishing the hour I had set myself would be over, and about listening for the clock to strike, than about other good things”[^corpus-teresa-clock]. And: “Many a time there was no heavy penance, I think, that I would not have taken on more gladly than settling down to pray”[^corpus-teresa-penance].
+Ávila, the Convent of the Incarnation. A nun spends the hour of prayer she has set herself waiting, not for God, but for the clock to strike. Years later she will admit: “Very often, and for some years, I cared more about wishing the hour I had set myself would be over, and about listening for the clock to strike, than about other good things”[^corpus-teresa-clock]. And: “Many times, I think, I would have undertaken any severe penance more gladly than settled down to pray”[^corpus-teresa-penance].
 
 That nun was Teresa of Ávila. She would go on to reform the Carmelite order and write books people still read, and almost four centuries later she would become one of the first women the Catholic Church named a Doctor of the Church[^teresa].
 
@@ -711,11 +711,11 @@ His “God help me!” sits well beside a line from the psalms: “Give me an un
 
 Anna Sebryakova, the daughter of a landowner from the Don Cossack lands, entered the Ust-Medveditsa convent on the Don at seventeen and was its abbess for more than forty years. In 2016 the Orthodox Church canonized Abbess Arsenia as a locally venerated saint[^arsenia]. In 1871, writing to Pyotr Brianchaninov, the brother of St Ignatius Brianchaninov[^bryanchaninov], she makes an admission you would hardly expect from an abbess: “I avoid talking about prayer, because I do not have it myself”[^corpus-arsenia-none].
 
-Here is what she did herself, turning to canons, the long hymns of Orthodox worship: “Sometimes, when I am badly distracted and inattentive, I turn my attention to reading the canons to the Mother of God and to the saints, but in order to direct my attention toward prayer, not to turn it away from prayer to reading”[^corpus-arsenia-canons]. Nor does she hide what props her up: “we need dark cells for recollection, like mine in the garden, which I call my ‘infirmity’”[^corpus-arsenia-cell]. “But all these are temporary aids; nothing helps me as much as life itself”[^corpus-arsenia-life]. And that summer she laments: “somehow I have become very scattered and caught up in the bustle”[^corpus-arsenia-scattered].
+Here is what she did herself, turning to canons, extended hymns used in Orthodox prayer: “Sometimes, when I am badly distracted and inattentive, I turn my attention to reading the canons to the Mother of God and to the saints, but in order to direct my attention toward prayer, not to turn it away from prayer to reading”[^corpus-arsenia-canons]. Nor does she hide what props her up: “we need dark cells for recollection, like mine in the garden, which I call my ‘infirmity’”[^corpus-arsenia-cell]. “But all these are temporary aids; nothing helps me as much as life itself”[^corpus-arsenia-life]. And that summer she laments: “somehow I have become very scattered and caught up in the bustle”[^corpus-arsenia-scattered].
 
 Props help, but you don’t have to wait for perfect quiet: even an abbess with a dark cell in her garden lived a busy, scattered life.
 
-Her correspondent’s brother, St Ignatius Brianchaninov, a Russian bishop, gives a general rule in his letter “On Attention in Prayer”: “to enclose the mind in the words of the prayer”[^corpus-ignatius-rule]. He advises beginners to pray “a little at a time, but often”[^corpus-ignatius-often]. And: “When you are alone, pray somewhat aloud, so that you hear yourself: this helps attention”[^corpus-ignatius-aloud]. “If you do not have proper attention in prayer, do not be troubled by it”[^corpus-ignatius-calm]: God will give attention in His own time to the one who keeps at prayer and keeps pushing himself to pay attention[^corpus-ignatius-time].
+Her correspondent’s brother, St Ignatius Brianchaninov, a Russian bishop, gives a general rule in his letter “On Attention in Prayer”: “to enclose the mind in the words of the prayer”[^corpus-ignatius-rule]. He advises beginners to pray “a little at a time, but often”[^corpus-ignatius-often]. And: “When you are alone, pray aloud enough to hear yourself: this helps you pay attention”[^corpus-ignatius-aloud]. “If you do not have proper attention in prayer, do not be troubled by it”[^corpus-ignatius-calm]: God will give attention in His own time to the one who keeps at prayer and keeps pushing himself to pay attention[^corpus-ignatius-time].
 
 ## Brother Lawrence’s kitchen
 
