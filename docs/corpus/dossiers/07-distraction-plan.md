@@ -5,7 +5,7 @@ Slug `distraction-in-prayer`. Запросы: ru «как не отвлекат�
 на молитве»; en how to focus during prayer, mind wanders during prayer, PAA «Why do I get so
 distracted during prayer?»; uk «як не відволікатися під час молитви»; PAA ru/uk о зевоте и сне.
 Перелинковка: #1 (хаб), #2 (о чём молиться), #5 (lectio divina — опора на текст), #6 (тревога).
-Статус: **ждёт утверждения.** Кандидатов подобрал Codex (2026-10-20), исследователь проверил их
+Статус: **утверждён оркестратором 2026-10-20.** Кандидатов подобрал Codex (2026-10-20), исследователь проверил их
 по контексту глав и добрал пробелы; корпус lampada на 2026-10-20 — 318 книг `indexed`.
 Запросы — [07-distraction.queries.json](07-distraction.queries.json).
 
