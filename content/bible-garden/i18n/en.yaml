@@ -226,6 +226,7 @@ rights_page:
   text: "Bible texts"
   audio: "Audio recordings"
   public_domain: "Public domain."
+  permission: "Permission:"
   changes: "Changes:"
   sources: "Sources and evidence"
   checked_on: "Evidence checked"

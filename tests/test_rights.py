@@ -73,6 +73,89 @@ class RightsTest(unittest.TestCase):
                 footer = html.split("<footer", 1)[1]
                 self.assertIn(f'href="/{prefix}rights/"', footer)
 
+    def permission_registry(self):
+        item = deepcopy(self.data["items"]["text:npu"])
+        item.update(
+            rights_holder="Example Rights Holder",
+            license=None,
+            public_domain_basis=None,
+            permission={
+                "en": "Used with written permission of Example Rights Holder; no voice cloning.",
+                "ru": "Используется с письменного разрешения правообладателя; клонирование голоса запрещено.",
+                "uk": "Використовується з письмового дозволу правовласника; клонування голосу заборонено.",
+            },
+        )
+        audio = deepcopy(item)
+        audio.update(kind="audio", voice_alias="example")
+        return {"schema_version": 1, "items": {"text:example": item, "audio:example:example": audio}}
+
+    def test_permission_renders_in_every_language(self):
+        data = validate_registry(self.permission_registry())
+        with tempfile.TemporaryDirectory() as directory, patch("urllib.request.urlopen", side_effect=AssertionError("offline build")):
+            builder = SiteBuilder(CONTENT, Path(directory) / "bible-garden", preview=False)
+            builder.rights = data
+            for lang, label in (("en", "Permission:"), ("ru", "Разрешение:"), ("uk", "Дозвіл:")):
+                with self.subTest(lang=lang):
+                    builder.build_page("rights", lang)
+                    html = builder.output_path(lang, "rights/index.html").read_text(encoding="utf-8")
+                    labels = builder.t(lang)["rights_page"]
+                    for item_id, item in data["items"].items():
+                        section = html.split(f'aria-labelledby="{item_id.replace(":", "-")}"', 1)[1].split("</section>", 1)[0]
+                        self.assertIn(f"<strong>{label}</strong> {escape(item['permission'][lang])}", section)
+                        self.assertIn(f"<strong>{labels['rights_holder']}</strong> Example Rights Holder", section)
+                        self.assertNotIn(f"<strong>{labels['license']}</strong>", section)
+                        self.assertNotIn(f"<strong>{labels['public_domain']}</strong>", section)
+
+    def test_snapshot_accepts_absent_or_null_permission(self):
+        for permission_present in (False, True):
+            with self.subTest(permission_present=permission_present):
+                data = deepcopy(self.data)
+                for item in data["items"].values():
+                    if permission_present:
+                        item["permission"] = None
+                    else:
+                        item.pop("permission", None)
+                self.assertEqual(validate_registry(data), data)
+
+    def test_snapshot_requires_exactly_one_rights_basis(self):
+        for bases in ((), ("license", "public_domain_basis"), ("license", "permission"), ("public_domain_basis", "permission")):
+            with self.subTest(bases=bases):
+                data = self.permission_registry()
+                item = data["items"]["text:example"]
+                values = {
+                    "license": self.data["items"]["text:npu"]["license"],
+                    "public_domain_basis": item["permission"],
+                    "permission": item["permission"],
+                }
+                item.update({field: value if field in bases else None for field, value in values.items()})
+                with self.assertRaisesRegex(BuildError, "text:example: expected exactly one"):
+                    validate_registry(data)
+
+    def test_permission_requires_every_localization(self):
+        for lang in ("en", "ru", "uk"):
+            for value in (None, "", " ", 123):
+                with self.subTest(lang=lang, value=value):
+                    data = self.permission_registry()
+                    notice = data["items"]["text:example"]["permission"]
+                    if value is None:
+                        notice.pop(lang)
+                    else:
+                        notice[lang] = value
+                    with self.assertRaisesRegex(BuildError, "text:example: missing EN/RU/UK permission"):
+                        validate_registry(data)
+        data = self.permission_registry()
+        data["items"]["text:example"]["permission"] = "Not localized"
+        with self.assertRaisesRegex(BuildError, "missing EN/RU/UK permission"):
+            validate_registry(data)
+
+    def test_permission_requires_rights_holder(self):
+        for holder in (None, "", " ", 123):
+            with self.subTest(holder=holder):
+                data = self.permission_registry()
+                data["items"]["text:example"]["rights_holder"] = holder
+                with self.assertRaisesRegex(BuildError, "text:example: permission requires rights_holder"):
+                    validate_registry(data)
+
     def test_refresh_uses_endpoint_and_validates_before_accepting_data(self):
         with patch("tools.refresh_rights.urlopen") as opener:
             response = opener.return_value.__enter__.return_value

@@ -15,8 +15,10 @@
 {% endif %}
 {% if item.license %}
                 <p><strong>{{ t.rights_page.license }}</strong> <a href="{{ item.license.url }}">{{ item.license.name }}</a></p>
-{% else %}
+{% elif item.public_domain_basis %}
                 <p><strong>{{ t.rights_page.public_domain }}</strong> {{ item.public_domain_basis[lang] }}</p>
+{% else %}
+                <p><strong>{{ t.rights_page.permission }}</strong> {{ item.permission[lang] }}</p>
 {% endif %}
                 <p><strong>{{ t.rights_page.attribution }}</strong><br>{{ item.attribution[lang] | nl2br }}</p>
                 <p><strong>{{ t.rights_page.changes }}</strong> {{ item.changes[lang] }}</p>
