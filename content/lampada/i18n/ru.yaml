@@ -20,7 +20,7 @@ landing:
     free: "Полностью бесплатно,"
     free_detail: "без рекламы и покупок."
     app_store: Скачать в App Store
-    google_play: Скоро в Google Play
+    google_play: "Google Play: бета-тест"
     discover: Узнать о Lampada
     art_label: Предпросмотр приложения Lampada
     screen_position: "Экран {n} из {total}"

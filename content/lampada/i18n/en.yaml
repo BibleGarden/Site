@@ -20,7 +20,7 @@ landing:
     free: "Completely free,"
     free_detail: "with no ads or purchases."
     app_store: Download on the App Store
-    google_play: Coming soon to Google Play
+    google_play: Google Play beta
     discover: Discover Lampada
     art_label: Lampada app preview
     screen_position: "Screen {n} of {total}"

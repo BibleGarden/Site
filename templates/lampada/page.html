@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block head %}
+{% for block in json_ld %}
+    <script type="application/ld+json">{{ block | jsonld }}</script>
+{% endfor %}
+{% endblock %}
+{% block main %}
+        <article>
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="{{ prefix }}">{{ t.articles.breadcrumb_home }}</a></li>
+                    <li aria-hidden="true">›</li>
+                    <li aria-current="page">{{ static.title }}</li>
+                </ol>
+            </nav>
+
+            <header class="article-header">
+                <h1 class="article-title">{{ static.title }}</h1>
+                <p class="article-lead">{{ static.description }}</p>
+            </header>
+
+            <div class="article-body">
+{{ static.body_html | safe }}
+            </div>
+        </article>
+{% endblock %}

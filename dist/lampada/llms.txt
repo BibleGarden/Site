@@ -5,8 +5,11 @@
 ## Pages
 
 - [Lampada — A space for personal prayer](https://lampada.app/): English
+- [Lampada for Android — beta test](https://lampada.app/android/): Lampada is getting ready for Google Play. Join the closed test — it takes a couple of minutes.
 - [Lampada — пространство для личной молитвы](https://lampada.app/ru/): Русский
+- [Lampada для Android — бета-тест](https://lampada.app/ru/android/): Lampada готовится к выходу в Google Play. Присоединяйся к закрытому тестированию — это займёт пару минут.
 - [Lampada — простір для особистої молитви](https://lampada.app/uk/): Українська
+- [Lampada для Android — бета-тест](https://lampada.app/uk/android/): Lampada готується до виходу в Google Play. Долучайся до закритого тестування — це забере кілька хвилин.
 
 ## Articles (English)
 

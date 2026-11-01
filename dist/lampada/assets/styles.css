@@ -266,8 +266,8 @@ h1 {
     height: 18px;
 }
 
-/* Not a link: Google Play is announced but not yet available. */
-.store-soon {
+/* Dashed: Google Play is in closed testing, the link leads to the beta page. */
+.google-play-button {
     display: inline-flex;
     gap: 11px;
     align-items: center;
@@ -275,13 +275,19 @@ h1 {
     padding: 0 20px;
     border: 1px dashed rgba(227, 179, 104, 0.22);
     border-radius: 13px;
-    color: #8a7b68;
+    color: #aa9b87;
     font-size: 13px;
     font-weight: 600;
-    cursor: default;
+    text-decoration: none;
 }
 
-.store-soon svg {
+.google-play-button:hover,
+.google-play-button:focus-visible {
+    border-color: rgba(227, 179, 104, 0.4);
+    color: var(--amber-bright);
+}
+
+.google-play-button svg {
     width: 18px;
     height: 18px;
 }
@@ -1019,7 +1025,7 @@ h1 {
     }
 
     .app-store-button,
-    .store-soon {
+    .google-play-button {
         justify-content: center;
         width: min(100%, 272px);
     }

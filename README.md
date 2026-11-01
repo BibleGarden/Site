@@ -841,8 +841,9 @@ the hero works without JavaScript; `static/lampada/assets/landing.js` adds
 swipe, clicks on side screens, ←/→ keys and dot buttons (`aria-current` on the
 selected one). It advances every 5 seconds, but only while visible, not
 hovered or focused, and not under `prefers-reduced-motion`; any interaction
-stops it for the page view. The Google Play badge is plain text, not a link,
-until the Android app ships. The privacy note at the bottom
+stops it for the page view. While Google Play is in closed testing, the Google
+Play badge links to the beta page `/android/` (`content/lampada/pages/android/`),
+which explains how to join the test. The privacy note at the bottom
 (`landing.privacy_note`) summarizes `static/lampada/privacy/index.html`; change
 both together.
 
