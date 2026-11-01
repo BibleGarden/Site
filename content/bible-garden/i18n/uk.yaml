@@ -226,6 +226,7 @@ rights_page:
   text: "Біблійні тексти"
   audio: "Аудіозаписи"
   public_domain: "Суспільне надбання."
+  permission: "Дозвіл:"
   changes: "Зміни:"
   sources: "Джерела та підтвердження"
   checked_on: "Дата перевірки підстав"

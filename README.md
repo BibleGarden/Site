@@ -1148,6 +1148,8 @@ the shared footer, the hand-written privacy footer and About. Standalone
 pages use the existing canonical/hreflang, WebPage JSON-LD and sitemap rules.
 They list only confirmed texts and recordings; text and audio have separate
 rights. This page does not declare the entire app catalog cleared.
+Each item has exactly one basis: a license, public-domain status, or a localized
+`permission` notice for written permission from a named rights holder.
 
 The single source of truth is **Bible-API/app/rights.yaml** (Architecture
 ADR-0019, owner decision 2026-10-18). `content/bible-garden/rights.json` is a
