@@ -43,6 +43,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lampada.app/articles/"/>
   </url>
   <url>
+    <loc>https://lampada.app/android/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lampada.app/android/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lampada.app/ru/android/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://lampada.app/uk/android/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lampada.app/android/"/>
+  </url>
+  <url>
+    <loc>https://lampada.app/ru/android/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lampada.app/android/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lampada.app/ru/android/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://lampada.app/uk/android/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lampada.app/android/"/>
+  </url>
+  <url>
+    <loc>https://lampada.app/uk/android/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lampada.app/android/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lampada.app/ru/android/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://lampada.app/uk/android/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lampada.app/android/"/>
+  </url>
+  <url>
     <loc>https://lampada.app/articles/daily-prayer-habit/</loc>
     <lastmod>2026-10-20</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://lampada.app/articles/daily-prayer-habit/"/>

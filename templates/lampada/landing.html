@@ -49,10 +49,10 @@
                         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.7 4.1c-.9 1.1-2.3 2-3.7 1.9-.2-1.4.5-2.9 1.3-3.8.9-1.1 2.4-1.8 3.6-1.9.2 1.4-.4 2.8-1.2 3.8ZM18.9 12.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.7-2.4-4.5-2.5-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.5 1.6 12.6 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1s2.5 1 4.2 1c1.7 0 2.8-1.5 3.8-3.1 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.6-1.4-3.6-5.1Z" fill="currentColor"/></svg>
                         <span>{{ t.landing.hero.app_store }}</span>
                     </a>
-                    <span class="store-soon">
+                    <a class="google-play-button" href="{{ site.href(lang, "android/") }}" data-umami-event="android-beta-click">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5 21.5 12 5 20.5ZM5 3.5l11.9 10.9M5 20.5l11.9-10.9"/></svg>
                         <span>{{ t.landing.hero.google_play }}</span>
-                    </span>
+                    </a>
                     <a class="text-link" href="#purpose">
                         <span>{{ t.landing.hero.discover }}</span>
                         <span aria-hidden="true">↓</span>
