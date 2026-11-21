@@ -841,9 +841,9 @@ the hero works without JavaScript; `static/lampada/assets/landing.js` adds
 swipe, clicks on side screens, ←/→ keys and dot buttons (`aria-current` on the
 selected one). It advances every 5 seconds, but only while visible, not
 hovered or focused, and not under `prefers-reduced-motion`; any interaction
-stops it for the page view. While Google Play is in closed testing, the Google
-Play badge links to the beta page `/android/` (`content/lampada/pages/android/`),
-which explains how to join the test. The privacy note at the bottom
+stops it for the page view. The Google Play badge and the article call to action
+link to `google_play_url` from `site.yaml` with `hl=<lang>`, which opens the
+store page in the page language. The privacy note at the bottom
 (`landing.privacy_note`) summarizes `static/lampada/privacy/index.html`; change
 both together.
 
@@ -909,6 +909,7 @@ data-exclude-search="true" data-exclude-hash="true">` before `</head>`.
 two `exclude` flags make the tracker drop query strings and fragments from the
 page and referrer URLs, so Umami never stores them. Links to the site's own app in the App Store (the id from `app_store_url`) carry
 `data-umami-event="app-store-click"` regardless of the setting; the attribute is inert without the tracker.
+Lampada's links to its Google Play page from the landing and the article call to action carry `data-umami-event="google-play-click"`.
 Links to other apps (for example in app comparisons) are not tracked.
 
 `sitegen check` requires, on every HTML page of a site, hand-written pages

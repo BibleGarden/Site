@@ -34,7 +34,10 @@
             <aside class="article-cta">
                 <h2>{{ t.articles.download_title }}</h2>
                 <p>{{ t.articles.download_text }}</p>
-                <a class="back-link" href="{{ site.article_app_store_url(lang) }}" data-umami-event="app-store-click" target="_blank" rel="noopener"><span>{{ t.articles.download_cta }}</span><span aria-hidden="true">→</span></a>
+                <div class="article-cta-links">
+                    <a class="back-link" href="{{ site.article_app_store_url(lang) }}" data-umami-event="app-store-click" target="_blank" rel="noopener"><span>{{ t.articles.download_cta }}</span><span aria-hidden="true">→</span></a>
+                    <a class="back-link" href="{{ site.config.google_play_url }}&hl={{ lang }}" data-umami-event="google-play-click" target="_blank" rel="noopener"><span>{{ t.articles.download_google_play }}</span><span aria-hidden="true">→</span></a>
+                </div>
             </aside>
 
             {% if previous or following %}

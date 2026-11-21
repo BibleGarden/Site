@@ -20,7 +20,7 @@ landing:
     free: "Completely free,"
     free_detail: "with no ads or purchases."
     app_store: Download on the App Store
-    google_play: Google Play beta
+    google_play: Get it on Google Play
     discover: Discover Lampada
     art_label: Lampada app preview
     screen_position: "Screen {n} of {total}"
@@ -101,9 +101,10 @@ articles:
   by: By
   previous: Previous article
   next: Next article
-  download_title: Lampada on the App Store
-  download_text: "Free for iPhone. Choose a topic and begin your first prayer."
+  download_title: Download Lampada
+  download_text: "Free for iPhone and Android. Choose a topic and begin your first prayer."
   download_cta: Download on the App Store
+  download_google_play: Get it on Google Play
   screen_open: "Open larger screenshot: {caption}"
 not_found:
   title: Page not found

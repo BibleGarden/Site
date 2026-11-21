@@ -20,7 +20,7 @@ landing:
     free: "Полностью бесплатно,"
     free_detail: "без рекламы и покупок."
     app_store: Скачать в App Store
-    google_play: "Google Play: бета-тест"
+    google_play: Скачать в Google Play
     discover: Узнать о Lampada
     art_label: Предпросмотр приложения Lampada
     screen_position: "Экран {n} из {total}"
@@ -101,9 +101,10 @@ articles:
   by: Автор
   previous: Предыдущая статья
   next: Следующая статья
-  download_title: Lampada в App Store
-  download_text: "Бесплатно для iPhone. Выберите тему и начните первую молитву."
+  download_title: Скачать Lampada
+  download_text: "Бесплатно для iPhone и Android. Выберите тему и начните первую молитву."
   download_cta: Скачать в App Store
+  download_google_play: Скачать в Google Play
   screen_open: "Открыть скриншот крупнее: {caption}"
 not_found:
   title: Страница не найдена
