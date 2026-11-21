@@ -101,11 +101,9 @@ class LandingPageTest(unittest.TestCase):
             with self.subTest(lang=lang):
                 html = self.pages[lang]
                 self.assertIn(f'href="https://apps.apple.com/app/lampada/id6806024678?l={lang}" data-umami-event="app-store-click"', html)
-                prefix = "" if lang == "en" else f"{lang}/"
-                google_play = re.search(r'<a class="google-play-button" href="([^"]+)".*?</a>', html, re.DOTALL)
-                self.assertEqual(google_play.group(1), f"/{prefix}android/")
+                google_play = re.search(r'<a class="google-play-button" href="([^"]+)" data-umami-event="google-play-click".*?</a>', html, re.DOTALL)
+                self.assertEqual(unescape(google_play.group(1)), f"https://play.google.com/store/apps/details?id=app.lampada&hl={lang}")
                 self.assertIn(self.i18n[lang]["landing"]["hero"]["google_play"], google_play.group(0))
-                self.assertNotIn("play.google.com", html)
                 for removed in ("phone-top", "flame-wrap", "orbit", 'class="feature'):
                     self.assertNotIn(removed, html)
 
